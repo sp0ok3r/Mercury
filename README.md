@@ -16,6 +16,13 @@ Mercury is a tool for Steam, written in C# for the purpose of interacting with g
 - Groups leaver
 - Gather profile background and get market link
 
+### Soon: 
+- Groups join/Comments filter
+
+### Download: 
+
+- https://github.com/sp0ok3r/Mercury/releases/
+
 ### Images
 
 <img align="left" width="808" height="542" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m0.png"><br>
@@ -25,9 +32,3 @@ Mercury is a tool for Steam, written in C# for the purpose of interacting with g
 <img align="left" width="1308" height="528" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m_steamservers.png"><br>
 <img align="left" width="368" height="635" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m_steamgroups.png"><br>
 <img align="left" width="300" height="342" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m_proifleback.png"><br>
-
-### Soon: 
-- Groups join/Comments filter
-
-### Download: 
-https://github.com/sp0ok3r/Mercury/releases/
