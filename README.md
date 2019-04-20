@@ -1,3 +1,4 @@
+![alt text](https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/mercury.png)
 # Mercury
 Mercury is a tool for Steam, written in C# for the purpose of interacting with general steam stuff.
 
