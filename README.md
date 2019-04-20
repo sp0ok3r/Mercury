@@ -1,7 +1,7 @@
 # Mercury
 Mercury is a tool for Steam, written in C# for the purpose of interacting with general steam stuff.
 
-###Features
+### Features
 
 - Auto AFK message responder (Custom msg list also included)
 - Check steam/csgo servers status
@@ -13,8 +13,8 @@ Mercury is a tool for Steam, written in C# for the purpose of interacting with g
 - Groups leaver
 - Gather profile background and get market link
 
-###Soon: 
--Groups join/Comments filter
+### Soon: 
+- Groups join/Comments filter
 
-
-Download: https://github.com/sp0ok3r/Mercury/releases/
+### Download: 
+https://github.com/sp0ok3r/Mercury/releases/
