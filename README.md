@@ -28,7 +28,7 @@ Mercury is a tool for Steam, written in C# for the purpose of interacting with g
 <img align="left" width="808" height="542" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m0.png"><br>
 <img align="left" width="808" height="542" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m1.png"><br>
 <img align="left" width="1418" height="557" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m3.png"><br>
-<img align="left" width="986" height="1110" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m4_1.png"><br>
+<img align="left" width="1000" height="1200" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m4_1.png"><br>
 <img align="left" width="1308" height="528" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m_steamservers.png"><br>
 <img align="left" width="368" height="635" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m_steamgroups.png"><br>
 <img align="left" width="300" height="342" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m_proifleback.png"><br>
