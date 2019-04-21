@@ -23,6 +23,9 @@ Mercury is a tool for Steam, written in C# for the purpose of interacting with g
 
 - https://github.com/sp0ok3r/Mercury/releases/
 
+### Contact
+http://steamcommunity.com/profiles/76561198041931474
+
 ### Images
 
 <img align="left" width="808" height="542" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m0.png"><br>
