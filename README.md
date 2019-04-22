@@ -15,6 +15,7 @@ Mercury is a tool for Steam, written in C# for the purpose of interacting with g
 - Groups leaver
 - Gather profile background and get market link
 - ...
+(example images bellow)
 
 ### Soon: 
 - Groups join/Comments filter
