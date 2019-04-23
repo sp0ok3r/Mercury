@@ -4,7 +4,7 @@
 Mercury is a tool for Steam, written in C# for the purpose of interacting with general steam stuff.
 
 ### Features
-
+- Load all accounts detected in your pc (Remember password enable)
 - Auto AFK message responder (Custom msg list also included)
 - Check steam/csgo servers status
 - Remove Friends by checking last log off (inactive for a long time)
