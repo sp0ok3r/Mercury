@@ -25,7 +25,7 @@ Mercury is a tool for Steam, written in C# for the purpose of interacting with g
 - Rate Entire Activity Feed/Anything (0%)
 - Hide Recent Game Activity (0%)
 - Clear profile aliases (100%) (beta4)
-- Save AppiIDS to File (0%)
+- Save AppIDS to File (0%)
 
 
 
