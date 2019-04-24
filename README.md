@@ -18,13 +18,13 @@ Mercury is a tool for Steam, written in C# for the purpose of interacting with g
 (example images bellow)
 
 ### Soon: 
-- Groups join
-- Comments filter
-- ChatLogger
-- Comment on all friends profile (Maybe detect celebrating days)
-- Rate Entire Activity Feed/Anything 
-- Hide Recent Game Activity
-- Clear profile aliases
+- Groups join (60%)
+- Comments filter (60%)
+- ChatLogger (60%)
+- Comment on all friends profile (Maybe detect celebrating days) (0%)
+- Rate Entire Activity Feed/Anything (0%)
+- Hide Recent Game Activity (0%)
+- Clear profile aliases (100%) (beta4)
 
 
 
@@ -33,7 +33,7 @@ Mercury is a tool for Steam, written in C# for the purpose of interacting with g
 - https://github.com/sp0ok3r/Mercury/releases/
 
 ### Contact
-http://steamcommunity.com/profiles/76561198041931474
+- http://steamcommunity.com/profiles/76561198041931474
 
 ### Images
 
