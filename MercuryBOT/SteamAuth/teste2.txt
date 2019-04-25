@@ -1,0 +1,219 @@
+using System;
+using SteamAuth;
+using Newtonsoft.Json;
+using System.IO;
+using System.Collections.Specialized;
+using System.Net;
+using System.Threading;
+
+namespace TestBed
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //This basic loop will log into user accounts you specify, enable the mobile authenticator, and save a maFile (mobile authenticator file)
+            while (true)
+            {
+                Console.WriteLine("Enter user/password: ");
+                string username = Console.ReadLine();
+                string password = Console.ReadLine();
+                UserLogin login = new UserLogin(username, password);
+                LoginResult response = LoginResult.BadCredentials;
+                while ((response = login.DoLogin()) != LoginResult.LoginOkay)
+                {
+                    switch (response)
+                    {
+                        case LoginResult.NeedEmail:
+                            Console.WriteLine("Please enter your email code: ");
+                            string code = Console.ReadLine();
+                            login.EmailCode = code;
+                            break;
+
+                        case LoginResult.NeedCaptcha:
+                            System.Diagnostics.Process.Start(APIEndpoints.COMMUNITY_BASE + "/public/captcha.php?gid=" + login.CaptchaGID); //Open a web browser to the captcha image
+                            Console.WriteLine("Please enter captcha text: ");
+                            string captchaText = Console.ReadLine();
+                            login.CaptchaText = captchaText;
+                            break;
+
+                        case LoginResult.Need2FA:
+                            Console.WriteLine("Please enter your mobile authenticator code: ");
+                            code = Console.ReadLine();
+                            login.TwoFactorCode = code;
+                            break;
+                    }
+                }
+
+
+
+                Thread.Sleep(1000);
+
+                var comment_id = "1770385542773959899";
+                //https://steamcommunity.com/groups/RUGGER1337
+                var groupid = "103582791457980364";
+                //var start = "0";
+                //var count = "6";
+                var url = "http://steamcommunity.com/comment/Profile/delete/76561198041931474/-1/";
+
+                Console.WriteLine(login.Session.SessionID.ToString());
+                var postData = new NameValueCollection();
+                postData.Add("gidcomment", comment_id.ToString());
+                postData.Add("sessionid", login.Session.SessionID.ToString());
+
+                CookieContainer _cookies = new CookieContainer();
+                var cookies = _cookies;
+
+                cookies.Add(new Cookie("mobileClientVersion", "0 (2.3.9)", "/", ".steamcommunity.com"));
+                cookies.Add(new Cookie("mobileClient", "android", "/", ".steamcommunity.com"));
+                cookies.Add(new Cookie("Steam_Language", "english", "/", ".steamcommunity.com"));
+
+                NameValueCollection headers = new NameValueCollection();
+                headers.Add("X-Requested-With", "com.valvesoftware.android.steam.community");
+
+
+                //var ajax = true;
+                //var fetchError = true;
+
+                //string url, string method, string dataString = null, CookieContainer cookies = null, NameValueCollection headers = null, string referer = APIEndpoints.COMMUNITY_BASE)
+
+
+                string r = SteamWeb.Request(url, "POST", postData, cookies, headers, "https://steamcommunity.com");
+                //string response2 = SteamWeb.MobileLoginRequest(url, "POST", postData, cookies);
+
+               var result = JsonConvert.DeserializeObject(r);
+                Console.WriteLine(result);
+
+            }
+        }
+    }
+}
+
+
+
+/*
+                 
+                // login.Session.AddCookies(_cookiesW0t);
+               // _cookiesW0t.GetCookies(new Uri("https://steamcommunity.com"));
+
+
+                var comment_id = "1770385542773959899";
+                //https://steamcommunity.com/groups/RUGGER1337
+                var groupid = "103582791457980364";
+                //var start = "0";
+                //var count = "6";
+                var url = "http://steamcommunity.com/comment/Profile/delete/76561198041931474/-1/";
+
+                
+                string url2 = "https://steamcommunity.com/comment/Profile/post/76561198041931474/-1/";
+
+                string url3 = "https://steamcommunity.com/groups/teamefortess2awp";
+
+
+                var postData = new NameValueCollection();
+                postData.Add("comment", "1770385542773959899");
+                postData.Add("sessionID", login.Session.SessionID );
+                //login.Session.SessionID
+
+                var postData2 = new NameValueCollection();
+                postData2.Add("comment", "teste2");
+                postData2.Add("sessionid", login.Session.SessionID);
+
+                var postData3 = new NameValueCollection();
+                postData3.Add("sessionid", login.Session.SessionID);
+                postData3.Add("action", "join");
+
+
+                // CookieContainer _cookies = new CookieContainer();
+                // var cookies = _cookies;
+
+                // cookies.Add(new Cookie("mobileClientVersion", "0 (2.3.9)", "/", ".steamcommunity.com"));
+                // cookies.Add(new Cookie("mobileClient", "android", "/", ".steamcommunity.com"));
+                // cookies.Add(new Cookie("Steam_Language", "english", "/", ".steamcommunity.com"));
+
+                NameValueCollection headers = new NameValueCollection();
+                headers.Add("X-Requested-With", "com.valvesoftware.android.steam.community");
+
+
+                //var ajax = true;
+                //var fetchError = true;
+
+                //string url, string method, string dataString = null, CookieContainer cookies = null, NameValueCollection headers = null, string referer = APIEndpoints.COMMUNITY_BASE)
+
+
+                string r = SteamWeb.Request(url2, "POST", postData2);
+                //string response2 = SteamWeb.MobileLoginRequest(url, "POST", postData, cookies);
+
+             // var result = JsonConvert.DeserializeObject(r);
+                Console.WriteLine(r);
+
+                //   string url = "https://steamcommunity.com/profiles/" + _account.SteamId + "/home_process";
+
+
+                // //    var data = new Dictionary<string, string>
+                //    {
+                //   { "sessionID", sessionid},
+                //   {"action", "leaveGroup"},
+                //    { "groupId", groupId.ToString()}
+                //  };
+
+                //   return _web.Fetch(url, "POST", data, _account.AuthContainer, true, "https://steamcommunity.com/profiles/" + _account.SteamId + "/groups");
+                //   }
+
+
+            }
+        }
+    }
+}
+
+
+*/
+
+
+
+
+/* Pull request!!
+https://wiki.teamfortress.com/wiki/WebAPI/GetPlayerSummaries
+
+http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/
+
+Usar para obter laslogoff , obter lista de amigos e por numa dataGrid, e detetar a quantos dias esta offline, 
+se estiveres a (user define days: ex 200days) entao mandar mensagem para ele de aviso e apagar.!!
+
+
+adicionar opcao para deixar o user escolher se quer, que os jogos free na sua biblioteca sejam mostrados -  maybe
+include_played_free_games
+
+
+https://www.reddit.com/r/SteamBot/comments/6dx98n/help_login_to_steam_via_http_requests/
+
+
+
+
+
+textBox1.Text +=  "new Log Message" + Environment.NewLine; por nos logs, adicionar nova tab de logs
+
+
+
+
+string[] files = Directory.GetFiles("PATH","*.xlsx"); // get file names
+
+
+
+http://www.connect-trojan.net/2015/02/unconfuserex-1.0-by-pc-ret.html
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

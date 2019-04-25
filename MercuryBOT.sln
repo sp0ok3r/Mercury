@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercuryBOT", "MercuryBOT\MercuryBOT.csproj", "{95A62B66-12F4-410E-8F8C-AF538DE7853D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9799065C-F81A-4A83-B694-8E8A56AAE293}
+	EndGlobalSection
+EndGlobal

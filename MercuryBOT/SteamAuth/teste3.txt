@@ -1,0 +1,194 @@
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<Item> _data = new List<Item>();
+           
+
+            using (StreamWriter file = File.CreateText(@"C:\Users\tmt.santos\source\repos\WindowsFormsApp1\WindowsFormsApp1\path.txt"))
+            {
+
+                JsonSerializer serializer = new JsonSerializer();
+
+                //serialize object directly into file stream
+                serializer.Serialize(file, _data);
+            }
+
+            
+
+        }
+
+        public void ReadToObject()
+        {
+            var objectToSerialize = new RootObject();
+         //   objectToSerialize.items = new List<Item>
+                    //      {
+                  //           new Item { name = "test1", index = "index1" },
+                    //         new Item { name = "test2", index = "index2" }
+                     //     };
+
+            JsonSerializer serializer = new JsonSerializer();
+
+
+            var myJsonString = File.ReadAllText(@"C:\Users\tmt.santos\source\repos\WindowsFormsApp1\WindowsFormsApp1\path.json");
+
+            var list = JsonConvert.DeserializeObject<RootObject>(myJsonString);
+            uint[] request = new uint[3];
+            request[0] = 10;
+            request[1] = 710;
+            request[2] = 730;
+
+
+            list.Accounts.Add(new Item { user = "ui", pw = "yes",loginkey="w0t",Games = request });
+
+           // list.Accounts.Remove();
+
+            var convertedJson = JsonConvert.SerializeObject(list, Formatting.Indented);
+
+            File.WriteAllText(@"C:\Users\tmt.santos\source\repos\WindowsFormsApp1\WindowsFormsApp1\path.json", convertedJson);
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ReadToObject();
+        }
+    }
+}
+
+
+//https://stackoverflow.com/questions/16921652/how-to-write-a-json-file-in-c
+//https://stackoverflow.com/questions/33081102/json-add-new-object-to-existing-json-file-c-sharp/33081258
+
+
+
+
+
+//file path tests
+{
+  "Accounts": [
+    {
+      "user": "ui",
+      "pw": "yes",
+      "loginkey": "w0t",
+      "lastlogoff": "0001-01-01T00:00:00",
+      "Games": [
+        10,
+        710,
+        730,
+        0,
+        0
+      ]
+    },
+    {
+      "user": "ui",
+      "pw": "yes",
+      "loginkey": "w0t",
+      "lastlogoff": "0001-01-01T00:00:00",
+      "Games": [
+        10,
+        710,
+        730
+      ]
+    }
+  ]
+}
+//
+
+/Class
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WindowsFormsApp1
+{
+    public class Item
+    {
+    public string user { get; set; }
+    public string pw { get; set; }
+    public string loginkey { get; set; }
+    public DateTime lastlogoff { get; set; }
+    public uint[] Games { get; set; }
+    }
+
+    public class RootObject
+    {
+        public List<Item> Accounts { get; set; }
+    }
+}
+
+txtBox_AccPW
+
+
+
+
+
+
+              //  var jsonData = File.ReadAllText(_path);
+              //  var AccountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData) ?? new List<Account>();
+
+                // Add any new employees
+              //  AccountsList.Add(new Account()
+              //  {
+               //     user = txtBox_AccUser.Text,
+               //     pw = txtBox_AccPW.Text
+               /// });
+
+
+                // Update json data string
+                //jsonData = JsonConvert.SerializeObject(AccountsList);
+               // File.WriteAllText(_path, jsonData);
+
+
+
+https://github.com/PaulAbramov/CTB/blob/master/CTB/HelperClasses/GamesLibraryHelperClass.cs
+
+
+// !start 730, comecar jogo no pc local, bot le mensagem e processa.
+//https://github.com/JustArchiNET/ArchiSteamFarm/blob/4920e28ac953cfb6d9b4d683bc3031fe46248ff5/ArchiSteamFarm/Bot.cs#L255   - add new callback!!!
+//https://github.com/sp0ok3r/node-SPKSteamBot/blob/master/steambot.js#L159
+
+/*
+ClientMsgProtobuf<CMsgClientUIMode> request = new ClientMsgProtobuf<CMsgClientUIMode>(EMsg.ClientCurrentUIMode) { Body = { chat_mode = 2 } };
+Client.Send(request);   importante, chatmode=1 == chat antigo , 2 chat novo acesso a callbacks
+*/
+
+//https://github.com/SteamRE/SteamKit/blob/aa3e7f1750644286a8f4ee144992f80d157b1f71/SteamKit2/SteamKit2/Steam/Handlers/SteamUserStats/SteamUserStats.cs#L39
+
+// If friend adds you check reputacion: https://github.com/aleksamagicka/SteamRep-API
+// if friends adds you check steam level
+// if friend add you, check summary for unwanted links
+//https://github.com/aleksamagicka/SteamRep-API
+
+
+//https://pastebin.com/CmGwF93d
+
+//https://github.com/Lachee/V21/blob/538a5b4435ac7a35504fa93dd14b928e30642584/V21Bot/Steam/Topic.cs COMMENTS done
+
+//https://github.com/bartoszmic/myownproject/blob/043917261c6806c2d0208939c20849ddc7cd2584/Class2.cs
+
+//https://github.com/RareChicken/SteamIdler/blob/9d14b17e529e947c71ea26ed1328a8b38bdc83af/SteamBot/Bot.cs#L194
