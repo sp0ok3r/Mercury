@@ -18,6 +18,7 @@ using AngleSharp.Html.Parser;
 using SteamComments;
 using System.Threading;
 using AngleSharp.Text;
+using MercuryBOT.Helpers;
 
 namespace MercuryBOT
 {
@@ -31,6 +32,7 @@ namespace MercuryBOT
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
+            this.components.SetStyle(this);
             Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
         private void CommentsGather_Load(object sender, EventArgs e)

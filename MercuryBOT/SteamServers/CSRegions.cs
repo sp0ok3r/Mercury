@@ -8,6 +8,7 @@
 ▐    ▐     ▐                  ▐                                 ▐   
 */
 
+using MercuryBOT.Helpers;
 using SteamServers;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace MercuryBOT.SteamServers
         public CSRegions()
         {
             InitializeComponent(); this.Activate();
+            this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
@@ -525,5 +527,7 @@ namespace MercuryBOT.SteamServers
                 metroLink_japan.LinkColor = Color.DarkGreen;
             }
         }
+
+
     }
 }

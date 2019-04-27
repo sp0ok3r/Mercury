@@ -1,4 +1,5 @@
 ﻿
+using MercuryBOT.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,10 +10,10 @@ namespace MercuryBOT.AccSettings
 {
     public partial class ProfilePrivacy : MetroFramework.Forms.MetroForm
     {
-
         public ProfilePrivacy()
         {
             InitializeComponent();
+            this.components.SetStyle(this);
             Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
 

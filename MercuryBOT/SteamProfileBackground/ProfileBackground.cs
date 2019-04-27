@@ -13,6 +13,7 @@ using System.Web;
 using System.Text.RegularExpressions;
 using SteamWebAPI2.Interfaces;
 using System.Diagnostics;
+using MercuryBOT.Helpers;
 
 namespace MercuryBOT.SteamProfileBackground
 {
@@ -26,6 +27,7 @@ namespace MercuryBOT.SteamProfileBackground
             InitializeComponent();
             this.Activate();
             this.FormBorderStyle = FormBorderStyle.None;
+            this.components.SetStyle(this);
             Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
 

@@ -71,7 +71,6 @@
             this.txtBox_Game2Find.SelectionStart = 0;
             this.txtBox_Game2Find.ShortcutsEnabled = true;
             this.txtBox_Game2Find.Size = new System.Drawing.Size(311, 23);
-            this.txtBox_Game2Find.Style = MetroFramework.MetroColorStyle.Purple;
             this.txtBox_Game2Find.TabIndex = 2;
             this.txtBox_Game2Find.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.MongoToolTip.SetToolTip(this.txtBox_Game2Find, "Press ENTER to find!");
@@ -125,14 +124,13 @@
             this.lbl_selgames_count.TabIndex = 5;
             this.lbl_selgames_count.Text = "Loading...";
             this.lbl_selgames_count.UseCustomBackColor = true;
-            this.lbl_selgames_count.UseCustomForeColor = true;
+            this.lbl_selgames_count.UseStyleColors = true;
             // 
             // progreeBar_GatherGames
             // 
             this.progreeBar_GatherGames.Location = new System.Drawing.Point(-7, -3);
             this.progreeBar_GatherGames.Name = "progreeBar_GatherGames";
             this.progreeBar_GatherGames.Size = new System.Drawing.Size(1016, 10);
-            this.progreeBar_GatherGames.Style = MetroFramework.MetroColorStyle.Purple;
             this.progreeBar_GatherGames.TabIndex = 9;
             this.progreeBar_GatherGames.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
@@ -163,7 +161,7 @@
             this.lbl_find.TabIndex = 14;
             this.lbl_find.Text = "Find:";
             this.lbl_find.UseCustomBackColor = true;
-            this.lbl_find.UseCustomForeColor = true;
+            this.lbl_find.UseStyleColors = true;
             // 
             // lbl_totalfoldersize
             // 
@@ -176,7 +174,7 @@
             this.lbl_totalfoldersize.Text = "Folder Total Size:";
             this.lbl_totalfoldersize.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbl_totalfoldersize.UseCustomBackColor = true;
-            this.lbl_totalfoldersize.UseCustomForeColor = true;
+            this.lbl_totalfoldersize.UseStyleColors = true;
             // 
             // panel1
             // 

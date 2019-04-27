@@ -26,17 +26,13 @@ using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace MercuryBOT
 {
     public class AccountLogin
     {
-        //do at the end of develop -  Hide DLLs from users
-        //https://stackoverflow.com/questions/5878376/how-to-hide-dlls-that-i-install-from-users-view
-        //https://social.msdn.microsoft.com/Forums/vstudio/en-US/51e9712c-f705-4c9e-9ba1-74fd10b8aabc/how-to-invisible-the-third-party-dll-in-cnet-windows-application?forum=netfxbcl
-        // **
-
-
         private static Logger m_logger;
 
         public static string UserPersonaName, UserCountry, CurrentUsername;
@@ -68,6 +64,7 @@ namespace MercuryBOT
         public static SteamFriends steamFriends;
         public static CallbackManager Mercury_manager;
         public static SteamWeb steamWeb;
+
 
         public static SteamGameCoordinator steamGameCoordinator;
         public static SteamUnifiedMessages steamUnifiedMessages;
@@ -126,9 +123,9 @@ namespace MercuryBOT
             try
             {
                 var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-
                 user = username;
                 CurrentUsername = username;
+                
                 foreach (var a in list.Accounts)
                 {
                     if (a.username == username)
@@ -136,13 +133,15 @@ namespace MercuryBOT
                         pass = a.password;
                     }
                 }
+                Login();
 
-                Login(); // after get pw login into steam
             }
             catch (Exception e)
             {
-                Console.WriteLine("[" + Program.BOTNAME + "] - " + e);
+               Console.WriteLine("[" + Program.BOTNAME + " usersettingsgather] - " + e);
             }
+            
+
         }
         public static void Login()
         {
@@ -190,10 +189,6 @@ namespace MercuryBOT
 
             steamClient.Connect();
 
-            //adicionar thread separado***
-            // new Thread(() =>
-            //{
-            //  }).Start();
             while (isRunning)
             {
                 Mercury_manager.RunWaitCallbacks(TimeSpan.FromMilliseconds(500));
@@ -202,16 +197,20 @@ namespace MercuryBOT
 
         static void OnConnected(SteamClient.ConnectedCallback callback)
         {
+
             if (callback.ToString() != "SteamKit2.SteamClient+ConnectedCallback")
             {
-                Console.WriteLine("[" + Program.BOTNAME + "] - Unable to connect to Steam: {0}", callback.ToString());
+                Console.WriteLine("[" + Program.BOTNAME + "] - Unable to connect to Steam: {0}", callback);
 
                 isRunning = false;
                 return;
             }
             //Sucess
             Console.WriteLine("[" + Program.BOTNAME + "] - Connected to Steam! Logging in '{0}'...", user);
-            ExtraInfo.GetUsername = user;
+           // ExtraInfo.GetUsername = user;
+
+            Main.M_NotifyIcon.ShowBalloonTip(450, "INFO","Connected to Steam!\nLogging in "+ user + "..." , ToolTipIcon.Info);
+
 
             byte[] sentryHash = null;
             if (File.Exists(Program.SentryFolder + user + ".bin"))
@@ -229,7 +228,11 @@ namespace MercuryBOT
                     // if (a.LoginKey.ToString() == "undefined") // deu?
                     if (string.IsNullOrEmpty(a.LoginKey) || a.LoginKey.ToString() == "undefined")
                     {
+
                         // NewloginKey = null;
+                        a.LoginKey = "0";
+                        File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, Formatting.Indented)); // update login key
+
                     }
                     else
                     {
@@ -272,8 +275,7 @@ namespace MercuryBOT
 
                 if (is2FA)
                 {
-                    //InfoForm.InfoHelper.CustomMessageBox.Show("Steam Guard detected, showing form!");
-                    SteamGuard SteamGuard = new SteamGuard();
+                    SteamGuard SteamGuard = new SteamGuard("Phone", user);
                     SteamGuard.ShowDialog();
 
                     bool UserInputCode = true;
@@ -307,20 +309,24 @@ namespace MercuryBOT
                     if (pass != null)
                     {
                         Console.WriteLine("[" + Program.BOTNAME + "] - Login key expired. Connecting with user password.");
-                        InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Login key expired/Wrong Password. Connecting with user password.");
+                        //InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Login key expired/Wrong Password. Connecting with user password. Wait 3secs...");
+                        Main.M_NotifyIcon.ShowBalloonTip(500, "INFO", "Login key expired/Wrong Password.\nConnecting with user password. \nWait 3secs...", ToolTipIcon.Info);
+
 
                     }
                     else
                     {
                         Console.WriteLine("[" + Program.BOTNAME + "] - Login key expired.");
-                        InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Login key expired! Gathering new...");
+                        //InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Login key expired! Wait 3secs...");
+                        Main.M_NotifyIcon.ShowBalloonTip(500, "INFO", "Login key expired!\nWait 3secs...", ToolTipIcon.Info);
+
                     }
                 }
                 else
                 {
                     Console.Write("[" + Program.BOTNAME + "] - Please enter the auth code sent to the email at {0}: ", callback.EmailDomain);
 
-                    SteamGuard SteamGuard = new SteamGuard();
+                    SteamGuard SteamGuard = new SteamGuard(callback.EmailDomain, user);
                     SteamGuard.ShowDialog();
 
                     bool UserInputCode = true;
@@ -344,6 +350,7 @@ namespace MercuryBOT
                 return;
             }
             Console.WriteLine("[" + Program.BOTNAME + "] - Successfully logged on!");
+            Main.M_NotifyIcon.ShowBalloonTip(200, "INFO", "Successfully logged on!", ToolTipIcon.Info);
 
 
             //https://github.com/JustArchiNET/ArchiSteamFarm/blob/1b0cb4136679ab781b7edd652ea6d555f4588311/ArchiSteamFarm/Bot.cs#L2306
@@ -357,16 +364,14 @@ namespace MercuryBOT
             UserClanIDS();
             steamFriends.SetPersonaState(EPersonaState.Online);
             //gatherWebApiKey();
-            
+
             foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
             {
-                if (a.username == user && a.ChatLogger==true)
+                if (a.username == user && a.ChatLogger == true)
                 {
                     ChatLogger = true;
                 }
             }
-
-            //ChatLogger
         }
 
         static void OnDisconnected(SteamClient.DisconnectedCallback callback)
@@ -408,13 +413,11 @@ namespace MercuryBOT
 
         static void OnPersonaState(SteamFriends.PersonaStateCallback callback)
         {
-
             EPersonaState state = callback.State;
             SteamID friendId = callback.FriendID;
 
-            ListFriends.UpdateName(friendId.ConvertToUInt64(), callback.Name);
-            ListFriends.UpdateStatus(friendId.ConvertToUInt64(), state.ToString());
-            //ListFriends.UpdateLastLogOff(friendId.ConvertToUInt64(), );
+            ListFriends.UpdateName(friendId.ConvertToUInt64(), callback.Name);//soon
+            ListFriends.UpdateStatus(friendId.ConvertToUInt64(), state.ToString());//soon
 
             if (callback.FriendID == steamClient.SteamID && steamFriends.GetPersonaState() != EPersonaState.Online) //detect when user goes afk
             {
@@ -424,8 +427,6 @@ namespace MercuryBOT
             {
                 isAwayState = false;
             }
-
-
         }
 
 
@@ -441,7 +442,7 @@ namespace MercuryBOT
 
             steamUser.AcceptNewLoginKey(callback);
 
-            UserWebLogOn();
+            //  UserWebLogOn();
 
             var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
             foreach (var a in list.Accounts)
@@ -463,48 +464,44 @@ namespace MercuryBOT
 
         static void UserWebLogOn()
         {
-            try
+            do
             {
-                if (steamWeb.Authenticate(myUniqueId, steamClient, myUserNonce))
+                IsWebLoggedIn = steamWeb.Authenticate(myUniqueId, steamClient, myUserNonce);
+
+                if (!IsWebLoggedIn)
                 {
-                    IsWebLoggedIn = true;
-                    Console.WriteLine("[" + Program.BOTNAME + "] - User Authenticated! ");
-                    cookiesAreInvalid = false;
+                    Console.WriteLine("[" + Program.BOTNAME + "] - Authentication failed, retrying in 2s...");
+                    Thread.Sleep(2000);
                 }
+            } while (!IsWebLoggedIn); //test
 
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine("[" + Program.BOTNAME + "] - Error on UserWebLogon: " + ex.Message);
-            }
-
+            cookiesAreInvalid = false;
         }
 
-        /* old
-        do
-        {
-            IsWebLoggedIn = steamWeb.Authenticate(myUniqueId, steamClient, myUserNonce);
-
-            if (!IsWebLoggedIn)
-            {
-                Console.WriteLine("[" + Program.BOTNAME + "] - Authentication failed, retrying in 2s... - ");
-                Thread.Sleep(2000);
-            }
-        } while (!IsWebLoggedIn);
-
-        cookiesAreInvalid = false; //check this shieat
-
-        Console.WriteLine("[" + Program.BOTNAME + "] - User Authenticated! ");
-        // teste();
-        */
+        //    try
+        //    {
+        //        if (steamWeb.Authenticate(myUniqueId, steamClient, myUserNonce))
+        //        {
+        //            IsWebLoggedIn = true;
+        //            Console.WriteLine("[" + Program.BOTNAME + "] - User Authenticated! ");
+        //            cookiesAreInvalid = false;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine("[" + Program.BOTNAME + "] - Error on UserWebLogon: " + ex.Message);
+        //    }
+        //}
 
 
         public static bool CheckCookies()
         {
             // We still haven't re-authenticated
             if (cookiesAreInvalid)
+            {
                 return false;
+            }
+
 
             try
             {
@@ -515,7 +512,7 @@ namespace MercuryBOT
 
                     cookiesAreInvalid = true;
                     steamUser.RequestWebAPIUserNonce();
-                    
+
                     return false;
                 }
             }
@@ -523,9 +520,9 @@ namespace MercuryBOT
             {
                 Console.WriteLine("[" + Program.BOTNAME + "] - Cookie check failed. http://steamcommunity.com is possibly down.");
             }
-
+            IsWebLoggedIn = true;
             return true;
-            AccountLogin.IsWebLoggedIn = true;
+            
         }
 
 
@@ -634,9 +631,9 @@ namespace MercuryBOT
                 string PreURL = SHA1.Substring(1, 2);
                 return AvatarPrefix + PreURL + "/" + SHA1 + AvatarSuffix;
             }
-            catch (Exception)
+            catch (Exception tete)
             {
-                return "no u";
+                return "errorrr: "+tete;
             }
 
         }
@@ -1118,7 +1115,7 @@ namespace MercuryBOT
             steamClient.Send(request);
         }
 
-       
+
 
         public static void StopGames()
         {
@@ -1206,37 +1203,51 @@ namespace MercuryBOT
         }
         public static IDictionary<string, int> GetProfileSettings()
         {
-            try
+
+            if (AccountLogin.IsLoggedIn == true)
             {
-                string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/edit/settings", "GET");
-                //File.WriteAllText(Program.ExecutablePath + @"\ey.html", resp); 
+                try
+                {
+                    string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/edit/settings", "GET");
+                    File.WriteAllText(Program.ExecutablePath + @"\ey.html", resp);
 
 
-                var parser = new HtmlParser();
-                var document = parser.ParseDocument(resp);
-                var ReadPrivacyDiv = document.QuerySelector("div.ProfileReactRoot").GetAttribute("data-privacysettings");
+                    var parser = new HtmlParser();
+                    var document = parser.ParseDocument(resp);
+                    var ReadPrivacyDiv = document.QuerySelector("div.ProfileReactRoot").GetAttribute("data-privacysettings");
 
-                var renderPrivacySettings = RenderProfilePrivacy.FromJson(ReadPrivacyDiv);
+                    var renderPrivacySettings = RenderProfilePrivacy.FromJson(ReadPrivacyDiv);
 
-                var dictionary = new Dictionary<string, int>();
-                dictionary.Add("PrivacyProfile", renderPrivacySettings.PrivacySettings.PrivacyProfile);
-                dictionary.Add("PrivacyFriendsList", renderPrivacySettings.PrivacySettings.PrivacyFriendsList);
-                dictionary.Add("PrivacyPlaytime", renderPrivacySettings.PrivacySettings.PrivacyPlaytime);
-                dictionary.Add("PrivacyOwnedGames", renderPrivacySettings.PrivacySettings.PrivacyOwnedGames);
-                dictionary.Add("PrivacyInventoryGifts", renderPrivacySettings.PrivacySettings.PrivacyInventoryGifts);
-                dictionary.Add("PrivacyInventory", renderPrivacySettings.PrivacySettings.PrivacyInventory);
-                dictionary.Add("ECommentPermission", renderPrivacySettings.ECommentPermission);
-                return dictionary;
+                    var dictionary = new Dictionary<string, int>();
+                    dictionary.Add("PrivacyProfile", renderPrivacySettings.PrivacySettings.PrivacyProfile);
+                    dictionary.Add("PrivacyFriendsList", renderPrivacySettings.PrivacySettings.PrivacyFriendsList);
+                    dictionary.Add("PrivacyPlaytime", renderPrivacySettings.PrivacySettings.PrivacyPlaytime);
+                    dictionary.Add("PrivacyOwnedGames", renderPrivacySettings.PrivacySettings.PrivacyOwnedGames);
+                    dictionary.Add("PrivacyInventoryGifts", renderPrivacySettings.PrivacySettings.PrivacyInventoryGifts);
+                    dictionary.Add("PrivacyInventory", renderPrivacySettings.PrivacySettings.PrivacyInventory);
+                    dictionary.Add("ECommentPermission", renderPrivacySettings.ECommentPermission);
 
+
+                    Console.WriteLine(steamWeb.SessionId);
+
+                    return dictionary;
+
+                }
+                catch (Exception te)
+                {
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "SessionID not valid, login again.");
+                    Console.WriteLine(te);
+                    return null;
+                }
             }
-            catch (Exception te)
+            else
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Login again.");
-                Console.WriteLine(te);
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "not logged");
                 return null;
             }
+
         }
-        
+
 
         public static void ProfileSettings(int Profile, int Inventory, int Gifts, int OwnedGames, int Playtime, int FriendsList, int Comment)
         {
@@ -1248,7 +1259,7 @@ namespace MercuryBOT
             };
 
             string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/ajaxsetprivacy/", "POST", ProfileSettings);
-            
+
             if (resp != String.Empty && resp.Contains("success\":1"))
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Profile settings set!");
@@ -1256,7 +1267,7 @@ namespace MercuryBOT
             else
             {
                 Console.WriteLine("erro:\n" + resp);
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error",resp);
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", resp);
             }
         }
 

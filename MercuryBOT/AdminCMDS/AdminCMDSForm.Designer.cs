@@ -59,7 +59,7 @@
             this.Name = "AdminCMDSForm";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
-            this.Style = MetroFramework.MetroColorStyle.Purple;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Mercury - Admin Commands";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.ResumeLayout(false);

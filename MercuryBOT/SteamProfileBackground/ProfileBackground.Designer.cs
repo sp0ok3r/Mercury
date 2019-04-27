@@ -80,7 +80,6 @@
             this.txtBox_steamprofile.SelectionStart = 0;
             this.txtBox_steamprofile.ShortcutsEnabled = true;
             this.txtBox_steamprofile.Size = new System.Drawing.Size(245, 23);
-            this.txtBox_steamprofile.Style = MetroFramework.MetroColorStyle.Purple;
             this.txtBox_steamprofile.TabIndex = 1;
             this.txtBox_steamprofile.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_steamprofile.UseCustomBackColor = true;
@@ -112,13 +111,12 @@
             this.lbl_clickonimginfo.Location = new System.Drawing.Point(236, 60);
             this.lbl_clickonimginfo.Name = "lbl_clickonimginfo";
             this.lbl_clickonimginfo.Size = new System.Drawing.Size(100, 15);
-            this.lbl_clickonimginfo.Style = MetroFramework.MetroColorStyle.Purple;
             this.lbl_clickonimginfo.TabIndex = 46;
             this.lbl_clickonimginfo.Text = "Click on the image!";
             this.lbl_clickonimginfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl_clickonimginfo.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.lbl_clickonimginfo.UseCustomBackColor = true;
-            this.lbl_clickonimginfo.UseCustomForeColor = true;
+            this.lbl_clickonimginfo.UseStyleColors = true;
             // 
             // ProfileBackground
             // 
@@ -134,7 +132,7 @@
             this.Name = "ProfileBackground";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
-            this.Style = MetroFramework.MetroColorStyle.Purple;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Gather Profile Background";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ProfileBackground_Load);

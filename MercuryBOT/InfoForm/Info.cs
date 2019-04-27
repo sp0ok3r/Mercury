@@ -8,6 +8,7 @@
 ▐    ▐     ▐                  ▐                                 ▐   
 */
 
+using MercuryBOT.Helpers;
 using System;
 using System.Configuration;
 using System.IO;
@@ -25,6 +26,7 @@ namespace MercuryBOT.InfoForm
         public Info(string title, string description)
         {
             InitializeComponent();
+            this.components.SetStyle(this);
             this.lbl_title.Text = title;
             this.txtBox_info.Text = description;
             this.FormBorderStyle = FormBorderStyle.None;

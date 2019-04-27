@@ -104,7 +104,6 @@
             this.txtBox_AccUser.SelectionStart = 0;
             this.txtBox_AccUser.ShortcutsEnabled = true;
             this.txtBox_AccUser.Size = new System.Drawing.Size(159, 23);
-            this.txtBox_AccUser.Style = MetroFramework.MetroColorStyle.Purple;
             this.txtBox_AccUser.TabIndex = 6;
             this.txtBox_AccUser.TabStop = false;
             this.txtBox_AccUser.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -143,7 +142,6 @@
             this.txtBox_AccPW.SelectionStart = 0;
             this.txtBox_AccPW.ShortcutsEnabled = true;
             this.txtBox_AccPW.Size = new System.Drawing.Size(159, 23);
-            this.txtBox_AccPW.Style = MetroFramework.MetroColorStyle.Purple;
             this.txtBox_AccPW.TabIndex = 7;
             this.txtBox_AccPW.TabStop = false;
             this.txtBox_AccPW.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -195,7 +193,6 @@
             this.txtBox_adminID.SelectionStart = 0;
             this.txtBox_adminID.ShortcutsEnabled = true;
             this.txtBox_adminID.Size = new System.Drawing.Size(159, 23);
-            this.txtBox_adminID.Style = MetroFramework.MetroColorStyle.Purple;
             this.txtBox_adminID.TabIndex = 17;
             this.txtBox_adminID.TabStop = false;
             this.txtBox_adminID.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -241,7 +238,7 @@
             this.MaximizeBox = false;
             this.Name = "AddAcc";
             this.Resizable = false;
-            this.Style = MetroFramework.MetroColorStyle.Purple;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Mercury - Add Account";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.ResumeLayout(false);

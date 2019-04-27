@@ -118,40 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="mercury6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mercury6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mercury_success" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mercury_success.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="notloggedFlag" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\notloggedFlag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mercury_alert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mercury_alert.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="map" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\map.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mercuryIMGNotFound" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mercuryIMGNotFound.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Restart_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Restart_Click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mercury_success" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mercury_success.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Restart_Normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Restart_Normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DiscordLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DiscordLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RamLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RamLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MercuryLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MercuryLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mercury_alert" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mercury_alert.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Restart_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Restart_Click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Restart_MouseHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Restart_MouseHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Restart_Normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Restart_Normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RamLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RamLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mercuryIMGNotFound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mercuryIMGNotFound.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mercury6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mercury6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="notloggedFlag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\notloggedFlag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mapWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mapWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MercuryLogoWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MercuryLogoWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

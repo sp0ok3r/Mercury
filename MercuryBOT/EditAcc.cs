@@ -8,6 +8,7 @@
 ▐    ▐     ▐                  ▐                                 ▐   
 */
 
+using MercuryBOT.Helpers;
 using MercuryBOT.User2Json;
 using MercuryBOT.UserSettings;
 using Newtonsoft.Json;
@@ -25,6 +26,7 @@ namespace MercuryBOT
         {
             InitializeComponent();
             this.Activate();
+            this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }

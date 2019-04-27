@@ -1,4 +1,5 @@
-﻿using MercuryBOT.UserSettings;
+﻿using MercuryBOT.Helpers;
+using MercuryBOT.UserSettings;
 using Newtonsoft.Json;
 using System;
 using System.Drawing;
@@ -12,6 +13,7 @@ namespace MercuryBOT.CustomMessages
         public AFKMessages()
         {
             InitializeComponent();
+            this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
             Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }

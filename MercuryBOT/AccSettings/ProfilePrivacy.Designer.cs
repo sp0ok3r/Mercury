@@ -81,7 +81,6 @@
             this.lbl_redeemkey.Location = new System.Drawing.Point(84, 84);
             this.lbl_redeemkey.Name = "lbl_redeemkey";
             this.lbl_redeemkey.Size = new System.Drawing.Size(66, 25);
-            this.lbl_redeemkey.Style = MetroFramework.MetroColorStyle.Purple;
             this.lbl_redeemkey.TabIndex = 53;
             this.lbl_redeemkey.Text = "Profile:";
             this.lbl_redeemkey.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -98,7 +97,6 @@
             this.metroLabel1.Location = new System.Drawing.Point(58, 198);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(91, 25);
-            this.metroLabel1.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel1.TabIndex = 54;
             this.metroLabel1.Text = "Inventory:";
             this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -115,7 +113,6 @@
             this.metroLabel2.Location = new System.Drawing.Point(22, 229);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(127, 25);
-            this.metroLabel2.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel2.TabIndex = 55;
             this.metroLabel2.Text = "InventoryGifts:";
             this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -134,7 +131,6 @@
             this.combox_profilePrivacy.Location = new System.Drawing.Point(157, 80);
             this.combox_profilePrivacy.Name = "combox_profilePrivacy";
             this.combox_profilePrivacy.Size = new System.Drawing.Size(121, 29);
-            this.combox_profilePrivacy.Style = MetroFramework.MetroColorStyle.Purple;
             this.combox_profilePrivacy.TabIndex = 56;
             this.combox_profilePrivacy.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.combox_profilePrivacy.UseSelectable = true;
@@ -152,7 +148,6 @@
             this.combox_InventoryPrivacy.Location = new System.Drawing.Point(156, 194);
             this.combox_InventoryPrivacy.Name = "combox_InventoryPrivacy";
             this.combox_InventoryPrivacy.Size = new System.Drawing.Size(121, 29);
-            this.combox_InventoryPrivacy.Style = MetroFramework.MetroColorStyle.Purple;
             this.combox_InventoryPrivacy.TabIndex = 57;
             this.combox_InventoryPrivacy.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.combox_InventoryPrivacy.UseSelectable = true;
@@ -169,7 +164,6 @@
             this.combox_Gifts.Location = new System.Drawing.Point(156, 229);
             this.combox_Gifts.Name = "combox_Gifts";
             this.combox_Gifts.Size = new System.Drawing.Size(121, 29);
-            this.combox_Gifts.Style = MetroFramework.MetroColorStyle.Purple;
             this.combox_Gifts.TabIndex = 58;
             this.combox_Gifts.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.combox_Gifts.UseSelectable = true;
@@ -186,7 +180,6 @@
             this.combox_ownedGames.Location = new System.Drawing.Point(156, 276);
             this.combox_ownedGames.Name = "combox_ownedGames";
             this.combox_ownedGames.Size = new System.Drawing.Size(121, 29);
-            this.combox_ownedGames.Style = MetroFramework.MetroColorStyle.Purple;
             this.combox_ownedGames.TabIndex = 60;
             this.combox_ownedGames.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.combox_ownedGames.UseSelectable = true;
@@ -202,7 +195,6 @@
             this.metroLabel3.Location = new System.Drawing.Point(22, 276);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(127, 25);
-            this.metroLabel3.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel3.TabIndex = 59;
             this.metroLabel3.Text = "OwnedGames:";
             this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -221,7 +213,6 @@
             this.combox_PlayTime.Location = new System.Drawing.Point(156, 311);
             this.combox_PlayTime.Name = "combox_PlayTime";
             this.combox_PlayTime.Size = new System.Drawing.Size(121, 29);
-            this.combox_PlayTime.Style = MetroFramework.MetroColorStyle.Purple;
             this.combox_PlayTime.TabIndex = 62;
             this.combox_PlayTime.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.combox_PlayTime.UseSelectable = true;
@@ -236,7 +227,6 @@
             this.metroLabel4.Location = new System.Drawing.Point(66, 311);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(83, 25);
-            this.metroLabel4.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel4.TabIndex = 61;
             this.metroLabel4.Text = "Playtime:";
             this.metroLabel4.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -255,7 +245,6 @@
             this.combox_FriendsList.Location = new System.Drawing.Point(156, 115);
             this.combox_FriendsList.Name = "combox_FriendsList";
             this.combox_FriendsList.Size = new System.Drawing.Size(121, 29);
-            this.combox_FriendsList.Style = MetroFramework.MetroColorStyle.Purple;
             this.combox_FriendsList.TabIndex = 64;
             this.combox_FriendsList.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.combox_FriendsList.UseSelectable = true;
@@ -270,7 +259,6 @@
             this.metroLabel5.Location = new System.Drawing.Point(51, 119);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(99, 25);
-            this.metroLabel5.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel5.TabIndex = 63;
             this.metroLabel5.Text = "FriendsList:";
             this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -288,7 +276,6 @@
             this.combox_Comment.Location = new System.Drawing.Point(156, 150);
             this.combox_Comment.Name = "combox_Comment";
             this.combox_Comment.Size = new System.Drawing.Size(121, 29);
-            this.combox_Comment.Style = MetroFramework.MetroColorStyle.Purple;
             this.combox_Comment.TabIndex = 66;
             this.combox_Comment.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.combox_Comment.UseSelectable = true;
@@ -303,7 +290,6 @@
             this.metroLabel6.Location = new System.Drawing.Point(51, 151);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(95, 25);
-            this.metroLabel6.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel6.TabIndex = 65;
             this.metroLabel6.Text = "Comment:";
             this.metroLabel6.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -352,7 +338,6 @@
             this.FidgetSpinner.Maximum = 100;
             this.FidgetSpinner.Name = "FidgetSpinner";
             this.FidgetSpinner.Size = new System.Drawing.Size(148, 160);
-            this.FidgetSpinner.Style = MetroFramework.MetroColorStyle.Purple;
             this.FidgetSpinner.TabIndex = 69;
             this.FidgetSpinner.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.FidgetSpinner.UseCustomBackColor = true;
@@ -408,7 +393,7 @@
             this.Name = "ProfilePrivacy";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
-            this.Style = MetroFramework.MetroColorStyle.Purple;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Change Profile Privacy";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.ProfilePrivacy_Load);

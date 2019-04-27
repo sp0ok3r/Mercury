@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MercuryBOT.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace MercuryBOT.AdminCMDS
         public AdminCMDSForm()
         {
             InitializeComponent();
+            this.components.SetStyle(this);
             Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
     }

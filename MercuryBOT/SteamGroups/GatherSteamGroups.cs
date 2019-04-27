@@ -18,6 +18,7 @@ namespace MercuryBOT.SteamGroups
         public GatherSteamGroups()
         {
             InitializeComponent();
+            this.components.SetStyle(this);
             Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
 

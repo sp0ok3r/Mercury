@@ -111,7 +111,6 @@
             this.txtBox_customMSG.SelectionStart = 0;
             this.txtBox_customMSG.ShortcutsEnabled = true;
             this.txtBox_customMSG.Size = new System.Drawing.Size(209, 23);
-            this.txtBox_customMSG.Style = MetroFramework.MetroColorStyle.Purple;
             this.txtBox_customMSG.TabIndex = 44;
             this.txtBox_customMSG.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_customMSG.UseCustomBackColor = true;
@@ -182,7 +181,7 @@
             this.Name = "AFKMessages";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
-            this.Style = MetroFramework.MetroColorStyle.Purple;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "AFK Messages";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.AFKMessages_Load);

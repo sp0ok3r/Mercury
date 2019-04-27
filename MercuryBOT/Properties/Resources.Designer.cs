@@ -81,6 +81,16 @@ namespace MercuryBOT.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mapWhite {
+            get {
+                object obj = ResourceManager.GetObject("mapWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream mercury_alert {
@@ -121,9 +131,9 @@ namespace MercuryBOT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MercuryLogo {
+        internal static System.Drawing.Bitmap MercuryLogoWhite {
             get {
-                object obj = ResourceManager.GetObject("MercuryLogo", resourceCulture);
+                object obj = ResourceManager.GetObject("MercuryLogoWhite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

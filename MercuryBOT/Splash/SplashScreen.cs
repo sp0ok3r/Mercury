@@ -16,6 +16,7 @@ using MercuryBOT.UserSettings;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -31,6 +32,7 @@ namespace MercuryBOT.Splash
         public SplashScreen()
         {
             InitializeComponent();
+            this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
@@ -64,9 +66,7 @@ namespace MercuryBOT.Splash
             }
             lbl_info2.Text = "LOADING";
         }
-
-
-
+        
         public static void LoginusersVDF_ToFile()
         {
             _users = GetLoginUsers().ToList();
@@ -121,7 +121,6 @@ namespace MercuryBOT.Splash
         {
             this.Activate(); // bring form to fronte eyes
             lbl_version.Text = Program.Version;
-
         }
         Timer tmr;
 
@@ -155,5 +154,3 @@ namespace MercuryBOT.Splash
         }
     }
 }
-
-

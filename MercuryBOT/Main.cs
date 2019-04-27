@@ -33,8 +33,9 @@ namespace MercuryBOT
 {
     public partial class Main : MetroFramework.Forms.MetroForm
     {
-        readonly Process mercurycess = Process.GetCurrentProcess();
 
+        readonly Process mercurycess = Process.GetCurrentProcess();
+        public static NotifyIcon M_NotifyIcon;
         public static string usernameJSON;
         public static string passwordJSON;
         public static string apikey;
@@ -55,6 +56,11 @@ namespace MercuryBOT
             Process.Start(Application.ExecutablePath);
             Application.Exit();
         }
+
+        
+
+
+
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -80,7 +86,7 @@ namespace MercuryBOT
                         this.Hide();
                         this.Enabled = false;
                         Console.WriteLine("New update: " + updateCheck);
-                        Form Update = new Update();
+                        Form Update = new Update(updateCheck);
                         Update.Show();
                     }
                     else
@@ -118,10 +124,40 @@ namespace MercuryBOT
         [Obsolete]
         private void Main_Shown(object sender, EventArgs e)
         {
-            btn_logout.Visible = false;
             RafadexAutoUpdate600IQ();
+            M_NotifyIcon = this.Mercury_notifyIcon;
+        }
+
+
+        [Obsolete]
+        public Main()
+        {
+            InitializeComponent();
+            btn_logout.Visible = false;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.components.SetStyle(this);
+            Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+
+            metroTabControl.SelectedTab = metroTab_AddAcc;
+
+            Trolha.Tick += Trolha_Tick;
+            TrolhaCommunity.Tick += CommunityConnection_Tick;
+
+
+            // Calculate the mercury age. 2019-03-28 💔
+            var age = 2019 - DateTime.Today.Year;
+            lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
+
+        }
+
+        public void Main_Load(object sender, EventArgs e)
+        {
+            this.Activate();
+            lbl_infoversion.Text = "v" + Program.Version;
+            RefreshAccountList();
 
             var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+            combox_Colors.SelectedIndex = Settingslist.startupColor;
 
             if (Settingslist.startup)
             {
@@ -134,7 +170,6 @@ namespace MercuryBOT
 
             if (Settingslist.startMinimized)
             {
-
                 chck_Minimized.Checked = true;
                 this.WindowState = FormWindowState.Minimized;
             }
@@ -152,33 +187,6 @@ namespace MercuryBOT
                 snd.Play();
             }
             else { toggle_playSound.Checked = false; }
-
-        }
-
-
-        [Obsolete]
-        public Main()
-        {
-            InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
-
-            metroTabControl.SelectedTab = metroTab_AddAcc;
-
-            Trolha.Tick += Trolha_Tick;
-            TrolhaCommunity.Tick += CommunityConnection_Tick;
-
-            // Calculate the mercury age. 2019-03-28 💔
-            var age = 2019 - DateTime.Today.Year;
-            lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
-
-        }
-
-        public void Main_Load(object sender, EventArgs e)
-        {
-            this.Activate();
-            lbl_infoversion.Text = "v" + Program.Version;
-            RefreshAccountList();
         }
 
         public void RefreshAccountList()
@@ -323,6 +331,7 @@ namespace MercuryBOT
             if (AccountLogin.IsLoggedIn == true)
             {
                 AccountLogin.Logout();
+                RefreshAccountList();
             }
             else
             {
@@ -441,7 +450,7 @@ namespace MercuryBOT
                     }
                 }
 
-                lbl_totalFriends.Text = ": " + FriendsList_Grid.Rows.Count;
+               // lbl_totalFriends.Text = ": " + FriendsList_Grid.Rows.Count;
                 ProgressSpinner_FriendsList.Visible = false;
                 btn_loadFriends.Enabled = true;
                 BTN_RemoveFriend.Enabled = true;
@@ -688,7 +697,7 @@ namespace MercuryBOT
                     }
                 }
             }
-            lbl_countGames.Text = ": " + GamesList_Grid.Rows.Count;
+            lbl_countGames.Text = "count: " + GamesList_Grid.Rows.Count;
         }
 
         private void btn_loadGamesFromJSON_Click(object sender, EventArgs e)
@@ -780,7 +789,6 @@ namespace MercuryBOT
         #region HandleFormClosed
         private void HandleFormEditAccClosed(Object sender, FormClosedEventArgs e)
         {
-            RefreshAccountList();
             btn_editAcc.Enabled = true;
         }
 
@@ -795,7 +803,6 @@ namespace MercuryBOT
 
         private void HandleFormAddAccClosed(Object sender, FormClosedEventArgs e)
         {
-            RefreshAccountList();
             btn_addAcc.Enabled = true;
         }
 
@@ -965,7 +972,7 @@ namespace MercuryBOT
 
                 if (AccountLogin.IsWebLoggedIn)
                 {
-                    TrolhaCommunity.Enabled = false;
+                    TrolhaCommunity.Stop();
                     return;
                 }
 
@@ -975,7 +982,7 @@ namespace MercuryBOT
                 }
             }
         }
-
+           
         void Trolha_Tick(object sender, EventArgs e)
         {
             CurrentUserSafeUpdater();
@@ -1117,7 +1124,7 @@ namespace MercuryBOT
                             {
                                 UserList.Games.Remove(UserList.Games[i]);
                                 GamesList_Grid.Rows.RemoveAt(i);
-                                lbl_countGames.Text = ": " + GamesList_Grid.Rows.Count;
+                                lbl_countGames.Text = "count: " + GamesList_Grid.Rows.Count;
                             }
                         }
                     }
@@ -1135,7 +1142,7 @@ namespace MercuryBOT
                         {
                             UserList.Games.Remove(UserList.Games[i]);
                             GamesList_Grid.Rows.RemoveAt(i);
-                            lbl_countGames.Text = ": " + GamesList_Grid.Rows.Count;
+                            lbl_countGames.Text = "count: " + GamesList_Grid.Rows.Count;
                         }
                     }
                 }
@@ -1264,7 +1271,14 @@ namespace MercuryBOT
 
         private void link_chatlogs_Click(object sender, EventArgs e)
         {
-            Process.Start(Program.ChatLogsFolder + @"\"+AccountLogin.steamID); // go direct to steamid
+            if (AccountLogin.IsLoggedIn == true)
+            {
+                Process.Start(Program.ChatLogsFolder + @"\" + AccountLogin.steamID);
+            }
+            else
+            {
+                Process.Start(Program.ChatLogsFolder);
+            }
         }
 
         private void btn_changeprofSettings_Click(object sender, EventArgs e)
@@ -1307,6 +1321,18 @@ namespace MercuryBOT
             Application.Exit();
         }
         #endregion
+
+        private void combox_Colors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+
+            Settingslist.startupColor = combox_Colors.SelectedIndex;
+
+            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, new JsonSerializerSettings { Formatting = Formatting.Indented }));
+
+            this.components.SetStyle(this);
+            this.Refresh();
+        }
     }
 }
 

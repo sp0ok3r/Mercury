@@ -70,7 +70,6 @@
             this.combox_profileOrClan.Location = new System.Drawing.Point(192, 567);
             this.combox_profileOrClan.Name = "combox_profileOrClan";
             this.combox_profileOrClan.Size = new System.Drawing.Size(232, 29);
-            this.combox_profileOrClan.Style = MetroFramework.MetroColorStyle.Purple;
             this.combox_profileOrClan.TabIndex = 2;
             this.combox_profileOrClan.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.combox_profileOrClan.UseCustomForeColor = true;
@@ -144,7 +143,6 @@
             this.chck_containsWords.Location = new System.Drawing.Point(494, 589);
             this.chck_containsWords.Name = "chck_containsWords";
             this.chck_containsWords.Size = new System.Drawing.Size(108, 15);
-            this.chck_containsWords.Style = MetroFramework.MetroColorStyle.Purple;
             this.chck_containsWords.TabIndex = 8;
             this.chck_containsWords.Text = "Contains words:";
             this.chck_containsWords.UseCustomBackColor = true;
@@ -180,7 +178,6 @@
             this.txtBox_filterWords.SelectionStart = 0;
             this.txtBox_filterWords.ShortcutsEnabled = true;
             this.txtBox_filterWords.Size = new System.Drawing.Size(189, 86);
-            this.txtBox_filterWords.Style = MetroFramework.MetroColorStyle.Purple;
             this.txtBox_filterWords.TabIndex = 9;
             this.txtBox_filterWords.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.MongoToolTip.SetToolTip(this.txtBox_filterWords, "Use comma to separate all words");
@@ -219,7 +216,6 @@
             this.txtBox_profileGroupID.SelectionStart = 0;
             this.txtBox_profileGroupID.ShortcutsEnabled = true;
             this.txtBox_profileGroupID.Size = new System.Drawing.Size(232, 23);
-            this.txtBox_profileGroupID.Style = MetroFramework.MetroColorStyle.Purple;
             this.txtBox_profileGroupID.TabIndex = 10;
             this.txtBox_profileGroupID.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_profileGroupID.UseCustomBackColor = true;
@@ -242,10 +238,10 @@
             this.GridCommentsData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GridCommentsData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(65)))), ((int)(((byte)(153)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(73)))), ((int)(((byte)(173)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.GridCommentsData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -259,7 +255,7 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(73)))), ((int)(((byte)(173)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.GridCommentsData.DefaultCellStyle = dataGridViewCellStyle2;
@@ -272,10 +268,10 @@
             this.GridCommentsData.ReadOnly = true;
             this.GridCommentsData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(65)))), ((int)(((byte)(153)))));
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(73)))), ((int)(((byte)(173)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.GridCommentsData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
@@ -283,7 +279,6 @@
             this.GridCommentsData.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.GridCommentsData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridCommentsData.Size = new System.Drawing.Size(1054, 478);
-            this.GridCommentsData.Style = MetroFramework.MetroColorStyle.Purple;
             this.GridCommentsData.TabIndex = 13;
             this.GridCommentsData.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.GridCommentsData.UseCustomBackColor = true;
@@ -367,7 +362,6 @@
             this.chck_ignoreCase.Location = new System.Drawing.Point(517, 610);
             this.chck_ignoreCase.Name = "chck_ignoreCase";
             this.chck_ignoreCase.Size = new System.Drawing.Size(85, 15);
-            this.chck_ignoreCase.Style = MetroFramework.MetroColorStyle.Purple;
             this.chck_ignoreCase.TabIndex = 23;
             this.chck_ignoreCase.Text = "Ignore Case";
             this.MongoToolTip.SetToolTip(this.chck_ignoreCase, "Accept LowerCase and UpperCase");
@@ -403,7 +397,6 @@
             this.txtBox_Comments2GetCount.SelectionStart = 0;
             this.txtBox_Comments2GetCount.ShortcutsEnabled = true;
             this.txtBox_Comments2GetCount.Size = new System.Drawing.Size(51, 23);
-            this.txtBox_Comments2GetCount.Style = MetroFramework.MetroColorStyle.Purple;
             this.txtBox_Comments2GetCount.TabIndex = 18;
             this.txtBox_Comments2GetCount.Text = "50";
             this.txtBox_Comments2GetCount.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -436,7 +429,6 @@
             this.ProgressSpinner.Maximum = 100;
             this.ProgressSpinner.Name = "ProgressSpinner";
             this.ProgressSpinner.Size = new System.Drawing.Size(29, 30);
-            this.ProgressSpinner.Style = MetroFramework.MetroColorStyle.Purple;
             this.ProgressSpinner.TabIndex = 20;
             this.ProgressSpinner.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.ProgressSpinner.UseCustomBackColor = true;
@@ -511,7 +503,7 @@
             this.Name = "CommentsGather";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
-            this.Style = MetroFramework.MetroColorStyle.Purple;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Mercury - Comments Gather";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CommentsGather_FormClosed);

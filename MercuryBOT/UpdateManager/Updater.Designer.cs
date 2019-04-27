@@ -33,6 +33,7 @@
             this.btn_installupdate = new MetroFramework.Controls.MetroButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.lbl_infoversion = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // txtBox_changelog
@@ -62,7 +63,6 @@
             this.txtBox_changelog.SelectionStart = 0;
             this.txtBox_changelog.ShortcutsEnabled = true;
             this.txtBox_changelog.Size = new System.Drawing.Size(396, 296);
-            this.txtBox_changelog.Style = MetroFramework.MetroColorStyle.Purple;
             this.txtBox_changelog.TabIndex = 10;
             this.txtBox_changelog.UseCustomBackColor = true;
             this.txtBox_changelog.UseCustomForeColor = true;
@@ -77,11 +77,9 @@
             this.btn_installupdate.Location = new System.Drawing.Point(329, 433);
             this.btn_installupdate.Name = "btn_installupdate";
             this.btn_installupdate.Size = new System.Drawing.Size(75, 23);
-            this.btn_installupdate.Style = MetroFramework.MetroColorStyle.Purple;
             this.btn_installupdate.TabIndex = 0;
             this.btn_installupdate.Text = "Install";
             this.btn_installupdate.UseCustomBackColor = true;
-            this.btn_installupdate.UseCustomForeColor = true;
             this.btn_installupdate.UseSelectable = true;
             this.btn_installupdate.UseStyleColors = true;
             this.btn_installupdate.Click += new System.EventHandler(this.Btn_installupdate_Click);
@@ -115,11 +113,27 @@
             this.metroLabel2.UseCustomForeColor = true;
             this.metroLabel2.UseStyleColors = true;
             // 
+            // lbl_infoversion
+            // 
+            this.lbl_infoversion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_infoversion.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lbl_infoversion.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lbl_infoversion.Location = new System.Drawing.Point(323, 73);
+            this.lbl_infoversion.Name = "lbl_infoversion";
+            this.lbl_infoversion.Size = new System.Drawing.Size(81, 25);
+            this.lbl_infoversion.TabIndex = 46;
+            this.lbl_infoversion.Text = "v";
+            this.lbl_infoversion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_infoversion.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lbl_infoversion.UseCustomBackColor = true;
+            this.lbl_infoversion.UseStyleColors = true;
+            // 
             // Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 469);
+            this.Controls.Add(this.lbl_infoversion);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.btn_installupdate);
             this.Controls.Add(this.txtBox_changelog);
@@ -129,7 +143,7 @@
             this.Name = "Update";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
-            this.Style = MetroFramework.MetroColorStyle.Purple;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "New Update Available";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Update_FormClosed);
@@ -146,5 +160,6 @@
         private MetroFramework.Controls.MetroButton btn_installupdate;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel lbl_infoversion;
     }
 }

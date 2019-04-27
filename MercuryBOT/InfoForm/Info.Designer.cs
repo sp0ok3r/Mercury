@@ -32,8 +32,8 @@
             this.txtBox_info = new System.Windows.Forms.TextBox();
             this.btn_okinfo = new MetroFramework.Controls.MetroButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_title = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.lbl_title = new MetroFramework.Controls.MetroLabel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // txtBox_info
@@ -56,9 +56,9 @@
             // 
             this.btn_okinfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btn_okinfo.ForeColor = System.Drawing.Color.White;
-            this.btn_okinfo.Location = new System.Drawing.Point(241, 157);
+            this.btn_okinfo.Location = new System.Drawing.Point(231, 157);
             this.btn_okinfo.Name = "btn_okinfo";
-            this.btn_okinfo.Size = new System.Drawing.Size(57, 23);
+            this.btn_okinfo.Size = new System.Drawing.Size(80, 23);
             this.btn_okinfo.TabIndex = 8;
             this.btn_okinfo.TabStop = false;
             this.btn_okinfo.Text = "k";
@@ -71,7 +71,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.lbl_title);
             this.panel1.Location = new System.Drawing.Point(23, 25);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(119, 23);
@@ -80,19 +79,29 @@
             // lbl_title
             // 
             this.lbl_title.AutoSize = true;
-            this.lbl_title.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(65)))), ((int)(((byte)(153)))));
-            this.lbl_title.Location = new System.Drawing.Point(3, -10);
+            this.lbl_title.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lbl_title.Location = new System.Drawing.Point(23, 23);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(63, 37);
-            this.lbl_title.TabIndex = 11;
+            this.lbl_title.Size = new System.Drawing.Size(41, 25);
+            this.lbl_title.TabIndex = 12;
             this.lbl_title.Text = "Info";
+            this.lbl_title.UseCustomBackColor = true;
+            this.lbl_title.UseStyleColors = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(273, 6);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(49, 23);
+            this.panel2.TabIndex = 11;
             // 
             // Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(321, 184);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.lbl_title);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_okinfo);
             this.Controls.Add(this.txtBox_info);
@@ -103,13 +112,11 @@
             this.Name = "Info";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
-            this.Style = MetroFramework.MetroColorStyle.Purple;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Notification";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.Info_Load);
             this.Shown += new System.EventHandler(this.Info_Shown);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,6 +126,7 @@
         private System.Windows.Forms.TextBox txtBox_info;
         private MetroFramework.Controls.MetroButton btn_okinfo;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbl_title;
+        private MetroFramework.Controls.MetroLabel lbl_title;
+        private System.Windows.Forms.Panel panel2;
     }
 }

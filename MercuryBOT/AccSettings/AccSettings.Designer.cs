@@ -46,7 +46,6 @@
             this.metroCheckBox1.Location = new System.Drawing.Point(36, 87);
             this.metroCheckBox1.Name = "metroCheckBox1";
             this.metroCheckBox1.Size = new System.Drawing.Size(113, 15);
-            this.metroCheckBox1.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroCheckBox1.TabIndex = 0;
             this.metroCheckBox1.Text = "metroCheckBox1";
             this.metroCheckBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -62,7 +61,6 @@
             this.metroCheckBox2.Location = new System.Drawing.Point(36, 155);
             this.metroCheckBox2.Name = "metroCheckBox2";
             this.metroCheckBox2.Size = new System.Drawing.Size(113, 15);
-            this.metroCheckBox2.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroCheckBox2.TabIndex = 1;
             this.metroCheckBox2.Text = "metroCheckBox2";
             this.metroCheckBox2.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -78,7 +76,6 @@
             this.metroCheckBox3.Location = new System.Drawing.Point(36, 120);
             this.metroCheckBox3.Name = "metroCheckBox3";
             this.metroCheckBox3.Size = new System.Drawing.Size(113, 15);
-            this.metroCheckBox3.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroCheckBox3.TabIndex = 2;
             this.metroCheckBox3.Text = "metroCheckBox3";
             this.metroCheckBox3.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -94,7 +91,6 @@
             this.metroCheckBox4.Location = new System.Drawing.Point(36, 195);
             this.metroCheckBox4.Name = "metroCheckBox4";
             this.metroCheckBox4.Size = new System.Drawing.Size(113, 15);
-            this.metroCheckBox4.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroCheckBox4.TabIndex = 3;
             this.metroCheckBox4.Text = "metroCheckBox4";
             this.metroCheckBox4.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -110,7 +106,6 @@
             this.metroLabel1.Location = new System.Drawing.Point(36, 241);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(91, 19);
-            this.metroLabel1.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel1.TabIndex = 4;
             this.metroLabel1.Text = "NON-STEAM:";
             this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -145,7 +140,6 @@
             this.metroTextBox1.SelectionStart = 0;
             this.metroTextBox1.ShortcutsEnabled = true;
             this.metroTextBox1.Size = new System.Drawing.Size(196, 23);
-            this.metroTextBox1.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroTextBox1.TabIndex = 5;
             this.metroTextBox1.Text = "metroTextBox1";
             this.metroTextBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -204,7 +198,7 @@
             this.Name = "AccSettings";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
-            this.Style = MetroFramework.MetroColorStyle.Purple;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Mercury - AccSettings";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.ResumeLayout(false);

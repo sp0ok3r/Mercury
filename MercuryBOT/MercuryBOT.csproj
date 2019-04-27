@@ -237,6 +237,10 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Tulpep.NotificationWindow, Version=1.1.25.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tulpep.NotificationWindow.1.1.25\lib\net40\Tulpep.NotificationWindow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountLogin.cs" />
@@ -462,6 +466,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="mercury.ico" />
+    <None Include="Resources\mapWhite.png" />
+    <None Include="Resources\MercuryLogoWhite.png" />
     <None Include="Resources\Restart_Click.png" />
     <None Include="Resources\Restart_MouseHover.png" />
     <None Include="Resources\Restart_Normal.png" />

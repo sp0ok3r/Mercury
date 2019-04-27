@@ -74,7 +74,6 @@
             this.txtBox_user.SelectionStart = 0;
             this.txtBox_user.ShortcutsEnabled = true;
             this.txtBox_user.Size = new System.Drawing.Size(151, 23);
-            this.txtBox_user.Style = MetroFramework.MetroColorStyle.Purple;
             this.txtBox_user.TabIndex = 5;
             this.txtBox_user.TabStop = false;
             this.txtBox_user.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -113,7 +112,6 @@
             this.txtBox_pw.SelectionStart = 0;
             this.txtBox_pw.ShortcutsEnabled = true;
             this.txtBox_pw.Size = new System.Drawing.Size(151, 23);
-            this.txtBox_pw.Style = MetroFramework.MetroColorStyle.Purple;
             this.txtBox_pw.TabIndex = 6;
             this.txtBox_pw.TabStop = false;
             this.txtBox_pw.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -173,7 +171,6 @@
             this.txtBox_adminID.SelectionStart = 0;
             this.txtBox_adminID.ShortcutsEnabled = true;
             this.txtBox_adminID.Size = new System.Drawing.Size(151, 23);
-            this.txtBox_adminID.Style = MetroFramework.MetroColorStyle.Purple;
             this.txtBox_adminID.TabIndex = 19;
             this.txtBox_adminID.TabStop = false;
             this.txtBox_adminID.UseCustomBackColor = true;
@@ -198,7 +195,7 @@
             // 
             this.BTN_SUBMIT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.BTN_SUBMIT.ForeColor = System.Drawing.Color.White;
-            this.BTN_SUBMIT.Location = new System.Drawing.Point(222, 234);
+            this.BTN_SUBMIT.Location = new System.Drawing.Point(222, 243);
             this.BTN_SUBMIT.Name = "BTN_SUBMIT";
             this.BTN_SUBMIT.Size = new System.Drawing.Size(90, 31);
             this.BTN_SUBMIT.TabIndex = 20;
@@ -212,7 +209,7 @@
             // 
             // metroLink_AccountsJSONPath
             // 
-            this.metroLink_AccountsJSONPath.Location = new System.Drawing.Point(185, 234);
+            this.metroLink_AccountsJSONPath.Location = new System.Drawing.Point(185, 243);
             this.metroLink_AccountsJSONPath.Name = "metroLink_AccountsJSONPath";
             this.metroLink_AccountsJSONPath.Size = new System.Drawing.Size(31, 31);
             this.metroLink_AccountsJSONPath.TabIndex = 22;
@@ -260,7 +257,6 @@
             this.txtBox_webapi.SelectionStart = 0;
             this.txtBox_webapi.ShortcutsEnabled = true;
             this.txtBox_webapi.Size = new System.Drawing.Size(236, 23);
-            this.txtBox_webapi.Style = MetroFramework.MetroColorStyle.Purple;
             this.txtBox_webapi.TabIndex = 23;
             this.txtBox_webapi.TabStop = false;
             this.txtBox_webapi.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -284,7 +280,6 @@
             this.toggle_autoLogin.Location = new System.Drawing.Point(161, 72);
             this.toggle_autoLogin.Name = "toggle_autoLogin";
             this.toggle_autoLogin.Size = new System.Drawing.Size(80, 17);
-            this.toggle_autoLogin.Style = MetroFramework.MetroColorStyle.Purple;
             this.toggle_autoLogin.TabIndex = 25;
             this.toggle_autoLogin.Text = "Off";
             this.toggle_autoLogin.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -317,7 +312,6 @@
             this.toggle_chatLogger.Location = new System.Drawing.Point(161, 95);
             this.toggle_chatLogger.Name = "toggle_chatLogger";
             this.toggle_chatLogger.Size = new System.Drawing.Size(80, 17);
-            this.toggle_chatLogger.Style = MetroFramework.MetroColorStyle.Purple;
             this.toggle_chatLogger.TabIndex = 27;
             this.toggle_chatLogger.Text = "Off";
             this.toggle_chatLogger.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -348,7 +342,7 @@
             this.MaximizeBox = false;
             this.Name = "EditAcc";
             this.Resizable = false;
-            this.Style = MetroFramework.MetroColorStyle.Purple;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Mercury - Edit Account";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.EditAcc_Load);

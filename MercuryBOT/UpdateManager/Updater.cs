@@ -26,9 +26,12 @@ namespace MercuryBOT
 {
     public partial class Update : MetroFramework.Forms.MetroForm
     {
-        public Update()
+        public Update(string up)
         {
+
             InitializeComponent(); this.Activate();
+            lbl_infoversion.Text = up;
+            this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }

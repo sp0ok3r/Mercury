@@ -34,7 +34,6 @@
             this.metroProgressSpinner1 = new MetroFramework.Controls.MetroProgressSpinner();
             this.label2 = new System.Windows.Forms.Label();
             this.metroLink_steamstatUS = new MetroFramework.Controls.MetroLink();
-            this.picBox_MAP = new System.Windows.Forms.PictureBox();
             this.lbl_australia = new System.Windows.Forms.Label();
             this.metroLink_australia = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
@@ -83,6 +82,11 @@
             this.label13 = new System.Windows.Forms.Label();
             this.metroLink_china_tianjin = new System.Windows.Forms.LinkLabel();
             this.label23 = new System.Windows.Forms.Label();
+            this.picBox_MAP = new System.Windows.Forms.PictureBox();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_MAP)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,7 +101,6 @@
             this.metroProgressSpinner1.Maximum = 100;
             this.metroProgressSpinner1.Name = "metroProgressSpinner1";
             this.metroProgressSpinner1.Size = new System.Drawing.Size(34, 32);
-            this.metroProgressSpinner1.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroProgressSpinner1.TabIndex = 139;
             this.metroProgressSpinner1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroProgressSpinner1.UseCustomBackColor = true;
@@ -130,27 +133,13 @@
             this.metroLink_steamstatUS.UseSelectable = true;
             this.metroLink_steamstatUS.Click += new System.EventHandler(this.MetroLink_steamstatUS_Click);
             // 
-            // picBox_MAP
-            // 
-            this.picBox_MAP.BackColor = System.Drawing.Color.Transparent;
-            this.picBox_MAP.Image = global::MercuryBOT.Properties.Resources.map;
-            this.picBox_MAP.Location = new System.Drawing.Point(0, 22);
-            this.picBox_MAP.Name = "picBox_MAP";
-            this.picBox_MAP.Size = new System.Drawing.Size(910, 525);
-            this.picBox_MAP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox_MAP.TabIndex = 140;
-            this.picBox_MAP.TabStop = false;
-            this.picBox_MAP.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PicBox_MAP_MouseDown);
-            this.picBox_MAP.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PicBox_MAP_MouseMove);
-            this.picBox_MAP.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PicBox_MAP_MouseUp);
-            // 
             // lbl_australia
             // 
             this.lbl_australia.AutoSize = true;
             this.lbl_australia.BackColor = System.Drawing.SystemColors.ControlText;
             this.lbl_australia.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_australia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(65)))), ((int)(((byte)(153)))));
-            this.lbl_australia.Location = new System.Drawing.Point(743, 382);
+            this.lbl_australia.Location = new System.Drawing.Point(713, 460);
             this.lbl_australia.Name = "lbl_australia";
             this.lbl_australia.Size = new System.Drawing.Size(52, 13);
             this.lbl_australia.TabIndex = 141;
@@ -163,10 +152,10 @@
             this.metroLink_australia.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroLink_australia.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.metroLink_australia.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.metroLink_australia.Location = new System.Drawing.Point(743, 395);
+            this.metroLink_australia.Location = new System.Drawing.Point(745, 395);
             this.metroLink_australia.Name = "metroLink_australia";
             this.metroLink_australia.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.metroLink_australia.Size = new System.Drawing.Size(52, 13);
+            this.metroLink_australia.Size = new System.Drawing.Size(50, 13);
             this.metroLink_australia.TabIndex = 142;
             this.metroLink_australia.TabStop = true;
             this.metroLink_australia.Text = "...";
@@ -180,7 +169,7 @@
             this.label1.BackColor = System.Drawing.SystemColors.ControlText;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(65)))), ((int)(((byte)(153)))));
-            this.label1.Location = new System.Drawing.Point(464, 390);
+            this.label1.Location = new System.Drawing.Point(491, 462);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 143;
@@ -193,10 +182,10 @@
             this.metroLink_south_africa.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroLink_south_africa.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.metroLink_south_africa.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.metroLink_south_africa.Location = new System.Drawing.Point(464, 403);
+            this.metroLink_south_africa.Location = new System.Drawing.Point(467, 403);
             this.metroLink_south_africa.Name = "metroLink_south_africa";
             this.metroLink_south_africa.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.metroLink_south_africa.Size = new System.Drawing.Size(70, 13);
+            this.metroLink_south_africa.Size = new System.Drawing.Size(67, 13);
             this.metroLink_south_africa.TabIndex = 145;
             this.metroLink_south_africa.TabStop = true;
             this.metroLink_south_africa.Text = "...";
@@ -239,7 +228,7 @@
             this.label4.BackColor = System.Drawing.SystemColors.ControlText;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(65)))), ((int)(((byte)(153)))));
-            this.label4.Location = new System.Drawing.Point(314, 344);
+            this.label4.Location = new System.Drawing.Point(350, 382);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 143;
@@ -253,10 +242,10 @@
             this.metroLink_brazil.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroLink_brazil.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.metroLink_brazil.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.metroLink_brazil.Location = new System.Drawing.Point(314, 357);
+            this.metroLink_brazil.Location = new System.Drawing.Point(317, 357);
             this.metroLink_brazil.Name = "metroLink_brazil";
             this.metroLink_brazil.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.metroLink_brazil.Size = new System.Drawing.Size(40, 13);
+            this.metroLink_brazil.Size = new System.Drawing.Size(37, 13);
             this.metroLink_brazil.TabIndex = 145;
             this.metroLink_brazil.TabStop = true;
             this.metroLink_brazil.Text = "...";
@@ -604,10 +593,10 @@
             this.metroLink_us_northcentral.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroLink_us_northcentral.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.metroLink_us_northcentral.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.metroLink_us_northcentral.Location = new System.Drawing.Point(113, 199);
+            this.metroLink_us_northcentral.Location = new System.Drawing.Point(116, 199);
             this.metroLink_us_northcentral.Name = "metroLink_us_northcentral";
             this.metroLink_us_northcentral.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.metroLink_us_northcentral.Size = new System.Drawing.Size(77, 13);
+            this.metroLink_us_northcentral.Size = new System.Drawing.Size(76, 13);
             this.metroLink_us_northcentral.TabIndex = 171;
             this.metroLink_us_northcentral.TabStop = true;
             this.metroLink_us_northcentral.Text = "...";
@@ -621,7 +610,7 @@
             this.label16.BackColor = System.Drawing.SystemColors.ControlText;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(65)))), ((int)(((byte)(153)))));
-            this.label16.Location = new System.Drawing.Point(113, 186);
+            this.label16.Location = new System.Drawing.Point(30, 186);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(77, 13);
             this.label16.TabIndex = 170;
@@ -870,11 +859,83 @@
             this.label23.Text = "Tianjin";
             this.label23.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // picBox_MAP
+            // 
+            this.picBox_MAP.BackColor = System.Drawing.Color.Transparent;
+            this.picBox_MAP.Image = global::MercuryBOT.Properties.Resources.mapWhite;
+            this.picBox_MAP.Location = new System.Drawing.Point(0, 22);
+            this.picBox_MAP.Name = "picBox_MAP";
+            this.picBox_MAP.Size = new System.Drawing.Size(910, 525);
+            this.picBox_MAP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox_MAP.TabIndex = 140;
+            this.picBox_MAP.TabStop = false;
+            this.picBox_MAP.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PicBox_MAP_MouseDown);
+            this.picBox_MAP.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PicBox_MAP_MouseMove);
+            this.picBox_MAP.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PicBox_MAP_MouseUp);
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.BackColor = System.Drawing.Color.Black;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel1.Location = new System.Drawing.Point(317, 342);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(37, 15);
+            this.metroLabel1.TabIndex = 188;
+            this.metroLabel1.Text = "Brazil";
+            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.metroLabel1.UseCustomBackColor = true;
+            this.metroLabel1.UseStyleColors = true;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.BackColor = System.Drawing.Color.Black;
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel2.Location = new System.Drawing.Point(467, 388);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(67, 15);
+            this.metroLabel2.TabIndex = 189;
+            this.metroLabel2.Text = "South Africa";
+            this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.metroLabel2.UseCustomBackColor = true;
+            this.metroLabel2.UseStyleColors = true;
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.BackColor = System.Drawing.Color.Black;
+            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel3.Location = new System.Drawing.Point(745, 382);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(50, 15);
+            this.metroLabel3.TabIndex = 190;
+            this.metroLabel3.Text = "Australia";
+            this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.metroLabel3.UseCustomBackColor = true;
+            this.metroLabel3.UseStyleColors = true;
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.BackColor = System.Drawing.Color.Black;
+            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel4.Location = new System.Drawing.Point(116, 184);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(76, 15);
+            this.metroLabel4.TabIndex = 191;
+            this.metroLabel4.Text = "North Central";
+            this.metroLabel4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.metroLabel4.UseCustomBackColor = true;
+            this.metroLabel4.UseStyleColors = true;
+            // 
             // CSRegions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 526);
+            this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.metroLabel3);
+            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.metroLink_china_tianjin);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.metroLink_china_guangzhou);
@@ -932,7 +993,7 @@
             this.Name = "CSRegions";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
-            this.Style = MetroFramework.MetroColorStyle.Purple;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Mercury - Unofficial CS:GO Regions Status";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.CSRegions_Load);
@@ -997,5 +1058,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.LinkLabel metroLink_china_tianjin;
         private System.Windows.Forms.Label label23;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
     }
 }

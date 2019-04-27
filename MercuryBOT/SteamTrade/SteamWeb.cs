@@ -141,26 +141,6 @@ namespace MercuryBOT.SteamTrade
             // Cookies
             request.CookieContainer = _cookies;
 
-            /*Hashtable table = (Hashtable)request.CookieContainer.GetType().InvokeMember("m_domainTable",
-                                                                         BindingFlags.NonPublic |
-                                                                         BindingFlags.GetField |
-                                                                         BindingFlags.Instance,
-                                                                         null,
-                                                                         request.CookieContainer,
-                                                                         new object[] { });
-
-
-
-            foreach (var key in table.Keys)
-            {
-                foreach (Cookie cookie in request.CookieContainer.GetCookies(new Uri(string.Format("http://www{0}/", key))))
-                {
-                    Console.WriteLine("Name = {0} ; Value = {1} ; Domain = {2}", cookie.Name, cookie.Value,
-                                      cookie.Domain);
-                }
-            }*/
-
-
             // If the request is a GET request return now the response. If not go on. Because then we need to apply data to the request.
             if (isGetMethod || string.IsNullOrEmpty(dataString))
             {
@@ -357,11 +337,6 @@ namespace MercuryBOT.SteamTrade
             }
 
         }
-
-
-
-
-        
         
         ///<summary>
         /// Authenticate using SteamKit2 and ISteamUserAuth. 
@@ -382,11 +357,10 @@ namespace MercuryBOT.SteamTrade
             Token = TokenSecure = String.Empty;
             SessionId = Convert.ToBase64String(Encoding.UTF8.GetBytes(myUniqueId));
 
-            if (SessionId.Length < 28)
-            {
-                SessionId = null;
-                return false;
-            }
+            //if (SessionId.Length < 28)
+            //{
+            //    return false;
+            //}
 
             _cookies = new CookieContainer();
 

@@ -77,7 +77,6 @@
             this.metroLabel8.Location = new System.Drawing.Point(148, 113);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(51, 19);
-            this.metroLabel8.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel8.TabIndex = 26;
             this.metroLabel8.Text = "Steam";
             this.metroLabel8.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -91,7 +90,6 @@
             this.metroLabel9.Location = new System.Drawing.Point(161, 143);
             this.metroLabel9.Name = "metroLabel9";
             this.metroLabel9.Size = new System.Drawing.Size(44, 19);
-            this.metroLabel9.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel9.TabIndex = 27;
             this.metroLabel9.Text = "Store:";
             this.metroLabel9.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -105,7 +103,6 @@
             this.metroLabel10.Location = new System.Drawing.Point(121, 162);
             this.metroLabel10.Name = "metroLabel10";
             this.metroLabel10.Size = new System.Drawing.Size(84, 19);
-            this.metroLabel10.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel10.TabIndex = 28;
             this.metroLabel10.Text = "Community:";
             this.metroLabel10.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -133,7 +130,6 @@
             this.metroLabel2.Location = new System.Drawing.Point(165, 181);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(40, 19);
-            this.metroLabel2.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel2.TabIndex = 32;
             this.metroLabel2.Text = "CMs:";
             this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -161,7 +157,6 @@
             this.metroLabel15.Location = new System.Drawing.Point(144, 219);
             this.metroLabel15.Name = "metroLabel15";
             this.metroLabel15.Size = new System.Drawing.Size(61, 19);
-            this.metroLabel15.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel15.TabIndex = 43;
             this.metroLabel15.Text = "WEBAPI:";
             this.metroLabel15.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -175,7 +170,6 @@
             this.metroLabel16.Location = new System.Drawing.Point(136, 238);
             this.metroLabel16.Name = "metroLabel16";
             this.metroLabel16.Size = new System.Drawing.Size(69, 19);
-            this.metroLabel16.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel16.TabIndex = 44;
             this.metroLabel16.Text = "Database:";
             this.metroLabel16.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -245,7 +239,6 @@
             this.metroLabel18.Location = new System.Drawing.Point(94, 200);
             this.metroLabel18.Name = "metroLabel18";
             this.metroLabel18.Size = new System.Drawing.Size(111, 19);
-            this.metroLabel18.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel18.TabIndex = 62;
             this.metroLabel18.Text = "WebSocket CMs:";
             this.metroLabel18.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -273,7 +266,6 @@
             this.metroLabel1.Location = new System.Drawing.Point(84, 409);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(121, 19);
-            this.metroLabel1.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel1.TabIndex = 74;
             this.metroLabel1.Text = "Player Inventories:";
             this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -315,7 +307,6 @@
             this.metroLabel4.Location = new System.Drawing.Point(46, 428);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(159, 19);
-            this.metroLabel4.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel4.TabIndex = 69;
             this.metroLabel4.Text = "Matchmaking Scheduler:";
             this.metroLabel4.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -343,7 +334,6 @@
             this.metroLabel5.Location = new System.Drawing.Point(99, 390);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(106, 19);
-            this.metroLabel5.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel5.TabIndex = 67;
             this.metroLabel5.Text = "Sessions Logon:";
             this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -371,7 +361,6 @@
             this.metroLabel6.Location = new System.Drawing.Point(126, 306);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(79, 19);
-            this.metroLabel6.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel6.TabIndex = 65;
             this.metroLabel6.Text = "Dota 2 API:";
             this.metroLabel6.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -385,7 +374,6 @@
             this.metroLabel7.Location = new System.Drawing.Point(146, 287);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(59, 19);
-            this.metroLabel7.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel7.TabIndex = 64;
             this.metroLabel7.Text = "TF2 API:";
             this.metroLabel7.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -399,7 +387,6 @@
             this.metroLabel3.Location = new System.Drawing.Point(148, 361);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(51, 19);
-            this.metroLabel3.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel3.TabIndex = 76;
             this.metroLabel3.Text = "CS:GO";
             this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -485,7 +472,6 @@
             this.metroProgressSpinner1.Maximum = 100;
             this.metroProgressSpinner1.Name = "metroProgressSpinner1";
             this.metroProgressSpinner1.Size = new System.Drawing.Size(34, 32);
-            this.metroProgressSpinner1.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroProgressSpinner1.TabIndex = 84;
             this.metroProgressSpinner1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroProgressSpinner1.UseCustomBackColor = true;
@@ -554,7 +540,7 @@
             this.Name = "SteamServersMain";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
-            this.Style = MetroFramework.MetroColorStyle.Purple;
+            this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Mercury - Unofficial Steam Status";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Load += new System.EventHandler(this.SteamServersMain_Load);
