@@ -1,8 +1,8 @@
 <p align="center">
   <img width="100" height="100" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/MercuryIconLogo.png">
-   <img width="100" height="100" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/MercuryLogoWhite.png">
-
 </p>
+  <img width="146" height="350" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/MercuryLogoWhite.png">
+
 Mercury is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
 
 ### Features
