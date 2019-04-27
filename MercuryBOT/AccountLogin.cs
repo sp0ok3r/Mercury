@@ -1100,7 +1100,13 @@ namespace MercuryBOT
             {
                 request.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed
                 {
-                    game_id = 12350489788975939584,
+                    // game_id = 12350489788975939584,
+                    game_id = new GameID
+                    {
+                        AppType = GameID.GameType.P2P,
+                        ModID = uint.MaxValue
+                    },
+                    //game_extra_infoSpecified
                     game_extra_info = NonSteam
                 });
             }

@@ -52,7 +52,7 @@ namespace MercuryBOT
                     toggle_chatLogger.Checked = a.ChatLogger;
                 }
             }
-            
+
             var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
 
             if (Settingslist.startupAcc == selectedSteamID)
@@ -90,17 +90,21 @@ namespace MercuryBOT
                     a.ChatLogger = toggle_chatLogger.Checked;
                 }
             }
+            File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, Formatting.Indented));
 
-            string output = JsonConvert.SerializeObject(list, Formatting.Indented);
-            File.WriteAllText(Program.AccountsJsonFile, output);
             
-
-
             var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
-            string SaveAccStartup = JsonConvert.SerializeObject(Settingslist, Formatting.Indented);
-            File.WriteAllText(Program.SettingsJsonFile, SaveAccStartup);
 
 
+            if (!toggle_autoLogin.Checked)
+            {
+                Settingslist.startupAcc = 0;
+            }else{
+                Settingslist.startupAcc = selectedSteamID;
+            }
+
+            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, Formatting.Indented));
+            
             Close();
         }
 
