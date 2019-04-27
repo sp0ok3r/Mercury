@@ -27,7 +27,6 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
-using Tulpep.NotificationWindow;
 
 namespace MercuryBOT
 {
