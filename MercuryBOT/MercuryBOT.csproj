@@ -57,7 +57,7 @@
     <StartupObject>MercuryBOT.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>mercury.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\MercuryIconLogo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AngleSharp, Version=0.11.0.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
@@ -462,17 +462,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="mercury.ico" />
+    <None Include="Resources\MercuryIconLogo.ico" />
+    <None Include="Resources\MercuryIconLogo.png" />
     <None Include="Resources\mapWhite.png" />
     <None Include="Resources\MercuryLogoWhite.png" />
     <None Include="Resources\Restart_Click.png" />
     <None Include="Resources\Restart_MouseHover.png" />
     <None Include="Resources\Restart_Normal.png" />
     <None Include="Resources\mercury_alert.wav" />
-    <None Include="Resources\MercuryLogo.png" />
     <None Include="Resources\RamLogo.png" />
     <None Include="Resources\DiscordLogo.png" />
     <None Include="Resources\mercuryIMGNotFound.png" />
-    <None Include="Resources\map.png" />
     <None Include="Resources\notloggedFlag.png" />
   </ItemGroup>
   <ItemGroup>

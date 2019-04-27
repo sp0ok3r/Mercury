@@ -73,16 +73,6 @@ namespace MercuryBOT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap map {
-            get {
-                object obj = ResourceManager.GetObject("map", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap mapWhite {
             get {
                 object obj = ResourceManager.GetObject("mapWhite", resourceCulture);
@@ -111,9 +101,9 @@ namespace MercuryBOT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap mercury6 {
+        internal static System.Drawing.Bitmap MercuryIconLogo {
             get {
-                object obj = ResourceManager.GetObject("mercury6", resourceCulture);
+                object obj = ResourceManager.GetObject("MercuryIconLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

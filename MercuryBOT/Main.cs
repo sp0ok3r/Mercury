@@ -56,12 +56,7 @@ namespace MercuryBOT
             Process.Start(Application.ExecutablePath);
             Application.Exit();
         }
-
         
-
-
-
-
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (AccountLogin.IsLoggedIn == true)
@@ -933,7 +928,7 @@ namespace MercuryBOT
 
         private void MetroLink_AccountsJSONPath_Click(object sender, EventArgs e)
         {
-            Process.Start(Program.AccountsJsonFile);
+            Process.Start(Program.ExecutablePath);
         }
 
         private void link_github_Click(object sender, EventArgs e)
@@ -1310,7 +1305,8 @@ namespace MercuryBOT
 
         private void picBox_Restart_Click(object sender, EventArgs e)
         {
-            picBox_Restart.Image = Properties.Resources.Restart_Click;
+            //picBox_Restart.Image = Properties.Resources.Restart_Click;
+            //picBox_Restart.BackColor = 
             if (AccountLogin.IsLoggedIn == true)
             {
                 AccountLogin.Logout();

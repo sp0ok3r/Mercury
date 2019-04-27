@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("MercuryBOT")]
 [assembly: AssemblyDescription("Ultimate Steam Tool")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("SP0OK3RTOOLS")]
 [assembly: AssemblyProduct("MercuryBOT")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
