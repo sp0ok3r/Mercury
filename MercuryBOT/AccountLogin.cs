@@ -383,7 +383,7 @@ namespace MercuryBOT
                 {
                     Console.WriteLine("[" + Program.BOTNAME + "] - Too many disconnects occured in a short period of time. Wait 3 minutes brother...");
                     InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Too many disconnects occured in a short period of time. Wait 3 minutes brother...");
-                    Thread.Sleep(TimeSpan.FromMinutes(3));
+                    //Thread.Sleep(TimeSpan.FromMinutes(3));
                     DisconnectedCounter = 0;
                 }
             }

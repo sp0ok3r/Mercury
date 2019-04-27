@@ -136,9 +136,7 @@ namespace MercuryBOT
             metroTabControl.SelectedTab = metroTab_AddAcc;
 
             Trolha.Tick += Trolha_Tick;
-            TrolhaCommunity.Tick += CommunityConnection_Tick;
-
-
+            
             // Calculate the mercury age. 2019-03-28 💔
             var age = 2019 - DateTime.Today.Year;
             lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
@@ -967,7 +965,6 @@ namespace MercuryBOT
 
                 if (AccountLogin.IsWebLoggedIn)
                 {
-                    TrolhaCommunity.Stop();
                     return;
                 }
 
