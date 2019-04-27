@@ -1206,7 +1206,7 @@ namespace MercuryBOT
                 try
                 {
                     string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/edit/settings", "GET");
-                    File.WriteAllText(Program.ExecutablePath + @"\ey.html", resp);
+                    //File.WriteAllText(Program.ExecutablePath + @"\ey.html", resp);
 
 
                     var parser = new HtmlParser();
