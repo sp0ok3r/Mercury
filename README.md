@@ -1,7 +1,7 @@
 <p align="center">
   <img width="100" height="100" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/mercury.png">
 </p>
-Mercury is a tool for Steam, written in C# for the purpose of interacting with general steam stuff.
+Mercury is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
 
 ### Features
 - Load all accounts detected in your pc (Remember password enable)
@@ -14,18 +14,16 @@ Mercury is a tool for Steam, written in C# for the purpose of interacting with g
 - Key redeem
 - Groups leaver
 - Gather profile background and get market link
+- ChatLogger
+- Clear profile aliases
 - ... (example images bellow)
 
 ### Soon: 
 - Groups join (60%)
 - Comments filter (60%)
-- ChatLogger (60%) (beta4)
 - Comment on all friends profile (Maybe detect celebrating days) (0%)
 - Rate Entire Activity Feed/Anything (0%)
-- Hide Recent Game Activity (0%)
-- Clear profile aliases (beta4)
 - Save AppIDS to File (0%)
-- If user dont have steam installed, start anyway. For now you need to have steam installed because of the saved usernames. (beta4)
 
 ### Download: 
 

@@ -756,8 +756,6 @@ namespace MercuryBOT
 
         static void OnFriendMsg(SteamFriends.FriendMsgCallback callback) // Auto MSG
         {
-            //https://github.com/belaw/SteamChatLogger/blob/3761feb56524d69eb3d6c4fcdf3f4303a5be6af2/SteamChatLogger.Core/Program.cs#L323
-
             if (ChatLogger == true && callback.EntryType == EChatEntryType.ChatMsg)
             {
 
