@@ -38,7 +38,7 @@ Mercury is a Ultimate Steam Tool, written in C# for the purpose of interacting w
 - http://steamcommunity.com/profiles/76561198041931474
 
 ### Images
-<img align="left" width="810" height="542" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/2.png"><br>
+<img align="left" width="810" height="542" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/1.png"><br>
 <img align="left" width="808" height="544" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/2.png"><br>
 
 <img align="left" width="812" height="545" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3.png"><br>
