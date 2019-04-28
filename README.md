@@ -25,10 +25,11 @@ Mercury is a Ultimate Steam Tool, written in C# for the purpose of interacting w
 
 ### Soon: 
 - Groups join (60%)
+- Groups announcements (0%)
 - Comments filter (60%)
 - Comment on all friends profile (Maybe detect celebrating days) (0%)
 - Rate Entire Activity Feed/Anything (0%)
-- Save AppIDS to File (0%)
+- Save AppIDS to File (0%) maybe not
 
 ### Download: 
 
