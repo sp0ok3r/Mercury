@@ -39,10 +39,17 @@ Mercury is a Ultimate Steam Tool, written in C# for the purpose of interacting w
 
 ### Images
 
-<img align="left" width="808" height="542" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m0.png"><br>
-<img align="left" width="808" height="542" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m1.png"><br>
-<img align="left" width="1418" height="557" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m3.png"><br>
-<img align="left" width="1110" height="986" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m4_1.png"><br>
-<img align="left" width="1308" height="528" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m_steamservers.png"><br>
-<img align="left" width="368" height="635" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m_steamgroups.png"><br>
-<img align="left" width="300" height="342" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/m_proifleback.png"><br>
+<img align="left" width="808" height="542" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/1.png"><br>
+<img align="left" width="808" height="542" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/2.png"><br>
+<img align="left" width="1418" height="557" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3.png"><br>
+<img align="left" width="1110" height="986" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3_1.png"><br>
+<img align="left" width="1308" height="528" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3_2.png"><br>
+<img align="left" width="368" height="635" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png"><br>
+<img align="left" width="300" height="342" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4_1.png"><br>
+<img align="left" width="300" height="342" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png"><br>
+<img align="left" width="300" height="342" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/groups.png"><br>
+<img align="left" width="300" height="342" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/profile_settings.png"><br>
+<img align="left" width="300" height="342" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/profileBackgather.png"><br>
+<img align="left" width="300" height="342" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/steamstatus.png"><br>
+<img align="left" width="300" height="342" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/program_settings.png"><br>
+<img align="left" width="300" height="342" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/information.png"><br>
