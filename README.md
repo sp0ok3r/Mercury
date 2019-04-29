@@ -9,18 +9,18 @@
         Mercury is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
 
 ### Features
-- Load all accounts detected in your pc (Remember password enable)
-- Auto AFK message responder (Custom msg list also included)
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/1.png">Load all accounts detected in your pc (Remember password enable)</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3.png">Auto AFK message responder (Custom msg list also included) </a>
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/steamstatus.png">Check steam/csgo servers status</a>
-- Remove Friends by checking last log off (inactive for a long time)
-- Various Admin commands
-- Play 32 games with only 2 clicks
-- Play non steam game
-- Key redeem
-- Groups leaver
-- Gather profile background and get market link
-- ChatLogger
-- Clear profile aliases
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/2.png">Remove Friends by checking last log off (inactive for a long time)</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3_1.png">Various Admin commands</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png">Play 32 games with only 2 clicks</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png">Play non steam game</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png">Key redeem</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/groups.png">Groups leaver</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/profileBackgather.png">Gather profile background and get market link </a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/ChatLogger/master/img/fileLogExample.png">ChatLogger</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png">Clear profile aliases</a>
 - ... (example images bellow)
 
 ### Soon: 
