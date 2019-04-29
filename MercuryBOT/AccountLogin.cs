@@ -351,8 +351,6 @@ namespace MercuryBOT
             Console.WriteLine("[" + Program.BOTNAME + "] - Successfully logged on!");
             Main.M_NotifyIcon.ShowBalloonTip(200, "INFO", "Successfully logged on!", ToolTipIcon.Info);
 
-
-            //https://github.com/JustArchiNET/ArchiSteamFarm/blob/1b0cb4136679ab781b7edd652ea6d555f4588311/ArchiSteamFarm/Bot.cs#L2306
             steamID = steamClient.SteamID.ConvertToUInt64().ToString();
             CurrentSteamID = steamClient.SteamID.ConvertToUInt64();
             myUserNonce = callback.WebAPIUserNonce;
