@@ -27,9 +27,10 @@
 - Groups join (60%)
 - Groups announcements (0%)
 - Comments filter (60%)
-- Comment on all friends profile (Maybe detect celebrating days) (0%)
+- Comment on all friends profile (0%) beta6
 - Rate Entire Activity Feed/Anything (0%)
-- Save AppIDS to File (0%) maybe not
+- Save AppIDS to File (0%) maybe not beta6
+- Mass message with old method (100%) beta6
 
 ### Download: 
 
