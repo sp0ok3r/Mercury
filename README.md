@@ -6,7 +6,7 @@
 </p>
   
 
-Mercury is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
+      Mercury is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
 
 ### Features
 - Load all accounts detected in your pc (Remember password enable)
