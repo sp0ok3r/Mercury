@@ -9,18 +9,18 @@
         Mercury is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
 
 ### Features
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/1.png">Load all accounts detected in your pc (Remember password enable)</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3.png">Auto AFK message responder (Custom msg list also included) </a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/steamstatus.png">Check steam/csgo servers status</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/2.png">Remove Friends by checking last log off (inactive for a long time)</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3_1.png">Various Admin commands</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png">Play 32 games with only 2 clicks</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png">Play non steam game</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png">Key redeem</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/groups.png">Groups leaver</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/profileBackgather.png">Gather profile background and get market link </a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/ChatLogger/master/img/fileLogExample.png">ChatLogger</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png">Clear profile aliases</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/1.png" target="_blank">Load all accounts detected in your pc (Remember password enable)</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3.png" target="_blank">Auto AFK message responder (Custom msg list also included) </a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/steamstatus.png" target="_blank">Check steam/csgo servers status</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/2.png" target="_blank">Remove Friends by checking last log off (inactive for a long time)</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3_1.png" target="_blank">Various Admin commands</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png" target="_blank">Play 32 games with only 2 clicks</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png" target="_blank">Play non steam game</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png" target="_blank">Key redeem</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/groups.png" target="_blank">Groups leaver</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/profileBackgather.png" target="_blank">Gather profile background and get market link </a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/ChatLogger/master/img/fileLogExample.png" target="_blank">ChatLogger</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png" target="_blank">Clear profile aliases</a>
 - ... (example images bellow)
 
 ### Soon: 
