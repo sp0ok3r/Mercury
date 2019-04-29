@@ -21,7 +21,7 @@
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/profileBackgather.png" target="_blank">Gather profile background and get market link </a>
 - <a href="https://raw.githubusercontent.com/sp0ok3r/ChatLogger/master/img/fileLogExample.png" target="_blank">ChatLogger</a>
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png" target="_blank">Clear profile aliases</a>
-- ... (example images bellow)
+- <a href="https://github.com/sp0ok3r/Mercury#images">...(example images)</a>
 
 ### Soon: 
 - Groups join (60%)
