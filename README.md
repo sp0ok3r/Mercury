@@ -11,7 +11,7 @@
 ### Features
 - Load all accounts detected in your pc (Remember password enable)
 - Auto AFK message responder (Custom msg list also included)
-- Check steam/csgo servers status
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/steamstatus.png">Check steam/csgo servers status</a>
 - Remove Friends by checking last log off (inactive for a long time)
 - Various Admin commands
 - Play 32 games with only 2 clicks
