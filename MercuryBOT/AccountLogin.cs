@@ -246,7 +246,7 @@ namespace MercuryBOT
             bool is2FA = callback.Result == EResult.AccountLoginDeniedNeedTwoFactor;
             bool isLoginKey = callback.Result == EResult.InvalidPassword && NewloginKey != null;
 
-            authCode = twoFactorAuth = null;
+            //authCode = twoFactorAuth = null;
             if (isSteamGuard || is2FA || isLoginKey)
             {
                 if (!isLoginKey)

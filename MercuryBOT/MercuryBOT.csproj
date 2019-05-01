@@ -427,9 +427,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\update.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\mercury_update.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
