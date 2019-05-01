@@ -21,16 +21,17 @@
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/profileBackgather.png" target="_blank">Gather profile background and get market link </a>
 - <a href="https://raw.githubusercontent.com/sp0ok3r/ChatLogger/master/img/fileLogExample.png" target="_blank">ChatLogger</a>
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png" target="_blank">Clear profile aliases</a>
+- Send Groups announcements
+- Set Player of the week in Group
+- Mass message with old method
 - <a href="https://github.com/sp0ok3r/Mercury#images">...(example images)</a>
 
 ### Soon: 
 - Groups join (60%)
-- Groups announcements (0%)
 - Comments filter (60%)
-- Comment on all friends profile (0%) beta6
+- Comment on all friends profile (0%) beta7
 - Rate Entire Activity Feed/Anything (0%)
-- Save AppIDS to File (0%) maybe not beta6
-- Mass message with old method (100%) beta6
+- Save AppIDS to File (0%) maybe not beta7
 
 ### Download: 
 
