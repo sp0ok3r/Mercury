@@ -99,6 +99,15 @@ namespace MercuryBOT.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream mercury_update {
+            get {
+                return ResourceManager.GetStream("mercury_update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap MercuryIconLogo {
@@ -144,16 +153,6 @@ namespace MercuryBOT.Properties {
         internal static System.Drawing.Bitmap RamLogo {
             get {
                 object obj = ResourceManager.GetObject("RamLogo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Restart_Click {
-            get {
-                object obj = ResourceManager.GetObject("Restart_Click", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

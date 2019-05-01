@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
 
@@ -78,28 +79,31 @@ namespace MercuryBOT.Splash
             foreach (var user in _users)
             {
                 var list = JsonConvert.DeserializeObject<UserSettings.RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-                foreach (var a in list.Accounts)
+
+                // IList<string> savedAccs = list.Accounts.Select(u => u.username).ToList();
+                 IList<string> savedAccs = list.Accounts.Select(u => u.username).ToList();
+
+                //.OrderByDescending(user => user.LastLoginTime).ToList();
+                if (!savedAccs.Contains(user.AccountName))
                 {
-                    if (a.username == user.AccountName)
+                    
+                    var EmptyGameList = new List<Game>();
+                    var EmptyCustomMessagesList = new List<UserSettings.CustomMessages>();
+                    list.Accounts.Add(new UserAccounts
                     {
-                        return;
-                    }
+                        LastLoginTime=user.LastLoginTime,
+                        AdminID = 0,
+                        username = user.AccountName,
+                        password = "",
+                        SteamID = user.SteamId64,
+                        LoginKey = "",
+                        APIWebKey = "",
+                        Games = EmptyGameList,
+                        AFKMessages = EmptyCustomMessagesList
+                    });
+
+                    File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, new JsonSerializerSettings { Formatting = Formatting.Indented }));
                 }
-                var EmptyGameList = new List<Game>();
-                var EmptyCustomMessagesList = new List<UserSettings.CustomMessages>();
-                list.Accounts.Add(new UserAccounts
-                {
-                    AdminID = 0,
-                    username = user.AccountName,
-                    password = "",
-                    SteamID = user.SteamId64,
-                    LoginKey = "0",
-                    APIWebKey = "0",
-                    Games = EmptyGameList,
-                    AFKMessages = EmptyCustomMessagesList
-                });
-                var convertedJson = JsonConvert.SerializeObject(list, new JsonSerializerSettings { Formatting = Formatting.Indented });
-                File.WriteAllText(Program.AccountsJsonFile, convertedJson);
             }
         }
 
@@ -120,7 +124,7 @@ namespace MercuryBOT.Splash
         private void SplashScreen_Load(object sender, EventArgs e)
         {
             this.Activate(); // bring form to fronte eyes
-            lbl_version.Text = Program.Version;
+            lbl_version.Text = Program.Version.Replace("-","");
         }
         Timer tmr;
 

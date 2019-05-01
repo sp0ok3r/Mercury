@@ -8,21 +8,28 @@
 ▐    ▐     ▐                  ▐                                 ▐   
 */
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MercuryBOT.User2Json
+namespace MercuryBOT.Notification
 {
-    public partial class MercurySettings
+    class NotifHelper
     {
-        public int startupColor { get; set; }
-        public bool playsound { get; set; }
-
-        public bool hideInTaskBar { get; set; }
-        public bool startup { get; set; }
-
-        public int startupTab { get; set; }
-
-        public ulong startupAcc { get; set; }
-        public bool startMinimized { get; set; }
-
+        public static class MessageBox
+        {
+            public static void Show(string title, string description)
+            {
+                using (var form = new Notification.NotificationForm(title, description))
+                {
+                    form.ShowDialog();
+                }
+            }
+        }
     }
 }
+
+       
+

@@ -10,6 +10,9 @@ namespace MercuryBOT.CustomMessages
 {
     public partial class AFKMessages : MetroFramework.Forms.MetroForm
     {
+        public static string SelectedMsg = "";
+
+
         public AFKMessages()
         {
             InitializeComponent();
@@ -39,12 +42,14 @@ namespace MercuryBOT.CustomMessages
                         }
                         UserSettings.CustomMessages NewMessage = new UserSettings.CustomMessages { Message = txtBox_customMSG.Text };
                         UserList.AFKMessages.Add(NewMessage);
+                        
                     }
                 }
 
                 File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(ListsMessages, Formatting.Indented));
 
-                listview_customMsgs.Items.Add(txtBox_customMSG.Text);
+               // listview_customMsgs.Items.Add(txtBox_customMSG.Text);
+                SavedMsgs_Grid.Rows.Add(txtBox_customMSG.Text);
                 txtBox_customMSG.Clear();
 
             }
@@ -65,10 +70,11 @@ namespace MercuryBOT.CustomMessages
                     {
                         for (int i = 0; i < UserList.AFKMessages.Count; i++)
                         {
-                            listview_customMsgs.Items.Add(UserList.AFKMessages[i].Message);
+                            SavedMsgs_Grid.Rows.Add(UserList.AFKMessages[i].Message);
                         }
                     }
                 }
+                SavedMsgs_Grid.ClearSelection();
             }
             else
             {
@@ -76,10 +82,9 @@ namespace MercuryBOT.CustomMessages
             }
         }
 
-        int iSELECTED = -1;
         private void Btn_deleteSelected_Click(object sender, EventArgs e)
         {
-            if (iSELECTED != -1)
+            if (SelectedMsg != "")
             {
                 var ListsMessages = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
                 foreach (var UserList in ListsMessages.Accounts)
@@ -88,10 +93,10 @@ namespace MercuryBOT.CustomMessages
                     {
                         for (int i = 0; i < UserList.AFKMessages.Count; i++)
                         {
-                            if (UserList.AFKMessages[i] == UserList.AFKMessages[iSELECTED])
+                            if (UserList.AFKMessages[i] == UserList.AFKMessages[SavedMsgs_Grid.SelectedRows[0].Cells[0].RowIndex])
                             {
                                 UserList.AFKMessages.Remove(UserList.AFKMessages[i]);
-                                listview_customMsgs.Items.RemoveAt(i);
+                                SavedMsgs_Grid.Rows.RemoveAt(SavedMsgs_Grid.SelectedRows[0].Cells[0].RowIndex); 
                             }
                         }
                     }
@@ -102,18 +107,19 @@ namespace MercuryBOT.CustomMessages
             }
         }
 
-        private void Listview_customMsgs_SelectedIndexChanged(object sender, EventArgs e)
+        private void SavedMsgs_ScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
-            if (listview_customMsgs.SelectedItems.Count > 0)
+            if (e.NewValue >= SavedMsgs_Grid.Rows.Count)
             {
-                btn_deleteSelected.Enabled = true;
-                iSELECTED = listview_customMsgs.SelectedItems[0].Index;
-                lbl_selectedMessage.Text = "Selected: "+ iSELECTED;
+                return;
             }
-            else
-            {
-                btn_deleteSelected.Enabled = false;
-            }
+            SavedMsgs_Grid.FirstDisplayedScrollingRowIndex = e.NewValue;
+        }
+
+        private void SavedMsgs_Grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SelectedMsg = SavedMsgs_Grid.SelectedRows[0].Cells[0].Value.ToString();
+            lbl_selectedMessage.Text = "Selected: " + SelectedMsg;
         }
     }
 }

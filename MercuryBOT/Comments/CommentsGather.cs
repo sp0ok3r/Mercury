@@ -60,36 +60,7 @@ namespace MercuryBOT
         {
             return Regex.Replace(str, "[^a-zA-Z0-9_.]+", " ", RegexOptions.Compiled);
         }
-
-        private static bool IsSteamid32(string input) => input.StartsWith("STEAM_0:");
-
-        private static bool IsSteamid64(string input) => (input.Length == 17) && input.StartsWith("7656");
-
-        private static bool IsSteamURL(string input)
-        {
-            string url = input.Replace("https://", "").Replace("http://", "");
-            return url.StartsWith("steamcommunity.com/id/") || url.StartsWith("steamcommunity.com/profiles/");
-        }
-
-        private static string ToSteamID32(string input)
-        {
-            Int64 steamId1 = Convert.ToInt64(input.Substring(0)) % 2;
-            Int64 steamId2a = Convert.ToInt64(input.Substring(0, 4)) - 7656;
-            Int64 steamId2b = Convert.ToInt64(input.Substring(4)) - 1197960265728;
-            steamId2b = steamId2b - steamId1;
-
-            return "STEAM_0:" + steamId1 + ":" + ((steamId2a + steamId2b) / 2);
-        }
-
-        private static string ToSteamID64(string input)
-        {
-            string[] split = input.Replace("STEAM_", "").Split(':');
-            return (76561197960265728 + (Convert.ToInt64(split[2]) * 2) + Convert.ToInt64(split[1])).ToString();
-        }
-
-        private static string ToSteamURL(string input) => $"https://steamcommunity.com/profiles/{(IsSteamid32(input) ? ToSteamID64(input) : input)}";
-
-
+        
 
         public void GatherComments()
         {

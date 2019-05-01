@@ -37,7 +37,7 @@ namespace MercuryBOT.SteamTrade
         /// <summary>
         /// Session id of Steam after Login.
         /// </summary>
-        public string SessionId { get; private set; }
+        public string SessionID { get; private set; }
 
         /// <summary>
         /// Token secure as string. It is generated after the Login.
@@ -186,157 +186,6 @@ namespace MercuryBOT.SteamTrade
                 throw;
             }
         }
-
-        /// <summary>
-        /// Executes the login by using the Steam Website.
-        /// This Method is not used by Steambot repository, but it could be very helpful if you want to build a own Steambot or want to login into steam services like backpack.tf/csgolounge.com.
-        /// Updated: 10-02-2015.
-        /// </summary>
-        /// <param name="username">Your Steam username.</param>
-        /// <param name="password">Your Steam password.</param>
-        /// <returns>A bool containing a value, if the login was successful.</returns>
-        public bool DoLogin(string username, string password)
-        {
-            var data = new NameValueCollection { { "username", username } };
-            // First get the RSA key with which we will encrypt our password.
-            string response = Fetch("https://steamcommunity.com/login/getrsakey", "POST", data, false);
-            GetRsaKey rsaJson = JsonConvert.DeserializeObject<GetRsaKey>(response);
-
-            // Validate, if we could get the rsa key.
-            if (!rsaJson.success)
-            {
-                return false;
-            }
-
-            // RSA Encryption.
-            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
-            RSAParameters rsaParameters = new RSAParameters
-            {
-                Exponent = HexToByte(rsaJson.publickey_exp),
-                Modulus = HexToByte(rsaJson.publickey_mod)
-            };
-
-            rsa.ImportParameters(rsaParameters);
-
-            // Encrypt the password and convert it.
-            byte[] bytePassword = Encoding.ASCII.GetBytes(password);
-            byte[] encodedPassword = rsa.Encrypt(bytePassword, false);
-            string encryptedBase64Password = Convert.ToBase64String(encodedPassword);
-
-            SteamResult loginJson = null;
-            CookieCollection cookieCollection;
-            string steamGuardText = "";
-            string steamGuardId = "";
-
-            // Do this while we need a captcha or need email authentification. Probably you have misstyped the captcha or the SteamGaurd code if this comes multiple times.
-            do
-            {
-                Console.WriteLine("SteamWeb: Logging In...");
-
-                bool captcha = loginJson != null && loginJson.captcha_needed;
-                bool steamGuard = loginJson != null && loginJson.emailauth_needed;
-
-                string time = Uri.EscapeDataString(rsaJson.timestamp);
-
-                string capGid = string.Empty;
-                // Response does not need to send if captcha is needed or not.
-                // ReSharper disable once MergeSequentialChecks
-                if (loginJson != null && loginJson.captcha_gid != null)
-                {
-                    capGid = Uri.EscapeDataString(loginJson.captcha_gid);
-                }
-
-                data = new NameValueCollection { { "password", encryptedBase64Password }, { "username", username } };
-
-                // Captcha Check.
-                string capText = "";
-                if (captcha)
-                {
-                    Console.WriteLine("SteamWeb: Captcha is needed.");
-                    System.Diagnostics.Process.Start("https://steamcommunity.com/public/captcha.php?gid=" + loginJson.captcha_gid);
-                    Console.WriteLine("SteamWeb: Type the captcha:");
-                    string consoleText = Console.ReadLine();
-                    if (!string.IsNullOrEmpty(consoleText))
-                    {
-                        capText = Uri.EscapeDataString(consoleText);
-                    }
-                }
-
-                data.Add("captchagid", captcha ? capGid : "");
-                data.Add("captcha_text", captcha ? capText : "");
-                // Captcha end.
-                // Added Header for two factor code.
-                data.Add("twofactorcode", "");
-
-                // Added Header for remember login. It can also set to true.
-                data.Add("remember_login", "false");
-
-                // SteamGuard check. If SteamGuard is enabled you need to enter it. Care probably you need to wait 7 days to trade.
-                // For further information about SteamGuard see: https://support.steampowered.com/kb_article.php?ref=4020-ALZM-5519&l=english.
-                if (steamGuard)
-                {
-                    Console.WriteLine("SteamWeb: SteamGuard is needed.");
-                    Console.WriteLine("SteamWeb: Type the code:");
-                    string consoleText = Console.ReadLine();
-                    if (!string.IsNullOrEmpty(consoleText))
-                    {
-                        steamGuardText = Uri.EscapeDataString(consoleText);
-                    }
-                    steamGuardId = loginJson.emailsteamid;
-
-                    // Adding the machine name to the NameValueCollection, because it is requested by steam.
-                    Console.WriteLine("SteamWeb: Type your machine name:");
-                    consoleText = Console.ReadLine();
-                    var machineName = string.IsNullOrEmpty(consoleText) ? "" : Uri.EscapeDataString(consoleText);
-                    data.Add("loginfriendlyname", machineName != "" ? machineName : "defaultSteamBotMachine");
-                }
-
-                data.Add("emailauth", steamGuardText);
-                data.Add("emailsteamid", steamGuardId);
-                // SteamGuard end.
-
-                // Added unixTimestamp. It is included in the request normally.
-                var unixTimestamp = (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-                // Added three "0"'s because Steam has a weird unix timestamp interpretation.
-                data.Add("donotcache", unixTimestamp + "000");
-
-                data.Add("rsatimestamp", time);
-
-                // Sending the actual login.
-                using (HttpWebResponse webResponse = Request("https://steamcommunity.com/login/dologin/", "POST", data, false))
-                {
-                    var stream = webResponse.GetResponseStream();
-                    if (stream == null)
-                    {
-                        return false;
-                    }
-                    using (StreamReader reader = new StreamReader(stream))
-                    {
-                        string json = reader.ReadToEnd();
-                        loginJson = JsonConvert.DeserializeObject<SteamResult>(json);
-                        cookieCollection = webResponse.Cookies;
-                    }
-                }
-            } while (loginJson.captcha_needed || loginJson.emailauth_needed);
-
-            // If the login was successful, we need to enter the cookies to steam.
-            if (loginJson.success)
-            {
-                _cookies = new CookieContainer();
-                foreach (Cookie cookie in cookieCollection)
-                {
-                    _cookies.Add(cookie);
-                }
-                SubmitCookies(_cookies);
-                return true;
-            }
-            else
-            {
-                Console.WriteLine("SteamWeb Error: " + loginJson.message);
-                return false;
-            }
-
-        }
         
         ///<summary>
         /// Authenticate using SteamKit2 and ISteamUserAuth. 
@@ -351,16 +200,11 @@ namespace MercuryBOT.SteamTrade
         {
 
             // Fix "The request was aborted: Could not create SSL/TLS secure channel" error
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12 | SecurityProtocolType.Ssl3;
-            ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12 | SecurityProtocolType.Ssl3;
+           // ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
 
             Token = TokenSecure = String.Empty;
-            SessionId = Convert.ToBase64String(Encoding.UTF8.GetBytes(myUniqueId));
-
-            //if (SessionId.Length < 28)
-            //{
-            //    return false;
-            //}
+            SessionID = Convert.ToBase64String(Encoding.UTF8.GetBytes(myUniqueId));
 
             _cookies = new CookieContainer();
 
@@ -405,7 +249,7 @@ namespace MercuryBOT.SteamTrade
                 TokenSecure = authResult["tokensecure"].AsString();
 
                 // Adding cookies to the cookie container.
-                _cookies.Add(new Cookie("sessionid", SessionId, string.Empty, SteamCommunityDomain));
+                _cookies.Add(new Cookie("sessionid", SessionID, string.Empty, SteamCommunityDomain));
                 _cookies.Add(new Cookie("steamLogin", Token, string.Empty, SteamCommunityDomain));
                 _cookies.Add(new Cookie("steamLoginSecure", TokenSecure, string.Empty, SteamCommunityDomain));
                 _cookies.Add(new Cookie("Steam_Language", "english", string.Empty, SteamCommunityDomain));
@@ -422,12 +266,6 @@ namespace MercuryBOT.SteamTrade
             }
         }
 
-        /// <summary>
-        /// Authenticate using an array of cookies from a browser or whatever source, without contacting the server.
-        /// It is recommended that you call <see cref="VerifyCookies"/> after calling this method to ensure that the cookies are valid.
-        /// </summary>
-        /// <param name="cookies">An array of cookies from a browser or whatever source. Must contain sessionid, steamLogin, steamLoginSecure</param>
-        /// <exception cref="ArgumentException">One of the required cookies(steamLogin, steamLoginSecure, sessionid) is missing.</exception>
         public void Authenticate(System.Collections.Generic.IEnumerable<Cookie> cookies)
         {
             var cookieContainer = new CookieContainer();
@@ -452,7 +290,7 @@ namespace MercuryBOT.SteamTrade
                 throw new ArgumentException("Cookie with name \"sessionid\" is not found.");
             Token = token;
             TokenSecure = tokenSecure;
-            SessionId = sessionId;
+            SessionID = sessionId;
             _cookies = cookieContainer;
         }
 

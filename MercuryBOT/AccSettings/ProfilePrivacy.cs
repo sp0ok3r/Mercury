@@ -98,10 +98,9 @@ namespace MercuryBOT.AccSettings
                     btn_changeprofSettings.Enabled = true;
                 });
             }
-            catch (Exception tete)
+            catch (Exception)
             {
                 Console.WriteLine("Login again");
-                Close();
             }
         }
 

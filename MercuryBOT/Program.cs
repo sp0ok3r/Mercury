@@ -24,10 +24,7 @@ namespace MercuryBOT
     {
 
         public static readonly string BOTNAME          = "MercuryBOT";
-        public static readonly string BOTNAMELowerCaps = "MᴇʀᴄᴜʀʏBOT";
-
-        public static readonly string spkDomain        = "http://sp0ok3r.tk/Mercury/";
-        public static readonly string Version          = "4.0.0beta5";
+        public static readonly string Version          = "4.0.0-beta6";
 
 
         public static readonly string ExecutablePath   = Path.GetDirectoryName(Application.ExecutablePath);
@@ -36,8 +33,7 @@ namespace MercuryBOT
         public static readonly string SentryFolder     = ExecutablePath + @"\Sentry\";
         public static readonly string ChatLogsFolder   = ExecutablePath + @"\ChatLogs\";
 
-
-
+        
         [STAThread]
         static void Main()
         {

@@ -33,7 +33,6 @@ namespace MercuryBOT
 
         private void EditAcc_Load(object sender, EventArgs e)
         {
-
             EditSelected(Main.SelectedUser);
         }
         private ulong selectedSteamID = 0;
@@ -55,7 +54,8 @@ namespace MercuryBOT
 
             var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
 
-            if (Settingslist.startupAcc == selectedSteamID)
+
+            if (Settingslist.startupAcc == selectedSteamID && Settingslist.startupAcc.ToString().Length > 0)
             {
                 toggle_autoLogin.Enabled = true;
                 toggle_autoLogin.Checked = true;
@@ -64,6 +64,11 @@ namespace MercuryBOT
             {
                 toggle_autoLogin.Enabled = false;
             }
+            if (selectedSteamID == 0)
+            {
+                toggle_autoLogin.Enabled = false;
+            }
+
         }
 
         private void BTN_SUBMIT_Click(object sender, EventArgs e)
@@ -92,25 +97,32 @@ namespace MercuryBOT
             }
             File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, Formatting.Indented));
 
-            
             var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
-
-
-            if (!toggle_autoLogin.Checked)
-            {
+            
+            if (!toggle_autoLogin.Checked){
                 Settingslist.startupAcc = 0;
             }else{
                 Settingslist.startupAcc = selectedSteamID;
             }
 
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, Formatting.Indented));
-            
             Close();
         }
 
         private void MetroLink_AccountsJSONPath_Click(object sender, EventArgs e)
         {
             Process.Start(Program.AccountsJsonFile);
+        }
+
+        private void btn_deleteAcc_Click(object sender, EventArgs e)
+        {
+            var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
+
+            list.Accounts.RemoveAll(x => x.username == Main.SelectedUser);
+
+            File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, Formatting.Indented));
+            Close();
+            Notification.NotifHelper.MessageBox.Show("Info", " Removed " + Main.SelectedUser + " from file.");
         }
     }
 }

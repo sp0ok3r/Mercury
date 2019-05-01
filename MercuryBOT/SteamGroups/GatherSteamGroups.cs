@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using System.IO;
-using System.Diagnostics;
 
 namespace MercuryBOT.SteamGroups
 {
@@ -49,7 +49,9 @@ namespace MercuryBOT.SteamGroups
         }
 
         string GroupSelected = "None";
+
         string GroupNameSelected = "None";
+
         private void btn_exitSelected_Click(object sender, EventArgs e)
         {
             if (GroupSelected == "None")
@@ -66,7 +68,6 @@ namespace MercuryBOT.SteamGroups
                 btn_exitfromAll.Enabled = true;
                 RefreshClanList();
             }
-
         }
 
         private void GridClanData_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -75,6 +76,7 @@ namespace MercuryBOT.SteamGroups
             {
                 GroupSelected = GridClanData.SelectedRows[0].Cells[0].Value + string.Empty;
                 GroupNameSelected = GridClanData.SelectedRows[0].Cells[1].Value + string.Empty;
+                lbl_groupSelected.Text = "Selected: " + GroupNameSelected;
             }
         }
 
@@ -82,6 +84,7 @@ namespace MercuryBOT.SteamGroups
         {
             if (GroupSelected == "None")
             {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Select a group.");
 
             }
             else
@@ -115,7 +118,84 @@ namespace MercuryBOT.SteamGroups
                 Process.Start(Program.ExecutablePath + @"\" + AccountLogin.CurrentSteamID + "-GroupsIDS.txt");
             }
         }
+
+        private void btn_groupAnnouncement_Click(object sender, EventArgs e)
+        {
+            if (GroupSelected == "None")
+            {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Select a group.");
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(txtBox_title.Text) || string.IsNullOrEmpty(txtBox_Annonbody.Text))
+                {
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Please write the title or the body.");
+                    return;
+                }
+                else
+                {
+                    AccountLogin.MakeGroupAnnouncement(GroupSelected, txtBox_title.Text, txtBox_Annonbody.Text);
+                }
+            }
+        }
+
+        private void txtBox_gName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                if (txtBox_gName.Text == "")
+                {
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Write the group name please.");
+                }
+                else
+                {
+                    int rowIndex = -1;
+                    foreach (DataGridViewRow row in GridClanData.Rows)
+                    {
+
+                        if (row.Cells[1].Value.ToString().StartsWith(txtBox_gName.Text))
+                        {
+
+                            rowIndex = row.Index;
+                            GridClanData.Rows[rowIndex].Selected = true;
+                            GridClanData.FirstDisplayedScrollingRowIndex = rowIndex;
+                            break;
+                        }
+                        // Console.WriteLine(rowIndex);
+                    }
+                }
+            }
+        }
+
+        private void txtBox_gName_TextChanged(object sender, EventArgs e)
+        {
+
+            int rowIndex = -1;
+            foreach (DataGridViewRow row in GridClanData.Rows)
+            {
+
+                if (row.Cells[1].Value.ToString().Contains(txtBox_gName.Text))
+                {
+
+                    rowIndex = row.Index;
+                    GridClanData.Rows[rowIndex].Selected = true;
+                    GridClanData.FirstDisplayedScrollingRowIndex = rowIndex;
+                    break;
+                }
+                // Console.WriteLine(rowIndex);
+            }
+        }
+
+        private void btn_potw_Click(object sender, EventArgs e)
+        {
+            if (GroupSelected == "None" || string.IsNullOrEmpty(txt_potwSteamID.Text))
+            {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Select a group/Insert SteamID");
+            }
+            else
+            {
+                AccountLogin.setGroupPlayerOfTheWeek(GroupSelected, Extensions.AllToSteamId32(txt_potwSteamID.Text));
+            }
+        }
     }
 }
-
-

@@ -118,7 +118,7 @@
             this.lbl_infoversion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_infoversion.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lbl_infoversion.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lbl_infoversion.Location = new System.Drawing.Point(323, 73);
+            this.lbl_infoversion.Location = new System.Drawing.Point(323, 74);
             this.lbl_infoversion.Name = "lbl_infoversion";
             this.lbl_infoversion.Size = new System.Drawing.Size(81, 25);
             this.lbl_infoversion.TabIndex = 46;

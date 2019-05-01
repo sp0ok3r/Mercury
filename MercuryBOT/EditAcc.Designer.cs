@@ -44,6 +44,7 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.toggle_chatLogger = new MetroFramework.Controls.MetroToggle();
+            this.btn_deleteAcc = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // txtBox_user
@@ -184,7 +185,7 @@
             // lbl_adminID
             // 
             this.lbl_adminID.AutoSize = true;
-            this.lbl_adminID.Location = new System.Drawing.Point(72, 122);
+            this.lbl_adminID.Location = new System.Drawing.Point(72, 123);
             this.lbl_adminID.Name = "lbl_adminID";
             this.lbl_adminID.Size = new System.Drawing.Size(87, 19);
             this.lbl_adminID.TabIndex = 18;
@@ -195,7 +196,7 @@
             // 
             this.BTN_SUBMIT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.BTN_SUBMIT.ForeColor = System.Drawing.Color.White;
-            this.BTN_SUBMIT.Location = new System.Drawing.Point(222, 243);
+            this.BTN_SUBMIT.Location = new System.Drawing.Point(224, 243);
             this.BTN_SUBMIT.Name = "BTN_SUBMIT";
             this.BTN_SUBMIT.Size = new System.Drawing.Size(90, 31);
             this.BTN_SUBMIT.TabIndex = 20;
@@ -209,7 +210,7 @@
             // 
             // metroLink_AccountsJSONPath
             // 
-            this.metroLink_AccountsJSONPath.Location = new System.Drawing.Point(185, 243);
+            this.metroLink_AccountsJSONPath.Location = new System.Drawing.Point(187, 243);
             this.metroLink_AccountsJSONPath.Name = "metroLink_AccountsJSONPath";
             this.metroLink_AccountsJSONPath.Size = new System.Drawing.Size(31, 31);
             this.metroLink_AccountsJSONPath.TabIndex = 22;
@@ -318,11 +319,28 @@
             this.toggle_chatLogger.UseSelectable = true;
             this.toggle_chatLogger.UseStyleColors = true;
             // 
+            // btn_deleteAcc
+            // 
+            this.btn_deleteAcc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.btn_deleteAcc.ForeColor = System.Drawing.Color.White;
+            this.btn_deleteAcc.Location = new System.Drawing.Point(12, 243);
+            this.btn_deleteAcc.Name = "btn_deleteAcc";
+            this.btn_deleteAcc.Size = new System.Drawing.Size(90, 31);
+            this.btn_deleteAcc.TabIndex = 29;
+            this.btn_deleteAcc.Text = "DELETE";
+            this.btn_deleteAcc.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btn_deleteAcc.UseCustomBackColor = true;
+            this.btn_deleteAcc.UseCustomForeColor = true;
+            this.btn_deleteAcc.UseSelectable = true;
+            this.btn_deleteAcc.UseStyleColors = true;
+            this.btn_deleteAcc.Click += new System.EventHandler(this.btn_deleteAcc_Click);
+            // 
             // EditAcc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(325, 288);
+            this.Controls.Add(this.btn_deleteAcc);
             this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.toggle_chatLogger);
             this.Controls.Add(this.metroLabel4);
@@ -367,5 +385,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroToggle toggle_chatLogger;
+        private MetroFramework.Controls.MetroButton btn_deleteAcc;
     }
 }

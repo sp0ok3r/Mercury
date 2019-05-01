@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("MercuryBOT")]
 [assembly: AssemblyDescription("Ultimate Steam Tool")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("SP0OK3RTOOLS")]
+[assembly: AssemblyCompany("spO_okER Toolz")]
 [assembly: AssemblyProduct("MercuryBOT")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright © 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

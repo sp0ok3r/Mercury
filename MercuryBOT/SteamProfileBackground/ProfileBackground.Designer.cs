@@ -33,6 +33,7 @@
             this.txtBox_steamprofile = new MetroFramework.Controls.MetroTextBox();
             this.picBox_steamBackground = new System.Windows.Forms.PictureBox();
             this.lbl_clickonimginfo = new MetroFramework.Controls.MetroLabel();
+            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_steamBackground)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,6 +102,7 @@
             this.picBox_steamBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox_steamBackground.TabIndex = 2;
             this.picBox_steamBackground.TabStop = false;
+            this.metroToolTip1.SetToolTip(this.picBox_steamBackground, "Click and go to market page!");
             this.picBox_steamBackground.Click += new System.EventHandler(this.PicBox_steamBackground_Click);
             // 
             // lbl_clickonimginfo
@@ -117,6 +119,12 @@
             this.lbl_clickonimginfo.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.lbl_clickonimginfo.UseCustomBackColor = true;
             this.lbl_clickonimginfo.UseStyleColors = true;
+            // 
+            // metroToolTip1
+            // 
+            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Default;
+            this.metroToolTip1.StyleManager = null;
+            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // ProfileBackground
             // 
@@ -148,5 +156,6 @@
         private MetroFramework.Controls.MetroTextBox txtBox_steamprofile;
         private System.Windows.Forms.PictureBox picBox_steamBackground;
         internal MetroFramework.Controls.MetroLabel lbl_clickonimginfo;
+        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }

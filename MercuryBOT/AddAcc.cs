@@ -55,8 +55,9 @@ namespace MercuryBOT
                 //if (Admin == "")
                 if (string.IsNullOrEmpty(Admin))
                 {
-                    Admin = "undefined";
-                }else{
+                    AdminConverted = 0;
+                }
+                else{
                     AdminConverted = Convert.ToUInt64(Admin);
                 }
 
@@ -65,12 +66,13 @@ namespace MercuryBOT
                     AdminID = AdminConverted,
                     username = user,
                     password = password,
-                    LoginKey = "0",
-                    APIWebKey = "0",
+                    LoginKey = "",//0
+                    APIWebKey = "",//0
                     SteamID = UserSteamID,
+                    ChatLogger = false,
                     Games = EmptyGameList,
                     AFKMessages = EmptyCustomMessagesList,
-                    ChatLogger = false
+                    
                 });
 
                 var convertedJson = JsonConvert.SerializeObject(list, new JsonSerializerSettings

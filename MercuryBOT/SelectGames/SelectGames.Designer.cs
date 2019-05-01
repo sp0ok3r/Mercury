@@ -96,7 +96,6 @@
             this.list_main_game.OwnerDraw = true;
             this.list_main_game.Size = new System.Drawing.Size(962, 303);
             this.list_main_game.SmallImageList = this.imageList1;
-            this.list_main_game.Style = MetroFramework.MetroColorStyle.Purple;
             this.list_main_game.TabIndex = 4;
             this.list_main_game.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.MongoToolTip.SetToolTip(this.list_main_game, "Double click to add selected GAME!");
@@ -142,7 +141,6 @@
             this.btn_selectAll.Location = new System.Drawing.Point(918, 390);
             this.btn_selectAll.Name = "btn_selectAll";
             this.btn_selectAll.Size = new System.Drawing.Size(67, 23);
-            this.btn_selectAll.Style = MetroFramework.MetroColorStyle.Purple;
             this.btn_selectAll.TabIndex = 13;
             this.btn_selectAll.Text = "SELECT ALL";
             this.btn_selectAll.Theme = MetroFramework.MetroThemeStyle.Dark;
