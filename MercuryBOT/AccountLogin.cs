@@ -91,7 +91,7 @@ namespace MercuryBOT
         private static int MaxDisconnects = 4;
         //
 
-        private static string NewloginKey = "";
+        private static string NewloginKey = null;
 
         private static bool cookiesAreInvalid = true;
 
@@ -210,7 +210,7 @@ namespace MercuryBOT
                 if (a.username == user)
                 {
                     // if (a.LoginKey.ToString() == "undefined") // deu?
-                    if (string.IsNullOrEmpty(a.LoginKey))
+                    if (string.IsNullOrEmpty(a.LoginKey) || a.LoginKey.ToString() == "undefined")
                     {
                         // NewloginKey = null;
                         //a.LoginKey = "";
@@ -290,13 +290,13 @@ namespace MercuryBOT
                     if (pass != null)
                     {
                         Console.WriteLine("[" + Program.BOTNAME + "] - Login key expired. Connecting with user password.");
-                        Main.M_NotifyIcon.ShowBalloonTip(500, "INFO", "Login key expired.\nConnecting with user password...", ToolTipIcon.Info);
+                        Notification.NotifHelper.MessageBox.Show("Info", "Login key expired.\nConnecting with user password...");
 
                     }
                     else
                     {
                         Console.WriteLine("[" + Program.BOTNAME + "] - Login key expired.");
-                        Main.M_NotifyIcon.ShowBalloonTip(500, "INFO", "Login key expired!\nConnecting...", ToolTipIcon.Info);
+                        Notification.NotifHelper.MessageBox.Show("Info", "Login key expired!\nConnecting...");
 
                     }
                 }
@@ -328,9 +328,6 @@ namespace MercuryBOT
                 return;
             }
 
-
-            DisconnectedCounter = 0;
-            IsLoggedIn = true;
             Console.WriteLine("[" + Program.BOTNAME + "] - Successfully logged on!" + callback.ServerTime.ToString("R"));
             Notification.NotifHelper.MessageBox.Show("Info", "Successfully logged on!");
 
@@ -338,6 +335,7 @@ namespace MercuryBOT
             CurrentSteamID = steamClient.SteamID.ConvertToUInt64();
             myUserNonce = callback.WebAPIUserNonce;
 
+            IsLoggedIn = true;
             steamFriends.SetPersonaState(EPersonaState.Online);
             //gatherWebApiKey();
 
@@ -377,7 +375,7 @@ namespace MercuryBOT
             Console.WriteLine("[" + Program.BOTNAME + "] - Reconnecting in 3s ..." + callback.UserInitiated);
 
 
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
 
             steamClient.Connect();
         }
@@ -584,17 +582,6 @@ namespace MercuryBOT
             Console.WriteLine("[" + Program.BOTNAME + "] - Done! {0} friends.", (object)ListFriends.Get(false).Count);
             FriendsLoaded = true;
         }
-
-
-        //public static async void GenerateSteamGuard()
-        //{
-        //    var authenticatorSharedSecret = "defenir key";
-
-        //    var steamGuardCode = await Authenticator.GenerateSteamGuardCode(authenticatorSharedSecret);
-
-        //    Console.Write("[" + Program.BOTNAME + "] - AuthCode: " + steamGuardCode);
-        //}
-
 
         public static string GetAvatarLink(ulong steamid)
         {
@@ -1337,15 +1324,23 @@ namespace MercuryBOT
         }
 
 
-
         public static void Logout()
         {
+            user = null;
             isRunning = false;
             IsLoggedIn = false;
-            IsWebLoggedIn = false;
-
             steamUser.LogOff();
+            DisconnectedCounter = 0;
+            CurrentUsername = null;
         }
+        //public static void Logout()
+        //{
+        //    isRunning = false;
+        //    IsLoggedIn = false;
+        //    IsWebLoggedIn = false;
+
+        //    steamUser.LogOff();
+        //}
     }
 }
 

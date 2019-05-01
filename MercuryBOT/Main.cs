@@ -761,8 +761,8 @@ namespace MercuryBOT
                 }
             }
             // Start Login
-             Thread doLogin = new Thread(() => AccountLogin.UserSettingsGather(usernameJSON, passwordJSON));
-             doLogin.Start();
+            Thread doLogin = new Thread(() => AccountLogin.UserSettingsGather(usernameJSON, passwordJSON));
+            doLogin.Start();
 
             btn_login2selected.Enabled = false;
             lbl_infoLogin.Text = "Trying to login...";
@@ -1346,11 +1346,11 @@ namespace MercuryBOT
                     btn_login2selected.Enabled = false;
                     Panel_UserInfo.Visible = true;
 
-                    using (var webClient = new WebClient())
-                    {
-                        byte[] data = webClient.DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + @"/flat/16.png");
-                        btnLabel_PersonaAndFlag.Image = Image.FromStream(new MemoryStream(data));
-                    }
+
+                    byte[] data = new WebClient().DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + "/flat/16.png");
+                    MemoryStream ms = new MemoryStream(data);
+                    btnLabel_PersonaAndFlag.Image = Image.FromStream(ms);
+
 
                     btnLabel_PersonaAndFlag.Invoke(new Action(() => btnLabel_PersonaAndFlag.Text = AccountLogin.UserPersonaName));
 
