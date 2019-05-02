@@ -1,6 +1,5 @@
-using System;
-using System.Linq;
 using Microsoft.Win32;
+
 namespace MercuryBOT.Helpers
 {
     public static class SteamPath
@@ -19,14 +18,6 @@ namespace MercuryBOT.Helpers
             // Checks if the Key and Value exists.
             if (key != null && key.GetValue("SteamPath") is string)
                 SteamLocation = key.GetValue("SteamPath").ToString();
-        }
-        
-        public static Image GetCachedProfileImage(string SID)
-        {
-            string filePath = Path.Combine(SteamLocation, "config/avatarcache/", SID + ".png");
-            if (File.Exists(filePath))
-                return Image.FromFile(filePath);
-            return null;
         }
     }
 }

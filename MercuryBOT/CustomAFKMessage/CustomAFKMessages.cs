@@ -21,7 +21,8 @@ namespace MercuryBOT.CustomMessages
             Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
 
-        private void Btn_addMessage2json_Click(object sender, EventArgs e)
+
+        public void AddMessage2File()
         {
             if (AccountLogin.IsLoggedIn == true && txtBox_customMSG.Text.Length != 0)
             {
@@ -42,13 +43,13 @@ namespace MercuryBOT.CustomMessages
                         }
                         UserSettings.CustomMessages NewMessage = new UserSettings.CustomMessages { Message = txtBox_customMSG.Text };
                         UserList.AFKMessages.Add(NewMessage);
-                        
+
                     }
                 }
 
                 File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(ListsMessages, Formatting.Indented));
 
-               // listview_customMsgs.Items.Add(txtBox_customMSG.Text);
+                // listview_customMsgs.Items.Add(txtBox_customMSG.Text);
                 SavedMsgs_Grid.Rows.Add(txtBox_customMSG.Text);
                 txtBox_customMSG.Clear();
 
@@ -57,6 +58,38 @@ namespace MercuryBOT.CustomMessages
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged! or Message too short");
             }
+        }
+        public void RemoveMessage4romFile()
+        {
+            if (SelectedMsg != "")
+            {
+                var ListsMessages = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
+                foreach (var UserList in ListsMessages.Accounts)
+                {
+                    if (UserList.username == AccountLogin.CurrentUsername)
+                    {
+                        for (int i = 0; i < UserList.AFKMessages.Count; i++)
+                        {
+                            if (UserList.AFKMessages[i] == UserList.AFKMessages[SavedMsgs_Grid.SelectedRows[0].Cells[0].RowIndex])
+                            {
+                                UserList.AFKMessages.Remove(UserList.AFKMessages[i]);
+                                SavedMsgs_Grid.Rows.RemoveAt(SavedMsgs_Grid.SelectedRows[0].Cells[0].RowIndex);
+                            }
+                        }
+                    }
+                }
+                File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(ListsMessages, Formatting.Indented));
+            }
+            else
+            {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "No message selected!");
+            }
+        }
+
+
+        private void Btn_addMessage2json_Click(object sender, EventArgs e)
+        {
+            AddMessage2File();
         }
 
         private void AFKMessages_Load(object sender, EventArgs e)
@@ -84,27 +117,7 @@ namespace MercuryBOT.CustomMessages
 
         private void Btn_deleteSelected_Click(object sender, EventArgs e)
         {
-            if (SelectedMsg != "")
-            {
-                var ListsMessages = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-                foreach (var UserList in ListsMessages.Accounts)
-                {
-                    if (UserList.username == AccountLogin.CurrentUsername)
-                    {
-                        for (int i = 0; i < UserList.AFKMessages.Count; i++)
-                        {
-                            if (UserList.AFKMessages[i] == UserList.AFKMessages[SavedMsgs_Grid.SelectedRows[0].Cells[0].RowIndex])
-                            {
-                                UserList.AFKMessages.Remove(UserList.AFKMessages[i]);
-                                SavedMsgs_Grid.Rows.RemoveAt(SavedMsgs_Grid.SelectedRows[0].Cells[0].RowIndex); 
-                            }
-                        }
-                    }
-                }
-                File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(ListsMessages, Formatting.Indented));
-            }else{
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "No message selected!");
-            }
+            RemoveMessage4romFile();
         }
 
         private void SavedMsgs_ScrollBar_Scroll(object sender, ScrollEventArgs e)
@@ -120,6 +133,19 @@ namespace MercuryBOT.CustomMessages
         {
             SelectedMsg = SavedMsgs_Grid.SelectedRows[0].Cells[0].Value.ToString();
             lbl_selectedMessage.Text = "Selected: " + SelectedMsg;
+        }
+
+        private void txtBox_customMSG_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keys.Enter == e.KeyCode)
+            {
+                AddMessage2File();
+            }
+            if (Keys.Delete == e.KeyCode)
+            {
+                RemoveMessage4romFile();
+            }
+
         }
     }
 }

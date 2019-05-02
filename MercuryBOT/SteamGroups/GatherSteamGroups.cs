@@ -20,6 +20,7 @@ namespace MercuryBOT.SteamGroups
             InitializeComponent();
             this.components.SetStyle(this);
             Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            this.MercuryTabControl.SelectedIndex = 0;
         }
 
         private void ClanList_ScrollBar_Scroll(object sender, ScrollEventArgs e)

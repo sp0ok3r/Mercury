@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,6 +41,7 @@
             this.HFriendID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SavedMsgs_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
             this.lbl_selectedMessage = new MetroFramework.Controls.MetroLabel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.SavedMsgs_Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +84,7 @@
             this.txtBox_customMSG.MaxLength = 32767;
             this.txtBox_customMSG.Name = "txtBox_customMSG";
             this.txtBox_customMSG.PasswordChar = '\0';
-            this.txtBox_customMSG.PromptText = "yeet";
+            this.txtBox_customMSG.PromptText = "i love Mercury❤";
             this.txtBox_customMSG.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_customMSG.SelectedText = "";
             this.txtBox_customMSG.SelectionLength = 0;
@@ -91,13 +93,15 @@
             this.txtBox_customMSG.Size = new System.Drawing.Size(228, 23);
             this.txtBox_customMSG.TabIndex = 44;
             this.txtBox_customMSG.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.toolTip1.SetToolTip(this.txtBox_customMSG, "Press ENTER to save!");
             this.txtBox_customMSG.UseCustomBackColor = true;
             this.txtBox_customMSG.UseCustomForeColor = true;
             this.txtBox_customMSG.UseSelectable = true;
             this.txtBox_customMSG.UseStyleColors = true;
-            this.txtBox_customMSG.WaterMark = "yeet";
+            this.txtBox_customMSG.WaterMark = "i love Mercury❤";
             this.txtBox_customMSG.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtBox_customMSG.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtBox_customMSG.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_customMSG_KeyDown);
             // 
             // lbl_msg2AllorAFK
             // 
@@ -105,7 +109,7 @@
             this.lbl_msg2AllorAFK.BackColor = System.Drawing.Color.Transparent;
             this.lbl_msg2AllorAFK.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lbl_msg2AllorAFK.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_msg2AllorAFK.Location = new System.Drawing.Point(7, 73);
+            this.lbl_msg2AllorAFK.Location = new System.Drawing.Point(0, 73);
             this.lbl_msg2AllorAFK.Name = "lbl_msg2AllorAFK";
             this.lbl_msg2AllorAFK.Size = new System.Drawing.Size(82, 25);
             this.lbl_msg2AllorAFK.TabIndex = 45;
@@ -216,7 +220,7 @@
             this.lbl_selectedMessage.BackColor = System.Drawing.Color.Transparent;
             this.lbl_selectedMessage.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lbl_selectedMessage.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_selectedMessage.Location = new System.Drawing.Point(5, 403);
+            this.lbl_selectedMessage.Location = new System.Drawing.Point(23, 411);
             this.lbl_selectedMessage.Name = "lbl_selectedMessage";
             this.lbl_selectedMessage.Size = new System.Drawing.Size(75, 19);
             this.lbl_selectedMessage.TabIndex = 51;
@@ -262,5 +266,6 @@
         private MetroFramework.Controls.MetroScrollBar SavedMsgs_ScrollBar;
         private System.Windows.Forms.DataGridViewTextBoxColumn HFriendID;
         private MetroFramework.Controls.MetroLabel lbl_selectedMessage;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
