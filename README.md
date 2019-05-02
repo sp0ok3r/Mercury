@@ -40,7 +40,6 @@
 
 ### Contact
 - http://steamcommunity.com/profiles/76561198041931474
-### Gifs
 
 ### Images/Gifs
 
