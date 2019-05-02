@@ -41,9 +41,8 @@
 ### Contact
 - http://steamcommunity.com/profiles/76561198041931474
 ### Gifs
-![Change Account Via Icon Menu](https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/IconMenu.gif)
 
-### Images
+### Images/Gifs
 
 ![](https://github.com/sp0ok3r/Mercury/blob/master/img/LoginGIF.gif)
 <img align="left" width="808" height="544" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/2.png">
@@ -64,4 +63,4 @@
 <img align="left" width="809" height="542" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/program_settings.png">
 <img align="left" width="810" height="544" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/information.png">
 
-
+![Change Account Via Icon Menu](https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/IconMenu.gif)
