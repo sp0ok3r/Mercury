@@ -9,6 +9,7 @@
         Mercury is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
 
 ### Features
+- Clean Metro Style with colors at choice!
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/1.png" target="_blank">Load all accounts detected in your pc (Remember password enable)</a>
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3.png" target="_blank">Auto AFK message responder (Custom msg list also included) </a>
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/steamstatus.png" target="_blank">Check steam/csgo servers status</a>
