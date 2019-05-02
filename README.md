@@ -63,3 +63,6 @@
 <img align="left" width="809" height="542" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/program_settings.png"><br>
 <img align="left" width="810" height="544" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/information.png"><br>
 
+### Gifs
+Change Account Via Icon Menu
+![](https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/IconMenu.gif)
