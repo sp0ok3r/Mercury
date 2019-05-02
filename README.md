@@ -61,7 +61,7 @@
 <img align="left" width="910" height="1014" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/steamstatus.png"><br>
 
 <img align="left" width="809" height="542" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/program_settings.png"><br>
-<img align="left" width="810" height="544" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/information.png"><br>
+<img align="left" width="810" height="544" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/information.png">
 
 ### Gifs
 - Change Account Via Icon Menu
