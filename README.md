@@ -41,8 +41,8 @@
 ### Contact
 - http://steamcommunity.com/profiles/76561198041931474
 ### Gifs
-- Change Account Via Icon Menu
-![](https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/IconMenu.gif)
+![Change Account Via Icon Menu](https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/IconMenu.gif)
+
 ### Images
 
 ![](https://github.com/sp0ok3r/Mercury/blob/master/gif/loginGif.gif)
