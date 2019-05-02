@@ -64,5 +64,5 @@
 <img align="left" width="810" height="544" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/information.png"><br>
 
 ### Gifs
-Change Account Via Icon Menu
+- Change Account Via Icon Menu
 ![](https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/IconMenu.gif)
