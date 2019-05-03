@@ -30,9 +30,11 @@ namespace MercuryBOT
 {
     public partial class Update : MetroFramework.Forms.MetroForm
     {
+        private string DownloadLink;
+
         public Update(string up)
         {
-
+            DownloadLink = up;
             InitializeComponent(); this.Activate();
             lbl_infoversion.Text = up;
             this.components.SetStyle(this);
@@ -50,33 +52,22 @@ namespace MercuryBOT
 
         private void Update_Shown(object sender, EventArgs e)
         {
-            FlashWindow.Flash(this);
             RetrieveChangelog();
         }
 
-        private string DownloadLink;
         private void RetrieveChangelog()
         {
             try
             {
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 using (WebClient client = new WebClient())
                 {
-                    client.Headers.Add("User-Agent", "Mercury Client");
-                    client.Encoding = Encoding.UTF8;
-
-                    Uri uri = new Uri("https://api.github.com/repos/sp0ok3r/Mercury/releases");
-                    string releases = client.DownloadString(uri);
-                    foreach (var g in JsonConvert.DeserializeObject<List<GithubRelease>>(releases))
-                    {
-                        txtBox_changelog.Text += g.body;
-                        DownloadLink = g.assets[0].browser_download_url;
-                    }
+                    client.Encoding = System.Text.Encoding.UTF8;
+                    txtBox_changelog.Text += client.DownloadString(Program.spkDomain + "update-changelog.php");
                 }
             }
             catch (Exception)
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "github error");
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "sp0ok3r.tk is down, entering in another link!");
                 Process.Start("https://github.com/sp0ok3r/Mercury/releases");
             }
         }
@@ -90,7 +81,7 @@ namespace MercuryBOT
         private void Btn_installupdate_Click(object sender, EventArgs e)
         {
             Process.Start(Program.ExecutablePath);
-            Process.Start(DownloadLink);
+            Process.Start("https://github.com/sp0ok3r/Mercury/releases/tag/"+ DownloadLink);
         }
     }
 }

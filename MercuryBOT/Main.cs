@@ -30,6 +30,8 @@ using System.Windows.Forms;
 using Steam4NET;
 using System.Text;
 using static MercuryBOT.User2Json.GitHubApi;
+using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
 
 namespace MercuryBOT
 {
@@ -42,7 +44,6 @@ namespace MercuryBOT
         public static string passwordJSON;
         public static string apikey;
 
-        public static bool Main_isLoggedIn = false;
         public static string SelectedUser = "";
         public static string SelectedGame = "";
         public static string SelectedFriend = "";
@@ -70,84 +71,55 @@ namespace MercuryBOT
         }
 
 
-
         [Obsolete]
         private void RafadexAutoUpdate600IQ()
         {
-            //  ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            //  WebClient webClient = new WebClient();
-            //  webClient.Headers.Add("User-Agent", "Mercury Client");
-            //  Uri uri = new Uri("https://api.github.com/repos/sp0ok3r/Mercury/releases");
-            //  string releases = webClient.DownloadString(uri);
-
-            //var listt = JsonConvert.DeserializeObject<List<GithubRelease>>(releases);
-            //foreach (var a in listt)
-            //{
-            //    Console.WriteLine(a.tag_name);
-            //    Console.WriteLine(a.html_url);
-
-            //    Console.WriteLine(a.assets[0].browser_download_url);
-            //    Console.WriteLine(a.body);
-            //}
-
-
-
             try
             {
-
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 using (WebClient client = new WebClient())
                 {
-                    client.Headers.Add("User-Agent", "Mercury Client");
+                    string updateCheck = client.DownloadString(Program.spkDomain + "update.php");
 
-
-                    Uri uri = new Uri("https://api.github.com/repos/sp0ok3r/Mercury/releases");
-                    string releases = client.DownloadString(uri);
-                    var git = JsonConvert.DeserializeObject<List<GithubRelease>>(releases);
-                    foreach (var g in git)
+                    if (updateCheck != Program.Version)
                     {
-                        if (g.tag_name != Program.Version)
-                        {
-                            this.Hide();
-                            this.Enabled = false;
-                            Console.WriteLine("New update: " + g.tag_name);
-                            Form Update = new Update(g.tag_name);
-                            Update.Show();
+                        this.Hide();
+                        this.Enabled = false;
+                        Console.WriteLine("New update: " + updateCheck);
+                        Form Update = new Update(updateCheck);
+                        Update.Show();
+                    }
+                    else
+                    {
+                        this.Enabled = true;
+                        var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
 
-                        }
-                        else
+                        if (Settingslist.startupAcc != 0)
                         {
-                            this.Enabled = true;
-                            var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+                            var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
 
-                            if (Settingslist.startupAcc != 0)
+                            foreach (var a in list.Accounts)
                             {
-                                var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-
-                                foreach (var a in list.Accounts)
+                                if (a.SteamID == Settingslist.startupAcc)
                                 {
-                                    if (a.SteamID == Settingslist.startupAcc)
-                                    {
-                                        usernameJSON = a.username;
-                                        passwordJSON = a.password;
-                                    }
+                                    usernameJSON = a.username;
+                                    passwordJSON = a.password;
                                 }
-                                // Start Login
-                                Thread doLogin = new Thread(() => AccountLogin.UserSettingsGather(usernameJSON, passwordJSON));
-                                doLogin.Start();
                             }
+                            // Start Login
+                            Thread doLogin = new Thread(() => AccountLogin.UserSettingsGather(usernameJSON, passwordJSON));
+                            doLogin.Start();
                         }
                     }
                 }
             }
             catch (Exception)
             {
-                Console.WriteLine("Try https://github.com/sp0ok3r/Mercury/releases");
-                InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Try https://github.com/sp0ok3r/Mercury/releases");
+                Console.WriteLine("sp0ok3r.tk down :c");
+                InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "sp0ok3r.tk down :c.");
+                Process.Start("https://github.com/sp0ok3r/Mercury/releases");
             }
         }
-
-
+        
         [Obsolete]
         private void Main_Shown(object sender, EventArgs e)
         {
@@ -245,7 +217,7 @@ namespace MercuryBOT
         {
             AccountsList_Grid.Rows.Clear();
             var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts;
-            foreach (var a in list.OrderByDescending(x => x.LastLoginTime))//
+            foreach (var a in list.OrderByDescending(x => x.LastLoginTime))
             {
                 bool LoginK = true;
                 if (string.IsNullOrEmpty(a.LoginKey) || a.LoginKey == "0")
@@ -289,45 +261,32 @@ namespace MercuryBOT
         {
             if (AccountLogin.IsLoggedIn == true)
             {
-                try
+                foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
                 {
-                    foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+                    if (a.username == AccountLogin.CurrentUsername)
                     {
-                        if (a.username == AccountLogin.CurrentUsername)
-                        {
-                            apikey = a.APIWebKey;
-                        }
+                        apikey = a.APIWebKey;
                     }
-
-                    //if (apikey == "undefined" || apikey.Length == 0)
-
-                    if (string.IsNullOrEmpty(apikey) || apikey == "0")
-                    {
-                        AccountLogin.gatherWebApiKey();
-                        InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Gathering your apikey and setting it! \n Just Gather Games again!");
-                        //Process.Start("https://steamcommunity.com/dev/apikey");
-
-                        return;
-                    }
-                    else
-                    {
-                        Form AddAppIds = new SelectGames();
-                        AddAppIds.FormClosed += HandleFormAddAppIdsClosed;
-                        AddAppIds.Show();// qd nao tem key isto da erro
-                        btn_selectappids.Enabled = false;
-                    }
-
                 }
-                catch (Exception ee)
+
+                if (string.IsNullOrEmpty(apikey) || apikey == "0")
                 {
-                    Console.WriteLine(ee);
+                    AccountLogin.gatherWebApiKey();
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Gathering your apikey and setting it! \n Just Gather Games again!");
+                    return;
+                }
+                else
+                {
+                    Form AddAppIds = new SelectGames();
+                    AddAppIds.FormClosed += HandleFormAddAppIdsClosed;
+                    AddAppIds.Show();
+                    btn_selectappids.Enabled = false;
                 }
             }
             else
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
-
         }
 
 
@@ -367,6 +326,7 @@ namespace MercuryBOT
             Form ProfileBackground = new SteamProfileBackground.ProfileBackground();
             ProfileBackground.FormClosed += HandleFormProfileBackgroundClosed;
             ProfileBackground.Show();
+            Btn_getProfileBackG.Enabled = false;
         }
 
         private void btn_playNonSteamgame_Click(object sender, EventArgs e)
@@ -455,6 +415,7 @@ namespace MercuryBOT
         {
             if (chck_steam4net.Checked)
             {
+                int quantasPrincesas = 0;
                 Steamworks.Load(true);
                 ISteamClient006 steamClient006 = Steamworks.CreateInterface<ISteamClient006>();
                 int steamPipe = steamClient006.CreateSteamPipe();
@@ -480,11 +441,28 @@ namespace MercuryBOT
                     for (int iFriend = 0; iFriend < friendCount; iFriend++)
                     {
                         CSteamID friendByIndex = isteamFriends1.GetFriendByIndex(iFriend, Steam4NET.EFriendFlags.k_EFriendFlagImmediate);
-                        // if (isteamFriends1.GetFriendPersonaState(friendByIndex) == Steam4NET.EPersonaState.k_EPersonaStateOnline)
-                        isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
-                        Thread.Sleep(100);// my nigger needs some OXYGEN 😌
+
+                        if (chck_Send2Receipts.Checked)
+                        {
+                            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+                            {
+                                if (a.username == AccountLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(friendByIndex.ConvertToUint64().ToString())))
+                                {
+                                    quantasPrincesas++;
+                                    isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
+                                    Thread.Sleep(100);// my nigger needs some OXYGEN 😌
+                                }
+                            }
+                        }
+                        else
+                        {
+                            quantasPrincesas++;
+                            isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
+                            Thread.Sleep(100);// my nigger needs some OXYGEN 😌
+                        }
+
                     }
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Sent message to " + friendCount + " friends!");
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Sent message to " + quantasPrincesas + " friends!");
                     btn_sendMsg2Friends.Enabled = true;
                 }
             }
@@ -492,7 +470,7 @@ namespace MercuryBOT
             {
                 if (AccountLogin.IsLoggedIn == true)
                 {
-                    AccountLogin.SendMsg2AllFriends(txtBox_msg2Friends.Text);
+                    AccountLogin.SendMsg2AllFriends(txtBox_msg2Friends.Text, chck_Send2Receipts.Checked);
                     btn_sendMsg2Friends.Enabled = false;
                 }
                 else
@@ -592,13 +570,11 @@ namespace MercuryBOT
                     InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Select a friend!");
 
                 }
-
             }
             else
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
-
         }
 
 
@@ -768,24 +744,6 @@ namespace MercuryBOT
             lbl_infoLogin.Text = "Trying to login...";
         }
 
-        private void listview_accounts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //if (listview_accounts.SelectedItems.Count > 0)
-            //{
-            //    AccSelected = listview_accounts.SelectedItems[0].Index;
-            //    var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-            //    int find = 0;
-            //    foreach (var a in list.Accounts)
-            //    {
-            //        if (find == AccSelected)
-            //        {
-            //            SelectedUser = list.Accounts[find].username;
-            //        }
-            //        find++;
-            //    }
-            //}
-        }
-
         private void combox_uimodes_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (AccountLogin.IsLoggedIn == true)
@@ -931,7 +889,7 @@ namespace MercuryBOT
         }
         private void HandleFormProfileBackgroundClosed(Object sender, FormClosedEventArgs e)
         {
-            btn_commentsGather.Enabled = true;
+            Btn_getProfileBackG.Enabled = true;
         }
 
         private void HandleFormAddAccClosed(Object sender, FormClosedEventArgs e)
@@ -971,7 +929,10 @@ namespace MercuryBOT
             btn_changeprofSettings.Enabled = true;
         }
 
-
+        private void HandleFormMsgRecipientsClosed(Object sender, FormClosedEventArgs e)
+        {
+            btn_MsgRecipients.Enabled = true;
+        }
 
         #endregion
 
@@ -1189,9 +1150,6 @@ namespace MercuryBOT
             AccountsList_Grid.FirstDisplayedScrollingRowIndex = e.NewValue;
         }
 
-
-
-
         #region SettingsBtnETC
         private void toggle_startWindows_CheckedChanged(object sender, EventArgs e)
         {
@@ -1328,68 +1286,89 @@ namespace MercuryBOT
             MongoTip.Show("Press DELETE to delete game SELECTED!\nPress END to delete various!", this, (Control.MousePosition.X - this.Location.X - 8), (Control.MousePosition.Y - this.Location.Y - 30), 1000);
         }
 
+        public static bool CompareBitmapsLazy(Bitmap bmp1, Bitmap bmp2)
+        {
+            if (bmp1 == null || bmp2 == null)
+                return false;
+            if (object.Equals(bmp1, bmp2))
+                return true;
+            if (!bmp1.Size.Equals(bmp2.Size) || !bmp1.PixelFormat.Equals(bmp2.PixelFormat))
+                return false;
+
+            //Compare bitmaps using GetPixel method
+            for (int column = 0; column < bmp1.Width; column++)
+            {
+                for (int row = 0; row < bmp1.Height; row++)
+                {
+                    if (!bmp1.GetPixel(column, row).Equals(bmp2.GetPixel(column, row)))
+                        return false;
+                }
+            }
+
+            return true;
+        }
+
+
         private void CurrentUserSafeUpdater()
         {
-            try
+
+            // try
+            // {
+            if (AccountLogin.IsLoggedIn == true)
             {
-                if (AccountLogin.IsLoggedIn == true)
+                if (AccountLogin.isSendingMsgs == false)
                 {
-                    if (AccountLogin.isSendingMsgs == false)
-                    {
-                        btn_sendMsg2Friends.Enabled = true;
-                    }
-                    btn_logout.Visible = true;
-                    toggle_chatlogger.Checked = AccountLogin.ChatLogger;
-                    lbl_infoLogin.Text = "Trying to login...";
-                    Main_isLoggedIn = true;
+                    btn_sendMsg2Friends.Enabled = true;
+                }
+                btn_logout.Visible = true;
+                toggle_chatlogger.Checked = AccountLogin.ChatLogger;
+                lbl_infoLogin.Text = "Trying to login...";
 
-                    btn_login2selected.Enabled = false;
-                    Panel_UserInfo.Visible = true;
+                btn_login2selected.Enabled = false;
+                Panel_UserInfo.Visible = true;
+                
+                btnLabel_PersonaAndFlag.Invoke(new Action(() => btnLabel_PersonaAndFlag.Text = AccountLogin.UserPersonaName));
 
-
-                    byte[] data = new WebClient().DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + "/flat/16.png");
-                    MemoryStream ms = new MemoryStream(data);
-                    btnLabel_PersonaAndFlag.Image = Image.FromStream(ms);
-
-
-                    btnLabel_PersonaAndFlag.Invoke(new Action(() => btnLabel_PersonaAndFlag.Text = AccountLogin.UserPersonaName));
-
-                    if (AccountLogin.UserPlaying)
-                    {
-                        panel_steamStates.BackColor = Color.Green;
-                    }
-                    else
-                    {
-                        panel_steamStates.BackColor = Color.LightSkyBlue;
-                    }
-
-
-                    picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID);
-                    lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = AccountLogin.CurrentUsername));
-                    lbl_infoLogin.Text = "Connected";
-                    return;
+                if (AccountLogin.UserPlaying)
+                {
+                    panel_steamStates.BackColor = Color.Green;
                 }
                 else
                 {
-                    btn_logout.Visible = false;
-                    lbl_infoLogin.Text = "Not logged...";
-                    Main_isLoggedIn = false;
-                    btn_login2selected.Enabled = true;
-                    Panel_UserInfo.Visible = false;
-                    btnLabel_PersonaAndFlag.Image = Properties.Resources.notloggedFlag;
-                    btnLabel_PersonaAndFlag.Invoke(new Action(() => btnLabel_PersonaAndFlag.Text = "None"));
-
-                    GamesList_Grid.Rows.Clear();
-                    panel_steamStates.BackColor = Color.Gray;
-                    picBox_SteamAvatar.BackColor = Color.FromArgb(255, 25, 25, 25);
-                    lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = "None"));
-                    return;
+                    panel_steamStates.BackColor = Color.LightSkyBlue;
                 }
+
+                if (picBox_SteamAvatar.Image == null && btnLabel_PersonaAndFlag.Image == null)
+                {
+                    picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID);
+
+                    byte[] data = new WebClient().DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + "/flat/16.png");
+
+                    MemoryStream ms = new MemoryStream(data);
+                    btnLabel_PersonaAndFlag.Image = Image.FromStream(ms);
+                }
+
+                lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = AccountLogin.CurrentUsername));
+                lbl_infoLogin.Text = "Connected";
+                
+                // return;
             }
-            catch (Exception e)
+            else
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", e.ToString());
-                Console.WriteLine(e);
+                btn_logout.Visible = false;
+                lbl_infoLogin.Text = "Not logged...";
+
+                btn_login2selected.Enabled = true;
+                Panel_UserInfo.Visible = false;
+              //btnLabel_PersonaAndFlag.Image = Properties.Resources.notloggedFlag; dont use
+                
+                panel_steamStates.BackColor = Color.Gray;
+                picBox_SteamAvatar.BackColor = Color.FromArgb(255, 25, 25, 25);
+                lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = "None"));
+                btnLabel_PersonaAndFlag.Invoke(new Action(() => btnLabel_PersonaAndFlag.Text = "None"));
+
+                GamesList_Grid.Rows.Clear();
+                // return;
             }
         }
         #endregion
@@ -1476,6 +1455,22 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged.");
             }
         }
+
+        private void btn_MsgSelectFriends_Click(object sender, EventArgs e)
+        {
+            if (AccountLogin.IsLoggedIn == true && AccountLogin.Friends.Count != 0)
+            {
+                Form SMsgRecipients = new MsgRecipients();
+                SMsgRecipients.FormClosed += HandleFormMsgRecipientsClosed;
+                btn_MsgRecipients.Enabled = false;
+                SMsgRecipients.Show();
+            }
+            else
+            {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged.");
+            }
+        }
+
 
         #region Restart picture
         private void picBox_Restart_MouseHover(object sender, EventArgs e)

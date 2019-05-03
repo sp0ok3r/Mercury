@@ -49,8 +49,9 @@ namespace MercuryBOT.UserSettings
         [JsonProperty("AFKMessages")]
         public List<CustomMessages> AFKMessages { get; set; }
 
-        //[JsonProperty("State")]
-        //public string State { get; set; }
+        [JsonProperty("MsgRecipients")]
+        public List<string> MsgRecipients { get; set; }
+        
 
     }
 

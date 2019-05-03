@@ -121,7 +121,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Steam4NET">
-      <HintPath>bin\Debug\lib\Steam4NET.dll</HintPath>
+      <HintPath>D:\PROJECTS\CSharp\SP0OK3RBOT-WORK - Cópia\SteamAdversitingBot\bin\x86\Release\Steam4NET.dll</HintPath>
     </Reference>
     <Reference Include="SteamAuth, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SteamAuth.3.0.0\lib\net45\SteamAuth.dll</HintPath>
@@ -230,9 +230,14 @@
     <Compile Include="EditAcc.Designer.cs">
       <DependentUpon>EditAcc.cs</DependentUpon>
     </Compile>
+    <Compile Include="FriendsList\MsgRecipients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FriendsList\MsgRecipients.Designer.cs">
+      <DependentUpon>MsgRecipients.cs</DependentUpon>
+    </Compile>
     <Compile Include="FriendsList\ListFriends.cs" />
     <Compile Include="FriendsList\FriendsRequests.cs" />
-    <Compile Include="Helpers\FlashWindow.cs" />
     <Compile Include="Helpers\SteamPath.cs" />
     <Compile Include="Notification\NotifHelper.cs" />
     <Compile Include="Notification\NotificationForm.cs">
@@ -342,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditAcc.resx">
       <DependentUpon>EditAcc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FriendsList\MsgRecipients.resx">
+      <DependentUpon>MsgRecipients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

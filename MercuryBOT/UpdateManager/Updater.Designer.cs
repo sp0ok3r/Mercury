@@ -73,6 +73,7 @@
             // 
             // btn_installupdate
             // 
+            this.btn_installupdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_installupdate.ForeColor = System.Drawing.Color.White;
             this.btn_installupdate.Location = new System.Drawing.Point(329, 433);
             this.btn_installupdate.Name = "btn_installupdate";
@@ -89,7 +90,7 @@
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.metroLabel1.Location = new System.Drawing.Point(8, 109);
+            this.metroLabel1.Location = new System.Drawing.Point(6, 112);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(85, 19);
             this.metroLabel1.TabIndex = 11;
@@ -104,7 +105,7 @@
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel2.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.metroLabel2.Location = new System.Drawing.Point(8, 73);
+            this.metroLabel2.Location = new System.Drawing.Point(6, 74);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(309, 25);
             this.metroLabel2.TabIndex = 12;
@@ -118,7 +119,7 @@
             this.lbl_infoversion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_infoversion.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lbl_infoversion.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lbl_infoversion.Location = new System.Drawing.Point(323, 74);
+            this.lbl_infoversion.Location = new System.Drawing.Point(321, 74);
             this.lbl_infoversion.Name = "lbl_infoversion";
             this.lbl_infoversion.Size = new System.Drawing.Size(81, 25);
             this.lbl_infoversion.TabIndex = 46;

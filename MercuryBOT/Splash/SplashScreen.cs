@@ -89,9 +89,10 @@ namespace MercuryBOT.Splash
                     
                     var EmptyGameList = new List<Game>();
                     var EmptyCustomMessagesList = new List<UserSettings.CustomMessages>();
+
                     list.Accounts.Add(new UserAccounts
                     {
-                        LastLoginTime=user.LastLoginTime,
+                        LastLoginTime = user.LastLoginTime,
                         AdminID = 0,
                         username = user.AccountName,
                         password = "",
@@ -99,7 +100,9 @@ namespace MercuryBOT.Splash
                         LoginKey = "",
                         APIWebKey = "",
                         Games = EmptyGameList,
-                        AFKMessages = EmptyCustomMessagesList
+                        AFKMessages = EmptyCustomMessagesList,
+                        MsgRecipients = new List<string>()
+
                     });
 
                     File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, new JsonSerializerSettings { Formatting = Formatting.Indented }));

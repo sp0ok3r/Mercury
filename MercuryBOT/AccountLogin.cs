@@ -33,7 +33,7 @@ namespace MercuryBOT
     public class AccountLogin
     {
 
-        public static string UserPersonaName, UserCountry, CurrentUsername;
+        public static string UserPersonaName, UserCountry, CurrentUsername, IP2Country;
         public static bool UserPlaying = false;
 
         public static ulong CurrentAdmin;
@@ -155,7 +155,7 @@ namespace MercuryBOT
             MercuryManager.Subscribe<SteamUser.LoginKeyCallback>(OnLoginKey);
             MercuryManager.Subscribe<SteamUser.WebAPIUserNonceCallback>(WebAPIUser);
 
-            //Mercury_manager.Subscribe<SteamFriends.FriendsListCallback>(OnFriendsList); not yeet
+            MercuryManager.Subscribe<SteamFriends.FriendsListCallback>(OnFriendsList);
             MercuryManager.Subscribe<SteamFriends.FriendMsgCallback>(OnFriendMsg);
             MercuryManager.Subscribe<SteamFriends.FriendMsgEchoCallback>(OnFriendEchoMsg);
 
@@ -331,10 +331,10 @@ namespace MercuryBOT
             Console.WriteLine("[" + Program.BOTNAME + "] - Successfully logged on!" + callback.ServerTime.ToString("R"));
             Notification.NotifHelper.MessageBox.Show("Info", "Successfully logged on!");
 
-
+            IP2Country = callback.PublicIP.ToString();
             CurrentSteamID = steamClient.SteamID.ConvertToUInt64();
             myUserNonce = callback.WebAPIUserNonce;
-
+            UserCountry =callback.IPCountryCode;
             IsLoggedIn = true;
             steamFriends.SetPersonaState(EPersonaState.Online);
             //gatherWebApiKey();
@@ -641,7 +641,7 @@ namespace MercuryBOT
 
         static void OnFriendsList(SteamFriends.FriendsListCallback obj)
         {
-            LoadFriends();
+            //LoadFriends();
 
             List<SteamID> newFriends = new List<SteamID>();
 
@@ -680,18 +680,7 @@ namespace MercuryBOT
                         break;
                 }
             }
-
-            //Console.WriteLine("Recorded steam friends : {0} / {1}", steamFriends.GetFriendCount(), GetMaxFriends());
             Console.WriteLine("[" + Program.BOTNAME + "] Recorded steam friends : {0}", steamFriends.GetFriendCount());
-
-            //Console.WriteLine("Max;" + GetMaxFriends());
-            // if (steamFriends.GetFriendCount() == GetMaxFriends())
-            // {
-            // Console.WriteLine("Too much friends. Removing one.");
-            // check this shit
-            //steamFriends.SendChatMessage(steamID, EChatEntryType.ChatMsg, "Sorry, I had to remove you because my friend list is too small ! Feel free to add me back anytime !");
-            //steamFriends.RemoveFriend(steamID);
-            // }
         }
 
         public static void CreateFriendsListIfNecessary()
@@ -704,14 +693,15 @@ namespace MercuryBOT
             {
 
                 SteamID allfriends = steamFriends.GetFriendByIndex(i);
-                if (allfriends.ConvertToUInt64() != 0)
+                if (allfriends.ConvertToUInt64() != 0 && steamFriends.GetFriendRelationship(allfriends.ConvertToUInt64()) == EFriendRelationship.Friend) 
                 {
                     Friends.Add(allfriends.ConvertToUInt64());
-
                     //Friends.Add(steamFriends.GetFriendByIndex(i));
                 }
             }
         }
+
+
 
 
         static void OnFriendMsg(SteamFriends.FriendMsgCallback callback) // Auto MSG
@@ -910,20 +900,37 @@ namespace MercuryBOT
             }
         }
 
-        public static void SendMsg2AllFriends(string message)
+        public static void SendMsg2AllFriends(string message, bool Only2Receipts)
         {
             isSendingMsgs = true;
+            int princessas = 0;
             for (int i = 0; i <= steamFriends.GetFriendCount(); i++)
             {
                 SteamID allfriends = steamFriends.GetFriendByIndex(i);
                 if (allfriends.ConvertToUInt64() != 0)
                 {
-                    steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.BOTNAME);
-                    Thread.Sleep(2500);
+                    if (Only2Receipts)
+                    {
+                        foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+                        {
+                            if (a.username == AccountLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(allfriends.ConvertToUInt64().ToString())))
+                            {
+                                princessas++;
+                                steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.BOTNAME);
+                                Thread.Sleep(2500);// my nigger needs some OXYGEN 😌
+                            }
+                        }
+                    }
+                    else
+                    {
+                        princessas++;
+                        steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.BOTNAME);
+                        Thread.Sleep(2500);// my nigger needs some OXYGEN 😌
+                    }
                 }
             }
             isSendingMsgs = false;
-            InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Sent message to: " + steamFriends.GetFriendCount() + " Friends.");
+            InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Sent message to: " + princessas + " Friends.");
         }
 
         public static void RemoveFriend(ulong goodbye)
@@ -971,6 +978,8 @@ namespace MercuryBOT
 
                 var parser = new HtmlParser();
                 var document = parser.ParseDocument(resp);
+
+                Console.WriteLine(document.TextContent);
 
                 if (document.QuerySelector("div[id='mainContents'] > h2").TextContent == "Access Denied")
                 {
@@ -1333,14 +1342,6 @@ namespace MercuryBOT
             DisconnectedCounter = 0;
             CurrentUsername = null;
         }
-        //public static void Logout()
-        //{
-        //    isRunning = false;
-        //    IsLoggedIn = false;
-        //    IsWebLoggedIn = false;
-
-        //    steamUser.LogOff();
-        //}
     }
 }
 

@@ -186,8 +186,6 @@ namespace MercuryBOT.GamesGather
 
         private void Btn_selectAll_Click(object sender, EventArgs e)
         {
-            List<uint> getUserSavedGames = new List<uint>();
-            getUserSavedGames.Clear();
             var AccountsList = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
             
             foreach (var Acc in AccountsList.Accounts)
@@ -204,14 +202,9 @@ namespace MercuryBOT.GamesGather
                     }
                     else
                     {
-                        for (int i = 0; i < Acc.Games.Count; i++)
-                        {
-                            getUserSavedGames.Add(Acc.Games[i].app_id); // 750iq
-                        }
-
                         foreach (KeyValuePair<uint, string> entry in gamesDictionary)
                         {
-                            if (!getUserSavedGames.Contains(entry.Key)) // 750iq
+                            if (!Acc.Games.Any(s => s.app_id.Equals(entry.Key)))
                             {
                                 Game NewGame = new Game { app_id = entry.Key, name = entry.Value };
                                 Acc.Games.Add(NewGame);

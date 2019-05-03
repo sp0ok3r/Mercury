@@ -96,13 +96,12 @@ namespace MercuryBOT.SteamGroups
                 {
                     AccountLogin.LeaveGroup((group.Key).ToString(), group.Value);
 
-                    Thread.Sleep(1);
+                    Thread.Sleep(30);
                     Console.WriteLine("DDDDeleted");
                 }
                 btn_exitSelected.Enabled = true;
                 btn_exitfromAll.Enabled = true;
-                FlashWindow.Flash(this);
-                //InfoForm.InfoHelper.CustomMessageBox.Show("Left successfully " + GroupNameSelected + " !");
+                Notification.NotifHelper.MessageBox.Show("Info", "Left successfully " + GroupNameSelected + " !");
             }
         }
 
