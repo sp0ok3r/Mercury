@@ -24,7 +24,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static MercuryBOT.Helpers.Extensions;
-using static MercuryBOT.User2Json.GitHubApi;
 
 namespace MercuryBOT
 {

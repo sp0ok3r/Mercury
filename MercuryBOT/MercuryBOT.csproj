@@ -296,7 +296,6 @@
       <DependentUpon>Updater.cs</DependentUpon>
     </Compile>
     <Compile Include="User2Json\Comments.cs" />
-    <Compile Include="User2Json\GitHubApi.cs" />
     <Compile Include="User2Json\MercurySettings.cs" />
     <Compile Include="User2Json\SteamComments.cs" />
     <Compile Include="User2Json\SteamLoginUsers.cs" />

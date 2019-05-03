@@ -16,7 +16,6 @@ using MercuryBOT.SteamServers;
 using MercuryBOT.User2Json;
 using MercuryBOT.UserSettings;
 using Newtonsoft.Json;
-using SteamKit2;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,9 +28,6 @@ using System.Threading;
 using System.Windows.Forms;
 using Steam4NET;
 using System.Text;
-using static MercuryBOT.User2Json.GitHubApi;
-using System.Drawing.Imaging;
-using System.Runtime.InteropServices;
 
 namespace MercuryBOT
 {
@@ -1360,8 +1356,9 @@ namespace MercuryBOT
 
                 btn_login2selected.Enabled = true;
                 Panel_UserInfo.Visible = false;
-              //btnLabel_PersonaAndFlag.Image = Properties.Resources.notloggedFlag; dont use
-                
+                //btnLabel_PersonaAndFlag.Image = Properties.Resources.notloggedFlag; dont use
+                picBox_SteamAvatar.Image = null;
+                btnLabel_PersonaAndFlag.Image = null;
                 panel_steamStates.BackColor = Color.Gray;
                 picBox_SteamAvatar.BackColor = Color.FromArgb(255, 25, 25, 25);
                 lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = "None"));

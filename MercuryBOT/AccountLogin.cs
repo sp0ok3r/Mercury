@@ -418,11 +418,11 @@ namespace MercuryBOT
                 }
                 if (steamFriends.GetPersonaState() != EPersonaState.Online) //detect when user goes afk
                 {
-                    isAwayState = true;
+                    //isAwayState = true;
                 }
                 else
                 {
-                    isAwayState = false;
+                    //isAwayState = false;
                 }
             }
         }
