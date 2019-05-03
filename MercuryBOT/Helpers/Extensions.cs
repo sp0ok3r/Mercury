@@ -117,11 +117,6 @@ namespace MercuryBOT.Helpers
 
         #endregion
 
-
-
-
-
-
         #region File Methods
         //https://stackoverflow.com/questions/14488796/does-net-provide-an-easy-way-convert-bytes-to-kb-mb-gb-etc
         public static readonly string[] SizeSuffixes = { "bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" };
