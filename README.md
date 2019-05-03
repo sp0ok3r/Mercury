@@ -33,7 +33,7 @@
 - Comment on all friends profile (0%) beta7
 - Rate Entire Activity Feed/Anything (0%)
 - Save AppIDS to File (0%) maybe not beta7
-- Message specific friends (0%) beta7
+- Message specific friends (100%) beta7
 
 ### Download: 
 
