@@ -16,6 +16,7 @@ using MercuryBOT.SteamServers;
 using MercuryBOT.User2Json;
 using MercuryBOT.UserSettings;
 using Newtonsoft.Json;
+using Steam4NET;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,24 +25,28 @@ using System.IO;
 using System.Linq;
 using System.Media;
 using System.Net;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using Steam4NET;
-using System.Text;
 
 namespace MercuryBOT
 {
     public partial class Main : MetroFramework.Forms.MetroForm
     {
-
         readonly Process mercurycess = Process.GetCurrentProcess();
+
         public static NotifyIcon M_NotifyIcon;
+
         public static string usernameJSON;
+
         public static string passwordJSON;
+
         public static string apikey;
 
         public static string SelectedUser = "";
+
         public static string SelectedGame = "";
+
         public static string SelectedFriend = "";
 
         private void BTN_RESTART_Click(object sender, EventArgs e)
@@ -65,7 +70,6 @@ namespace MercuryBOT
             Mercury_notifyIcon.Icon = null;
             Environment.Exit(1);
         }
-
 
         [Obsolete]
         private void RafadexAutoUpdate600IQ()
@@ -115,14 +119,13 @@ namespace MercuryBOT
                 Process.Start("https://github.com/sp0ok3r/Mercury/releases");
             }
         }
-        
+
         [Obsolete]
         private void Main_Shown(object sender, EventArgs e)
         {
             RafadexAutoUpdate600IQ();
             M_NotifyIcon = this.Mercury_notifyIcon;
         }
-
 
         [Obsolete]
         public Main()
@@ -140,7 +143,6 @@ namespace MercuryBOT
             // Calculate the mercury age. 2019-03-28 💔
             var age = 2019 - DateTime.Today.Year;
             lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
-
         }
 
         public void Main_Load(object sender, EventArgs e)
@@ -230,12 +232,12 @@ namespace MercuryBOT
                 AccountsList_Grid.Rows.Add(row);
 
                 toolStrip_Acc.DropDownItems.Add(a.username);
+               
 
             }
             AccountsList_ScrollBar.Maximum = AccountsList_Grid.Rows.Count;
             AccountsList_Grid.ClearSelection();
         }
-
 
         private void btn_admincmds_Click(object sender, EventArgs e)
         {
@@ -284,7 +286,6 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
         }
-
 
         private void btn_editAcc_Click(object sender, EventArgs e)
         {
@@ -391,8 +392,6 @@ namespace MercuryBOT
             }
         }
 
-
-
         private void btn_setName_Click(object sender, EventArgs e)
         {
             if (AccountLogin.IsLoggedIn == true)
@@ -404,7 +403,6 @@ namespace MercuryBOT
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
-
         }
 
         private void btn_sendMsg2Friends_Click(object sender, EventArgs e)
@@ -534,7 +532,6 @@ namespace MercuryBOT
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
-
         }
 
         private void FriendsList_Grid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -551,6 +548,7 @@ namespace MercuryBOT
             }
             FriendsList_Grid.FirstDisplayedScrollingRowIndex = e.NewValue;
         }
+
         private void BTN_RemoveFriend_Click(object sender, EventArgs e)
         {
             if (AccountLogin.IsLoggedIn == true)
@@ -572,7 +570,6 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
         }
-
 
         private void btn_playnormal_Click(object sender, EventArgs e)
         {
@@ -615,7 +612,6 @@ namespace MercuryBOT
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
-
         }
 
         private void link_stopIdling_Click(object sender, EventArgs e)
@@ -630,7 +626,6 @@ namespace MercuryBOT
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
-
         }
 
         private void btn_addGameManually_Click(object sender, EventArgs e)
@@ -668,7 +663,6 @@ namespace MercuryBOT
                     return;
                 }
             }
-
         }
 
         private void btn_reddemkey_Click(object sender, EventArgs e)
@@ -714,8 +708,9 @@ namespace MercuryBOT
             btn_login2selected.Enabled = false;
             lbl_infoLogin.Text = "Trying to login...";
         }
+
         private void doLogin(string username)
-        { // make only one function login..
+        {
 
             var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
 
@@ -822,9 +817,7 @@ namespace MercuryBOT
             SteamServersMain.Show();
 
             Btn_steamStatus.Enabled = false;
-
         }
-
 
         //public void StartList()
         //{
@@ -870,8 +863,6 @@ namespace MercuryBOT
         //        //break;
         //    }
         //}
-
-        #region HandleFormClosed
         private void HandleFormEditAccClosed(Object sender, FormClosedEventArgs e)
         {
             RefreshAccountList();
@@ -883,6 +874,7 @@ namespace MercuryBOT
         {
             btn_commentsGather.Enabled = true;
         }
+
         private void HandleFormProfileBackgroundClosed(Object sender, FormClosedEventArgs e)
         {
             Btn_getProfileBackG.Enabled = true;
@@ -920,6 +912,7 @@ namespace MercuryBOT
         {
             btn_admincmds.Enabled = true;
         }
+
         private void HandleFormProfilePrivacySettingClosed(Object sender, FormClosedEventArgs e)
         {
             btn_changeprofSettings.Enabled = true;
@@ -930,12 +923,11 @@ namespace MercuryBOT
             btn_MsgRecipients.Enabled = true;
         }
 
-        #endregion
-
-        #region PictureBox Move
         //https://stackoverflow.com/users/3879008/giangpzo
         private bool draging = false;
+
         private Point pointClicked;
+
         private void _MouseMove(object sender, MouseEventArgs e)
         {
             if (draging)
@@ -964,9 +956,6 @@ namespace MercuryBOT
         {
             draging = false;
         }
-        #endregion
-
-        #region MetroLinks
 
         private void Link_steamgroup_Click(object sender, EventArgs e)
         {
@@ -1028,9 +1017,6 @@ namespace MercuryBOT
             Process.Start("https://github.com/sp0ok3r/Mercury");
         }
 
-        #endregion
-
-        #region toolStrip
         private void toolStrip_Logout_Click(object sender, EventArgs e)
         {
             if (AccountLogin.IsLoggedIn == true)
@@ -1057,13 +1043,11 @@ namespace MercuryBOT
             }
         }
 
-        #endregion
-
-        #region Timer
         void CommunityConnection_Tick(object sender, EventArgs e)
         {
             WebCookieCheck();
         }
+
         private void WebCookieCheck()
         {
             if (AccountLogin.IsLoggedIn == true)
@@ -1146,7 +1130,6 @@ namespace MercuryBOT
             AccountsList_Grid.FirstDisplayedScrollingRowIndex = e.NewValue;
         }
 
-        #region SettingsBtnETC
         private void toggle_startWindows_CheckedChanged(object sender, EventArgs e)
         {
             var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
@@ -1167,6 +1150,7 @@ namespace MercuryBOT
             }
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, Formatting.Indented));
         }
+
         private void chck_Minimized_CheckedChanged(object sender, EventArgs e)
         {
             var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
@@ -1181,6 +1165,7 @@ namespace MercuryBOT
             }
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, Formatting.Indented));
         }
+
         private void toggle_hideInTask_CheckedChanged(object sender, EventArgs e)
         {
             var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
@@ -1211,9 +1196,6 @@ namespace MercuryBOT
             }
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, Formatting.Indented));
         }
-
-
-        #endregion
 
         private void AccountsList_Grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1304,7 +1286,6 @@ namespace MercuryBOT
             return true;
         }
 
-
         private void CurrentUserSafeUpdater()
         {
 
@@ -1368,8 +1349,6 @@ namespace MercuryBOT
                 // return;
             }
         }
-        #endregion
-
 
         private void btn_addMsgForm_Click(object sender, EventArgs e)
         {
@@ -1468,8 +1447,6 @@ namespace MercuryBOT
             }
         }
 
-
-        #region Restart picture
         private void picBox_Restart_MouseHover(object sender, EventArgs e)
         {
             picBox_Restart.Image = Properties.Resources.Restart_MouseHover;
@@ -1491,7 +1468,6 @@ namespace MercuryBOT
             Process.Start(Application.ExecutablePath);
             Application.Exit();
         }
-        #endregion
 
         private void combox_Colors_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1511,7 +1487,6 @@ namespace MercuryBOT
             this.Show();
             this.WindowState = FormWindowState.Normal;
         }
-
 
         private void toolStrip_Acc_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -1543,8 +1518,6 @@ namespace MercuryBOT
         }
     }
 }
-
-
 /* dont delete
          * backup read and save json 
         string path = Program.ExecutablePath2 + @"\Accounts.json";

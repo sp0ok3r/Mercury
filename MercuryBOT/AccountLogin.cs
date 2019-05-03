@@ -9,7 +9,6 @@
 */
 
 using AngleSharp.Html.Parser;
-using Mercury.Logger;
 using MercuryBOT.FriendsList;
 using MercuryBOT.SteamTrade;
 using MercuryBOT.UserSettings;
@@ -32,7 +31,6 @@ namespace MercuryBOT
 {
     public class AccountLogin
     {
-
         public static string UserPersonaName, UserCountry, CurrentUsername, IP2Country;
         public static bool UserPlaying = false;
 
@@ -45,26 +43,17 @@ namespace MercuryBOT
         public static string myUniqueId;
         public static string APIKey;
 
-        /// <summary>
-        /// List with Friends/Groups
-        /// </summary>
         public static List<SteamID> Friends { get; private set; }
         //private readonly List<SteamID> Groups = new List<SteamID>();
         public static Dictionary<ulong, string> ClanDictionary = new Dictionary<ulong, string>();
 
-        /// <summary>
-        /// Steam related
-        /// </summary>
+
         public static SteamClient steamClient;
         public static SteamUser steamUser;
         public static SteamFriends steamFriends;
         public static CallbackManager MercuryManager;
         public static SteamWeb steamWeb;
 
-        /// <summary>
-        /// Auto Msg Settings
-        /// </summary>
-        /// 
         public static string MessageString;
         public static bool ChatLogger = false;
         public static bool isAwayState = false;
@@ -73,9 +62,6 @@ namespace MercuryBOT
         public static bool FriendsLoaded = false;
         public static bool isSendingMsgs = false;
 
-        /// <summary>
-        /// Avatar Links
-        /// </summary>
         public static string AvatarPrefix = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/";
         public static string AvatarSuffix = "_full.jpg";
 
@@ -86,23 +72,19 @@ namespace MercuryBOT
         public static bool isRunning = false;
         private static EResult LastLogOnResult;
 
-        //Disconnected ints
         private static int DisconnectedCounter;
         private static int MaxDisconnects = 4;
-        //
 
         private static string NewloginKey = null;
-
         private static bool cookiesAreInvalid = true;
-
         public static string user, pass;
-
-        public static int maxfriendCount;
-
         public static string authCode, twoFactorAuth;
         public static string steamID;
 
 
+        public static int maxfriendCount;
+
+        
         public static void UserSettingsGather(string username, string password)
         {
             try
@@ -134,7 +116,6 @@ namespace MercuryBOT
             steamClient = new SteamClient();
 
             MercuryManager = new CallbackManager(steamClient);
-            //m_logger = new Logger(user);
             steamWeb = new SteamWeb();
 
             //DebugLog.AddListener(new MyListener());
@@ -334,7 +315,7 @@ namespace MercuryBOT
             IP2Country = callback.PublicIP.ToString();
             CurrentSteamID = steamClient.SteamID.ConvertToUInt64();
             myUserNonce = callback.WebAPIUserNonce;
-            UserCountry =callback.IPCountryCode;
+            UserCountry = callback.IPCountryCode;
             IsLoggedIn = true;
             steamFriends.SetPersonaState(EPersonaState.Online);
             //gatherWebApiKey();
@@ -693,7 +674,7 @@ namespace MercuryBOT
             {
 
                 SteamID allfriends = steamFriends.GetFriendByIndex(i);
-                if (allfriends.ConvertToUInt64() != 0 && steamFriends.GetFriendRelationship(allfriends.ConvertToUInt64()) == EFriendRelationship.Friend) 
+                if (allfriends.ConvertToUInt64() != 0 && steamFriends.GetFriendRelationship(allfriends.ConvertToUInt64()) == EFriendRelationship.Friend)
                 {
                     Friends.Add(allfriends.ConvertToUInt64());
                     //Friends.Add(steamFriends.GetFriendByIndex(i));

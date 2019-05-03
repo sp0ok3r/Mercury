@@ -310,7 +310,6 @@
       <DependentUpon>Info.cs</DependentUpon>
     </Compile>
     <Compile Include="InfoForm\InfoHelper.cs" />
-    <Compile Include="Logger\Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectGames\SelectGames.cs">
