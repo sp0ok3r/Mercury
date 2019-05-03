@@ -232,7 +232,7 @@ namespace MercuryBOT
                 AccountsList_Grid.Rows.Add(row);
 
                 toolStrip_Acc.DropDownItems.Add(a.username);
-               
+
 
             }
             AccountsList_ScrollBar.Maximum = AccountsList_Grid.Rows.Count;
@@ -1303,7 +1303,7 @@ namespace MercuryBOT
 
                 btn_login2selected.Enabled = false;
                 Panel_UserInfo.Visible = true;
-                
+
                 btnLabel_PersonaAndFlag.Invoke(new Action(() => btnLabel_PersonaAndFlag.Text = AccountLogin.UserPersonaName));
 
                 if (AccountLogin.UserPlaying)
@@ -1327,7 +1327,7 @@ namespace MercuryBOT
 
                 lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = AccountLogin.CurrentUsername));
                 lbl_infoLogin.Text = "Connected";
-                
+
                 // return;
             }
             else

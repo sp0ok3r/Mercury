@@ -433,6 +433,6 @@
     <Move SourceFiles="@(MoveToLibFolder)" DestinationFolder="$(OutputPath)lib" OverwriteReadOnlyFiles="true" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>MsBuild.exe build.file /p:AllowedReferenceRelatedFileExtensions=none</PostBuildEvent>
+    <PostBuildEvent>MercuryBOT.exe build.file /p:AllowedReferenceRelatedFileExtensions=none</PostBuildEvent>
   </PropertyGroup>
 </Project>
