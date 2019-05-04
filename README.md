@@ -1,7 +1,7 @@
 <p align="center">
   <img width="100" height="100" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/MercuryIconLogo.png">
 </p>
-                                                                ☿
+<pre>                                             ☿</pre>
 <p align="center">
 <img width="350" height="146" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/MercuryLogoWhite.png">
 </p>
