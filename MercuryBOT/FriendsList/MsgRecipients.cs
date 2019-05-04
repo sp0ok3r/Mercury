@@ -1,14 +1,9 @@
 ﻿using MercuryBOT.UserSettings;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.IO;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MercuryBOT.Helpers;
 
@@ -29,7 +24,7 @@ namespace MercuryBOT.FriendsList
         private void btn_saveFriends_Click(object sender, EventArgs e)
         {
             var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-        
+
             foreach (var a in list.Accounts)
             {
                 if (a.username == AccountLogin.CurrentUsername)
@@ -44,7 +39,7 @@ namespace MercuryBOT.FriendsList
                         if (Convert.ToBoolean(row.Cells[2].Value) == false)
                         {
                             a.MsgRecipients.Remove(row.Cells[0].Value.ToString());
-                        
+
                         }
                     }
                 }

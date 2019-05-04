@@ -232,6 +232,7 @@
     </Compile>
     <Compile Include="SteamGroups\GatherSteamGroups.cs">
       <SubType>Form</SubType>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="SteamGroups\GatherSteamGroups.Designer.cs">
       <DependentUpon>GatherSteamGroups.cs</DependentUpon>
@@ -251,6 +252,7 @@
     <Compile Include="SteamServers\SteamServers.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>

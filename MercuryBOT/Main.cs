@@ -1,4 +1,4 @@
-﻿/*  
+﻿/*
  ▄▀▀▄ ▄▀▄  ▄▀▀█▄▄▄▄  ▄▀▀▄▀▀▀▄  ▄▀▄▄▄▄   ▄▀▀▄ ▄▀▀▄  ▄▀▀▄▀▀▀▄  ▄▀▀▄ ▀▀▄ 
 █  █ ▀  █ ▐  ▄▀   ▐ █   █   █ █ █    ▌ █   █    █ █   █   █ █   ▀▄ ▄▀ 
 ▐  █    █   █▄▄▄▄▄  ▐  █▀▀█▀  ▐ █      ▐  █    █  ▐  █▀▀█▀  ▐     █   
@@ -131,7 +131,13 @@ namespace MercuryBOT
         public Main()
         {
             InitializeComponent();
-            this.Activate();
+
+           //while(System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable() == false)
+           // {
+
+           // }
+
+                this.Activate();
             //this.Focus();
             this.components.SetStyle(this);
             Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));

@@ -54,6 +54,7 @@
             this.FriendsList_ScrollBar.Style = MetroFramework.MetroColorStyle.Purple;
             this.FriendsList_ScrollBar.TabIndex = 41;
             this.FriendsList_ScrollBar.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FriendsList_ScrollBar.UseBarColor = true;
             this.FriendsList_ScrollBar.UseSelectable = true;
             this.FriendsList_ScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.FriendsList_ScrollBar_Scroll);
             // 
@@ -131,7 +132,7 @@
             // 
             this.btn_saveFriends.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_saveFriends.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btn_saveFriends.Location = new System.Drawing.Point(250, 466);
+            this.btn_saveFriends.Location = new System.Drawing.Point(236, 466);
             this.btn_saveFriends.Name = "btn_saveFriends";
             this.btn_saveFriends.Size = new System.Drawing.Size(158, 35);
             this.btn_saveFriends.Style = MetroFramework.MetroColorStyle.Purple;
