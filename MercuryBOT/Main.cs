@@ -232,8 +232,6 @@ namespace MercuryBOT
                 AccountsList_Grid.Rows.Add(row);
 
                 toolStrip_Acc.DropDownItems.Add(a.username);
-               
-
             }
             AccountsList_ScrollBar.Maximum = AccountsList_Grid.Rows.Count;
             AccountsList_Grid.ClearSelection();
