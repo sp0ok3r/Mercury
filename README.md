@@ -26,6 +26,7 @@
 - Send Groups announcements
 - Set Player of the week in Group
 - Mass message with old method
+- Message specific friends
 - <a href="https://github.com/sp0ok3r/Mercury#images">...(example images)</a>
 
 ### Soon: 
@@ -34,7 +35,6 @@
 - Comment on all friends profile (0%) beta7
 - Rate Entire Activity Feed/Anything (0%)
 - Save AppIDS to File (0%) maybe not beta7
-- Message specific friends (100%) beta7
 
 ### Download: 
 
