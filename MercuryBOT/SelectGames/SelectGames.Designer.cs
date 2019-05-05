@@ -117,7 +117,7 @@
             // 
             this.lbl_selgames_count.AutoSize = true;
             this.lbl_selgames_count.ForeColor = System.Drawing.Color.White;
-            this.lbl_selgames_count.Location = new System.Drawing.Point(20, 382);
+            this.lbl_selgames_count.Location = new System.Drawing.Point(20, 381);
             this.lbl_selgames_count.Name = "lbl_selgames_count";
             this.lbl_selgames_count.Size = new System.Drawing.Size(65, 19);
             this.lbl_selgames_count.TabIndex = 5;
@@ -127,7 +127,7 @@
             // 
             // progreeBar_GatherGames
             // 
-            this.progreeBar_GatherGames.Location = new System.Drawing.Point(-7, -3);
+            this.progreeBar_GatherGames.Location = new System.Drawing.Point(-7, -5);
             this.progreeBar_GatherGames.Name = "progreeBar_GatherGames";
             this.progreeBar_GatherGames.Size = new System.Drawing.Size(1016, 10);
             this.progreeBar_GatherGames.TabIndex = 9;
@@ -138,9 +138,9 @@
             this.btn_selectAll.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_selectAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btn_selectAll.ForeColor = System.Drawing.Color.White;
-            this.btn_selectAll.Location = new System.Drawing.Point(918, 390);
+            this.btn_selectAll.Location = new System.Drawing.Point(867, 390);
             this.btn_selectAll.Name = "btn_selectAll";
-            this.btn_selectAll.Size = new System.Drawing.Size(67, 23);
+            this.btn_selectAll.Size = new System.Drawing.Size(118, 23);
             this.btn_selectAll.TabIndex = 13;
             this.btn_selectAll.Text = "SELECT ALL";
             this.btn_selectAll.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -165,7 +165,7 @@
             // 
             this.lbl_totalfoldersize.AutoSize = true;
             this.lbl_totalfoldersize.ForeColor = System.Drawing.Color.White;
-            this.lbl_totalfoldersize.Location = new System.Drawing.Point(20, 63);
+            this.lbl_totalfoldersize.Location = new System.Drawing.Point(20, 64);
             this.lbl_totalfoldersize.Name = "lbl_totalfoldersize";
             this.lbl_totalfoldersize.Size = new System.Drawing.Size(108, 19);
             this.lbl_totalfoldersize.TabIndex = 15;
@@ -191,7 +191,7 @@
             // 
             // metroLink_GamesIMGPath
             // 
-            this.metroLink_GamesIMGPath.Location = new System.Drawing.Point(883, 385);
+            this.metroLink_GamesIMGPath.Location = new System.Drawing.Point(832, 388);
             this.metroLink_GamesIMGPath.Name = "metroLink_GamesIMGPath";
             this.metroLink_GamesIMGPath.Size = new System.Drawing.Size(29, 28);
             this.metroLink_GamesIMGPath.TabIndex = 26;

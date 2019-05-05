@@ -1270,7 +1270,6 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "not logged");
                 return null;
             }
-
         }
 
 

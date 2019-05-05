@@ -53,6 +53,7 @@
             this.metroTab_Tasks = new MetroFramework.Controls.MetroTabPage();
             this.metroTab_Settings = new MetroFramework.Controls.MetroTabPage();
             this.lbl_groupSelected = new MetroFramework.Controls.MetroLabel();
+            this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).BeginInit();
             this.MercuryTabControl.SuspendLayout();
             this.metroTab_Tasks.SuspendLayout();
@@ -135,9 +136,9 @@
             // 
             this.btn_exitSelected.DisplayFocus = true;
             this.btn_exitSelected.ForeColor = System.Drawing.Color.White;
-            this.btn_exitSelected.Location = new System.Drawing.Point(236, 470);
+            this.btn_exitSelected.Location = new System.Drawing.Point(251, 468);
             this.btn_exitSelected.Name = "btn_exitSelected";
-            this.btn_exitSelected.Size = new System.Drawing.Size(119, 45);
+            this.btn_exitSelected.Size = new System.Drawing.Size(117, 38);
             this.btn_exitSelected.Style = MetroFramework.MetroColorStyle.Purple;
             this.btn_exitSelected.TabIndex = 15;
             this.btn_exitSelected.Text = "LEAVE SELECTED";
@@ -151,9 +152,9 @@
             // 
             this.btn_exitfromAll.DisplayFocus = true;
             this.btn_exitfromAll.ForeColor = System.Drawing.Color.White;
-            this.btn_exitfromAll.Location = new System.Drawing.Point(86, 470);
+            this.btn_exitfromAll.Location = new System.Drawing.Point(80, 468);
             this.btn_exitfromAll.Name = "btn_exitfromAll";
-            this.btn_exitfromAll.Size = new System.Drawing.Size(74, 45);
+            this.btn_exitfromAll.Size = new System.Drawing.Size(74, 38);
             this.btn_exitfromAll.Style = MetroFramework.MetroColorStyle.Purple;
             this.btn_exitfromAll.TabIndex = 16;
             this.btn_exitfromAll.Text = "LEAVE  ALL";
@@ -166,7 +167,7 @@
             // ClanList_ScrollBar
             // 
             this.ClanList_ScrollBar.LargeChange = 10;
-            this.ClanList_ScrollBar.Location = new System.Drawing.Point(351, 21);
+            this.ClanList_ScrollBar.Location = new System.Drawing.Point(352, 21);
             this.ClanList_ScrollBar.Maximum = 100;
             this.ClanList_ScrollBar.Minimum = 0;
             this.ClanList_ScrollBar.MouseWheelBarPartitions = 10;
@@ -185,12 +186,12 @@
             // 
             this.btn_save2file.DisplayFocus = true;
             this.btn_save2file.ForeColor = System.Drawing.Color.White;
-            this.btn_save2file.Location = new System.Drawing.Point(6, 470);
+            this.btn_save2file.Location = new System.Drawing.Point(0, 468);
             this.btn_save2file.Name = "btn_save2file";
-            this.btn_save2file.Size = new System.Drawing.Size(74, 45);
+            this.btn_save2file.Size = new System.Drawing.Size(74, 38);
             this.btn_save2file.Style = MetroFramework.MetroColorStyle.Purple;
             this.btn_save2file.TabIndex = 24;
-            this.btn_save2file.Text = "To File";
+            this.btn_save2file.Text = "SAVE IDs \r\nTO FILE";
             this.btn_save2file.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btn_save2file.UseCustomForeColor = true;
             this.btn_save2file.UseSelectable = true;
@@ -212,7 +213,7 @@
             this.txtBox_Annonbody.CustomButton.UseSelectable = true;
             this.txtBox_Annonbody.CustomButton.Visible = false;
             this.txtBox_Annonbody.Lines = new string[0];
-            this.txtBox_Annonbody.Location = new System.Drawing.Point(123, 267);
+            this.txtBox_Annonbody.Location = new System.Drawing.Point(120, 113);
             this.txtBox_Annonbody.MaxLength = 32767;
             this.txtBox_Annonbody.Multiline = true;
             this.txtBox_Annonbody.Name = "txtBox_Annonbody";
@@ -233,7 +234,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(27, 219);
+            this.metroLabel4.Location = new System.Drawing.Point(22, 54);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(100, 19);
             this.metroLabel4.TabIndex = 30;
@@ -245,7 +246,7 @@
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.Enabled = false;
-            this.metroLabel3.Location = new System.Drawing.Point(8, 147);
+            this.metroLabel3.Location = new System.Drawing.Point(3, 265);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(119, 19);
             this.metroLabel3.TabIndex = 29;
@@ -268,7 +269,7 @@
             this.txt_potwSteamID.CustomButton.UseSelectable = true;
             this.txt_potwSteamID.CustomButton.Visible = false;
             this.txt_potwSteamID.Lines = new string[0];
-            this.txt_potwSteamID.Location = new System.Drawing.Point(123, 143);
+            this.txt_potwSteamID.Location = new System.Drawing.Point(120, 264);
             this.txt_potwSteamID.MaxLength = 32767;
             this.txt_potwSteamID.Name = "txt_potwSteamID";
             this.txt_potwSteamID.PasswordChar = '\0';
@@ -289,7 +290,7 @@
             // 
             // btn_groupAnnouncement
             // 
-            this.btn_groupAnnouncement.Location = new System.Drawing.Point(237, 356);
+            this.btn_groupAnnouncement.Location = new System.Drawing.Point(234, 202);
             this.btn_groupAnnouncement.Name = "btn_groupAnnouncement";
             this.btn_groupAnnouncement.Size = new System.Drawing.Size(96, 23);
             this.btn_groupAnnouncement.TabIndex = 27;
@@ -314,7 +315,7 @@
             this.txtBox_title.CustomButton.UseSelectable = true;
             this.txtBox_title.CustomButton.Visible = false;
             this.txtBox_title.Lines = new string[0];
-            this.txtBox_title.Location = new System.Drawing.Point(123, 241);
+            this.txtBox_title.Location = new System.Drawing.Point(120, 78);
             this.txtBox_title.MaxLength = 32767;
             this.txtBox_title.Name = "txtBox_title";
             this.txtBox_title.PasswordChar = '\0';
@@ -333,7 +334,7 @@
             // 
             // btn_potw
             // 
-            this.btn_potw.Location = new System.Drawing.Point(303, 143);
+            this.btn_potw.Location = new System.Drawing.Point(300, 264);
             this.btn_potw.Name = "btn_potw";
             this.btn_potw.Size = new System.Drawing.Size(30, 23);
             this.btn_potw.TabIndex = 34;
@@ -346,7 +347,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(84, 266);
+            this.metroLabel1.Location = new System.Drawing.Point(80, 110);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(42, 19);
             this.metroLabel1.TabIndex = 35;
@@ -356,7 +357,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(90, 244);
+            this.metroLabel2.Location = new System.Drawing.Point(86, 82);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(36, 19);
             this.metroLabel2.TabIndex = 36;
@@ -370,7 +371,7 @@
             // 
             // 
             this.txtBox_gName.CustomButton.Image = null;
-            this.txtBox_gName.CustomButton.Location = new System.Drawing.Point(327, 1);
+            this.txtBox_gName.CustomButton.Location = new System.Drawing.Point(345, 1);
             this.txtBox_gName.CustomButton.Name = "";
             this.txtBox_gName.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtBox_gName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -380,7 +381,7 @@
             this.txtBox_gName.CustomButton.Visible = false;
             this.txtBox_gName.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.txtBox_gName.Lines = new string[0];
-            this.txtBox_gName.Location = new System.Drawing.Point(6, 439);
+            this.txtBox_gName.Location = new System.Drawing.Point(0, 439);
             this.txtBox_gName.MaxLength = 32767;
             this.txtBox_gName.Name = "txtBox_gName";
             this.txtBox_gName.PasswordChar = '\0';
@@ -390,7 +391,7 @@
             this.txtBox_gName.SelectionLength = 0;
             this.txtBox_gName.SelectionStart = 0;
             this.txtBox_gName.ShortcutsEnabled = true;
-            this.txtBox_gName.Size = new System.Drawing.Size(349, 23);
+            this.txtBox_gName.Size = new System.Drawing.Size(367, 23);
             this.txtBox_gName.TabIndex = 33;
             this.txtBox_gName.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_gName.UseCustomBackColor = true;
@@ -411,7 +412,7 @@
             this.MercuryTabControl.Name = "MercuryTabControl";
             this.MercuryTabControl.SelectedIndex = 0;
             this.MercuryTabControl.ShowToolTips = true;
-            this.MercuryTabControl.Size = new System.Drawing.Size(374, 564);
+            this.MercuryTabControl.Size = new System.Drawing.Size(379, 548);
             this.MercuryTabControl.TabIndex = 35;
             this.MercuryTabControl.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.MercuryTabControl.UseSelectable = true;
@@ -431,7 +432,7 @@
             this.metroTab_Tasks.HorizontalScrollbarSize = 10;
             this.metroTab_Tasks.Location = new System.Drawing.Point(4, 38);
             this.metroTab_Tasks.Name = "metroTab_Tasks";
-            this.metroTab_Tasks.Size = new System.Drawing.Size(366, 522);
+            this.metroTab_Tasks.Size = new System.Drawing.Size(371, 506);
             this.metroTab_Tasks.TabIndex = 6;
             this.metroTab_Tasks.Text = "LEAVER";
             this.metroTab_Tasks.UseCustomBackColor = true;
@@ -457,7 +458,7 @@
             this.metroTab_Settings.HorizontalScrollbarSize = 10;
             this.metroTab_Settings.Location = new System.Drawing.Point(4, 38);
             this.metroTab_Settings.Name = "metroTab_Settings";
-            this.metroTab_Settings.Size = new System.Drawing.Size(366, 522);
+            this.metroTab_Settings.Size = new System.Drawing.Size(371, 506);
             this.metroTab_Settings.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroTab_Settings.TabIndex = 10;
             this.metroTab_Settings.Text = "OTHER TASKS";
@@ -470,7 +471,7 @@
             // lbl_groupSelected
             // 
             this.lbl_groupSelected.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lbl_groupSelected.Location = new System.Drawing.Point(172, 73);
+            this.lbl_groupSelected.Location = new System.Drawing.Point(176, 73);
             this.lbl_groupSelected.Name = "lbl_groupSelected";
             this.lbl_groupSelected.Size = new System.Drawing.Size(213, 15);
             this.lbl_groupSelected.TabIndex = 38;
@@ -479,11 +480,29 @@
             this.lbl_groupSelected.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.lbl_groupSelected.UseStyleColors = true;
             // 
+            // metroPanel10
+            // 
+            this.metroPanel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.metroPanel10.HorizontalScrollbarBarColor = true;
+            this.metroPanel10.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel10.HorizontalScrollbarSize = 10;
+            this.metroPanel10.Location = new System.Drawing.Point(-1, 607);
+            this.metroPanel10.Name = "metroPanel10";
+            this.metroPanel10.Size = new System.Drawing.Size(399, 12);
+            this.metroPanel10.TabIndex = 39;
+            this.metroPanel10.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel10.UseCustomBackColor = true;
+            this.metroPanel10.UseCustomForeColor = true;
+            this.metroPanel10.VerticalScrollbarBarColor = true;
+            this.metroPanel10.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel10.VerticalScrollbarSize = 10;
+            // 
             // GatherSteamGroups
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 618);
+            this.Controls.Add(this.metroPanel10);
             this.Controls.Add(this.lbl_groupSelected);
             this.Controls.Add(this.MercuryTabControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -526,5 +545,6 @@
         private MetroFramework.Controls.MetroTabPage metroTab_Tasks;
         private MetroFramework.Controls.MetroTabPage metroTab_Settings;
         private MetroFramework.Controls.MetroLabel lbl_groupSelected;
+        private MetroFramework.Controls.MetroPanel metroPanel10;
     }
 }

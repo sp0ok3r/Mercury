@@ -43,7 +43,7 @@
             // 
             this.metroCheckBox1.AutoSize = true;
             this.metroCheckBox1.ForeColor = System.Drawing.Color.White;
-            this.metroCheckBox1.Location = new System.Drawing.Point(36, 87);
+            this.metroCheckBox1.Location = new System.Drawing.Point(36, 63);
             this.metroCheckBox1.Name = "metroCheckBox1";
             this.metroCheckBox1.Size = new System.Drawing.Size(113, 15);
             this.metroCheckBox1.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             this.metroCheckBox2.AutoSize = true;
             this.metroCheckBox2.ForeColor = System.Drawing.Color.White;
-            this.metroCheckBox2.Location = new System.Drawing.Point(36, 155);
+            this.metroCheckBox2.Location = new System.Drawing.Point(36, 105);
             this.metroCheckBox2.Name = "metroCheckBox2";
             this.metroCheckBox2.Size = new System.Drawing.Size(113, 15);
             this.metroCheckBox2.TabIndex = 1;
@@ -73,7 +73,7 @@
             // 
             this.metroCheckBox3.AutoSize = true;
             this.metroCheckBox3.ForeColor = System.Drawing.Color.White;
-            this.metroCheckBox3.Location = new System.Drawing.Point(36, 120);
+            this.metroCheckBox3.Location = new System.Drawing.Point(36, 84);
             this.metroCheckBox3.Name = "metroCheckBox3";
             this.metroCheckBox3.Size = new System.Drawing.Size(113, 15);
             this.metroCheckBox3.TabIndex = 2;
@@ -88,7 +88,7 @@
             // 
             this.metroCheckBox4.AutoSize = true;
             this.metroCheckBox4.ForeColor = System.Drawing.Color.White;
-            this.metroCheckBox4.Location = new System.Drawing.Point(36, 195);
+            this.metroCheckBox4.Location = new System.Drawing.Point(36, 126);
             this.metroCheckBox4.Name = "metroCheckBox4";
             this.metroCheckBox4.Size = new System.Drawing.Size(113, 15);
             this.metroCheckBox4.TabIndex = 3;
@@ -102,12 +102,14 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.ForeColor = System.Drawing.Color.White;
-            this.metroLabel1.Location = new System.Drawing.Point(36, 241);
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroLabel1.Location = new System.Drawing.Point(19, 153);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(91, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(115, 15);
             this.metroLabel1.TabIndex = 4;
-            this.metroLabel1.Text = "NON-STEAM:";
+            this.metroLabel1.Text = "Custom non-steam:";
             this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel1.UseCustomBackColor = true;
             this.metroLabel1.UseCustomForeColor = true;
@@ -119,7 +121,7 @@
             // 
             // 
             this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(174, 1);
+            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(246, 1);
             this.metroTextBox1.CustomButton.Name = "";
             this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -130,7 +132,7 @@
             this.metroTextBox1.ForeColor = System.Drawing.Color.White;
             this.metroTextBox1.Lines = new string[] {
         "metroTextBox1"};
-            this.metroTextBox1.Location = new System.Drawing.Point(36, 263);
+            this.metroTextBox1.Location = new System.Drawing.Point(23, 167);
             this.metroTextBox1.MaxLength = 32767;
             this.metroTextBox1.Name = "metroTextBox1";
             this.metroTextBox1.PasswordChar = '\0';
@@ -139,7 +141,7 @@
             this.metroTextBox1.SelectionLength = 0;
             this.metroTextBox1.SelectionStart = 0;
             this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(196, 23);
+            this.metroTextBox1.Size = new System.Drawing.Size(268, 23);
             this.metroTextBox1.TabIndex = 5;
             this.metroTextBox1.Text = "metroTextBox1";
             this.metroTextBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -152,10 +154,11 @@
             // 
             // metroButton1
             // 
+            this.metroButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.metroButton1.ForeColor = System.Drawing.Color.White;
-            this.metroButton1.Location = new System.Drawing.Point(199, 309);
+            this.metroButton1.Location = new System.Drawing.Point(172, 210);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(75, 23);
+            this.metroButton1.Size = new System.Drawing.Size(119, 39);
             this.metroButton1.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroButton1.TabIndex = 6;
             this.metroButton1.Text = "SAVE";
@@ -167,10 +170,11 @@
             // 
             // metroButton2
             // 
+            this.metroButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.metroButton2.ForeColor = System.Drawing.Color.White;
-            this.metroButton2.Location = new System.Drawing.Point(23, 309);
+            this.metroButton2.Location = new System.Drawing.Point(23, 210);
             this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(75, 23);
+            this.metroButton2.Size = new System.Drawing.Size(126, 39);
             this.metroButton2.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroButton2.TabIndex = 7;
             this.metroButton2.Text = "CANCEL";
@@ -184,7 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 343);
+            this.ClientSize = new System.Drawing.Size(314, 272);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroTextBox1);

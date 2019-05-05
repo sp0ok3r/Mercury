@@ -25,6 +25,7 @@ using System.IO;
 using System.Linq;
 using System.Media;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -115,7 +116,7 @@ namespace MercuryBOT
             catch (Exception)
             {
                 Console.WriteLine("sp0ok3r.tk down :c");
-                InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "sp0ok3r.tk down :c.");
+                InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "No internet connection");
                 Process.Start("https://github.com/sp0ok3r/Mercury/releases");
             }
         }
@@ -131,24 +132,20 @@ namespace MercuryBOT
         public Main()
         {
             InitializeComponent();
-
-           //while(System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable() == false)
-           // {
-
-           // }
-
-                this.Activate();
-            //this.Focus();
+            
+            this.Activate();
             this.components.SetStyle(this);
             Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
             btn_logout.Visible = false;
-
-
+            
             Trolha.Tick += Trolha_Tick;
 
             // Calculate the mercury age. 2019-03-28 💔
             var age = 2019 - DateTime.Today.Year;
-            lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
+            if (age<0)
+            {
+                lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
+            }
         }
 
         public void Main_Load(object sender, EventArgs e)
@@ -177,7 +174,6 @@ namespace MercuryBOT
             {
                 this.ShowInTaskbar = true;
                 toggle_hideInTask.Checked = false;
-
             }
 
             if (Settingslist.startMinimized)
@@ -243,6 +239,7 @@ namespace MercuryBOT
             AccountsList_Grid.ClearSelection();
         }
 
+        #region Buttons
         private void btn_admincmds_Click(object sender, EventArgs e)
         {
             btn_admincmds.Enabled = false;
@@ -363,7 +360,7 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
         }
-
+        
         private void chck_afk_CheckedChanged(object sender, EventArgs e)
         {
             if (chck_afk.Checked && AccountLogin.IsLoggedIn == true)
@@ -712,7 +709,7 @@ namespace MercuryBOT
             btn_login2selected.Enabled = false;
             lbl_infoLogin.Text = "Trying to login...";
         }
-
+        #endregion
         private void doLogin(string username)
         {
 
@@ -927,6 +924,8 @@ namespace MercuryBOT
             btn_MsgRecipients.Enabled = true;
         }
 
+
+        #region Mouse Move
         //https://stackoverflow.com/users/3879008/giangpzo
         private bool draging = false;
 
@@ -960,7 +959,9 @@ namespace MercuryBOT
         {
             draging = false;
         }
+        #endregion
 
+        #region Links
         private void Link_steamgroup_Click(object sender, EventArgs e)
         {
             Process.Start("https://steamcommunity.com/groups/MercuryBOT");
@@ -1021,6 +1022,17 @@ namespace MercuryBOT
             Process.Start("https://github.com/sp0ok3r/Mercury");
         }
 
+        private void link_reportBugFeature_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/sp0ok3r/Mercury/issues");
+        }
+
+        private void link_joinSteamG_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://steamcommunity.com/groups/MercuryBOT");
+            Process.Start("steam://openurl/https://steamcommunity.com/groups/MercuryBOT");
+        }
+        #endregion
         private void toolStrip_Logout_Click(object sender, EventArgs e)
         {
             if (AccountLogin.IsLoggedIn == true)
@@ -1292,19 +1304,19 @@ namespace MercuryBOT
 
         private void CurrentUserSafeUpdater()
         {
-
             // try
             // {
             if (AccountLogin.IsLoggedIn == true)
             {
+                lbl_infoLogin.Text = "Trying to login...";
+
                 if (AccountLogin.isSendingMsgs == false)
                 {
                     btn_sendMsg2Friends.Enabled = true;
                 }
                 btn_logout.Visible = true;
                 toggle_chatlogger.Checked = AccountLogin.ChatLogger;
-                lbl_infoLogin.Text = "Trying to login...";
-
+                
                 btn_login2selected.Enabled = false;
                 Panel_UserInfo.Visible = true;
 
@@ -1330,18 +1342,16 @@ namespace MercuryBOT
                 }
 
                 lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = AccountLogin.CurrentUsername));
-                lbl_infoLogin.Text = "Connected";
-
-                // return;
+                lbl_infoLogin.Text = "Connected"; // return;
             }
             else
             {
-                btn_logout.Visible = false;
                 lbl_infoLogin.Text = "Not logged...";
 
-                btn_login2selected.Enabled = true;
+                btn_logout.Visible = false;
                 Panel_UserInfo.Visible = false;
-                //btnLabel_PersonaAndFlag.Image = Properties.Resources.notloggedFlag; dont use
+                btn_login2selected.Enabled = true;
+
                 picBox_SteamAvatar.Image = null;
                 btnLabel_PersonaAndFlag.Image = null;
                 panel_steamStates.BackColor = Color.Gray;
@@ -1349,8 +1359,7 @@ namespace MercuryBOT
                 lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = "None"));
                 btnLabel_PersonaAndFlag.Invoke(new Action(() => btnLabel_PersonaAndFlag.Text = "None"));
 
-                GamesList_Grid.Rows.Clear();
-                // return;
+                GamesList_Grid.Rows.Clear();// return;
             }
         }
 
@@ -1428,7 +1437,6 @@ namespace MercuryBOT
                 btn_changeprofSettings.Enabled = false;
                 ProfilePrivacySetting.Show();
                 //verify **********************
-
             }
             else
             {
@@ -1463,12 +1471,13 @@ namespace MercuryBOT
 
         private void picBox_Restart_Click(object sender, EventArgs e)
         {
+            Mercury_notifyIcon.Icon = null;
+
             if (AccountLogin.IsLoggedIn == true)
             {
                 AccountLogin.Logout();
             }
 
-            Mercury_notifyIcon.Icon = null;
             Process.Start(Application.ExecutablePath);
             Application.Exit();
         }
@@ -1514,12 +1523,7 @@ namespace MercuryBOT
             Settingslist.startupTab = combox_defaultTab.SelectedIndex;
 
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, new JsonSerializerSettings { Formatting = Formatting.Indented }));
-        }
-
-        private void link_reportBugFeature_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://github.com/sp0ok3r/Mercury/issues");
-        }
+        } 
     }
 }
 /* dont delete
