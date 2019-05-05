@@ -410,7 +410,6 @@
     <None Include="Resources\RamLogo.png" />
     <None Include="Resources\DiscordLogo.png" />
     <None Include="Resources\mercuryIMGNotFound.png" />
-    <None Include="Resources\notloggedFlag.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

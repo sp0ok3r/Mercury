@@ -53,7 +53,6 @@
             this.txtBox_Comments2GetCount = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.ProgressSpinner = new MetroFramework.Controls.MetroProgressSpinner();
-            this.btn_testes = new MetroFramework.Controls.MetroButton();
             this.CollectComments = new System.ComponentModel.BackgroundWorker();
             this.CommentsList_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.GridCommentsData)).BeginInit();
@@ -67,7 +66,7 @@
             this.combox_profileOrClan.Items.AddRange(new object[] {
             "Profile",
             "Group"});
-            this.combox_profileOrClan.Location = new System.Drawing.Point(192, 567);
+            this.combox_profileOrClan.Location = new System.Drawing.Point(193, 566);
             this.combox_profileOrClan.Name = "combox_profileOrClan";
             this.combox_profileOrClan.Size = new System.Drawing.Size(232, 29);
             this.combox_profileOrClan.TabIndex = 2;
@@ -81,7 +80,7 @@
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.ForeColor = System.Drawing.Color.White;
-            this.metroLabel1.Location = new System.Drawing.Point(82, 577);
+            this.metroLabel1.Location = new System.Drawing.Point(83, 576);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(110, 19);
             this.metroLabel1.Style = MetroFramework.MetroColorStyle.Purple;
@@ -110,7 +109,7 @@
             // 
             this.btn_doTask.DisplayFocus = true;
             this.btn_doTask.ForeColor = System.Drawing.Color.White;
-            this.btn_doTask.Location = new System.Drawing.Point(835, 589);
+            this.btn_doTask.Location = new System.Drawing.Point(835, 577);
             this.btn_doTask.Name = "btn_doTask";
             this.btn_doTask.Size = new System.Drawing.Size(154, 86);
             this.btn_doTask.Style = MetroFramework.MetroColorStyle.Purple;
@@ -126,7 +125,7 @@
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.ForeColor = System.Drawing.Color.White;
-            this.metroLabel3.Location = new System.Drawing.Point(477, 567);
+            this.metroLabel3.Location = new System.Drawing.Point(476, 558);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(96, 19);
             this.metroLabel3.Style = MetroFramework.MetroColorStyle.Purple;
@@ -140,7 +139,7 @@
             // chck_containsWords
             // 
             this.chck_containsWords.AutoSize = true;
-            this.chck_containsWords.Location = new System.Drawing.Point(494, 589);
+            this.chck_containsWords.Location = new System.Drawing.Point(493, 580);
             this.chck_containsWords.Name = "chck_containsWords";
             this.chck_containsWords.Size = new System.Drawing.Size(108, 15);
             this.chck_containsWords.TabIndex = 8;
@@ -166,7 +165,7 @@
             this.txtBox_filterWords.CustomButton.Visible = false;
             this.txtBox_filterWords.ForeColor = System.Drawing.Color.White;
             this.txtBox_filterWords.Lines = new string[0];
-            this.txtBox_filterWords.Location = new System.Drawing.Point(608, 589);
+            this.txtBox_filterWords.Location = new System.Drawing.Point(607, 580);
             this.txtBox_filterWords.MaxLength = 32767;
             this.txtBox_filterWords.Multiline = true;
             this.txtBox_filterWords.Name = "txtBox_filterWords";
@@ -204,8 +203,9 @@
             this.txtBox_profileGroupID.CustomButton.UseSelectable = true;
             this.txtBox_profileGroupID.CustomButton.Visible = false;
             this.txtBox_profileGroupID.ForeColor = System.Drawing.Color.White;
-            this.txtBox_profileGroupID.Lines = new string[0];
-            this.txtBox_profileGroupID.Location = new System.Drawing.Point(192, 609);
+            this.txtBox_profileGroupID.Lines = new string[] {
+        "76561197973845818"};
+            this.txtBox_profileGroupID.Location = new System.Drawing.Point(193, 608);
             this.txtBox_profileGroupID.MaxLength = 32767;
             this.txtBox_profileGroupID.Name = "txtBox_profileGroupID";
             this.txtBox_profileGroupID.PasswordChar = '\0';
@@ -217,6 +217,7 @@
             this.txtBox_profileGroupID.ShortcutsEnabled = true;
             this.txtBox_profileGroupID.Size = new System.Drawing.Size(232, 23);
             this.txtBox_profileGroupID.TabIndex = 10;
+            this.txtBox_profileGroupID.Text = "76561197973845818";
             this.txtBox_profileGroupID.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_profileGroupID.UseCustomBackColor = true;
             this.txtBox_profileGroupID.UseCustomForeColor = true;
@@ -317,7 +318,7 @@
             // 
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.ForeColor = System.Drawing.Color.White;
-            this.metroLabel2.Location = new System.Drawing.Point(54, 613);
+            this.metroLabel2.Location = new System.Drawing.Point(55, 612);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(138, 19);
             this.metroLabel2.Style = MetroFramework.MetroColorStyle.Purple;
@@ -359,7 +360,7 @@
             // chck_ignoreCase
             // 
             this.chck_ignoreCase.AutoSize = true;
-            this.chck_ignoreCase.Location = new System.Drawing.Point(517, 610);
+            this.chck_ignoreCase.Location = new System.Drawing.Point(516, 601);
             this.chck_ignoreCase.Name = "chck_ignoreCase";
             this.chck_ignoreCase.Size = new System.Drawing.Size(85, 15);
             this.chck_ignoreCase.TabIndex = 23;
@@ -386,7 +387,7 @@
             this.txtBox_Comments2GetCount.ForeColor = System.Drawing.Color.White;
             this.txtBox_Comments2GetCount.Lines = new string[] {
         "50"};
-            this.txtBox_Comments2GetCount.Location = new System.Drawing.Point(238, 638);
+            this.txtBox_Comments2GetCount.Location = new System.Drawing.Point(239, 637);
             this.txtBox_Comments2GetCount.MaxLength = 500;
             this.txtBox_Comments2GetCount.Name = "txtBox_Comments2GetCount";
             this.txtBox_Comments2GetCount.PasswordChar = '\0';
@@ -412,7 +413,7 @@
             // 
             this.metroLabel4.AutoSize = true;
             this.metroLabel4.ForeColor = System.Drawing.Color.White;
-            this.metroLabel4.Location = new System.Drawing.Point(54, 642);
+            this.metroLabel4.Location = new System.Drawing.Point(55, 641);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(178, 19);
             this.metroLabel4.Style = MetroFramework.MetroColorStyle.Purple;
@@ -435,23 +436,6 @@
             this.ProgressSpinner.UseCustomForeColor = true;
             this.ProgressSpinner.UseSelectable = true;
             this.ProgressSpinner.UseStyleColors = true;
-            // 
-            // btn_testes
-            // 
-            this.btn_testes.DisplayFocus = true;
-            this.btn_testes.ForeColor = System.Drawing.Color.White;
-            this.btn_testes.Location = new System.Drawing.Point(430, 631);
-            this.btn_testes.Name = "btn_testes";
-            this.btn_testes.Size = new System.Drawing.Size(154, 44);
-            this.btn_testes.Style = MetroFramework.MetroColorStyle.Purple;
-            this.btn_testes.TabIndex = 21;
-            this.btn_testes.Text = "do test...";
-            this.btn_testes.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.btn_testes.UseCustomForeColor = true;
-            this.btn_testes.UseSelectable = true;
-            this.btn_testes.UseStyleColors = true;
-            this.btn_testes.Visible = false;
-            this.btn_testes.Click += new System.EventHandler(this.Btn_testes_Click);
             // 
             // CollectComments
             // 
@@ -482,7 +466,6 @@
             this.ClientSize = new System.Drawing.Size(1012, 681);
             this.Controls.Add(this.chck_ignoreCase);
             this.Controls.Add(this.CommentsList_ScrollBar);
-            this.Controls.Add(this.btn_testes);
             this.Controls.Add(this.ProgressSpinner);
             this.Controls.Add(this.txtBox_Comments2GetCount);
             this.Controls.Add(this.metroLabel4);
@@ -532,7 +515,6 @@
         private MetroFramework.Controls.MetroTextBox txtBox_Comments2GetCount;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroProgressSpinner ProgressSpinner;
-        private MetroFramework.Controls.MetroButton btn_testes;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn content;
         private System.Windows.Forms.DataGridViewTextBoxColumn autor;

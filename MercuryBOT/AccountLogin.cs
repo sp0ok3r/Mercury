@@ -84,7 +84,7 @@ namespace MercuryBOT
 
         public static int maxfriendCount;
 
-        
+
         public static void UserSettingsGather(string username, string password)
         {
             try
@@ -114,13 +114,12 @@ namespace MercuryBOT
             isRunning = true;
 
             steamClient = new SteamClient();
+            steamWeb = new SteamWeb();
 
             MercuryManager = new CallbackManager(steamClient);
-            steamWeb = new SteamWeb();
 
             //DebugLog.AddListener(new MyListener());
             //DebugLog.Enabled = true;
-
 
             #region Callbacks
             steamUser = steamClient.GetHandler<SteamUser>();
@@ -142,7 +141,6 @@ namespace MercuryBOT
 
             MercuryManager.Subscribe<SteamFriends.PersonaStateCallback>(OnPersonaState);
             MercuryManager.Subscribe<SteamFriends.PersonaChangeCallback>(OnSteamNameChange);
-
             #endregion
 
             Console.WriteLine("[" + Program.BOTNAME + "] - Connecting to Steam...");
@@ -157,13 +155,6 @@ namespace MercuryBOT
 
         static void OnConnected(SteamClient.ConnectedCallback callback)
         {
-            //    if (callback == null)
-            //    {
-            //        isRunning = false;
-            //        return;
-
-            //    }
-
             if (callback.ToString() != "SteamKit2.SteamClient+ConnectedCallback")
             {
                 Console.WriteLine("[" + Program.BOTNAME + "] - Unable to connect to Steam: {0}", callback);
@@ -227,7 +218,6 @@ namespace MercuryBOT
             bool is2FA = callback.Result == EResult.AccountLoginDeniedNeedTwoFactor;
             bool isLoginKey = callback.Result == EResult.InvalidPassword && NewloginKey != null;
 
-            //authCode = twoFactorAuth = null;
             if (isSteamGuard || is2FA || isLoginKey)
             {
                 if (!isLoginKey)
@@ -250,7 +240,6 @@ namespace MercuryBOT
                     }
 
                     twoFactorAuth = SteamGuard.AuthCode.Trim();
-
                 }
                 else if (isLoginKey)
                 {
@@ -353,7 +342,7 @@ namespace MercuryBOT
                     DisconnectedCounter = 0;
                 }
             }
-            Console.WriteLine("[" + Program.BOTNAME + "] - Reconnecting in 3s ..." + callback.UserInitiated);
+            Console.WriteLine("[" + Program.BOTNAME + "] - Reconnecting in 2s ..." + callback.UserInitiated);
 
 
             Thread.Sleep(2000);
@@ -383,18 +372,16 @@ namespace MercuryBOT
             SteamID friendId = callback.FriendID;
 
             //ListFriends.UpdateName(friendId.ConvertToUInt64(), callback.Name); not yet
-            // ListFriends.UpdateStatus(friendId.ConvertToUInt64(), state.ToString()); not yet
+            //ListFriends.UpdateStatus(friendId.ConvertToUInt64(), state.ToString()); not yet
 
             if (friendId.ConvertToUInt64() == steamClient.SteamID)
             {
                 if (callback.GameID > 0)
                 {
-
-                    UserPlaying = true; // 
+                    UserPlaying = true;
                 }
                 else
                 {
-
                     UserPlaying = false;
                 }
                 if (steamFriends.GetPersonaState() != EPersonaState.Online) //detect when user goes afk
@@ -413,7 +400,6 @@ namespace MercuryBOT
             myUniqueId = callback.UniqueID.ToString();
 
             steamUser.AcceptNewLoginKey(callback);
-            //  UserWebLogOn();
 
             var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
             foreach (var a in list.Accounts)
@@ -427,7 +413,7 @@ namespace MercuryBOT
                     {
                         a.SteamID = steamClient.SteamID.ConvertToUInt64();
                     }
-                    Console.WriteLine("[" + Program.BOTNAME + "] - Got Login-Key, setting in config!");
+                    Console.WriteLine("[" + Program.BOTNAME + "] - Setting LoginKey in config!");
                 }
             }
             File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, Formatting.Indented));
@@ -505,7 +491,18 @@ namespace MercuryBOT
             byte[] sentryHash = CryptoHelper.SHAHash(callback.Data);
             File.WriteAllBytes(Program.SentryFolder + user + ".bin", callback.Data);
 
-            steamUser.SendMachineAuthResponse(new SteamUser.MachineAuthDetails { JobID = callback.JobID, FileName = callback.FileName, BytesWritten = callback.BytesToWrite, FileSize = callback.Data.Length, Offset = callback.Offset, Result = EResult.OK, LastError = 0, OneTimePassword = callback.OneTimePassword, SentryFileHash = sentryHash, });
+            steamUser.SendMachineAuthResponse(new SteamUser.MachineAuthDetails
+            {
+                JobID = callback.JobID,
+                FileName = callback.FileName,
+                BytesWritten = callback.BytesToWrite,
+                FileSize = callback.Data.Length,
+                Offset = callback.Offset,
+                Result = EResult.OK,
+                LastError = 0,
+                OneTimePassword = callback.OneTimePassword,
+                SentryFileHash = sentryHash,
+            });
             Console.WriteLine("[" + Program.BOTNAME + "] - Sentry updated!");
         }
 
@@ -572,9 +569,9 @@ namespace MercuryBOT
                 string PreURL = SHA1.Substring(1, 2);
                 return AvatarPrefix + PreURL + "/" + SHA1 + AvatarSuffix;
             }
-            catch (Exception tete)
+            catch (Exception exD)
             {
-                return "errorrr: " + tete;
+                return "AvatarError: " + exD;
             }
 
         }
@@ -950,7 +947,7 @@ namespace MercuryBOT
                 Console.WriteLine(resp);//debug
             }
         }
-        public static void gatherWebApiKey()//teste
+        public static void gatherWebApiKey()
         {
             string resp = steamWeb.Fetch("https://steamcommunity.com/dev/apikey?l=english", "GET");
 
@@ -970,7 +967,7 @@ namespace MercuryBOT
 
 
                 var webkeySet = document.QuerySelector("div[id='bodyContents_ex'] > p"); //650ip
-                if (webkeySet.TextContent.Contains("Key:"))
+                if (document.QuerySelector("div[id='bodyContents_ex'] > p").TextContent.Contains("Key:"))
                 {
                     var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
                     foreach (var a in list.Accounts)
@@ -985,7 +982,6 @@ namespace MercuryBOT
                 }
                 else
                 {
-
                     var SetWebApi = new NameValueCollection
                     {
                         { "domain", "localhost" },
@@ -1034,6 +1030,7 @@ namespace MercuryBOT
             ClientMsgProtobuf<CMsgClientUIMode> request = new ClientMsgProtobuf<CMsgClientUIMode>(EMsg.ClientCurrentUIMode) { Body = { chat_mode = 2 } };
             steamClient.Send(request);
         }
+
         #region PlayGames
         public static void PlayNonSteamGame(string customgame)
         {
@@ -1121,7 +1118,6 @@ namespace MercuryBOT
             data.Add("languages[0][headline]", HeadLine);
             data.Add("languages[0][body]", body);
 
-            //string url = "http://steamcommunity.com/groups/" + groupName + "/announcements";
             string url = "https://steamcommunity.com/gid/" + groupName + "/announcements";
 
             string resp = steamWeb.Fetch(url, "POST", data);
@@ -1139,9 +1135,7 @@ namespace MercuryBOT
 
         public static void setGroupPlayerOfTheWeek(string gid, string steamID)
         {
-
             SteamID xx = new SteamID(steamID);
-            Console.WriteLine(xx.Render(true));
 
             var data = new NameValueCollection();
             data.Add("xml", "1");
@@ -1159,7 +1153,7 @@ namespace MercuryBOT
             }
             else
             {
-                File.WriteAllText(Program.ExecutablePath + @"\owo.html", resp);
+                //File.WriteAllText(Program.ExecutablePath + @"\owo.html", resp);
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Set Player of the week: " + steamID + "in:" + gid);
             }
         }
@@ -1173,7 +1167,7 @@ namespace MercuryBOT
 
             string url = "https://steamcommunity.com/" + gid + "/membersManage";
 
-            string resp = steamWeb.Fetch(url, "POST", data); // works
+            string resp = steamWeb.Fetch(url, "POST", data);
 
             if (resp != String.Empty && resp.Contains("Sorry!"))
             {
@@ -1197,6 +1191,7 @@ namespace MercuryBOT
 
             if (resp != String.Empty)
             {
+                Notification.NotifHelper.MessageBox.Show("Info", "Joined successfully " + groupID + " !");
             }
         }
 
@@ -1204,7 +1199,7 @@ namespace MercuryBOT
         {
             var LeaveGroup = new NameValueCollection
             {
-                { "sessionID", steamWeb.SessionID},
+                { "sessionID", steamWeb.SessionID },
                 { "action","leaveGroup"},
                 { "groupId", groupID}
             };
@@ -1213,9 +1208,7 @@ namespace MercuryBOT
 
             if (resp != String.Empty)
             {
-
-                //  InfoForm.InfoHelper.CustomMessageBox.Show("Left successfully " + groupName + " !");
-                Main.M_NotifyIcon.ShowBalloonTip(120, "INFO", "Left successfully " + groupName + " !", ToolTipIcon.Info);
+                Notification.NotifHelper.MessageBox.Show("Info", "Left successfully " + groupName + " !");
             }
         }
 
@@ -1223,7 +1216,7 @@ namespace MercuryBOT
         {
             var ClearAliases = new NameValueCollection
             {
-                { "sessionid", steamWeb.SessionID}
+                { "sessionid", steamWeb.SessionID }
             };
 
             string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/ajaxclearaliashistory", "POST", ClearAliases);
@@ -1245,23 +1238,23 @@ namespace MercuryBOT
                 try
                 {
                     string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/edit/settings", "GET");
-                    //File.WriteAllText(Program.ExecutablePath + @"\ey.html", resp);
-
-
-                    var parser = new HtmlParser();
-                    var document = parser.ParseDocument(resp);
+                    
+                   // var parser = new HtmlParser();
+                    var document = new HtmlParser().ParseDocument(resp);
                     var ReadPrivacyDiv = document.QuerySelector("div.ProfileReactRoot").GetAttribute("data-privacysettings");
 
                     var renderPrivacySettings = RenderProfilePrivacy.FromJson(ReadPrivacyDiv);
 
-                    var dictionary = new Dictionary<string, int>();
-                    dictionary.Add("PrivacyProfile", renderPrivacySettings.PrivacySettings.PrivacyProfile);
-                    dictionary.Add("PrivacyFriendsList", renderPrivacySettings.PrivacySettings.PrivacyFriendsList);
-                    dictionary.Add("PrivacyPlaytime", renderPrivacySettings.PrivacySettings.PrivacyPlaytime);
-                    dictionary.Add("PrivacyOwnedGames", renderPrivacySettings.PrivacySettings.PrivacyOwnedGames);
-                    dictionary.Add("PrivacyInventoryGifts", renderPrivacySettings.PrivacySettings.PrivacyInventoryGifts);
-                    dictionary.Add("PrivacyInventory", renderPrivacySettings.PrivacySettings.PrivacyInventory);
-                    dictionary.Add("ECommentPermission", renderPrivacySettings.ECommentPermission);
+                    var dictionary = new Dictionary<string, int>{
+                        { "PrivacyProfile", renderPrivacySettings.PrivacySettings.PrivacyProfile},
+                        { "PrivacyFriendsList", renderPrivacySettings.PrivacySettings.PrivacyFriendsList},
+                        { "PrivacyPlaytime", renderPrivacySettings.PrivacySettings.PrivacyPlaytime},
+                        { "PrivacyOwnedGames", renderPrivacySettings.PrivacySettings.PrivacyOwnedGames},
+                        { "PrivacyInventoryGifts", renderPrivacySettings.PrivacySettings.PrivacyInventoryGifts},
+                        { "PrivacyInventory", renderPrivacySettings.PrivacySettings.PrivacyInventory},
+                        { "ECommentPermission", renderPrivacySettings.ECommentPermission}
+                    };
+
                     return dictionary;
 
                 }
@@ -1302,8 +1295,7 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", resp);
             }
         }
-
-
+        
         public static void UIMode(uint x)
         {
             ClientMsgProtobuf<CMsgClientUIMode> uiMode = new ClientMsgProtobuf<CMsgClientUIMode>(EMsg.ClientCurrentUIMode)
@@ -1312,8 +1304,7 @@ namespace MercuryBOT
             };
             steamClient.Send(uiMode);
         }
-
-
+        
         public static void Logout()
         {
             user = null;
@@ -1326,7 +1317,6 @@ namespace MercuryBOT
     }
 }
 
-// remove at end project
 class MyListener : IDebugListener
 {
     public void WriteLine(string category, string msg)

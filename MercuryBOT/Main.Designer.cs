@@ -53,6 +53,7 @@
             this.chck_afk = new MetroFramework.Controls.MetroCheckBox();
             this.btn_sendMsg2Friends = new MetroFramework.Controls.MetroButton();
             this.txtBox_msg2Friends = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
             this.lbl_msg2AllorAFK = new MetroFramework.Controls.MetroLabel();
             this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
             this.lbl_changeName = new MetroFramework.Controls.MetroLabel();
@@ -201,7 +202,6 @@
             this.lbl_connecting = new MetroFramework.Controls.MetroLabel();
             this.Trolha = new System.Windows.Forms.Timer(this.components);
             this.pictureBox_MercuryLogo = new System.Windows.Forms.PictureBox();
-            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
             this.metroTab_Message.SuspendLayout();
             this.metroTab_Games.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GamesList_Grid)).BeginInit();
@@ -485,6 +485,22 @@
             this.txtBox_msg2Friends.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtBox_msg2Friends.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtBox_msg2Friends.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_msg2Friends_KeyDown);
+            // 
+            // metroLabel18
+            // 
+            this.metroLabel18.AutoSize = true;
+            this.metroLabel18.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel18.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel18.ForeColor = System.Drawing.SystemColors.Window;
+            this.metroLabel18.Location = new System.Drawing.Point(-4, 334);
+            this.metroLabel18.Name = "metroLabel18";
+            this.metroLabel18.Size = new System.Drawing.Size(123, 25);
+            this.metroLabel18.TabIndex = 25;
+            this.metroLabel18.Text = "Auto Message:";
+            this.metroLabel18.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroLabel18, "Auto Message (good for AFK!)");
+            this.metroLabel18.UseCustomBackColor = true;
+            this.metroLabel18.UseCustomForeColor = true;
             // 
             // lbl_msg2AllorAFK
             // 
@@ -971,7 +987,7 @@
             // 
             this.chck_nonsteamNgames.AutoSize = true;
             this.chck_nonsteamNgames.ForeColor = System.Drawing.Color.White;
-            this.chck_nonsteamNgames.Location = new System.Drawing.Point(613, 317);
+            this.chck_nonsteamNgames.Location = new System.Drawing.Point(613, 316);
             this.chck_nonsteamNgames.Name = "chck_nonsteamNgames";
             this.chck_nonsteamNgames.Size = new System.Drawing.Size(116, 15);
             this.chck_nonsteamNgames.TabIndex = 12;
@@ -1243,7 +1259,7 @@
             this.MercuryTabControl.Location = new System.Drawing.Point(17, 79);
             this.MercuryTabControl.Multiline = true;
             this.MercuryTabControl.Name = "MercuryTabControl";
-            this.MercuryTabControl.SelectedIndex = 3;
+            this.MercuryTabControl.SelectedIndex = 1;
             this.MercuryTabControl.ShowToolTips = true;
             this.MercuryTabControl.Size = new System.Drawing.Size(777, 450);
             this.MercuryTabControl.TabIndex = 1;
@@ -1370,7 +1386,7 @@
             this.FriendsList_Grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.FriendsList_Grid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.FriendsList_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.FriendsList_Grid.Size = new System.Drawing.Size(592, 387);
+            this.FriendsList_Grid.Size = new System.Drawing.Size(592, 385);
             this.FriendsList_Grid.TabIndex = 40;
             this.FriendsList_Grid.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.FriendsList_Grid.UseCustomForeColor = true;
@@ -1604,7 +1620,7 @@
             this.btn_rateup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_rateup.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_rateup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btn_rateup.Location = new System.Drawing.Point(81, 32);
+            this.btn_rateup.Location = new System.Drawing.Point(84, 77);
             this.btn_rateup.Name = "btn_rateup";
             this.btn_rateup.Size = new System.Drawing.Size(97, 46);
             this.btn_rateup.TabIndex = 52;
@@ -1620,7 +1636,7 @@
             // 
             this.btn_commentsGather.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btn_commentsGather.ForeColor = System.Drawing.Color.White;
-            this.btn_commentsGather.Location = new System.Drawing.Point(94, 84);
+            this.btn_commentsGather.Location = new System.Drawing.Point(84, 22);
             this.btn_commentsGather.Name = "btn_commentsGather";
             this.btn_commentsGather.Size = new System.Drawing.Size(84, 39);
             this.btn_commentsGather.Style = MetroFramework.MetroColorStyle.Purple;
@@ -1696,7 +1712,7 @@
             this.lbl_redeemkey.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lbl_redeemkey.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lbl_redeemkey.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_redeemkey.Location = new System.Drawing.Point(17, 32);
+            this.lbl_redeemkey.Location = new System.Drawing.Point(130, 40);
             this.lbl_redeemkey.Name = "lbl_redeemkey";
             this.lbl_redeemkey.Size = new System.Drawing.Size(113, 25);
             this.lbl_redeemkey.TabIndex = 37;
@@ -1709,7 +1725,7 @@
             // 
             this.btn_reddemkey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_reddemkey.ForeColor = System.Drawing.Color.White;
-            this.btn_reddemkey.Location = new System.Drawing.Point(231, 57);
+            this.btn_reddemkey.Location = new System.Drawing.Point(344, 65);
             this.btn_reddemkey.Name = "btn_reddemkey";
             this.btn_reddemkey.Size = new System.Drawing.Size(27, 23);
             this.btn_reddemkey.Style = MetroFramework.MetroColorStyle.Purple;
@@ -1738,7 +1754,7 @@
             this.txtBox_redeemKey.CustomButton.UseSelectable = true;
             this.txtBox_redeemKey.CustomButton.Visible = false;
             this.txtBox_redeemKey.Lines = new string[0];
-            this.txtBox_redeemKey.Location = new System.Drawing.Point(20, 57);
+            this.txtBox_redeemKey.Location = new System.Drawing.Point(133, 65);
             this.txtBox_redeemKey.MaxLength = 29;
             this.txtBox_redeemKey.Name = "txtBox_redeemKey";
             this.txtBox_redeemKey.PasswordChar = '\0';
@@ -2511,7 +2527,7 @@
             this.toolStrip_CloseMercury});
             this.IconContextMenu.Name = "metroContextMenu1";
             this.IconContextMenu.ShowImageMargin = false;
-            this.IconContextMenu.Size = new System.Drawing.Size(128, 98);
+            this.IconContextMenu.Size = new System.Drawing.Size(128, 76);
             this.IconContextMenu.Text = "MercuryBOT";
             this.IconContextMenu.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.IconContextMenu.UseStyleColors = true;
@@ -3019,22 +3035,6 @@
             this.pictureBox_MercuryLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this._MouseDown);
             this.pictureBox_MercuryLogo.MouseMove += new System.Windows.Forms.MouseEventHandler(this._MouseMove);
             this.pictureBox_MercuryLogo.MouseUp += new System.Windows.Forms.MouseEventHandler(this._MouseUp);
-            // 
-            // metroLabel18
-            // 
-            this.metroLabel18.AutoSize = true;
-            this.metroLabel18.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel18.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel18.ForeColor = System.Drawing.SystemColors.Window;
-            this.metroLabel18.Location = new System.Drawing.Point(-4, 334);
-            this.metroLabel18.Name = "metroLabel18";
-            this.metroLabel18.Size = new System.Drawing.Size(123, 25);
-            this.metroLabel18.TabIndex = 25;
-            this.metroLabel18.Text = "Auto Message:";
-            this.metroLabel18.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.MongoTip.SetToolTip(this.metroLabel18, "Auto Message (good for AFK!)");
-            this.metroLabel18.UseCustomBackColor = true;
-            this.metroLabel18.UseCustomForeColor = true;
             // 
             // Main
             // 

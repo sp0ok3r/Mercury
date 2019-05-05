@@ -47,6 +47,7 @@ namespace MercuryBOT
             if (AuthCode != "")
             {
                 AuthCode = txtBox_Code.Text;
+                
                 this.Close();
             }
         }
@@ -59,6 +60,7 @@ namespace MercuryBOT
 
         private void SteamGuard_Shown(object sender, EventArgs e)
         {
+            this.Activate();
             //  Stream str = Properties.Resources.;
             // SoundPlayer snd = new SoundPlayer(str);
             //  snd.Play();

@@ -43,7 +43,7 @@
             this.lbl_emojiInfo.AutoSize = true;
             this.lbl_emojiInfo.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_emojiInfo.ForeColor = System.Drawing.Color.White;
-            this.lbl_emojiInfo.Location = new System.Drawing.Point(266, 15);
+            this.lbl_emojiInfo.Location = new System.Drawing.Point(269, 18);
             this.lbl_emojiInfo.Name = "lbl_emojiInfo";
             this.lbl_emojiInfo.Size = new System.Drawing.Size(39, 36);
             this.lbl_emojiInfo.TabIndex = 6;
@@ -54,7 +54,7 @@
             this.lbl_account.AutoSize = true;
             this.lbl_account.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lbl_account.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbl_account.Location = new System.Drawing.Point(72, 81);
+            this.lbl_account.Location = new System.Drawing.Point(65, 89);
             this.lbl_account.Name = "lbl_account";
             this.lbl_account.Size = new System.Drawing.Size(16, 15);
             this.lbl_account.TabIndex = 14;
@@ -64,9 +64,9 @@
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(22, 110);
+            this.btn_cancel.Location = new System.Drawing.Point(16, 124);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(151, 36);
+            this.btn_cancel.Size = new System.Drawing.Size(150, 36);
             this.btn_cancel.TabIndex = 13;
             this.btn_cancel.Text = "CANCEL";
             this.btn_cancel.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -77,9 +77,9 @@
             // 
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.metroLabel2.Location = new System.Drawing.Point(23, 81);
+            this.metroLabel2.Location = new System.Drawing.Point(15, 89);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(52, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(53, 19);
             this.metroLabel2.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel2.TabIndex = 12;
             this.metroLabel2.Text = "Account:";
@@ -102,7 +102,7 @@
             this.txtBox_Code.CustomButton.Visible = false;
             this.txtBox_Code.ForeColor = System.Drawing.Color.White;
             this.txtBox_Code.Lines = new string[0];
-            this.txtBox_Code.Location = new System.Drawing.Point(272, 64);
+            this.txtBox_Code.Location = new System.Drawing.Point(265, 72);
             this.txtBox_Code.MaxLength = 5;
             this.txtBox_Code.Name = "txtBox_Code";
             this.txtBox_Code.PasswordChar = '\0';
@@ -125,7 +125,7 @@
             // 
             // btn_submit
             // 
-            this.btn_submit.Location = new System.Drawing.Point(208, 110);
+            this.btn_submit.Location = new System.Drawing.Point(205, 124);
             this.btn_submit.Name = "btn_submit";
             this.btn_submit.Size = new System.Drawing.Size(151, 36);
             this.btn_submit.TabIndex = 11;
@@ -139,7 +139,7 @@
             this.lbl_infoemailorPhone.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lbl_infoemailorPhone.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.lbl_infoemailorPhone.ForeColor = System.Drawing.Color.Silver;
-            this.lbl_infoemailorPhone.Location = new System.Drawing.Point(22, 66);
+            this.lbl_infoemailorPhone.Location = new System.Drawing.Point(15, 74);
             this.lbl_infoemailorPhone.Name = "lbl_infoemailorPhone";
             this.lbl_infoemailorPhone.Size = new System.Drawing.Size(247, 19);
             this.lbl_infoemailorPhone.Style = MetroFramework.MetroColorStyle.Purple;
@@ -153,7 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 156);
+            this.ClientSize = new System.Drawing.Size(372, 171);
             this.Controls.Add(this.lbl_account);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.metroLabel2);

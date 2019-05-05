@@ -14,11 +14,14 @@ using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Collections.Generic;
+
 using AngleSharp.Html.Parser;
 using SteamComments;
 using System.Threading;
 using AngleSharp.Text;
 using MercuryBOT.Helpers;
+
 
 namespace MercuryBOT
 {
@@ -60,12 +63,21 @@ namespace MercuryBOT
         {
             return Regex.Replace(str, "[^a-zA-Z0-9_.]+", " ", RegexOptions.Compiled);
         }
-        
 
         public void GatherComments()
         {
             //  if (AccountLogin.IsLoggedIn == true)
             //  {
+
+            lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
+            {
+                lbl_totalCommentsInGrid.Text = "Total Row Count:0";
+            });
+            lbl_totalComments.Invoke((MethodInvoker)delegate
+            {
+                lbl_totalComments.Text = "Total Count: 0";
+            });
+
 
             ProgressSpinner.Invoke((MethodInvoker)delegate
             {
@@ -123,39 +135,40 @@ namespace MercuryBOT
 
                     GridCommentsData.Invoke((MethodInvoker)delegate
                     {
-                        GridCommentsData.Rows.Add(row);
+                        GridCommentsData.Rows.Add(row.Distinct().ToArray());
                     });
 
 
                     string[] arrayComments = CommentContent.Split(' ');
 
-                    bool result = Author.Any(x => !char.IsLetter(x));
+                    //bool result = Author.Any(x => !char.IsLetter(x));
 
 
                     if (chck_containsWords.Checked && txtBox_filterWords.Text.Length != 0)
                     {
                         foreach (string item in arrayComments)
                         {
-                            string[] filterUser = txtBox_filterWords.Text.Split(',');
-
-                            if (chck_ignoreCase.Checked)
+                            string[] filterSelectedWords = txtBox_filterWords.Text.Split(',');
+                            
+                            if (chck_ignoreCase.Checked && filterSelectedWords.Contains(item, StringComparison.OrdinalIgnoreCase))
                             {
-                                filterUser.Contains(item, StringComparison.OrdinalIgnoreCase);
-                                Console.WriteLine("AnyCase - DELETED: " + CommentID + "\n");
-                                AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
+                                Console.WriteLine("AnyCase - DELETED: " + CommentID + " ||  " + CommentContent + "\n");
+                                // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
+
+
                                 Thread.Sleep(5);
                             }
-                            else
+                            else if (filterSelectedWords.Contains(item))
                             {
-                                filterUser.Contains(item);
                                 Console.WriteLine("DELETED: " + CommentID + "\n");
-                                AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
+
+                                // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
                                 Thread.Sleep(5);
                             }
                         }
                     }
                 }
-
+                
                 lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
                 {
                     lbl_totalCommentsInGrid.Text = "Total Row Count:" + GridCommentsData.Rows.Count.ToString();
@@ -233,7 +246,7 @@ namespace MercuryBOT
 
         }
 
-        public string IF_PROFILE_PRIVATE(string ProfileURL)
+        public string IF_PROFILE_PRIVATE(string ProfileURL)// meter api key da config
         {
             var html = Web.DownloadString("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=&vanityurl=" + ProfileURL);
             var steamID64Clean = html.Replace('"', ' ').Replace("{ response :{ steamid :", "").Replace(" , success :1}}", "").Trim();
@@ -255,12 +268,6 @@ namespace MercuryBOT
 
         }
 
-        private void Btn_testes_Click(object sender, EventArgs e)
-        {
-            //Url2ID();
-            //IF_PROFILE_PRIVATE();
-        }
-
         private void CollectComments_DoWork(object sender, DoWorkEventArgs e)
         {
             GatherComments();
@@ -268,7 +275,6 @@ namespace MercuryBOT
 
         private void CommentsGather_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //Clear RAM!!
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
@@ -280,6 +286,6 @@ namespace MercuryBOT
                 return;
             }
             GridCommentsData.FirstDisplayedScrollingRowIndex = e.NewValue;
-        } 
+        }
     }
 }
