@@ -4,8 +4,8 @@
 <p align="center">
 <img width="350" height="146" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/MercuryLogoWhite.png">
 </p>
-<pre>                                                       <b>☿</b></pre>
-Mercury is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
+
+Mercury[☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
 
 ### Features
 - Clean Metro Style with colors at choice!
