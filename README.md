@@ -35,7 +35,6 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 - Save AppIDS to File (0%) maybe not beta7
 
 ### Download: 
-
 - https://github.com/sp0ok3r/Mercury/releases/
 
 ### Contact
