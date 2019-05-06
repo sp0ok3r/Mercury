@@ -39,6 +39,8 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 
 ### Contact
 - http://steamcommunity.com/profiles/76561198041931474
+### Issues
+- ChatLogger dont opens: Install/Update: https://dotnet.microsoft.com/download/dotnet-framework/net472 
 
 ### Images/Gifs
 
