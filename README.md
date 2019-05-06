@@ -1,13 +1,11 @@
 <p align="center">
-  <img width="100" height="100" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/MercuryIconLogo.png">
+<img width="100" height="100" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/MercuryIconLogo.png">
 </p>
-<pre>                                                       <b>☿</b></pre>
 <p align="center">
 <img width="350" height="146" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/MercuryLogoWhite.png">
 </p>
-  
 
-        Mercury is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
+Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
 
 ### Features
 - Clean Metro Style with colors at choice!
@@ -37,11 +35,13 @@
 - Save AppIDS to File (0%) maybe not beta7
 
 ### Download: 
-
 - https://github.com/sp0ok3r/Mercury/releases/
 
 ### Contact
 - http://steamcommunity.com/profiles/76561198041931474
+
+### Issues
+- Mercury dont opens: Install/Update: https://dotnet.microsoft.com/download/dotnet-framework/net472 
 
 ### Images/Gifs
 
