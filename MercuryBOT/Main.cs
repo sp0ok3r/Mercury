@@ -26,6 +26,7 @@ using System.Linq;
 using System.Media;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -71,6 +72,11 @@ namespace MercuryBOT
             Mercury_notifyIcon.Icon = null;
             Environment.Exit(1);
         }
+
+
+      
+
+        
 
         [Obsolete]
         private void RafadexAutoUpdate600IQ()

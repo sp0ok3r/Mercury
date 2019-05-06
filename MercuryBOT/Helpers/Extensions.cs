@@ -26,8 +26,7 @@ namespace MercuryBOT.Helpers
 {
     public static class Extensions
     {
-
-         public static DateTime GetTime(string timeStamp)
+        public static DateTime GetTime(string timeStamp)
         {
             var dtStart = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
             var lTime = long.Parse($@"{timeStamp}0000000");
