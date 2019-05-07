@@ -44,7 +44,7 @@ namespace MercuryBOT.SteamRep
             else
             {
                 Title_AlertScammer.Visible = true;
-                picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(Convert.ToUInt64(Extensions.AllToSteamId32(txt_repSteamID.Text))));
+                picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(Convert.ToUInt64(Extensions.AllToSteamId32(txt_repSteamID.Text)));
                 if (Extensions.SteamRep(Extensions.AllToSteamId32(txt_repSteamID.Text)) == true)
                 {
                     Title_AlertScammer.BackColor = Color.DarkRed;
