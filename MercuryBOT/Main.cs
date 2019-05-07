@@ -219,6 +219,15 @@ namespace MercuryBOT
             }
         }
 
+        private void Main_Resize(object sender, EventArgs e)
+        {
+            if (FormWindowState.Minimized == WindowState && !this.ShowInTaskbar)
+            {
+                Hide();
+            }
+        }
+
+
         public void RefreshAccountList()
         {
             AccountsList_Grid.Rows.Clear();
@@ -244,6 +253,9 @@ namespace MercuryBOT
             AccountsList_ScrollBar.Maximum = AccountsList_Grid.Rows.Count;
             AccountsList_Grid.ClearSelection();
         }
+
+        
+
 
         #region Buttons
         private void btn_admincmds_Click(object sender, EventArgs e)
@@ -1529,7 +1541,9 @@ namespace MercuryBOT
             Settingslist.startupTab = combox_defaultTab.SelectedIndex;
 
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, new JsonSerializerSettings { Formatting = Formatting.Indented }));
-        } 
+        }
+
+       
     }
 }
 /* dont delete

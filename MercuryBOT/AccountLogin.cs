@@ -25,7 +25,6 @@ using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Windows.Forms;
 
 namespace MercuryBOT
 {
@@ -1239,7 +1238,6 @@ namespace MercuryBOT
                 {
                     string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/edit/settings", "GET");
                     
-                   // var parser = new HtmlParser();
                     var document = new HtmlParser().ParseDocument(resp);
                     var ReadPrivacyDiv = document.QuerySelector("div.ProfileReactRoot").GetAttribute("data-privacysettings");
 
