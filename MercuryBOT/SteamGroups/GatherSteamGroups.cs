@@ -1,4 +1,14 @@
-﻿using MercuryBOT.Helpers;
+﻿/*  
+ ▄▀▀▄ ▄▀▄  ▄▀▀█▄▄▄▄  ▄▀▀▄▀▀▀▄  ▄▀▄▄▄▄   ▄▀▀▄ ▄▀▀▄  ▄▀▀▄▀▀▀▄  ▄▀▀▄ ▀▀▄ 
+█  █ ▀  █ ▐  ▄▀   ▐ █   █   █ █ █    ▌ █   █    █ █   █   █ █   ▀▄ ▄▀ 
+▐  █    █   █▄▄▄▄▄  ▐  █▀▀█▀  ▐ █      ▐  █    █  ▐  █▀▀█▀  ▐     █   
+  █    █    █    ▌   ▄▀    █    █        █    █    ▄▀    █        █   
+▄▀   ▄▀    ▄▀▄▄▄▄   █     █    ▄▀▄▄▄▄▀    ▀▄▄▄▄▀  █     █       ▄▀    
+█    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
+▐    ▐     ▐                  ▐                                 ▐   
+*/
+
+using MercuryBOT.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,7 +25,7 @@ namespace MercuryBOT.SteamGroups
         {
             InitializeComponent();
             this.components.SetStyle(this);
-            Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
             this.MercuryTabControl.SelectedIndex = 0;
         }
 
@@ -191,6 +201,16 @@ namespace MercuryBOT.SteamGroups
             {
                 AccountLogin.setGroupPlayerOfTheWeek(GroupSelected, Extensions.AllToSteamId32(txt_potwSteamID.Text));
             }
+        }
+
+        private void btn_gatherFromProfile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_joinAll_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
