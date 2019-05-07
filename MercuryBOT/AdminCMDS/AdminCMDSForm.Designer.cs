@@ -45,6 +45,7 @@
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.richTextBox1.Size = new System.Drawing.Size(311, 279);
             this.richTextBox1.TabIndex = 43;
+            this.richTextBox1.TabStop = false;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // AdminCMDSForm
@@ -63,6 +64,7 @@
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Mercury - Admin Commands";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TopMost = true;
             this.ResumeLayout(false);
 
         }

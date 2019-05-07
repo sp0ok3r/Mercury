@@ -143,6 +143,7 @@
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Gather Profile Background";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.ProfileBackground_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBox_steamBackground)).EndInit();
             this.ResumeLayout(false);

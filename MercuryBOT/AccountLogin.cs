@@ -12,6 +12,7 @@ using AngleSharp.Html.Parser;
 using MercuryBOT.FriendsList;
 using MercuryBOT.SteamTrade;
 using MercuryBOT.UserSettings;
+using MercuryBOT.Helpers;
 using Newtonsoft.Json;
 using SteamKit2;
 using SteamKit2.Internal;
@@ -575,46 +576,46 @@ namespace MercuryBOT
 
         }
         #region Friends Methods
-        public static int GetMaxFriends()
-        {
-            if (maxfriendCount == 0)
-            {
-                try
-                {
-                    var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-                    foreach (var a in list.Accounts)
-                    {
-                        if (a.username == CurrentUsername)
-                        {
-                            APIKey = a.APIWebKey;
-                        }
-                    }
+        //public static int GetMaxFriends()
+        //{
+        //    if (maxfriendCount == 0)
+        //    {
+        //        try
+        //        {
+        //            var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
+        //            foreach (var a in list.Accounts)
+        //            {
+        //                if (a.username == CurrentUsername)
+        //                {
+        //                    APIKey = a.APIWebKey;
+        //                }
+        //            }
 
-                    //  if (APIKey == "undefined" || APIKey.Length == 0)
-                    if (string.IsNullOrEmpty(APIKey))
-                    {
-                        InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Register your api key and set it on Accounts.json");
-                        Process.Start("https://steamcommunity.com/dev/apikey");
-                        throw new System.ArgumentException("Register your api key and set it on Accounts.json - https://steamcommunity.com/dev/apikey", "devapi missing");
-                    }
+        //            //  if (APIKey == "undefined" || APIKey.Length == 0)
+        //            if (string.IsNullOrEmpty(APIKey))
+        //            {
+        //                InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Register your api key and set it on Accounts.json");
+        //                Process.Start("https://steamcommunity.com/dev/apikey");
+        //                throw new System.ArgumentException("Register your api key and set it on Accounts.json - https://steamcommunity.com/dev/apikey", "devapi missing");
+        //            }
 
-                    using (var webClient = new WebClient())
-                    {
-                        var json = webClient.DownloadString("http://api.steampowered.com/IPlayerService/GetSteamLevel/v1/?key=" + APIKey + "&steamid=" + steamClient.SteamID.ConvertToUInt64());
-                        var welcome = SteamPlayerLevel.PlayerLevel.FromJson(json);
-                        maxfriendCount = 250 + (5 * Convert.ToInt32(welcome.Response.PlayerLevel));
-                        Console.WriteLine("[" + Program.BOTNAME + "] - Level: " + welcome.Response.PlayerLevel + " !");
-                    }
-                }
-                catch (Exception)
-                {
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Error while reading the steam level of own profile. \n Is steam profile even configured ?");
-                    maxfriendCount = 250;
-                }
-            }
+        //            using (var webClient = new WebClient())
+        //            {
+        //                var json = webClient.DownloadString("http://api.steampowered.com/IPlayerService/GetSteamLevel/v1/?key=" + APIKey + "&steamid=" + steamClient.SteamID.ConvertToUInt64());
+        //                var welcome = SteamPlayerLevel.PlayerLevel.FromJson(json);
+        //                maxfriendCount = 250 + (5 * Convert.ToInt32(welcome.Response.PlayerLevel));
+        //                Console.WriteLine("[" + Program.BOTNAME + "] - Level: " + welcome.Response.PlayerLevel + " !");
+        //            }
+        //        }
+        //        catch (Exception)
+        //        {
+        //            InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Error while reading the steam level of own profile. \n Is steam profile even configured ?");
+        //            maxfriendCount = 250;
+        //        }
+        //    }
 
-            return maxfriendCount;
-        }
+        //    return maxfriendCount;
+        //}
 
         static void OnFriendsList(SteamFriends.FriendsListCallback obj)
         {
@@ -677,15 +678,11 @@ namespace MercuryBOT
                 }
             }
         }
-
-
-
-
+        
         static void OnFriendMsg(SteamFriends.FriendMsgCallback callback) // Auto MSG
         {
             if (ChatLogger == true && callback.EntryType == EChatEntryType.ChatMsg)
             {
-
                 ulong FriendID = callback.Sender;
                 string Message = callback.Message; Message = Regex.Replace(Message, @"\t|\n|\r", ""); //741iq
 
@@ -803,6 +800,15 @@ namespace MercuryBOT
                         case ".stopgames":
                             StopGames();
                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Stopping games." + "\r\n\r\n" + Program.BOTNAME);
+
+                            break;
+                        case ".steamrep ":
+                            if (Extensions.SteamRep(Extensions.AllToSteamId32(message)) == true)
+                            {
+                                steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, Extensions.SteamRep(Extensions.AllToSteamId32(message)) + "\r\n\r\n" + Program.BOTNAME);
+                            }else{
+                                steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "USER CLEAN AF (IN STEAM REP)\r\n\r\n" + Program.BOTNAME);
+                            }
 
                             break;
                         case "trolha":

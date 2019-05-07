@@ -113,7 +113,7 @@
             this.txtBox_Code.SelectionStart = 0;
             this.txtBox_Code.ShortcutsEnabled = true;
             this.txtBox_Code.Size = new System.Drawing.Size(91, 23);
-            this.txtBox_Code.TabIndex = 9;
+            this.txtBox_Code.TabIndex = 1;
             this.txtBox_Code.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBox_Code.UseCustomBackColor = true;
             this.txtBox_Code.UseCustomForeColor = true;
@@ -169,6 +169,7 @@
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Mercury - Steam Guard";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.SteamGuard_Load);
             this.Shown += new System.EventHandler(this.SteamGuard_Shown);
             this.ResumeLayout(false);

@@ -64,6 +64,7 @@
             this.txtBox_changelog.ShortcutsEnabled = true;
             this.txtBox_changelog.Size = new System.Drawing.Size(396, 296);
             this.txtBox_changelog.TabIndex = 10;
+            this.txtBox_changelog.TabStop = false;
             this.txtBox_changelog.UseCustomBackColor = true;
             this.txtBox_changelog.UseCustomForeColor = true;
             this.txtBox_changelog.UseSelectable = true;
@@ -78,7 +79,7 @@
             this.btn_installupdate.Location = new System.Drawing.Point(329, 433);
             this.btn_installupdate.Name = "btn_installupdate";
             this.btn_installupdate.Size = new System.Drawing.Size(75, 23);
-            this.btn_installupdate.TabIndex = 0;
+            this.btn_installupdate.TabIndex = 1;
             this.btn_installupdate.Text = "Install";
             this.btn_installupdate.UseCustomBackColor = true;
             this.btn_installupdate.UseSelectable = true;
@@ -147,6 +148,7 @@
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "New Update Available";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Update_FormClosed);
             this.Load += new System.EventHandler(this.Update_Load);
             this.Shown += new System.EventHandler(this.Update_Shown);

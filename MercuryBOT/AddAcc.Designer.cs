@@ -43,7 +43,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(24, 109);
+            this.metroLabel1.Location = new System.Drawing.Point(24, 69);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(87, 19);
             this.metroLabel1.TabIndex = 3;
@@ -53,7 +53,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(26, 134);
+            this.metroLabel2.Location = new System.Drawing.Point(26, 94);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(85, 19);
             this.metroLabel2.TabIndex = 4;
@@ -64,7 +64,7 @@
             // 
             this.btn_addAcc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btn_addAcc.ForeColor = System.Drawing.Color.White;
-            this.btn_addAcc.Location = new System.Drawing.Point(184, 172);
+            this.btn_addAcc.Location = new System.Drawing.Point(184, 163);
             this.btn_addAcc.Name = "btn_addAcc";
             this.btn_addAcc.Size = new System.Drawing.Size(90, 31);
             this.btn_addAcc.TabIndex = 5;
@@ -93,7 +93,7 @@
             this.txtBox_AccUser.CustomButton.Visible = false;
             this.txtBox_AccUser.ForeColor = System.Drawing.Color.White;
             this.txtBox_AccUser.Lines = new string[0];
-            this.txtBox_AccUser.Location = new System.Drawing.Point(115, 105);
+            this.txtBox_AccUser.Location = new System.Drawing.Point(115, 65);
             this.txtBox_AccUser.MaxLength = 32;
             this.txtBox_AccUser.Name = "txtBox_AccUser";
             this.txtBox_AccUser.PasswordChar = '\0';
@@ -104,8 +104,7 @@
             this.txtBox_AccUser.SelectionStart = 0;
             this.txtBox_AccUser.ShortcutsEnabled = true;
             this.txtBox_AccUser.Size = new System.Drawing.Size(159, 23);
-            this.txtBox_AccUser.TabIndex = 6;
-            this.txtBox_AccUser.TabStop = false;
+            this.txtBox_AccUser.TabIndex = 1;
             this.txtBox_AccUser.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_AccUser.UseCustomBackColor = true;
             this.txtBox_AccUser.UseCustomForeColor = true;
@@ -131,7 +130,7 @@
             this.txtBox_AccPW.CustomButton.Visible = false;
             this.txtBox_AccPW.ForeColor = System.Drawing.Color.White;
             this.txtBox_AccPW.Lines = new string[0];
-            this.txtBox_AccPW.Location = new System.Drawing.Point(115, 134);
+            this.txtBox_AccPW.Location = new System.Drawing.Point(115, 94);
             this.txtBox_AccPW.MaxLength = 64;
             this.txtBox_AccPW.Name = "txtBox_AccPW";
             this.txtBox_AccPW.PasswordChar = '●';
@@ -142,8 +141,7 @@
             this.txtBox_AccPW.SelectionStart = 0;
             this.txtBox_AccPW.ShortcutsEnabled = true;
             this.txtBox_AccPW.Size = new System.Drawing.Size(159, 23);
-            this.txtBox_AccPW.TabIndex = 7;
-            this.txtBox_AccPW.TabStop = false;
+            this.txtBox_AccPW.TabIndex = 2;
             this.txtBox_AccPW.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_AccPW.UseCustomBackColor = true;
             this.txtBox_AccPW.UseCustomForeColor = true;
@@ -156,7 +154,7 @@
             // 
             // metroLink_AccountsJSONPath
             // 
-            this.metroLink_AccountsJSONPath.Location = new System.Drawing.Point(147, 172);
+            this.metroLink_AccountsJSONPath.Location = new System.Drawing.Point(147, 163);
             this.metroLink_AccountsJSONPath.Name = "metroLink_AccountsJSONPath";
             this.metroLink_AccountsJSONPath.Size = new System.Drawing.Size(31, 31);
             this.metroLink_AccountsJSONPath.TabIndex = 15;
@@ -182,7 +180,7 @@
             this.txtBox_adminID.CustomButton.Visible = false;
             this.txtBox_adminID.ForeColor = System.Drawing.Color.White;
             this.txtBox_adminID.Lines = new string[0];
-            this.txtBox_adminID.Location = new System.Drawing.Point(115, 67);
+            this.txtBox_adminID.Location = new System.Drawing.Point(115, 123);
             this.txtBox_adminID.MaxLength = 17;
             this.txtBox_adminID.Name = "txtBox_adminID";
             this.txtBox_adminID.PasswordChar = '\0';
@@ -193,8 +191,7 @@
             this.txtBox_adminID.SelectionStart = 0;
             this.txtBox_adminID.ShortcutsEnabled = true;
             this.txtBox_adminID.Size = new System.Drawing.Size(159, 23);
-            this.txtBox_adminID.TabIndex = 17;
-            this.txtBox_adminID.TabStop = false;
+            this.txtBox_adminID.TabIndex = 3;
             this.txtBox_adminID.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToolTip.SetToolTip(this.txtBox_adminID, "The Admin can control your account with custom commands!\r\n");
             this.txtBox_adminID.UseCustomBackColor = true;
@@ -208,11 +205,11 @@
             // lbl_adminID
             // 
             this.lbl_adminID.AutoSize = true;
-            this.lbl_adminID.Location = new System.Drawing.Point(30, 71);
+            this.lbl_adminID.Location = new System.Drawing.Point(32, 127);
             this.lbl_adminID.Name = "lbl_adminID";
-            this.lbl_adminID.Size = new System.Drawing.Size(81, 19);
+            this.lbl_adminID.Size = new System.Drawing.Size(79, 19);
             this.lbl_adminID.TabIndex = 16;
-            this.lbl_adminID.Text = "👁 AdminID:";
+            this.lbl_adminID.Text = "👁 adminID:";
             this.lbl_adminID.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // metroToolTip
@@ -225,7 +222,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 217);
+            this.ClientSize = new System.Drawing.Size(297, 205);
             this.Controls.Add(this.txtBox_adminID);
             this.Controls.Add(this.lbl_adminID);
             this.Controls.Add(this.metroLink_AccountsJSONPath);

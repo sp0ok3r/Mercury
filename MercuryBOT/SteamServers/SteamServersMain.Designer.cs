@@ -426,7 +426,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label2.Location = new System.Drawing.Point(0, 475);
+            this.label2.Location = new System.Drawing.Point(0, 476);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 80;
@@ -434,7 +434,7 @@
             // 
             // metroLink_steamstatUS
             // 
-            this.metroLink_steamstatUS.Location = new System.Drawing.Point(62, 474);
+            this.metroLink_steamstatUS.Location = new System.Drawing.Point(62, 476);
             this.metroLink_steamstatUS.Name = "metroLink_steamstatUS";
             this.metroLink_steamstatUS.Size = new System.Drawing.Size(84, 19);
             this.metroLink_steamstatUS.TabIndex = 81;

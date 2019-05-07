@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SteamRepCheck));
             this.btn_checkUser = new MetroFramework.Controls.MetroButton();
             this.lbl_checkUsername = new MetroFramework.Controls.MetroLabel();
-            this.panel_steamStates = new MetroFramework.Controls.MetroPanel();
-            this.picBox_SteamAvatar = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.txt_repSteamID = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,9 +39,8 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.lbl_steamID64 = new MetroFramework.Controls.MetroLabel();
             this.richTextBox6 = new System.Windows.Forms.RichTextBox();
-            this.panel_steamStates.SuspendLayout();
+            this.picBox_SteamAvatar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_SteamAvatar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_checkUser
@@ -51,7 +48,7 @@
             this.btn_checkUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_checkUser.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btn_checkUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btn_checkUser.Location = new System.Drawing.Point(145, 246);
+            this.btn_checkUser.Location = new System.Drawing.Point(147, 243);
             this.btn_checkUser.Name = "btn_checkUser";
             this.btn_checkUser.Size = new System.Drawing.Size(140, 40);
             this.btn_checkUser.Style = MetroFramework.MetroColorStyle.Black;
@@ -69,7 +66,7 @@
             // 
             this.lbl_checkUsername.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lbl_checkUsername.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lbl_checkUsername.Location = new System.Drawing.Point(80, 141);
+            this.lbl_checkUsername.Location = new System.Drawing.Point(79, 141);
             this.lbl_checkUsername.Name = "lbl_checkUsername";
             this.lbl_checkUsername.Size = new System.Drawing.Size(200, 18);
             this.lbl_checkUsername.TabIndex = 44;
@@ -79,53 +76,13 @@
             this.lbl_checkUsername.UseCustomBackColor = true;
             this.lbl_checkUsername.UseStyleColors = true;
             // 
-            // panel_steamStates
-            // 
-            this.panel_steamStates.BackColor = System.Drawing.Color.Gray;
-            this.panel_steamStates.Controls.Add(this.picBox_SteamAvatar);
-            this.panel_steamStates.Controls.Add(this.pictureBox3);
-            this.panel_steamStates.ForeColor = System.Drawing.Color.DimGray;
-            this.panel_steamStates.HorizontalScrollbarBarColor = true;
-            this.panel_steamStates.HorizontalScrollbarHighlightOnWheel = false;
-            this.panel_steamStates.HorizontalScrollbarSize = 10;
-            this.panel_steamStates.Location = new System.Drawing.Point(22, 140);
-            this.panel_steamStates.Name = "panel_steamStates";
-            this.panel_steamStates.Size = new System.Drawing.Size(52, 52);
-            this.panel_steamStates.TabIndex = 31;
-            this.panel_steamStates.UseCustomBackColor = true;
-            this.panel_steamStates.VerticalScrollbarBarColor = true;
-            this.panel_steamStates.VerticalScrollbarHighlightOnWheel = false;
-            this.panel_steamStates.VerticalScrollbarSize = 10;
-            // 
-            // picBox_SteamAvatar
-            // 
-            this.picBox_SteamAvatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.picBox_SteamAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBox_SteamAvatar.Location = new System.Drawing.Point(1, 1);
-            this.picBox_SteamAvatar.Name = "picBox_SteamAvatar";
-            this.picBox_SteamAvatar.Size = new System.Drawing.Size(50, 50);
-            this.picBox_SteamAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox_SteamAvatar.TabIndex = 23;
-            this.picBox_SteamAvatar.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.pictureBox3.Location = new System.Drawing.Point(1, 1);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 29;
-            this.pictureBox3.TabStop = false;
-            // 
             // txt_repSteamID
             // 
             // 
             // 
             // 
             this.txt_repSteamID.CustomButton.Image = null;
-            this.txt_repSteamID.CustomButton.Location = new System.Drawing.Point(188, 1);
+            this.txt_repSteamID.CustomButton.Location = new System.Drawing.Point(185, 1);
             this.txt_repSteamID.CustomButton.Name = "";
             this.txt_repSteamID.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txt_repSteamID.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -144,8 +101,8 @@
             this.txt_repSteamID.SelectionLength = 0;
             this.txt_repSteamID.SelectionStart = 0;
             this.txt_repSteamID.ShortcutsEnabled = true;
-            this.txt_repSteamID.Size = new System.Drawing.Size(210, 23);
-            this.txt_repSteamID.TabIndex = 45;
+            this.txt_repSteamID.Size = new System.Drawing.Size(207, 23);
+            this.txt_repSteamID.TabIndex = 1;
             this.txt_repSteamID.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txt_repSteamID.UseSelectable = true;
             this.txt_repSteamID.UseStyleColors = true;
@@ -170,7 +127,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label2.Location = new System.Drawing.Point(-1, 294);
+            this.label2.Location = new System.Drawing.Point(-1, 293);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 82;
@@ -178,7 +135,7 @@
             // 
             // metroLink_steamrep
             // 
-            this.metroLink_steamrep.Location = new System.Drawing.Point(61, 293);
+            this.metroLink_steamrep.Location = new System.Drawing.Point(61, 292);
             this.metroLink_steamrep.Name = "metroLink_steamrep";
             this.metroLink_steamrep.Size = new System.Drawing.Size(91, 19);
             this.metroLink_steamrep.TabIndex = 83;
@@ -195,9 +152,9 @@
             this.Title_AlertScammer.BackColor = System.Drawing.Color.DarkGreen;
             this.Title_AlertScammer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Title_AlertScammer.ForeColor = System.Drawing.Color.Black;
-            this.Title_AlertScammer.Location = new System.Drawing.Point(22, 198);
+            this.Title_AlertScammer.Location = new System.Drawing.Point(23, 198);
             this.Title_AlertScammer.Name = "Title_AlertScammer";
-            this.Title_AlertScammer.Size = new System.Drawing.Size(263, 39);
+            this.Title_AlertScammer.Size = new System.Drawing.Size(264, 39);
             this.Title_AlertScammer.TabIndex = 86;
             this.Title_AlertScammer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Title_AlertScammer.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -213,7 +170,7 @@
             // 
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(80, 158);
+            this.metroLabel1.Location = new System.Drawing.Point(79, 159);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(200, 18);
             this.metroLabel1.TabIndex = 87;
@@ -226,7 +183,7 @@
             // 
             this.lbl_steamID64.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lbl_steamID64.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lbl_steamID64.Location = new System.Drawing.Point(80, 174);
+            this.lbl_steamID64.Location = new System.Drawing.Point(79, 173);
             this.lbl_steamID64.Name = "lbl_steamID64";
             this.lbl_steamID64.Size = new System.Drawing.Size(200, 18);
             this.lbl_steamID64.TabIndex = 88;
@@ -253,13 +210,25 @@
             this.richTextBox6.TabIndex = 89;
             this.richTextBox6.Text = "─────────────────────────────────────────";
             // 
+            // picBox_SteamAvatar
+            // 
+            this.picBox_SteamAvatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.picBox_SteamAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBox_SteamAvatar.Location = new System.Drawing.Point(23, 141);
+            this.picBox_SteamAvatar.Name = "picBox_SteamAvatar";
+            this.picBox_SteamAvatar.Size = new System.Drawing.Size(50, 50);
+            this.picBox_SteamAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox_SteamAvatar.TabIndex = 23;
+            this.picBox_SteamAvatar.TabStop = false;
+            // 
             // SteamRepCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 309);
+            this.ClientSize = new System.Drawing.Size(307, 306);
             this.Controls.Add(this.richTextBox6);
             this.Controls.Add(this.lbl_steamID64);
+            this.Controls.Add(this.picBox_SteamAvatar);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.Title_AlertScammer);
             this.Controls.Add(this.btn_checkUser);
@@ -268,17 +237,16 @@
             this.Controls.Add(this.txt_repSteamID);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.lbl_checkUsername);
-            this.Controls.Add(this.panel_steamStates);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "SteamRepCheck";
             this.Resizable = false;
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Mercury - SteamRep";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.panel_steamStates.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBox_SteamAvatar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,9 +256,6 @@
 
         private MetroFramework.Controls.MetroButton btn_checkUser;
         private MetroFramework.Controls.MetroLabel lbl_checkUsername;
-        private MetroFramework.Controls.MetroPanel panel_steamStates;
-        private System.Windows.Forms.PictureBox picBox_SteamAvatar;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private MetroFramework.Controls.MetroTextBox txt_repSteamID;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private System.Windows.Forms.Label label2;
@@ -299,5 +264,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel lbl_steamID64;
         private System.Windows.Forms.RichTextBox richTextBox6;
+        private System.Windows.Forms.PictureBox picBox_SteamAvatar;
     }
 }

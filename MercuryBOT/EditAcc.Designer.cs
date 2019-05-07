@@ -63,7 +63,7 @@
             this.txtBox_user.CustomButton.Visible = false;
             this.txtBox_user.ForeColor = System.Drawing.Color.White;
             this.txtBox_user.Lines = new string[0];
-            this.txtBox_user.Location = new System.Drawing.Point(161, 147);
+            this.txtBox_user.Location = new System.Drawing.Point(161, 118);
             this.txtBox_user.MaxLength = 32767;
             this.txtBox_user.Name = "txtBox_user";
             this.txtBox_user.PasswordChar = '\0';
@@ -75,7 +75,7 @@
             this.txtBox_user.SelectionStart = 0;
             this.txtBox_user.ShortcutsEnabled = true;
             this.txtBox_user.Size = new System.Drawing.Size(151, 23);
-            this.txtBox_user.TabIndex = 5;
+            this.txtBox_user.TabIndex = 54;
             this.txtBox_user.TabStop = false;
             this.txtBox_user.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_user.UseCustomBackColor = true;
@@ -102,7 +102,7 @@
             this.txtBox_pw.CustomButton.Visible = false;
             this.txtBox_pw.ForeColor = System.Drawing.Color.White;
             this.txtBox_pw.Lines = new string[0];
-            this.txtBox_pw.Location = new System.Drawing.Point(161, 176);
+            this.txtBox_pw.Location = new System.Drawing.Point(161, 147);
             this.txtBox_pw.MaxLength = 32767;
             this.txtBox_pw.Name = "txtBox_pw";
             this.txtBox_pw.PasswordChar = '●';
@@ -113,8 +113,7 @@
             this.txtBox_pw.SelectionStart = 0;
             this.txtBox_pw.ShortcutsEnabled = true;
             this.txtBox_pw.Size = new System.Drawing.Size(151, 23);
-            this.txtBox_pw.TabIndex = 6;
-            this.txtBox_pw.TabStop = false;
+            this.txtBox_pw.TabIndex = 1;
             this.txtBox_pw.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_pw.UseCustomBackColor = true;
             this.txtBox_pw.UseCustomForeColor = true;
@@ -128,7 +127,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(73, 176);
+            this.metroLabel2.Location = new System.Drawing.Point(73, 147);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(85, 19);
             this.metroLabel2.TabIndex = 13;
@@ -138,7 +137,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(72, 151);
+            this.metroLabel1.Location = new System.Drawing.Point(72, 122);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(87, 19);
             this.metroLabel1.TabIndex = 12;
@@ -161,7 +160,7 @@
             this.txtBox_adminID.CustomButton.Visible = false;
             this.txtBox_adminID.ForeColor = System.Drawing.Color.White;
             this.txtBox_adminID.Lines = new string[0];
-            this.txtBox_adminID.Location = new System.Drawing.Point(161, 118);
+            this.txtBox_adminID.Location = new System.Drawing.Point(161, 176);
             this.txtBox_adminID.MaxLength = 17;
             this.txtBox_adminID.Name = "txtBox_adminID";
             this.txtBox_adminID.PasswordChar = '\0';
@@ -172,8 +171,7 @@
             this.txtBox_adminID.SelectionStart = 0;
             this.txtBox_adminID.ShortcutsEnabled = true;
             this.txtBox_adminID.Size = new System.Drawing.Size(151, 23);
-            this.txtBox_adminID.TabIndex = 19;
-            this.txtBox_adminID.TabStop = false;
+            this.txtBox_adminID.TabIndex = 2;
             this.txtBox_adminID.UseCustomBackColor = true;
             this.txtBox_adminID.UseCustomForeColor = true;
             this.txtBox_adminID.UseSelectable = true;
@@ -185,7 +183,7 @@
             // lbl_adminID
             // 
             this.lbl_adminID.AutoSize = true;
-            this.lbl_adminID.Location = new System.Drawing.Point(72, 123);
+            this.lbl_adminID.Location = new System.Drawing.Point(71, 180);
             this.lbl_adminID.Name = "lbl_adminID";
             this.lbl_adminID.Size = new System.Drawing.Size(87, 19);
             this.lbl_adminID.TabIndex = 18;
@@ -258,8 +256,7 @@
             this.txtBox_webapi.SelectionStart = 0;
             this.txtBox_webapi.ShortcutsEnabled = true;
             this.txtBox_webapi.Size = new System.Drawing.Size(236, 23);
-            this.txtBox_webapi.TabIndex = 23;
-            this.txtBox_webapi.TabStop = false;
+            this.txtBox_webapi.TabIndex = 3;
             this.txtBox_webapi.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_webapi.UseCustomBackColor = true;
             this.txtBox_webapi.UseCustomForeColor = true;
@@ -363,6 +360,7 @@
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Mercury - Edit Account";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.EditAcc_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -72,7 +72,7 @@ namespace MercuryBOT
             Mercury_notifyIcon.Icon = null;
             Environment.Exit(1);
         }
-        
+
         [Obsolete]
         private void RafadexAutoUpdate600IQ()
         {
@@ -133,17 +133,17 @@ namespace MercuryBOT
         public Main()
         {
             InitializeComponent();
-            
+
             this.Activate();
             this.components.SetStyle(this);
             Region = Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
             btn_logout.Visible = false;
-            
+
             Trolha.Tick += Trolha_Tick;
 
             // Calculate the mercury age. 2019-03-28 💔
             var age = 2019 - DateTime.Today.Year;
-            if (age<0)
+            if (age < 0)
             {
                 lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
             }
@@ -249,7 +249,7 @@ namespace MercuryBOT
             AccountsList_Grid.ClearSelection();
         }
 
-        
+
 
 
         #region Buttons
@@ -373,7 +373,7 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
         }
-        
+
         private void chck_afk_CheckedChanged(object sender, EventArgs e)
         {
             if (chck_afk.Checked && AccountLogin.IsLoggedIn == true)
@@ -800,7 +800,7 @@ namespace MercuryBOT
         {
             if (AccountLogin.IsLoggedIn == true)
             {
-                SteamKit2.EPersonaState State = ExtraInfo.statesList[combox_states.SelectedIndex];
+                SteamKit2.EPersonaState State = Extensions.statesList[combox_states.SelectedIndex];
                 AccountLogin.ChangeCurrentState(State);
             }
             else
@@ -1120,27 +1120,6 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
         }
-
-        private void btn_joinGroups_Click(object sender, EventArgs e)
-        {
-            if (AccountLogin.IsLoggedIn == true)
-            {
-                btn_joinGroups.Enabled = false;
-                var lines = File.ReadLines(Program.ExecutablePath + @"\" + AccountLogin.CurrentSteamID + "-GroupsIDS.txt");
-                foreach (var line in lines)
-                {
-                    AccountLogin.JoinGroup(line);
-                    Thread.Sleep(5);
-                }
-                btn_joinGroups.Enabled = true;
-                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Joined all groups in file!");
-            }
-            else
-            {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
-            }
-        }
-
         private void btn_acclistOpenprofile_Click(object sender, EventArgs e)
         {
             if (AccountsList_Grid.SelectedRows.Count > 0)
@@ -1324,15 +1303,17 @@ namespace MercuryBOT
             // {
             if (AccountLogin.IsLoggedIn == true)
             {
+                btn_logout.Visible = true;
+
                 lbl_infoLogin.Text = "Trying to login...";
 
                 if (AccountLogin.isSendingMsgs == false)
                 {
                     btn_sendMsg2Friends.Enabled = true;
                 }
-                btn_logout.Visible = true;
-                toggle_chatlogger.Checked = AccountLogin.ChatLogger;
                 
+                toggle_chatlogger.Checked = AccountLogin.ChatLogger;
+
                 btn_login2selected.Enabled = false;
                 Panel_UserInfo.Visible = true;
 
@@ -1364,14 +1345,14 @@ namespace MercuryBOT
             {
                 lbl_infoLogin.Text = "Not logged...";
 
-                btn_logout.Visible = false;
-                Panel_UserInfo.Visible = false;
+                btn_logout.Visible         = false;
+                Panel_UserInfo.Visible     = false;
                 btn_login2selected.Enabled = true;
 
-                picBox_SteamAvatar.Image = null;
-                btnLabel_PersonaAndFlag.Image = null;
-                panel_steamStates.BackColor = Color.Gray;
-                picBox_SteamAvatar.BackColor = Color.FromArgb(255, 25, 25, 25);
+                picBox_SteamAvatar.Image        = null;
+                btnLabel_PersonaAndFlag.Image   = null;
+                panel_steamStates.BackColor     = Color.Gray;
+                picBox_SteamAvatar.BackColor    = Color.FromArgb(255, 25, 25, 25);
                 lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = "None"));
                 btnLabel_PersonaAndFlag.Invoke(new Action(() => btnLabel_PersonaAndFlag.Text = "None"));
 
@@ -1419,7 +1400,10 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged.");
             }
         }
-
+        private void btnLabel_PersonaAndFlag_Click(object sender, EventArgs e)
+        {
+            AccountLogin.ClearAliases();
+        }
         private void toggle_chatlogger_CheckedChanged(object sender, EventArgs e)
         {
             if (AccountLogin.IsLoggedIn == true && toggle_chatlogger.Checked)
@@ -1476,17 +1460,10 @@ namespace MercuryBOT
 
         private void btn_ProfileRepu_Click(object sender, EventArgs e)
         {
-            if (AccountLogin.IsLoggedIn == true)
-            {
-                Form SteamRep = new SteamRep.SteamRepCheck();
-                SteamRep.FormClosed += HandleFormSteamRepClosed;
-                btn_ProfileRepu.Enabled = false;
-                SteamRep.Show();
-            }
-            else
-            {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged.");
-            }
+            Form SteamRep = new SteamRep.SteamRepCheck();
+            SteamRep.FormClosed += HandleFormSteamRepClosed;
+            btn_ProfileRepu.Enabled = false;
+            SteamRep.Show();
         }
 
         private void picBox_Restart_MouseHover(object sender, EventArgs e)
@@ -1555,7 +1532,7 @@ namespace MercuryBOT
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, new JsonSerializerSettings { Formatting = Formatting.Indented }));
         }
 
-        
+       
     }
 }
 /* dont delete

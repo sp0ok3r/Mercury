@@ -33,7 +33,7 @@ namespace MercuryBOT.Splash
         public SplashScreen()
         {
             InitializeComponent();
-            this.components.SetStyle(this);
+           // this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
@@ -42,17 +42,17 @@ namespace MercuryBOT.Splash
         {
             if (!File.Exists(Program.AccountsJsonFile))
             {
-                var DefaultJson = "{Accounts: []}";
-                File.WriteAllText(Program.AccountsJsonFile, DefaultJson);
+                File.WriteAllText(Program.AccountsJsonFile, "{Accounts: []}");
                 lbl_info2.Text = "Creating Accounts file...";
             }
 
             if (!File.Exists(Program.SettingsJsonFile))
             {
-                var DefaultJson = "{}";
-                File.WriteAllText(Program.SettingsJsonFile, DefaultJson);
+                File.WriteAllText(Program.SettingsJsonFile, "{}");
                 lbl_info2.Text = "Creating Settings file...";
             }
+
+            this.components.SetStyle(this);
 
             if (!File.Exists(Program.SentryFolder))
             {

@@ -104,7 +104,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Steam4NET">
-      <HintPath>D:\PROJECTS\CSharp\SP0OK3RBOT-WORK - Cópia\SteamAdversitingBot\bin\x86\Release\Steam4NET.dll</HintPath>
+      <HintPath>bin\x86\Debug\lib\Steam4NET.dll</HintPath>
     </Reference>
     <Reference Include="SteamAuth, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SteamAuth.3.0.0\lib\net45\SteamAuth.dll</HintPath>
@@ -190,7 +190,6 @@
     <Compile Include="AdminCMDS\AdminCMDSForm.Designer.cs">
       <DependentUpon>AdminCMDSForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExtraInfo.cs" />
     <Compile Include="Comments\CommentsGather.cs">
       <SubType>Form</SubType>
     </Compile>

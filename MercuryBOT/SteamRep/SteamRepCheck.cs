@@ -8,6 +8,7 @@
 ▐    ▐     ▐                  ▐                                 ▐   
 */
 
+using AngleSharp.Html.Parser;
 using MercuryBOT.Helpers;
 using MercuryBOT.UserSettings;
 using Newtonsoft.Json;
@@ -19,7 +20,9 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -33,25 +36,31 @@ namespace MercuryBOT.SteamRep
             this.components.SetStyle(this);
             Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
-        
+
         private void btn_checkUser_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txt_repSteamID.Text))
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Insert SteamID");
-                return;
+                Title_AlertScammer.Visible = false;
+                // return;
             }
             else
             {
-                Title_AlertScammer.Visible = true;
-                picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(Convert.ToUInt64(Extensions.AllToSteamId32(txt_repSteamID.Text)));
+                //Resolve Vanity URL
+
+                var resp = new WebClient().DownloadString("https://steamcommunity.com/miniprofile/" + (Convert.ToUInt64(txt_repSteamID.Text) - 76561197960265728)); // 326iq
+                picBox_SteamAvatar.ImageLocation = Regex.Match(resp, "<img.+?src=[\"'](.+?)[\"'].*?>", RegexOptions.IgnoreCase).Groups[1].Value; // slow but 983iq
+
                 if (Extensions.SteamRep(Extensions.AllToSteamId32(txt_repSteamID.Text)) == true)
                 {
+                    Title_AlertScammer.Visible = true;
                     Title_AlertScammer.BackColor = Color.DarkRed;
                     Title_AlertScammer.Text = "SCAMMER";
                 }
                 else
                 {
+                    Title_AlertScammer.Visible = true;
                     Title_AlertScammer.BackColor = Color.DarkGreen;
                     Title_AlertScammer.Text = "CLEAN AF";
                 }
@@ -65,8 +74,7 @@ namespace MercuryBOT.SteamRep
 
         private void Title_AlertScammer_Click(object sender, EventArgs e)
         {
-            Process.Start("https://steamrep.com/search?q="+ txt_repSteamID.Text);
-
+            Process.Start("https://steamrep.com/search?q=" + txt_repSteamID.Text);
         }
     }
 }

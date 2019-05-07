@@ -19,6 +19,8 @@ using MetroFramework.Forms;
 using Newtonsoft.Json;
 using MercuryBOT.User2Json;
 using MetroFramework;
+using SteamKit2;
+using System.Collections.Generic;
 
 namespace MercuryBOT.Helpers
 {
@@ -84,11 +86,9 @@ namespace MercuryBOT.Helpers
             else if (IsSteamid64(input))
             {
                 return ToSteamID32(input);
-
             }
             else if (IsSteamURL(input) && input.Contains("steamcommunity.com/profiles/"))
             {
-
                 return ToSteamID32(input.Replace("https://steamcommunity.com/profiles/", "").Replace("http://steamcommunity.com/profiles/", ""));
             }
             else if (input.Contains("steamcommunity.com/id/"))
@@ -96,15 +96,15 @@ namespace MercuryBOT.Helpers
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Invalid link (Link accepted: https://steamcommunity.com/profiles/1337)");
             }
 
-            return "";
+            return String.Empty;
         }
-        
+
         public static bool SteamRep(string steamId32)
         {
-                string api = "http://steamrep.com/id2rep.php?steamID32=" + steamId32;
-                WebClient client = new WebClient();
-                string result = client.DownloadString(api);
-                return (result.IndexOf("SCAMMER") > -1);
+            string api = "http://steamrep.com/id2rep.php?steamID32=" + steamId32;
+            WebClient client = new WebClient();
+            string result = client.DownloadString(api);
+            return (result.IndexOf("SCAMMER") > -1);
         }
 
         public static string ResolveVanityURL(string ProfileURL)// meter api key da config
@@ -116,7 +116,16 @@ namespace MercuryBOT.Helpers
             //add try maybe
 
         }
-
+        
+        public static List<EPersonaState> statesList = new List<EPersonaState> {
+                        EPersonaState.Offline,
+                        EPersonaState.Online,
+                        EPersonaState.Busy,
+                        EPersonaState.Away,
+                        EPersonaState.Snooze,
+                        EPersonaState.LookingToTrade,
+                        EPersonaState.LookingToPlay,
+                        EPersonaState.Invisible };
         #endregion
 
         #region File Methods
