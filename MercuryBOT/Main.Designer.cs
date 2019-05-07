@@ -96,6 +96,7 @@
             this.btn_logout = new MetroFramework.Controls.MetroButton();
             this.MercuryTabControl = new MetroFramework.Controls.MetroTabControl();
             this.metroTab_Friends = new MetroFramework.Controls.MetroTabPage();
+            this.lbl_friendSelected = new MetroFramework.Controls.MetroLabel();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.ProgressSpinner_FriendsList = new MetroFramework.Controls.MetroProgressSpinner();
             this.FriendsList_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
@@ -109,12 +110,11 @@
             this.lbl_uimode = new MetroFramework.Controls.MetroLabel();
             this.btn_loadFriends = new MetroFramework.Controls.MetroButton();
             this.lbl_totalFriends = new MetroFramework.Controls.MetroLink();
-            this.lbl_friendSelected = new MetroFramework.Controls.MetroLabel();
             this.metroTab_Tasks = new MetroFramework.Controls.MetroTabPage();
+            this.btn_ProfileRepu = new MetroFramework.Controls.MetroButton();
             this.btn_changeprofSettings = new MetroFramework.Controls.MetroButton();
             this.btn_clearuserAliases = new MetroFramework.Controls.MetroButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_ProfileRepu = new MetroFramework.Controls.MetroButton();
             this.btn_rateup = new MetroFramework.Controls.MetroButton();
             this.btn_commentsGather = new MetroFramework.Controls.MetroButton();
             this.btn_joinGroups = new MetroFramework.Controls.MetroButton();
@@ -1386,6 +1386,21 @@
             this.metroTab_Friends.VerticalScrollbarHighlightOnWheel = false;
             this.metroTab_Friends.VerticalScrollbarSize = 10;
             // 
+            // lbl_friendSelected
+            // 
+            this.lbl_friendSelected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.lbl_friendSelected.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lbl_friendSelected.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.lbl_friendSelected.Location = new System.Drawing.Point(588, 267);
+            this.lbl_friendSelected.Name = "lbl_friendSelected";
+            this.lbl_friendSelected.Size = new System.Drawing.Size(161, 19);
+            this.lbl_friendSelected.TabIndex = 39;
+            this.lbl_friendSelected.Text = "None";
+            this.lbl_friendSelected.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbl_friendSelected.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lbl_friendSelected.UseCustomBackColor = true;
+            this.lbl_friendSelected.UseStyleColors = true;
+            // 
             // richTextBox3
             // 
             this.richTextBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1610,21 +1625,6 @@
             this.lbl_totalFriends.UseSelectable = true;
             this.lbl_totalFriends.UseStyleColors = true;
             // 
-            // lbl_friendSelected
-            // 
-            this.lbl_friendSelected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.lbl_friendSelected.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lbl_friendSelected.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.lbl_friendSelected.Location = new System.Drawing.Point(588, 267);
-            this.lbl_friendSelected.Name = "lbl_friendSelected";
-            this.lbl_friendSelected.Size = new System.Drawing.Size(161, 19);
-            this.lbl_friendSelected.TabIndex = 39;
-            this.lbl_friendSelected.Text = "None";
-            this.lbl_friendSelected.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lbl_friendSelected.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.lbl_friendSelected.UseCustomBackColor = true;
-            this.lbl_friendSelected.UseStyleColors = true;
-            // 
             // metroTab_Tasks
             // 
             this.metroTab_Tasks.BackColor = System.Drawing.Color.Transparent;
@@ -1651,6 +1651,23 @@
             this.metroTab_Tasks.VerticalScrollbarBarColor = true;
             this.metroTab_Tasks.VerticalScrollbarHighlightOnWheel = false;
             this.metroTab_Tasks.VerticalScrollbarSize = 10;
+            // 
+            // btn_ProfileRepu
+            // 
+            this.btn_ProfileRepu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_ProfileRepu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btn_ProfileRepu.Location = new System.Drawing.Point(192, 249);
+            this.btn_ProfileRepu.Name = "btn_ProfileRepu";
+            this.btn_ProfileRepu.Size = new System.Drawing.Size(129, 79);
+            this.btn_ProfileRepu.TabIndex = 52;
+            this.btn_ProfileRepu.TabStop = false;
+            this.btn_ProfileRepu.Text = "CHECK PROFILE \r\nREPUTATION";
+            this.btn_ProfileRepu.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.btn_ProfileRepu, "See if any steam server is burning!");
+            this.btn_ProfileRepu.UseCustomBackColor = true;
+            this.btn_ProfileRepu.UseSelectable = true;
+            this.btn_ProfileRepu.UseStyleColors = true;
+            this.btn_ProfileRepu.Click += new System.EventHandler(this.btn_ProfileRepu_Click);
             // 
             // btn_changeprofSettings
             // 
@@ -1700,22 +1717,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "soon";
             this.groupBox1.Visible = false;
-            // 
-            // btn_ProfileRepu
-            // 
-            this.btn_ProfileRepu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.btn_ProfileRepu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btn_ProfileRepu.Location = new System.Drawing.Point(192, 249);
-            this.btn_ProfileRepu.Name = "btn_ProfileRepu";
-            this.btn_ProfileRepu.Size = new System.Drawing.Size(129, 79);
-            this.btn_ProfileRepu.TabIndex = 52;
-            this.btn_ProfileRepu.TabStop = false;
-            this.btn_ProfileRepu.Text = "CHECK PROFILE \r\nREPUTATION";
-            this.btn_ProfileRepu.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.MongoTip.SetToolTip(this.btn_ProfileRepu, "See if any steam server is burning!");
-            this.btn_ProfileRepu.UseCustomBackColor = true;
-            this.btn_ProfileRepu.UseSelectable = true;
-            this.btn_ProfileRepu.UseStyleColors = true;
             // 
             // btn_rateup
             // 

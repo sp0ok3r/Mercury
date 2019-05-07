@@ -935,6 +935,10 @@ namespace MercuryBOT
         {
             btn_MsgRecipients.Enabled = true;
         }
+        private void HandleFormSteamRepClosed(Object sender, FormClosedEventArgs e)
+        {
+            btn_ProfileRepu.Enabled = true;
+        }
         #endregion
 
         #region Mouse Move
@@ -1470,6 +1474,21 @@ namespace MercuryBOT
             }
         }
 
+        private void btn_ProfileRepu_Click(object sender, EventArgs e)
+        {
+            if (AccountLogin.IsLoggedIn == true)
+            {
+                Form SteamRep = new SteamRep.SteamRepCheck();
+                SteamRep.FormClosed += HandleFormSteamRepClosed;
+                btn_ProfileRepu.Enabled = false;
+                SteamRep.Show();
+            }
+            else
+            {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged.");
+            }
+        }
+
         private void picBox_Restart_MouseHover(object sender, EventArgs e)
         {
             picBox_Restart.Image = Properties.Resources.Restart_MouseHover;
@@ -1536,7 +1555,7 @@ namespace MercuryBOT
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, new JsonSerializerSettings { Formatting = Formatting.Indented }));
         }
 
-       
+        
     }
 }
 /* dont delete
