@@ -11,9 +11,7 @@
 using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Net.Http;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.IO;
 using System.Net;
 using MetroFramework.Components;
@@ -34,7 +32,7 @@ namespace MercuryBOT.Helpers
             return dtStart.Add(toNow);
         }
 
-
+        #region RoundUI
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         public static extern IntPtr CreateRoundRectRgn
                (
@@ -45,8 +43,7 @@ namespace MercuryBOT.Helpers
                    int nWidthEllipse, // height of ellipse
                    int nHeightEllipse // width of ellipse
                );
-
-
+        #endregion
 
         #region Steam Extensions
         public static bool IsSteamid32(string input) => input.StartsWith("STEAM_0:");
@@ -101,17 +98,23 @@ namespace MercuryBOT.Helpers
 
             return "";
         }
-
-
-        public class SteamRep
+        
+        public static bool SteamRep(string steamId32)
         {
-            public bool isSCAM(string steamId32)
-            {
                 string api = "http://steamrep.com/id2rep.php?steamID32=" + steamId32;
                 WebClient client = new WebClient();
                 string result = client.DownloadString(api);
                 return (result.IndexOf("SCAMMER") > -1);
-            }
+        }
+
+        public static string ResolveVanityURL(string ProfileURL)// meter api key da config
+        {
+            var html = Program.Web.DownloadString("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=&vanityurl=" + ProfileURL);
+            var steamID64Clean = html.Replace('"', ' ').Replace("{ response :{ steamid :", "").Replace(" , success :1}}", "").Trim();
+
+            return steamID64Clean;
+            //add try maybe
+
         }
 
         #endregion

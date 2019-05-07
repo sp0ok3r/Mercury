@@ -8,12 +8,15 @@
 ▐    ▐     ▐                  ▐                                 ▐   
 */
 
+using AngleSharp.Html.Parser;
 using MercuryBOT.Helpers;
+using MercuryBOT.SteamTrade;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -205,12 +208,35 @@ namespace MercuryBOT.SteamGroups
 
         private void btn_gatherFromProfile_Click(object sender, EventArgs e)
         {
+            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/id/sp0okER/?xml=1", "GET");
+            if (resp != String.Empty)
+            {
+                string pattern = "(<groupID64>)(.*?)(</groupID64>)";
 
+                MatchCollection matches = Regex.Matches(resp, pattern);
+
+                foreach (Match match in matches)
+                {
+                    try
+                    {
+                        Console.WriteLine(match.Groups[0].Value);
+                    }
+                    catch { }
+                }
+            }
         }
 
         private void btn_joinAll_Click(object sender, EventArgs e)
         {
-
+            btn_joinAll.Enabled = false;
+            var lines = File.ReadLines(Program.ExecutablePath + @"\" + AccountLogin.CurrentSteamID + "-GroupsIDS.txt");
+            foreach (var line in lines)
+            {
+                AccountLogin.JoinGroup(line);
+                Thread.Sleep(5);
+            }
+            btn_joinAll.Enabled = true;
+            InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Joined all groups in file!");
         }
     }
 }

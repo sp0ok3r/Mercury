@@ -50,23 +50,23 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.txtBox_gName = new MetroFramework.Controls.MetroTextBox();
             this.MercuryTabControl = new MetroFramework.Controls.MetroTabControl();
+            this.metroTab_Join = new MetroFramework.Controls.MetroTabPage();
+            this.txtBox_pathIDS = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.btn_gatherFromProfile = new MetroFramework.Controls.MetroButton();
+            this.txtBox_vaporProfile = new MetroFramework.Controls.MetroTextBox();
+            this.lbl_pathGIDS = new MetroFramework.Controls.MetroLabel();
+            this.btn_joinAll = new MetroFramework.Controls.MetroButton();
             this.metroTab_Tasks = new MetroFramework.Controls.MetroTabPage();
             this.metroTab_Settings = new MetroFramework.Controls.MetroTabPage();
             this.lbl_groupSelected = new MetroFramework.Controls.MetroLabel();
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
-            this.metroTab_Join = new MetroFramework.Controls.MetroTabPage();
-            this.btn_joinAll = new MetroFramework.Controls.MetroButton();
-            this.lbl_pathGIDS = new MetroFramework.Controls.MetroLabel();
-            this.txtBox_vaporProfile = new MetroFramework.Controls.MetroTextBox();
-            this.txtBox_pathIDS = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.btn_gatherFromProfile = new MetroFramework.Controls.MetroButton();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).BeginInit();
             this.MercuryTabControl.SuspendLayout();
+            this.metroTab_Join.SuspendLayout();
             this.metroTab_Tasks.SuspendLayout();
             this.metroTab_Settings.SuspendLayout();
-            this.metroTab_Join.SuspendLayout();
             this.SuspendLayout();
             // 
             // GridClanData
@@ -145,7 +145,7 @@
             // 
             this.btn_exitSelected.DisplayFocus = true;
             this.btn_exitSelected.ForeColor = System.Drawing.Color.White;
-            this.btn_exitSelected.Location = new System.Drawing.Point(251, 468);
+            this.btn_exitSelected.Location = new System.Drawing.Point(250, 468);
             this.btn_exitSelected.Name = "btn_exitSelected";
             this.btn_exitSelected.Size = new System.Drawing.Size(117, 38);
             this.btn_exitSelected.Style = MetroFramework.MetroColorStyle.Purple;
@@ -200,7 +200,7 @@
             this.btn_save2file.Size = new System.Drawing.Size(74, 38);
             this.btn_save2file.Style = MetroFramework.MetroColorStyle.Purple;
             this.btn_save2file.TabIndex = 24;
-            this.btn_save2file.Text = "SAVE IDs \r\nTO FILE";
+            this.btn_save2file.Text = "SAVE IDS \r\nTO FILE";
             this.btn_save2file.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btn_save2file.UseCustomForeColor = true;
             this.btn_save2file.UseSelectable = true;
@@ -420,12 +420,151 @@
             this.MercuryTabControl.Location = new System.Drawing.Point(13, 53);
             this.MercuryTabControl.Multiline = true;
             this.MercuryTabControl.Name = "MercuryTabControl";
-            this.MercuryTabControl.SelectedIndex = 0;
+            this.MercuryTabControl.SelectedIndex = 2;
             this.MercuryTabControl.ShowToolTips = true;
             this.MercuryTabControl.Size = new System.Drawing.Size(379, 548);
             this.MercuryTabControl.TabIndex = 35;
             this.MercuryTabControl.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.MercuryTabControl.UseSelectable = true;
+            // 
+            // metroTab_Join
+            // 
+            this.metroTab_Join.BackColor = System.Drawing.Color.Transparent;
+            this.metroTab_Join.Controls.Add(this.txtBox_pathIDS);
+            this.metroTab_Join.Controls.Add(this.metroLabel5);
+            this.metroTab_Join.Controls.Add(this.btn_gatherFromProfile);
+            this.metroTab_Join.Controls.Add(this.txtBox_vaporProfile);
+            this.metroTab_Join.Controls.Add(this.lbl_pathGIDS);
+            this.metroTab_Join.Controls.Add(this.btn_joinAll);
+            this.metroTab_Join.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.metroTab_Join.HorizontalScrollbarBarColor = true;
+            this.metroTab_Join.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTab_Join.HorizontalScrollbarSize = 10;
+            this.metroTab_Join.Location = new System.Drawing.Point(4, 38);
+            this.metroTab_Join.Name = "metroTab_Join";
+            this.metroTab_Join.Size = new System.Drawing.Size(371, 506);
+            this.metroTab_Join.TabIndex = 11;
+            this.metroTab_Join.Text = "JOINER";
+            this.metroTab_Join.UseCustomBackColor = true;
+            this.metroTab_Join.VerticalScrollbarBarColor = true;
+            this.metroTab_Join.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTab_Join.VerticalScrollbarSize = 10;
+            // 
+            // txtBox_pathIDS
+            // 
+            // 
+            // 
+            // 
+            this.txtBox_pathIDS.CustomButton.Image = null;
+            this.txtBox_pathIDS.CustomButton.Location = new System.Drawing.Point(178, 1);
+            this.txtBox_pathIDS.CustomButton.Name = "";
+            this.txtBox_pathIDS.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtBox_pathIDS.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtBox_pathIDS.CustomButton.TabIndex = 1;
+            this.txtBox_pathIDS.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtBox_pathIDS.CustomButton.UseSelectable = true;
+            this.txtBox_pathIDS.CustomButton.Visible = false;
+            this.txtBox_pathIDS.Lines = new string[0];
+            this.txtBox_pathIDS.Location = new System.Drawing.Point(88, 96);
+            this.txtBox_pathIDS.MaxLength = 32767;
+            this.txtBox_pathIDS.Name = "txtBox_pathIDS";
+            this.txtBox_pathIDS.PasswordChar = '\0';
+            this.txtBox_pathIDS.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBox_pathIDS.SelectedText = "";
+            this.txtBox_pathIDS.SelectionLength = 0;
+            this.txtBox_pathIDS.SelectionStart = 0;
+            this.txtBox_pathIDS.ShortcutsEnabled = true;
+            this.txtBox_pathIDS.Size = new System.Drawing.Size(200, 23);
+            this.txtBox_pathIDS.TabIndex = 39;
+            this.txtBox_pathIDS.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.txtBox_pathIDS.UseSelectable = true;
+            this.txtBox_pathIDS.UseStyleColors = true;
+            this.txtBox_pathIDS.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtBox_pathIDS.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(-1, 100);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(82, 19);
+            this.metroLabel5.TabIndex = 38;
+            this.metroLabel5.Text = "Profile Fetch";
+            this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // btn_gatherFromProfile
+            // 
+            this.btn_gatherFromProfile.DisplayFocus = true;
+            this.btn_gatherFromProfile.ForeColor = System.Drawing.Color.White;
+            this.btn_gatherFromProfile.Location = new System.Drawing.Point(294, 96);
+            this.btn_gatherFromProfile.Name = "btn_gatherFromProfile";
+            this.btn_gatherFromProfile.Size = new System.Drawing.Size(74, 23);
+            this.btn_gatherFromProfile.Style = MetroFramework.MetroColorStyle.Purple;
+            this.btn_gatherFromProfile.TabIndex = 37;
+            this.btn_gatherFromProfile.Text = "Gather";
+            this.btn_gatherFromProfile.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btn_gatherFromProfile.UseCustomForeColor = true;
+            this.btn_gatherFromProfile.UseSelectable = true;
+            this.btn_gatherFromProfile.UseStyleColors = true;
+            this.btn_gatherFromProfile.Click += new System.EventHandler(this.btn_gatherFromProfile_Click);
+            // 
+            // txtBox_vaporProfile
+            // 
+            // 
+            // 
+            // 
+            this.txtBox_vaporProfile.CustomButton.Image = null;
+            this.txtBox_vaporProfile.CustomButton.Location = new System.Drawing.Point(178, 1);
+            this.txtBox_vaporProfile.CustomButton.Name = "";
+            this.txtBox_vaporProfile.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtBox_vaporProfile.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtBox_vaporProfile.CustomButton.TabIndex = 1;
+            this.txtBox_vaporProfile.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtBox_vaporProfile.CustomButton.UseSelectable = true;
+            this.txtBox_vaporProfile.CustomButton.Visible = false;
+            this.txtBox_vaporProfile.Lines = new string[0];
+            this.txtBox_vaporProfile.Location = new System.Drawing.Point(88, 162);
+            this.txtBox_vaporProfile.MaxLength = 32767;
+            this.txtBox_vaporProfile.Name = "txtBox_vaporProfile";
+            this.txtBox_vaporProfile.PasswordChar = '\0';
+            this.txtBox_vaporProfile.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBox_vaporProfile.SelectedText = "";
+            this.txtBox_vaporProfile.SelectionLength = 0;
+            this.txtBox_vaporProfile.SelectionStart = 0;
+            this.txtBox_vaporProfile.ShortcutsEnabled = true;
+            this.txtBox_vaporProfile.Size = new System.Drawing.Size(200, 23);
+            this.txtBox_vaporProfile.TabIndex = 36;
+            this.txtBox_vaporProfile.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.txtBox_vaporProfile.UseSelectable = true;
+            this.txtBox_vaporProfile.UseStyleColors = true;
+            this.txtBox_vaporProfile.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtBox_vaporProfile.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // lbl_pathGIDS
+            // 
+            this.lbl_pathGIDS.AutoSize = true;
+            this.lbl_pathGIDS.Location = new System.Drawing.Point(-1, 166);
+            this.lbl_pathGIDS.Name = "lbl_pathGIDS";
+            this.lbl_pathGIDS.Size = new System.Drawing.Size(86, 19);
+            this.lbl_pathGIDS.TabIndex = 35;
+            this.lbl_pathGIDS.Text = "Join from file";
+            this.lbl_pathGIDS.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // btn_joinAll
+            // 
+            this.btn_joinAll.DisplayFocus = true;
+            this.btn_joinAll.ForeColor = System.Drawing.Color.White;
+            this.btn_joinAll.Location = new System.Drawing.Point(294, 162);
+            this.btn_joinAll.Name = "btn_joinAll";
+            this.btn_joinAll.Size = new System.Drawing.Size(74, 23);
+            this.btn_joinAll.Style = MetroFramework.MetroColorStyle.Purple;
+            this.btn_joinAll.TabIndex = 34;
+            this.btn_joinAll.Text = "Join All";
+            this.btn_joinAll.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btn_joinAll.UseCustomForeColor = true;
+            this.btn_joinAll.UseSelectable = true;
+            this.btn_joinAll.UseStyleColors = true;
+            this.btn_joinAll.Click += new System.EventHandler(this.btn_joinAll_Click);
             // 
             // metroTab_Tasks
             // 
@@ -508,145 +647,6 @@
             this.metroPanel10.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel10.VerticalScrollbarSize = 10;
             // 
-            // metroTab_Join
-            // 
-            this.metroTab_Join.BackColor = System.Drawing.Color.Transparent;
-            this.metroTab_Join.Controls.Add(this.txtBox_pathIDS);
-            this.metroTab_Join.Controls.Add(this.metroLabel5);
-            this.metroTab_Join.Controls.Add(this.btn_gatherFromProfile);
-            this.metroTab_Join.Controls.Add(this.txtBox_vaporProfile);
-            this.metroTab_Join.Controls.Add(this.lbl_pathGIDS);
-            this.metroTab_Join.Controls.Add(this.btn_joinAll);
-            this.metroTab_Join.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroTab_Join.HorizontalScrollbarBarColor = true;
-            this.metroTab_Join.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTab_Join.HorizontalScrollbarSize = 10;
-            this.metroTab_Join.Location = new System.Drawing.Point(4, 38);
-            this.metroTab_Join.Name = "metroTab_Join";
-            this.metroTab_Join.Size = new System.Drawing.Size(371, 506);
-            this.metroTab_Join.TabIndex = 11;
-            this.metroTab_Join.Text = "JOINER";
-            this.metroTab_Join.UseCustomBackColor = true;
-            this.metroTab_Join.VerticalScrollbarBarColor = true;
-            this.metroTab_Join.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTab_Join.VerticalScrollbarSize = 10;
-            // 
-            // btn_joinAll
-            // 
-            this.btn_joinAll.DisplayFocus = true;
-            this.btn_joinAll.ForeColor = System.Drawing.Color.White;
-            this.btn_joinAll.Location = new System.Drawing.Point(294, 162);
-            this.btn_joinAll.Name = "btn_joinAll";
-            this.btn_joinAll.Size = new System.Drawing.Size(74, 23);
-            this.btn_joinAll.Style = MetroFramework.MetroColorStyle.Purple;
-            this.btn_joinAll.TabIndex = 34;
-            this.btn_joinAll.Text = "Join All";
-            this.btn_joinAll.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.btn_joinAll.UseCustomForeColor = true;
-            this.btn_joinAll.UseSelectable = true;
-            this.btn_joinAll.UseStyleColors = true;
-            this.btn_joinAll.Click += new System.EventHandler(this.btn_joinAll_Click);
-            // 
-            // lbl_pathGIDS
-            // 
-            this.lbl_pathGIDS.AutoSize = true;
-            this.lbl_pathGIDS.Location = new System.Drawing.Point(-1, 166);
-            this.lbl_pathGIDS.Name = "lbl_pathGIDS";
-            this.lbl_pathGIDS.Size = new System.Drawing.Size(86, 19);
-            this.lbl_pathGIDS.TabIndex = 35;
-            this.lbl_pathGIDS.Text = "Join from file";
-            this.lbl_pathGIDS.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // txtBox_vaporProfile
-            // 
-            // 
-            // 
-            // 
-            this.txtBox_vaporProfile.CustomButton.Image = null;
-            this.txtBox_vaporProfile.CustomButton.Location = new System.Drawing.Point(178, 1);
-            this.txtBox_vaporProfile.CustomButton.Name = "";
-            this.txtBox_vaporProfile.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtBox_vaporProfile.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtBox_vaporProfile.CustomButton.TabIndex = 1;
-            this.txtBox_vaporProfile.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtBox_vaporProfile.CustomButton.UseSelectable = true;
-            this.txtBox_vaporProfile.CustomButton.Visible = false;
-            this.txtBox_vaporProfile.Lines = new string[0];
-            this.txtBox_vaporProfile.Location = new System.Drawing.Point(88, 162);
-            this.txtBox_vaporProfile.MaxLength = 32767;
-            this.txtBox_vaporProfile.Name = "txtBox_vaporProfile";
-            this.txtBox_vaporProfile.PasswordChar = '\0';
-            this.txtBox_vaporProfile.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBox_vaporProfile.SelectedText = "";
-            this.txtBox_vaporProfile.SelectionLength = 0;
-            this.txtBox_vaporProfile.SelectionStart = 0;
-            this.txtBox_vaporProfile.ShortcutsEnabled = true;
-            this.txtBox_vaporProfile.Size = new System.Drawing.Size(200, 23);
-            this.txtBox_vaporProfile.TabIndex = 36;
-            this.txtBox_vaporProfile.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.txtBox_vaporProfile.UseSelectable = true;
-            this.txtBox_vaporProfile.UseStyleColors = true;
-            this.txtBox_vaporProfile.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtBox_vaporProfile.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // txtBox_pathIDS
-            // 
-            // 
-            // 
-            // 
-            this.txtBox_pathIDS.CustomButton.Image = null;
-            this.txtBox_pathIDS.CustomButton.Location = new System.Drawing.Point(178, 1);
-            this.txtBox_pathIDS.CustomButton.Name = "";
-            this.txtBox_pathIDS.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtBox_pathIDS.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtBox_pathIDS.CustomButton.TabIndex = 1;
-            this.txtBox_pathIDS.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtBox_pathIDS.CustomButton.UseSelectable = true;
-            this.txtBox_pathIDS.CustomButton.Visible = false;
-            this.txtBox_pathIDS.Lines = new string[0];
-            this.txtBox_pathIDS.Location = new System.Drawing.Point(88, 96);
-            this.txtBox_pathIDS.MaxLength = 32767;
-            this.txtBox_pathIDS.Name = "txtBox_pathIDS";
-            this.txtBox_pathIDS.PasswordChar = '\0';
-            this.txtBox_pathIDS.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBox_pathIDS.SelectedText = "";
-            this.txtBox_pathIDS.SelectionLength = 0;
-            this.txtBox_pathIDS.SelectionStart = 0;
-            this.txtBox_pathIDS.ShortcutsEnabled = true;
-            this.txtBox_pathIDS.Size = new System.Drawing.Size(200, 23);
-            this.txtBox_pathIDS.TabIndex = 39;
-            this.txtBox_pathIDS.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.txtBox_pathIDS.UseSelectable = true;
-            this.txtBox_pathIDS.UseStyleColors = true;
-            this.txtBox_pathIDS.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtBox_pathIDS.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(-1, 100);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(82, 19);
-            this.metroLabel5.TabIndex = 38;
-            this.metroLabel5.Text = "Profile Fetch";
-            this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // btn_gatherFromProfile
-            // 
-            this.btn_gatherFromProfile.DisplayFocus = true;
-            this.btn_gatherFromProfile.ForeColor = System.Drawing.Color.White;
-            this.btn_gatherFromProfile.Location = new System.Drawing.Point(294, 96);
-            this.btn_gatherFromProfile.Name = "btn_gatherFromProfile";
-            this.btn_gatherFromProfile.Size = new System.Drawing.Size(74, 23);
-            this.btn_gatherFromProfile.Style = MetroFramework.MetroColorStyle.Purple;
-            this.btn_gatherFromProfile.TabIndex = 37;
-            this.btn_gatherFromProfile.Text = "Gather";
-            this.btn_gatherFromProfile.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.btn_gatherFromProfile.UseCustomForeColor = true;
-            this.btn_gatherFromProfile.UseSelectable = true;
-            this.btn_gatherFromProfile.UseStyleColors = true;
-            this.btn_gatherFromProfile.Click += new System.EventHandler(this.btn_gatherFromProfile_Click);
-            // 
             // MongoToolTip
             // 
             this.MongoToolTip.Style = MetroFramework.MetroColorStyle.Default;
@@ -671,11 +671,11 @@
             this.Shown += new System.EventHandler(this.GatherSteamGroups_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).EndInit();
             this.MercuryTabControl.ResumeLayout(false);
+            this.metroTab_Join.ResumeLayout(false);
+            this.metroTab_Join.PerformLayout();
             this.metroTab_Tasks.ResumeLayout(false);
             this.metroTab_Settings.ResumeLayout(false);
             this.metroTab_Settings.PerformLayout();
-            this.metroTab_Join.ResumeLayout(false);
-            this.metroTab_Join.PerformLayout();
             this.ResumeLayout(false);
 
         }

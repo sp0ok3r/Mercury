@@ -72,12 +72,7 @@ namespace MercuryBOT
             Mercury_notifyIcon.Icon = null;
             Environment.Exit(1);
         }
-
-
-      
-
         
-
         [Obsolete]
         private void RafadexAutoUpdate600IQ()
         {
@@ -141,7 +136,7 @@ namespace MercuryBOT
             
             this.Activate();
             this.components.SetStyle(this);
-            Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
             btn_logout.Visible = false;
             
             Trolha.Tick += Trolha_Tick;
@@ -221,7 +216,7 @@ namespace MercuryBOT
 
         private void Main_Resize(object sender, EventArgs e)
         {
-            if (FormWindowState.Minimized == WindowState && !this.ShowInTaskbar)
+            if (FormWindowState.Minimized == WindowState && !this.ShowInTaskbar) // 254iq
             {
                 Hide();
             }
@@ -513,12 +508,11 @@ namespace MercuryBOT
                         apikey = a.APIWebKey;
                     }
                 }
-                // if (apikey == "undefined" || apikey.Length == 0)
+
                 if (string.IsNullOrEmpty(apikey) || apikey == "0")
                 {
                     InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Gathering your apikey and setting it! \n Just Gather Games again!");
                     AccountLogin.gatherWebApiKey();
-                    //Process.Start("https://steamcommunity.com/dev/apikey");
                     return;
                 }
 
@@ -581,7 +575,6 @@ namespace MercuryBOT
                 else
                 {
                     InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Select a friend!");
-
                 }
             }
             else
@@ -704,33 +697,32 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Please select an account!");
                 return;
             }
+            doLogin(SelectedUser);
+            //var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
 
-            var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
+            //foreach (var a in list.Accounts)
+            //{
+            //    if (a.username == SelectedUser)
+            //    {
+            //        if (string.IsNullOrEmpty(a.password))
+            //        {
+            //            InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Please add password to: " + a.username);
+            //            return;
+            //        }
+            //        usernameJSON = a.username;
+            //        passwordJSON = a.password;
+            //    }
+            //}
+            //// Start Login
+            //Thread doLogin = new Thread(() => AccountLogin.UserSettingsGather(usernameJSON, passwordJSON));
+            //doLogin.Start();
 
-            foreach (var a in list.Accounts)
-            {
-                if (a.username == SelectedUser)
-                {
-                    if (string.IsNullOrEmpty(a.password))
-                    {
-                        InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Please add password to: " + a.username);
-                        return;
-                    }
-                    usernameJSON = a.username;
-                    passwordJSON = a.password;
-                }
-            }
-            // Start Login
-            Thread doLogin = new Thread(() => AccountLogin.UserSettingsGather(usernameJSON, passwordJSON));
-            doLogin.Start();
-
-            btn_login2selected.Enabled = false;
-            lbl_infoLogin.Text = "Trying to login...";
+            //btn_login2selected.Enabled = false;
+            //lbl_infoLogin.Text = "Trying to login...";
         }
         #endregion
         private void doLogin(string username)
         {
-
             var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
 
             foreach (var a in list.Accounts)
@@ -882,6 +874,8 @@ namespace MercuryBOT
         //        //break;
         //    }
         //}
+
+        #region HandleFormClose
         private void HandleFormEditAccClosed(Object sender, FormClosedEventArgs e)
         {
             RefreshAccountList();
@@ -941,7 +935,7 @@ namespace MercuryBOT
         {
             btn_MsgRecipients.Enabled = true;
         }
-
+        #endregion
 
         #region Mouse Move
         //https://stackoverflow.com/users/3879008/giangpzo
@@ -1454,7 +1448,6 @@ namespace MercuryBOT
                 ProfilePrivacySetting.FormClosed += HandleFormProfilePrivacySettingClosed;
                 btn_changeprofSettings.Enabled = false;
                 ProfilePrivacySetting.Show();
-                //verify **********************
             }
             else
             {

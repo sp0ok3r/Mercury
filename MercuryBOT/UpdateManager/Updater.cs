@@ -20,15 +20,12 @@ namespace MercuryBOT
 {
     public partial class Update : MetroFramework.Forms.MetroForm
     {
-        private string DownloadLink;
-
         public Update(string up)
         {
-            DownloadLink = up;
-            InitializeComponent(); this.Activate();
+            InitializeComponent();
+            
             lbl_infoversion.Text = up;
             this.components.SetStyle(this);
-            this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
 
@@ -57,12 +54,11 @@ namespace MercuryBOT
             }
             catch (Exception)
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "sp0ok3r.tk is down, entering in another link!");
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "sp0ok3r.tk is down, please check for new updates in github!");
                 Process.Start("https://github.com/sp0ok3r/Mercury/releases");
             }
         }
-
-
+        
         private void Update_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -71,7 +67,7 @@ namespace MercuryBOT
         private void Btn_installupdate_Click(object sender, EventArgs e)
         {
             Process.Start(Program.ExecutablePath);
-            Process.Start("https://github.com/sp0ok3r/Mercury/releases/tag/"+ DownloadLink);
+            Process.Start("https://github.com/sp0ok3r/Mercury/releases/tag/"+ lbl_infoversion.Text);
         }
     }
 }

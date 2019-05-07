@@ -17,12 +17,13 @@ using MercuryBOT.Properties;
 using MercuryBOT.Helpers;
 using System.Reflection;
 using System.Linq;
+using System.Net;
 
 namespace MercuryBOT
 {
     static class Program
     {
-
+        public static readonly WebClient Web = new WebClient();
         public static readonly string BOTNAME          = "MercuryBOT";
         public static readonly string Version          = "4.0.0-beta6.1";
 

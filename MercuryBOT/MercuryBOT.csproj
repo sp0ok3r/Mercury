@@ -243,6 +243,12 @@
     <Compile Include="SteamProfileBackground\ProfileBackground.Designer.cs">
       <DependentUpon>ProfileBackground.cs</DependentUpon>
     </Compile>
+    <Compile Include="SteamRep\SteamRepCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SteamRep\SteamRepCheck.Designer.cs">
+      <DependentUpon>SteamRepCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="SteamServers\CSRegions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SteamProfileBackground\ProfileBackground.resx">
       <DependentUpon>ProfileBackground.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SteamRep\SteamRepCheck.resx">
+      <DependentUpon>SteamRepCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SteamServers\CSRegions.resx">
       <DependentUpon>CSRegions.cs</DependentUpon>
