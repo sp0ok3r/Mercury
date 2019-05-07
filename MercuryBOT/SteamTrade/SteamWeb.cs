@@ -176,10 +176,9 @@ namespace MercuryBOT.SteamTrade
                     var resp = ex.Response as HttpWebResponse;
                     if (resp != null)
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
+                        Notification.NotifHelper.MessageBox.Show("Alert", "Login again or steamcommunity is down");
                         Console.WriteLine("For more info; visit this link : ");
                         Console.WriteLine(url);
-                        Console.ForegroundColor = ConsoleColor.White;
                         return resp;
                     }
                 }
@@ -253,15 +252,6 @@ namespace MercuryBOT.SteamTrade
                 _cookies.Add(new Cookie("steamLogin", Token, string.Empty, SteamCommunityDomain));
                 _cookies.Add(new Cookie("steamLoginSecure", TokenSecure, string.Empty, SteamCommunityDomain));
                 _cookies.Add(new Cookie("Steam_Language", "english", string.Empty, SteamCommunityDomain));
-
-                //// Add Cookies for SteamPowered
-                //_cookies.Add(new Cookie("sessionid", SessionId, String.Empty, SteamPoweredDomain));
-                //_cookies.Add(new Cookie("steamLogin", Token, String.Empty, SteamPoweredDomain));
-                //_cookies.Add(new Cookie("steamLoginSecure", TokenSecure, String.Empty, SteamPoweredDomain));
-                //_cookies.Add(new Cookie("birthtime", "-729000000", String.Empty, SteamPoweredDomain));
-                //_cookies.Add(new Cookie("lastagecheckage", "1-January-1900", String.Empty, SteamPoweredDomain));
-                //_cookies.Add(new Cookie("mature_content", "1", String.Empty, SteamPoweredDomain));
-
                 return true;
             }
         }
@@ -305,13 +295,6 @@ namespace MercuryBOT.SteamTrade
                 return response.Cookies["steamLogin"] == null || !response.Cookies["steamLogin"].Value.Equals("deleted");
             }
         }
-
-        //public bool CheckCookies()
-        //{
-        //    string SteamCommunity = Request("https://steamcommunity.com/", "GET");
-        //    string SteamPowered = Request("https://store.steampowered.com/", "GET");
-        //    return SteamCommunity.Contains("g_steamID") && !SteamPowered.Contains("var g_AccountID = 0;");
-        //}
 
         /// <summary>
         /// Method to submit cookies to Steam after Login.

@@ -678,7 +678,7 @@ namespace MercuryBOT
                 }
             }
         }
-        
+
         static void OnFriendMsg(SteamFriends.FriendMsgCallback callback) // Auto MSG
         {
             if (ChatLogger == true && callback.EntryType == EChatEntryType.ChatMsg)
@@ -800,16 +800,17 @@ namespace MercuryBOT
                         case ".stopgames":
                             StopGames();
                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Stopping games." + "\r\n\r\n" + Program.BOTNAME);
-
                             break;
                         case ".steamrep ":
                             if (Extensions.SteamRep(Extensions.AllToSteamId32(message)) == true)
                             {
+
                                 steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, Extensions.SteamRep(Extensions.AllToSteamId32(message)) + "\r\n\r\n" + Program.BOTNAME);
-                            }else{
+                            }
+                            else
+                            {
                                 steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "USER CLEAN AF (IN STEAM REP)\r\n\r\n" + Program.BOTNAME);
                             }
-
                             break;
                         case "trolha":
                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "https://steamcommunity.com/profiles/76561198041931474" + "\r\n\r\n" + Program.BOTNAME);
@@ -958,7 +959,6 @@ namespace MercuryBOT
 
             if (resp != String.Empty)
             {
-
                 var parser = new HtmlParser();
                 var document = parser.ParseDocument(resp);
 
@@ -1115,13 +1115,15 @@ namespace MercuryBOT
         public static void MakeGroupAnnouncement(string groupName, string HeadLine, string body)
         {
 
-            var data = new NameValueCollection();
-            data.Add("sessionID", steamWeb.SessionID);
-            data.Add("action", "post");
-            data.Add("headline", HeadLine);
-            data.Add("body", body);
-            data.Add("languages[0][headline]", HeadLine);
-            data.Add("languages[0][body]", body);
+            var data = new NameValueCollection {
+                {"sessionID", steamWeb.SessionID},
+                {"action", "post"},
+                {"headline", HeadLine},
+                {"body", body},
+                {"languages[0][headline]", HeadLine},
+                {"languages[0][body]", body},
+            };
+
 
             string url = "https://steamcommunity.com/gid/" + groupName + "/announcements";
 
@@ -1142,11 +1144,12 @@ namespace MercuryBOT
         {
             SteamID xx = new SteamID(steamID);
 
-            var data = new NameValueCollection();
-            data.Add("xml", "1");
-            data.Add("action", "potw");
-            data.Add("memberId", xx.Render(true)); // [U:1:46143802] steamid3
-            data.Add("sessionid", steamWeb.SessionID);
+            var data = new NameValueCollection{
+                { "xml", "1"},
+                {"action", "potw" },
+                {"memberId", xx.Render(true) },// [U:1:46143802] steamid3
+                { "sessionid", steamWeb.SessionID}
+            };
 
             string url = "https://steamcommunity.com/gid/" + gid + "/potwEdit/";
 
@@ -1164,11 +1167,12 @@ namespace MercuryBOT
         }
         public static void kickGroupMember(string gid, string steamID)
         {
-            var data = new NameValueCollection();
-            data.Add("sessionID", steamWeb.SessionID);
-            data.Add("action", "kick");
-            data.Add("memberId", steamID);//64
-            data.Add("queryString", "");
+            var data = new NameValueCollection {
+                {"sessionID", steamWeb.SessionID },
+                {"action", "kick" },
+                {"memberId", steamID},//64
+                {"queryString", "" },
+            };
 
             string url = "https://steamcommunity.com/" + gid + "/membersManage";
 
@@ -1243,7 +1247,7 @@ namespace MercuryBOT
                 try
                 {
                     string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/edit/settings", "GET");
-                    
+
                     var document = new HtmlParser().ParseDocument(resp);
                     var ReadPrivacyDiv = document.QuerySelector("div.ProfileReactRoot").GetAttribute("data-privacysettings");
 
@@ -1298,7 +1302,7 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", resp);
             }
         }
-        
+
         public static void UIMode(uint x)
         {
             ClientMsgProtobuf<CMsgClientUIMode> uiMode = new ClientMsgProtobuf<CMsgClientUIMode>(EMsg.ClientCurrentUIMode)
@@ -1307,7 +1311,7 @@ namespace MercuryBOT
             };
             steamClient.Send(uiMode);
         }
-        
+
         public static void Logout()
         {
             user = null;
