@@ -7,7 +7,6 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
 using MercuryBOT.Helpers;
 using System;
 using System.Drawing;

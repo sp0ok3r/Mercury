@@ -7,7 +7,6 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
 using MercuryBOT.Helpers;
 using System;
 using System.Diagnostics;
@@ -26,7 +25,7 @@ namespace MercuryBOT
             
             lbl_infoversion.Text = up;
             this.components.SetStyle(this);
-            Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = System.Drawing.Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
 
         private void Update_Load(object sender, EventArgs e)

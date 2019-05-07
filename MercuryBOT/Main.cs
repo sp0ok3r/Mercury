@@ -7,7 +7,6 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
 using MercuryBOT.AccSettings;
 using MercuryBOT.FriendsList;
 using MercuryBOT.GamesGather;
@@ -25,8 +24,6 @@ using System.IO;
 using System.Linq;
 using System.Media;
 using System.Net;
-using System.Net.NetworkInformation;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -1442,6 +1439,18 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged.");
             }
         }
+        private void btn_clearUnreadMsg_Click(object sender, EventArgs e)
+        {
+            if (AccountLogin.IsLoggedIn == true)
+            {
+                AccountLogin.steamFriends.RequestOfflineMessages();
+            }
+            else
+            {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged.");
+            }
+        }
+
 
         private void btn_MsgSelectFriends_Click(object sender, EventArgs e)
         {
@@ -1531,8 +1540,6 @@ namespace MercuryBOT
 
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, new JsonSerializerSettings { Formatting = Formatting.Indented }));
         }
-
-       
     }
 }
 /* dont delete

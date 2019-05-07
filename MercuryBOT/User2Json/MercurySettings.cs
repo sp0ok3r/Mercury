@@ -7,8 +7,6 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
-
 namespace MercuryBOT.User2Json
 {
     public partial class MercurySettings

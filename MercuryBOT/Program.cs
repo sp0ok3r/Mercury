@@ -7,16 +7,10 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
 using System;
 using System.Windows.Forms;
 using System.IO;
 using MercuryBOT.Splash;
-using System.Threading;
-using MercuryBOT.Properties;
-using MercuryBOT.Helpers;
-using System.Reflection;
-using System.Linq;
 using System.Net;
 
 namespace MercuryBOT

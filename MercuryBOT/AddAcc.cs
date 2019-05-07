@@ -7,7 +7,6 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
 using MercuryBOT.Helpers;
 using MercuryBOT.UserSettings;
 using Newtonsoft.Json;
@@ -21,7 +20,6 @@ namespace MercuryBOT
 {
     public partial class AddAcc : MetroFramework.Forms.MetroForm
     {
-      
         public AddAcc()
         {
             InitializeComponent(); this.Activate();

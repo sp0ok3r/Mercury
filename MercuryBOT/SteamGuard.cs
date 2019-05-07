@@ -7,7 +7,6 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
 using MercuryBOT.Helpers;
 using System;
 using System.Windows.Forms;
@@ -61,9 +60,9 @@ namespace MercuryBOT
         private void SteamGuard_Shown(object sender, EventArgs e)
         {
             this.Activate();
-            //  Stream str = Properties.Resources.;
+            // Stream str = Properties.Resources.;
             // SoundPlayer snd = new SoundPlayer(str);
-            //  snd.Play();
+            // snd.Play();
         }
     }
 }

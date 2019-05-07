@@ -1,4 +1,13 @@
-﻿using Gameloop.Vdf.Linq;
+﻿/*  
+ ▄▀▀▄ ▄▀▄  ▄▀▀█▄▄▄▄  ▄▀▀▄▀▀▀▄  ▄▀▄▄▄▄   ▄▀▀▄ ▄▀▀▄  ▄▀▀▄▀▀▀▄  ▄▀▀▄ ▀▀▄ 
+█  █ ▀  █ ▐  ▄▀   ▐ █   █   █ █ █    ▌ █   █    █ █   █   █ █   ▀▄ ▄▀ 
+▐  █    █   █▄▄▄▄▄  ▐  █▀▀█▀  ▐ █      ▐  █    █  ▐  █▀▀█▀  ▐     █   
+  █    █    █    ▌   ▄▀    █    █        █    █    ▄▀    █        █   
+▄▀   ▄▀    ▄▀▄▄▄▄   █     █    ▄▀▄▄▄▄▀    ▀▄▄▄▄▀  █     █       ▄▀    
+█    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
+▐    ▐     ▐                  ▐                                 ▐   
+*/
+using Gameloop.Vdf.Linq;
 using System;
 
 namespace MercuryBOT.User2Json
@@ -28,8 +37,3 @@ namespace MercuryBOT.User2Json
         public DateTime LastLoginTime { get; }
     }
 }
-
-
-
-
-

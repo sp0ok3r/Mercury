@@ -1,17 +1,18 @@
-﻿using AngleSharp.Html.Parser;
+﻿/*  
+ ▄▀▀▄ ▄▀▄  ▄▀▀█▄▄▄▄  ▄▀▀▄▀▀▀▄  ▄▀▄▄▄▄   ▄▀▀▄ ▄▀▀▄  ▄▀▀▄▀▀▀▄  ▄▀▀▄ ▀▀▄ 
+█  █ ▀  █ ▐  ▄▀   ▐ █   █   █ █ █    ▌ █   █    █ █   █   █ █   ▀▄ ▄▀ 
+▐  █    █   █▄▄▄▄▄  ▐  █▀▀█▀  ▐ █      ▐  █    █  ▐  █▀▀█▀  ▐     █   
+  █    █    █    ▌   ▄▀    █    █        █    █    ▄▀    █        █   
+▄▀   ▄▀    ▄▀▄▄▄▄   █     █    ▄▀▄▄▄▄▀    ▀▄▄▄▄▀  █     █       ▄▀    
+█    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
+▐    ▐     ▐                  ▐                                 ▐   
+*/
+using AngleSharp.Html.Parser;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Web;
 using System.Text.RegularExpressions;
-using SteamWebAPI2.Interfaces;
 using System.Diagnostics;
 using MercuryBOT.Helpers;
 
@@ -28,7 +29,7 @@ namespace MercuryBOT.SteamProfileBackground
             this.Activate();
             this.FormBorderStyle = FormBorderStyle.None;
             this.components.SetStyle(this);
-            Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = System.Drawing.Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
 
         private void ProfileBackground_Load(object sender, EventArgs e)

@@ -7,13 +7,6 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace MercuryBOT.Notification
 {
     class NotifHelper
@@ -22,7 +15,7 @@ namespace MercuryBOT.Notification
         {
             public static void Show(string title, string description)
             {
-                using (var form = new Notification.NotificationForm(title, description))
+                using (var form = new NotificationForm(title, description))
                 {
                     form.ShowDialog();
                 }

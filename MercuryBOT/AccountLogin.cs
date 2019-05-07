@@ -7,7 +7,6 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
 using AngleSharp.Html.Parser;
 using MercuryBOT.FriendsList;
 using MercuryBOT.SteamTrade;
@@ -23,7 +22,6 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading;
 
@@ -1223,10 +1221,9 @@ namespace MercuryBOT
 
         public static void ClearAliases()
         {
-            var ClearAliases = new NameValueCollection
-            {
-                { "sessionid", steamWeb.SessionID }
-            };
+            //var dictionary = new Dictionary<string, string> { { "sessionid", steamWeb.SessionID }};
+
+            var ClearAliases = new NameValueCollection { { "sessionid", steamWeb.SessionID }};
 
             string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/ajaxclearaliashistory", "POST", ClearAliases);
 
@@ -1241,7 +1238,6 @@ namespace MercuryBOT
         }
         public static IDictionary<string, int> GetProfileSettings()
         {
-
             if (AccountLogin.IsLoggedIn == true)
             {
                 try

@@ -7,7 +7,6 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
@@ -18,7 +17,6 @@ namespace MercuryBOT.UserSettings
 {
     public partial class UserAccounts
     {
-        
         [JsonProperty("LastLoginTime")]
         public DateTime LastLoginTime { get; set; }
 
@@ -51,10 +49,8 @@ namespace MercuryBOT.UserSettings
 
         [JsonProperty("MsgRecipients")]
         public List<string> MsgRecipients { get; set; }
-        
-
+       
     }
-
     public class Game
     {
         [JsonProperty("app_id")]

@@ -7,15 +7,6 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
 namespace MercuryBOT.InfoForm
 {
     class InfoHelper
@@ -32,7 +23,7 @@ namespace MercuryBOT.InfoForm
             public static void Show(string title, string description)
             {
                 // using construct ensures the resources are freed when form is closed
-                using (var form = new InfoForm.Info(title, description))
+                using (var form = new Info(title, description))
                 {
                     form.ShowDialog();
                 }

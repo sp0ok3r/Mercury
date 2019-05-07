@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*  
+ ▄▀▀▄ ▄▀▄  ▄▀▀█▄▄▄▄  ▄▀▀▄▀▀▀▄  ▄▀▄▄▄▄   ▄▀▀▄ ▄▀▀▄  ▄▀▀▄▀▀▀▄  ▄▀▀▄ ▀▀▄ 
+█  █ ▀  █ ▐  ▄▀   ▐ █   █   █ █ █    ▌ █   █    █ █   █   █ █   ▀▄ ▄▀ 
+▐  █    █   █▄▄▄▄▄  ▐  █▀▀█▀  ▐ █      ▐  █    █  ▐  █▀▀█▀  ▐     █   
+  █    █    █    ▌   ▄▀    █    █        █    █    ▄▀    █        █   
+▄▀   ▄▀    ▄▀▄▄▄▄   █     █    ▄▀▄▄▄▄▀    ▀▄▄▄▄▀  █     █       ▄▀    
+█    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
+▐    ▐     ▐                  ▐                                 ▐   
+*/
+using System;
 using System.IO;
 using System.Collections.Specialized;
 using System.Diagnostics.CodeAnalysis;
@@ -6,15 +15,10 @@ using System.Net;
 using System.Net.Cache;
 using System.Text;
 using System.Web;
-using System.Security.Cryptography;
-using Newtonsoft.Json;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
 using SteamKit2;
 using System.Threading;
-using System.Collections;
-using System.Reflection;
-using System.Threading.Tasks;
 
 namespace MercuryBOT.SteamTrade
 {
@@ -27,7 +31,6 @@ namespace MercuryBOT.SteamTrade
         /// Base steam community domain.
         /// </summary>
         public const string SteamCommunityDomain = "steamcommunity.com";
-        public const string SteamPoweredDomain = "steampowered.com";
 
         /// <summary>
         /// Token of steam. Generated after login.
@@ -186,10 +189,6 @@ namespace MercuryBOT.SteamTrade
             }
         }
         
-        ///<summary>
-        /// Authenticate using SteamKit2 and ISteamUserAuth. 
-        /// This does the same as SteamWeb.DoLogin(), but without contacting the Steam Website.
-        /// </summary>
         /// <remarks>Should this one doesnt work anymore, use <see cref="SteamWeb.DoLogin"/></remarks>
         /// <param name="myUniqueId">Id what you get to login.</param>
         /// <param name="client">An instance of a SteamClient.</param>

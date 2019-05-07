@@ -7,7 +7,6 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
 using MercuryBOT.Helpers;
 using MercuryBOT.User2Json;
 using MercuryBOT.UserSettings;
@@ -21,14 +20,13 @@ namespace MercuryBOT
 {
     public partial class EditAcc : MetroFramework.Forms.MetroForm
     {
-
         public EditAcc()
         {
             InitializeComponent();
             this.Activate();
             this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = System.Drawing.Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
 
         private void EditAcc_Load(object sender, EventArgs e)

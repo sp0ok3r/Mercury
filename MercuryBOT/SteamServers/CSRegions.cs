@@ -7,18 +7,11 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
 using MercuryBOT.Helpers;
 using SteamServers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MercuryBOT.SteamServers
@@ -30,7 +23,7 @@ namespace MercuryBOT.SteamServers
             InitializeComponent(); this.Activate();
             this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
 
         private void CSRegions_Load(object sender, EventArgs e)

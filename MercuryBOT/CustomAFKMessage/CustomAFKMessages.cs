@@ -1,4 +1,13 @@
-﻿using MercuryBOT.Helpers;
+﻿/*  
+ ▄▀▀▄ ▄▀▄  ▄▀▀█▄▄▄▄  ▄▀▀▄▀▀▀▄  ▄▀▄▄▄▄   ▄▀▀▄ ▄▀▀▄  ▄▀▀▄▀▀▀▄  ▄▀▀▄ ▀▀▄ 
+█  █ ▀  █ ▐  ▄▀   ▐ █   █   █ █ █    ▌ █   █    █ █   █   █ █   ▀▄ ▄▀ 
+▐  █    █   █▄▄▄▄▄  ▐  █▀▀█▀  ▐ █      ▐  █    █  ▐  █▀▀█▀  ▐     █   
+  █    █    █    ▌   ▄▀    █    █        █    █    ▄▀    █        █   
+▄▀   ▄▀    ▄▀▄▄▄▄   █     █    ▄▀▄▄▄▄▀    ▀▄▄▄▄▀  █     █       ▄▀    
+█    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
+▐    ▐     ▐                  ▐                                 ▐   
+*/
+using MercuryBOT.Helpers;
 using MercuryBOT.UserSettings;
 using Newtonsoft.Json;
 using System;

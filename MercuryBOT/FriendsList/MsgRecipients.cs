@@ -1,4 +1,13 @@
-﻿using MercuryBOT.UserSettings;
+﻿/*  
+ ▄▀▀▄ ▄▀▄  ▄▀▀█▄▄▄▄  ▄▀▀▄▀▀▀▄  ▄▀▄▄▄▄   ▄▀▀▄ ▄▀▀▄  ▄▀▀▄▀▀▀▄  ▄▀▀▄ ▀▀▄ 
+█  █ ▀  █ ▐  ▄▀   ▐ █   █   █ █ █    ▌ █   █    █ █   █   █ █   ▀▄ ▄▀ 
+▐  █    █   █▄▄▄▄▄  ▐  █▀▀█▀  ▐ █      ▐  █    █  ▐  █▀▀█▀  ▐     █   
+  █    █    █    ▌   ▄▀    █    █        █    █    ▄▀    █        █   
+▄▀   ▄▀    ▄▀▄▄▄▄   █     █    ▄▀▄▄▄▄▀    ▀▄▄▄▄▀  █     █       ▄▀    
+█    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
+▐    ▐     ▐                  ▐                                 ▐   
+*/
+using MercuryBOT.UserSettings;
 using Newtonsoft.Json;
 using System;
 using System.Drawing;
@@ -15,7 +24,7 @@ namespace MercuryBOT.FriendsList
         {
             InitializeComponent();
             this.components.SetStyle(this);
-            Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
         private void FriendsMsgReceiver_Load(object sender, EventArgs e)
         {

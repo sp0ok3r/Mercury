@@ -7,10 +7,8 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
 using MercuryBOT.Helpers;
 using System;
-using System.Configuration;
 using System.IO;
 using System.Media;
 using System.Windows.Forms;

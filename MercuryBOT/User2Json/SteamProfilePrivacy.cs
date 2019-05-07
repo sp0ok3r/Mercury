@@ -7,7 +7,6 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
 namespace SteamProfilePrivacy
 {
     using System.Globalization;
@@ -48,7 +47,7 @@ namespace SteamProfilePrivacy
     {
         public static RenderProfilePrivacy FromJson(string json) => JsonConvert.DeserializeObject<RenderProfilePrivacy>(json, SteamProfilePrivacy.Converter.Settings);
     }
-    
+
     internal static class Converter
     {
         public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
