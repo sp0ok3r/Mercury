@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btn_checkUser = new MetroFramework.Controls.MetroButton();
-            this.lbl_currentUsername = new MetroFramework.Controls.MetroLabel();
+            this.lbl_checkUsername = new MetroFramework.Controls.MetroLabel();
             this.panel_steamStates = new MetroFramework.Controls.MetroPanel();
             this.picBox_SteamAvatar = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -39,7 +39,7 @@
             this.metroLink_steamrep = new MetroFramework.Controls.MetroLink();
             this.Title_AlertScammer = new MetroFramework.Controls.MetroTile();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.lbl_steamID64 = new MetroFramework.Controls.MetroLabel();
             this.richTextBox6 = new System.Windows.Forms.RichTextBox();
             this.panel_steamStates.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_SteamAvatar)).BeginInit();
@@ -65,19 +65,19 @@
             this.btn_checkUser.UseStyleColors = true;
             this.btn_checkUser.Click += new System.EventHandler(this.btn_checkUser_Click);
             // 
-            // lbl_currentUsername
+            // lbl_checkUsername
             // 
-            this.lbl_currentUsername.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lbl_currentUsername.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lbl_currentUsername.Location = new System.Drawing.Point(80, 141);
-            this.lbl_currentUsername.Name = "lbl_currentUsername";
-            this.lbl_currentUsername.Size = new System.Drawing.Size(200, 18);
-            this.lbl_currentUsername.TabIndex = 44;
-            this.lbl_currentUsername.Text = "None";
-            this.lbl_currentUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_currentUsername.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.lbl_currentUsername.UseCustomBackColor = true;
-            this.lbl_currentUsername.UseStyleColors = true;
+            this.lbl_checkUsername.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lbl_checkUsername.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbl_checkUsername.Location = new System.Drawing.Point(80, 141);
+            this.lbl_checkUsername.Name = "lbl_checkUsername";
+            this.lbl_checkUsername.Size = new System.Drawing.Size(200, 18);
+            this.lbl_checkUsername.TabIndex = 44;
+            this.lbl_checkUsername.Text = "None";
+            this.lbl_checkUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_checkUsername.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lbl_checkUsername.UseCustomBackColor = true;
+            this.lbl_checkUsername.UseStyleColors = true;
             // 
             // panel_steamStates
             // 
@@ -222,17 +222,17 @@
             this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel1.UseCustomBackColor = true;
             // 
-            // metroLabel2
+            // lbl_steamID64
             // 
-            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel2.Location = new System.Drawing.Point(80, 174);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(200, 18);
-            this.metroLabel2.TabIndex = 88;
-            this.metroLabel2.Text = "None";
-            this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lbl_steamID64.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lbl_steamID64.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbl_steamID64.Location = new System.Drawing.Point(80, 174);
+            this.lbl_steamID64.Name = "lbl_steamID64";
+            this.lbl_steamID64.Size = new System.Drawing.Size(200, 18);
+            this.lbl_steamID64.TabIndex = 88;
+            this.lbl_steamID64.Text = "None";
+            this.lbl_steamID64.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_steamID64.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // richTextBox6
             // 
@@ -259,7 +259,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 309);
             this.Controls.Add(this.richTextBox6);
-            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.lbl_steamID64);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.Title_AlertScammer);
             this.Controls.Add(this.btn_checkUser);
@@ -267,7 +267,7 @@
             this.Controls.Add(this.metroLink_steamrep);
             this.Controls.Add(this.txt_repSteamID);
             this.Controls.Add(this.metroLabel3);
-            this.Controls.Add(this.lbl_currentUsername);
+            this.Controls.Add(this.lbl_checkUsername);
             this.Controls.Add(this.panel_steamStates);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
@@ -287,7 +287,7 @@
         #endregion
 
         private MetroFramework.Controls.MetroButton btn_checkUser;
-        private MetroFramework.Controls.MetroLabel lbl_currentUsername;
+        private MetroFramework.Controls.MetroLabel lbl_checkUsername;
         private MetroFramework.Controls.MetroPanel panel_steamStates;
         private System.Windows.Forms.PictureBox picBox_SteamAvatar;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -297,7 +297,7 @@
         private MetroFramework.Controls.MetroLink metroLink_steamrep;
         private MetroFramework.Controls.MetroTile Title_AlertScammer;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel lbl_steamID64;
         private System.Windows.Forms.RichTextBox richTextBox6;
     }
 }
