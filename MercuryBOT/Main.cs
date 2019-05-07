@@ -362,6 +362,7 @@ namespace MercuryBOT
             if (AccountLogin.IsLoggedIn == true)
             {
                 AccountLogin.Logout();
+                //combox_states.SelectedIndex = 0;
                 //RefreshAccountList();
 
             }
@@ -1327,13 +1328,15 @@ namespace MercuryBOT
 
                 if (picBox_SteamAvatar.Image == null && btnLabel_PersonaAndFlag.Image == null)
                 {
-                    picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID);
+                   picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID);
 
                     byte[] data = new WebClient().DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + "/flat/16.png");
 
                     MemoryStream ms = new MemoryStream(data);
                     btnLabel_PersonaAndFlag.Image = Image.FromStream(ms);
                 }
+                
+              //  combox_states.SelectedIndex = AccountLogin.steamFriends.GetPersonaState;
 
                 lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = AccountLogin.CurrentUsername));
                 lbl_infoLogin.Text = "Connected"; // return;
@@ -1342,6 +1345,7 @@ namespace MercuryBOT
             {
                 lbl_infoLogin.Text = "Not logged...";
 
+                
                 btn_logout.Visible         = false;
                 Panel_UserInfo.Visible     = false;
                 btn_login2selected.Enabled = true;

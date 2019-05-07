@@ -31,7 +31,7 @@ namespace MercuryBOT.Splash
         public SplashScreen()
         {
             InitializeComponent();
-           // this.components.SetStyle(this);
+            this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
@@ -49,9 +49,6 @@ namespace MercuryBOT.Splash
                 File.WriteAllText(Program.SettingsJsonFile, "{}");
                 lbl_info2.Text = "Creating Settings file...";
             }
-
-            this.components.SetStyle(this);
-
             if (!File.Exists(Program.SentryFolder))
             {
                 Directory.CreateDirectory(Program.SentryFolder);
@@ -65,7 +62,7 @@ namespace MercuryBOT.Splash
             }
             lbl_info2.Text = "LOADING";
         }
-        
+
         public static void LoginusersVDF_ToFile()
         {
             _users = GetLoginUsers().ToList();
@@ -78,13 +75,11 @@ namespace MercuryBOT.Splash
             {
                 var list = JsonConvert.DeserializeObject<UserSettings.RootObject>(File.ReadAllText(Program.AccountsJsonFile));
 
-                // IList<string> savedAccs = list.Accounts.Select(u => u.username).ToList();
-                 IList<string> savedAccs = list.Accounts.Select(u => u.username).ToList();
+                IList<string> savedAccs = list.Accounts.Select(u => u.username).ToList();
 
-                //.OrderByDescending(user => user.LastLoginTime).ToList();
                 if (!savedAccs.Contains(user.AccountName))
                 {
-                    
+
                     var EmptyGameList = new List<Game>();
                     var EmptyCustomMessagesList = new List<UserSettings.CustomMessages>();
 
@@ -92,6 +87,7 @@ namespace MercuryBOT.Splash
                     {
                         LastLoginTime = user.LastLoginTime,
                         AdminID = 0,
+                        LoginState = 1, //default: online
                         username = user.AccountName,
                         password = "",
                         SteamID = user.SteamId64,
@@ -125,7 +121,7 @@ namespace MercuryBOT.Splash
         private void SplashScreen_Load(object sender, EventArgs e)
         {
             this.Activate(); // bring form to fronte eyes
-            lbl_version.Text = Program.Version.Replace("-","");
+            lbl_version.Text = Program.Version.Replace("-", "");
         }
         Timer tmr;
 

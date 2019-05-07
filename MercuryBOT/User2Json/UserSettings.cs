@@ -23,6 +23,9 @@ namespace MercuryBOT.UserSettings
         [JsonProperty("AdminID")]
         public ulong AdminID { get; set; }
 
+        [JsonProperty("LoginState")]
+        public int LoginState { get; set; }
+
         [JsonProperty("username")]
         public string username { get; set; }
 

@@ -33,6 +33,7 @@ namespace MercuryBOT
         public static bool UserPlaying = false;
 
         public static ulong CurrentAdmin;
+        public static int CurrentPersonaState = 1;
         public static ulong CurrentSteamID = 0;
         public static string webAPIUserNonce;
 
@@ -296,6 +297,7 @@ namespace MercuryBOT
                 return;
             }
 
+           
             Console.WriteLine("[" + Program.BOTNAME + "] - Successfully logged on!" + callback.ServerTime.ToString("R"));
             Notification.NotifHelper.MessageBox.Show("Info", "Successfully logged on!");
 
@@ -303,10 +305,8 @@ namespace MercuryBOT
             CurrentSteamID = steamClient.SteamID.ConvertToUInt64();
             myUserNonce = callback.WebAPIUserNonce;
             UserCountry = callback.IPCountryCode;
-            IsLoggedIn = true;
-            steamFriends.SetPersonaState(EPersonaState.Online);
-            //gatherWebApiKey();
 
+            IsLoggedIn = true;
             foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
             {
                 if (a.username == user)
@@ -319,6 +319,8 @@ namespace MercuryBOT
                     {
                         UserWebLogOn();
                     }
+                    steamFriends.SetPersonaState(Extensions.statesList[a.LoginState]);
+                    CurrentPersonaState = a.LoginState;
                 }
             }
             UserClanIDS();
@@ -327,6 +329,7 @@ namespace MercuryBOT
         static void OnDisconnected(SteamClient.DisconnectedCallback callback)
         {
             EResult lastLogOnResult = LastLogOnResult;
+            CurrentPersonaState = 0;
 
             DisconnectedCounter++;
 
@@ -478,6 +481,7 @@ namespace MercuryBOT
         {
             LastLogOnResult = callback.Result;
             IsLoggedIn = false;
+            CurrentPersonaState = 0;
             Console.WriteLine("[" + Program.BOTNAME + "] - Logged off of Steam: {0}", callback.Result);
             InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Logged off of Steam:" + callback.Result);
         }
@@ -1315,6 +1319,7 @@ namespace MercuryBOT
             IsLoggedIn = false;
             steamUser.LogOff();
             DisconnectedCounter = 0;
+            CurrentPersonaState = 0;
             CurrentUsername = null;
         }
     }

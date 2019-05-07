@@ -238,6 +238,11 @@ namespace MercuryBOT.Helpers
         private static MetroColorStyle FormStyle;
         public static void SetStyle(this IContainer container, MetroForm ownerForm)
         {
+            if (!File.Exists(Program.SettingsJsonFile))
+            {
+                File.WriteAllText(Program.SettingsJsonFile, "{}");
+            }
+
             var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
             FormStyle = (MetroFramework.MetroColorStyle)Convert.ToUInt32(Settingslist.startupColor);
 

@@ -32,6 +32,7 @@ namespace MercuryBOT
         private void EditAcc_Load(object sender, EventArgs e)
         {
             EditSelected(Main.SelectedUser);
+            //combox_defaultState.SelectedIndex = 1; ver se tem numero antes
         }
         private ulong selectedSteamID = 0;
         public void EditSelected(string user)
@@ -42,6 +43,7 @@ namespace MercuryBOT
                 if (a.username == user)
                 {
                     txtBox_adminID.Text = (a.AdminID).ToString();
+                    combox_defaultState.SelectedIndex = a.LoginState;
                     txtBox_user.Text = a.username;
                     txtBox_pw.Text = a.password;
                     txtBox_webapi.Text = a.APIWebKey;
@@ -88,6 +90,7 @@ namespace MercuryBOT
                 if (a.username == txtBox_user.Text)
                 {
                     a.AdminID = IDConverted;
+                    a.LoginState = combox_defaultState.SelectedIndex;
                     a.password = txtBox_pw.Text;
                     a.APIWebKey = txtBox_webapi.Text;
                     a.ChatLogger = toggle_chatLogger.Checked;
@@ -102,6 +105,11 @@ namespace MercuryBOT
             }else{
                 Settingslist.startupAcc = selectedSteamID;
             }
+
+
+
+            //combo
+            //combox_defaultState
 
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, Formatting.Indented));
             Close();

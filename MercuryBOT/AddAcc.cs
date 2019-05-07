@@ -62,6 +62,7 @@ namespace MercuryBOT
                 list.Accounts.Add(new UserAccounts
                 {
                     AdminID = AdminConverted,
+                    LoginState = 1,
                     username = user,
                     password = password,
                     LoginKey = "",//0
