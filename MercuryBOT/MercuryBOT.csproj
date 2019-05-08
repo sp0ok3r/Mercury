@@ -287,6 +287,7 @@
     <Compile Include="User2Json\SteamLoginUsers.cs" />
     <Compile Include="User2Json\SteamPlayerLevel.cs" />
     <Compile Include="User2Json\SteamProfilePrivacy.cs" />
+    <Compile Include="User2Json\SteamRepApi.cs" />
     <Compile Include="User2Json\UserSettings.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="InfoForm\Info.cs">

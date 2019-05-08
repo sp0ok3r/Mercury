@@ -7,7 +7,9 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
+using AngleSharp.Html.Parser;
 using MercuryBOT.Helpers;
+using MercuryBOT.SteamTrade;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -39,6 +41,33 @@ namespace MercuryBOT.SteamRep
 
                 var resp = new WebClient().DownloadString("https://steamcommunity.com/miniprofile/" + (Convert.ToUInt64(txt_repSteamID.Text) - 76561197960265728)); // 326iq
                 picBox_SteamAvatar.ImageLocation = Regex.Match(resp, "<img.+?src=[\"'](.+?)[\"'].*?>", RegexOptions.IgnoreCase).Groups[1].Value; // slow but 983iq
+
+
+                //                {
+                //                steamrep:
+                //                    {
+                //                    flags:
+                //                        {
+                //                        status: "exists"
+                //                    },
+                //steamID32: "STEAM_0:1:47687376",
+                //steamID64: "76561198055640481",
+                //steamrepurl: "http://steamrep.com/profiles/76561198055640481",
+                //reputation:
+                //                        {
+                //                        full: "SR CAUTION",
+                //summary: "CAUTION"
+                //}
+                //                    }
+                //                }
+                //string yes = AccountLogin.steamWeb.Fetch("http://steamrep.com/api/beta4/reputation/"+"aaa"+"?json=1", "GET");
+
+                //var document = new HtmlParser().ParseDocument(resp);
+
+                //var renderPrivacySettings = SteamRepAPI.SteamRep.FromJson(document);
+
+                //// renderPrivacySettings.PrivacySettings.PrivacyProfile},
+             
 
                 if (Extensions.SteamRep(Extensions.AllToSteamId32(txt_repSteamID.Text)) == true)
                 {
