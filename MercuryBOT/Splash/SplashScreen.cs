@@ -85,7 +85,7 @@ namespace MercuryBOT.Splash
 
                     list.Accounts.Add(new UserAccounts
                     {
-                        LastLoginTime = user.LastLoginTime,
+                        LastLoginTime = user.LastLoginTime.ToString(),
                         AdminID = 0,
                         LoginState = 1, //default: online
                         username = user.AccountName,

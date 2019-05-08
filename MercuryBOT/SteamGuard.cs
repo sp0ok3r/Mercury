@@ -33,6 +33,7 @@ namespace MercuryBOT
             {
                 lbl_infoemailorPhone.Text = "Enter Steam Guard code from your email";
                 lbl_emojiInfo.Text = "📧";
+                MongoToolTip.SetToolTip(lbl_emojiInfo, EmailorPhone);
             }
         }
 

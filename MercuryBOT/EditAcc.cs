@@ -108,12 +108,6 @@ namespace MercuryBOT
             }else{
                 Settingslist.startupAcc = selectedSteamID;
             }
-
-
-
-            //combo
-            //combox_defaultState
-
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, Formatting.Indented));
             Close();
         }

@@ -15,7 +15,7 @@ using MercuryBOT.SteamServers;
 using MercuryBOT.User2Json;
 using MercuryBOT.UserSettings;
 using Newtonsoft.Json;
-//using Steam4NET;
+using Steam4NET;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -33,8 +33,6 @@ namespace MercuryBOT
 {
     public partial class Main : MetroFramework.Forms.MetroForm
     {
-        //  readonly Process MercuryProcesses = Process.GetCurrentProcess();
-
         public static NotifyIcon M_NotifyIcon;
 
         public static string usernameJSON;
@@ -125,6 +123,12 @@ namespace MercuryBOT
         {
             RafadexAutoUpdate600IQ();
             M_NotifyIcon = this.Mercury_notifyIcon;
+
+            //            Console.WriteLine(DateTimeOffset.UtcNow.ToString("o"));
+
+
+            //DateTimeOffset.ParseExact("2015-07-09T08:38:49-07:00", "yyyy-MM-dd'T'HH:mm:sszzz",
+            //                                           CultureInfo.InvariantCulture)
         }
 
         [Obsolete]
@@ -219,7 +223,6 @@ namespace MercuryBOT
             }
         }
 
-
         public void RefreshAccountList()
         {
             AccountsList_Grid.Rows.Clear();
@@ -245,8 +248,6 @@ namespace MercuryBOT
             AccountsList_ScrollBar.Maximum = AccountsList_Grid.Rows.Count;
             AccountsList_Grid.ClearSelection();
         }
-
-
 
 
         #region Buttons
@@ -421,56 +422,56 @@ namespace MercuryBOT
         {
             if (chck_steam4net.Checked)
             {
-                //int quantasPrincesas = 0;
-                //Steamworks.Load(true);
-                //ISteamClient006 steamClient006 = Steamworks.CreateInterface<ISteamClient006>();
-                //int steamPipe = steamClient006.CreateSteamPipe();
-                //int globalUser = steamClient006.ConnectToGlobalUser(steamPipe);
-                //if (steamPipe == 0 || globalUser == 0)
-                //{
-                //    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please logon in the steam desktop client! NOT ON THE BOT!! (you can still log)");
-                //    return;
-                //}
-                //else
-                //{
-                //    ISteamUser004 isteamUser = steamClient006.GetISteamUser<ISteamUser004>(globalUser, steamPipe);
-                //    ISteamFriends003 isteamFriends1 = steamClient006.GetISteamFriends<ISteamFriends003>(globalUser, steamPipe);
-                //    ISteamFriends002 isteamFriends2 = steamClient006.GetISteamFriends<ISteamFriends002>(globalUser, steamPipe);
-                //    int friendCount = isteamFriends1.GetFriendCount(Steam4NET.EFriendFlags.k_EFriendFlagImmediate);
+                int quantasPrincesas = 0;
+                Steamworks.Load(true);
+                ISteamClient006 steamClient006 = Steamworks.CreateInterface<ISteamClient006>();
+                int steamPipe = steamClient006.CreateSteamPipe();
+                int globalUser = steamClient006.ConnectToGlobalUser(steamPipe);
+                if (steamPipe == 0 || globalUser == 0)
+                {
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please logon in the steam desktop client! NOT ON THE BOT!! (you can still log)");
+                    return;
+                }
+                else
+                {
+                    ISteamUser004 isteamUser = steamClient006.GetISteamUser<ISteamUser004>(globalUser, steamPipe);
+                    ISteamFriends003 isteamFriends1 = steamClient006.GetISteamFriends<ISteamFriends003>(globalUser, steamPipe);
+                    ISteamFriends002 isteamFriends2 = steamClient006.GetISteamFriends<ISteamFriends002>(globalUser, steamPipe);
+                    int friendCount = isteamFriends1.GetFriendCount(Steam4NET.EFriendFlags.k_EFriendFlagImmediate);
 
-                //    if (friendCount == -1)
-                //    {
-                //        InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please login into steam desktop client");
-                //        return;
-                //    }
-                //    btn_sendMsg2Friends.Enabled = false;
-                //    for (int iFriend = 0; iFriend < friendCount; iFriend++)
-                //    {
-                //        CSteamID friendByIndex = isteamFriends1.GetFriendByIndex(iFriend, Steam4NET.EFriendFlags.k_EFriendFlagImmediate);
+                    if (friendCount == -1)
+                    {
+                        InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please login into steam desktop client");
+                        return;
+                    }
+                    btn_sendMsg2Friends.Enabled = false;
+                    for (int iFriend = 0; iFriend < friendCount; iFriend++)
+                    {
+                        CSteamID friendByIndex = isteamFriends1.GetFriendByIndex(iFriend, Steam4NET.EFriendFlags.k_EFriendFlagImmediate);
 
-                //        if (chck_Send2Receipts.Checked)
-                //        {
-                //            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
-                //            {
-                //                if (a.username == AccountLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(friendByIndex.ConvertToUint64().ToString())))
-                //                {
-                //                    quantasPrincesas++;
-                //                    isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
-                //                    Thread.Sleep(100);// my nigger needs some OXYGEN 😌
-                //                }
-                //            }
-                //        }
-                //        else
-                //        {
-                //            quantasPrincesas++;
-                //            isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
-                //            Thread.Sleep(100);// my nigger needs some OXYGEN 😌
-                //        }
+                        if (chck_Send2Receipts.Checked)
+                        {
+                            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+                            {
+                                if (a.username == AccountLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(friendByIndex.ConvertToUint64().ToString())))
+                                {
+                                    quantasPrincesas++;
+                                    isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
+                                    Thread.Sleep(100);// my nigger needs some OXYGEN 😌
+                                }
+                            }
+                        }
+                        else
+                        {
+                            quantasPrincesas++;
+                            isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
+                            Thread.Sleep(100);// my nigger needs some OXYGEN 😌
+                        }
 
-                //    }
-                //  InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Sent message to " + quantasPrincesas + " friends!");
-                btn_sendMsg2Friends.Enabled = true;
-                //}
+                    }
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Sent message to " + quantasPrincesas + " friends!");
+                    btn_sendMsg2Friends.Enabled = true;
+                }
             }
             else
             {
@@ -539,7 +540,7 @@ namespace MercuryBOT
                 btn_loadFriends.Enabled = true;
                 lbl_friendSelected.BackColor = Color.Transparent;
                 BTN_RemoveFriend.Enabled = true;
-               
+
             }
             else
             {
@@ -1598,23 +1599,3 @@ namespace MercuryBOT
         }
     }
 }
-/* dont delete
-         * backup read and save json 
-        string path = Program.ExecutablePath2 + @"\Accounts.json";
-        var myJsonString = File.ReadAllText(path);
-
-        var objectToSerialize = new RootObject();
-        var list = JsonConvert.DeserializeObject<RootObject>(myJsonString);
-
-            foreach (var a in list.Accounts)
-            {
-                if (a.username == user)
-                {
-                    a.LoginKey = callback.LoginKey;
-                    Console.WriteLine("[" + BOTNAME + "] key: " + a.LoginKey);
-                    NewloginKey=callback.LoginKey;
-                }
-        }
-        string output = JsonConvert.SerializeObject(list, Formatting.Indented);
-        File.WriteAllText(path, output);
-*/

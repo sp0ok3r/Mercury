@@ -326,11 +326,11 @@ namespace MercuryBOT
                     }
                     steamFriends.SetPersonaState(Extensions.statesList[a.LoginState]);
                     CurrentPersonaState = a.LoginState;
-                   // a.LastLoginTime = string.Format("{0:s}", DateTime.Now);
+             
+                    a.LastLoginTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
                 }
             }
-            //File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(ListUserSettings, Formatting.Indented));
-
+            File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(ListUserSettings, Formatting.Indented));
             UserClanIDS();
         }
 
@@ -514,8 +514,7 @@ namespace MercuryBOT
             });
             Console.WriteLine("[" + Program.BOTNAME + "] - Sentry updated!");
         }
-
-
+        
         static void OnAccountInfo(SteamUser.AccountInfoCallback callback)
         {
             UserPersonaName = callback.PersonaName;
@@ -538,9 +537,9 @@ namespace MercuryBOT
                 if (steamFriends.GetFriendRelationship(steamId) == EFriendRelationship.Friend)
                 {
                     string friendPersonaName = steamFriends.GetFriendPersonaName(steamId);
-                    string game = steamFriends.GetFriendRelationship(steamId).ToString(); // check
+                    string Relationship = steamFriends.GetFriendRelationship(steamId).ToString();
                     string status = steamFriends.GetFriendPersonaState(steamId).ToString();
-                    ListFriends.Add(friendPersonaName, (ulong)steamId, game, status);
+                    ListFriends.Add(friendPersonaName, (ulong)steamId, Relationship, status);
                 }
             }
             foreach (ListFriends listFriends in ListFriends.Get(false))

@@ -18,8 +18,8 @@ namespace MercuryBOT.UserSettings
     public partial class UserAccounts
     {
         [JsonProperty("LastLoginTime")]
-        public DateTime LastLoginTime { get; set; }
-        
+        public string LastLoginTime { get; set; }
+        //DateTime
         [JsonProperty("AdminID")]
         public ulong AdminID { get; set; }
 

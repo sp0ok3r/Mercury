@@ -21,7 +21,8 @@ namespace MercuryBOT.User2Json
             PersonaName = volvo.Value[@"PersonaName"].ToString();
             RememberPassword = int.Parse(volvo.Value[@"RememberPassword"].ToString()) == 1;
             MostRecent = int.Parse(volvo.Value[@"mostrecent"].ToString()) == 1;
-            LastLoginTime = Helpers.Extensions.GetTime(volvo.Value[@"Timestamp"].ToString());
+            LastLoginTime = volvo.Value[@"Timestamp"].ToString();
+            //Helpers.Extensions.GetTime(volvo.Value[@"Timestamp"].ToString());
         }
 
         public ulong SteamId64 { get; }
@@ -34,6 +35,6 @@ namespace MercuryBOT.User2Json
 
         public bool MostRecent { get; }
 
-        public DateTime LastLoginTime { get; }
+        public string LastLoginTime { get; }
     }
 }

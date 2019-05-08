@@ -36,6 +36,7 @@
             this.txtBox_Code = new MetroFramework.Controls.MetroTextBox();
             this.btn_submit = new MetroFramework.Controls.MetroButton();
             this.lbl_infoemailorPhone = new MetroFramework.Controls.MetroLabel();
+            this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
             this.SuspendLayout();
             // 
             // lbl_emojiInfo
@@ -149,6 +150,12 @@
             this.lbl_infoemailorPhone.UseCustomForeColor = true;
             this.lbl_infoemailorPhone.UseStyleColors = true;
             // 
+            // MongoToolTip
+            // 
+            this.MongoToolTip.Style = MetroFramework.MetroColorStyle.Default;
+            this.MongoToolTip.StyleManager = null;
+            this.MongoToolTip.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
             // SteamGuard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,5 +192,6 @@
         private MetroFramework.Controls.MetroTextBox txtBox_Code;
         private MetroFramework.Controls.MetroButton btn_submit;
         private MetroFramework.Controls.MetroLabel lbl_infoemailorPhone;
+        private MetroFramework.Components.MetroToolTip MongoToolTip;
     }
 }
