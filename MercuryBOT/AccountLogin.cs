@@ -1156,7 +1156,7 @@ namespace MercuryBOT
             }
             else
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("nice", "sent");
+                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Announcement sent!");
             }
         }
 

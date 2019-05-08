@@ -510,7 +510,7 @@ namespace MercuryBOT
 
                 if (string.IsNullOrEmpty(apikey) || apikey == "0")
                 {
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Gathering your apikey and setting it! \n Just Gather Games again!");
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Gathering your apikey and setting it! \n Just Gather Friends again!");
                     AccountLogin.gatherWebApiKey();
                     return;
                 }
@@ -520,7 +520,6 @@ namespace MercuryBOT
                 btn_loadFriends.Enabled = false;
                 BTN_RemoveFriend.Enabled = false;
                 FriendsList_Grid.Rows.Clear();
-                lbl_friendSelected.BackColor = Color.FromArgb(80, 80, 80);
                 foreach (var f in AccountLogin.Friends)
                 {
                     DateTime playerSummaryData;
@@ -538,7 +537,6 @@ namespace MercuryBOT
                 lbl_totalFriends.Text = "count: " + FriendsList_Grid.Rows.Count;
                 ProgressSpinner_FriendsList.Visible = false;
                 btn_loadFriends.Enabled = true;
-                lbl_friendSelected.BackColor = Color.Transparent;
                 BTN_RemoveFriend.Enabled = true;
 
             }
@@ -705,9 +703,18 @@ namespace MercuryBOT
                 }
                 else
                 {
-                    AccountLogin.RedeemKey(txtBox_redeemKey.Text);
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Added to your library: 1 CDKey!");
-                    txtBox_redeemKey.Clear();
+                    Match match = new Regex(@"((?![^0-9]{12,}|[^A-z]{12,})([A-z0-9]{4,5}-?[A-z0-9]{4,5}-?[A-z0-9]{4,5}(-?[A-z0-9]{4,5}(-?[A-z0-9]{4,5})?)?))").Match(txtBox_redeemKey.Text);
+                    if (!String.IsNullOrEmpty(txtBox_redeemKey.Text) && match.Success)
+                    {
+                        txtBox_redeemKey.Clear();
+                        AccountLogin.RedeemKey(txtBox_redeemKey.Text);
+                        InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Added to your library: 1 CDKey!");
+                    }
+                    else
+                    {
+                        txtBox_redeemKey.Clear();
+                        Notification.NotifHelper.MessageBox.Show("Error", "Please write a CDKey Or Invalid.");
+                    }
                 }
             }
             else
@@ -724,27 +731,6 @@ namespace MercuryBOT
                 return;
             }
             doLogin(SelectedUser);
-            //var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-
-            //foreach (var a in list.Accounts)
-            //{
-            //    if (a.username == SelectedUser)
-            //    {
-            //        if (string.IsNullOrEmpty(a.password))
-            //        {
-            //            InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Please add password to: " + a.username);
-            //            return;
-            //        }
-            //        usernameJSON = a.username;
-            //        passwordJSON = a.password;
-            //    }
-            //}
-            //// Start Login
-            //Thread doLogin = new Thread(() => AccountLogin.UserSettingsGather(usernameJSON, passwordJSON));
-            //doLogin.Start();
-
-            //btn_login2selected.Enabled = false;
-            //lbl_infoLogin.Text = "Trying to login...";
         }
         #endregion
         private void doLogin(string username)
