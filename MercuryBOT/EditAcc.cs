@@ -59,14 +59,17 @@ namespace MercuryBOT
             {
                 toggle_autoLogin.Enabled = true;
                 toggle_autoLogin.Checked = true;
+
             }
             if (Settingslist.startupAcc != 0 && Settingslist.startupAcc != selectedSteamID)
             {
                 toggle_autoLogin.Enabled = false;
             }
+            
             if (selectedSteamID == 0)
             {
                 toggle_autoLogin.Enabled = false;
+                toggle_autoLogin.Checked = false; // added
             }
 
         }

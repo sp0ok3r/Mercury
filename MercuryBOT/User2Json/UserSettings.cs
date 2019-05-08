@@ -19,7 +19,7 @@ namespace MercuryBOT.UserSettings
     {
         [JsonProperty("LastLoginTime")]
         public DateTime LastLoginTime { get; set; }
-
+        
         [JsonProperty("AdminID")]
         public ulong AdminID { get; set; }
 

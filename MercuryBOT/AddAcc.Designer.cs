@@ -43,7 +43,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(24, 69);
+            this.metroLabel1.Location = new System.Drawing.Point(24, 107);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(87, 19);
             this.metroLabel1.TabIndex = 3;
@@ -53,7 +53,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(26, 94);
+            this.metroLabel2.Location = new System.Drawing.Point(26, 132);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(85, 19);
             this.metroLabel2.TabIndex = 4;
@@ -93,7 +93,7 @@
             this.txtBox_AccUser.CustomButton.Visible = false;
             this.txtBox_AccUser.ForeColor = System.Drawing.Color.White;
             this.txtBox_AccUser.Lines = new string[0];
-            this.txtBox_AccUser.Location = new System.Drawing.Point(115, 65);
+            this.txtBox_AccUser.Location = new System.Drawing.Point(115, 103);
             this.txtBox_AccUser.MaxLength = 32;
             this.txtBox_AccUser.Name = "txtBox_AccUser";
             this.txtBox_AccUser.PasswordChar = '\0';
@@ -130,7 +130,7 @@
             this.txtBox_AccPW.CustomButton.Visible = false;
             this.txtBox_AccPW.ForeColor = System.Drawing.Color.White;
             this.txtBox_AccPW.Lines = new string[0];
-            this.txtBox_AccPW.Location = new System.Drawing.Point(115, 94);
+            this.txtBox_AccPW.Location = new System.Drawing.Point(115, 132);
             this.txtBox_AccPW.MaxLength = 64;
             this.txtBox_AccPW.Name = "txtBox_AccPW";
             this.txtBox_AccPW.PasswordChar = '●';
@@ -180,7 +180,7 @@
             this.txtBox_adminID.CustomButton.Visible = false;
             this.txtBox_adminID.ForeColor = System.Drawing.Color.White;
             this.txtBox_adminID.Lines = new string[0];
-            this.txtBox_adminID.Location = new System.Drawing.Point(115, 123);
+            this.txtBox_adminID.Location = new System.Drawing.Point(115, 68);
             this.txtBox_adminID.MaxLength = 17;
             this.txtBox_adminID.Name = "txtBox_adminID";
             this.txtBox_adminID.PasswordChar = '\0';
@@ -205,7 +205,7 @@
             // lbl_adminID
             // 
             this.lbl_adminID.AutoSize = true;
-            this.lbl_adminID.Location = new System.Drawing.Point(32, 127);
+            this.lbl_adminID.Location = new System.Drawing.Point(32, 72);
             this.lbl_adminID.Name = "lbl_adminID";
             this.lbl_adminID.Size = new System.Drawing.Size(79, 19);
             this.lbl_adminID.TabIndex = 16;

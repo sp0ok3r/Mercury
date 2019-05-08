@@ -25,6 +25,7 @@ using System.Linq;
 using System.Media;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -32,7 +33,7 @@ namespace MercuryBOT
 {
     public partial class Main : MetroFramework.Forms.MetroForm
     {
-      //  readonly Process MercuryProcesses = Process.GetCurrentProcess();
+        //  readonly Process MercuryProcesses = Process.GetCurrentProcess();
 
         public static NotifyIcon M_NotifyIcon;
 
@@ -130,7 +131,6 @@ namespace MercuryBOT
         public Main()
         {
             InitializeComponent();
-
             this.Activate();
             this.components.SetStyle(this);
             Region = Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
@@ -468,8 +468,8 @@ namespace MercuryBOT
                 //        }
 
                 //    }
-                  //  InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Sent message to " + quantasPrincesas + " friends!");
-                    btn_sendMsg2Friends.Enabled = true;
+                //  InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Sent message to " + quantasPrincesas + " friends!");
+                btn_sendMsg2Friends.Enabled = true;
                 //}
             }
             else
@@ -519,7 +519,7 @@ namespace MercuryBOT
                 btn_loadFriends.Enabled = false;
                 BTN_RemoveFriend.Enabled = false;
                 FriendsList_Grid.Rows.Clear();
-
+                lbl_friendSelected.BackColor = Color.FromArgb(80, 80, 80);
                 foreach (var f in AccountLogin.Friends)
                 {
                     DateTime playerSummaryData;
@@ -537,7 +537,9 @@ namespace MercuryBOT
                 lbl_totalFriends.Text = "count: " + FriendsList_Grid.Rows.Count;
                 ProgressSpinner_FriendsList.Visible = false;
                 btn_loadFriends.Enabled = true;
+                lbl_friendSelected.BackColor = Color.Transparent;
                 BTN_RemoveFriend.Enabled = true;
+               
             }
             else
             {
@@ -679,8 +681,33 @@ namespace MercuryBOT
         {
             if (AccountLogin.IsLoggedIn == true)
             {
-                AccountLogin.RedeemKey(txtBox_redeemKey.Text);
-                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Added to your library!");
+                var CDKeysList = CDKeys_Grid.Rows.OfType<DataGridViewRow>().Select(
+                    r => r.Cells.OfType<DataGridViewCell>().Select(c => c.Value).ToArray()).ToList();
+
+                if (CDKeysList.Count != 0)
+                {
+                    btn_reddemkey.Enabled = false;
+                    btn_addCDKey.Enabled = false;
+
+                    for (int i = 0; i < CDKeysList.Count; i++)
+                    {
+                        AccountLogin.RedeemKey(CDKeysList[i].ToString());
+                        Thread.Sleep(500);
+                    }
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Added to your library: " + CDKeysList.Count + " keys.");
+
+                    CDKeysList.Clear();
+                    CDKeys_Grid.Rows.Clear();
+                    txtBox_redeemKey.Clear();
+                    btn_reddemkey.Enabled = true;
+                    btn_addCDKey.Enabled = true;
+                }
+                else
+                {
+                    AccountLogin.RedeemKey(txtBox_redeemKey.Text);
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Added to your library: 1 CDKey!");
+                    txtBox_redeemKey.Clear();
+                }
             }
             else
             {
@@ -1309,7 +1336,7 @@ namespace MercuryBOT
                 {
                     btn_sendMsg2Friends.Enabled = true;
                 }
-                
+
                 toggle_chatlogger.Checked = AccountLogin.ChatLogger;
 
                 btn_login2selected.Enabled = false;
@@ -1328,15 +1355,15 @@ namespace MercuryBOT
 
                 if (picBox_SteamAvatar.Image == null && btnLabel_PersonaAndFlag.Image == null)
                 {
-                   picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID);
+                    picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID);
 
                     byte[] data = new WebClient().DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + "/flat/16.png");
 
                     MemoryStream ms = new MemoryStream(data);
                     btnLabel_PersonaAndFlag.Image = Image.FromStream(ms);
                 }
-                
-              //  combox_states.SelectedIndex = AccountLogin.steamFriends.GetPersonaState;
+
+                //  combox_states.SelectedIndex = AccountLogin.steamFriends.GetPersonaState;
 
                 lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = AccountLogin.CurrentUsername));
                 lbl_infoLogin.Text = "Connected"; // return;
@@ -1345,15 +1372,15 @@ namespace MercuryBOT
             {
                 lbl_infoLogin.Text = "Not logged...";
 
-                
-                btn_logout.Visible         = false;
-                Panel_UserInfo.Visible     = false;
+
+                btn_logout.Visible = false;
+                Panel_UserInfo.Visible = false;
                 btn_login2selected.Enabled = true;
 
-                picBox_SteamAvatar.Image        = null;
-                btnLabel_PersonaAndFlag.Image   = null;
-                panel_steamStates.BackColor     = Color.Gray;
-                picBox_SteamAvatar.BackColor    = Color.FromArgb(255, 25, 25, 25);
+                picBox_SteamAvatar.Image = null;
+                btnLabel_PersonaAndFlag.Image = null;
+                panel_steamStates.BackColor = Color.Gray;
+                picBox_SteamAvatar.BackColor = Color.FromArgb(255, 25, 25, 25);
                 lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = "None"));
                 btnLabel_PersonaAndFlag.Invoke(new Action(() => btnLabel_PersonaAndFlag.Text = "None"));
 
@@ -1543,6 +1570,31 @@ namespace MercuryBOT
             Settingslist.startupTab = combox_defaultTab.SelectedIndex;
 
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, new JsonSerializerSettings { Formatting = Formatting.Indented }));
+        }
+
+        private void btn_addCDKey_Click(object sender, EventArgs e)
+        {
+            // XXXXX-XXXXX-XXXXX-XXXXX-XXXXX thanks to https://regexr.com/3b63e
+            Match match = new Regex(@"((?![^0-9]{12,}|[^A-z]{12,})([A-z0-9]{4,5}-?[A-z0-9]{4,5}-?[A-z0-9]{4,5}(-?[A-z0-9]{4,5}(-?[A-z0-9]{4,5})?)?))").Match(txtBox_redeemKey.Text);
+            if (!String.IsNullOrEmpty(txtBox_redeemKey.Text) && match.Success)
+            {
+                txtBox_redeemKey.Clear();
+                CDKeys_Grid.Rows.Add(txtBox_redeemKey.Text);
+            }
+            else
+            {
+                txtBox_redeemKey.Clear();
+                Notification.NotifHelper.MessageBox.Show("Error", "Please write a CDKey Or Invalid.");
+            }
+        }
+
+        private void CDKeys_ScrollBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            if (e.NewValue >= CDKeys_Grid.Rows.Count)
+            {
+                return;
+            }
+            CDKeys_Grid.FirstDisplayedScrollingRowIndex = e.NewValue;
         }
     }
 }

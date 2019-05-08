@@ -311,7 +311,8 @@ namespace MercuryBOT
 
             IsLoggedIn = true;
 
-            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+            var ListUserSettings = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
+            foreach (var a in ListUserSettings.Accounts)
             {
                 if (a.username == user)
                 {
@@ -325,8 +326,11 @@ namespace MercuryBOT
                     }
                     steamFriends.SetPersonaState(Extensions.statesList[a.LoginState]);
                     CurrentPersonaState = a.LoginState;
+                   // a.LastLoginTime = string.Format("{0:s}", DateTime.Now);
                 }
             }
+            //File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(ListUserSettings, Formatting.Indented));
+
             UserClanIDS();
         }
 
@@ -1129,9 +1133,7 @@ namespace MercuryBOT
                 else
                 {
                     Process.Start("https://steamcommunity.com/chat/invite/OSWZKIsE");
-
                 }
-
             }
         }
 

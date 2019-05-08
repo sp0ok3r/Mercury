@@ -18,8 +18,8 @@ namespace MercuryBOT
 {
     static class Program
     {
-        public static readonly WebClient Web = new WebClient();
-        public static readonly Process MercuryProcesses = Process.GetCurrentProcess();
+        public static readonly WebClient Web           = new WebClient();
+        public static readonly Process MercuryProcesses= Process.GetCurrentProcess();
         public static readonly string BOTNAME          = "MercuryBOT";
         public static readonly string Version          = "4.0.0-beta6.1";
 
