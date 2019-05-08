@@ -15,7 +15,7 @@ using MercuryBOT.SteamServers;
 using MercuryBOT.User2Json;
 using MercuryBOT.UserSettings;
 using Newtonsoft.Json;
-using Steam4NET;
+//using Steam4NET;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -32,7 +32,7 @@ namespace MercuryBOT
 {
     public partial class Main : MetroFramework.Forms.MetroForm
     {
-        readonly Process mercurycess = Process.GetCurrentProcess();
+      //  readonly Process MercuryProcesses = Process.GetCurrentProcess();
 
         public static NotifyIcon M_NotifyIcon;
 
@@ -417,60 +417,60 @@ namespace MercuryBOT
             }
         }
 
-        private void btn_sendMsg2Friends_Click(object sender, EventArgs e)
+        private void btn_sendMsg2Friends_Click(object sender, EventArgs e) // activate later
         {
             if (chck_steam4net.Checked)
             {
-                int quantasPrincesas = 0;
-                Steamworks.Load(true);
-                ISteamClient006 steamClient006 = Steamworks.CreateInterface<ISteamClient006>();
-                int steamPipe = steamClient006.CreateSteamPipe();
-                int globalUser = steamClient006.ConnectToGlobalUser(steamPipe);
-                if (steamPipe == 0 || globalUser == 0)
-                {
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please logon in the steam desktop client! NOT ON THE BOT!! (you can still log)");
-                    return;
-                }
-                else
-                {
-                    ISteamUser004 isteamUser = steamClient006.GetISteamUser<ISteamUser004>(globalUser, steamPipe);
-                    ISteamFriends003 isteamFriends1 = steamClient006.GetISteamFriends<ISteamFriends003>(globalUser, steamPipe);
-                    ISteamFriends002 isteamFriends2 = steamClient006.GetISteamFriends<ISteamFriends002>(globalUser, steamPipe);
-                    int friendCount = isteamFriends1.GetFriendCount(Steam4NET.EFriendFlags.k_EFriendFlagImmediate);
+                //int quantasPrincesas = 0;
+                //Steamworks.Load(true);
+                //ISteamClient006 steamClient006 = Steamworks.CreateInterface<ISteamClient006>();
+                //int steamPipe = steamClient006.CreateSteamPipe();
+                //int globalUser = steamClient006.ConnectToGlobalUser(steamPipe);
+                //if (steamPipe == 0 || globalUser == 0)
+                //{
+                //    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please logon in the steam desktop client! NOT ON THE BOT!! (you can still log)");
+                //    return;
+                //}
+                //else
+                //{
+                //    ISteamUser004 isteamUser = steamClient006.GetISteamUser<ISteamUser004>(globalUser, steamPipe);
+                //    ISteamFriends003 isteamFriends1 = steamClient006.GetISteamFriends<ISteamFriends003>(globalUser, steamPipe);
+                //    ISteamFriends002 isteamFriends2 = steamClient006.GetISteamFriends<ISteamFriends002>(globalUser, steamPipe);
+                //    int friendCount = isteamFriends1.GetFriendCount(Steam4NET.EFriendFlags.k_EFriendFlagImmediate);
 
-                    if (friendCount == -1)
-                    {
-                        InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please login into steam desktop client");
-                        return;
-                    }
-                    btn_sendMsg2Friends.Enabled = false;
-                    for (int iFriend = 0; iFriend < friendCount; iFriend++)
-                    {
-                        CSteamID friendByIndex = isteamFriends1.GetFriendByIndex(iFriend, Steam4NET.EFriendFlags.k_EFriendFlagImmediate);
+                //    if (friendCount == -1)
+                //    {
+                //        InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please login into steam desktop client");
+                //        return;
+                //    }
+                //    btn_sendMsg2Friends.Enabled = false;
+                //    for (int iFriend = 0; iFriend < friendCount; iFriend++)
+                //    {
+                //        CSteamID friendByIndex = isteamFriends1.GetFriendByIndex(iFriend, Steam4NET.EFriendFlags.k_EFriendFlagImmediate);
 
-                        if (chck_Send2Receipts.Checked)
-                        {
-                            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
-                            {
-                                if (a.username == AccountLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(friendByIndex.ConvertToUint64().ToString())))
-                                {
-                                    quantasPrincesas++;
-                                    isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
-                                    Thread.Sleep(100);// my nigger needs some OXYGEN 😌
-                                }
-                            }
-                        }
-                        else
-                        {
-                            quantasPrincesas++;
-                            isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
-                            Thread.Sleep(100);// my nigger needs some OXYGEN 😌
-                        }
+                //        if (chck_Send2Receipts.Checked)
+                //        {
+                //            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+                //            {
+                //                if (a.username == AccountLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(friendByIndex.ConvertToUint64().ToString())))
+                //                {
+                //                    quantasPrincesas++;
+                //                    isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
+                //                    Thread.Sleep(100);// my nigger needs some OXYGEN 😌
+                //                }
+                //            }
+                //        }
+                //        else
+                //        {
+                //            quantasPrincesas++;
+                //            isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
+                //            Thread.Sleep(100);// my nigger needs some OXYGEN 😌
+                //        }
 
-                    }
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Sent message to " + quantasPrincesas + " friends!");
+                //    }
+                  //  InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Sent message to " + quantasPrincesas + " friends!");
                     btn_sendMsg2Friends.Enabled = true;
-                }
+                //}
             }
             else
             {
@@ -1098,10 +1098,10 @@ namespace MercuryBOT
         void Trolha_Tick(object sender, EventArgs e)
         {
             CurrentUserSafeUpdater();
-            mercurycess.Refresh();
+            Program.MercuryProcesses.Refresh();
 
-            link_currentRAM.Text = mercurycess.PrivateMemorySize64.ToFileSize();
-            link_memorysize.Text = mercurycess.PagedSystemMemorySize64.ToFileSize();
+            link_currentRAM.Text = Program.MercuryProcesses.PrivateMemorySize64.ToFileSize();
+            link_memorysize.Text = Program.MercuryProcesses.PagedSystemMemorySize64.ToFileSize();
         }
 
         private void btn_exitgroups_Click(object sender, EventArgs e)

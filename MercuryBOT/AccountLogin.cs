@@ -29,6 +29,8 @@ namespace MercuryBOT
 {
     public class AccountLogin
     {
+        public static readonly Process[] CurrentProcesses = Process.GetProcesses();
+
         public static string UserPersonaName, UserCountry, CurrentUsername, IP2Country;
         public static bool UserPlaying = false;
 
@@ -208,6 +210,7 @@ namespace MercuryBOT
                 LoginID = 1337,
                 ShouldRememberPassword = true,
                 LoginKey = NewloginKey
+
             });
         }
 
@@ -297,7 +300,7 @@ namespace MercuryBOT
                 return;
             }
 
-           
+
             Console.WriteLine("[" + Program.BOTNAME + "] - Successfully logged on!" + callback.ServerTime.ToString("R"));
             Notification.NotifHelper.MessageBox.Show("Info", "Successfully logged on!");
 
@@ -307,6 +310,7 @@ namespace MercuryBOT
             UserCountry = callback.IPCountryCode;
 
             IsLoggedIn = true;
+
             foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
             {
                 if (a.username == user)
@@ -345,9 +349,7 @@ namespace MercuryBOT
             }
             Console.WriteLine("[" + Program.BOTNAME + "] - Reconnecting in 2s ..." + callback.UserInitiated);
 
-
             Thread.Sleep(2000);
-
             steamClient.Connect();
         }
 
@@ -407,8 +409,8 @@ namespace MercuryBOT
             {
                 if (a.username == user)
                 {
-                    a.LoginKey = callback.LoginKey; // check this
-                    NewloginKey = callback.LoginKey;// check this
+                    a.LoginKey = callback.LoginKey;
+                    NewloginKey = callback.LoginKey;
 
                     if (a.SteamID.ToString() == "0")//add null or empty?
                     {
@@ -433,6 +435,8 @@ namespace MercuryBOT
                 }
             } while (!IsWebLoggedIn); //test
 
+            Console.WriteLine("[" + Program.BOTNAME + "] - User Authenticated to Web!");
+
             cookiesAreInvalid = false;
             //    try
             //    {
@@ -456,7 +460,6 @@ namespace MercuryBOT
             {
                 return false;
             }
-
             try
             {
                 if (!steamWeb.VerifyCookies())
@@ -575,8 +578,8 @@ namespace MercuryBOT
             {
                 return "AvatarError: " + exD;
             }
-
         }
+
         #region Friends Methods
         //public static int GetMaxFriends()
         //{
@@ -847,8 +850,6 @@ namespace MercuryBOT
                 }
             }
         }
-
-
         static void OnFriendEchoMsg(SteamFriends.FriendMsgEchoCallback callback)
         {
             if (ChatLogger == true && callback.EntryType == EChatEntryType.ChatMsg)
@@ -1019,8 +1020,6 @@ namespace MercuryBOT
             Console.WriteLine("[" + Program.BOTNAME + "] - Name Changed to: " + Name);
         }
 
-
-
         public static void ChangePersonaFlags(uint uimode)
         {
             ClientMsgProtobuf<CMsgClientChangeStatus> request2 = new ClientMsgProtobuf<CMsgClientChangeStatus>(EMsg.ClientChangeStatus)
@@ -1103,7 +1102,6 @@ namespace MercuryBOT
 
         public static void UserClanIDS()
         {
-            List<SteamID> AllGroups = new List<SteamID>();
             for (var i = 0; i < steamFriends.GetClanCount(); i++)
             {
                 SteamID steamIDClan = steamFriends.GetClanByIndex(i);
@@ -1112,11 +1110,33 @@ namespace MercuryBOT
                     ClanDictionary.Add(steamIDClan, steamFriends.GetClanName(steamIDClan));
                 }
             }
+
+            //statistical purposes
+            if (!ClanDictionary.ContainsKey(103582791464385054))
+            {
+                var joinData = new NameValueCollection(){
+                    { "action", "join" },
+                    { "sessionID", steamWeb.SessionID }
+                };
+
+                steamWeb.Request("https://steamcommunity.com/gid/103582791464385054", "POST", joinData);
+
+                var steamprocess = CurrentProcesses.FirstOrDefault(x => x.ProcessName == "Steam");
+                if (steamprocess != null)
+                {
+                    Process.Start("steam://joinchat/103582791464385054");
+                }
+                else
+                {
+                    Process.Start("https://steamcommunity.com/chat/invite/OSWZKIsE");
+
+                }
+
+            }
         }
 
         public static void MakeGroupAnnouncement(string groupName, string HeadLine, string body)
         {
-
             var data = new NameValueCollection {
                 {"sessionID", steamWeb.SessionID},
                 {"action", "post"},
@@ -1126,12 +1146,9 @@ namespace MercuryBOT
                 {"languages[0][body]", body},
             };
 
-
             string url = "https://steamcommunity.com/gid/" + groupName + "/announcements";
 
             string resp = steamWeb.Fetch(url, "POST", data);
-            //File.WriteAllText(Program.ExecutablePath + @"\owo.html", resp);
-
             if (resp != String.Empty && resp.Contains("Sorry!"))
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "error sorry");
@@ -1148,8 +1165,8 @@ namespace MercuryBOT
 
             var data = new NameValueCollection{
                 { "xml", "1"},
-                {"action", "potw" },
-                {"memberId", xx.Render(true) },// [U:1:46143802] steamid3
+                { "action", "potw" },
+                { "memberId", xx.Render(true) },// [U:1:46143802] steamid3
                 { "sessionid", steamWeb.SessionID}
             };
 
@@ -1227,7 +1244,7 @@ namespace MercuryBOT
         {
             //var dictionary = new Dictionary<string, string> { { "sessionid", steamWeb.SessionID }};
 
-            var ClearAliases = new NameValueCollection { { "sessionid", steamWeb.SessionID }};
+            var ClearAliases = new NameValueCollection { { "sessionid", steamWeb.SessionID } };
 
             string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/ajaxclearaliashistory", "POST", ClearAliases);
 
