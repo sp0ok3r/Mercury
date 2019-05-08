@@ -21,7 +21,7 @@ namespace MercuryBOT
         public static readonly WebClient Web           = new WebClient();
         public static readonly Process MercuryProcesses= Process.GetCurrentProcess();
         public static readonly string BOTNAME          = "MercuryBOT";
-        public static readonly string Version          = "4.0.0-beta6.1";
+        public static readonly string Version          = "4.0.0beta6.2";
 
         public static readonly string spkDomain = "http://sp0ok3r.tk/Mercury/";
 

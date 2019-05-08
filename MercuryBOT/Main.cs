@@ -80,8 +80,9 @@ namespace MercuryBOT
 
                     if (updateCheck != Program.Version)
                     {
-                        this.Hide();
                         this.Enabled = false;
+                        this.Hide();
+                       
                         Console.WriteLine("New update: " + updateCheck);
                         Form Update = new Update(updateCheck);
                         Update.Show();
@@ -112,9 +113,12 @@ namespace MercuryBOT
             }
             catch (Exception)
             {
-                Console.WriteLine("sp0ok3r.tk down :c");
-                InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "No internet connection");
+                Console.WriteLine("sp0ok3r.tk down or No internet connection");
+                Notification.NotifHelper.MessageBox.Show("Alert", "No internet connection, restarting...");
                 Process.Start("https://github.com/sp0ok3r/Mercury/releases");
+
+                Process.Start(Application.ExecutablePath);
+                Application.Exit();
             }
         }
 
