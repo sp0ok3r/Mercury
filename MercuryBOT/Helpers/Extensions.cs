@@ -12,7 +12,6 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.IO;
-using System.Net;
 using MetroFramework.Components;
 using MetroFramework.Forms;
 using Newtonsoft.Json;
@@ -20,19 +19,12 @@ using MercuryBOT.User2Json;
 using MetroFramework;
 using SteamKit2;
 using System.Collections.Generic;
+using MercuryBOT.UserSettings;
 
 namespace MercuryBOT.Helpers
 {
     public static class Extensions
     {
-        public static DateTime GetTime(string timeStamp)
-        {
-            var dtStart = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
-            var lTime = long.Parse($@"{timeStamp}0000000");
-            var toNow = new TimeSpan(lTime);
-            return dtStart.Add(toNow);
-        }
-
         #region RoundUI
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         public static extern IntPtr CreateRoundRectRgn
@@ -98,21 +90,29 @@ namespace MercuryBOT.Helpers
             return String.Empty;
         }
 
-        public static bool SteamRep(string steamId32)
-        {
-            string api = "http://steamrep.com/id2rep.php?steamID32=" + steamId32;
-            WebClient client = new WebClient();
-            string result = client.DownloadString(api);
-            return (result.IndexOf("SCAMMER") > -1);
-        }
-
         public static string ResolveVanityURL(string ProfileURL)// meter api key da config
         {
-            var html = Program.Web.DownloadString("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=&vanityurl=" + ProfileURL);
-            var steamID64Clean = html.Replace('"', ' ').Replace("{ response :{ steamid :", "").Replace(" , success :1}}", "").Trim();
+            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+            {
+                if (a.username == AccountLogin.CurrentUsername)
+                {
+                    Main.apikey = a.APIWebKey;
+                }
+            }
 
-            return steamID64Clean;
-            //add try maybe
+            if (string.IsNullOrEmpty(Main.apikey) || Main.apikey == "0")
+            {
+                AccountLogin.gatherWebApiKey();
+                Notification.NotifHelper.MessageBox.Show("Alert", "Gathering your apikey and setting it! \n Just try again!");
+                return String.Empty;
+            }
+            else
+            {
+                var html = Program.Web.DownloadString("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key="+ Main.apikey + "&vanityurl=" + ProfileURL);
+                var steamID64Clean = html.Replace('"', ' ').Replace("{ response :{ steamid :", "").Replace(" , success :1}}", "").Trim();
+
+                return steamID64Clean;
+            }
 
         }
         

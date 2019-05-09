@@ -810,15 +810,7 @@ namespace MercuryBOT
                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Stopping games." + "\r\n\r\n" + Program.BOTNAME);
                             break;
                         case ".steamrep ":
-                            if (Extensions.SteamRep(Extensions.AllToSteamId32(message)) == true)
-                            {
-
-                                steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, Extensions.SteamRep(Extensions.AllToSteamId32(message)) + "\r\n\r\n" + Program.BOTNAME);
-                            }
-                            else
-                            {
-                                steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "USER CLEAN AF (IN STEAM REP)\r\n\r\n" + Program.BOTNAME);
-                            }
+                            // not yet
                             break;
                         case "trolha":
                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "https://steamcommunity.com/profiles/76561198041931474" + "\r\n\r\n" + Program.BOTNAME);
@@ -967,9 +959,7 @@ namespace MercuryBOT
             {
                 var parser = new HtmlParser();
                 var document = parser.ParseDocument(resp);
-
-                Console.WriteLine(document.TextContent);
-
+                
                 if (document.QuerySelector("div[id='mainContents'] > h2").TextContent == "Access Denied")
                 {
                     InfoForm.InfoHelper.CustomMessageBox.Show("Error", document.QuerySelector("div[id='bodyContents_lo'] > p").TextContent);
@@ -988,8 +978,7 @@ namespace MercuryBOT
                             a.APIWebKey = webkeySet.TextContent.Replace("Key: ", ""); //861ip
                         }
                     }
-                    string output = JsonConvert.SerializeObject(list, Formatting.Indented);
-                    File.WriteAllText(Program.AccountsJsonFile, output);
+                    File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, Formatting.Indented));
                 }
                 else
                 {

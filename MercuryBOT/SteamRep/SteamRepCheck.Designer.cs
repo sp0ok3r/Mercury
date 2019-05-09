@@ -36,10 +36,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.metroLink_steamrep = new MetroFramework.Controls.MetroLink();
             this.Title_AlertScammer = new MetroFramework.Controls.MetroTile();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.lbl_steamid32 = new MetroFramework.Controls.MetroLabel();
             this.lbl_steamID64 = new MetroFramework.Controls.MetroLabel();
             this.richTextBox6 = new System.Windows.Forms.RichTextBox();
             this.picBox_SteamAvatar = new System.Windows.Forms.PictureBox();
+            this.ProgressSpinner_SteamRepDelay = new MetroFramework.Controls.MetroProgressSpinner();
+            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_SteamAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +75,6 @@
             this.lbl_checkUsername.Text = "None";
             this.lbl_checkUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl_checkUsername.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.lbl_checkUsername.UseCustomBackColor = true;
             this.lbl_checkUsername.UseStyleColors = true;
             // 
             // txt_repSteamID
@@ -92,10 +93,10 @@
             this.txt_repSteamID.CustomButton.Visible = false;
             this.txt_repSteamID.Lines = new string[0];
             this.txt_repSteamID.Location = new System.Drawing.Point(80, 79);
-            this.txt_repSteamID.MaxLength = 32767;
+            this.txt_repSteamID.MaxLength = 17;
             this.txt_repSteamID.Name = "txt_repSteamID";
             this.txt_repSteamID.PasswordChar = '\0';
-            this.txt_repSteamID.PromptText = "STEAMID(32/64)/PROFILE URL";
+            this.txt_repSteamID.PromptText = "STEAMID64";
             this.txt_repSteamID.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_repSteamID.SelectedText = "";
             this.txt_repSteamID.SelectionLength = 0;
@@ -106,7 +107,7 @@
             this.txt_repSteamID.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txt_repSteamID.UseSelectable = true;
             this.txt_repSteamID.UseStyleColors = true;
-            this.txt_repSteamID.WaterMark = "STEAMID(32/64)/PROFILE URL";
+            this.txt_repSteamID.WaterMark = "STEAMID64";
             this.txt_repSteamID.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_repSteamID.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
@@ -166,18 +167,18 @@
             this.Title_AlertScammer.Visible = false;
             this.Title_AlertScammer.Click += new System.EventHandler(this.Title_AlertScammer_Click);
             // 
-            // metroLabel1
+            // lbl_steamid32
             // 
-            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(79, 159);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(200, 18);
-            this.metroLabel1.TabIndex = 87;
-            this.metroLabel1.Text = "None";
-            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel1.UseCustomBackColor = true;
+            this.lbl_steamid32.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lbl_steamid32.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbl_steamid32.Location = new System.Drawing.Point(79, 159);
+            this.lbl_steamid32.Name = "lbl_steamid32";
+            this.lbl_steamid32.Size = new System.Drawing.Size(200, 18);
+            this.lbl_steamid32.TabIndex = 87;
+            this.lbl_steamid32.Text = "None";
+            this.lbl_steamid32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_steamid32.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lbl_steamid32.UseCustomBackColor = true;
             // 
             // lbl_steamID64
             // 
@@ -220,16 +221,40 @@
             this.picBox_SteamAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox_SteamAvatar.TabIndex = 23;
             this.picBox_SteamAvatar.TabStop = false;
+            this.picBox_SteamAvatar.Click += new System.EventHandler(this.picBox_SteamAvatar_Click);
+            // 
+            // ProgressSpinner_SteamRepDelay
+            // 
+            this.ProgressSpinner_SteamRepDelay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.ProgressSpinner_SteamRepDelay.Location = new System.Drawing.Point(184, 243);
+            this.ProgressSpinner_SteamRepDelay.Maximum = 100;
+            this.ProgressSpinner_SteamRepDelay.Name = "ProgressSpinner_SteamRepDelay";
+            this.ProgressSpinner_SteamRepDelay.Size = new System.Drawing.Size(69, 40);
+            this.ProgressSpinner_SteamRepDelay.TabIndex = 90;
+            this.ProgressSpinner_SteamRepDelay.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToolTip1.SetToolTip(this.ProgressSpinner_SteamRepDelay, "SPAM = IP BAN");
+            this.ProgressSpinner_SteamRepDelay.UseCustomBackColor = true;
+            this.ProgressSpinner_SteamRepDelay.UseCustomForeColor = true;
+            this.ProgressSpinner_SteamRepDelay.UseSelectable = true;
+            this.ProgressSpinner_SteamRepDelay.UseStyleColors = true;
+            this.ProgressSpinner_SteamRepDelay.Visible = false;
+            // 
+            // metroToolTip1
+            // 
+            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroToolTip1.StyleManager = null;
+            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // SteamRepCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 306);
+            this.Controls.Add(this.ProgressSpinner_SteamRepDelay);
             this.Controls.Add(this.richTextBox6);
             this.Controls.Add(this.lbl_steamID64);
             this.Controls.Add(this.picBox_SteamAvatar);
-            this.Controls.Add(this.metroLabel1);
+            this.Controls.Add(this.lbl_steamid32);
             this.Controls.Add(this.Title_AlertScammer);
             this.Controls.Add(this.btn_checkUser);
             this.Controls.Add(this.label2);
@@ -246,6 +271,7 @@
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Mercury - SteamRep";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.picBox_SteamAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -261,9 +287,11 @@
         private System.Windows.Forms.Label label2;
         private MetroFramework.Controls.MetroLink metroLink_steamrep;
         private MetroFramework.Controls.MetroTile Title_AlertScammer;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel lbl_steamid32;
         private MetroFramework.Controls.MetroLabel lbl_steamID64;
         private System.Windows.Forms.RichTextBox richTextBox6;
         private System.Windows.Forms.PictureBox picBox_SteamAvatar;
+        private MetroFramework.Controls.MetroProgressSpinner ProgressSpinner_SteamRepDelay;
+        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }
