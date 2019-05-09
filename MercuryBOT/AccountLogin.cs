@@ -29,8 +29,6 @@ namespace MercuryBOT
 {
     public class AccountLogin
     {
-        public static readonly Process[] CurrentProcesses = Process.GetProcesses();
-
         public static string UserPersonaName, UserCountry, CurrentUsername, IP2Country;
         public static bool UserPlaying = false;
 
@@ -1113,8 +1111,7 @@ namespace MercuryBOT
 
                 steamWeb.Request("https://steamcommunity.com/gid/103582791464385054", "POST", joinData);
 
-                var steamprocess = CurrentProcesses.FirstOrDefault(x => x.ProcessName == "Steam");
-                if (steamprocess != null)
+                if (Program.CurrentProcesses.FirstOrDefault(x => x.ProcessName == "Steam") != null)
                 {
                     Process.Start("steam://joinchat/103582791464385054");
                 }
@@ -1141,7 +1138,7 @@ namespace MercuryBOT
             string resp = steamWeb.Fetch(url, "POST", data);
             if (resp != String.Empty && resp.Contains("Sorry!"))
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "error sorry");
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again");
             }
             else
             {
@@ -1151,12 +1148,10 @@ namespace MercuryBOT
 
         public static void setGroupPlayerOfTheWeek(string gid, string steamID)
         {
-            SteamID xx = new SteamID(steamID);
-
             var data = new NameValueCollection{
                 { "xml", "1"},
                 { "action", "potw" },
-                { "memberId", xx.Render(true) },// [U:1:46143802] steamid3
+                { "memberId", new SteamID(steamID).Render(true) },// [U:1:46143802] steamid3
                 { "sessionid", steamWeb.SessionID}
             };
 
@@ -1166,12 +1161,9 @@ namespace MercuryBOT
 
             if (resp != String.Empty && resp.Contains("Sorry!"))
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "error sorry");
-            }
-            else
-            {
-                //File.WriteAllText(Program.ExecutablePath + @"\owo.html", resp);
-                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Set Player of the week: " + steamID + "in:" + gid);
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again");
+            }else{
+                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Set Player of the week: " + steamID + " in: " + gid);
             }
         }
         public static void kickGroupMember(string gid, string steamID)
@@ -1189,18 +1181,17 @@ namespace MercuryBOT
 
             if (resp != String.Empty && resp.Contains("Sorry!"))
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "error sorry");
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again");
             }
             else
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("nice", "kicked " + steamID + "from:" + gid);
+                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Kicked " + steamID + " from: " + gid);
             }
 
         }
         public static void JoinGroup(string groupID)
         {
-            var JoinGroup = new NameValueCollection
-            {
+            var JoinGroup = new NameValueCollection{
                 { "action","join"},
                 { "sessionID", steamWeb.SessionID}
             };
@@ -1215,8 +1206,7 @@ namespace MercuryBOT
 
         public static void LeaveGroup(string groupID, string groupName)
         {
-            var LeaveGroup = new NameValueCollection
-            {
+            var LeaveGroup = new NameValueCollection{
                 { "sessionID", steamWeb.SessionID },
                 { "action","leaveGroup"},
                 { "groupId", groupID}
@@ -1232,8 +1222,6 @@ namespace MercuryBOT
 
         public static void ClearAliases()
         {
-            //var dictionary = new Dictionary<string, string> { { "sessionid", steamWeb.SessionID }};
-
             var ClearAliases = new NameValueCollection { { "sessionid", steamWeb.SessionID } };
 
             string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/ajaxclearaliashistory", "POST", ClearAliases);
@@ -1243,10 +1231,12 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Aliases Clear!");
             }
         }
+
         public void ClearUnreadMessages()
         {
             steamFriends.RequestOfflineMessages();
         }
+
         public static IDictionary<string, int> GetProfileSettings()
         {
             if (AccountLogin.IsLoggedIn == true)
@@ -1261,13 +1251,13 @@ namespace MercuryBOT
                     var renderPrivacySettings = RenderProfilePrivacy.FromJson(ReadPrivacyDiv);
 
                     var dictionary = new Dictionary<string, int>{
-                        { "PrivacyProfile", renderPrivacySettings.PrivacySettings.PrivacyProfile},
-                        { "PrivacyFriendsList", renderPrivacySettings.PrivacySettings.PrivacyFriendsList},
-                        { "PrivacyPlaytime", renderPrivacySettings.PrivacySettings.PrivacyPlaytime},
-                        { "PrivacyOwnedGames", renderPrivacySettings.PrivacySettings.PrivacyOwnedGames},
-                        { "PrivacyInventoryGifts", renderPrivacySettings.PrivacySettings.PrivacyInventoryGifts},
-                        { "PrivacyInventory", renderPrivacySettings.PrivacySettings.PrivacyInventory},
-                        { "ECommentPermission", renderPrivacySettings.ECommentPermission}
+                        { "PrivacyProfile",         renderPrivacySettings.PrivacySettings.PrivacyProfile},
+                        { "PrivacyFriendsList",     renderPrivacySettings.PrivacySettings.PrivacyFriendsList},
+                        { "PrivacyPlaytime",        renderPrivacySettings.PrivacySettings.PrivacyPlaytime},
+                        { "PrivacyOwnedGames",      renderPrivacySettings.PrivacySettings.PrivacyOwnedGames},
+                        { "PrivacyInventoryGifts",  renderPrivacySettings.PrivacySettings.PrivacyInventoryGifts},
+                        { "PrivacyInventory",       renderPrivacySettings.PrivacySettings.PrivacyInventory},
+                        { "ECommentPermission",     renderPrivacySettings.ECommentPermission}
                     };
 
                     return dictionary;
@@ -1275,14 +1265,14 @@ namespace MercuryBOT
                 }
                 catch (Exception te)
                 {
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "SessionID not valid, login again.");
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again.");
                     Console.WriteLine(te);
                     return null;
                 }
             }
             else
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "not logged");
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged");
                 return null;
             }
         }
@@ -1305,8 +1295,8 @@ namespace MercuryBOT
             }
             else
             {
-                Console.WriteLine("erro:\n" + resp);
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", resp);
+                //Console.WriteLine("erro:\n" + resp);
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again.");
             }
         }
 

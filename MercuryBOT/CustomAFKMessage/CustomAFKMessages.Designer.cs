@@ -38,10 +38,11 @@
             this.lbl_msg2AllorAFK = new MetroFramework.Controls.MetroLabel();
             this.btn_deleteSelected = new MetroFramework.Controls.MetroButton();
             this.SavedMsgs_Grid = new MetroFramework.Controls.MetroGrid();
-            this.HFriendID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SavedMsgs_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
             this.lbl_selectedMessage = new MetroFramework.Controls.MetroLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.HFriendID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             ((System.ComponentModel.ISupportInitialize)(this.SavedMsgs_Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +81,7 @@
             this.txtBox_customMSG.CustomButton.Visible = false;
             this.txtBox_customMSG.ForeColor = System.Drawing.Color.White;
             this.txtBox_customMSG.Lines = new string[0];
-            this.txtBox_customMSG.Location = new System.Drawing.Point(5, 97);
+            this.txtBox_customMSG.Location = new System.Drawing.Point(6, 90);
             this.txtBox_customMSG.MaxLength = 32767;
             this.txtBox_customMSG.Name = "txtBox_customMSG";
             this.txtBox_customMSG.PasswordChar = '\0';
@@ -109,7 +110,7 @@
             this.lbl_msg2AllorAFK.BackColor = System.Drawing.Color.Transparent;
             this.lbl_msg2AllorAFK.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lbl_msg2AllorAFK.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_msg2AllorAFK.Location = new System.Drawing.Point(0, 73);
+            this.lbl_msg2AllorAFK.Location = new System.Drawing.Point(1, 66);
             this.lbl_msg2AllorAFK.Name = "lbl_msg2AllorAFK";
             this.lbl_msg2AllorAFK.Size = new System.Drawing.Size(82, 25);
             this.lbl_msg2AllorAFK.TabIndex = 45;
@@ -189,13 +190,6 @@
             this.SavedMsgs_Grid.UseStyleColors = true;
             this.SavedMsgs_Grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SavedMsgs_Grid_CellClick);
             // 
-            // HFriendID
-            // 
-            this.HFriendID.HeaderText = "Saved Custom Messages";
-            this.HFriendID.Name = "HFriendID";
-            this.HFriendID.ReadOnly = true;
-            this.HFriendID.Width = 250;
-            // 
             // SavedMsgs_ScrollBar
             // 
             this.SavedMsgs_ScrollBar.LargeChange = 10;
@@ -229,11 +223,36 @@
             this.lbl_selectedMessage.UseCustomBackColor = true;
             this.lbl_selectedMessage.UseStyleColors = true;
             // 
+            // HFriendID
+            // 
+            this.HFriendID.HeaderText = "              SAVED CUSTOM MESSAGES";
+            this.HFriendID.Name = "HFriendID";
+            this.HFriendID.ReadOnly = true;
+            this.HFriendID.Width = 250;
+            // 
+            // metroPanel10
+            // 
+            this.metroPanel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.metroPanel10.HorizontalScrollbarBarColor = true;
+            this.metroPanel10.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel10.HorizontalScrollbarSize = 10;
+            this.metroPanel10.Location = new System.Drawing.Point(-3, 473);
+            this.metroPanel10.Name = "metroPanel10";
+            this.metroPanel10.Size = new System.Drawing.Size(241, 10);
+            this.metroPanel10.TabIndex = 52;
+            this.metroPanel10.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel10.UseCustomBackColor = true;
+            this.metroPanel10.UseCustomForeColor = true;
+            this.metroPanel10.VerticalScrollbarBarColor = true;
+            this.metroPanel10.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel10.VerticalScrollbarSize = 10;
+            // 
             // AFKMessages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(237, 480);
+            this.Controls.Add(this.metroPanel10);
             this.Controls.Add(this.lbl_selectedMessage);
             this.Controls.Add(this.SavedMsgs_ScrollBar);
             this.Controls.Add(this.SavedMsgs_Grid);
@@ -264,8 +283,9 @@
         private MetroFramework.Controls.MetroButton btn_deleteSelected;
         private MetroFramework.Controls.MetroGrid SavedMsgs_Grid;
         private MetroFramework.Controls.MetroScrollBar SavedMsgs_ScrollBar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HFriendID;
         private MetroFramework.Controls.MetroLabel lbl_selectedMessage;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HFriendID;
+        private MetroFramework.Controls.MetroPanel metroPanel10;
     }
 }

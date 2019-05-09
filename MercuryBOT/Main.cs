@@ -167,24 +167,17 @@ namespace MercuryBOT
             {
                 lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
             }
+            RefreshAccountList();
         }
 
         public void Main_Load(object sender, EventArgs e)
         {
+            
             lbl_infoversion.Text = "v" + Program.Version.Replace("-", "");
-            RefreshAccountList();
+           
 
             var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
             combox_Colors.SelectedIndex = Settingslist.startupColor;
-
-            if (Settingslist.startup)
-            {
-                toggle_startWindows.Checked = true;
-            }
-            else
-            {
-                toggle_startWindows.Checked = false;
-            }
 
             if (Settingslist.hideInTaskBar)
             {
@@ -196,6 +189,8 @@ namespace MercuryBOT
                 this.ShowInTaskbar = true;
                 toggle_hideInTask.Checked = false;
             }
+            
+            toggle_startWindows.Checked = Settingslist.startup;
 
             if (Settingslist.startMinimized)
             {
@@ -214,8 +209,9 @@ namespace MercuryBOT
                 Stream str = Properties.Resources.mercury_success;
                 SoundPlayer snd = new SoundPlayer(str);
                 snd.Play();
+            } else {
+                toggle_playSound.Checked = false;
             }
-            else { toggle_playSound.Checked = false; }
 
             foreach (TabPage item in this.MercuryTabControl.TabPages)
             {
@@ -1014,7 +1010,7 @@ namespace MercuryBOT
             Process.Start("https://steamcommunity.com/groups/MercuryBOT");
         }
 
-        private void Link_discord_Click(object sender, EventArgs e)
+        private void pictureBox_Discord_Click(object sender, EventArgs e)
         {
             Process.Start("https://discord.gg/7e7kuhp");
         }
@@ -1064,7 +1060,7 @@ namespace MercuryBOT
             Process.Start(Program.ExecutablePath);
         }
 
-        private void link_github_Click(object sender, EventArgs e)
+        private void pictureBox_Github_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/sp0ok3r/Mercury");
         }
@@ -1074,10 +1070,16 @@ namespace MercuryBOT
             Process.Start("https://github.com/sp0ok3r/Mercury/issues");
         }
 
-        private void link_joinSteamG_Click(object sender, EventArgs e)
+        private void pictureBox_Steam_Click(object sender, EventArgs e)
         {
-            Process.Start("https://steamcommunity.com/groups/MercuryBOT");
-            Process.Start("steam://openurl/https://steamcommunity.com/groups/MercuryBOT");
+            if (Program.CurrentProcesses.FirstOrDefault(x => x.ProcessName == "Steam") != null)
+            {
+                Process.Start("steam://openurl/https://steamcommunity.com/groups/MercuryBOT");
+            }
+            else
+            {
+                Process.Start("https://steamcommunity.com/groups/MercuryBOT");
+            }
         }
         #endregion
         private void toolStrip_Logout_Click(object sender, EventArgs e)
@@ -1131,10 +1133,10 @@ namespace MercuryBOT
         void Trolha_Tick(object sender, EventArgs e)
         {
             CurrentUserSafeUpdater();
-            Program.MercuryProcesses.Refresh();
+            Program.MercuryProcess.Refresh();
 
-            link_currentRAM.Text = Program.MercuryProcesses.PrivateMemorySize64.ToFileSize();
-            link_memorysize.Text = Program.MercuryProcesses.PagedSystemMemorySize64.ToFileSize();
+            link_currentRAM.Text = Program.MercuryProcess.PrivateMemorySize64.ToFileSize();
+            link_memorysize.Text = Program.MercuryProcess.PagedSystemMemorySize64.ToFileSize();
         }
 
         private void btn_exitgroups_Click(object sender, EventArgs e)
@@ -1363,7 +1365,7 @@ namespace MercuryBOT
                 {
                     picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID);
 
-                    byte[] data = new WebClient().DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + "/flat/16.png");
+                    byte[] data = Program.Web.DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + "/flat/16.png");
 
                     MemoryStream ms = new MemoryStream(data);
                     btnLabel_PersonaAndFlag.Image = Image.FromStream(ms);
@@ -1601,11 +1603,6 @@ namespace MercuryBOT
                 return;
             }
             CDKeys_Grid.FirstDisplayedScrollingRowIndex = e.NewValue;
-        }
-
-        private void btn_clearuserAliases_Paint(object sender, PaintEventArgs e)
-        {
-            
         }
     }
 }

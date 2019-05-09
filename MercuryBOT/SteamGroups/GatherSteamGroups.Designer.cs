@@ -636,7 +636,7 @@
             this.metroPanel10.HorizontalScrollbarBarColor = true;
             this.metroPanel10.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel10.HorizontalScrollbarSize = 10;
-            this.metroPanel10.Location = new System.Drawing.Point(-1, 607);
+            this.metroPanel10.Location = new System.Drawing.Point(-1, 608);
             this.metroPanel10.Name = "metroPanel10";
             this.metroPanel10.Size = new System.Drawing.Size(399, 12);
             this.metroPanel10.TabIndex = 39;

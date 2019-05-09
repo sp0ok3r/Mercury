@@ -279,8 +279,8 @@ namespace MercuryBOT
         private void combox_ProfileURLorGroupID_SelectedIndexChanged(object sender, EventArgs e)
         {
            CheckProfileGroupInfo = (!combox_ProfileURLorGroupID.SelectedItem.ToString().StartsWith("765611"))
-                                              ? AccountLogin.ClanDictionary.ElementAt(combox_ProfileURLorGroupID.SelectedIndex).Key.ToString()
-                                                : AccountLogin.CurrentSteamID.ToString(); // 666iq
+                                    ? AccountLogin.ClanDictionary.ElementAt(combox_ProfileURLorGroupID.SelectedIndex).Key.ToString()
+                                    : AccountLogin.CurrentSteamID.ToString(); // 666iq
         }
     }
 }
