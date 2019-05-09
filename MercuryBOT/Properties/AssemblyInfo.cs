@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("spO_okER Toolz")]
 [assembly: AssemblyProduct("MercuryBOT")]
-[assembly: AssemblyCopyright("Copyright © 2019")]
+[assembly: AssemblyCopyright("Copyright (C) 2014 spO_okER Toolz")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

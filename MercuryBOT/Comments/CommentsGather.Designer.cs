@@ -39,7 +39,6 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.chck_containsWords = new MetroFramework.Controls.MetroCheckBox();
             this.txtBox_filterWords = new MetroFramework.Controls.MetroTextBox();
-            this.txtBox_profileGroupID = new MetroFramework.Controls.MetroTextBox();
             this.GridCommentsData = new MetroFramework.Controls.MetroGrid();
             this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,13 +49,13 @@
             this.lbl_totalCommentsInGrid = new MetroFramework.Controls.MetroLabel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
             this.chck_ignoreCase = new MetroFramework.Controls.MetroCheckBox();
+            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.txtBox_Comments2GetCount = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.ProgressSpinner = new MetroFramework.Controls.MetroProgressSpinner();
             this.CollectComments = new System.ComponentModel.BackgroundWorker();
             this.CommentsList_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
             this.combox_ProfileURLorGroupID = new MetroFramework.Controls.MetroComboBox();
-            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.GridCommentsData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +66,7 @@
             this.combox_GatherProfileOrGroup.ItemHeight = 23;
             this.combox_GatherProfileOrGroup.Items.AddRange(new object[] {
             "Profile",
-            "Group"});
+            "Clan"});
             this.combox_GatherProfileOrGroup.Location = new System.Drawing.Point(197, 569);
             this.combox_GatherProfileOrGroup.Name = "combox_GatherProfileOrGroup";
             this.combox_GatherProfileOrGroup.Size = new System.Drawing.Size(232, 29);
@@ -97,7 +96,7 @@
             // 
             this.lbl_totalComments.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lbl_totalComments.ForeColor = System.Drawing.Color.White;
-            this.lbl_totalComments.Location = new System.Drawing.Point(727, 49);
+            this.lbl_totalComments.Location = new System.Drawing.Point(727, 46);
             this.lbl_totalComments.Name = "lbl_totalComments";
             this.lbl_totalComments.Size = new System.Drawing.Size(286, 19);
             this.lbl_totalComments.TabIndex = 4;
@@ -190,45 +189,6 @@
             this.txtBox_filterWords.WaterMark = "FREE,CASE,GIVEAWAY,visit";
             this.txtBox_filterWords.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtBox_filterWords.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // txtBox_profileGroupID
-            // 
-            // 
-            // 
-            // 
-            this.txtBox_profileGroupID.CustomButton.Image = null;
-            this.txtBox_profileGroupID.CustomButton.Location = new System.Drawing.Point(210, 1);
-            this.txtBox_profileGroupID.CustomButton.Name = "";
-            this.txtBox_profileGroupID.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtBox_profileGroupID.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtBox_profileGroupID.CustomButton.TabIndex = 1;
-            this.txtBox_profileGroupID.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtBox_profileGroupID.CustomButton.UseSelectable = true;
-            this.txtBox_profileGroupID.CustomButton.Visible = false;
-            this.txtBox_profileGroupID.ForeColor = System.Drawing.Color.White;
-            this.txtBox_profileGroupID.Lines = new string[] {
-        "76561197973845818"};
-            this.txtBox_profileGroupID.Location = new System.Drawing.Point(389, 23);
-            this.txtBox_profileGroupID.MaxLength = 32767;
-            this.txtBox_profileGroupID.Name = "txtBox_profileGroupID";
-            this.txtBox_profileGroupID.PasswordChar = '\0';
-            this.txtBox_profileGroupID.PromptText = "steamID64/GroupID";
-            this.txtBox_profileGroupID.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBox_profileGroupID.SelectedText = "";
-            this.txtBox_profileGroupID.SelectionLength = 0;
-            this.txtBox_profileGroupID.SelectionStart = 0;
-            this.txtBox_profileGroupID.ShortcutsEnabled = true;
-            this.txtBox_profileGroupID.Size = new System.Drawing.Size(232, 23);
-            this.txtBox_profileGroupID.TabIndex = 10;
-            this.txtBox_profileGroupID.Text = "76561197973845818";
-            this.txtBox_profileGroupID.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.txtBox_profileGroupID.UseCustomBackColor = true;
-            this.txtBox_profileGroupID.UseCustomForeColor = true;
-            this.txtBox_profileGroupID.UseSelectable = true;
-            this.txtBox_profileGroupID.UseStyleColors = true;
-            this.txtBox_profileGroupID.WaterMark = "steamID64/GroupID";
-            this.txtBox_profileGroupID.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtBox_profileGroupID.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // GridCommentsData
             // 
@@ -344,7 +304,7 @@
             // 
             this.lbl_totalCommentsInGrid.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lbl_totalCommentsInGrid.ForeColor = System.Drawing.Color.White;
-            this.lbl_totalCommentsInGrid.Location = new System.Drawing.Point(726, 34);
+            this.lbl_totalCommentsInGrid.Location = new System.Drawing.Point(726, 31);
             this.lbl_totalCommentsInGrid.Name = "lbl_totalCommentsInGrid";
             this.lbl_totalCommentsInGrid.Size = new System.Drawing.Size(286, 19);
             this.lbl_totalCommentsInGrid.TabIndex = 17;
@@ -372,6 +332,19 @@
             this.chck_ignoreCase.UseCustomBackColor = true;
             this.chck_ignoreCase.UseSelectable = true;
             this.chck_ignoreCase.UseStyleColors = true;
+            // 
+            // metroCheckBox1
+            // 
+            this.metroCheckBox1.AutoSize = true;
+            this.metroCheckBox1.Location = new System.Drawing.Point(493, 597);
+            this.metroCheckBox1.Name = "metroCheckBox1";
+            this.metroCheckBox1.Size = new System.Drawing.Size(94, 15);
+            this.metroCheckBox1.TabIndex = 25;
+            this.metroCheckBox1.Text = "All (no filters)";
+            this.MongoToolTip.SetToolTip(this.metroCheckBox1, "This will delete all your comments.");
+            this.metroCheckBox1.UseCustomBackColor = true;
+            this.metroCheckBox1.UseSelectable = true;
+            this.metroCheckBox1.UseStyleColors = true;
             // 
             // txtBox_Comments2GetCount
             // 
@@ -475,19 +448,7 @@
             this.combox_ProfileURLorGroupID.UseCustomForeColor = true;
             this.combox_ProfileURLorGroupID.UseSelectable = true;
             this.combox_ProfileURLorGroupID.UseStyleColors = true;
-            // 
-            // metroCheckBox1
-            // 
-            this.metroCheckBox1.AutoSize = true;
-            this.metroCheckBox1.Location = new System.Drawing.Point(493, 597);
-            this.metroCheckBox1.Name = "metroCheckBox1";
-            this.metroCheckBox1.Size = new System.Drawing.Size(94, 15);
-            this.metroCheckBox1.TabIndex = 25;
-            this.metroCheckBox1.Text = "All (no filters)";
-            this.MongoToolTip.SetToolTip(this.metroCheckBox1, "This will delete all your comments.");
-            this.metroCheckBox1.UseCustomBackColor = true;
-            this.metroCheckBox1.UseSelectable = true;
-            this.metroCheckBox1.UseStyleColors = true;
+            this.combox_ProfileURLorGroupID.SelectedIndexChanged += new System.EventHandler(this.combox_ProfileURLorGroupID_SelectedIndexChanged);
             // 
             // CommentsGather
             // 
@@ -503,7 +464,6 @@
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.lbl_totalCommentsInGrid);
             this.Controls.Add(this.GridCommentsData);
-            this.Controls.Add(this.txtBox_profileGroupID);
             this.Controls.Add(this.txtBox_filterWords);
             this.Controls.Add(this.chck_containsWords);
             this.Controls.Add(this.metroLabel3);
@@ -538,7 +498,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroCheckBox chck_containsWords;
         private MetroFramework.Controls.MetroTextBox txtBox_filterWords;
-        private MetroFramework.Controls.MetroTextBox txtBox_profileGroupID;
         private MetroFramework.Controls.MetroGrid GridCommentsData;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private System.Windows.Forms.Panel panel1;

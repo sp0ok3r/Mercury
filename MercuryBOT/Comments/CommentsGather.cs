@@ -9,14 +9,21 @@
 */
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using AngleSharp;
 using AngleSharp.Html.Parser;
-using SteamComments;
+using SteamKit2;
 using System.Threading;
+using SteamComments;
 using AngleSharp.Text;
 using MercuryBOT.Helpers;
 
@@ -25,17 +32,16 @@ namespace MercuryBOT
     public partial class CommentsGather : MetroFramework.Forms.MetroForm
     {
         private readonly WebClient Web = new WebClient();
-        private string ProfileOrClan;
-
+        private string CheckProfileGroupInfo;
+        private string SelectedProfileORClan;
         public CommentsGather()
         {
             InitializeComponent();
             this.components.SetStyle(this);
-            Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
         private void CommentsGather_Load(object sender, EventArgs e)
         {
-            // GatherComments();
             ProgressSpinner.Visible = false;
 
             lbl_totalCommentsInGrid.Visible = false;
@@ -48,20 +54,21 @@ namespace MercuryBOT
             switch (combox_GatherProfileOrGroup.SelectedIndex)
             {
                 case 0:
-                    ProfileOrClan = "Profile";
+                    // ProfileOrClan = "Profile";
                     combox_ProfileURLorGroupID.Items.Add(AccountLogin.CurrentSteamID.ToString());
                     combox_ProfileURLorGroupID.SelectedIndex = 0;
                     break;
                 case 1:
-                    ProfileOrClan = "Clan";
+                    // ProfileOrClan = "Clan";
                     foreach (var pair in AccountLogin.ClanDictionary)
                     {
                         combox_ProfileURLorGroupID.Items.Add(pair.Value);
                     }
                     break;
             }
+            SelectedProfileORClan = combox_GatherProfileOrGroup.SelectedItem.ToString();
         }
-        
+
         public static string RemoveSpecialCharacters(string str)
         {
             return Regex.Replace(str, "[^a-zA-Z0-9_.]+", " ", RegexOptions.Compiled);
@@ -69,6 +76,7 @@ namespace MercuryBOT
 
         public void GatherComments()
         {
+
             lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
             {
                 lbl_totalCommentsInGrid.Text = "Total Row Count: 0";
@@ -77,17 +85,19 @@ namespace MercuryBOT
             {
                 lbl_totalComments.Text = "Total Count: 0";
             });
-            
-            if (!(combox_GatherProfileOrGroup.SelectedIndex > -1)|| 
-                !(combox_ProfileURLorGroupID.SelectedIndex > -1) || string.IsNullOrEmpty(txtBox_Comments2GetCount.Text)){
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please select the profile/group.");
-                return;
-            }
-
             ProgressSpinner.Invoke((MethodInvoker)delegate
             {
                 ProgressSpinner.Visible = true;
             });
+            Console.WriteLine("WAT: "+CheckProfileGroupInfo);
+            if (string.IsNullOrEmpty(SelectedProfileORClan) || string.IsNullOrEmpty(txtBox_Comments2GetCount.Text))
+            {
+                Console.WriteLine("Please select the profile/group.");
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please select the profile/group.");
+                return;
+            }
+
+
             GridCommentsData.Invoke((MethodInvoker)delegate
             {
                 GridCommentsData.Rows.Clear();
@@ -99,18 +109,8 @@ namespace MercuryBOT
 
             try
             {
-                //string ProfileORGroupComments = "https://steamcommunity.com/comment/" + ProfileOrClan + "/render/" + txtBox_profileGroupID.Text + "/-1/?count=" + txtBox_Comments2GetCount.Text;
-
-                string CheckProfileGroupInfo = (!combox_ProfileURLorGroupID.SelectedItem.ToString().StartsWith("765611")) 
-                                                    ? AccountLogin.ClanDictionary.ElementAt(combox_ProfileURLorGroupID.SelectedIndex).Key.ToString() 
-                                                    : AccountLogin.CurrentSteamID.ToString(); // 666iq
+                string ProfileORGroupComments = "https://steamcommunity.com/comment/" + SelectedProfileORClan + "/render/" + CheckProfileGroupInfo + "/-1/?count=" + txtBox_Comments2GetCount.Text;
                 
-                 string ProfileORGroupComments = "https://steamcommunity.com/comment/" + combox_GatherProfileOrGroup.SelectedItem.ToString() + "/render/" + CheckProfileGroupInfo + "/-1/?count=" + txtBox_Comments2GetCount.Text;
-                Console.WriteLine(ProfileORGroupComments);
-                // string GroupComments = "https://steamcommunity.com/comment/Clan/render/103582791434391876/-1/?count=10";
-                // string pasha = "https://steamcommunity.com/comment/Profile/render/76561197973845818/-1/?count=500";
-                // string ProfileComments = "https://steamcommunity.com/comment/Profile/render/76561198041931474/-1/?count=10";
-
                 var parser = new HtmlParser();
 
                 var json = Web.DownloadString(ProfileORGroupComments);
@@ -128,14 +128,14 @@ namespace MercuryBOT
 
                 foreach (var eComment in eCommentList)
                 {
-                    var CommentID = eComment.QuerySelector("div.commentthread_comment_text").GetAttribute("id").Replace("comment_content_", "");
-                    var CommentContent = RemoveSpecialCharacters(eComment.QuerySelector("div.commentthread_comment_text").TextContent.Trim());
-                    var Author = eComment.QuerySelector("a[class='hoverunderline commentthread_author_link']").GetAttribute("href").Replace("https://steamcommunity.com/profiles/", "").Replace("https://steamcommunity.com/id/", "");
+                    var CommentID       = eComment.QuerySelector("div.commentthread_comment_text").GetAttribute("id").Replace("comment_content_", "");
+                    var CommentContent  = RemoveSpecialCharacters(eComment.QuerySelector("div.commentthread_comment_text").TextContent.Trim());
+                    var Author          = eComment.QuerySelector("a[class='hoverunderline commentthread_author_link']").GetAttribute("href").Replace("https://steamcommunity.com/profiles/", "").Replace("https://steamcommunity.com/id/", "");
 
-                    var Time = eComment.QuerySelector("span.commentthread_comment_timestamp").GetAttribute("title").Replace("https://steamcommunity.com/profiles/", ""); // title=convertido
-                    int index = Time.IndexOf("@"); if (index > 0) { Time = Time.Substring(0, index); } // remove hours, only stay date
+                    var Time            = eComment.QuerySelector("span.commentthread_comment_timestamp").GetAttribute("title").Replace("https://steamcommunity.com/profiles/", ""); // title=convertido
+                    int index           = Time.IndexOf("@"); if (index > 0) { Time = Time.Substring(0, index); } // remove hours, only stay date
 
-                    string[] row = { CommentID, CommentContent, Author, Time };
+                    string[] row        = { CommentID, CommentContent, Author, Time };
 
                     GridCommentsData.Invoke((MethodInvoker)delegate
                     {
@@ -153,7 +153,7 @@ namespace MercuryBOT
                         foreach (string item in arrayComments)
                         {
                             string[] filterSelectedWords = txtBox_filterWords.Text.Split(',');
-                            
+
                             if (chck_ignoreCase.Checked && filterSelectedWords.Contains(item, StringComparison.OrdinalIgnoreCase))
                             {
                                 Console.WriteLine("AnyCase - DELETED: " + CommentID + " ||  " + CommentContent + "\n");
@@ -172,7 +172,7 @@ namespace MercuryBOT
                         }
                     }
                 }
-                
+
                 lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
                 {
                     lbl_totalCommentsInGrid.Text = "Total Row Count:" + GridCommentsData.Rows.Count.ToString();
@@ -211,10 +211,10 @@ namespace MercuryBOT
                 });
 
 
-                Console.WriteLine(e);
+                Console.WriteLine("ww: "+e);
             }
         }
-        
+
         public string Url2ID(string profileURL)
         {
 
@@ -224,7 +224,7 @@ namespace MercuryBOT
             var document = parser.ParseDocument(html);
             //    var steamID64Clean = document.DocumentElement.QuerySelector("div[class='commentthread_paging has_view_all_link']").GetAttribute("id").Replace("commentthread_Profile_", "").Replace("_pagecontrols", "");
             var steamID64Clean = document.DocumentElement.QuerySelector("div[class='commentthread_paging has_view_all_link']").GetAttribute("id").Replace("commentthread_Profile_", "").Replace("_pagecontrols", "");
-            
+
             return steamID64Clean;
 
             // }
@@ -274,6 +274,13 @@ namespace MercuryBOT
                 return;
             }
             GridCommentsData.FirstDisplayedScrollingRowIndex = e.NewValue;
+        }
+
+        private void combox_ProfileURLorGroupID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           CheckProfileGroupInfo = (!combox_ProfileURLorGroupID.SelectedItem.ToString().StartsWith("765611"))
+                                              ? AccountLogin.ClanDictionary.ElementAt(combox_ProfileURLorGroupID.SelectedIndex).Key.ToString()
+                                                : AccountLogin.CurrentSteamID.ToString(); // 666iq
         }
     }
 }
