@@ -13,6 +13,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using Win32Interop.Methods;
 
 namespace MercuryBOT.SteamServers
 {
@@ -23,7 +24,7 @@ namespace MercuryBOT.SteamServers
             InitializeComponent(); this.Activate();
             this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
-            Region = Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
 
         private void CSRegions_Load(object sender, EventArgs e)

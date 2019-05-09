@@ -15,6 +15,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using Win32Interop.Methods;
+using System.Drawing;
 
 namespace MercuryBOT
 {
@@ -25,7 +27,13 @@ namespace MercuryBOT
             InitializeComponent(); this.Activate();
             this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+
+            IntPtr ptr = Gdi32.CreateRoundRectRgn(1, 1, btn_addAcc.Width, btn_addAcc.Height, 5, 5);
+            btn_addAcc.Region = Region.FromHrgn(ptr);
+            Gdi32.DeleteObject(ptr);
+
+
         }
         private void btn_addAcc_Click(object sender, EventArgs e)
         {
@@ -55,7 +63,8 @@ namespace MercuryBOT
                 {
                     AdminConverted = 0;
                 }
-                else{
+                else
+                {
                     AdminConverted = Convert.ToUInt64(Admin);
                 }
 
@@ -71,7 +80,7 @@ namespace MercuryBOT
                     ChatLogger = false,
                     Games = EmptyGameList,
                     AFKMessages = EmptyCustomMessagesList,
-                    
+
                 });
 
                 var convertedJson = JsonConvert.SerializeObject(list, new JsonSerializerSettings

@@ -14,6 +14,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Net;
 using System.Windows.Forms;
+using Win32Interop.Methods;
 
 namespace MercuryBOT.SteamServers
 {
@@ -26,7 +27,7 @@ namespace MercuryBOT.SteamServers
             InitializeComponent(); this.Activate();
             this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
-            Region = Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
 
         private void SteamServersMain_Load(object sender, EventArgs e)
@@ -99,7 +100,7 @@ namespace MercuryBOT.SteamServers
             }
             catch (Exception e)
             {
-                Console.WriteLine("SteamServersForm Exeption: "+e);
+                Console.WriteLine("SteamServersForm Exeption: " + e);
             }
         }
 
@@ -129,7 +130,8 @@ namespace MercuryBOT.SteamServers
             if (metroLink_OnlineOnSteam.Text == "Unknown")
             {
                 metroLink_OnlineOnSteam.ForeColor = Color.Red;
-            }else
+            }
+            else
             {
                 metroLink_OnlineOnSteam.ForeColor = Color.DarkGreen;
             }
@@ -142,10 +144,11 @@ namespace MercuryBOT.SteamServers
             {
                 metroLink_StatusStore.ForeColor = Color.Red;
             }
-            else if(metroLink_StatusStore.Text == "minor")
+            else if (metroLink_StatusStore.Text == "minor")
             {
                 metroLink_StatusStore.ForeColor = Color.DarkOrange;
-            }else
+            }
+            else
             {
                 metroLink_StatusStore.ForeColor = Color.DarkGreen;
             }

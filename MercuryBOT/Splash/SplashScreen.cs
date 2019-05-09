@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Win32Interop.Methods;
 using Timer = System.Windows.Forms.Timer;
 
 namespace MercuryBOT.Splash
@@ -33,7 +34,7 @@ namespace MercuryBOT.Splash
             InitializeComponent();
             this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = System.Drawing.Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
 
         private void CheckForAccountsFile()

@@ -40,10 +40,6 @@
             this.chck_containsWords = new MetroFramework.Controls.MetroCheckBox();
             this.txtBox_filterWords = new MetroFramework.Controls.MetroTextBox();
             this.GridCommentsData = new MetroFramework.Controls.MetroGrid();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_totalCommentsInGrid = new MetroFramework.Controls.MetroLabel();
@@ -52,10 +48,14 @@
             this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.txtBox_Comments2GetCount = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.ProgressSpinner = new MetroFramework.Controls.MetroProgressSpinner();
+            this.ProgressSpinner_LoadComments = new MetroFramework.Controls.MetroProgressSpinner();
             this.CollectComments = new System.ComponentModel.BackgroundWorker();
             this.CommentsList_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
             this.combox_ProfileURLorGroupID = new MetroFramework.Controls.MetroComboBox();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GridCommentsData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -249,34 +249,6 @@
             this.GridCommentsData.UseCustomForeColor = true;
             this.GridCommentsData.UseStyleColors = true;
             // 
-            // ColumnID
-            // 
-            this.ColumnID.HeaderText = "COMMENT ID";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.Width = 130;
-            // 
-            // content
-            // 
-            this.content.HeaderText = "CONTENT";
-            this.content.Name = "content";
-            this.content.ReadOnly = true;
-            this.content.Width = 630;
-            // 
-            // autor
-            // 
-            this.autor.HeaderText = "AUTHOR";
-            this.autor.Name = "autor";
-            this.autor.ReadOnly = true;
-            this.autor.Width = 130;
-            // 
-            // time
-            // 
-            this.time.HeaderText = "TIME";
-            this.time.Name = "time";
-            this.time.ReadOnly = true;
-            this.time.Width = 130;
-            // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
@@ -400,18 +372,18 @@
             this.metroLabel4.UseCustomForeColor = true;
             this.metroLabel4.UseStyleColors = true;
             // 
-            // ProgressSpinner
+            // ProgressSpinner_LoadComments
             // 
-            this.ProgressSpinner.Location = new System.Drawing.Point(327, 23);
-            this.ProgressSpinner.Maximum = 100;
-            this.ProgressSpinner.Name = "ProgressSpinner";
-            this.ProgressSpinner.Size = new System.Drawing.Size(29, 30);
-            this.ProgressSpinner.TabIndex = 20;
-            this.ProgressSpinner.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.ProgressSpinner.UseCustomBackColor = true;
-            this.ProgressSpinner.UseCustomForeColor = true;
-            this.ProgressSpinner.UseSelectable = true;
-            this.ProgressSpinner.UseStyleColors = true;
+            this.ProgressSpinner_LoadComments.Location = new System.Drawing.Point(327, 23);
+            this.ProgressSpinner_LoadComments.Maximum = 100;
+            this.ProgressSpinner_LoadComments.Name = "ProgressSpinner_LoadComments";
+            this.ProgressSpinner_LoadComments.Size = new System.Drawing.Size(29, 30);
+            this.ProgressSpinner_LoadComments.TabIndex = 20;
+            this.ProgressSpinner_LoadComments.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ProgressSpinner_LoadComments.UseCustomBackColor = true;
+            this.ProgressSpinner_LoadComments.UseCustomForeColor = true;
+            this.ProgressSpinner_LoadComments.UseSelectable = true;
+            this.ProgressSpinner_LoadComments.UseStyleColors = true;
             // 
             // CollectComments
             // 
@@ -450,6 +422,34 @@
             this.combox_ProfileURLorGroupID.UseStyleColors = true;
             this.combox_ProfileURLorGroupID.SelectedIndexChanged += new System.EventHandler(this.combox_ProfileURLorGroupID_SelectedIndexChanged);
             // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "COMMENT ID";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Width = 130;
+            // 
+            // content
+            // 
+            this.content.HeaderText = "CONTENT";
+            this.content.Name = "content";
+            this.content.ReadOnly = true;
+            this.content.Width = 625;
+            // 
+            // autor
+            // 
+            this.autor.HeaderText = "AUTHOR";
+            this.autor.Name = "autor";
+            this.autor.ReadOnly = true;
+            this.autor.Width = 130;
+            // 
+            // time
+            // 
+            this.time.HeaderText = "TIME";
+            this.time.Name = "time";
+            this.time.ReadOnly = true;
+            this.time.Width = 130;
+            // 
             // CommentsGather
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -459,7 +459,7 @@
             this.Controls.Add(this.combox_ProfileURLorGroupID);
             this.Controls.Add(this.chck_ignoreCase);
             this.Controls.Add(this.CommentsList_ScrollBar);
-            this.Controls.Add(this.ProgressSpinner);
+            this.Controls.Add(this.ProgressSpinner_LoadComments);
             this.Controls.Add(this.txtBox_Comments2GetCount);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.lbl_totalCommentsInGrid);
@@ -505,15 +505,15 @@
         private MetroFramework.Components.MetroToolTip MongoToolTip;
         private MetroFramework.Controls.MetroTextBox txtBox_Comments2GetCount;
         private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroProgressSpinner ProgressSpinner;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn content;
-        private System.Windows.Forms.DataGridViewTextBoxColumn autor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn time;
+        private MetroFramework.Controls.MetroProgressSpinner ProgressSpinner_LoadComments;
         private System.ComponentModel.BackgroundWorker CollectComments;
         private MetroFramework.Controls.MetroScrollBar CommentsList_ScrollBar;
         private MetroFramework.Controls.MetroCheckBox chck_ignoreCase;
         private MetroFramework.Controls.MetroComboBox combox_ProfileURLorGroupID;
         private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn content;
+        private System.Windows.Forms.DataGridViewTextBoxColumn autor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn time;
     }
 }

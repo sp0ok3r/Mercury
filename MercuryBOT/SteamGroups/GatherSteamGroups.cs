@@ -8,14 +8,17 @@
 ▐    ▐     ▐                  ▐                                 ▐   
 */
 using MercuryBOT.Helpers;
+using MetroFramework.Controls;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using Win32Interop.Methods;
 
 namespace MercuryBOT.SteamGroups
 {
@@ -25,8 +28,20 @@ namespace MercuryBOT.SteamGroups
         {
             InitializeComponent();
             this.components.SetStyle(this);
-            Region = Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
-            this.MercuryTabControl.SelectedIndex = 0;
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            this.MercuryTabControlGroups.SelectedIndex = 0;
+
+            foreach (Control tab in MercuryTabControlGroups.Controls)
+            {
+                TabPage tabPage = (TabPage)tab;
+                foreach (Control control in tabPage.Controls.OfType<MetroButton>())
+                {
+                    IntPtr ptr = Gdi32.CreateRoundRectRgn(1, 1, control.Width, control.Height, 5, 5);
+                    control.Region = Region.FromHrgn(ptr);
+                    Gdi32.DeleteObject(ptr);
+                }
+            }
+
         }
 
         private void ClanList_ScrollBar_Scroll(object sender, ScrollEventArgs e)

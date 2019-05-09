@@ -49,7 +49,7 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.txtBox_gName = new MetroFramework.Controls.MetroTextBox();
-            this.MercuryTabControl = new MetroFramework.Controls.MetroTabControl();
+            this.MercuryTabControlGroups = new MetroFramework.Controls.MetroTabControl();
             this.metroTab_Join = new MetroFramework.Controls.MetroTabPage();
             this.txtBox_pathIDS = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
@@ -63,7 +63,7 @@
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).BeginInit();
-            this.MercuryTabControl.SuspendLayout();
+            this.MercuryTabControlGroups.SuspendLayout();
             this.metroTab_Join.SuspendLayout();
             this.metroTab_Tasks.SuspendLayout();
             this.metroTab_Settings.SuspendLayout();
@@ -412,20 +412,20 @@
             this.txtBox_gName.TextChanged += new System.EventHandler(this.txtBox_gName_TextChanged);
             this.txtBox_gName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_gName_KeyDown);
             // 
-            // MercuryTabControl
+            // MercuryTabControlGroups
             // 
-            this.MercuryTabControl.Controls.Add(this.metroTab_Join);
-            this.MercuryTabControl.Controls.Add(this.metroTab_Tasks);
-            this.MercuryTabControl.Controls.Add(this.metroTab_Settings);
-            this.MercuryTabControl.Location = new System.Drawing.Point(13, 53);
-            this.MercuryTabControl.Multiline = true;
-            this.MercuryTabControl.Name = "MercuryTabControl";
-            this.MercuryTabControl.SelectedIndex = 2;
-            this.MercuryTabControl.ShowToolTips = true;
-            this.MercuryTabControl.Size = new System.Drawing.Size(379, 548);
-            this.MercuryTabControl.TabIndex = 35;
-            this.MercuryTabControl.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.MercuryTabControl.UseSelectable = true;
+            this.MercuryTabControlGroups.Controls.Add(this.metroTab_Join);
+            this.MercuryTabControlGroups.Controls.Add(this.metroTab_Tasks);
+            this.MercuryTabControlGroups.Controls.Add(this.metroTab_Settings);
+            this.MercuryTabControlGroups.Location = new System.Drawing.Point(13, 53);
+            this.MercuryTabControlGroups.Multiline = true;
+            this.MercuryTabControlGroups.Name = "MercuryTabControlGroups";
+            this.MercuryTabControlGroups.SelectedIndex = 0;
+            this.MercuryTabControlGroups.ShowToolTips = true;
+            this.MercuryTabControlGroups.Size = new System.Drawing.Size(379, 548);
+            this.MercuryTabControlGroups.TabIndex = 35;
+            this.MercuryTabControlGroups.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MercuryTabControlGroups.UseSelectable = true;
             // 
             // metroTab_Join
             // 
@@ -660,7 +660,7 @@
             this.ClientSize = new System.Drawing.Size(395, 618);
             this.Controls.Add(this.metroPanel10);
             this.Controls.Add(this.lbl_groupSelected);
-            this.Controls.Add(this.MercuryTabControl);
+            this.Controls.Add(this.MercuryTabControlGroups);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "GatherSteamGroups";
@@ -670,7 +670,7 @@
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Shown += new System.EventHandler(this.GatherSteamGroups_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).EndInit();
-            this.MercuryTabControl.ResumeLayout(false);
+            this.MercuryTabControlGroups.ResumeLayout(false);
             this.metroTab_Join.ResumeLayout(false);
             this.metroTab_Join.PerformLayout();
             this.metroTab_Tasks.ResumeLayout(false);
@@ -699,7 +699,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTextBox txtBox_gName;
-        private MetroFramework.Controls.MetroTabControl MercuryTabControl;
+        private MetroFramework.Controls.MetroTabControl MercuryTabControlGroups;
         private MetroFramework.Controls.MetroTabPage metroTab_Tasks;
         private MetroFramework.Controls.MetroTabPage metroTab_Settings;
         private MetroFramework.Controls.MetroLabel lbl_groupSelected;

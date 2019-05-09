@@ -14,20 +14,25 @@ using MercuryBOT.Helpers;
 using MercuryBOT.SteamServers;
 using MercuryBOT.User2Json;
 using MercuryBOT.UserSettings;
+using MetroFramework.Controls;
 using Newtonsoft.Json;
 using Steam4NET;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Media;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using Win32Interop.Methods;
 
 namespace MercuryBOT
 {
@@ -82,7 +87,7 @@ namespace MercuryBOT
                     {
                         this.Enabled = false;
                         this.Hide();
-                       
+
                         Console.WriteLine("New update: " + updateCheck);
                         Form Update = new Update(updateCheck);
                         Update.Show();
@@ -128,11 +133,7 @@ namespace MercuryBOT
             RafadexAutoUpdate600IQ();
             M_NotifyIcon = this.Mercury_notifyIcon;
 
-            //            Console.WriteLine(DateTimeOffset.UtcNow.ToString("o"));
-
-
-            //DateTimeOffset.ParseExact("2015-07-09T08:38:49-07:00", "yyyy-MM-dd'T'HH:mm:sszzz",
-            //                                           CultureInfo.InvariantCulture)
+           
         }
 
         [Obsolete]
@@ -141,13 +142,27 @@ namespace MercuryBOT
             InitializeComponent();
             this.Activate();
             this.components.SetStyle(this);
-            Region = Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+
+            IntPtr ptrLogout = Gdi32.CreateRoundRectRgn(1, 1, btn_logout.Width, btn_logout.Height, 5, 5);
+            btn_logout.Region = Region.FromHrgn(ptrLogout);
+            Gdi32.DeleteObject(ptrLogout);
+            foreach (Control tab in MercuryTabControl.Controls)
+            {
+                TabPage tabPage = (TabPage)tab;
+                foreach (Control control in tabPage.Controls.OfType<MetroButton>())
+                {
+                    IntPtr ptr = Gdi32.CreateRoundRectRgn(1, 1, control.Width, control.Height, 5, 5);
+                    control.Region = Region.FromHrgn(ptr);
+                    Gdi32.DeleteObject(ptr);
+                }
+            }
+
             btn_logout.Visible = false;
 
             Trolha.Tick += Trolha_Tick;
-
-            // Calculate the mercury age. 2019-03-28 💔
-            var age = 2019 - DateTime.Today.Year;
+            
+            var age = 2019 - DateTime.Today.Year; // Calculate the mercury age. 2019-03-28 💔
             if (age < 0)
             {
                 lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
@@ -1586,6 +1601,11 @@ namespace MercuryBOT
                 return;
             }
             CDKeys_Grid.FirstDisplayedScrollingRowIndex = e.NewValue;
+        }
+
+        private void btn_clearuserAliases_Paint(object sender, PaintEventArgs e)
+        {
+            
         }
     }
 }

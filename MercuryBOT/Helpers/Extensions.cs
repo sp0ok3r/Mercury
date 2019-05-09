@@ -26,17 +26,21 @@ namespace MercuryBOT.Helpers
     public static class Extensions
     {
         #region RoundUI
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        public static extern IntPtr CreateRoundRectRgn
-               (
-                   int nLeftRect,     // x-coordinate of upper-left corner
-                   int nTopRect,      // y-coordinate of upper-left corner
-                   int nRightRect,    // x-coordinate of lower-right corner
-                   int nBottomRect,   // y-coordinate of lower-right corner
-                   int nWidthEllipse, // height of ellipse
-                   int nHeightEllipse // width of ellipse
-               );
+        //[DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        //public static  IntPtr CreateRoundRectRgn
+        //       (
+        //           int nLeftRect,     // x-coordinate of upper-left corner
+        //           int nTopRect,      // y-coordinate of upper-left corner
+        //           int nRightRect,    // x-coordinate of lower-right corner
+        //           int nBottomRect,   // y-coordinate of lower-right corner
+        //           int nWidthEllipse, // height of ellipse
+        //           int nHeightEllipse // width of ellipse
+        //       );
         #endregion
+
+
+       // [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        //[DllImport("gdi32.dll", EntryPoint = "DeleteObject")]
 
         #region Steam Extensions
         public static bool IsSteamid32(string input) => input.StartsWith("STEAM_0:");

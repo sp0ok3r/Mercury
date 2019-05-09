@@ -12,6 +12,7 @@ using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Win32Interop.Methods;
 
 namespace MercuryBOT.Notification
 {
@@ -48,7 +49,7 @@ namespace MercuryBOT.Notification
         {
             InitializeComponent();
             this.components.SetStyle(this);
-            Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 0, 0));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 0, 0));
 
            // this.lbl_title.Text = title;
             this.txtBox_desc.Text = desc;

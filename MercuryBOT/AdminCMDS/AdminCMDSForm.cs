@@ -9,6 +9,7 @@
 */
 using MercuryBOT.Helpers;
 using System.Drawing;
+using Win32Interop.Methods;
 
 namespace MercuryBOT.AdminCMDS
 {
@@ -18,7 +19,7 @@ namespace MercuryBOT.AdminCMDS
         {
             InitializeComponent();
             this.components.SetStyle(this);
-            Region = Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
         }
     }
 }

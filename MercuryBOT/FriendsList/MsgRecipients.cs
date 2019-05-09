@@ -15,6 +15,7 @@ using System.Linq;
 using System.IO;
 using System.Windows.Forms;
 using MercuryBOT.Helpers;
+using Win32Interop.Methods;
 
 namespace MercuryBOT.FriendsList
 {
@@ -24,7 +25,13 @@ namespace MercuryBOT.FriendsList
         {
             InitializeComponent();
             this.components.SetStyle(this);
-            Region = Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            foreach (var button in this.Controls.OfType<MetroFramework.Controls.MetroButton>())
+            {
+                IntPtr ptr = Gdi32.CreateRoundRectRgn(1, 1, button.Width, button.Height, 5, 5);
+                button.Region = Region.FromHrgn(ptr);
+                Gdi32.DeleteObject(ptr);
+            }
         }
         private void FriendsMsgReceiver_Load(object sender, EventArgs e)
         {

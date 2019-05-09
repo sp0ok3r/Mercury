@@ -8,11 +8,14 @@
 ▐    ▐     ▐                  ▐                                 ▐   
 */
 using MercuryBOT.Helpers;
+using MetroFramework.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
+using Win32Interop.Methods;
 
 namespace MercuryBOT.AccSettings
 {
@@ -22,7 +25,13 @@ namespace MercuryBOT.AccSettings
         {
             InitializeComponent();
             this.components.SetStyle(this);
-            Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            foreach (var button in this.Controls.OfType<MetroButton>())
+            {
+                IntPtr ptr = Gdi32.CreateRoundRectRgn(1, 1, button.Width, button.Height, 5, 5);
+                button.Region = Region.FromHrgn(ptr);
+                Gdi32.DeleteObject(ptr);
+            }
         }
 
         private void ProfilePrivacy_Load(object sender, EventArgs e)

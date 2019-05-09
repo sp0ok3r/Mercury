@@ -9,23 +9,19 @@
 */
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using AngleSharp;
 using AngleSharp.Html.Parser;
-using SteamKit2;
 using System.Threading;
 using SteamComments;
 using AngleSharp.Text;
 using MercuryBOT.Helpers;
+using Win32Interop.Methods;
+using MetroFramework.Controls;
 
 namespace MercuryBOT
 {
@@ -38,11 +34,17 @@ namespace MercuryBOT
         {
             InitializeComponent();
             this.components.SetStyle(this);
-            Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            foreach (var button in this.Controls.OfType<MetroButton>())
+            {
+                IntPtr ptr = Gdi32.CreateRoundRectRgn(1, 1, button.Width, button.Height, 5, 5);
+                button.Region = Region.FromHrgn(ptr);
+                Gdi32.DeleteObject(ptr);
+            }
         }
         private void CommentsGather_Load(object sender, EventArgs e)
         {
-            ProgressSpinner.Visible = false;
+            ProgressSpinner_LoadComments.Visible = false;
 
             lbl_totalCommentsInGrid.Visible = false;
             lbl_totalComments.Visible = false;
@@ -53,13 +55,11 @@ namespace MercuryBOT
             combox_ProfileURLorGroupID.Items.Clear();
             switch (combox_GatherProfileOrGroup.SelectedIndex)
             {
-                case 0:
-                    // ProfileOrClan = "Profile";
+                case 0://Profile
                     combox_ProfileURLorGroupID.Items.Add(AccountLogin.CurrentSteamID.ToString());
                     combox_ProfileURLorGroupID.SelectedIndex = 0;
                     break;
-                case 1:
-                    // ProfileOrClan = "Clan";
+                case 1://Clan
                     foreach (var pair in AccountLogin.ClanDictionary)
                     {
                         combox_ProfileURLorGroupID.Items.Add(pair.Value);
@@ -85,11 +85,11 @@ namespace MercuryBOT
             {
                 lbl_totalComments.Text = "Total Count: 0";
             });
-            ProgressSpinner.Invoke((MethodInvoker)delegate
+            ProgressSpinner_LoadComments.Invoke((MethodInvoker)delegate
             {
-                ProgressSpinner.Visible = true;
+                ProgressSpinner_LoadComments.Visible = true;
             });
-            Console.WriteLine("WAT: "+CheckProfileGroupInfo);
+
             if (string.IsNullOrEmpty(SelectedProfileORClan) || string.IsNullOrEmpty(txtBox_Comments2GetCount.Text))
             {
                 Console.WriteLine("Please select the profile/group.");
@@ -181,9 +181,9 @@ namespace MercuryBOT
                 {
                     CommentsList_ScrollBar.Maximum = GridCommentsData.Rows.Count;
                 });
-                ProgressSpinner.Invoke((MethodInvoker)delegate
+                ProgressSpinner_LoadComments.Invoke((MethodInvoker)delegate
                 {
-                    ProgressSpinner.Visible = false;
+                    ProgressSpinner_LoadComments.Visible = false;
                 });
                 lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
                 {
@@ -205,9 +205,9 @@ namespace MercuryBOT
                 {
                     btn_doTask.Enabled = true;
                 });
-                ProgressSpinner.Invoke((MethodInvoker)delegate
+                ProgressSpinner_LoadComments.Invoke((MethodInvoker)delegate
                 {
-                    ProgressSpinner.Visible = false;
+                    ProgressSpinner_LoadComments.Visible = false;
                 });
 
 

@@ -15,6 +15,9 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 using MercuryBOT.Helpers;
+using Win32Interop.Methods;
+using System.Drawing;
+using System.Linq;
 
 namespace MercuryBOT.SteamProfileBackground
 {
@@ -29,7 +32,13 @@ namespace MercuryBOT.SteamProfileBackground
             this.Activate();
             this.FormBorderStyle = FormBorderStyle.None;
             this.components.SetStyle(this);
-            Region = System.Drawing.Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = System.Drawing.Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            foreach (var button in this.Controls.OfType<MetroFramework.Controls.MetroButton>())
+            {
+                IntPtr ptr = Gdi32.CreateRoundRectRgn(1, 1, button.Width, button.Height, 5, 5);
+                button.Region = Region.FromHrgn(ptr);
+                Gdi32.DeleteObject(ptr);
+            }
         }
 
         private void ProfileBackground_Load(object sender, EventArgs e)

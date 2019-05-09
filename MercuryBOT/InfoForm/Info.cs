@@ -8,10 +8,14 @@
 ▐    ▐     ▐                  ▐                                 ▐   
 */
 using MercuryBOT.Helpers;
+using MetroFramework.Controls;
 using System;
 using System.IO;
+using System.Linq;
 using System.Media;
 using System.Windows.Forms;
+using Win32Interop.Methods;
+using System.Drawing;
 
 namespace MercuryBOT.InfoForm
 {
@@ -28,7 +32,14 @@ namespace MercuryBOT.InfoForm
             this.lbl_title.Text = title;
             this.txtBox_info.Text = description;
             this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+
+            foreach (Button control in this.Controls.OfType<MetroButton>())
+            {
+                IntPtr ptr = Gdi32.CreateRoundRectRgn(1, 1, control.Width, control.Height, 5, 5);
+                control.Region = Region.FromHrgn(ptr);
+                Gdi32.DeleteObject(ptr);
+            }
         }
 
         private void Info_Load(object sender, EventArgs e)

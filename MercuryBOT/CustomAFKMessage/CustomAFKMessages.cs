@@ -9,11 +9,14 @@
 */
 using MercuryBOT.Helpers;
 using MercuryBOT.UserSettings;
+using MetroFramework.Controls;
 using Newtonsoft.Json;
 using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
+using Win32Interop.Methods;
 
 namespace MercuryBOT.CustomMessages
 {
@@ -27,7 +30,13 @@ namespace MercuryBOT.CustomMessages
             InitializeComponent();
             this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
-            Region = Region.FromHrgn(Helpers.Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            foreach (var button in this.Controls.OfType<MetroButton>())
+            {
+                IntPtr ptr = Gdi32.CreateRoundRectRgn(1, 1, button.Width, button.Height, 5, 5);
+                button.Region = Region.FromHrgn(ptr);
+                Gdi32.DeleteObject(ptr);
+            }
         }
 
 

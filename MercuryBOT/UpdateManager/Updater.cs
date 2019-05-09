@@ -14,6 +14,8 @@ using System.IO;
 using System.Media;
 using System.Net;
 using System.Windows.Forms;
+using Win32Interop.Methods;
+using System.Drawing;
 
 namespace MercuryBOT
 {
@@ -22,10 +24,14 @@ namespace MercuryBOT
         public Update(string up)
         {
             InitializeComponent();
-            
+
             lbl_infoversion.Text = up;
             this.components.SetStyle(this);
-            Region = System.Drawing.Region.FromHrgn(Extensions.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            
+            IntPtr ptr = Gdi32.CreateRoundRectRgn(1, 1, btn_installupdate.Width, btn_installupdate.Height, 5, 5);
+            btn_installupdate.Region = Region.FromHrgn(ptr);
+            Gdi32.DeleteObject(ptr);
         }
 
         private void Update_Load(object sender, EventArgs e)
@@ -57,7 +63,7 @@ namespace MercuryBOT
                 Process.Start("https://github.com/sp0ok3r/Mercury/releases");
             }
         }
-        
+
         private void Update_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -66,7 +72,7 @@ namespace MercuryBOT
         private void Btn_installupdate_Click(object sender, EventArgs e)
         {
             Process.Start(Program.ExecutablePath);
-            Process.Start("https://github.com/sp0ok3r/Mercury/releases/tag/"+ lbl_infoversion.Text);
+            Process.Start("https://github.com/sp0ok3r/Mercury/releases/tag/" + lbl_infoversion.Text);
         }
     }
 }
