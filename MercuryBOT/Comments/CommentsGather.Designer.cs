@@ -40,11 +40,14 @@
             this.chck_containsWords = new MetroFramework.Controls.MetroCheckBox();
             this.txtBox_filterWords = new MetroFramework.Controls.MetroTextBox();
             this.GridCommentsData = new MetroFramework.Controls.MetroGrid();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_totalCommentsInGrid = new MetroFramework.Controls.MetroLabel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
-            this.chck_ignoreCase = new MetroFramework.Controls.MetroCheckBox();
             this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.txtBox_Comments2GetCount = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
@@ -52,10 +55,6 @@
             this.CollectComments = new System.ComponentModel.BackgroundWorker();
             this.CommentsList_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
             this.combox_ProfileURLorGroupID = new MetroFramework.Controls.MetroComboBox();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GridCommentsData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -249,6 +248,34 @@
             this.GridCommentsData.UseCustomForeColor = true;
             this.GridCommentsData.UseStyleColors = true;
             // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "COMMENT ID";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Width = 130;
+            // 
+            // content
+            // 
+            this.content.HeaderText = "CONTENT";
+            this.content.Name = "content";
+            this.content.ReadOnly = true;
+            this.content.Width = 625;
+            // 
+            // autor
+            // 
+            this.autor.HeaderText = "AUTHOR";
+            this.autor.Name = "autor";
+            this.autor.ReadOnly = true;
+            this.autor.Width = 130;
+            // 
+            // time
+            // 
+            this.time.HeaderText = "TIME";
+            this.time.Name = "time";
+            this.time.ReadOnly = true;
+            this.time.Width = 130;
+            // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
@@ -291,19 +318,6 @@
             this.MongoToolTip.Style = MetroFramework.MetroColorStyle.Blue;
             this.MongoToolTip.StyleManager = null;
             this.MongoToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
-            // chck_ignoreCase
-            // 
-            this.chck_ignoreCase.AutoSize = true;
-            this.chck_ignoreCase.Location = new System.Drawing.Point(516, 642);
-            this.chck_ignoreCase.Name = "chck_ignoreCase";
-            this.chck_ignoreCase.Size = new System.Drawing.Size(85, 15);
-            this.chck_ignoreCase.TabIndex = 23;
-            this.chck_ignoreCase.Text = "Ignore Case";
-            this.MongoToolTip.SetToolTip(this.chck_ignoreCase, "Accept LowerCase and UpperCase");
-            this.chck_ignoreCase.UseCustomBackColor = true;
-            this.chck_ignoreCase.UseSelectable = true;
-            this.chck_ignoreCase.UseStyleColors = true;
             // 
             // metroCheckBox1
             // 
@@ -422,34 +436,6 @@
             this.combox_ProfileURLorGroupID.UseStyleColors = true;
             this.combox_ProfileURLorGroupID.SelectedIndexChanged += new System.EventHandler(this.combox_ProfileURLorGroupID_SelectedIndexChanged);
             // 
-            // ColumnID
-            // 
-            this.ColumnID.HeaderText = "COMMENT ID";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.Width = 130;
-            // 
-            // content
-            // 
-            this.content.HeaderText = "CONTENT";
-            this.content.Name = "content";
-            this.content.ReadOnly = true;
-            this.content.Width = 625;
-            // 
-            // autor
-            // 
-            this.autor.HeaderText = "AUTHOR";
-            this.autor.Name = "autor";
-            this.autor.ReadOnly = true;
-            this.autor.Width = 130;
-            // 
-            // time
-            // 
-            this.time.HeaderText = "TIME";
-            this.time.Name = "time";
-            this.time.ReadOnly = true;
-            this.time.Width = 130;
-            // 
             // CommentsGather
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -457,7 +443,6 @@
             this.ClientSize = new System.Drawing.Size(1012, 681);
             this.Controls.Add(this.metroCheckBox1);
             this.Controls.Add(this.combox_ProfileURLorGroupID);
-            this.Controls.Add(this.chck_ignoreCase);
             this.Controls.Add(this.CommentsList_ScrollBar);
             this.Controls.Add(this.ProgressSpinner_LoadComments);
             this.Controls.Add(this.txtBox_Comments2GetCount);
@@ -508,7 +493,6 @@
         private MetroFramework.Controls.MetroProgressSpinner ProgressSpinner_LoadComments;
         private System.ComponentModel.BackgroundWorker CollectComments;
         private MetroFramework.Controls.MetroScrollBar CommentsList_ScrollBar;
-        private MetroFramework.Controls.MetroCheckBox chck_ignoreCase;
         private MetroFramework.Controls.MetroComboBox combox_ProfileURLorGroupID;
         private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;

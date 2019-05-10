@@ -11,6 +11,7 @@ using MercuryBOT.AccSettings;
 using MercuryBOT.FriendsList;
 using MercuryBOT.GamesGather;
 using MercuryBOT.Helpers;
+using MercuryBOT.Properties;
 using MercuryBOT.SteamServers;
 using MercuryBOT.User2Json;
 using MercuryBOT.UserSettings;
@@ -23,6 +24,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Media;
@@ -169,7 +171,7 @@ namespace MercuryBOT
             }
             RefreshAccountList();
         }
-
+        
         public void Main_Load(object sender, EventArgs e)
         {
             
@@ -296,8 +298,8 @@ namespace MercuryBOT
 
                 if (string.IsNullOrEmpty(apikey) || apikey == "0")
                 {
-                    AccountLogin.gatherWebApiKey();
                     InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Gathering your apikey and setting it! \n Just Gather Games again!");
+                    AccountLogin.gatherWebApiKey();
                     return;
                 }
                 else
@@ -378,6 +380,7 @@ namespace MercuryBOT
             if (AccountLogin.IsLoggedIn == true)
             {
                 AccountLogin.Logout();
+                btn_playnormal.Enabled = true;
                 //combox_states.SelectedIndex = 0;
                 //RefreshAccountList();
 

@@ -22,6 +22,7 @@ using AngleSharp.Text;
 using MercuryBOT.Helpers;
 using Win32Interop.Methods;
 using MetroFramework.Controls;
+using System.Collections.Generic;
 
 namespace MercuryBOT
 {
@@ -73,6 +74,20 @@ namespace MercuryBOT
         {
             return Regex.Replace(str, "[^a-zA-Z0-9_.]+", " ", RegexOptions.Compiled);
         }
+
+
+
+
+
+        class cmts
+        {
+            public string CommentContent { get; set; }
+            public string Author { get; set; }
+            public string Time { get; set; }  
+        }
+
+        Dictionary<string, cmts> myList = new Dictionary<string, cmts>();
+
 
         public void GatherComments()
         {
@@ -135,17 +150,17 @@ namespace MercuryBOT
                     var Time            = eComment.QuerySelector("span.commentthread_comment_timestamp").GetAttribute("title").Replace("https://steamcommunity.com/profiles/", ""); // title=convertido
                     int index           = Time.IndexOf("@"); if (index > 0) { Time = Time.Substring(0, index); } // remove hours, only stay date
 
-                    string[] row        = { CommentID, CommentContent, Author, Time };
-
-                    GridCommentsData.Invoke((MethodInvoker)delegate
-                    {
-                        GridCommentsData.Rows.Add(row.Distinct().ToArray());
-                    });
-
-
+                    
                     string[] arrayComments = CommentContent.Split(' ');
+                    string[] row = { CommentID, CommentContent, Author, Time };
 
-                    //bool result = Author.Any(x => !char.IsLetter(x));
+                    //GridCommentsData.Invoke((MethodInvoker)delegate
+                    //{
+                    //    GridCommentsData.Rows.Add(row.Distinct().ToArray());
+                    //});
+
+
+                    var d = new Dictionary<uint, Tuple<string, string, string>>();
 
 
                     if (chck_containsWords.Checked && txtBox_filterWords.Text.Length != 0)
@@ -154,24 +169,38 @@ namespace MercuryBOT
                         {
                             string[] filterSelectedWords = txtBox_filterWords.Text.Split(',');
 
-                            if (chck_ignoreCase.Checked && filterSelectedWords.Contains(item, StringComparison.OrdinalIgnoreCase))
+                            if (filterSelectedWords.Contains(item, StringComparison.OrdinalIgnoreCase))
                             {
-                                Console.WriteLine("AnyCase - DELETED: " + CommentID + " ||  " + CommentContent + "\n");
+                                Console.WriteLine("DELETED: " + CommentID + " ||  " + CommentContent + "\n");
                                 // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
-
+                                myList.Add(CommentID, new cmts { CommentContent =CommentContent, Author= Author, Time= Time });
 
                                 Thread.Sleep(5);
                             }
-                            else if (filterSelectedWords.Contains(item))
-                            {
-                                Console.WriteLine("DELETED: " + CommentID + "\n");
-
-                                // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
-                                Thread.Sleep(5);
-                            }
+                          //  else if (filterSelectedWords.Contains(item))
                         }
                     }
                 }
+
+
+                GridCommentsData.Invoke((MethodInvoker)delegate
+                {
+                foreach (KeyValuePair<string, cmts> item in myList)
+                {
+                    //dataGridView1.Rows.Add(item.Key, item.Value);
+                      GridCommentsData.Rows.Add(item.Key,item.Value.CommentContent, item.Value.Author, item.Value.Time);
+
+                }
+
+
+                //  GridCommentsData.Rows.Add(myList);
+            });
+
+
+
+
+
+
 
                 lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
                 {
