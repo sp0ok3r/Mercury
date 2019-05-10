@@ -150,9 +150,8 @@ namespace MercuryBOT
                     var Time            = eComment.QuerySelector("span.commentthread_comment_timestamp").GetAttribute("title").Replace("https://steamcommunity.com/profiles/", ""); // title=convertido
                     int index           = Time.IndexOf("@"); if (index > 0) { Time = Time.Substring(0, index); } // remove hours, only stay date
 
-                    
-                    string[] arrayComments = CommentContent.Split(' ');
-                    string[] row = { CommentID, CommentContent, Author, Time };
+                    string[] row        = { CommentID, CommentContent, Author, Time };
+
 
                     //GridCommentsData.Invoke((MethodInvoker)delegate
                     //{
@@ -162,34 +161,45 @@ namespace MercuryBOT
 
                     var d = new Dictionary<uint, Tuple<string, string, string>>();
 
-
+                    int DELETEDcount = 0;
                     if (chck_containsWords.Checked && txtBox_filterWords.Text.Length != 0)
                     {
+                        string[] filterSelectedWords = txtBox_filterWords.Text.Split(',');
+
+
                         foreach (string item in arrayComments)
                         {
-                            string[] filterSelectedWords = txtBox_filterWords.Text.Split(',');
-
-                            if (filterSelectedWords.Contains(item, StringComparison.OrdinalIgnoreCase))
+                            var results = item.Contains(filterSelectedWords[0]); // test
+                                //filterSelectedWords.Contains(item, StringComparison.OrdinalIgnoreCase)
+                            if (chck_ignoreCase.Checked && results)
                             {
-                                Console.WriteLine("DELETED: " + CommentID + " ||  " + CommentContent + "\n");
+                                DELETEDcount++;
+                                Console.WriteLine("AnyCase - DELETED: " + CommentID + " |  " + CommentContent + "\n");
                                 // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
-                                myList.Add(CommentID, new cmts { CommentContent =CommentContent, Author= Author, Time= Time });
+
+                                lbl_cDeletedLive.Invoke((MethodInvoker)delegate
+                                {
+                                    lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
+                                });
+                                string[] row = { CommentID, CommentContent, Author, Time };
+
+                            if (chck_ignoreCase.Checked && filterSelectedWords.Contains(item, StringComparison.OrdinalIgnoreCase))
+                            {
+                                Console.WriteLine("AnyCase - DELETED: " + CommentID + " ||  " + CommentContent + "\n");
+                                // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
+
 
                                 Thread.Sleep(5);
                             }
-                          //  else if (filterSelectedWords.Contains(item))
+                            else if (filterSelectedWords.Contains(item))
+                            {
+                                Console.WriteLine("DELETED: " + CommentID + "\n");
+
+                                // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
+                                Thread.Sleep(5);
+                            }
                         }
                     }
-                }
-
-
-                GridCommentsData.Invoke((MethodInvoker)delegate
-                {
-                foreach (KeyValuePair<string, cmts> item in myList)
-                {
-                    //dataGridView1.Rows.Add(item.Key, item.Value);
-                      GridCommentsData.Rows.Add(item.Key,item.Value.CommentContent, item.Value.Author, item.Value.Time);
-
                 }
 
 
