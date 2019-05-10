@@ -35,7 +35,7 @@ namespace MercuryBOT.GamesGather
             this.components.SetStyle(this);
             this.Activate();
             this.FormBorderStyle = FormBorderStyle.None;
-            Region = System.Drawing.Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
             foreach (var button in this.Controls.OfType<MetroFramework.Controls.MetroButton>())
             {
                 IntPtr ptr = Gdi32.CreateRoundRectRgn(1, 1, button.Width, button.Height, 5, 5);
@@ -124,7 +124,6 @@ namespace MercuryBOT.GamesGather
                         Bitmap bmp = new Bitmap(Resources.mercuryIMGNotFound);
                         imageList1.Images.Add(bmp);
                     }
-
                 }
                 progreeBar_GatherGames.Value += 1;
                 i++;
@@ -160,7 +159,6 @@ namespace MercuryBOT.GamesGather
                             return;
                         }
                     }
-
                     foreach (KeyValuePair<uint, string> entry in gamesDictionary)
                     {
                         if (GAMESLIST[iSELECTED] == entry.Key)
@@ -171,8 +169,7 @@ namespace MercuryBOT.GamesGather
                     }
                 }
             }
-            string output = JsonConvert.SerializeObject(list, Formatting.Indented);
-            File.WriteAllText(Program.AccountsJsonFile, output);
+            File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, Formatting.Indented));
             InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Game added!");
         }
 
@@ -180,16 +177,7 @@ namespace MercuryBOT.GamesGather
         {
             AddSelectedGame();
         }
-
-
-
-
-        private void btn_findGame_Click(object sender, EventArgs e)
-        {
-            
-        }
         
-
         private void Btn_selectAll_Click(object sender, EventArgs e)
         {
             var AccountsList = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
@@ -218,8 +206,7 @@ namespace MercuryBOT.GamesGather
                         }
                     }
                 }
-                string output = JsonConvert.SerializeObject(AccountsList, Formatting.Indented);
-                File.WriteAllText(Program.AccountsJsonFile, output); 
+                File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(AccountsList, Formatting.Indented)); 
             }
             InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Added/Updated all games!");
         }
@@ -266,5 +253,4 @@ namespace MercuryBOT.GamesGather
         }
     }
 }
-
-
+// 256 iq

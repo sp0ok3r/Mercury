@@ -220,12 +220,13 @@ namespace MercuryBOT.SteamGroups
 
         private void btn_gatherFromProfile_Click(object sender, EventArgs e)
         {
-            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/id/sp0okER/?xml=1", "GET");
+            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/id/sp0okER/?xml=1", "GET"); // CHANGE
             if (resp != String.Empty)
             {
                 string pattern = "(<groupID64>)(.*?)(</groupID64>)";
 
-                MatchCollection matches = Regex.Matches(resp, pattern);
+                Regex gids = new Regex(pattern, RegexOptions.Compiled);
+                MatchCollection matches = gids.Matches(resp);
 
                 foreach (Match match in matches)
                 {
@@ -240,15 +241,35 @@ namespace MercuryBOT.SteamGroups
 
         private void btn_joinAll_Click(object sender, EventArgs e)
         {
-            btn_joinAll.Enabled = false;
-            var lines = File.ReadLines(Program.ExecutablePath + @"\" + AccountLogin.CurrentSteamID + "-GroupsIDS.txt");
-            foreach (var line in lines)
+            if (!string.IsNullOrWhiteSpace(txtBox_groupidsFile.Text))
             {
-                AccountLogin.JoinGroup(line);
-                Thread.Sleep(5);
+                btn_joinAll.Enabled = false;
+                var lines = File.ReadLines(txtBox_groupidsFile.Text);
+                foreach (var line in lines)
+                {
+                    AccountLogin.JoinGroup(line);
+                    Thread.Sleep(5);
+                }
+                btn_joinAll.Enabled = true;
+                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Joined all groups in file!");
             }
-            btn_joinAll.Enabled = true;
-            InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Joined all groups in file!");
+            else
+            {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error","Please select the file location");
+            }
+        }
+
+        private void link_setfile_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    txtBox_groupidsFile.Text = fbd.SelectedPath;
+                }
+            }
         }
     }
 }

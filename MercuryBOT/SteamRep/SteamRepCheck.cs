@@ -22,7 +22,7 @@ namespace MercuryBOT.SteamRep
     public partial class SteamRepCheck : MetroFramework.Forms.MetroForm
     {
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-        
+
         public SteamRepCheck()
         {
             InitializeComponent();
@@ -35,53 +35,76 @@ namespace MercuryBOT.SteamRep
                 Gdi32.DeleteObject(ptr);
             }
         }
+        public string Between(string STR, string FirstString, string LastString)
+        {
+            string FinalString;
+            int Pos1 = STR.IndexOf(FirstString) + FirstString.Length;
+            int Pos2 = STR.IndexOf(LastString);
+            FinalString = STR.Substring(Pos1, Pos2 - Pos1);
+            return FinalString;
+        }
 
+        static bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
+        }
         private void btn_checkUser_Click(object sender, EventArgs e)
         {
             ProgressSpinner_SteamRepDelay.Visible = true;
 
-            if (string.IsNullOrEmpty(txt_repSteamID.Text) )//&& !txt_repSteamID.Text.StartsWith("765611")
+            if (string.IsNullOrEmpty(txt_repSteamID.Text))//&& !txt_repSteamID.Text.StartsWith("765611")
             {
                 Title_AlertScammer.Visible = false;
                 ProgressSpinner_SteamRepDelay.Visible = false;
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Insert a valid SteamID64 \n Like: 76561198041931474");
-                
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Insert a steam profile url / id32-64");
             }
             else
             {
-                var resp = new WebClient().DownloadString("https://steamcommunity.com/miniprofile/" + (Convert.ToUInt64(txt_repSteamID.Text) - 76561197960265728)); // 326iq
-                picBox_SteamAvatar.ImageLocation = Regex.Match(resp, "<img.+?src=[\"'](.+?)[\"'].*?>", RegexOptions.IgnoreCase).Groups[1].Value; // slow but 983iq
+                var finalID = Extensions.AllToSteamId64(txt_repSteamID.Text);
 
-                string SteamRepJsonGather = new WebClient().DownloadString("http://steamrep.com/api/beta4/reputation/" + txt_repSteamID.Text + "?json=1&extended=1");
-
-                var SteamRepJsonRead = SteamRepAPI.JsonSteamRep.FromJson(SteamRepJsonGather);
-
-                switch (SteamRepJsonRead.Steamrep.Reputation.Summary)
+                if (finalID != String.Empty)
                 {
-                    case "CAUTION":
-                        Title_AlertScammer.Visible = true;
-                        Title_AlertScammer.BackColor = Color.Yellow;
-                        Title_AlertScammer.Text = "CAUTION";
-                        break;
-                    case "SCAMMER":
-                        Title_AlertScammer.Visible = true;
-                        Title_AlertScammer.BackColor = Color.DarkRed;
-                        Title_AlertScammer.Text = "SCAMMER";
-                        break;
-                    default:
-                        Title_AlertScammer.Visible = true;
-                        Title_AlertScammer.BackColor = Color.DarkGreen;
-                        Title_AlertScammer.Text = "CLEAN";
-                        break;
-                }
-                lbl_checkUsername.Text = SteamRepJsonRead.Steamrep.Rawdisplayname;
-                lbl_steamid32.Text = SteamRepJsonRead.Steamrep.SteamId32;
-                lbl_steamID64.Text = SteamRepJsonRead.Steamrep.SteamId64;
+                    //var avatar = Regex.Match(RespSteamProfile, "<avatarIcon>(.*?)</avatarIcon>").Groups[0];
+                    using (WebClient a = new WebClient())
+                    {
+                        var resp = a.DownloadString("https://steamcommunity.com/miniprofile/" + (Convert.ToUInt64(finalID) - 76561197960265728)); // 326iq
+                        picBox_SteamAvatar.ImageLocation = Regex.Match(resp, "<img.+?src=[\"'](.+?)[\"'].*?>", RegexOptions.IgnoreCase | RegexOptions.Compiled).Groups[1].Value; // slow but 983iq
 
-                timer.Interval = 5000;
-                timer.Tick += AntiSpam_Tick;
-                timer.Start();
-                btn_checkUser.Enabled = false;
+                        string SteamRepJsonGather = a.DownloadString("http://steamrep.com/api/beta4/reputation/" + finalID + "?json=1&extended=1");
+
+                        var SteamRepJsonRead = SteamRepAPI.JsonSteamRep.FromJson(SteamRepJsonGather);
+
+                        Title_AlertScammer.Visible = true;
+                        switch (SteamRepJsonRead.Steamrep.Reputation.Summary)
+                        {
+                            case "CAUTION":
+                                Title_AlertScammer.BackColor = Color.Yellow;
+                                Title_AlertScammer.Text = "CAUTION";
+                                break;
+                            case "SCAMMER":
+                                Title_AlertScammer.BackColor = Color.DarkRed;
+                                Title_AlertScammer.Text = "SCAMMER";
+                                break;
+                            default:
+                                Title_AlertScammer.BackColor = Color.DarkGreen;
+                                Title_AlertScammer.Text = "CLEAN";
+                                break;
+                        }
+                        lbl_checkUsername.Text = SteamRepJsonRead.Steamrep.Rawdisplayname;
+                        lbl_steamid32.Text     = SteamRepJsonRead.Steamrep.SteamId32;
+                        lbl_steamID64.Text     = finalID;
+                    }
+                    timer.Interval = 5000;
+                    timer.Tick += AntiSpam_Tick;
+                    timer.Start();
+                    btn_checkUser.Enabled = false;
+                }
             }
         }
 

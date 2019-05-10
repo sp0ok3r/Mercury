@@ -93,10 +93,10 @@
             this.txt_repSteamID.CustomButton.Visible = false;
             this.txt_repSteamID.Lines = new string[0];
             this.txt_repSteamID.Location = new System.Drawing.Point(80, 79);
-            this.txt_repSteamID.MaxLength = 17;
+            this.txt_repSteamID.MaxLength = 54;
             this.txt_repSteamID.Name = "txt_repSteamID";
             this.txt_repSteamID.PasswordChar = '\0';
-            this.txt_repSteamID.PromptText = "STEAMID64";
+            this.txt_repSteamID.PromptText = "steamURL/id32-64";
             this.txt_repSteamID.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_repSteamID.SelectedText = "";
             this.txt_repSteamID.SelectionLength = 0;
@@ -107,7 +107,7 @@
             this.txt_repSteamID.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txt_repSteamID.UseSelectable = true;
             this.txt_repSteamID.UseStyleColors = true;
-            this.txt_repSteamID.WaterMark = "STEAMID64";
+            this.txt_repSteamID.WaterMark = "steamURL/id32-64";
             this.txt_repSteamID.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_repSteamID.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
@@ -115,7 +115,7 @@
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.Enabled = false;
-            this.metroLabel3.Location = new System.Drawing.Point(27, 79);
+            this.metroLabel3.Location = new System.Drawing.Point(29, 81);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(50, 19);
             this.metroLabel3.TabIndex = 46;
@@ -226,10 +226,10 @@
             // ProgressSpinner_SteamRepDelay
             // 
             this.ProgressSpinner_SteamRepDelay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.ProgressSpinner_SteamRepDelay.Location = new System.Drawing.Point(184, 243);
+            this.ProgressSpinner_SteamRepDelay.Location = new System.Drawing.Point(184, 247);
             this.ProgressSpinner_SteamRepDelay.Maximum = 100;
             this.ProgressSpinner_SteamRepDelay.Name = "ProgressSpinner_SteamRepDelay";
-            this.ProgressSpinner_SteamRepDelay.Size = new System.Drawing.Size(69, 40);
+            this.ProgressSpinner_SteamRepDelay.Size = new System.Drawing.Size(69, 31);
             this.ProgressSpinner_SteamRepDelay.TabIndex = 90;
             this.ProgressSpinner_SteamRepDelay.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToolTip1.SetToolTip(this.ProgressSpinner_SteamRepDelay, "SPAM = IP BAN");

@@ -62,16 +62,16 @@ namespace MercuryBOT
                 }
             }
 
-            var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+            var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
 
 
-            if (Settingslist.startupAcc == selectedSteamID && Settingslist.startupAcc.ToString().Length > 0)
+            if (SettingsList.startupAcc == selectedSteamID && SettingsList.startupAcc.ToString().Length > 0)
             {
                 toggle_autoLogin.Enabled = true;
                 toggle_autoLogin.Checked = true;
 
             }
-            if (Settingslist.startupAcc != 0 && Settingslist.startupAcc != selectedSteamID)
+            if (SettingsList.startupAcc != 0 && SettingsList.startupAcc != selectedSteamID)
             {
                 toggle_autoLogin.Enabled = false;
             }
@@ -111,14 +111,14 @@ namespace MercuryBOT
             }
             File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, Formatting.Indented));
 
-            var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+            var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
             
             if (!toggle_autoLogin.Checked){
-                Settingslist.startupAcc = 0;
+                SettingsList.startupAcc = 0;
             }else{
-                Settingslist.startupAcc = selectedSteamID;
+                SettingsList.startupAcc = selectedSteamID;
             }
-            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, Formatting.Indented));
+            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, Formatting.Indented));
             Close();
         }
 

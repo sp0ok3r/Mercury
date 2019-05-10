@@ -55,8 +55,7 @@ namespace MercuryBOT.SteamProfileBackground
         }
 
         public void GETimage()
-        {
-            
+        { 
             try
             {
                 BTN_GETBackground.Enabled = false;
@@ -75,6 +74,7 @@ namespace MercuryBOT.SteamProfileBackground
 
                     picBox_steamBackground.ImageLocation = m.Value;
                     string result = Regex.Replace(m.Value, @"[^\d]", ""); //125iq
+          
                     lbl_clickonimginfo.Visible = true;
                     picBox_steamBackground.Cursor = Cursors.Hand;
 
@@ -100,14 +100,16 @@ namespace MercuryBOT.SteamProfileBackground
 
         private void PicBox_steamBackground_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(AppID))
+            string steamMarket = "https://steamcommunity.com/market/search?appid=753&category_753_Game%5B%5D=tag_app_{0}&q=background";
+
+            if (!string.IsNullOrEmpty(AppID) && Program.CurrentProcesses.FirstOrDefault(x => x.ProcessName == "Steam") != null)
             {
-                Process.Start("https://steamcommunity.com/market/search?appid=753&category_753_Game%5B%5D=tag_app_" + AppID + "&q=background");
-                //Process.Start("steam://openurl/https://steamcommunity.com/market/search?appid=753&category_753_Game%5B%5D=tag_app_" + result + "&q=background"); 
+                Process.Start("steam://openurl/"+string.Format(steamMarket, AppID));
+            }
+            else
+            {
+                Process.Start(string.Format(steamMarket, AppID));
             }
         }  
     }
 }
-
-
-

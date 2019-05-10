@@ -31,5 +31,3 @@ namespace MercuryBOT.InfoForm
         }
     }
 }
-
-

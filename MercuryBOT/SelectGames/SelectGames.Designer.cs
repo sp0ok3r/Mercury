@@ -40,7 +40,7 @@
             this.lbl_totalfoldersize = new MetroFramework.Controls.MetroLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
-            this.metroLink_GamesIMGPath = new MetroFramework.Controls.MetroLink();
+            this.link_GamesIMGPath = new MetroFramework.Controls.MetroLink();
             this.SuspendLayout();
             // 
             // txtBox_Game2Find
@@ -165,7 +165,7 @@
             // 
             this.lbl_totalfoldersize.AutoSize = true;
             this.lbl_totalfoldersize.ForeColor = System.Drawing.Color.White;
-            this.lbl_totalfoldersize.Location = new System.Drawing.Point(20, 64);
+            this.lbl_totalfoldersize.Location = new System.Drawing.Point(20, 56);
             this.lbl_totalfoldersize.Name = "lbl_totalfoldersize";
             this.lbl_totalfoldersize.Size = new System.Drawing.Size(108, 19);
             this.lbl_totalfoldersize.TabIndex = 15;
@@ -189,24 +189,24 @@
             this.MongoToolTip.UseAnimation = false;
             this.MongoToolTip.UseFading = false;
             // 
-            // metroLink_GamesIMGPath
+            // link_GamesIMGPath
             // 
-            this.metroLink_GamesIMGPath.Location = new System.Drawing.Point(832, 388);
-            this.metroLink_GamesIMGPath.Name = "metroLink_GamesIMGPath";
-            this.metroLink_GamesIMGPath.Size = new System.Drawing.Size(29, 28);
-            this.metroLink_GamesIMGPath.TabIndex = 26;
-            this.metroLink_GamesIMGPath.Text = "📁";
-            this.metroLink_GamesIMGPath.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLink_GamesIMGPath.UseCustomBackColor = true;
-            this.metroLink_GamesIMGPath.UseSelectable = true;
-            this.metroLink_GamesIMGPath.Click += new System.EventHandler(this.metroLink_GamesIMGPath_Click);
+            this.link_GamesIMGPath.Location = new System.Drawing.Point(832, 388);
+            this.link_GamesIMGPath.Name = "link_GamesIMGPath";
+            this.link_GamesIMGPath.Size = new System.Drawing.Size(29, 28);
+            this.link_GamesIMGPath.TabIndex = 26;
+            this.link_GamesIMGPath.Text = "📁";
+            this.link_GamesIMGPath.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.link_GamesIMGPath.UseCustomBackColor = true;
+            this.link_GamesIMGPath.UseSelectable = true;
+            this.link_GamesIMGPath.Click += new System.EventHandler(this.metroLink_GamesIMGPath_Click);
             // 
             // SelectGames
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 419);
-            this.Controls.Add(this.metroLink_GamesIMGPath);
+            this.Controls.Add(this.link_GamesIMGPath);
             this.Controls.Add(this.progreeBar_GatherGames);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.list_main_game);
@@ -242,6 +242,6 @@
         private MetroFramework.Controls.MetroLabel lbl_totalfoldersize;
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Components.MetroToolTip MongoToolTip;
-        private MetroFramework.Controls.MetroLink metroLink_GamesIMGPath;
+        private MetroFramework.Controls.MetroLink link_GamesIMGPath;
     }
 }

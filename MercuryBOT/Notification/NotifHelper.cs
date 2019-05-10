@@ -23,6 +23,3 @@ namespace MercuryBOT.Notification
         }
     }
 }
-
-       
-

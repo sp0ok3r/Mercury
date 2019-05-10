@@ -40,6 +40,10 @@
             this.chck_containsWords = new MetroFramework.Controls.MetroCheckBox();
             this.txtBox_filterWords = new MetroFramework.Controls.MetroTextBox();
             this.GridCommentsData = new MetroFramework.Controls.MetroGrid();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_totalCommentsInGrid = new MetroFramework.Controls.MetroLabel();
@@ -52,10 +56,7 @@
             this.CollectComments = new System.ComponentModel.BackgroundWorker();
             this.CommentsList_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
             this.combox_ProfileURLorGroupID = new MetroFramework.Controls.MetroComboBox();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbl_cDeletedLive = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.GridCommentsData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -249,6 +250,34 @@
             this.GridCommentsData.UseCustomForeColor = true;
             this.GridCommentsData.UseStyleColors = true;
             // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "COMMENT ID";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Width = 130;
+            // 
+            // content
+            // 
+            this.content.HeaderText = "CONTENT";
+            this.content.Name = "content";
+            this.content.ReadOnly = true;
+            this.content.Width = 625;
+            // 
+            // autor
+            // 
+            this.autor.HeaderText = "AUTHOR";
+            this.autor.Name = "autor";
+            this.autor.ReadOnly = true;
+            this.autor.Width = 130;
+            // 
+            // time
+            // 
+            this.time.HeaderText = "TIME";
+            this.time.Name = "time";
+            this.time.ReadOnly = true;
+            this.time.Width = 130;
+            // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
@@ -422,39 +451,23 @@
             this.combox_ProfileURLorGroupID.UseStyleColors = true;
             this.combox_ProfileURLorGroupID.SelectedIndexChanged += new System.EventHandler(this.combox_ProfileURLorGroupID_SelectedIndexChanged);
             // 
-            // ColumnID
+            // lbl_cDeletedLive
             // 
-            this.ColumnID.HeaderText = "COMMENT ID";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.Width = 130;
-            // 
-            // content
-            // 
-            this.content.HeaderText = "CONTENT";
-            this.content.Name = "content";
-            this.content.ReadOnly = true;
-            this.content.Width = 625;
-            // 
-            // autor
-            // 
-            this.autor.HeaderText = "AUTHOR";
-            this.autor.Name = "autor";
-            this.autor.ReadOnly = true;
-            this.autor.Width = 130;
-            // 
-            // time
-            // 
-            this.time.HeaderText = "TIME";
-            this.time.Name = "time";
-            this.time.ReadOnly = true;
-            this.time.Width = 130;
+            this.lbl_cDeletedLive.AutoSize = true;
+            this.lbl_cDeletedLive.Location = new System.Drawing.Point(362, 31);
+            this.lbl_cDeletedLive.Name = "lbl_cDeletedLive";
+            this.lbl_cDeletedLive.Size = new System.Drawing.Size(57, 19);
+            this.lbl_cDeletedLive.TabIndex = 26;
+            this.lbl_cDeletedLive.Text = "Deleted:";
+            this.lbl_cDeletedLive.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lbl_cDeletedLive.UseStyleColors = true;
             // 
             // CommentsGather
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 681);
+            this.Controls.Add(this.lbl_cDeletedLive);
             this.Controls.Add(this.metroCheckBox1);
             this.Controls.Add(this.combox_ProfileURLorGroupID);
             this.Controls.Add(this.chck_ignoreCase);
@@ -515,5 +528,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn content;
         private System.Windows.Forms.DataGridViewTextBoxColumn autor;
         private System.Windows.Forms.DataGridViewTextBoxColumn time;
+        private MetroFramework.Controls.MetroLabel lbl_cDeletedLive;
     }
 }

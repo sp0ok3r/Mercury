@@ -73,7 +73,7 @@ namespace MercuryBOT
         {
             return Regex.Replace(str, "[^a-zA-Z0-9_.]+", " ", RegexOptions.Compiled);
         }
-
+       
         public void GatherComments()
         {
 
@@ -135,42 +135,74 @@ namespace MercuryBOT
                     var Time            = eComment.QuerySelector("span.commentthread_comment_timestamp").GetAttribute("title").Replace("https://steamcommunity.com/profiles/", ""); // title=convertido
                     int index           = Time.IndexOf("@"); if (index > 0) { Time = Time.Substring(0, index); } // remove hours, only stay date
 
-                    string[] row        = { CommentID, CommentContent, Author, Time };
+                  //  string[] row        = { CommentID, CommentContent, Author, Time };
 
-                    GridCommentsData.Invoke((MethodInvoker)delegate
-                    {
-                        GridCommentsData.Rows.Add(row.Distinct().ToArray());
-                    });
+                    //GridCommentsData.Invoke((MethodInvoker)delegate
+                    //{
+                    //    GridCommentsData.Rows.Add(row.Distinct().ToArray());
+                    //});
 
 
                     string[] arrayComments = CommentContent.Split(' ');
 
                     //bool result = Author.Any(x => !char.IsLetter(x));
 
-
+                    int DELETEDcount = 0;
                     if (chck_containsWords.Checked && txtBox_filterWords.Text.Length != 0)
                     {
+                        string[] filterSelectedWords = txtBox_filterWords.Text.Split(',');
+
+
                         foreach (string item in arrayComments)
                         {
-                            string[] filterSelectedWords = txtBox_filterWords.Text.Split(',');
-
-                            if (chck_ignoreCase.Checked && filterSelectedWords.Contains(item, StringComparison.OrdinalIgnoreCase))
+                            var results = item.Contains(filterSelectedWords[0]); // test
+                                //filterSelectedWords.Contains(item, StringComparison.OrdinalIgnoreCase)
+                            if (chck_ignoreCase.Checked && results)
                             {
-                                Console.WriteLine("AnyCase - DELETED: " + CommentID + " ||  " + CommentContent + "\n");
+                                DELETEDcount++;
+                                Console.WriteLine("AnyCase - DELETED: " + CommentID + " |  " + CommentContent + "\n");
                                 // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
+
+                                lbl_cDeletedLive.Invoke((MethodInvoker)delegate
+                                {
+                                    lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
+                                });
+                                string[] row = { CommentID, CommentContent, Author, Time };
+
+                                GridCommentsData.Invoke((MethodInvoker)delegate
+                                {
+                                    GridCommentsData.Rows.Add(row.Distinct().ToArray());
+                                });
+
 
 
                                 Thread.Sleep(5);
                             }
-                            else if (filterSelectedWords.Contains(item))
+
+                            if (filterSelectedWords.Contains(item) && !chck_ignoreCase.Checked)
                             {
+                                DELETEDcount++;
                                 Console.WriteLine("DELETED: " + CommentID + "\n");
 
+                                lbl_cDeletedLive.Invoke((MethodInvoker)delegate
+                                {
+                                    lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
+                                });
+
+                                string[] row = { CommentID, CommentContent, Author, Time };
+
+                                GridCommentsData.Invoke((MethodInvoker)delegate
+                                {
+                                    GridCommentsData.Rows.Add(row.Distinct().ToArray());
+                                });
+
+                                lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
                                 // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
                                 Thread.Sleep(5);
                             }
                         }
                     }
+                   
                 }
 
                 lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
