@@ -436,11 +436,40 @@
             this.combox_ProfileURLorGroupID.UseStyleColors = true;
             this.combox_ProfileURLorGroupID.SelectedIndexChanged += new System.EventHandler(this.combox_ProfileURLorGroupID_SelectedIndexChanged);
             // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "COMMENT ID";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Width = 130;
+            // 
+            // content
+            // 
+            this.content.HeaderText = "CONTENT";
+            this.content.Name = "content";
+            this.content.ReadOnly = true;
+            this.content.Width = 625;
+            // 
+            // autor
+            // 
+            this.autor.HeaderText = "AUTHOR";
+            this.autor.Name = "autor";
+            this.autor.ReadOnly = true;
+            this.autor.Width = 130;
+            // 
+            // time
+            // 
+            this.time.HeaderText = "TIME";
+            this.time.Name = "time";
+            this.time.ReadOnly = true;
+            this.time.Width = 130;
+            // 
             // CommentsGather
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1012, 681);
+            this.Controls.Add(this.lbl_cDeletedLive);
             this.Controls.Add(this.metroCheckBox1);
             this.Controls.Add(this.combox_ProfileURLorGroupID);
             this.Controls.Add(this.CommentsList_ScrollBar);
@@ -499,5 +528,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn content;
         private System.Windows.Forms.DataGridViewTextBoxColumn autor;
         private System.Windows.Forms.DataGridViewTextBoxColumn time;
+        private MetroFramework.Controls.MetroLabel lbl_cDeletedLive;
     }
 }

@@ -150,8 +150,12 @@ namespace MercuryBOT
                     var Time            = eComment.QuerySelector("span.commentthread_comment_timestamp").GetAttribute("title").Replace("https://steamcommunity.com/profiles/", ""); // title=convertido
                     int index           = Time.IndexOf("@"); if (index > 0) { Time = Time.Substring(0, index); } // remove hours, only stay date
 
-                    string[] row        = { CommentID, CommentContent, Author, Time };
+                  //  string[] row        = { CommentID, CommentContent, Author, Time };
 
+                    GridCommentsData.Invoke((MethodInvoker)delegate
+                    {
+                        GridCommentsData.Rows.Add(row.Distinct().ToArray());
+                    });
 
                     //GridCommentsData.Invoke((MethodInvoker)delegate
                     //{
@@ -183,23 +187,40 @@ namespace MercuryBOT
                                 });
                                 string[] row = { CommentID, CommentContent, Author, Time };
 
-                            if (chck_ignoreCase.Checked && filterSelectedWords.Contains(item, StringComparison.OrdinalIgnoreCase))
-                            {
-                                Console.WriteLine("AnyCase - DELETED: " + CommentID + " ||  " + CommentContent + "\n");
-                                // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
+                                GridCommentsData.Invoke((MethodInvoker)delegate
+                                {
+                                    GridCommentsData.Rows.Add(row.Distinct().ToArray());
+                                });
+
 
 
                                 Thread.Sleep(5);
                             }
-                            else if (filterSelectedWords.Contains(item))
+
+                            if (filterSelectedWords.Contains(item) && !chck_ignoreCase.Checked)
                             {
+                                DELETEDcount++;
                                 Console.WriteLine("DELETED: " + CommentID + "\n");
 
+                                lbl_cDeletedLive.Invoke((MethodInvoker)delegate
+                                {
+                                    lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
+                                });
+
+                                string[] row = { CommentID, CommentContent, Author, Time };
+
+                                GridCommentsData.Invoke((MethodInvoker)delegate
+                                {
+                                    GridCommentsData.Rows.Add(row.Distinct().ToArray());
+                                });
+
+                                lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
                                 // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
                                 Thread.Sleep(5);
                             }
                         }
                     }
+                   
                 }
 
 

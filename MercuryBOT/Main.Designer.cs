@@ -2126,10 +2126,10 @@
             this.metroLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.metroLabel11.Location = new System.Drawing.Point(88, 80);
             this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(90, 19);
+            this.metroLabel11.Size = new System.Drawing.Size(87, 19);
             this.metroLabel11.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroLabel11.TabIndex = 18;
-            this.metroLabel11.Text = "Theme Color:";
+            this.metroLabel11.Text = "Theme color:";
             this.metroLabel11.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel11.UseCustomBackColor = true;
             this.metroLabel11.UseCustomForeColor = true;

@@ -121,7 +121,7 @@ namespace MercuryBOT.Splash
         [Obsolete]
         private void SplashScreen_Load(object sender, EventArgs e)
         {
-            this.Activate(); // bring form to fronte eyes
+            this.Activate();
             lbl_version.Text = Program.Version.Replace("-", "");
         }
         Timer tmr;
@@ -137,7 +137,7 @@ namespace MercuryBOT.Splash
             }
             catch (DirectoryNotFoundException)
             {
-                Console.WriteLine("Directory not found, but starting anyway...");
+                Console.WriteLine("["+Program.BOTNAME+"] - Directory not found, but starting anyway...");
             }
 
             tmr = new Timer();

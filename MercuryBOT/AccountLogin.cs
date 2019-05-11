@@ -690,7 +690,10 @@ namespace MercuryBOT
             if (ChatLogger == true && callback.EntryType == EChatEntryType.ChatMsg)
             {
                 ulong FriendID = callback.Sender;
-                string Message = callback.Message; Message = Regex.Replace(Message, @"\t|\n|\r", ""); //741iq
+                string Message = callback.Message;
+
+                //Message = Regex.Replace(Message, @"\t|\n|\r", ""); //741iq
+                Message.Replace(System.Environment.NewLine,"");
 
                 string Separator = "───────────────────";
 
@@ -848,7 +851,10 @@ namespace MercuryBOT
             if (ChatLogger == true && callback.EntryType == EChatEntryType.ChatMsg)
             {
                 ulong FriendID = callback.Recipient;
-                string Message = callback.Message; Message = Regex.Replace(Message, @"\t|\n|\r", "");
+                string Message = callback.Message;
+
+                //Message = Regex.Replace(Message, @"\t|\n|\r", ""); TEST
+                Message.Replace(System.Environment.NewLine,"");
 
                 string Separator = "───────────────────";
 

@@ -17,10 +17,9 @@ using MercuryBOT.User2Json;
 using MercuryBOT.UserSettings;
 using MetroFramework.Controls;
 using Newtonsoft.Json;
-using Steam4NET;
+//using Steam4NET;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -29,7 +28,6 @@ using System.IO;
 using System.Linq;
 using System.Media;
 using System.Net;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -97,15 +95,15 @@ namespace MercuryBOT
                     else
                     {
                         this.Enabled = true;
-                        var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+                        var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
 
-                        if (Settingslist.startupAcc != 0)
+                        if (SettingsList.startupAcc != 0)
                         {
                             var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
 
                             foreach (var a in list.Accounts)
                             {
-                                if (a.SteamID == Settingslist.startupAcc)
+                                if (a.SteamID == SettingsList.startupAcc)
                                 {
                                     usernameJSON = a.username;
                                     passwordJSON = a.password;
@@ -135,7 +133,7 @@ namespace MercuryBOT
             RafadexAutoUpdate600IQ();
             M_NotifyIcon = this.Mercury_notifyIcon;
 
-           
+
         }
 
         [Obsolete]
@@ -163,7 +161,7 @@ namespace MercuryBOT
             btn_logout.Visible = false;
 
             Trolha.Tick += Trolha_Tick;
-            
+
             var age = 2019 - DateTime.Today.Year; // Calculate the mercury age. 2019-03-28 💔
             if (age < 0)
             {
@@ -174,14 +172,14 @@ namespace MercuryBOT
         
         public void Main_Load(object sender, EventArgs e)
         {
-            
+
             lbl_infoversion.Text = "v" + Program.Version.Replace("-", "");
-           
 
-            var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
-            combox_Colors.SelectedIndex = Settingslist.startupColor;
 
-            if (Settingslist.hideInTaskBar)
+            var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+            combox_Colors.SelectedIndex = SettingsList.startupColor;
+
+            if (SettingsList.hideInTaskBar)
             {
                 toggle_hideInTask.Checked = true;
                 this.ShowInTaskbar = false;
@@ -191,10 +189,10 @@ namespace MercuryBOT
                 this.ShowInTaskbar = true;
                 toggle_hideInTask.Checked = false;
             }
-            
-            toggle_startWindows.Checked = Settingslist.startup;
 
-            if (Settingslist.startMinimized)
+            toggle_startWindows.Checked = SettingsList.startup;
+
+            if (SettingsList.startMinimized)
             {
                 chck_Minimized.Checked = true;
                 this.WindowState = FormWindowState.Minimized;
@@ -205,13 +203,15 @@ namespace MercuryBOT
                 this.WindowState = FormWindowState.Normal;
             }
 
-            if (Settingslist.playsound)
+            if (SettingsList.playsound)
             {
                 toggle_playSound.Checked = true;
                 Stream str = Properties.Resources.mercury_success;
                 SoundPlayer snd = new SoundPlayer(str);
                 snd.Play();
-            } else {
+            }
+            else
+            {
                 toggle_playSound.Checked = false;
             }
 
@@ -220,10 +220,10 @@ namespace MercuryBOT
                 combox_defaultTab.Items.Add(item.Text.TrimEnd());
             }
 
-            if (Settingslist.startupTab != -1)
+            if (SettingsList.startupTab != -1)
             {
-                combox_defaultTab.SelectedIndex = Settingslist.startupTab;
-                MercuryTabControl.SelectedIndex = Settingslist.startupTab;
+                combox_defaultTab.SelectedIndex = SettingsList.startupTab;
+                MercuryTabControl.SelectedIndex = SettingsList.startupTab;
             }
             else
             {
@@ -440,56 +440,56 @@ namespace MercuryBOT
         {
             if (chck_steam4net.Checked)
             {
-                int quantasPrincesas = 0;
-                Steamworks.Load(true);
-                ISteamClient006 steamClient006 = Steamworks.CreateInterface<ISteamClient006>();
-                int steamPipe = steamClient006.CreateSteamPipe();
-                int globalUser = steamClient006.ConnectToGlobalUser(steamPipe);
-                if (steamPipe == 0 || globalUser == 0)
-                {
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please logon in the steam desktop client! NOT ON THE BOT!! (you can still log)");
-                    return;
-                }
-                else
-                {
-                    ISteamUser004 isteamUser = steamClient006.GetISteamUser<ISteamUser004>(globalUser, steamPipe);
-                    ISteamFriends003 isteamFriends1 = steamClient006.GetISteamFriends<ISteamFriends003>(globalUser, steamPipe);
-                    ISteamFriends002 isteamFriends2 = steamClient006.GetISteamFriends<ISteamFriends002>(globalUser, steamPipe);
-                    int friendCount = isteamFriends1.GetFriendCount(Steam4NET.EFriendFlags.k_EFriendFlagImmediate);
+                //int quantasPrincesas = 0;
+                //Steamworks.Load(true);
+                //ISteamClient006 steamClient006 = Steamworks.CreateInterface<ISteamClient006>();
+                //int steamPipe = steamClient006.CreateSteamPipe();
+                //int globalUser = steamClient006.ConnectToGlobalUser(steamPipe);
+                //if (steamPipe == 0 || globalUser == 0)
+                //{
+                //    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please logon in the steam desktop client! NOT ON THE BOT!! (you can still log)");
+                //    return;
+                //}
+                //else
+                //{
+                //    ISteamUser004 isteamUser = steamClient006.GetISteamUser<ISteamUser004>(globalUser, steamPipe);
+                //    ISteamFriends003 isteamFriends1 = steamClient006.GetISteamFriends<ISteamFriends003>(globalUser, steamPipe);
+                //    ISteamFriends002 isteamFriends2 = steamClient006.GetISteamFriends<ISteamFriends002>(globalUser, steamPipe);
+                //    int friendCount = isteamFriends1.GetFriendCount(Steam4NET.EFriendFlags.k_EFriendFlagImmediate);
 
-                    if (friendCount == -1)
-                    {
-                        InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please login into steam desktop client");
-                        return;
-                    }
-                    btn_sendMsg2Friends.Enabled = false;
-                    for (int iFriend = 0; iFriend < friendCount; iFriend++)
-                    {
-                        CSteamID friendByIndex = isteamFriends1.GetFriendByIndex(iFriend, Steam4NET.EFriendFlags.k_EFriendFlagImmediate);
+                //    if (friendCount == -1)
+                //    {
+                //        InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please login into steam desktop client");
+                //        return;
+                //    }
+                //    btn_sendMsg2Friends.Enabled = false;
+                //    for (int iFriend = 0; iFriend < friendCount; iFriend++)
+                //    {
+                //        CSteamID friendByIndex = isteamFriends1.GetFriendByIndex(iFriend, Steam4NET.EFriendFlags.k_EFriendFlagImmediate);
 
-                        if (chck_Send2Receipts.Checked)
-                        {
-                            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
-                            {
-                                if (a.username == AccountLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(friendByIndex.ConvertToUint64().ToString())))
-                                {
-                                    quantasPrincesas++;
-                                    isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
-                                    Thread.Sleep(100);// my nigger needs some OXYGEN 😌
-                                }
-                            }
-                        }
-                        else
-                        {
-                            quantasPrincesas++;
-                            isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
-                            Thread.Sleep(100);// my nigger needs some OXYGEN 😌
-                        }
+                //        if (chck_Send2Receipts.Checked)
+                //        {
+                //            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+                //            {
+                //                if (a.username == AccountLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(friendByIndex.ConvertToUint64().ToString())))
+                //                {
+                //                    quantasPrincesas++;
+                //                    isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
+                //                    Thread.Sleep(100);// my nigger needs some OXYGEN 😌
+                //                }
+                //            }
+                //        }
+                //        else
+                //        {
+                //            quantasPrincesas++;
+                //            isteamFriends2.SendMsgToFriend(friendByIndex, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text));
+                //            Thread.Sleep(100);// my nigger needs some OXYGEN 😌
+                //        }
 
-                    }
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Sent message to " + quantasPrincesas + " friends!");
-                    btn_sendMsg2Friends.Enabled = true;
-                }
+                //    }
+                //   InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Sent message to " + quantasPrincesas + " friends!");
+                //   btn_sendMsg2Friends.Enabled = true;
+                //   }
             }
             else
             {
@@ -753,9 +753,7 @@ namespace MercuryBOT
         #endregion
         private void doLogin(string username)
         {
-            var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-
-            foreach (var a in list.Accounts)
+            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
             {
                 if (a.username == username)
                 {
@@ -806,13 +804,13 @@ namespace MercuryBOT
         public void LoadGamesFromJSON()
         {
             GamesList_Grid.Rows.Clear();
-            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+            foreach (var Read in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
             {
-                if (a.username == AccountLogin.CurrentUsername)
+                if (Read.username == AccountLogin.CurrentUsername)
                 {
-                    for (int i = 0; i < a.Games.Count; i++)
+                    for (int i = 0; i < Read.Games.Count; i++)
                     {
-                        string[] row = { a.Games[i].name, (a.Games[i].app_id).ToString() };
+                        string[] row = { Read.Games[i].name, (Read.Games[i].app_id).ToString() };
 
                         GamesList_Grid.Rows.Add(row);
                     }
@@ -1075,13 +1073,14 @@ namespace MercuryBOT
 
         private void pictureBox_Steam_Click(object sender, EventArgs e)
         {
+            string MercuryGroup = "https://steamcommunity.com/groups/MercuryBOT";
             if (Program.CurrentProcesses.FirstOrDefault(x => x.ProcessName == "Steam") != null)
             {
-                Process.Start("steam://openurl/https://steamcommunity.com/groups/MercuryBOT");
+                Process.Start("steam://openurl/" + MercuryGroup);
             }
             else
             {
-                Process.Start("https://steamcommunity.com/groups/MercuryBOT");
+                Process.Start(MercuryGroup);
             }
         }
         #endregion
@@ -1179,69 +1178,68 @@ namespace MercuryBOT
 
         private void toggle_startWindows_CheckedChanged(object sender, EventArgs e)
         {
-            var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+            var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
 
             if (toggle_startWindows.Checked)
             {
-                Settingslist.startup = true;
+                SettingsList.startup = true;
 
                 Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
                 key.SetValue("MercuryBOT", Program.ExecutablePath + @"\MercuryBOT.exe");
             }
             else
             {
-                Settingslist.startup = false;
+                SettingsList.startup = false;
 
                 Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
                 key.DeleteValue("MercuryBOT", false);
             }
-            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, Formatting.Indented));
+            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, Formatting.Indented));
         }
 
         private void chck_Minimized_CheckedChanged(object sender, EventArgs e)
         {
-            var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+            var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
 
             if (chck_Minimized.Checked)
             {
-                Settingslist.startMinimized = true;
+                SettingsList.startMinimized = true;
             }
             else
             {
-                Settingslist.startMinimized = false;
+                SettingsList.startMinimized = false;
             }
-            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, Formatting.Indented));
+            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, Formatting.Indented));
         }
 
         private void toggle_hideInTask_CheckedChanged(object sender, EventArgs e)
         {
-            var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+            var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
             if (toggle_hideInTask.Checked)
             {
-                Settingslist.hideInTaskBar = true;
+                SettingsList.hideInTaskBar = true;
                 this.ShowInTaskbar = false;
-
             }
             else
             {
-                Settingslist.hideInTaskBar = false;
+                SettingsList.hideInTaskBar = false;
                 this.ShowInTaskbar = true;
             }
-            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, Formatting.Indented));
+            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, Formatting.Indented));
         }
 
         private void toggle_playSound_CheckedChanged(object sender, EventArgs e)
         {
-            var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+            var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
             if (toggle_playSound.Checked)
             {
-                Settingslist.playsound = true;
+                SettingsList.playsound = true;
             }
             else
             {
-                Settingslist.playsound = false;
+                SettingsList.playsound = false;
             }
-            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, Formatting.Indented));
+            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, Formatting.Indented));
         }
 
         private void AccountsList_Grid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1308,29 +1306,7 @@ namespace MercuryBOT
         private void GamesList_Grid_MouseHover(object sender, EventArgs e)
         {
             //Saved by V.7: https://stackoverflow.com/a/53809925
-            MongoTip.Show("Press DELETE to delete game SELECTED!\nPress END to delete various!", this, (Control.MousePosition.X - this.Location.X - 8), (Control.MousePosition.Y - this.Location.Y - 30), 1000);
-        }
-
-        public static bool CompareBitmapsLazy(Bitmap bmp1, Bitmap bmp2)
-        {
-            if (bmp1 == null || bmp2 == null)
-                return false;
-            if (object.Equals(bmp1, bmp2))
-                return true;
-            if (!bmp1.Size.Equals(bmp2.Size) || !bmp1.PixelFormat.Equals(bmp2.PixelFormat))
-                return false;
-
-            //Compare bitmaps using GetPixel method
-            for (int column = 0; column < bmp1.Width; column++)
-            {
-                for (int row = 0; row < bmp1.Height; row++)
-                {
-                    if (!bmp1.GetPixel(column, row).Equals(bmp2.GetPixel(column, row)))
-                        return false;
-                }
-            }
-
-            return true;
+            MongoTip.Show("Press DELETE to delete game SELECTED!\nPress END to delete various!", this, (Control.MousePosition.X - this.Location.X - 8), (Control.MousePosition.Y - this.Location.Y - 30), 500);
         }
 
         private void CurrentUserSafeUpdater()
@@ -1382,7 +1358,6 @@ namespace MercuryBOT
             else
             {
                 lbl_infoLogin.Text = "Not logged...";
-
 
                 btn_logout.Visible = false;
                 Panel_UserInfo.Visible = false;
@@ -1542,11 +1517,11 @@ namespace MercuryBOT
 
         private void combox_Colors_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+            var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
 
-            Settingslist.startupColor = combox_Colors.SelectedIndex;
+            SettingsList.startupColor = combox_Colors.SelectedIndex;
 
-            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, new JsonSerializerSettings { Formatting = Formatting.Indented }));
+            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, new JsonSerializerSettings { Formatting = Formatting.Indented }));
 
             this.components.SetStyle(this);
             this.Refresh();
@@ -1576,18 +1551,18 @@ namespace MercuryBOT
 
         private void combox_defaultTab_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+            var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
 
-            Settingslist.startupTab = combox_defaultTab.SelectedIndex;
+            SettingsList.startupTab = combox_defaultTab.SelectedIndex;
 
-            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(Settingslist, new JsonSerializerSettings { Formatting = Formatting.Indented }));
+            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, new JsonSerializerSettings { Formatting = Formatting.Indented }));
         }
 
         private void btn_addCDKey_Click(object sender, EventArgs e)
         {
             // XXXXX-XXXXX-XXXXX-XXXXX-XXXXX thanks to https://regexr.com/3b63e
             Match match = new Regex(@"((?![^0-9]{12,}|[^A-z]{12,})([A-z0-9]{4,5}-?[A-z0-9]{4,5}-?[A-z0-9]{4,5}(-?[A-z0-9]{4,5}(-?[A-z0-9]{4,5})?)?))").Match(txtBox_redeemKey.Text);
-            if (!String.IsNullOrEmpty(txtBox_redeemKey.Text) && match.Success)
+            if (!string.IsNullOrEmpty(txtBox_redeemKey.Text) && match.Success)
             {
                 txtBox_redeemKey.Clear();
                 CDKeys_Grid.Rows.Add(txtBox_redeemKey.Text);

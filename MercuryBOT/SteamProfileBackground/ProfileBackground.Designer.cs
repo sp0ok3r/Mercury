@@ -41,7 +41,7 @@
             // 
             this.BTN_GETBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.BTN_GETBackground.ForeColor = System.Drawing.Color.White;
-            this.BTN_GETBackground.Location = new System.Drawing.Point(256, 268);
+            this.BTN_GETBackground.Location = new System.Drawing.Point(266, 268);
             this.BTN_GETBackground.Name = "BTN_GETBackground";
             this.BTN_GETBackground.Size = new System.Drawing.Size(75, 23);
             this.BTN_GETBackground.Style = MetroFramework.MetroColorStyle.Purple;
@@ -70,7 +70,7 @@
             this.txtBox_steamprofile.CustomButton.Visible = false;
             this.txtBox_steamprofile.ForeColor = System.Drawing.Color.White;
             this.txtBox_steamprofile.Lines = new string[0];
-            this.txtBox_steamprofile.Location = new System.Drawing.Point(10, 268);
+            this.txtBox_steamprofile.Location = new System.Drawing.Point(20, 268);
             this.txtBox_steamprofile.MaxLength = 32767;
             this.txtBox_steamprofile.Name = "txtBox_steamprofile";
             this.txtBox_steamprofile.PasswordChar = '\0';
@@ -96,7 +96,7 @@
             this.picBox_steamBackground.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picBox_steamBackground.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBox_steamBackground.InitialImage = null;
-            this.picBox_steamBackground.Location = new System.Drawing.Point(10, 75);
+            this.picBox_steamBackground.Location = new System.Drawing.Point(20, 75);
             this.picBox_steamBackground.Name = "picBox_steamBackground";
             this.picBox_steamBackground.Size = new System.Drawing.Size(321, 187);
             this.picBox_steamBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -110,7 +110,7 @@
             this.lbl_clickonimginfo.AutoSize = true;
             this.lbl_clickonimginfo.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lbl_clickonimginfo.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lbl_clickonimginfo.Location = new System.Drawing.Point(236, 60);
+            this.lbl_clickonimginfo.Location = new System.Drawing.Point(245, 60);
             this.lbl_clickonimginfo.Name = "lbl_clickonimginfo";
             this.lbl_clickonimginfo.Size = new System.Drawing.Size(100, 15);
             this.lbl_clickonimginfo.TabIndex = 46;
@@ -130,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 301);
+            this.ClientSize = new System.Drawing.Size(360, 301);
             this.Controls.Add(this.picBox_steamBackground);
             this.Controls.Add(this.txtBox_steamprofile);
             this.Controls.Add(this.BTN_GETBackground);
@@ -141,7 +141,7 @@
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Style = MetroFramework.MetroColorStyle.Default;
-            this.Text = "Gather Profile Background";
+            this.Text = "Mercury -  Profile Background";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TopMost = true;
             this.Load += new System.EventHandler(this.ProfileBackground_Load);

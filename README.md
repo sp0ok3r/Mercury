@@ -9,6 +9,8 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 
 ### Features
 - Clean Metro Style with colors at choice!
+- Auto Login at startup
+- Ability to start with any state
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/1.png" target="_blank">Load all accounts detected in your pc (Remember password enable)</a>
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3.png" target="_blank">Auto AFK message responder (Custom msg list also included) </a>
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/steamstatus.png" target="_blank">Check steam/csgo servers status</a>

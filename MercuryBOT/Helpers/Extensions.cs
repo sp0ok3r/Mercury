@@ -20,28 +20,13 @@ using MetroFramework;
 using SteamKit2;
 using System.Collections.Generic;
 using MercuryBOT.UserSettings;
+using System.Text.RegularExpressions;
+using System.Net;
 
 namespace MercuryBOT.Helpers
 {
     public static class Extensions
     {
-        #region RoundUI
-        //[DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        //public static  IntPtr CreateRoundRectRgn
-        //       (
-        //           int nLeftRect,     // x-coordinate of upper-left corner
-        //           int nTopRect,      // y-coordinate of upper-left corner
-        //           int nRightRect,    // x-coordinate of lower-right corner
-        //           int nBottomRect,   // y-coordinate of lower-right corner
-        //           int nWidthEllipse, // height of ellipse
-        //           int nHeightEllipse // width of ellipse
-        //       );
-        #endregion
-
-
-       // [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        //[DllImport("gdi32.dll", EntryPoint = "DeleteObject")]
-
         #region Steam Extensions
         public static bool IsSteamid32(string input) => input.StartsWith("STEAM_0:");
 
@@ -71,7 +56,7 @@ namespace MercuryBOT.Helpers
 
         public static string ToSteamURL(string input) => $"https://steamcommunity.com/profiles/{(IsSteamid32(input) ? ToSteamID64(input) : input)}";
 
-
+        
         public static string AllToSteamId32(string input)
         {
             if (IsSteamid32(input))
@@ -93,33 +78,42 @@ namespace MercuryBOT.Helpers
 
             return String.Empty;
         }
-
-        public static string ResolveVanityURL(string ProfileURL)// meter api key da config
+        public static string Between(string STR, string FirstString, string LastString)
         {
-            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
-            {
-                if (a.username == AccountLogin.CurrentUsername)
-                {
-                    Main.apikey = a.APIWebKey;
-                }
-            }
-
-            if (string.IsNullOrEmpty(Main.apikey) || Main.apikey == "0")
-            {
-                AccountLogin.gatherWebApiKey();
-                Notification.NotifHelper.MessageBox.Show("Alert", "Gathering your apikey and setting it! \n Just try again!");
-                return String.Empty;
-            }
-            else
-            {
-                var html = Program.Web.DownloadString("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key="+ Main.apikey + "&vanityurl=" + ProfileURL);
-                var steamID64Clean = html.Replace('"', ' ').Replace("{ response :{ steamid :", "").Replace(" , success :1}}", "").Trim();
-
-                return steamID64Clean;
-            }
-
+            string FinalString;
+            int Pos1 = STR.IndexOf(FirstString) + FirstString.Length;
+            int Pos2 = STR.IndexOf(LastString);
+            FinalString = STR.Substring(Pos1, Pos2 - Pos1);
+            return FinalString;
         }
-        
+        public static string AllToSteamId64(string input)
+        {
+            if (IsSteamid32(input))
+            {
+                return ToSteamID64(input); //("765" + (input + 61197960265728)); // test ???
+            }
+            else if (IsSteamid64(input))
+            {
+                return input;
+            }
+            else if (IsSteamURL(input) && input.Contains("steamcommunity.com/profiles/"))
+            {
+                return input.Replace("https://steamcommunity.com/profiles/", "").Replace("/", "");
+            }
+            else if (input.Contains("steamcommunity.com/id/"))
+            {
+                return ResolveVanityURL(input);
+            }
+
+            return String.Empty;
+        }
+
+        public static string ResolveVanityURL(string ProfileURL)// fast way, without api key
+        {
+            var RespSteamProfile = new WebClient().DownloadString(ProfileURL + "?xml=1"); // 6520iq
+            return Between(RespSteamProfile, "<steamID64>", "</steamID64>");
+        }
+
         public static List<EPersonaState> statesList = new List<EPersonaState> {
                         EPersonaState.Offline,
                         EPersonaState.Online,
@@ -144,7 +138,7 @@ namespace MercuryBOT.Helpers
             var adjustedSize = Math.Round(value / Math.Pow(1024, mag), decimalPlaces);
             return String.Format("{0} {1}", adjustedSize, SizeSuffixes[mag]);
         }
-        //
+
         public static string ToFileSize(this int source)
         {
             return ToFileSize(Convert.ToInt64(source));
@@ -247,14 +241,14 @@ namespace MercuryBOT.Helpers
                 File.WriteAllText(Program.SettingsJsonFile, "{}");
             }
 
-            var Settingslist = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
-            FormStyle = (MetroFramework.MetroColorStyle)Convert.ToUInt32(Settingslist.startupColor);
+            var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+            FormStyle = (MetroColorStyle)Convert.ToUInt32(SettingsList.startupColor);
 
             if (container == null)
             {
-                container = new System.ComponentModel.Container();
+                container = new Container();
             }
-            var manager = new MetroFramework.Components.MetroStyleManager(container);
+            var manager = new MetroStyleManager(container);
             manager.Owner = ownerForm;
             container.SetDefaultStyle(ownerForm, FormStyle);
         }
