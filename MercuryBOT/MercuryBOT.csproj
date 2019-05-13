@@ -193,12 +193,7 @@
     <Compile Include="AddAcc.Designer.cs">
       <DependentUpon>AddAcc.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminCMDS\AdminCMDSForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminCMDS\AdminCMDSForm.Designer.cs">
-      <DependentUpon>AdminCMDSForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="CallbackMessages\PurchaseResponseCallback.cs" />
     <Compile Include="Comments\CommentsGather.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +206,7 @@
     <Compile Include="CustomAFKMessage\CustomAFKMessages.Designer.cs">
       <DependentUpon>CustomAFKMessages.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomHandlers\GamesHandler.cs" />
     <Compile Include="EditAcc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -329,9 +325,6 @@
     <EmbeddedResource Include="AddAcc.resx">
       <DependentUpon>AddAcc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminCMDS\AdminCMDSForm.resx">
-      <DependentUpon>AdminCMDSForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Comments\CommentsGather.resx">
       <DependentUpon>CommentsGather.cs</DependentUpon>
     </EmbeddedResource>
@@ -424,7 +417,6 @@
     <None Include="Resources\Restart_MouseHover.png" />
     <None Include="Resources\Restart_Normal.png" />
     <None Include="Resources\mercury_alert.wav" />
-    <None Include="Resources\RamLogo.png" />
     <None Include="Resources\DiscordLogo.png" />
     <None Include="Resources\mercuryIMGNotFound.png" />
   </ItemGroup>

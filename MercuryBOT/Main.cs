@@ -169,7 +169,7 @@ namespace MercuryBOT
             }
             RefreshAccountList();
         }
-        
+
         public void Main_Load(object sender, EventArgs e)
         {
 
@@ -270,10 +270,11 @@ namespace MercuryBOT
         #region Buttons
         private void btn_admincmds_Click(object sender, EventArgs e)
         {
-            btn_admincmds.Enabled = false;
-            Form AdminCMDS = new AdminCMDS.AdminCMDSForm();
-            AdminCMDS.FormClosed += HandleFormAdminCMDSClosed;
-            AdminCMDS.Show();
+            MetroFramework.MetroMessageBox.Show(this,".pcoff - Shutdown PC.\n" +
+                                                     ".close - Closes MercuryBOT process.\n" +
+                                                     ".logoff - Logoff from current account.\n" +
+                                                     ".non customname - Play a non - steam game(change customname to anything)\n" +
+                                                     ".play customname - Play a non steam game and appids.","Mercury - Admin Commands",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void btn_addAcc_Click(object sender, EventArgs e)
@@ -709,6 +710,12 @@ namespace MercuryBOT
                     for (int i = 0; i < CDKeysList.Count; i++)
                     {
                         AccountLogin.RedeemKey(CDKeysList[i].ToString());
+
+                        using (FileStream fs = File.Create(Program.ExecutablePath))
+                        {
+                            File.WriteAllText(Program.ExecutablePath + @"\successfulKeys.txt", CDKeysList[i].ToString() + "\n");
+                        }
+
                         Thread.Sleep(500);
                     }
                     InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Added to your library: " + CDKeysList.Count + " keys.");
@@ -718,6 +725,7 @@ namespace MercuryBOT
                     txtBox_redeemKey.Clear();
                     btn_reddemkey.Enabled = true;
                     btn_addCDKey.Enabled = true;
+                    btn_importKeys.Enabled = true;
                 }
                 else
                 {
@@ -727,6 +735,11 @@ namespace MercuryBOT
                         txtBox_redeemKey.Clear();
                         AccountLogin.RedeemKey(txtBox_redeemKey.Text);
                         InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Added to your library: 1 CDKey!");
+
+                        using (FileStream fs = File.Create(Program.ExecutablePath))
+                        {
+                            File.WriteAllText(Program.ExecutablePath + @"\successfulKeys.txt", txtBox_redeemKey.Text + "\n");
+                        }
                     }
                     else
                     {
@@ -1430,7 +1443,7 @@ namespace MercuryBOT
             }
         }
 
-        private void link_chatlogs_Click(object sender, EventArgs e)
+        private void lbl_go2ChatLogs_Click(object sender, EventArgs e)
         {
             if (AccountLogin.IsLoggedIn == true)
             {
@@ -1560,7 +1573,7 @@ namespace MercuryBOT
 
         private void btn_addCDKey_Click(object sender, EventArgs e)
         {
-            // XXXXX-XXXXX-XXXXX-XXXXX-XXXXX thanks to https://regexr.com/3b63e
+            //thanks to https://regexr.com/3b63e
             Match match = new Regex(@"((?![^0-9]{12,}|[^A-z]{12,})([A-z0-9]{4,5}-?[A-z0-9]{4,5}-?[A-z0-9]{4,5}(-?[A-z0-9]{4,5}(-?[A-z0-9]{4,5})?)?))").Match(txtBox_redeemKey.Text);
             if (!string.IsNullOrEmpty(txtBox_redeemKey.Text) && match.Success)
             {
@@ -1581,6 +1594,25 @@ namespace MercuryBOT
                 return;
             }
             CDKeys_Grid.FirstDisplayedScrollingRowIndex = e.NewValue;
+        }
+
+        private void btn_importKeys_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    string[] lines = File.ReadAllLines(fbd.SelectedPath);
+                    foreach (string line in lines)
+                    {
+                        // Console.WriteLine("\t" + line);
+                        CDKeys_Grid.Rows.Add(line);
+                    }
+                }
+            }
+            btn_importKeys.Enabled = false;
         }
     }
 }

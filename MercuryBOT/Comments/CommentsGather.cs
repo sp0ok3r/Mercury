@@ -101,22 +101,22 @@ namespace MercuryBOT
                 ProgressSpinner_LoadComments.Visible = true;
             });
 
-            if (string.IsNullOrEmpty(SelectedProfileORClan) || string.IsNullOrEmpty(txtBox_Comments2GetCount.Text))
-            {
-                Console.WriteLine("Please select the profile/group.");
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please select the profile/group.");
-                return;
-            }
+            //if (string.IsNullOrEmpty(SelectedProfileORClan) || string.IsNullOrEmpty(txtBox_Comments2GetCount.Text))
+            //{
+            //    Console.WriteLine("Please select the profile/group.");
+            //    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please select the profile/group.");
+            //    return;
+            //}
 
 
-            GridCommentsData.Invoke((MethodInvoker)delegate
-            {
-                GridCommentsData.Rows.Clear();
-            });
-            btn_doTask.Invoke((MethodInvoker)delegate
-            {
-                btn_doTask.Enabled = false;
-            });
+            //GridCommentsData.Invoke((MethodInvoker)delegate
+            //{
+            //    GridCommentsData.Rows.Clear();
+            //});
+            //btn_doTask.Invoke((MethodInvoker)delegate
+            //{
+            //    btn_doTask.Enabled = false;
+            //});
 
             try
             {
@@ -124,11 +124,11 @@ namespace MercuryBOT
 
                 var parser = new HtmlParser();
 
-                var json = Web.DownloadString(ProfileORGroupComments);
-                var renderComments = RenderComments.FromJson(json);
+            //    var json = Web.DownloadString(ProfileORGroupComments);
+            //    var renderComments = RenderComments.FromJson(json);
 
-                var document = parser.ParseDocument(renderComments.CommentsHtml);
-                var eCommentList = document.QuerySelectorAll("div.commentthread_comment");
+            //    var document = parser.ParseDocument(renderComments.CommentsHtml);
+            //    var eCommentList = document.QuerySelectorAll("div.commentthread_comment");
 
 
                 //lbl_totalComments.Invoke((MethodInvoker)delegate
@@ -207,17 +207,8 @@ namespace MercuryBOT
                     btn_doTask.Enabled = true;
                 });
 
-            }
-            catch (Exception e)
-            {
-                btn_doTask.Invoke((MethodInvoker)delegate
-                {
-                    btn_doTask.Enabled = true;
-                });
-                ProgressSpinner_LoadComments.Invoke((MethodInvoker)delegate
-                {
-                    ProgressSpinner_LoadComments.Visible = false;
-                });
+            //    //  GridCommentsData.Rows.Add(myList);
+            //});
 
 
                 Console.WriteLine("Error: " + e);

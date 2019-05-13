@@ -24,6 +24,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
+using MercuryBOT.CustomHandlers;
 
 namespace MercuryBOT
 {
@@ -52,6 +53,8 @@ namespace MercuryBOT
         public static SteamFriends steamFriends;
         public static CallbackManager MercuryManager;
         public static SteamWeb steamWeb;
+        private static GamesHandler gamesHandler;
+
 
         public static string MessageString;
         public static bool ChatLogger = false;
@@ -114,6 +117,7 @@ namespace MercuryBOT
 
             steamClient = new SteamClient();
             steamWeb = new SteamWeb();
+            gamesHandler = new GamesHandler();
 
             MercuryManager = new CallbackManager(steamClient);
 
@@ -324,7 +328,7 @@ namespace MercuryBOT
                     }
                     steamFriends.SetPersonaState(Extensions.statesList[a.LoginState]);
                     CurrentPersonaState = a.LoginState;
-             
+
                     a.LastLoginTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
                 }
             }
@@ -512,7 +516,7 @@ namespace MercuryBOT
             });
             Console.WriteLine("[" + Program.BOTNAME + "] - Sentry updated!");
         }
-        
+
         static void OnAccountInfo(SteamUser.AccountInfoCallback callback)
         {
             UserPersonaName = callback.PersonaName;
@@ -582,47 +586,6 @@ namespace MercuryBOT
         }
 
         #region Friends Methods
-        //public static int GetMaxFriends()
-        //{
-        //    if (maxfriendCount == 0)
-        //    {
-        //        try
-        //        {
-        //            var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-        //            foreach (var a in list.Accounts)
-        //            {
-        //                if (a.username == CurrentUsername)
-        //                {
-        //                    APIKey = a.APIWebKey;
-        //                }
-        //            }
-
-        //            //  if (APIKey == "undefined" || APIKey.Length == 0)
-        //            if (string.IsNullOrEmpty(APIKey))
-        //            {
-        //                InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Register your api key and set it on Accounts.json");
-        //                Process.Start("https://steamcommunity.com/dev/apikey");
-        //                throw new System.ArgumentException("Register your api key and set it on Accounts.json - https://steamcommunity.com/dev/apikey", "devapi missing");
-        //            }
-
-        //            using (var webClient = new WebClient())
-        //            {
-        //                var json = webClient.DownloadString("http://api.steampowered.com/IPlayerService/GetSteamLevel/v1/?key=" + APIKey + "&steamid=" + steamClient.SteamID.ConvertToUInt64());
-        //                var welcome = SteamPlayerLevel.PlayerLevel.FromJson(json);
-        //                maxfriendCount = 250 + (5 * Convert.ToInt32(welcome.Response.PlayerLevel));
-        //                Console.WriteLine("[" + Program.BOTNAME + "] - Level: " + welcome.Response.PlayerLevel + " !");
-        //            }
-        //        }
-        //        catch (Exception)
-        //        {
-        //            InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Error while reading the steam level of own profile. \n Is steam profile even configured ?");
-        //            maxfriendCount = 250;
-        //        }
-        //    }
-
-        //    return maxfriendCount;
-        //}
-
         static void OnFriendsList(SteamFriends.FriendsListCallback obj)
         {
             //LoadFriends();
@@ -635,7 +598,6 @@ namespace MercuryBOT
                 {
                     // case EAccountType.Clan:
                     //     if (friend.Relationship == EFriendRelationship.RequestRecipient)
-                    //DeclineGroupInvite(friend.SteamID);
                     //    break;
 
                     default:
@@ -680,7 +642,6 @@ namespace MercuryBOT
                 if (allfriends.ConvertToUInt64() != 0 && steamFriends.GetFriendRelationship(allfriends.ConvertToUInt64()) == EFriendRelationship.Friend)
                 {
                     Friends.Add(allfriends.ConvertToUInt64());
-                    //Friends.Add(steamFriends.GetFriendByIndex(i));
                 }
             }
         }
@@ -693,7 +654,7 @@ namespace MercuryBOT
                 string Message = callback.Message;
 
                 //Message = Regex.Replace(Message, @"\t|\n|\r", ""); //741iq
-                Message.Replace(System.Environment.NewLine,"");
+                Message.Replace(System.Environment.NewLine, "");
 
                 string Separator = "───────────────────";
 
@@ -762,7 +723,7 @@ namespace MercuryBOT
                             List<uint> gameuints = new List<uint>();
                             foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
                             {
-                                if (a.username == AccountLogin.CurrentUsername)
+                                if (a.username == CurrentUsername)
                                 {
                                     if (a.Games.Count == 0)
                                     {
@@ -826,18 +787,21 @@ namespace MercuryBOT
 
                 if (AwayCustomMessageList == true)
                 {
+                    List<string> CMessages = new List<string>();// secalhar nem criar lista, secalhar usar  a lista do json e pegar na random direta ai
                     Random random = new Random();
                     int r = 0;
-                    List<string> CMessages = new List<string>();// secalhar nem criar lista, secalhar usar  a lista do json e pegar na random direta ai
                     CMessages.Add("Im using MercuryBOT! - https://github.com/sp0ok3r/Mercury"); // *
 
                     foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
                     {
-                        if (a.username == CurrentUsername) // get user name com steamclient 
+                        if (a.username == CurrentUsername)
                         {
                             for (int i = 0; i < a.AFKMessages.Count; i++)
                             {
-                                CMessages.Add(a.AFKMessages[i].Message);
+                                if (CMessages.Count != a.AFKMessages.Count)
+                                {
+                                    CMessages.Add(a.AFKMessages[i].Message);
+                                }
                             }
                             r = random.Next(0, a.AFKMessages.Count); // +1 ? por causa da de cima?
                         }
@@ -854,7 +818,7 @@ namespace MercuryBOT
                 string Message = callback.Message;
 
                 //Message = Regex.Replace(Message, @"\t|\n|\r", ""); TEST
-                Message.Replace(System.Environment.NewLine,"");
+                Message.Replace(Environment.NewLine, "");
 
                 string Separator = "───────────────────";
 
@@ -899,7 +863,7 @@ namespace MercuryBOT
                     {
                         foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
                         {
-                            if (a.username == AccountLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(allfriends.ConvertToUInt64().ToString())))
+                            if (a.username == CurrentUsername && a.MsgRecipients.Any(s => s.Contains(allfriends.ConvertToUInt64().ToString())))
                             {
                                 princessas++;
                                 steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.BOTNAME);
@@ -963,7 +927,7 @@ namespace MercuryBOT
             {
                 var parser = new HtmlParser();
                 var document = parser.ParseDocument(resp);
-                
+
                 if (document.QuerySelector("div[id='mainContents'] > h2").TextContent == "Access Denied")
                 {
                     InfoForm.InfoHelper.CustomMessageBox.Show("Error", document.QuerySelector("div[id='bodyContents_lo'] > p").TextContent);
@@ -977,7 +941,7 @@ namespace MercuryBOT
                     var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
                     foreach (var a in list.Accounts)
                     {
-                        if (a.username == AccountLogin.CurrentUsername)
+                        if (a.username == CurrentUsername)
                         {
                             a.APIWebKey = webkeySet.TextContent.Replace("Key: ", ""); //861ip
                         }
@@ -1036,12 +1000,11 @@ namespace MercuryBOT
         #region PlayGames
         public static void PlayNonSteamGame(string customgame)
         {
+            //gamesHandler.SetGamePlayingNONSteam(customgame);
             var playGame = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
 
             playGame.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed
             {
-
-                // game_id = 12350489788975939584,
                 game_id = 12350489788975939584,
                 game_extra_info = customgame
 
@@ -1060,13 +1023,7 @@ namespace MercuryBOT
                 request.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed
                 {
                     game_id = 12350489788975939584,
-
                     game_extra_info = NonSteam
-                    //game_id = new GameID
-                    //{
-                    //    AppType = GameID.GameType.Shortcut, // removes [N/A] from friends list
-                    //    ModID = uint.MaxValue
-                    //},
                 });
             }
 
@@ -1079,6 +1036,8 @@ namespace MercuryBOT
 
         public static void StopGames()
         {
+            //gamesHandler.StopPlayingGames();
+
             ClientMsgProtobuf<CMsgClientGamesPlayed> request = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
 
             request.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed { game_id = new GameID(0) });
@@ -1087,13 +1046,17 @@ namespace MercuryBOT
         }
         #endregion
 
-        public static void RedeemKey(string _key)
+        public async static void RedeemKey(string _key)
         {
-            ClientMsgProtobuf<CMsgClientRegisterKey> registerKey = new ClientMsgProtobuf<CMsgClientRegisterKey>(EMsg.ClientRegisterKey)
-            {
-                Body = { key = _key }
-            };
-            steamClient.Send(registerKey);
+            await gamesHandler.RedeemKeyResponse(_key);
+
+
+
+            //ClientMsgProtobuf<CMsgClientRegisterKey> registerKey = new ClientMsgProtobuf<CMsgClientRegisterKey>(EMsg.ClientRegisterKey)
+            //{
+            //    Body = { key = _key }
+            //};
+            //steamClient.Send(registerKey);
         }
 
         public static void UserClanIDS()
@@ -1168,7 +1131,9 @@ namespace MercuryBOT
             if (resp != String.Empty && resp.Contains("Sorry!"))
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again");
-            }else{
+            }
+            else
+            {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Set Player of the week: " + steamID + " in: " + gid);
             }
         }
@@ -1245,7 +1210,7 @@ namespace MercuryBOT
 
         public static IDictionary<string, int> GetProfileSettings()
         {
-            if (AccountLogin.IsLoggedIn == true)
+            if (IsLoggedIn == true)
             {
                 try
                 {
@@ -1289,8 +1254,13 @@ namespace MercuryBOT
             var ProfileSettings = new NameValueCollection
             {
                 { "sessionid", steamWeb.SessionID },// Unknown,Private, FriendsOnly,Public
-                { "Privacy","{\"PrivacyProfile\":"+Profile+",\"PrivacyInventory\":"+Inventory+",\"PrivacyInventoryGifts\":"+Gifts+",\"PrivacyOwnedGames\":"+OwnedGames+",\"PrivacyPlaytime\":"+Playtime+",\"PrivacyFriendsList\":"+FriendsList+"}"},
-                              {"eCommentPermission" ,""+Comment}//FriendsOnly,Public,Private
+                { "Privacy","{\"PrivacyProfile\":"+Profile+
+                            ",\"PrivacyInventory\":" +Inventory+
+                            ",\"PrivacyInventoryGifts\":"+Gifts+
+                            ",\"PrivacyOwnedGames\":"+OwnedGames+
+                            ",\"PrivacyPlaytime\":"+Playtime+
+                            ",\"PrivacyFriendsList\":"+FriendsList+"}"},
+                { "eCommentPermission" ,Comment.ToString()}//FriendsOnly,Public,Private
             };
 
             string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/ajaxsetprivacy/", "POST", ProfileSettings);
