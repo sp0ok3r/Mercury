@@ -24,6 +24,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
+using MercuryBOT.CustomHandlers;
 
 namespace MercuryBOT
 {
@@ -52,6 +53,8 @@ namespace MercuryBOT
         public static SteamFriends steamFriends;
         public static CallbackManager MercuryManager;
         public static SteamWeb steamWeb;
+        private static GamesHandler gamesHandler;
+
 
         public static string MessageString;
         public static bool ChatLogger = false;
@@ -114,6 +117,7 @@ namespace MercuryBOT
 
             steamClient = new SteamClient();
             steamWeb = new SteamWeb();
+            gamesHandler = new GamesHandler();
 
             MercuryManager = new CallbackManager(steamClient);
 
@@ -854,7 +858,7 @@ namespace MercuryBOT
                 string Message = callback.Message;
 
                 //Message = Regex.Replace(Message, @"\t|\n|\r", ""); TEST
-                Message.Replace(System.Environment.NewLine,"");
+                Message.Replace(Environment.NewLine,"");
 
                 string Separator = "───────────────────";
 
@@ -1036,12 +1040,11 @@ namespace MercuryBOT
         #region PlayGames
         public static void PlayNonSteamGame(string customgame)
         {
+            //gamesHandler.SetGamePlayingNONSteam(customgame);
             var playGame = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
 
             playGame.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed
             {
-
-                // game_id = 12350489788975939584,
                 game_id = 12350489788975939584,
                 game_extra_info = customgame
 
@@ -1060,13 +1063,7 @@ namespace MercuryBOT
                 request.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed
                 {
                     game_id = 12350489788975939584,
-
                     game_extra_info = NonSteam
-                    //game_id = new GameID
-                    //{
-                    //    AppType = GameID.GameType.Shortcut, // removes [N/A] from friends list
-                    //    ModID = uint.MaxValue
-                    //},
                 });
             }
 
@@ -1079,6 +1076,8 @@ namespace MercuryBOT
 
         public static void StopGames()
         {
+            //gamesHandler.StopPlayingGames();
+
             ClientMsgProtobuf<CMsgClientGamesPlayed> request = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
 
             request.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed { game_id = new GameID(0) });
@@ -1087,13 +1086,17 @@ namespace MercuryBOT
         }
         #endregion
 
-        public static void RedeemKey(string _key)
+        public async static void RedeemKey(string _key)
         {
-            ClientMsgProtobuf<CMsgClientRegisterKey> registerKey = new ClientMsgProtobuf<CMsgClientRegisterKey>(EMsg.ClientRegisterKey)
-            {
-                Body = { key = _key }
-            };
-            steamClient.Send(registerKey);
+            await gamesHandler.RedeemKeyResponse(_key);
+
+            
+
+            //ClientMsgProtobuf<CMsgClientRegisterKey> registerKey = new ClientMsgProtobuf<CMsgClientRegisterKey>(EMsg.ClientRegisterKey)
+            //{
+            //    Body = { key = _key }
+            //};
+            //steamClient.Send(registerKey);
         }
 
         public static void UserClanIDS()

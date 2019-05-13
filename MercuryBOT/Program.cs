@@ -32,8 +32,8 @@ namespace MercuryBOT
         public static readonly string SettingsJsonFile = ExecutablePath + @"\Settings.json";
         public static readonly string SentryFolder     = ExecutablePath + @"\Sentry\";
         public static readonly string ChatLogsFolder   = ExecutablePath + @"\ChatLogs\";
+        public static readonly string keysFolder       = ExecutablePath + @"\Keys\";
 
-        
         [STAThread]
         static void Main()
         {

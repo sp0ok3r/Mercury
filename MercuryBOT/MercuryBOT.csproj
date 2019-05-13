@@ -199,6 +199,7 @@
     <Compile Include="AdminCMDS\AdminCMDSForm.Designer.cs">
       <DependentUpon>AdminCMDSForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CallbackMessages\PurchaseResponseCallback.cs" />
     <Compile Include="Comments\CommentsGather.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +212,7 @@
     <Compile Include="CustomAFKMessage\CustomAFKMessages.Designer.cs">
       <DependentUpon>CustomAFKMessages.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomHandlers\GamesHandler.cs" />
     <Compile Include="EditAcc.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -709,7 +709,13 @@ namespace MercuryBOT
                     for (int i = 0; i < CDKeysList.Count; i++)
                     {
                         AccountLogin.RedeemKey(CDKeysList[i].ToString());
-                        Thread.Sleep(500);
+
+                        using (FileStream fs = File.Create(Program.ExecutablePath))
+                        {
+                            File.WriteAllText(Program.ExecutablePath + @"\successfulKeys.txt", CDKeysList[i].ToString() + "\n");
+                        }
+
+                    Thread.Sleep(500);
                     }
                     InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Added to your library: " + CDKeysList.Count + " keys.");
 
@@ -718,6 +724,7 @@ namespace MercuryBOT
                     txtBox_redeemKey.Clear();
                     btn_reddemkey.Enabled = true;
                     btn_addCDKey.Enabled = true;
+                    btn_importKeys.Enabled = true;
                 }
                 else
                 {
@@ -727,6 +734,11 @@ namespace MercuryBOT
                         txtBox_redeemKey.Clear();
                         AccountLogin.RedeemKey(txtBox_redeemKey.Text);
                         InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Added to your library: 1 CDKey!");
+
+                        using (FileStream fs = File.Create(Program.ExecutablePath))
+                        {
+                            File.WriteAllText(Program.ExecutablePath + @"\successfulKeys.txt", txtBox_redeemKey.Text + "\n");
+                        }
                     }
                     else
                     {
@@ -1560,7 +1572,7 @@ namespace MercuryBOT
 
         private void btn_addCDKey_Click(object sender, EventArgs e)
         {
-            // XXXXX-XXXXX-XXXXX-XXXXX-XXXXX thanks to https://regexr.com/3b63e
+            //thanks to https://regexr.com/3b63e
             Match match = new Regex(@"((?![^0-9]{12,}|[^A-z]{12,})([A-z0-9]{4,5}-?[A-z0-9]{4,5}-?[A-z0-9]{4,5}(-?[A-z0-9]{4,5}(-?[A-z0-9]{4,5})?)?))").Match(txtBox_redeemKey.Text);
             if (!string.IsNullOrEmpty(txtBox_redeemKey.Text) && match.Success)
             {
@@ -1581,6 +1593,25 @@ namespace MercuryBOT
                 return;
             }
             CDKeys_Grid.FirstDisplayedScrollingRowIndex = e.NewValue;
+        }
+
+        private void btn_importKeys_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    string[] lines = File.ReadAllLines(fbd.SelectedPath);
+                    foreach (string line in lines)
+                    {
+                     // Console.WriteLine("\t" + line);
+                        CDKeys_Grid.Rows.Add(line);
+                    }
+                }
+            }
+            btn_importKeys.Enabled = false;
         }
     }
 }

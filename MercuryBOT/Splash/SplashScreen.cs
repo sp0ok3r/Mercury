@@ -42,24 +42,20 @@ namespace MercuryBOT.Splash
             if (!File.Exists(Program.AccountsJsonFile))
             {
                 File.WriteAllText(Program.AccountsJsonFile, "{Accounts: []}");
-                lbl_info2.Text = "Creating Accounts file...";
             }
 
             if (!File.Exists(Program.SettingsJsonFile))
             {
                 File.WriteAllText(Program.SettingsJsonFile, "{}");
-                lbl_info2.Text = "Creating Settings file...";
             }
             if (!File.Exists(Program.SentryFolder))
             {
                 Directory.CreateDirectory(Program.SentryFolder);
-                lbl_info2.Text = "Creating Sentry folder...";
             }
 
             if (!File.Exists(Program.ChatLogsFolder))
             {
                 Directory.CreateDirectory(Program.ChatLogsFolder);
-                lbl_info2.Text = "Creating Chat Logs folder...";
             }
             lbl_info2.Text = "LOADING";
         }
@@ -74,13 +70,12 @@ namespace MercuryBOT.Splash
             }
             foreach (var user in _users)
             {
-                var list = JsonConvert.DeserializeObject<UserSettings.RootObject>(File.ReadAllText(Program.AccountsJsonFile));
+                var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
 
                 IList<string> savedAccs = list.Accounts.Select(u => u.username).ToList();
 
                 if (!savedAccs.Contains(user.AccountName))
                 {
-
                     var EmptyGameList = new List<Game>();
                     var EmptyCustomMessagesList = new List<UserSettings.CustomMessages>();
 
@@ -97,16 +92,14 @@ namespace MercuryBOT.Splash
                         Games = EmptyGameList,
                         AFKMessages = EmptyCustomMessagesList,
                         MsgRecipients = new List<string>()
-
                     });
-
                     File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, new JsonSerializerSettings { Formatting = Formatting.Indented }));
                 }
             }
         }
 
 
-        public static IEnumerable<User2Json.SteamLoginUsers> GetLoginUsers()
+        public static IEnumerable<SteamLoginUsers> GetLoginUsers()
         {
             if (SteamPath.SteamLocation == null)
             {
@@ -115,7 +108,8 @@ namespace MercuryBOT.Splash
 
             dynamic volvo = VdfConvert.Deserialize(File.ReadAllText(SteamPath.SteamLocation + @"\config\loginusers.vdf"));
             VToken v2 = volvo.Value;
-            return v2.Children().Select(child => new User2Json.SteamLoginUsers(child)).Where(user => user.RememberPassword).OrderByDescending(user => user.LastLoginTime).ToList();
+            // erro se remember pw esta a 0 em todos os users
+            return v2.Children().Select(child => new SteamLoginUsers(child)).Where(user => user.RememberPassword).OrderByDescending(user => user.LastLoginTime).ToList();
         }
 
         [Obsolete]
