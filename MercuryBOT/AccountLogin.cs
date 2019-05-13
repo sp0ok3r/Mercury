@@ -328,7 +328,7 @@ namespace MercuryBOT
                     }
                     steamFriends.SetPersonaState(Extensions.statesList[a.LoginState]);
                     CurrentPersonaState = a.LoginState;
-             
+
                     a.LastLoginTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
                 }
             }
@@ -516,7 +516,7 @@ namespace MercuryBOT
             });
             Console.WriteLine("[" + Program.BOTNAME + "] - Sentry updated!");
         }
-        
+
         static void OnAccountInfo(SteamUser.AccountInfoCallback callback)
         {
             UserPersonaName = callback.PersonaName;
@@ -654,7 +654,7 @@ namespace MercuryBOT
                 string Message = callback.Message;
 
                 //Message = Regex.Replace(Message, @"\t|\n|\r", ""); //741iq
-                Message.Replace(System.Environment.NewLine,"");
+                Message.Replace(System.Environment.NewLine, "");
 
                 string Separator = "───────────────────";
 
@@ -818,7 +818,7 @@ namespace MercuryBOT
                 string Message = callback.Message;
 
                 //Message = Regex.Replace(Message, @"\t|\n|\r", ""); TEST
-                Message.Replace(Environment.NewLine,"");
+                Message.Replace(Environment.NewLine, "");
 
                 string Separator = "───────────────────";
 
@@ -927,7 +927,7 @@ namespace MercuryBOT
             {
                 var parser = new HtmlParser();
                 var document = parser.ParseDocument(resp);
-                
+
                 if (document.QuerySelector("div[id='mainContents'] > h2").TextContent == "Access Denied")
                 {
                     InfoForm.InfoHelper.CustomMessageBox.Show("Error", document.QuerySelector("div[id='bodyContents_lo'] > p").TextContent);
@@ -1050,7 +1050,7 @@ namespace MercuryBOT
         {
             await gamesHandler.RedeemKeyResponse(_key);
 
-            
+
 
             //ClientMsgProtobuf<CMsgClientRegisterKey> registerKey = new ClientMsgProtobuf<CMsgClientRegisterKey>(EMsg.ClientRegisterKey)
             //{
@@ -1131,7 +1131,9 @@ namespace MercuryBOT
             if (resp != String.Empty && resp.Contains("Sorry!"))
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again");
-            }else{
+            }
+            else
+            {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Set Player of the week: " + steamID + " in: " + gid);
             }
         }
@@ -1252,8 +1254,13 @@ namespace MercuryBOT
             var ProfileSettings = new NameValueCollection
             {
                 { "sessionid", steamWeb.SessionID },// Unknown,Private, FriendsOnly,Public
-                { "Privacy","{\"PrivacyProfile\":"+Profile+",\"PrivacyInventory\":"+Inventory+",\"PrivacyInventoryGifts\":"+Gifts+",\"PrivacyOwnedGames\":"+OwnedGames+",\"PrivacyPlaytime\":"+Playtime+",\"PrivacyFriendsList\":"+FriendsList+"}"},
-                              {"eCommentPermission" ,""+Comment}//FriendsOnly,Public,Private
+                { "Privacy","{\"PrivacyProfile\":"+Profile+
+                            ",\"PrivacyInventory\":" +Inventory+
+                            ",\"PrivacyInventoryGifts\":"+Gifts+
+                            ",\"PrivacyOwnedGames\":"+OwnedGames+
+                            ",\"PrivacyPlaytime\":"+Playtime+
+                            ",\"PrivacyFriendsList\":"+FriendsList+"}"},
+                { "eCommentPermission" ,Comment.ToString()}//FriendsOnly,Public,Private
             };
 
             string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/ajaxsetprivacy/", "POST", ProfileSettings);

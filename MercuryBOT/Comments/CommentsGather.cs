@@ -227,12 +227,6 @@ namespace MercuryBOT
             //    //  GridCommentsData.Rows.Add(myList);
             //});
 
-
-
-
-
-
-
             //    lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
             //    {
             //        lbl_totalCommentsInGrid.Text = "Total Row Count:" + GridCommentsData.Rows.Count.ToString();

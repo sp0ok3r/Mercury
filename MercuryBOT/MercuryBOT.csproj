@@ -417,7 +417,6 @@
     <None Include="Resources\Restart_MouseHover.png" />
     <None Include="Resources\Restart_Normal.png" />
     <None Include="Resources\mercury_alert.wav" />
-    <None Include="Resources\RamLogo.png" />
     <None Include="Resources\DiscordLogo.png" />
     <None Include="Resources\mercuryIMGNotFound.png" />
   </ItemGroup>
