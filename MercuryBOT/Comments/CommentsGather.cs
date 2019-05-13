@@ -48,7 +48,7 @@ namespace MercuryBOT
             ProgressSpinner_LoadComments.Visible = false;
 
             lbl_totalCommentsInGrid.Visible = false;
-            lbl_totalComments.Visible = false;
+           // lbl_totalComments.Visible = false;
         }
 
         private void Combox_profileOrClan_SelectedIndexChanged(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace MercuryBOT
         {
             public string CommentContent { get; set; }
             public string Author { get; set; }
-            public string Time { get; set; }  
+            public string Time { get; set; }
         }
 
         Dictionary<string, cmts> myList = new Dictionary<string, cmts>();
@@ -95,10 +95,6 @@ namespace MercuryBOT
             lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
             {
                 lbl_totalCommentsInGrid.Text = "Total Row Count: 0";
-            });
-            lbl_totalComments.Invoke((MethodInvoker)delegate
-            {
-                lbl_totalComments.Text = "Total Count: 0";
             });
             ProgressSpinner_LoadComments.Invoke((MethodInvoker)delegate
             {
@@ -125,7 +121,7 @@ namespace MercuryBOT
             try
             {
                 string ProfileORGroupComments = "https://steamcommunity.com/comment/" + SelectedProfileORClan + "/render/" + CheckProfileGroupInfo + "/-1/?count=" + txtBox_Comments2GetCount.Text;
-                
+
                 var parser = new HtmlParser();
 
                 var json = Web.DownloadString(ProfileORGroupComments);
@@ -135,103 +131,60 @@ namespace MercuryBOT
                 var eCommentList = document.QuerySelectorAll("div.commentthread_comment");
 
 
-                lbl_totalComments.Invoke((MethodInvoker)delegate
-                {
-                    lbl_totalComments.Text = "Total Count: " + renderComments.TotalCount.ToString();
-                });
+                //lbl_totalComments.Invoke((MethodInvoker)delegate
+                //{
+                //    lbl_totalComments.Text = "Total Count: " + renderComments.TotalCount.ToString();
+                //});
 
 
                 foreach (var eComment in eCommentList)
                 {
-                    var CommentID       = eComment.QuerySelector("div.commentthread_comment_text").GetAttribute("id").Replace("comment_content_", "");
-                    var CommentContent  = RemoveSpecialCharacters(eComment.QuerySelector("div.commentthread_comment_text").TextContent.Trim());
-                    var Author          = eComment.QuerySelector("a[class='hoverunderline commentthread_author_link']").GetAttribute("href").Replace("https://steamcommunity.com/profiles/", "").Replace("https://steamcommunity.com/id/", "");
+                    var CommentID = eComment.QuerySelector("div.commentthread_comment_text").GetAttribute("id").Replace("comment_content_", "");
+                    var CommentContent = RemoveSpecialCharacters(eComment.QuerySelector("div.commentthread_comment_text").TextContent.Trim());
+                    var Author = eComment.QuerySelector("a[class='hoverunderline commentthread_author_link']").GetAttribute("href").Replace("https://steamcommunity.com/profiles/", "").Replace("https://steamcommunity.com/id/", "");
 
-                    var Time            = eComment.QuerySelector("span.commentthread_comment_timestamp").GetAttribute("title").Replace("https://steamcommunity.com/profiles/", ""); // title=convertido
-                    int index           = Time.IndexOf("@"); if (index > 0) { Time = Time.Substring(0, index); } // remove hours, only stay date
+                    var Time = eComment.QuerySelector("span.commentthread_comment_timestamp").GetAttribute("title").Replace("https://steamcommunity.com/profiles/", ""); // title=convertido
+                    int index = Time.IndexOf("@"); if (index > 0) { Time = Time.Substring(0, index); } // remove hours, only stay date
 
-                  //  string[] row        = { CommentID, CommentContent, Author, Time };
 
-                    GridCommentsData.Invoke((MethodInvoker)delegate
-                    {
-                        GridCommentsData.Rows.Add(row.Distinct().ToArray());
-                    });
+                    string[] arrayComments = CommentContent.Split(' ');
 
+                    //string[] row = { CommentID, CommentContent, Author, Time };
                     //GridCommentsData.Invoke((MethodInvoker)delegate
                     //{
                     //    GridCommentsData.Rows.Add(row.Distinct().ToArray());
                     //});
 
-
-                    var d = new Dictionary<uint, Tuple<string, string, string>>();
-
-                    int DELETEDcount = 0;
+                    List<string> vals = new List<string>();//PERVENT DUPLICATE KEY
                     if (chck_containsWords.Checked && txtBox_filterWords.Text.Length != 0)
                     {
-                        string[] filterSelectedWords = txtBox_filterWords.Text.Split(',');
-
-
                         foreach (string item in arrayComments)
                         {
-                            var results = item.Contains(filterSelectedWords[0]); // test
-                                //filterSelectedWords.Contains(item, StringComparison.OrdinalIgnoreCase)
-                            if (chck_ignoreCase.Checked && results)
+                            string[] filterSelectedWords = txtBox_filterWords.Text.Split(',');
+
+
+                            if (filterSelectedWords.Contains(item, StringComparison.OrdinalIgnoreCase) && !vals.Contains(CommentID))
                             {
-                                DELETEDcount++;
-                                Console.WriteLine("AnyCase - DELETED: " + CommentID + " |  " + CommentContent + "\n");
-                                // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
+                                Console.WriteLine("DELETED: " + CommentID + " ||  " + CommentContent + "\n");
+                                myList.Add(CommentID, new cmts { CommentContent = CommentContent, Author = Author, Time = Time });
+                                vals.Add(CommentID);
 
-                                lbl_cDeletedLive.Invoke((MethodInvoker)delegate
-                                {
-                                    lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
-                                });
-                                string[] row = { CommentID, CommentContent, Author, Time };
+                                //AccountLogin.DeleteSelectedComment(CommentID, SelectedProfileORClan);
 
-                                GridCommentsData.Invoke((MethodInvoker)delegate
-                                {
-                                    GridCommentsData.Rows.Add(row.Distinct().ToArray());
-                                });
-
-
-
-                                Thread.Sleep(5);
-                            }
-
-                            if (filterSelectedWords.Contains(item) && !chck_ignoreCase.Checked)
-                            {
-                                DELETEDcount++;
-                                Console.WriteLine("DELETED: " + CommentID + "\n");
-
-                                lbl_cDeletedLive.Invoke((MethodInvoker)delegate
-                                {
-                                    lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
-                                });
-
-                                string[] row = { CommentID, CommentContent, Author, Time };
-
-                                GridCommentsData.Invoke((MethodInvoker)delegate
-                                {
-                                    GridCommentsData.Rows.Add(row.Distinct().ToArray());
-                                });
-
-                                lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
-                                // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
-                                Thread.Sleep(5);
+                                Thread.Sleep(100);
                             }
                         }
                     }
-                   
                 }
 
 
-                //  GridCommentsData.Rows.Add(myList);
-            });
-
-
-
-
-
-
+                GridCommentsData.Invoke((MethodInvoker)delegate
+                {
+                    foreach (KeyValuePair<string, cmts> item in myList)
+                    {
+                        GridCommentsData.Rows.Add(item.Key, item.Value.CommentContent, item.Value.Author, item.Value.Time);
+                    }
+                });
 
                 lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
                 {
@@ -248,10 +201,6 @@ namespace MercuryBOT
                 lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
                 {
                     lbl_totalCommentsInGrid.Visible = true;
-                });
-                lbl_totalComments.Invoke((MethodInvoker)delegate
-                {
-                    lbl_totalComments.Visible = true;
                 });
                 btn_doTask.Invoke((MethodInvoker)delegate
                 {
@@ -271,49 +220,13 @@ namespace MercuryBOT
                 });
 
 
-                Console.WriteLine("ww: "+e);
+                Console.WriteLine("Error: " + e);
             }
         }
-
-        public string Url2ID(string profileURL)
-        {
-
-            var parser = new HtmlParser();
-            var html = Web.DownloadString("https://steamcommunity.com/id/sp0okER/");
-
-            var document = parser.ParseDocument(html);
-            //    var steamID64Clean = document.DocumentElement.QuerySelector("div[class='commentthread_paging has_view_all_link']").GetAttribute("id").Replace("commentthread_Profile_", "").Replace("_pagecontrols", "");
-            var steamID64Clean = document.DocumentElement.QuerySelector("div[class='commentthread_paging has_view_all_link']").GetAttribute("id").Replace("commentthread_Profile_", "").Replace("_pagecontrols", "");
-
-            return steamID64Clean;
-
-            // }
-            // catch (Exception)
-            // {
-            //     return "0";
-            // }
-        }
-
-        public string IF_PROFILE_PRIVATE(string ProfileURL)// meter api key da config
-        {
-            var html = Web.DownloadString("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=&vanityurl=" + ProfileURL);
-            var steamID64Clean = html.Replace('"', ' ').Replace("{ response :{ steamid :", "").Replace(" , success :1}}", "").Trim();
-
-            return steamID64Clean;
-            //add try maybe
-
-        }
-
+        
         private void Btn_doTask_Click(object sender, EventArgs e)
         {
-            //aa();
-            //GatherComments();
             CollectComments.RunWorkerAsync();
-        }
-
-        private void CommentsGather_Shown(object sender, EventArgs e)
-        {
-
         }
 
         private void CollectComments_DoWork(object sender, DoWorkEventArgs e)
@@ -338,9 +251,9 @@ namespace MercuryBOT
 
         private void combox_ProfileURLorGroupID_SelectedIndexChanged(object sender, EventArgs e)
         {
-           CheckProfileGroupInfo = (!combox_ProfileURLorGroupID.SelectedItem.ToString().StartsWith("765611"))
-                                    ? AccountLogin.ClanDictionary.ElementAt(combox_ProfileURLorGroupID.SelectedIndex).Key.ToString()
-                                    : AccountLogin.CurrentSteamID.ToString(); // 666iq
+            CheckProfileGroupInfo = (!combox_ProfileURLorGroupID.SelectedItem.ToString().StartsWith("765611"))
+                                     ? AccountLogin.ClanDictionary.ElementAt(combox_ProfileURLorGroupID.SelectedIndex).Key.ToString()
+                                     : AccountLogin.CurrentSteamID.ToString(); // 666iq
         }
     }
 }
