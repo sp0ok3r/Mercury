@@ -193,12 +193,6 @@
     <Compile Include="AddAcc.Designer.cs">
       <DependentUpon>AddAcc.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminCMDS\AdminCMDSForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminCMDS\AdminCMDSForm.Designer.cs">
-      <DependentUpon>AdminCMDSForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="CallbackMessages\PurchaseResponseCallback.cs" />
     <Compile Include="Comments\CommentsGather.cs">
       <SubType>Form</SubType>
@@ -330,9 +324,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddAcc.resx">
       <DependentUpon>AddAcc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminCMDS\AdminCMDSForm.resx">
-      <DependentUpon>AdminCMDSForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Comments\CommentsGather.resx">
       <DependentUpon>CommentsGather.cs</DependentUpon>

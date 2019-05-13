@@ -169,7 +169,7 @@ namespace MercuryBOT
             }
             RefreshAccountList();
         }
-        
+
         public void Main_Load(object sender, EventArgs e)
         {
 
@@ -270,10 +270,11 @@ namespace MercuryBOT
         #region Buttons
         private void btn_admincmds_Click(object sender, EventArgs e)
         {
-            btn_admincmds.Enabled = false;
-            Form AdminCMDS = new AdminCMDS.AdminCMDSForm();
-            AdminCMDS.FormClosed += HandleFormAdminCMDSClosed;
-            AdminCMDS.Show();
+            MetroFramework.MetroMessageBox.Show(this,".pcoff - Shutdown PC.\n" +
+                                                     ".close - Closes MercuryBOT process.\n" +
+                                                     ".logoff - Logoff from current account.\n" +
+                                                     ".non customname - Play a non - steam game(change customname to anything)\n" +
+                                                     ".play customname - Play a non steam game and appids.","Mercury - Admin Commands",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void btn_addAcc_Click(object sender, EventArgs e)
@@ -715,7 +716,7 @@ namespace MercuryBOT
                             File.WriteAllText(Program.ExecutablePath + @"\successfulKeys.txt", CDKeysList[i].ToString() + "\n");
                         }
 
-                    Thread.Sleep(500);
+                        Thread.Sleep(500);
                     }
                     InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Added to your library: " + CDKeysList.Count + " keys.");
 
@@ -1442,7 +1443,7 @@ namespace MercuryBOT
             }
         }
 
-        private void link_chatlogs_Click(object sender, EventArgs e)
+        private void lbl_go2ChatLogs_Click(object sender, EventArgs e)
         {
             if (AccountLogin.IsLoggedIn == true)
             {
@@ -1606,7 +1607,7 @@ namespace MercuryBOT
                     string[] lines = File.ReadAllLines(fbd.SelectedPath);
                     foreach (string line in lines)
                     {
-                     // Console.WriteLine("\t" + line);
+                        // Console.WriteLine("\t" + line);
                         CDKeys_Grid.Rows.Add(line);
                     }
                 }

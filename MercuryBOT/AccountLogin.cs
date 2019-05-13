@@ -586,47 +586,6 @@ namespace MercuryBOT
         }
 
         #region Friends Methods
-        //public static int GetMaxFriends()
-        //{
-        //    if (maxfriendCount == 0)
-        //    {
-        //        try
-        //        {
-        //            var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-        //            foreach (var a in list.Accounts)
-        //            {
-        //                if (a.username == CurrentUsername)
-        //                {
-        //                    APIKey = a.APIWebKey;
-        //                }
-        //            }
-
-        //            //  if (APIKey == "undefined" || APIKey.Length == 0)
-        //            if (string.IsNullOrEmpty(APIKey))
-        //            {
-        //                InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Register your api key and set it on Accounts.json");
-        //                Process.Start("https://steamcommunity.com/dev/apikey");
-        //                throw new System.ArgumentException("Register your api key and set it on Accounts.json - https://steamcommunity.com/dev/apikey", "devapi missing");
-        //            }
-
-        //            using (var webClient = new WebClient())
-        //            {
-        //                var json = webClient.DownloadString("http://api.steampowered.com/IPlayerService/GetSteamLevel/v1/?key=" + APIKey + "&steamid=" + steamClient.SteamID.ConvertToUInt64());
-        //                var welcome = SteamPlayerLevel.PlayerLevel.FromJson(json);
-        //                maxfriendCount = 250 + (5 * Convert.ToInt32(welcome.Response.PlayerLevel));
-        //                Console.WriteLine("[" + Program.BOTNAME + "] - Level: " + welcome.Response.PlayerLevel + " !");
-        //            }
-        //        }
-        //        catch (Exception)
-        //        {
-        //            InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Error while reading the steam level of own profile. \n Is steam profile even configured ?");
-        //            maxfriendCount = 250;
-        //        }
-        //    }
-
-        //    return maxfriendCount;
-        //}
-
         static void OnFriendsList(SteamFriends.FriendsListCallback obj)
         {
             //LoadFriends();
@@ -639,7 +598,6 @@ namespace MercuryBOT
                 {
                     // case EAccountType.Clan:
                     //     if (friend.Relationship == EFriendRelationship.RequestRecipient)
-                    //DeclineGroupInvite(friend.SteamID);
                     //    break;
 
                     default:
@@ -684,7 +642,6 @@ namespace MercuryBOT
                 if (allfriends.ConvertToUInt64() != 0 && steamFriends.GetFriendRelationship(allfriends.ConvertToUInt64()) == EFriendRelationship.Friend)
                 {
                     Friends.Add(allfriends.ConvertToUInt64());
-                    //Friends.Add(steamFriends.GetFriendByIndex(i));
                 }
             }
         }
@@ -766,7 +723,7 @@ namespace MercuryBOT
                             List<uint> gameuints = new List<uint>();
                             foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
                             {
-                                if (a.username == AccountLogin.CurrentUsername)
+                                if (a.username == CurrentUsername)
                                 {
                                     if (a.Games.Count == 0)
                                     {
@@ -830,18 +787,21 @@ namespace MercuryBOT
 
                 if (AwayCustomMessageList == true)
                 {
+                    List<string> CMessages = new List<string>();// secalhar nem criar lista, secalhar usar  a lista do json e pegar na random direta ai
                     Random random = new Random();
                     int r = 0;
-                    List<string> CMessages = new List<string>();// secalhar nem criar lista, secalhar usar  a lista do json e pegar na random direta ai
                     CMessages.Add("Im using MercuryBOT! - https://github.com/sp0ok3r/Mercury"); // *
 
                     foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
                     {
-                        if (a.username == CurrentUsername) // get user name com steamclient 
+                        if (a.username == CurrentUsername)
                         {
                             for (int i = 0; i < a.AFKMessages.Count; i++)
                             {
-                                CMessages.Add(a.AFKMessages[i].Message);
+                                if (CMessages.Count != a.AFKMessages.Count)
+                                {
+                                    CMessages.Add(a.AFKMessages[i].Message);
+                                }
                             }
                             r = random.Next(0, a.AFKMessages.Count); // +1 ? por causa da de cima?
                         }
@@ -903,7 +863,7 @@ namespace MercuryBOT
                     {
                         foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
                         {
-                            if (a.username == AccountLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(allfriends.ConvertToUInt64().ToString())))
+                            if (a.username == CurrentUsername && a.MsgRecipients.Any(s => s.Contains(allfriends.ConvertToUInt64().ToString())))
                             {
                                 princessas++;
                                 steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.BOTNAME);
@@ -981,7 +941,7 @@ namespace MercuryBOT
                     var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
                     foreach (var a in list.Accounts)
                     {
-                        if (a.username == AccountLogin.CurrentUsername)
+                        if (a.username == CurrentUsername)
                         {
                             a.APIWebKey = webkeySet.TextContent.Replace("Key: ", ""); //861ip
                         }
@@ -1248,7 +1208,7 @@ namespace MercuryBOT
 
         public static IDictionary<string, int> GetProfileSettings()
         {
-            if (AccountLogin.IsLoggedIn == true)
+            if (IsLoggedIn == true)
             {
                 try
                 {

@@ -92,187 +92,185 @@ namespace MercuryBOT
         public void GatherComments()
         {
 
-            lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
-            {
-                lbl_totalCommentsInGrid.Text = "Total Row Count: 0";
-            });
-            lbl_totalComments.Invoke((MethodInvoker)delegate
-            {
-                lbl_totalComments.Text = "Total Count: 0";
-            });
-            ProgressSpinner_LoadComments.Invoke((MethodInvoker)delegate
-            {
-                ProgressSpinner_LoadComments.Visible = true;
-            });
+            //lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
+            //{
+            //    lbl_totalCommentsInGrid.Text = "Total Row Count: 0";
+            //});
+            //lbl_totalComments.Invoke((MethodInvoker)delegate
+            //{
+            //    lbl_totalComments.Text = "Total Count: 0";
+            //});
+            //ProgressSpinner_LoadComments.Invoke((MethodInvoker)delegate
+            //{
+            //    ProgressSpinner_LoadComments.Visible = true;
+            //});
 
-            if (string.IsNullOrEmpty(SelectedProfileORClan) || string.IsNullOrEmpty(txtBox_Comments2GetCount.Text))
-            {
-                Console.WriteLine("Please select the profile/group.");
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please select the profile/group.");
-                return;
-            }
+            //if (string.IsNullOrEmpty(SelectedProfileORClan) || string.IsNullOrEmpty(txtBox_Comments2GetCount.Text))
+            //{
+            //    Console.WriteLine("Please select the profile/group.");
+            //    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please select the profile/group.");
+            //    return;
+            //}
 
 
-            GridCommentsData.Invoke((MethodInvoker)delegate
-            {
-                GridCommentsData.Rows.Clear();
-            });
-            btn_doTask.Invoke((MethodInvoker)delegate
-            {
-                btn_doTask.Enabled = false;
-            });
+            //GridCommentsData.Invoke((MethodInvoker)delegate
+            //{
+            //    GridCommentsData.Rows.Clear();
+            //});
+            //btn_doTask.Invoke((MethodInvoker)delegate
+            //{
+            //    btn_doTask.Enabled = false;
+            //});
 
-            try
-            {
-                string ProfileORGroupComments = "https://steamcommunity.com/comment/" + SelectedProfileORClan + "/render/" + CheckProfileGroupInfo + "/-1/?count=" + txtBox_Comments2GetCount.Text;
+            //try
+            //{
+            //    string ProfileORGroupComments = "https://steamcommunity.com/comment/" + SelectedProfileORClan + "/render/" + CheckProfileGroupInfo + "/-1/?count=" + txtBox_Comments2GetCount.Text;
                 
-                var parser = new HtmlParser();
+            //    var parser = new HtmlParser();
 
-                var json = Web.DownloadString(ProfileORGroupComments);
-                var renderComments = RenderComments.FromJson(json);
+            //    var json = Web.DownloadString(ProfileORGroupComments);
+            //    var renderComments = RenderComments.FromJson(json);
 
-                var document = parser.ParseDocument(renderComments.CommentsHtml);
-                var eCommentList = document.QuerySelectorAll("div.commentthread_comment");
-
-
-                lbl_totalComments.Invoke((MethodInvoker)delegate
-                {
-                    lbl_totalComments.Text = "Total Count: " + renderComments.TotalCount.ToString();
-                });
+            //    var document = parser.ParseDocument(renderComments.CommentsHtml);
+            //    var eCommentList = document.QuerySelectorAll("div.commentthread_comment");
 
 
-                foreach (var eComment in eCommentList)
-                {
-                    var CommentID       = eComment.QuerySelector("div.commentthread_comment_text").GetAttribute("id").Replace("comment_content_", "");
-                    var CommentContent  = RemoveSpecialCharacters(eComment.QuerySelector("div.commentthread_comment_text").TextContent.Trim());
-                    var Author          = eComment.QuerySelector("a[class='hoverunderline commentthread_author_link']").GetAttribute("href").Replace("https://steamcommunity.com/profiles/", "").Replace("https://steamcommunity.com/id/", "");
-
-                    var Time            = eComment.QuerySelector("span.commentthread_comment_timestamp").GetAttribute("title").Replace("https://steamcommunity.com/profiles/", ""); // title=convertido
-                    int index           = Time.IndexOf("@"); if (index > 0) { Time = Time.Substring(0, index); } // remove hours, only stay date
-
-                  //  string[] row        = { CommentID, CommentContent, Author, Time };
-
-                    GridCommentsData.Invoke((MethodInvoker)delegate
-                    {
-                        GridCommentsData.Rows.Add(row.Distinct().ToArray());
-                    });
-
-                    //GridCommentsData.Invoke((MethodInvoker)delegate
-                    //{
-                    //    GridCommentsData.Rows.Add(row.Distinct().ToArray());
-                    //});
+            //    lbl_totalComments.Invoke((MethodInvoker)delegate
+            //    {
+            //        lbl_totalComments.Text = "Total Count: " + renderComments.TotalCount.ToString();
+            //    });
 
 
-                    var d = new Dictionary<uint, Tuple<string, string, string>>();
+            //    foreach (var eComment in eCommentList)
+            //    {
+            //        var CommentID       = eComment.QuerySelector("div.commentthread_comment_text").GetAttribute("id").Replace("comment_content_", "");
+            //        var CommentContent  = RemoveSpecialCharacters(eComment.QuerySelector("div.commentthread_comment_text").TextContent.Trim());
+            //        var Author          = eComment.QuerySelector("a[class='hoverunderline commentthread_author_link']").GetAttribute("href").Replace("https://steamcommunity.com/profiles/", "").Replace("https://steamcommunity.com/id/", "");
 
-                    int DELETEDcount = 0;
-                    if (chck_containsWords.Checked && txtBox_filterWords.Text.Length != 0)
-                    {
-                        string[] filterSelectedWords = txtBox_filterWords.Text.Split(',');
+            //        var Time            = eComment.QuerySelector("span.commentthread_comment_timestamp").GetAttribute("title").Replace("https://steamcommunity.com/profiles/", ""); // title=convertido
+            //        int index           = Time.IndexOf("@"); if (index > 0) { Time = Time.Substring(0, index); } // remove hours, only stay date
 
+            //      //  string[] row        = { CommentID, CommentContent, Author, Time };
 
-                        foreach (string item in arrayComments)
-                        {
-                            var results = item.Contains(filterSelectedWords[0]); // test
-                                //filterSelectedWords.Contains(item, StringComparison.OrdinalIgnoreCase)
-                            if (chck_ignoreCase.Checked && results)
-                            {
-                                DELETEDcount++;
-                                Console.WriteLine("AnyCase - DELETED: " + CommentID + " |  " + CommentContent + "\n");
-                                // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
+            //        GridCommentsData.Invoke((MethodInvoker)delegate
+            //        {
+            //            GridCommentsData.Rows.Add(row.Distinct().ToArray());
+            //        });
 
-                                lbl_cDeletedLive.Invoke((MethodInvoker)delegate
-                                {
-                                    lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
-                                });
-                                string[] row = { CommentID, CommentContent, Author, Time };
-
-                                GridCommentsData.Invoke((MethodInvoker)delegate
-                                {
-                                    GridCommentsData.Rows.Add(row.Distinct().ToArray());
-                                });
+            //        //GridCommentsData.Invoke((MethodInvoker)delegate
+            //        //{
+            //        //    GridCommentsData.Rows.Add(row.Distinct().ToArray());
+            //        //});
 
 
+            //        var d = new Dictionary<uint, Tuple<string, string, string>>();
 
-                                Thread.Sleep(5);
-                            }
+            //        int DELETEDcount = 0;
+            //        if (chck_containsWords.Checked && txtBox_filterWords.Text.Length != 0)
+            //        {
+            //            string[] filterSelectedWords = txtBox_filterWords.Text.Split(',');
 
-                            if (filterSelectedWords.Contains(item) && !chck_ignoreCase.Checked)
-                            {
-                                DELETEDcount++;
-                                Console.WriteLine("DELETED: " + CommentID + "\n");
 
-                                lbl_cDeletedLive.Invoke((MethodInvoker)delegate
-                                {
-                                    lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
-                                });
+            //            foreach (string item in arrayComments)
+            //            {
+            //                var results = item.Contains(filterSelectedWords[0]); // test
+            //                    //filterSelectedWords.Contains(item, StringComparison.OrdinalIgnoreCase)
+            //                if (chck_ignoreCase.Checked && results)
+            //                {
+            //                    DELETEDcount++;
+            //                    Console.WriteLine("AnyCase - DELETED: " + CommentID + " |  " + CommentContent + "\n");
+            //                    // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
 
-                                string[] row = { CommentID, CommentContent, Author, Time };
+            //                    lbl_cDeletedLive.Invoke((MethodInvoker)delegate
+            //                    {
+            //                        lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
+            //                    });
+            //                    string[] row = { CommentID, CommentContent, Author, Time };
 
-                                GridCommentsData.Invoke((MethodInvoker)delegate
-                                {
-                                    GridCommentsData.Rows.Add(row.Distinct().ToArray());
-                                });
+            //                    GridCommentsData.Invoke((MethodInvoker)delegate
+            //                    {
+            //                        GridCommentsData.Rows.Add(row.Distinct().ToArray());
+            //                    });
 
-                                lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
-                                // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
-                                Thread.Sleep(5);
-                            }
-                        }
-                    }
+
+
+            //                    Thread.Sleep(5);
+            //                }
+
+            //                if (filterSelectedWords.Contains(item) && !chck_ignoreCase.Checked)
+            //                {
+            //                    DELETEDcount++;
+            //                    Console.WriteLine("DELETED: " + CommentID + "\n");
+
+            //                    lbl_cDeletedLive.Invoke((MethodInvoker)delegate
+            //                    {
+            //                        lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
+            //                    });
+
+            //                    string[] row = { CommentID, CommentContent, Author, Time };
+
+            //                    GridCommentsData.Invoke((MethodInvoker)delegate
+            //                    {
+            //                        GridCommentsData.Rows.Add(row.Distinct().ToArray());
+            //                    });
+
+            //                    lbl_cDeletedLive.Text = "Deleted: " + DELETEDcount;
+            //                    // AccountLogin.DeleteSelectedComment(CommentID, ProfileOrClan);
+            //                    Thread.Sleep(5);
+            //                }
+            //            }
+            //        }
                    
-                }
+            //    }
 
 
-                //  GridCommentsData.Rows.Add(myList);
-            });
-
-
-
+            //    //  GridCommentsData.Rows.Add(myList);
+            //});
 
 
 
 
-                lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
-                {
-                    lbl_totalCommentsInGrid.Text = "Total Row Count:" + GridCommentsData.Rows.Count.ToString();
-                });
-                CommentsList_ScrollBar.Invoke((MethodInvoker)delegate
-                {
-                    CommentsList_ScrollBar.Maximum = GridCommentsData.Rows.Count;
-                });
-                ProgressSpinner_LoadComments.Invoke((MethodInvoker)delegate
-                {
-                    ProgressSpinner_LoadComments.Visible = false;
-                });
-                lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
-                {
-                    lbl_totalCommentsInGrid.Visible = true;
-                });
-                lbl_totalComments.Invoke((MethodInvoker)delegate
-                {
-                    lbl_totalComments.Visible = true;
-                });
-                btn_doTask.Invoke((MethodInvoker)delegate
-                {
-                    btn_doTask.Enabled = true;
-                });
-
-            }
-            catch (Exception e)
-            {
-                btn_doTask.Invoke((MethodInvoker)delegate
-                {
-                    btn_doTask.Enabled = true;
-                });
-                ProgressSpinner_LoadComments.Invoke((MethodInvoker)delegate
-                {
-                    ProgressSpinner_LoadComments.Visible = false;
-                });
 
 
-                Console.WriteLine("ww: "+e);
-            }
+
+            //    lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
+            //    {
+            //        lbl_totalCommentsInGrid.Text = "Total Row Count:" + GridCommentsData.Rows.Count.ToString();
+            //    });
+            //    CommentsList_ScrollBar.Invoke((MethodInvoker)delegate
+            //    {
+            //        CommentsList_ScrollBar.Maximum = GridCommentsData.Rows.Count;
+            //    });
+            //    ProgressSpinner_LoadComments.Invoke((MethodInvoker)delegate
+            //    {
+            //        ProgressSpinner_LoadComments.Visible = false;
+            //    });
+            //    lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
+            //    {
+            //        lbl_totalCommentsInGrid.Visible = true;
+            //    });
+            //    lbl_totalComments.Invoke((MethodInvoker)delegate
+            //    {
+            //        lbl_totalComments.Visible = true;
+            //    });
+            //    btn_doTask.Invoke((MethodInvoker)delegate
+            //    {
+            //        btn_doTask.Enabled = true;
+            //    });
+
+            //}
+            //catch (Exception e)
+            //{
+            //    btn_doTask.Invoke((MethodInvoker)delegate
+            //    {
+            //        btn_doTask.Enabled = true;
+            //    });
+            //    ProgressSpinner_LoadComments.Invoke((MethodInvoker)delegate
+            //    {
+            //        ProgressSpinner_LoadComments.Visible = false;
+            //    });
+            //    Console.WriteLine("ww: "+e);
+            //}
         }
 
         public string Url2ID(string profileURL)
