@@ -22,6 +22,7 @@ using System.Collections.Generic;
 using MercuryBOT.UserSettings;
 using System.Text.RegularExpressions;
 using System.Net;
+using Microsoft.Win32;
 
 namespace MercuryBOT.Helpers
 {
@@ -114,6 +115,12 @@ namespace MercuryBOT.Helpers
             return Between(RespSteamProfile, "<steamID64>", "</steamID64>");
         }
 
+        public static string ResolveAvatar(string steamid64)// fast way, without api key
+        {
+            var RespSteamProfile = new WebClient().DownloadString("https://steamcommunity.com/profiles/" + AllToSteamId64(steamid64) + "?xml=1"); // 6521iq
+            return Between(RespSteamProfile, "<avatarMedium><![CDATA[", "]]></avatarMedium>");
+        }
+
         public static List<EPersonaState> statesList = new List<EPersonaState> {
                         EPersonaState.Offline,
                         EPersonaState.Online,
@@ -123,6 +130,18 @@ namespace MercuryBOT.Helpers
                         EPersonaState.LookingToTrade,
                         EPersonaState.LookingToPlay,
                         EPersonaState.Invisible };
+
+        public static string SteamLocation;
+
+        public static void Init()
+        {
+            var key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Valve\\Steam");
+            if (key == null)
+                key = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey("SOFTWARE\\Valve\\Steam");
+            if (key != null && key.GetValue("SteamPath") is string)
+                SteamLocation = key.GetValue("SteamPath").ToString();
+        }
+
         #endregion
 
         #region File Methods

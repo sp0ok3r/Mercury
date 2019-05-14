@@ -220,56 +220,64 @@ namespace MercuryBOT.SteamGroups
 
         private void btn_gatherFromProfile_Click(object sender, EventArgs e)
         {
-            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/id/sp0okER/?xml=1", "GET"); // CHANGE
-            if (resp != String.Empty)
+            if (!string.IsNullOrEmpty(txtBox_profileGrabIDS.Text))
             {
-                string pattern = "(<groupID64>)(.*?)(</groupID64>)";
-
-                Regex gids = new Regex(pattern, RegexOptions.Compiled);
-                MatchCollection matches = gids.Matches(resp);
-
-                foreach (Match match in matches)
+                string steamid64 = Extensions.AllToSteamId64(txtBox_profileGrabIDS.Text);
+                string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamid64 + "/?xml=1", "GET"); // CHANGE
+                if (resp != string.Empty)
                 {
-                    try
+                    using (TextWriter tw = new StreamWriter(steamid64 + "_GroupsIDS.txt"))
                     {
-                        Console.WriteLine(match.Groups[0].Value);
+                        {
+                            foreach (Match groupsIDS in Regex.Matches(resp, @"<groupID64>(.*?)</groupID64>", RegexOptions.IgnoreCase | RegexOptions.Compiled))
+                            {
+                                tw.WriteLine(groupsIDS.Groups[1].Value);
+                            }
+                        }
                     }
-                    catch { }
+                    //Process.Start(Program.ExecutablePath + @"\" + steamid64 + "_GroupsIDS.txt");
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Info","All group ids saved!");   
                 }
             }
+            else
+            {
+                Console.WriteLine("nao");
+            }
         }
-
         private void btn_joinAll_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtBox_groupidsFile.Text))
             {
                 btn_joinAll.Enabled = false;
-                var lines = File.ReadLines(txtBox_groupidsFile.Text);
-                foreach (var line in lines)
+                string[] lines = File.ReadAllLines(txtBox_groupidsFile.Text);
+                foreach (string line in lines)
                 {
                     AccountLogin.JoinGroup(line);
                     Thread.Sleep(5);
                 }
                 btn_joinAll.Enabled = true;
+                link_setfile.Enabled = true;
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Joined all groups in file!");
             }
             else
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error","Please select the file location");
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please select the file location");
             }
         }
 
         private void link_setfile_Click(object sender, EventArgs e)
         {
-            using (var fbd = new FolderBrowserDialog())
+            using (var fbd = new OpenFileDialog())
             {
+                fbd.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
                 DialogResult result = fbd.ShowDialog();
 
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.FileName))
                 {
-                    txtBox_groupidsFile.Text = fbd.SelectedPath;
+                    txtBox_groupidsFile.Text = fbd.FileName;
                 }
             }
+            link_setfile.Enabled = false;
         }
     }
 }

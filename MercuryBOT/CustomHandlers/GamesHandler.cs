@@ -19,6 +19,8 @@ namespace MercuryBOT.CustomHandlers
                     break;
             }
         }
+
+        #region PlayGames
         public void SetGamePlayingNormal(int _gameID)
         {
             ClientMsgProtobuf<CMsgClientGamesPlayed> gamePlaying = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
@@ -41,7 +43,7 @@ namespace MercuryBOT.CustomHandlers
             request.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed { game_id = new GameID(0) });
             Client.Send(request);
         }
-
+        #endregion
 
         public async Task<PurchaseResponseCallback> RedeemKey(string _keyToActivate)
         {

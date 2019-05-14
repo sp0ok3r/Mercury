@@ -9,7 +9,7 @@
 */
 using AngleSharp.Html.Parser;
 using MercuryBOT.FriendsList;
-using MercuryBOT.SteamTrade;
+using MercuryBOT.SteamCommunity;
 using MercuryBOT.UserSettings;
 using MercuryBOT.Helpers;
 using Newtonsoft.Json;
@@ -22,15 +22,15 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading;
 using MercuryBOT.CustomHandlers;
+using MercuryBOT.CallbackMessages;
 
 namespace MercuryBOT
 {
     public class AccountLogin
     {
-        public static string UserPersonaName, UserCountry, CurrentUsername, IP2Country;
+        public static string UserPersonaName, UserCountry, CurrentUsername;
         public static bool UserPlaying = false;
 
         public static ulong CurrentAdmin;
@@ -44,14 +44,13 @@ namespace MercuryBOT
         public static string APIKey;
 
         public static List<SteamID> Friends { get; private set; }
-        //private readonly List<SteamID> Groups = new List<SteamID>();
         public static Dictionary<ulong, string> ClanDictionary = new Dictionary<ulong, string>();
 
 
-        public static SteamClient steamClient;
-        public static SteamUser steamUser;
+        private static SteamClient steamClient;
+        private static SteamUser steamUser;
         public static SteamFriends steamFriends;
-        public static CallbackManager MercuryManager;
+        private static CallbackManager MercuryManager;
         public static SteamWeb steamWeb;
         private static GamesHandler gamesHandler;
 
@@ -64,8 +63,8 @@ namespace MercuryBOT
         public static bool FriendsLoaded = false;
         public static bool isSendingMsgs = false;
 
-        public static string AvatarPrefix = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/";
-        public static string AvatarSuffix = "_full.jpg";
+        public readonly static string AvatarPrefix = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/";
+        public readonly static string AvatarSuffix = "_full.jpg";
 
         public static string ChangeState;
 
@@ -82,10 +81,6 @@ namespace MercuryBOT
         public static string user, pass;
         public static string authCode, twoFactorAuth;
         public static string steamID;
-
-
-        public static int maxfriendCount;
-
 
         public static void UserSettingsGather(string username, string password)
         {
@@ -145,6 +140,9 @@ namespace MercuryBOT
             MercuryManager.Subscribe<SteamFriends.PersonaStateCallback>(OnPersonaState);
             MercuryManager.Subscribe<SteamFriends.PersonaChangeCallback>(OnSteamNameChange);
             #endregion
+
+            steamClient.AddHandler(gamesHandler);
+            MercuryManager.Subscribe<PurchaseResponseCallback>(OnPurchaseResponse);
 
             Console.WriteLine("[" + Program.BOTNAME + "] - Connecting to Steam...");
 
@@ -306,7 +304,6 @@ namespace MercuryBOT
             Console.WriteLine("[" + Program.BOTNAME + "] - Successfully logged on!" + callback.ServerTime.ToString("R"));
             Notification.NotifHelper.MessageBox.Show("Info", "Successfully logged on!");
 
-            IP2Country = callback.PublicIP.ToString();
             CurrentSteamID = steamClient.SteamID.ConvertToUInt64();
             myUserNonce = callback.WebAPIUserNonce;
             UserCountry = callback.IPCountryCode;
@@ -576,12 +573,13 @@ namespace MercuryBOT
             try
             {
                 string SHA1 = BitConverter.ToString(steamFriends.GetFriendAvatar(steamid)).Replace("-", "").ToLower();
+
                 string PreURL = SHA1.Substring(1, 2);
                 return AvatarPrefix + PreURL + "/" + SHA1 + AvatarSuffix;
             }
-            catch (Exception exD)
+            catch (Exception)
             {
-                return "AvatarError: " + exD;
+                return Extensions.ResolveAvatar(steamid.ToString());
             }
         }
 
@@ -1000,16 +998,16 @@ namespace MercuryBOT
         #region PlayGames
         public static void PlayNonSteamGame(string customgame)
         {
-            //gamesHandler.SetGamePlayingNONSteam(customgame);
-            var playGame = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
+            gamesHandler.SetGamePlayingNONSteam(customgame);
+            //var playGame = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
 
-            playGame.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed
-            {
-                game_id = 12350489788975939584,
-                game_extra_info = customgame
+            //playGame.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed
+            //{
+            //    game_id = 12350489788975939584,
+            //    game_extra_info = customgame
 
-            });
-            steamClient.Send(playGame);
+            //});
+            //steamClient.Send(playGame);
 
             Console.WriteLine("[" + Program.BOTNAME + "] - Now playing: " + customgame);
         }
@@ -1036,13 +1034,7 @@ namespace MercuryBOT
 
         public static void StopGames()
         {
-            //gamesHandler.StopPlayingGames();
-
-            ClientMsgProtobuf<CMsgClientGamesPlayed> request = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
-
-            request.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed { game_id = new GameID(0) });
-
-            steamClient.Send(request);
+            gamesHandler.StopPlayingGames();
         }
         #endregion
 
@@ -1283,6 +1275,22 @@ namespace MercuryBOT
                 Body = { uimode = x }
             };
             steamClient.Send(uiMode);
+        }
+
+        private static void OnPurchaseResponse(PurchaseResponseCallback cb)
+        {
+            switch (cb.m_Result)
+            {
+                case EResult.Fail:
+
+                    break;
+                    //case ERe:
+
+                    //  break;
+            }
+
+            Console.WriteLine(cb.m_Result);
+
         }
 
         public static void Logout()

@@ -45,7 +45,7 @@
             this.BTN_GETBackground.Name = "BTN_GETBackground";
             this.BTN_GETBackground.Size = new System.Drawing.Size(75, 23);
             this.BTN_GETBackground.Style = MetroFramework.MetroColorStyle.Purple;
-            this.BTN_GETBackground.TabIndex = 0;
+            this.BTN_GETBackground.TabIndex = 5;
             this.BTN_GETBackground.Text = "GET";
             this.BTN_GETBackground.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BTN_GETBackground.UseCustomBackColor = true;

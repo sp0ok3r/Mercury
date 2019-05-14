@@ -101,12 +101,12 @@ namespace MercuryBOT.Splash
 
         public static IEnumerable<SteamLoginUsers> GetLoginUsers()
         {
-            if (SteamPath.SteamLocation == null)
+            if (Helpers.Extensions.SteamLocation == null)
             {
-                SteamPath.Init();
+                Helpers.Extensions.Init();
             }
 
-            dynamic volvo = VdfConvert.Deserialize(File.ReadAllText(SteamPath.SteamLocation + @"\config\loginusers.vdf"));
+            dynamic volvo = VdfConvert.Deserialize(File.ReadAllText(Helpers.Extensions.SteamLocation + @"\config\loginusers.vdf"));
             VToken v2 = volvo.Value;
             // erro se remember pw esta a 0 em todos os users
             return v2.Children().Select(child => new SteamLoginUsers(child)).Where(user => user.RememberPassword).OrderByDescending(user => user.LastLoginTime).ToList();

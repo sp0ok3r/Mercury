@@ -60,6 +60,14 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AngleSharp, Version=0.11.0.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
       <HintPath>..\packages\AngleSharp.0.11.0\lib\net46\AngleSharp.dll</HintPath>
@@ -105,11 +113,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Steam4NET">
-      <HintPath>D:\PROJECTS\CSharp\SP0OK3RBOT-WORK - Cópia\SteamAdversitingBot\bin\x86\Release\Steam4NET.dll</HintPath>
-    </Reference>
-    <Reference Include="SteamAuth, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SteamAuth.3.0.0\lib\net45\SteamAuth.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>D:\PROJECTS\CSharp\Steam4NET-master\Steam4NET\bin\Debug\Steam4NET.dll</HintPath>
     </Reference>
     <Reference Include="SteamKit2, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SteamKit2.2.2.0-Beta.1\lib\netstandard2.0\SteamKit2.dll</HintPath>
@@ -221,7 +225,6 @@
     </Compile>
     <Compile Include="FriendsList\ListFriends.cs" />
     <Compile Include="FriendsList\FriendsRequests.cs" />
-    <Compile Include="Helpers\SteamPath.cs" />
     <Compile Include="Notification\NotifHelper.cs" />
     <Compile Include="Notification\NotificationForm.cs">
       <SubType>Form</SubType>
@@ -279,7 +282,7 @@
     <Compile Include="SteamServers\SteamServersMain.Designer.cs">
       <DependentUpon>SteamServersMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="SteamTrade\SteamWeb.cs" />
+    <Compile Include="SteamCommunity\SteamWeb.cs" />
     <Compile Include="UpdateManager\Updater.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,9 +321,11 @@
     </Compile>
     <EmbeddedResource Include="AccSettings\AccSettings.resx">
       <DependentUpon>AccSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AccSettings\ProfilePrivacy.resx">
       <DependentUpon>ProfilePrivacy.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AddAcc.resx">
       <DependentUpon>AddAcc.cs</DependentUpon>

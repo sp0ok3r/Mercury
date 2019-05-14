@@ -20,7 +20,7 @@ using System.Net.Security;
 using SteamKit2;
 using System.Threading;
 
-namespace MercuryBOT.SteamTrade
+namespace MercuryBOT.SteamCommunity
 {
     /// <summary>
     /// SteamWeb class to create an API endpoint to the Steam Web.
