@@ -73,9 +73,6 @@
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="Microsoft.Win32.Registry, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Registry.4.5.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
       <Private>True</Private>
@@ -93,10 +90,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Steam4NET">
-      <HintPath>bin\Debug\lib\Steam4NET.dll</HintPath>
+      <HintPath>D:\PROJECTS\CSharp\Steam4NET-master\Steam4NET\bin\Debug\Steam4NET.dll</HintPath>
     </Reference>
     <Reference Include="SteamKit2, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SteamKit2.2.2.0-Beta.1\lib\netstandard2.0\SteamKit2.dll</HintPath>
+      <HintPath>..\packages\SteamKit2.2.2.0-Beta.2\lib\netstandard2.0\SteamKit2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SteamWebAPI2, Version=4.0.8.0, Culture=neutral, processorArchitecture=MSIL">

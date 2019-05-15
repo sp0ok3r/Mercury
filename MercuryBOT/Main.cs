@@ -21,12 +21,10 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Media;
 using System.Net;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -49,9 +47,6 @@ namespace MercuryBOT
         private StringBuilder version;
         private ISteamClient012 steamclient;
         private ISteamUser016 steamuser;
-        private ISteamUtils005 steamutils;
-        private ISteamUserStats002 userstats002;
-        private ISteamUserStats010 userstats010;
         private ISteamFriends013 steamfriends013;
         private ISteamFriends002 steamfriends002;
         private int user;
@@ -114,7 +109,7 @@ namespace MercuryBOT
             InitializeComponent();
             this.Activate();
             this.components.SetStyle(this);
-            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(2, 2, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(1, 1, Width, Height+5, 15, 15));
 
             IntPtr ptrLogout = Gdi32.CreateRoundRectRgn(1, 1, btn_logout.Width, btn_logout.Height, 5, 5);
             btn_logout.Region = Region.FromHrgn(ptrLogout);

@@ -61,9 +61,15 @@ namespace MercuryBOT
                     combox_ProfileURLorGroupID.SelectedIndex = 0;
                     break;
                 case 1://Clan
-                    foreach (var pair in AccountLogin.ClanDictionary)
+                    foreach (var Officers in AccountLogin.OfficerClanDictionary)
                     {
-                        combox_ProfileURLorGroupID.Items.Add(pair.Value);
+                        foreach (var Groups in AccountLogin.ClanDictionary)
+                        {
+                            if (Officers.Key == Groups.Key)
+                            {
+                                combox_ProfileURLorGroupID.Items.Add(Groups.Value);
+                            }
+                        }
                     }
                     break;
             }
@@ -74,7 +80,7 @@ namespace MercuryBOT
         {
             return Regex.Replace(str, "[^a-zA-Z0-9_.]+", " ", RegexOptions.Compiled);
         }
-        
+
         class cmts
         {
             public string CommentContent { get; set; }
@@ -247,7 +253,7 @@ namespace MercuryBOT
         private void combox_ProfileURLorGroupID_SelectedIndexChanged(object sender, EventArgs e)
         {
             CheckProfileGroupInfo = (!combox_ProfileURLorGroupID.SelectedItem.ToString().StartsWith("765611"))
-                                     ? AccountLogin.ClanDictionary.ElementAt(combox_ProfileURLorGroupID.SelectedIndex).Key.ToString()
+                                     ? AccountLogin.ClanDictionary.ElementAt(combox_ProfileURLorGroupID.SelectedIndex).Key.ToString() // bug lista officers troca index
                                      : AccountLogin.CurrentSteamID.ToString(); // 666iq
         }
     }

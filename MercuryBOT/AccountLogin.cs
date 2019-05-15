@@ -203,7 +203,7 @@ namespace MercuryBOT
             {
                 Username = user,
                 Password = pass,
-                //NewloginKey == null ? pass : null,
+                //
                 AuthCode = authCode,
                 TwoFactorCode = twoFactorAuth,
                 SentryFileHash = sentryHash,
@@ -211,15 +211,14 @@ namespace MercuryBOT
                 LoginID = 1337,
                 ShouldRememberPassword = true,
                 LoginKey = NewloginKey
-
             });
         }
 
         static void OnLoggedOn(SteamUser.LoggedOnCallback callback)
         {
             bool isSteamGuard = callback.Result == EResult.AccountLogonDenied;
-            bool is2FA = callback.Result == EResult.AccountLoginDeniedNeedTwoFactor;
-            bool isLoginKey = callback.Result == EResult.InvalidPassword && NewloginKey != null;
+            bool is2FA        = callback.Result == EResult.AccountLoginDeniedNeedTwoFactor;
+            bool isLoginKey   = callback.Result == EResult.InvalidPassword && NewloginKey != null;
 
             if (isSteamGuard || is2FA || isLoginKey)
             {
@@ -264,18 +263,15 @@ namespace MercuryBOT
                     {
                         Console.WriteLine("[" + Program.BOTNAME + "] - Login key expired. Connecting with user password.");
                         Notification.NotifHelper.MessageBox.Show("Info", "Login key expired.\nConnecting with user password...");
-
                     }
                     else
                     {
                         Console.WriteLine("[" + Program.BOTNAME + "] - Login key expired.");
                         Notification.NotifHelper.MessageBox.Show("Info", "Login key expired!\nConnecting...");
-
                     }
                 }
                 else
                 {
-                    //Console.Write("[" + Program.BOTNAME + "] - Please enter the auth code sent to the email at {0}: ", callback.EmailDomain);
                     SteamGuard SteamGuard = new SteamGuard(callback.EmailDomain, user);
                     SteamGuard.ShowDialog();
 
@@ -306,8 +302,8 @@ namespace MercuryBOT
             Notification.NotifHelper.MessageBox.Show("Info", "Successfully logged on!");
 
             CurrentSteamID = steamClient.SteamID.ConvertToUInt64();
-            myUserNonce = callback.WebAPIUserNonce;
-            UserCountry = callback.IPCountryCode;
+            myUserNonce    = callback.WebAPIUserNonce;
+            UserCountry    = callback.IPCountryCode;
 
             IsLoggedIn = true;
 
@@ -332,6 +328,7 @@ namespace MercuryBOT
             }
             File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(ListUserSettings, Formatting.Indented));
             UserClanIDS();
+            gather_ClanOfficers();
         }
 
         static void OnDisconnected(SteamClient.DisconnectedCallback callback)
@@ -376,13 +373,13 @@ namespace MercuryBOT
         static void OnPersonaState(SteamFriends.PersonaStateCallback callback)
         {
             SteamID friendID = callback.FriendID;
-            SteamID sourceSteamID = callback.SourceSteamID;
+            SteamID sourceSteamID = callback.SourceSteamID.ConvertToUInt64();
             EClanRank clanRank = (EClanRank)callback.ClanRank;
             EPersonaState state = callback.State;
 
             //ListFriends.UpdateName(friendId.ConvertToUInt64(), callback.Name); not yet
             //ListFriends.UpdateStatus(friendId.ConvertToUInt64(), state.ToString()); not yet
-            
+
             if (friendID.ConvertToUInt64() == steamClient.SteamID)
             {
                 if (sourceSteamID.IsClanAccount)
@@ -390,17 +387,17 @@ namespace MercuryBOT
                     switch (clanRank)
                     {
                         case EClanRank.Owner:
-                            OfficerClanDictionary.Add(sourceSteamID, friendID.ConvertToUInt64());
-                            break;
                         case EClanRank.Officer:
-                            OfficerClanDictionary.Add(sourceSteamID, friendID.ConvertToUInt64());
-                            break;
                         case EClanRank.Moderator:
-                            OfficerClanDictionary.Add(sourceSteamID, friendID.ConvertToUInt64());
+                            if (!OfficerClanDictionary.ContainsKey(sourceSteamID))
+                            {
+                                OfficerClanDictionary.Add(sourceSteamID, friendID.ConvertToUInt64());
+                            }
                             break;
                     }
                 }
-                
+
+                //
                 if (callback.GameID > 0)
                 {
                     UserPlaying = true;
@@ -1102,6 +1099,13 @@ namespace MercuryBOT
             }
         }
 
+        public static void gather_ClanOfficers()
+        {
+            foreach (var pair in ClanDictionary)
+            {
+                ClanOfficers(Convert.ToUInt64(pair.Key));
+            }
+        }
         public static void MakeGroupAnnouncement(string groupName, string HeadLine, string body)
         {
             var data = new NameValueCollection {

@@ -97,8 +97,7 @@ namespace MercuryBOT.Splash
                 }
             }
         }
-
-
+        
         public static IEnumerable<SteamLoginUsers> GetLoginUsers()
         {
             if (Helpers.Extensions.SteamLocation == null)
@@ -108,7 +107,7 @@ namespace MercuryBOT.Splash
 
             dynamic volvo = VdfConvert.Deserialize(File.ReadAllText(Helpers.Extensions.SteamLocation + @"\config\loginusers.vdf"));
             VToken v2 = volvo.Value;
-            // erro se remember pw esta a 0 em todos os users
+            //bug:  erro se remember pw esta a 0 em todos os users
             return v2.Children().Select(child => new SteamLoginUsers(child)).Where(user => user.RememberPassword).OrderByDescending(user => user.LastLoginTime).ToList();
         }
 
@@ -125,13 +124,13 @@ namespace MercuryBOT.Splash
         {
             CheckForAccountsFile();
 
-            try // Saved some gamers (900-10)iq
+            try
             {
                 LoginusersVDF_ToFile();
             }
             catch (DirectoryNotFoundException)
             {
-                Console.WriteLine("["+Program.BOTNAME+"] - Directory not found, but starting anyway...");
+                Console.WriteLine("["+Program.BOTNAME+"] - Steam Directory not found, but starting anyways...");
             }
 
             tmr = new Timer();
