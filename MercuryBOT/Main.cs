@@ -114,7 +114,7 @@ namespace MercuryBOT
             InitializeComponent();
             this.Activate();
             this.components.SetStyle(this);
-            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(2, 2, Width, Height, 5, 5));
 
             IntPtr ptrLogout = Gdi32.CreateRoundRectRgn(1, 1, btn_logout.Width, btn_logout.Height, 5, 5);
             btn_logout.Region = Region.FromHrgn(ptrLogout);

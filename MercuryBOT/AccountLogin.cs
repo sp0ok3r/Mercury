@@ -45,6 +45,7 @@ namespace MercuryBOT
 
         public static List<SteamID> Friends { get; private set; }
         public static Dictionary<ulong, string> ClanDictionary = new Dictionary<ulong, string>();
+        public static Dictionary<ulong, ulong> OfficerClanDictionary = new Dictionary<ulong, ulong>();
 
 
         private static SteamClient steamClient;
@@ -374,14 +375,32 @@ namespace MercuryBOT
 
         static void OnPersonaState(SteamFriends.PersonaStateCallback callback)
         {
+            SteamID friendID = callback.FriendID;
+            SteamID sourceSteamID = callback.SourceSteamID;
+            EClanRank clanRank = (EClanRank)callback.ClanRank;
             EPersonaState state = callback.State;
-            SteamID friendId = callback.FriendID;
 
             //ListFriends.UpdateName(friendId.ConvertToUInt64(), callback.Name); not yet
             //ListFriends.UpdateStatus(friendId.ConvertToUInt64(), state.ToString()); not yet
-
-            if (friendId.ConvertToUInt64() == steamClient.SteamID)
+            
+            if (friendID.ConvertToUInt64() == steamClient.SteamID)
             {
+                if (sourceSteamID.IsClanAccount)
+                {
+                    switch (clanRank)
+                    {
+                        case EClanRank.Owner:
+                            OfficerClanDictionary.Add(sourceSteamID, friendID.ConvertToUInt64());
+                            break;
+                        case EClanRank.Officer:
+                            OfficerClanDictionary.Add(sourceSteamID, friendID.ConvertToUInt64());
+                            break;
+                        case EClanRank.Moderator:
+                            OfficerClanDictionary.Add(sourceSteamID, friendID.ConvertToUInt64());
+                            break;
+                    }
+                }
+                
                 if (callback.GameID > 0)
                 {
                     UserPlaying = true;
@@ -1292,7 +1311,17 @@ namespace MercuryBOT
             Console.WriteLine(cb.m_Result);
 
         }
+        public static void ClanOfficers(ulong clanID)
+        {
+            if (clanID == 0)
+            {
+                return;
+            }
+            var request = new ClientMsgProtobuf<CMsgClientAMGetClanOfficers>(EMsg.ClientAMGetClanOfficers);
+            request.Body.steamid_clan = clanID;
 
+            steamClient.Send(request);
+        }
         public static void Logout()
         {
             user = null;

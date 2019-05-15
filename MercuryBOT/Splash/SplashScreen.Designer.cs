@@ -70,9 +70,9 @@
             // 
             this.pictureBox_MercuryLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.pictureBox_MercuryLogo.Image = global::MercuryBOT.Properties.Resources.MercuryLogoWhite;
-            this.pictureBox_MercuryLogo.Location = new System.Drawing.Point(10, 78);
+            this.pictureBox_MercuryLogo.Location = new System.Drawing.Point(23, 88);
             this.pictureBox_MercuryLogo.Name = "pictureBox_MercuryLogo";
-            this.pictureBox_MercuryLogo.Size = new System.Drawing.Size(285, 134);
+            this.pictureBox_MercuryLogo.Size = new System.Drawing.Size(255, 122);
             this.pictureBox_MercuryLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_MercuryLogo.TabIndex = 48;
             this.pictureBox_MercuryLogo.TabStop = false;
