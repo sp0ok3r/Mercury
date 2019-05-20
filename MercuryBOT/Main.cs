@@ -109,7 +109,7 @@ namespace MercuryBOT
             InitializeComponent();
             this.Activate();
             this.components.SetStyle(this);
-            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(1, 1, Width, Height+5, 15, 15));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(1, 1, Width, Height + 5, 15, 15));
 
             IntPtr ptrLogout = Gdi32.CreateRoundRectRgn(1, 1, btn_logout.Width, btn_logout.Height, 5, 5);
             btn_logout.Region = Region.FromHrgn(ptrLogout);
@@ -125,7 +125,7 @@ namespace MercuryBOT
                     Gdi32.DeleteObject(ptr);
                 }
             }
-            
+
             IntPtr ptr2 = Gdi32.CreateRoundRectRgn(1, 1, picBox_SteamAvatar.Width, picBox_SteamAvatar.Height, 5, 5);
             picBox_SteamAvatar.Region = Region.FromHrgn((IntPtr)Gdi32.CreateRoundRectRgn(1, 1, picBox_SteamAvatar.Width, picBox_SteamAvatar.Height, 5, 5));
             Gdi32.DeleteObject(ptr2);
@@ -488,7 +488,7 @@ namespace MercuryBOT
             }
         }
 
-        
+
 
         private void btn_sendMsg2Friends_Click(object sender, EventArgs e) // activate later
         {
@@ -1631,6 +1631,41 @@ namespace MercuryBOT
             SettingsList.startupTab = combox_defaultTab.SelectedIndex;
 
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, new JsonSerializerSettings { Formatting = Formatting.Indented }));
+        }
+
+        private void btn_userdata_Click(object sender, EventArgs e)
+        {
+            if (AccountLogin.IsLoggedIn == true)
+            {
+                Process.Start(Extensions.SteamLocation + @"\userdata\"+ Extensions.AllToSteamId32(AccountLogin.CurrentSteamID.ToString()));
+
+            }
+            else
+            {
+                Process.Start(Extensions.SteamLocation + @"\userdata");
+
+            }
+        }
+
+        private void btn_clearRecentapps_Click(object sender, EventArgs e)
+        {
+            if (AccountLogin.IsLoggedIn == true)
+            {
+
+                List<uint> ClearGameID = new List<uint>() { 635240, 635241, 635242 };
+
+                foreach (uint id in ClearGameID)
+                {
+                    AccountLogin.PlayNormal1App(id);
+                    Thread.Sleep(500);
+                    AccountLogin.PlayNormal1App(0);
+
+                }
+            }
+            else
+            {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
+            }
         }
 
         private void btn_addCDKey_Click(object sender, EventArgs e)

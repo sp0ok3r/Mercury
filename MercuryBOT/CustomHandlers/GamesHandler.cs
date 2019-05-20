@@ -21,7 +21,7 @@ namespace MercuryBOT.CustomHandlers
         }
 
         #region PlayGames
-        public void SetGamePlayingNormal(int _gameID)
+        public void SetGamePlayingNormal(uint _gameID)
         {
             ClientMsgProtobuf<CMsgClientGamesPlayed> gamePlaying = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
 
@@ -33,7 +33,7 @@ namespace MercuryBOT.CustomHandlers
         public void SetGamePlayingNONSteam(string _game)
         {
             ClientMsgProtobuf<CMsgClientGamesPlayed> gamePlaying = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
-            gamePlaying.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed { game_id = 12350489788975939584,game_extra_info= _game });
+            gamePlaying.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed { game_id = 12350489788975939584,game_extra_info = _game });
             Client.Send(gamePlaying);
         }
 

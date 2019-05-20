@@ -165,7 +165,7 @@
             // 
             this.lbl_totalfoldersize.AutoSize = true;
             this.lbl_totalfoldersize.ForeColor = System.Drawing.Color.White;
-            this.lbl_totalfoldersize.Location = new System.Drawing.Point(20, 56);
+            this.lbl_totalfoldersize.Location = new System.Drawing.Point(20, 63);
             this.lbl_totalfoldersize.Name = "lbl_totalfoldersize";
             this.lbl_totalfoldersize.Size = new System.Drawing.Size(108, 19);
             this.lbl_totalfoldersize.TabIndex = 15;

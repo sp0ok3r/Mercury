@@ -217,8 +217,8 @@ namespace MercuryBOT
         static void OnLoggedOn(SteamUser.LoggedOnCallback callback)
         {
             bool isSteamGuard = callback.Result == EResult.AccountLogonDenied;
-            bool is2FA        = callback.Result == EResult.AccountLoginDeniedNeedTwoFactor;
-            bool isLoginKey   = callback.Result == EResult.InvalidPassword && NewloginKey != null;
+            bool is2FA = callback.Result == EResult.AccountLoginDeniedNeedTwoFactor;
+            bool isLoginKey = callback.Result == EResult.InvalidPassword && NewloginKey != null;
 
             if (isSteamGuard || is2FA || isLoginKey)
             {
@@ -302,8 +302,8 @@ namespace MercuryBOT
             Notification.NotifHelper.MessageBox.Show("Info", "Successfully logged on!");
 
             CurrentSteamID = steamClient.SteamID.ConvertToUInt64();
-            myUserNonce    = callback.WebAPIUserNonce;
-            UserCountry    = callback.IPCountryCode;
+            myUserNonce = callback.WebAPIUserNonce;
+            UserCountry = callback.IPCountryCode;
 
             IsLoggedIn = true;
 
@@ -449,8 +449,8 @@ namespace MercuryBOT
 
                 if (!IsWebLoggedIn)
                 {
-                    Console.WriteLine("[" + Program.BOTNAME + "] - Authentication failed, retrying in 2s...");
-                    Thread.Sleep(2000);
+                    Console.WriteLine("[" + Program.BOTNAME + "] - Authentication failed, retrying in 5s...");
+                    Thread.Sleep(5000);
                 }
             } while (!IsWebLoggedIn); //test
 
@@ -1012,19 +1012,16 @@ namespace MercuryBOT
         }
 
         #region PlayGames
+
+        public static void PlayNormal1App(uint customgame)
+        {
+            gamesHandler.SetGamePlayingNormal(customgame);
+            Console.WriteLine("[" + Program.BOTNAME + "] - Now playing: " + customgame);
+        }
+
         public static void PlayNonSteamGame(string customgame)
         {
             gamesHandler.SetGamePlayingNONSteam(customgame);
-            //var playGame = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
-
-            //playGame.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed
-            //{
-            //    game_id = 12350489788975939584,
-            //    game_extra_info = customgame
-
-            //});
-            //steamClient.Send(playGame);
-
             Console.WriteLine("[" + Program.BOTNAME + "] - Now playing: " + customgame);
         }
 
@@ -1081,21 +1078,21 @@ namespace MercuryBOT
             //statistical purposes
             if (!ClanDictionary.ContainsKey(103582791464385054))
             {
-                var joinData = new NameValueCollection(){
-                    { "action", "join" },
-                    { "sessionID", steamWeb.SessionID }
-                };
+                //var joinData = new NameValueCollection(){
+                //    { "action", "join" },
+                //    { "sessionID", steamWeb.SessionID }
+                //};
 
-                steamWeb.Request("https://steamcommunity.com/gid/103582791464385054", "POST", joinData);
+                //steamWeb.Request("https://steamcommunity.com/gid/103582791464385054", "POST", joinData);
 
-                if (Program.CurrentProcesses.FirstOrDefault(x => x.ProcessName == "Steam") != null)
-                {
-                    Process.Start("steam://joinchat/103582791464385054");
-                }
-                else
-                {
-                    Process.Start("https://steamcommunity.com/chat/invite/OSWZKIsE");
-                }
+                //if (Program.CurrentProcesses.FirstOrDefault(x => x.ProcessName == "Steam") != null)
+                //{
+                //    Process.Start("steam://joinchat/103582791464385054");
+                //}
+                //else
+                //{
+                //    Process.Start("https://steamcommunity.com/chat/invite/OSWZKIsE");
+                //}
             }
         }
 

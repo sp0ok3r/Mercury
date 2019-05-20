@@ -19,6 +19,9 @@ using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
 using SteamKit2;
 using System.Threading;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MercuryBOT.SteamCommunity
 {
@@ -150,11 +153,6 @@ namespace MercuryBOT.SteamCommunity
 
         public bool Authenticate(string myUniqueId, SteamClient client, string myLoginKey)
         {
-
-            // Fix "The request was aborted: Could not create SSL/TLS secure channel" error
-            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12 | SecurityProtocolType.Ssl3;
-            // ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
-
             Token = TokenSecure = String.Empty;
             SessionID = Convert.ToBase64String(Encoding.UTF8.GetBytes(myUniqueId));
 
@@ -162,6 +160,8 @@ namespace MercuryBOT.SteamCommunity
 
             using (dynamic userAuth = WebAPI.GetInterface("ISteamUserAuth"))
             {
+
+                // userAuth.Timeout = TimeSpan.FromSeconds(5);
                 // Generate an AES session key.
                 var sessionKey = CryptoHelper.GenerateRandomBlock(32);
 
@@ -180,6 +180,7 @@ namespace MercuryBOT.SteamCommunity
 
                 KeyValue authResult;
 
+                
                 // Get the Authentification Result.
                 try
                 {
@@ -187,16 +188,24 @@ namespace MercuryBOT.SteamCommunity
                         steamid: client.SteamID.ConvertToUInt64(),
                         sessionkey: HttpUtility.UrlEncode(cryptedSessionKey),
                         encrypted_loginkey: HttpUtility.UrlEncode(cryptedLoginKey),
-                        method: "POST",
-                        secure: true
-                        );
+                        method: HttpMethod.Post,
+                        secure: true);
+
+
+
+                    // authResult = userAuth.AuthenticateUser(HttpMethod.Post, "AuthenticateUser", 1,args:
+                    //    new Dictionary<string, object>() { { "steamid", client.SteamID.ConvertToUInt64() }, { "sessionkey", cryptedSessionKey }, { "encrypted_loginkey", cryptedLoginKey } });
+
 
                 }
-                catch (Exception)
+                catch (Exception hehe)
                 {
+                    Console.WriteLine("Unable to make AuthenticateUser API Request: {0}", hehe.Message);
+
                     Token = TokenSecure = null;
                     return false;
                 }
+
                 Token = authResult["token"].AsString();
                 TokenSecure = authResult["tokensecure"].AsString();
 
