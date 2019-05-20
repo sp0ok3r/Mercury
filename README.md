@@ -18,7 +18,7 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3_1.png" target="_blank">Various Admin commands</a>
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png" target="_blank">Play 32 games with only 2 clicks</a>
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png" target="_blank">Play non steam game</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png" target="_blank">Key redeem</a>
+- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png" target="_blank">Multiple CD-KEYS redeem</a>
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/groups.png" target="_blank">Groups leaver</a>
 - <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/profileBackgather.png" target="_blank">Gather profile background and get market link </a>
 - <a href="https://raw.githubusercontent.com/sp0ok3r/ChatLogger/master/img/fileLogExample.png" target="_blank">ChatLogger</a>
@@ -36,6 +36,8 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 - Comment on all friends profile (0%) beta7
 - Rate Entire Activity Feed/Anything (0%)
 - Save AppIDS to File (0%) maybe not beta7
+- Check for user cards and idle
+- Boost list of gamesids until X hours, then get others
 - You tell me 👀
 
 ### Download: 
