@@ -1078,6 +1078,7 @@ namespace MercuryBOT
             //statistical purposes
             if (!ClanDictionary.ContainsKey(103582791464385054))
             {
+                Notification.NotifHelper.MessageBox.Show("Info","Join Mercury group on steam!");
                 //var joinData = new NameValueCollection(){
                 //    { "action", "join" },
                 //    { "sessionID", steamWeb.SessionID }
