@@ -32,7 +32,7 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 * Mass message with old method
 * Message specific friends
 * Check profile reputation [SteamREP]
-* <a href="https://github.com/sp0ok3r/Mercury#images">...(example images)</a>
+* <a href="https://github.com/sp0ok3r/Mercury#imagesgifs">...(example images)</a>
 
 ### Soon
 * Groups join (60%)
