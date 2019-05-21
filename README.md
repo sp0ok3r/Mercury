@@ -5,50 +5,54 @@
 <img width="350" height="146" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/MercuryLogoWhite.png">
 </p>
 
+[![C#](https://img.shields.io/badge/language-C%23-green.svg)](https://en.wikipedia.org/wiki/C%2B%2B)
+[![windows](https://img.shields.io/badge/platform-windows-blue.svg)](https://en.wikipedia.org/wiki/Microsoft_Windows)
+[![downloads](https://img.shields.io/github/downloads/sp0ok3r/Mercury/total.svg)](https://github.com/sp0ok3r/Mercury)
+
 Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
 
 ### Features
-- Clean Metro Style with colors at choice!
-- Auto Login at startup
-- Ability to start with any state
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/1.png" target="_blank">Load all accounts detected in your pc (Remember password enable)</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3.png" target="_blank">Auto AFK message responder (Custom msg list also included) </a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/steamstatus.png" target="_blank">Check steam/csgo servers status</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/2.png" target="_blank">Remove Friends by checking last log off (inactive for a long time)</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3_1.png" target="_blank">Various Admin commands</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png" target="_blank">Play 32 games with only 2 clicks</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png" target="_blank">Play non steam game</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png" target="_blank">Multiple CD-KEYS redeem</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/groups.png" target="_blank">Groups leaver</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/profileBackgather.png" target="_blank">Gather profile background and get market link </a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/ChatLogger/master/img/fileLogExample.png" target="_blank">ChatLogger</a>
-- <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png" target="_blank">Clear profile aliases</a>
-- Send Groups announcements
-- Set Player of the week in Group
-- Mass message with old method
-- Message specific friends
-- Check profile reputation [SteamRep]
-- <a href="https://github.com/sp0ok3r/Mercury#images">...(example images)</a>
+* Clean Metro Style with colors at choice!
+* Auto Login at startup
+* Ability to start with any state
+* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/1.png" target="_blank">Load all accounts detected in your pc (Remember password enable)</a>
+* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3.png" target="_blank">Auto AFK message responder (Custom msg list also included) </a>
+* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/steamstatus.png" target="_blank">Check steam/csgo servers status</a>
+* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/2.png" target="_blank">Remove Friends by checking last log off (inactive for a long time)</a>
+* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3_1.png" target="_blank">Various Admin commands</a>
+* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png" target="_blank">Play 32 games with only 2 clicks</a>
+* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png" target="_blank">Play non steam game</a>
+* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png" target="_blank">Multiple CD-KEYS redeem</a>
+* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/groups.png" target="_blank">Groups leaver</a>
+* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/profileBackgather.png" target="_blank">Gather profile background and get market link </a>
+* <a href="https://raw.githubusercontent.com/sp0ok3r/ChatLogger/master/img/fileLogExample.png" target="_blank">ChatLogger</a>
+* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png" target="_blank">Clear profile aliases</a>
+* Send Groups announcements
+* Set Player of the week in Group
+* Mass message with old method
+* Message specific friends
+* Check profile reputation [SteamREP]
+* <a href="https://github.com/sp0ok3r/Mercury#imagesgifs">...(example images)</a>
 
-### Soon: 
-- Groups join (60%)
-- Comments filter (60%)
-- Comment on all friends profile (0%) beta7
-- Rate Entire Activity Feed/Anything (0%)
-- Save AppIDS to File (0%) maybe not beta7
-- Check for user cards and idle
-- Boost list of gamesids until X hours, then get others
-- You tell me 👀
+### Soon
+* Groups join (60%)
+* Comments filter (60%)
+* Comment on all friends profile (0%) beta7
+* Rate Entire Activity Feed/Anything (0%)
+* Save AppIDS to File (0%) maybe not beta7
+* Check for user cards and idle
+* Boost list of gamesids until X hours, then get others
+* You tell me 👀
 
-### Download: 
-- https://github.com/sp0ok3r/Mercury/releases/
+### Download 
+* https://github.com/sp0ok3r/Mercury/releases/
 
 ### Contact
-- http://steamcommunity.com/profiles/76561198041931474
+* http://steamcommunity.com/profiles/76561198041931474
 
 ### Issues
-- Mercury dont opens: Install/Update: https://dotnet.microsoft.com/download/dotnet-framework/net472 
-- Trying to compile: Missing Steam4NET :: https://mega.nz/#F!oKxWkQyC!5D79iBNX0ynPImn5ekG_PA
+* Mercury dont opens: Install/Update: https://dotnet.microsoft.com/download/dotnet-framework/net472 
+* Trying to compile: Missing Steam4NET :: https://mega.nz/#F!oKxWkQyC!5D79iBNX0ynPImn5ekG_PA
 
 ### Images/Gifs
 
