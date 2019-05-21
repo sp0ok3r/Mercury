@@ -1,6 +1,3 @@
-[![C#](https://img.shields.io/badge/language-C%23-green.svg)](https://en.wikipedia.org/wiki/C%2B%2B)
-[![windows](https://img.shields.io/badge/platform-windows-blue.svg)](https://en.wikipedia.org/wiki/Microsoft_Windows)
-[![downloads](https://img.shields.io/github/downloads/sp0ok3r/Mercury/total.svg)](https://github.com/sp0ok3r/Mercury)
 <p align="center">
 <img width="100" height="100" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/MercuryIconLogo.png">
 </p>
@@ -9,6 +6,9 @@
 </p>
 
 Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
+[![C#](https://img.shields.io/badge/language-C%23-green.svg)](https://en.wikipedia.org/wiki/C%2B%2B)
+[![windows](https://img.shields.io/badge/platform-windows-blue.svg)](https://en.wikipedia.org/wiki/Microsoft_Windows)
+[![downloads](https://img.shields.io/github/downloads/sp0ok3r/Mercury/total.svg)](https://github.com/sp0ok3r/Mercury)
 
 ### Features
 * Clean Metro Style with colors at choice!
