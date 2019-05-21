@@ -106,5 +106,10 @@ namespace MercuryBOT.Notification
             openNotify = false;
             Close();
         }
+
+        private void NotificationForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

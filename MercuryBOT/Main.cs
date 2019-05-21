@@ -146,11 +146,6 @@ namespace MercuryBOT
 
         public void Main_Load(object sender, EventArgs e)
         {
-
-
-
-
-
             lbl_infoversion.Text = "v" + Program.Version.Replace("-", "");
 
 
