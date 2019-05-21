@@ -33,25 +33,25 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 * Check profile reputation [SteamRep]
 * <a href="https://github.com/sp0ok3r/Mercury#images">...(example images)</a>
 
-### Soon: 
-- Groups join (60%)
-- Comments filter (60%)
-- Comment on all friends profile (0%) beta7
-- Rate Entire Activity Feed/Anything (0%)
-- Save AppIDS to File (0%) maybe not beta7
-- Check for user cards and idle
-- Boost list of gamesids until X hours, then get others
-- You tell me 👀
+### Soon
+* Groups join (60%)
+* Comments filter (60%)
+* Comment on all friends profile (0%) beta7
+* Rate Entire Activity Feed/Anything (0%)
+* Save AppIDS to File (0%) maybe not beta7
+* Check for user cards and idle
+* Boost list of gamesids until X hours, then get others
+* You tell me 👀
 
-### Download: 
-- https://github.com/sp0ok3r/Mercury/releases/
+### Download 
+* https://github.com/sp0ok3r/Mercury/releases/
 
 ### Contact
-- http://steamcommunity.com/profiles/76561198041931474
+* http://steamcommunity.com/profiles/76561198041931474
 
 ### Issues
-- Mercury dont opens: Install/Update: https://dotnet.microsoft.com/download/dotnet-framework/net472 
-- Trying to compile: Missing Steam4NET :: https://mega.nz/#F!oKxWkQyC!5D79iBNX0ynPImn5ekG_PA
+* Mercury dont opens: Install/Update: https://dotnet.microsoft.com/download/dotnet-framework/net472 
+* Trying to compile: Missing Steam4NET :: https://mega.nz/#F!oKxWkQyC!5D79iBNX0ynPImn5ekG_PA
 
 ### Images/Gifs
 
