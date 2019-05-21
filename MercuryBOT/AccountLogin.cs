@@ -606,43 +606,43 @@ namespace MercuryBOT
         {
             //LoadFriends();
 
-            //List<SteamID> newFriends = new List<SteamID>();
+            List<SteamID> newFriends = new List<SteamID>();
 
-            //foreach (SteamFriends.FriendsListCallback.Friend friend in obj.FriendList)
-            //{
-            //    switch (friend.SteamID.AccountType)
-            //    {
-            //        // case EAccountType.Clan:
-            //        //     if (friend.Relationship == EFriendRelationship.RequestRecipient)
-            //        //    break;
+            foreach (SteamFriends.FriendsListCallback.Friend friend in obj.FriendList)
+            {
+                switch (friend.SteamID.AccountType)
+                {
+                    // case EAccountType.Clan:
+                    //     if (friend.Relationship == EFriendRelationship.RequestRecipient)
+                    //    break;
 
-            //        default:
-            //            CreateFriendsListIfNecessary();
+                    default:
+                        CreateFriendsListIfNecessary();
 
-            //            if (friend.Relationship == EFriendRelationship.None)
-            //            {
-            //                steamFriends.RemoveFriend(friend.SteamID);
-            //            }
-            //            else if (friend.Relationship == EFriendRelationship.RequestRecipient)
-            //            {
-            //                if (!Friends.Contains(friend.SteamID))
-            //                {
-            //                    Friends.Add(friend.SteamID);
-            //                    newFriends.Add(friend.SteamID);
-            //                }
-            //            }
-            //            else if (friend.Relationship == EFriendRelationship.RequestInitiator)
-            //            {
-            //                if (!Friends.Contains(friend.SteamID))
-            //                {
-            //                    Friends.Add(friend.SteamID);
-            //                    newFriends.Add(friend.SteamID);
-            //                }
-            //            }
-            //            break;
-            //    }
-            //}
-            //Console.WriteLine("[" + Program.BOTNAME + "] Recorded steam friends : {0}", steamFriends.GetFriendCount());
+                        if (friend.Relationship == EFriendRelationship.None)
+                        {
+                            steamFriends.RemoveFriend(friend.SteamID);
+                        }
+                        else if (friend.Relationship == EFriendRelationship.RequestRecipient)
+                        {
+                            if (!Friends.Contains(friend.SteamID))
+                            {
+                                Friends.Add(friend.SteamID);
+                                newFriends.Add(friend.SteamID);
+                            }
+                        }
+                        else if (friend.Relationship == EFriendRelationship.RequestInitiator)
+                        {
+                            if (!Friends.Contains(friend.SteamID))
+                            {
+                                Friends.Add(friend.SteamID);
+                                newFriends.Add(friend.SteamID);
+                            }
+                        }
+                        break;
+                }
+            }
+            Console.WriteLine("[" + Program.BOTNAME + "] Recorded steam friends : {0}", steamFriends.GetFriendCount());
         }
 
         public static void CreateFriendsListIfNecessary()
