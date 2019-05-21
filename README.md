@@ -11,7 +11,6 @@
 
 Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
 
-
 ### Features
 * Clean Metro Style with colors at choice!
 * Auto Login at startup
@@ -32,7 +31,7 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 * Set Player of the week in Group
 * Mass message with old method
 * Message specific friends
-* Check profile reputation [SteamRep]
+* Check profile reputation [SteamREP]
 * <a href="https://github.com/sp0ok3r/Mercury#images">...(example images)</a>
 
 ### Soon
