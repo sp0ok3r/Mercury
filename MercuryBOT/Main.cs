@@ -288,25 +288,49 @@ namespace MercuryBOT
         }
         public void RefreshAccountList()
         {
+            int i = 0;
             AccountsList_Grid.Rows.Clear();
             var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts;
             foreach (var a in list.OrderByDescending(x => x.LastLoginTime))
             {
                 bool LoginK = true;
+                bool ApiWeb = true;
+
                 if (string.IsNullOrEmpty(a.LoginKey) || a.LoginKey == "0")
                 {
                     LoginK = false;
                 }
-
-                bool ApiWeb = true;
                 if (string.IsNullOrEmpty(a.APIWebKey) || a.APIWebKey == "0")
                 {
                     ApiWeb = false;
                 }
+
                 string[] row = { a.username, (a.SteamID).ToString(), (LoginK).ToString(), (ApiWeb).ToString() };
+
                 AccountsList_Grid.Rows.Add(row);
+                AccountsList_Grid.Rows[i].Cells[0].Style.ForeColor = Color.White;
+
+
+                if (LoginK==true)
+                {
+                AccountsList_Grid.Rows[i].Cells[2].Style.ForeColor = Color.Green;
+                }else
+                {
+                    AccountsList_Grid.Rows[i].Cells[2].Style.ForeColor = Color.Red;
+                }
+
+                if (ApiWeb == true)
+                {
+                    AccountsList_Grid.Rows[i].Cells[3].Style.ForeColor = Color.Green;
+                }
+                else
+                {
+                    AccountsList_Grid.Rows[i].Cells[3].Style.ForeColor = Color.Red;
+                }
+
 
                 toolStrip_Acc.DropDownItems.Add(a.username);
+                i++;
             }
             AccountsList_ScrollBar.Maximum = AccountsList_Grid.Rows.Count;
             AccountsList_Grid.ClearSelection();
@@ -657,9 +681,14 @@ namespace MercuryBOT
                                 gameuints.Add(a.Games[i].app_id); // tentar obter lista do json, para nao criar outra???
                             }
 
-                            if (chck_nonsteamNgames.Checked && txtBox_gameNonSteam.Text.Length != 0)
+                            if (chck_nonsteamNgames.Checked)
                             {
-                                AccountLogin.PlayGames(gameuints, txtBox_gameNonSteam.Text + " ❤ MercuryBOT");
+                                if(txtBox_gameNonSteam.Text.Length != 0) {
+                                    AccountLogin.PlayGames(gameuints, txtBox_gameNonSteam.Text + " ❤ MercuryBOT");
+                                }else
+                                {
+                                    AccountLogin.PlayGames(gameuints, "❤ MercuryBOT");
+                                }
                             }
                             else
                             {
@@ -1488,6 +1517,7 @@ namespace MercuryBOT
         {
             AccountLogin.ClearAliases();
         }
+
         private void toggle_chatlogger_CheckedChanged(object sender, EventArgs e)
         {
             if (AccountLogin.IsLoggedIn == true && toggle_chatlogger.Checked)
@@ -1646,15 +1676,13 @@ namespace MercuryBOT
         {
             if (AccountLogin.IsLoggedIn == true)
             {
-
                 List<uint> ClearGameID = new List<uint>() { 635240, 635241, 635242 };
 
                 foreach (uint id in ClearGameID)
                 {
                     AccountLogin.PlayNormal1App(id);
-                    Thread.Sleep(500);
+                    Thread.Sleep(1500);
                     AccountLogin.PlayNormal1App(0);
-
                 }
             }
             else
@@ -1662,7 +1690,7 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
         }
-
+        
         private void btn_addCDKey_Click(object sender, EventArgs e)
         {
             //thanks to https://regexr.com/3b63e
