@@ -214,6 +214,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SteamCommunity\Utils.cs" />
     <Compile Include="SteamGroups\GatherSteamGroups.cs">
       <SubType>Form</SubType>
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>

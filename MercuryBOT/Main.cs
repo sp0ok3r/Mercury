@@ -11,6 +11,7 @@ using MercuryBOT.AccSettings;
 using MercuryBOT.FriendsList;
 using MercuryBOT.GamesGather;
 using MercuryBOT.Helpers;
+using MercuryBOT.SteamCommunity;
 using MercuryBOT.SteamServers;
 using MercuryBOT.User2Json;
 using MercuryBOT.UserSettings;
@@ -203,6 +204,16 @@ namespace MercuryBOT
                 combox_defaultTab.SelectedIndex = 0;
                 MercuryTabControl.SelectedIndex = 0;
             }
+
+
+            if (SettingsList.notificationEffect != string.Empty)
+            {
+              //  combox_notifEffect.SelectedIndex = Extensions.notifEffects[combox_notifEffect.SelectedIndex];
+            }
+            else
+            {
+                combox_notifEffect.SelectedIndex = 3;
+            }
         }
 
         private void Main_Resize(object sender, EventArgs e)
@@ -308,25 +319,30 @@ namespace MercuryBOT
                 string[] row = { a.username, (a.SteamID).ToString(), (LoginK).ToString(), (ApiWeb).ToString() };
 
                 AccountsList_Grid.Rows.Add(row);
-                AccountsList_Grid.Rows[i].Cells[0].Style.ForeColor = Color.White;
-
-
-                if (LoginK==true)
+                
+                if (a.password.Length != 0)
                 {
-                AccountsList_Grid.Rows[i].Cells[2].Style.ForeColor = Color.Green;
-                }else
-                {
-                    AccountsList_Grid.Rows[i].Cells[2].Style.ForeColor = Color.Red;
+                    AccountsList_Grid.Rows[i].Cells[0].Style.ForeColor = Color.White;
+                    if (LoginK == true)
+                    {
+                        AccountsList_Grid.Rows[i].Cells[2].Style.ForeColor = Color.Green;
+                    }
+                    else
+                    {
+                        AccountsList_Grid.Rows[i].Cells[2].Style.ForeColor = Color.Red;
+                    }
+
+                    if (ApiWeb == true)
+                    {
+                        AccountsList_Grid.Rows[i].Cells[3].Style.ForeColor = Color.Green;
+                    }
+                    else
+                    {
+                        AccountsList_Grid.Rows[i].Cells[3].Style.ForeColor = Color.Red;
+                    }
+
                 }
 
-                if (ApiWeb == true)
-                {
-                    AccountsList_Grid.Rows[i].Cells[3].Style.ForeColor = Color.Green;
-                }
-                else
-                {
-                    AccountsList_Grid.Rows[i].Cells[3].Style.ForeColor = Color.Red;
-                }
 
 
                 toolStrip_Acc.DropDownItems.Add(a.username);
@@ -432,7 +448,7 @@ namespace MercuryBOT
             {
                 if (txtBox_gameNonSteam.Text.Length < 50)
                 {
-                    AccountLogin.PlayNonSteamGame(txtBox_gameNonSteam.Text + " ❤ MercuryBOT");
+                    Utils.PlayNonSteamGame(txtBox_gameNonSteam.Text + " ❤ MercuryBOT");
                     btn_playnormal.Enabled = false;
                 }
                 else
@@ -683,18 +699,20 @@ namespace MercuryBOT
 
                             if (chck_nonsteamNgames.Checked)
                             {
-                                if(txtBox_gameNonSteam.Text.Length != 0) {
-                                    AccountLogin.PlayGames(gameuints, txtBox_gameNonSteam.Text + " ❤ MercuryBOT");
-                                }else
+                                if (txtBox_gameNonSteam.Text.Length != 0)
                                 {
-                                    AccountLogin.PlayGames(gameuints, "❤ MercuryBOT");
+                                    Utils.PlayGames(gameuints, txtBox_gameNonSteam.Text + " ❤ MercuryBOT");
+                                }
+                                else
+                                {
+                                    Utils.PlayGames(gameuints, "❤ MercuryBOT");
                                 }
                             }
                             else
                             {
-                                AccountLogin.PlayGames(gameuints, "Idling ⌛ MercuryBOT");
+                                Utils.PlayGames(gameuints, "Idling ⌛ MercuryBOT");
                                 Thread.Sleep(2000);
-                                AccountLogin.PlayGames(gameuints, "disable");
+                                Utils.PlayGames(gameuints, "disable");
                             }
                         }
                     }
@@ -716,7 +734,7 @@ namespace MercuryBOT
         {
             if (AccountLogin.IsLoggedIn == true)
             {
-                AccountLogin.StopGames();
+                Utils.StopGames();
                 btn_playnormal.Enabled = true;
                 btn_playNonSteam.Enabled = true;
             }
@@ -1506,7 +1524,7 @@ namespace MercuryBOT
         {
             if (AccountLogin.IsLoggedIn == true)
             {
-                AccountLogin.ClearAliases();
+                SteamCommunity.Utils.ClearAliases();
             }
             else
             {
@@ -1515,7 +1533,7 @@ namespace MercuryBOT
         }
         private void btnLabel_PersonaAndFlag_Click(object sender, EventArgs e)
         {
-            AccountLogin.ClearAliases();
+            SteamCommunity.Utils.ClearAliases();
         }
 
         private void toggle_chatlogger_CheckedChanged(object sender, EventArgs e)
@@ -1662,7 +1680,7 @@ namespace MercuryBOT
         {
             if (AccountLogin.IsLoggedIn == true)
             {
-                Process.Start(Extensions.SteamLocation + @"\userdata\"+ Extensions.AllToSteamId32(AccountLogin.CurrentSteamID.ToString()));
+                Process.Start(Extensions.SteamLocation + @"\userdata\" + Extensions.AllToSteamId32(AccountLogin.CurrentSteamID.ToString()));
 
             }
             else
@@ -1680,9 +1698,9 @@ namespace MercuryBOT
 
                 foreach (uint id in ClearGameID)
                 {
-                    AccountLogin.PlayNormal1App(id);
+                    Utils.PlayNormal1App(id);
                     Thread.Sleep(1500);
-                    AccountLogin.PlayNormal1App(0);
+                    Utils.PlayNormal1App(0);
                 }
             }
             else
@@ -1690,7 +1708,16 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
         }
-        
+
+        private void combox_notifEffect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+            
+            SettingsList.notificationEffect = Extensions.notifEffects[combox_notifEffect.SelectedIndex];
+
+            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, new JsonSerializerSettings { Formatting = Formatting.Indented }));
+        }
+
         private void btn_addCDKey_Click(object sender, EventArgs e)
         {
             //thanks to https://regexr.com/3b63e

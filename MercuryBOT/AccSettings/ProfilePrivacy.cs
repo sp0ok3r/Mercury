@@ -44,7 +44,7 @@ namespace MercuryBOT.AccSettings
         {
             try
             {
-                foreach (KeyValuePair<string, int> setting in AccountLogin.GetProfileSettings())
+                foreach (KeyValuePair<string, int> setting in SteamCommunity.Utils.GetProfileSettings())
                 {
                     if (setting.Key == "PrivacyProfile")
                     {
@@ -123,7 +123,7 @@ namespace MercuryBOT.AccSettings
 
         private void btn_changeprofSettings_Click(object sender, EventArgs e)
         {
-            AccountLogin.ProfileSettings(combox_profilePrivacy.SelectedIndex,
+            SteamCommunity.Utils.ProfileSettings(combox_profilePrivacy.SelectedIndex,
                 combox_InventoryPrivacy.SelectedIndex,
                 combox_Gifts.SelectedIndex,
                 combox_ownedGames.SelectedIndex,

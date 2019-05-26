@@ -86,7 +86,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.Load += new System.EventHandler(this.NotificationForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -25,12 +25,16 @@ namespace MercuryBOT.Notification
         //Constants
         // Animates the window from left to right. This flag can be used with roll or slide animation.
         public const int AW_HOR_POSITIVE = 0X1;
+
         // Animates the window from right to left. This flag can be used with roll or slide animation.
         public const int AW_HOR_NEGATIVE = 0X2;
+
         // Animates the window from top to bottom. This flag can be used with roll or slide animation.
         public const int AW_VER_POSITIVE = 0X4; 
+
         // Animates the window from bottom to top. This flag can be used with roll or slide animation.
         public const int AW_VER_NEGATIVE = 0X8;
+
         // Makes the window appear to collapse inward if AW_HIDE is used or expand outward if the AW_HIDE is not used.
         public const int AW_CENTER = 0X10;
         // Hides the window. By default, the window is shown.
@@ -96,6 +100,7 @@ namespace MercuryBOT.Notification
         {
             if (openNotify == false)
             {
+                //json read 
                 AnimateWindow(this.Handle, 500, AW_SLIDE | AW_VER_NEGATIVE);
                 openNotify = true;
             }
@@ -105,11 +110,6 @@ namespace MercuryBOT.Notification
         {
             openNotify = false;
             Close();
-        }
-
-        private void NotificationForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

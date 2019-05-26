@@ -57,7 +57,7 @@ namespace MercuryBOT.Helpers
 
         public static string ToSteamURL(string input) => $"https://steamcommunity.com/profiles/{(IsSteamid32(input) ? ToSteamID64(input) : input)}";
 
-        
+
         public static string AllToSteamId32(string input)
         {
             if (IsSteamid32(input))
@@ -300,5 +300,11 @@ namespace MercuryBOT.Helpers
             return manager;
         }
         #endregion
+
+        public static List<string> notifEffects = new List<string> {
+                         Notification.NotificationForm.AW_HOR_POSITIVE.ToString(),
+                         Notification.NotificationForm.AW_HOR_NEGATIVE.ToString(),
+                         Notification.NotificationForm.AW_VER_POSITIVE.ToString(),
+                         Notification.NotificationForm.AW_VER_NEGATIVE.ToString() };
     }
 }

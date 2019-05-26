@@ -83,7 +83,7 @@ namespace MercuryBOT.SteamGroups
             else
             {
                 btn_exitfromAll.Enabled = false;
-                AccountLogin.LeaveGroup((GroupSelected).ToString(), GroupNameSelected);
+                SteamCommunity.Utils.LeaveGroup((GroupSelected).ToString(), GroupNameSelected);
                 AccountLogin.ClanDictionary.Remove(Convert.ToUInt64(GroupSelected));
 
                 GridClanData.Rows.RemoveAt(GridClanData.SelectedRows[0].Cells[0].RowIndex);
@@ -115,7 +115,7 @@ namespace MercuryBOT.SteamGroups
                 btn_exitfromAll.Enabled = false;
                 foreach (KeyValuePair<ulong, string> group in AccountLogin.ClanDictionary)
                 {
-                    AccountLogin.LeaveGroup((group.Key).ToString(), group.Value);
+                    SteamCommunity.Utils.LeaveGroup((group.Key).ToString(), group.Value);
 
                     Thread.Sleep(30);
                     Console.WriteLine("DDDDeleted");
@@ -155,7 +155,7 @@ namespace MercuryBOT.SteamGroups
                 }
                 else
                 {
-                    AccountLogin.MakeGroupAnnouncement(GroupSelected, txtBox_title.Text, txtBox_Annonbody.Text);
+                    SteamCommunity.Utils.MakeGroupAnnouncement(GroupSelected, txtBox_title.Text, txtBox_Annonbody.Text);
                 }
             }
         }
@@ -214,7 +214,7 @@ namespace MercuryBOT.SteamGroups
             }
             else
             {
-                AccountLogin.setGroupPlayerOfTheWeek(GroupSelected, Extensions.AllToSteamId32(txt_potwSteamID.Text));
+                SteamCommunity.Utils.setGroupPlayerOfTheWeek(GroupSelected, Extensions.AllToSteamId32(txt_potwSteamID.Text));
             }
         }
 
@@ -252,7 +252,7 @@ namespace MercuryBOT.SteamGroups
                 string[] lines = File.ReadAllLines(txtBox_groupidsFile.Text);
                 foreach (string line in lines)
                 {
-                    AccountLogin.JoinGroup(line);
+                    SteamCommunity.Utils.JoinGroup(line);
                     Thread.Sleep(5);
                 }
                 btn_joinAll.Enabled = true;
@@ -278,6 +278,12 @@ namespace MercuryBOT.SteamGroups
                 }
             }
             link_setfile.Enabled = false;
+        }
+
+        private void btn_massInvite_Click(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

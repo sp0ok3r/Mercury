@@ -48,12 +48,12 @@ namespace MercuryBOT
         public static Dictionary<ulong, ulong> OfficerClanDictionary = new Dictionary<ulong, ulong>();
 
 
-        private static SteamClient steamClient;
+        public static SteamClient steamClient;
         private static SteamUser steamUser;
         public static SteamFriends steamFriends;
         private static CallbackManager MercuryManager;
         public static SteamWeb steamWeb;
-        private static GamesHandler gamesHandler;
+        public static GamesHandler gamesHandler;
 
 
         public static string MessageString;
@@ -229,6 +229,8 @@ namespace MercuryBOT
 
                 if (is2FA)
                 {
+                    Notification.NotifHelper.MessageBox.Show("Info", "Steam Guard detected, showing input form!");
+
                     SteamGuard SteamGuard = new SteamGuard("Phone", user);
                     SteamGuard.ShowDialog();
 
@@ -272,6 +274,8 @@ namespace MercuryBOT
                 }
                 else
                 {
+                    Notification.NotifHelper.MessageBox.Show("Info", "Steam Guard detected, showing input form!");
+
                     SteamGuard SteamGuard = new SteamGuard(callback.EmailDomain, user);
                     SteamGuard.ShowDialog();
 
@@ -298,7 +302,7 @@ namespace MercuryBOT
             }
 
 
-            Console.WriteLine("[" + Program.BOTNAME + "] - Successfully logged on!" + callback.ServerTime.ToString("R"));
+            Console.WriteLine("[" + Program.BOTNAME + "] - Successfully logged on! \n Valve Time:" + callback.ServerTime.ToString("R"));
             Notification.NotifHelper.MessageBox.Show("Info", "Successfully logged on!");
 
             CurrentSteamID = steamClient.SteamID.ConvertToUInt64();
@@ -330,7 +334,6 @@ namespace MercuryBOT
                 }
             }
             File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(ListUserSettings, Formatting.Indented));
-            
         }
 
         static void OnDisconnected(SteamClient.DisconnectedCallback callback)
@@ -389,11 +392,11 @@ namespace MercuryBOT
                     switch (clanRank)
                     {
                         case EClanRank.Owner:
-                        case EClanRank.Officer:
-                        case EClanRank.Moderator:
+                       // case EClanRank.Officer:
+                        //case EClanRank.Moderator:
                             if (!OfficerClanDictionary.ContainsKey(sourceSteamID))
                             {
-                                //OfficerClanDictionary.Add(sourceSteamID, friendID.ConvertToUInt64());
+                                OfficerClanDictionary.Add(sourceSteamID, friendID.ConvertToUInt64());
                             }
                             break;
                     }
@@ -759,7 +762,7 @@ namespace MercuryBOT
 
                                         if (clearGames.Length != 0)
                                         {
-                                            PlayGames(gameuints, clearGames + " | MercuryBOT");
+                                            Utils.PlayGames(gameuints, clearGames + " | MercuryBOT");
                                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Playing..." + "\r\n\r\n" + Program.BOTNAME);
 
                                         }
@@ -775,7 +778,7 @@ namespace MercuryBOT
                             string clearNoN = callback.Message.Replace(".non ", "");
                             if (clearNoN.Length < 50)
                             {
-                                PlayNonSteamGame(clearNoN + " | MercuryBOT");
+                                Utils.PlayNonSteamGame(clearNoN + " | MercuryBOT");
                                 steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Playing: " + clearNoN + "\r\n\r\n" + Program.BOTNAME);
                             }
                             else
@@ -784,7 +787,7 @@ namespace MercuryBOT
                             }
                             break;
                         case ".stopgames":
-                            StopGames();
+                            Utils.StopGames();
                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Stopping games." + "\r\n\r\n" + Program.BOTNAME);
                             break;
                         case ".steamrep ":
@@ -806,7 +809,7 @@ namespace MercuryBOT
                     List<string> CMessages = new List<string>();// secalhar nem criar lista, secalhar usar  a lista do json e pegar na random direta ai
                     Random random = new Random();
                     int r = 0;
-                    CMessages.Add("Im using MercuryBOT! - https://github.com/sp0ok3r/Mercury"); // *
+                    CMessages.Add("I'm using Mercury: Ultimate free open source Steam Tool! - https://github.com/sp0ok3r/Mercury"); // *
 
                     foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
                     {
@@ -1012,53 +1015,11 @@ namespace MercuryBOT
             ClientMsgProtobuf<CMsgClientUIMode> request = new ClientMsgProtobuf<CMsgClientUIMode>(EMsg.ClientCurrentUIMode) { Body = { chat_mode = 2 } };
             steamClient.Send(request);
         }
-
-        #region PlayGames
-
-        public static void PlayNormal1App(uint customgame)
-        {
-            gamesHandler.SetGamePlayingNormal(customgame);
-            Console.WriteLine("[" + Program.BOTNAME + "] - Now playing: " + customgame);
-        }
-
-        public static void PlayNonSteamGame(string customgame)
-        {
-            gamesHandler.SetGamePlayingNONSteam(customgame);
-            Console.WriteLine("[" + Program.BOTNAME + "] - Now playing: " + customgame);
-        }
-
-        public static void PlayGames(List<uint> gameIDs, string NonSteam)
-        {
-            ClientMsgProtobuf<CMsgClientGamesPlayed> request = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
-
-            if (NonSteam.ToString() != "disable")
-            {
-                request.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed
-                {
-                    game_id = 12350489788975939584,
-                    game_extra_info = NonSteam
-                });
-            }
-
-            foreach (uint gameID in gameIDs.Where(gameID => gameID != 0))
-            {
-                request.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed { game_id = new GameID(gameID) });
-            }
-            steamClient.Send(request);
-        }
-
-        public static void StopGames()
-        {
-            gamesHandler.StopPlayingGames();
-        }
-        #endregion
-
+        
         public async static void RedeemKey(string _key)
         {
             await gamesHandler.RedeemKeyResponse(_key);
-
-
-
+            
             //ClientMsgProtobuf<CMsgClientRegisterKey> registerKey = new ClientMsgProtobuf<CMsgClientRegisterKey>(EMsg.ClientRegisterKey)
             //{
             //    Body = { key = _key }
@@ -1080,7 +1041,7 @@ namespace MercuryBOT
             //statistical purposes
             if (!ClanDictionary.ContainsKey(103582791464385054))
             {
-                Notification.NotifHelper.MessageBox.Show("Info","Join Mercury group on steam!");
+                Notification.NotifHelper.MessageBox.Show("Info", "Join Mercury group on steam!");
                 //var joinData = new NameValueCollection(){
                 //    { "action", "join" },
                 //    { "sessionID", steamWeb.SessionID }
@@ -1106,190 +1067,212 @@ namespace MercuryBOT
                 ClanOfficers(Convert.ToUInt64(pair.Key));
             }
         }
-        public static void MakeGroupAnnouncement(string groupName, string HeadLine, string body)
-        {
-            var data = new NameValueCollection {
-                {"sessionID", steamWeb.SessionID},
-                {"action", "post"},
-                {"headline", HeadLine},
-                {"body", body},
-                {"languages[0][headline]", HeadLine},
-                {"languages[0][body]", body},
-            };
 
-            string url = "https://steamcommunity.com/gid/" + groupName + "/announcements";
+        //public static void MakeGroupAnnouncement(string groupName, string HeadLine, string body)
+        //{
+        //    var data = new NameValueCollection {
+        //        {"sessionID", steamWeb.SessionID},
+        //        {"action", "post"},
+        //        {"headline", HeadLine},
+        //        {"body", body},
+        //        {"languages[0][headline]", HeadLine},
+        //        {"languages[0][body]", body},
+        //    };
 
-            string resp = steamWeb.Fetch(url, "POST", data);
-            if (resp != String.Empty && resp.Contains("Sorry!"))
-            {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again");
-            }
-            else
-            {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Announcement sent!");
-            }
-        }
+        //    string url = "https://steamcommunity.com/gid/" + groupName + "/announcements";
 
-        public static void setGroupPlayerOfTheWeek(string gid, string steamID)
-        {
-            var data = new NameValueCollection{
-                { "xml", "1"},
-                { "action", "potw" },
-                { "memberId", new SteamID(steamID).Render(true) },// [U:1:46143802] steamid3
-                { "sessionid", steamWeb.SessionID}
-            };
+        //    string resp = steamWeb.Fetch(url, "POST", data);
+        //    if (resp != String.Empty && resp.Contains("Sorry!"))
+        //    {
+        //        InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again");
+        //    }
+        //    else
+        //    {
+        //        InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Announcement sent!");
+        //    }
+        //}
 
-            string url = "https://steamcommunity.com/gid/" + gid + "/potwEdit/";
+        //public static void setGroupPlayerOfTheWeek(string gid, string steamID)
+        //{
+        //    var data = new NameValueCollection{
+        //        { "xml", "1"},
+        //        { "action", "potw" },
+        //        { "memberId", new SteamID(steamID).Render(true) },// [U:1:46143802] steamid3
+        //        { "sessionid", steamWeb.SessionID}
+        //    };
 
-            string resp = steamWeb.Fetch(url, "POST", data); // works
+        //    string url = "https://steamcommunity.com/gid/" + gid + "/potwEdit/";
 
-            if (resp != String.Empty && resp.Contains("Sorry!"))
-            {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again");
-            }
-            else
-            {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Set Player of the week: " + steamID + " in: " + gid);
-            }
-        }
-        public static void kickGroupMember(string gid, string steamID)
-        {
-            var data = new NameValueCollection {
-                {"sessionID", steamWeb.SessionID },
-                {"action", "kick" },
-                {"memberId", steamID},//64
-                {"queryString", "" },
-            };
+        //    string resp = steamWeb.Fetch(url, "POST", data); // works
 
-            string url = "https://steamcommunity.com/" + gid + "/membersManage";
+        //    if (resp != String.Empty && resp.Contains("Sorry!"))
+        //    {
+        //        InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again");
+        //    }
+        //    else
+        //    {
+        //        InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Set Player of the week: " + steamID + " in: " + gid);
+        //    }
+        //}
+        //public static void kickGroupMember(string gid, string steamID)
+        //{
+        //    var data = new NameValueCollection {
+        //        {"sessionID", steamWeb.SessionID },
+        //        {"action", "kick" },
+        //        {"memberId", steamID},//64
+        //        {"queryString", "" },
+        //    };
 
-            string resp = steamWeb.Fetch(url, "POST", data);
+        //    string url = "https://steamcommunity.com/" + gid + "/membersManage";
 
-            if (resp != String.Empty && resp.Contains("Sorry!"))
-            {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again");
-            }
-            else
-            {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Kicked " + steamID + " from: " + gid);
-            }
+        //    string resp = steamWeb.Fetch(url, "POST", data);
 
-        }
-        public static void JoinGroup(string groupID)
-        {
-            var JoinGroup = new NameValueCollection{
-                { "action","join"},
-                { "sessionID", steamWeb.SessionID}
-            };
+        //    if (resp != String.Empty && resp.Contains("Sorry!"))
+        //    {
+        //        InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again");
+        //    }
+        //    else
+        //    {
+        //        InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Kicked " + steamID + " from: " + gid);
+        //    }
 
-            string resp = steamWeb.Fetch("https://steamcommunity.com/gid/" + groupID, "POST", JoinGroup);
+        //}
+        //public static void JoinGroup(string groupID)
+        //{
+        //    var JoinGroup = new NameValueCollection{
+        //        { "action","join"},
+        //        { "sessionID", steamWeb.SessionID}
+        //    };
 
-            if (resp != String.Empty)
-            {
-                Notification.NotifHelper.MessageBox.Show("Info", "Joined successfully " + groupID + " !");
-            }
-        }
+        //    string resp = steamWeb.Fetch("https://steamcommunity.com/gid/" + groupID, "POST", JoinGroup);
 
-        public static void LeaveGroup(string groupID, string groupName)
-        {
-            var LeaveGroup = new NameValueCollection{
-                { "sessionID", steamWeb.SessionID },
-                { "action","leaveGroup"},
-                { "groupId", groupID}
-            };
+        //    if (resp != String.Empty)
+        //    {
+        //        Notification.NotifHelper.MessageBox.Show("Info", "Joined successfully " + groupID + " !");
+        //    }
+        //}
+        //public static void LeaveGroup(string groupID, string groupName)
+        //{
+        //    var LeaveGroup = new NameValueCollection{
+        //        { "sessionID", steamWeb.SessionID },
+        //        { "action","leaveGroup"},
+        //        { "groupId", groupID}
+        //    };
 
-            string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/home_process", "POST", LeaveGroup);
+        //    string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/home_process", "POST", LeaveGroup);
 
-            if (resp != String.Empty)
-            {
-                Notification.NotifHelper.MessageBox.Show("Info", "Left successfully " + groupName + " !");
-            }
-        }
+        //    if (resp != String.Empty)
+        //    {
+        //        Notification.NotifHelper.MessageBox.Show("Info", "Left successfully " + groupName + " !");
+        //    }
+        //}
 
-        public static void ClearAliases()
-        {
-            var ClearAliases = new NameValueCollection { { "sessionid", steamWeb.SessionID } };
+        //public static void ClearAliases()
+        //{
+        //    var ClearAliases = new NameValueCollection { { "sessionid", steamWeb.SessionID } };
 
-            string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/ajaxclearaliashistory", "POST", ClearAliases);
+        //    string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/ajaxclearaliashistory", "POST", ClearAliases);
 
-            if (resp != String.Empty)
-            {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Aliases Clear!");
-            }
-        }
+        //    if (resp != String.Empty)
+        //    {
+        //        InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Aliases Clear!");
+        //    }
+        //}
 
-        public void ClearUnreadMessages()
-        {
-            steamFriends.RequestOfflineMessages();
-        }
+        //public void ClearUnreadMessages()
+        //{
+        //    steamFriends.RequestOfflineMessages();
+        //}
 
-        public static IDictionary<string, int> GetProfileSettings()
-        {
-            if (IsLoggedIn == true)
-            {
-                try
-                {
-                    string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/edit/settings", "GET");
+        //public static IDictionary<string, int> GetProfileSettings()
+        //{
+        //    if (IsLoggedIn == true)
+        //    {
+        //        try
+        //        {
+        //            string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/edit/settings", "GET");
 
-                    var document = new HtmlParser().ParseDocument(resp);
-                    var ReadPrivacyDiv = document.QuerySelector("div.ProfileReactRoot").GetAttribute("data-privacysettings");
+        //            var document = new HtmlParser().ParseDocument(resp);
+        //            var ReadPrivacyDiv = document.QuerySelector("div.ProfileReactRoot").GetAttribute("data-privacysettings");
 
-                    var renderPrivacySettings = RenderProfilePrivacy.FromJson(ReadPrivacyDiv);
+        //            var renderPrivacySettings = RenderProfilePrivacy.FromJson(ReadPrivacyDiv);
 
-                    var dictionary = new Dictionary<string, int>{
-                        { "PrivacyProfile",         renderPrivacySettings.PrivacySettings.PrivacyProfile},
-                        { "PrivacyFriendsList",     renderPrivacySettings.PrivacySettings.PrivacyFriendsList},
-                        { "PrivacyPlaytime",        renderPrivacySettings.PrivacySettings.PrivacyPlaytime},
-                        { "PrivacyOwnedGames",      renderPrivacySettings.PrivacySettings.PrivacyOwnedGames},
-                        { "PrivacyInventoryGifts",  renderPrivacySettings.PrivacySettings.PrivacyInventoryGifts},
-                        { "PrivacyInventory",       renderPrivacySettings.PrivacySettings.PrivacyInventory},
-                        { "ECommentPermission",     renderPrivacySettings.ECommentPermission}
-                    };
+        //            var dictionary = new Dictionary<string, int>{
+        //                { "PrivacyProfile",         renderPrivacySettings.PrivacySettings.PrivacyProfile},
+        //                { "PrivacyFriendsList",     renderPrivacySettings.PrivacySettings.PrivacyFriendsList},
+        //                { "PrivacyPlaytime",        renderPrivacySettings.PrivacySettings.PrivacyPlaytime},
+        //                { "PrivacyOwnedGames",      renderPrivacySettings.PrivacySettings.PrivacyOwnedGames},
+        //                { "PrivacyInventoryGifts",  renderPrivacySettings.PrivacySettings.PrivacyInventoryGifts},
+        //                { "PrivacyInventory",       renderPrivacySettings.PrivacySettings.PrivacyInventory},
+        //                { "ECommentPermission",     renderPrivacySettings.ECommentPermission}
+        //            };
 
-                    return dictionary;
+        //            return dictionary;
 
-                }
-                catch (Exception te)
-                {
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again.");
-                    Console.WriteLine(te);
-                    return null;
-                }
-            }
-            else
-            {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged");
-                return null;
-            }
-        }
+        //        }
+        //        catch (Exception te)
+        //        {
+        //            InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again.");
+        //            Console.WriteLine(te);
+        //            return null;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged");
+        //        return null;
+        //    }
+        //}
 
 
-        public static void ProfileSettings(int Profile, int Inventory, int Gifts, int OwnedGames, int Playtime, int FriendsList, int Comment)
-        {
-            var ProfileSettings = new NameValueCollection
-            {
-                { "sessionid", steamWeb.SessionID },// Unknown,Private, FriendsOnly,Public
-                { "Privacy","{\"PrivacyProfile\":"+Profile+
-                            ",\"PrivacyInventory\":" +Inventory+
-                            ",\"PrivacyInventoryGifts\":"+Gifts+
-                            ",\"PrivacyOwnedGames\":"+OwnedGames+
-                            ",\"PrivacyPlaytime\":"+Playtime+
-                            ",\"PrivacyFriendsList\":"+FriendsList+"}"},
-                { "eCommentPermission" ,Comment.ToString()}//FriendsOnly,Public,Private
-            };
+        //public static void ProfileSettings(int Profile, int Inventory, int Gifts, int OwnedGames, int Playtime, int FriendsList, int Comment)
+        //{
+        //    var ProfileSettings = new NameValueCollection
+        //    {
+        //        { "sessionid", steamWeb.SessionID },// Unknown,Private, FriendsOnly,Public
+        //        { "Privacy","{\"PrivacyProfile\":"+Profile+
+        //                    ",\"PrivacyInventory\":" +Inventory+
+        //                    ",\"PrivacyInventoryGifts\":"+Gifts+
+        //                    ",\"PrivacyOwnedGames\":"+OwnedGames+
+        //                    ",\"PrivacyPlaytime\":"+Playtime+
+        //                    ",\"PrivacyFriendsList\":"+FriendsList+"}"},
+        //        { "eCommentPermission" ,Comment.ToString()}//FriendsOnly,Public,Private
+        //    };
 
-            string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/ajaxsetprivacy/", "POST", ProfileSettings);
+        //    string resp = steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamClient.SteamID.ConvertToUInt64() + "/ajaxsetprivacy/", "POST", ProfileSettings);
 
-            if (resp != String.Empty && resp.Contains("success\":1"))
-            {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Profile settings set!");
-            }
-            else
-            {
-                //Console.WriteLine("erro:\n" + resp);
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again.");
-            }
-        }
+        //    if (resp != String.Empty && resp.Contains("success\":1"))
+        //    {
+        //        InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Profile settings set!");
+        //    }
+        //    else
+        //    {
+        //        //Console.WriteLine("erro:\n" + resp);
+        //        InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again.");
+        //    }
+        //}
+        //public static void GroupInvite(uint userID, ulong groupID)
+        //{
+        //    var mass_JoinGroup = new NameValueCollection{
+        //        {"group", groupID.ToString()},
+        //        {"invitee", userID.ToString()},
+        //        {"json", "1"},
+        //        {"sessionID", steamWeb.SessionID},
+        //        {"type", "groupInvite"},
+        //    };
+
+        //    string resp = steamWeb.Fetch("https://steamcommunity.com/actions/GroupInvite", "POST", mass_JoinGroup);
+
+        //    if (resp != String.Empty && resp.Contains("success\":1"))
+        //    {
+        //        InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Profile settings set!");
+        //    }
+        //    else
+        //    {
+        //        InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again.");
+        //    }
+        //}
+
 
         public static void UIMode(uint x)
         {
@@ -1323,6 +1306,7 @@ namespace MercuryBOT
             }
             var request = new ClientMsgProtobuf<CMsgClientAMGetClanOfficers>(EMsg.ClientAMGetClanOfficers);
             request.Body.steamid_clan = clanID;
+            
 
             steamClient.Send(request);
         }
