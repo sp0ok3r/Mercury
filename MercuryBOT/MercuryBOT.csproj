@@ -93,7 +93,7 @@
       <HintPath>D:\PROJECTS\CSharp\Steam4NET-master\Steam4NET\bin\Debug\Steam4NET.dll</HintPath>
     </Reference>
     <Reference Include="SteamKit2, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SteamKit2.2.2.0-Beta.1\lib\netstandard2.0\SteamKit2.dll</HintPath>
+      <HintPath>..\packages\SteamKit2.2.2.0-Beta.3\lib\netstandard2.0\SteamKit2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SteamWebAPI2, Version=4.0.8.0, Culture=neutral, processorArchitecture=MSIL">

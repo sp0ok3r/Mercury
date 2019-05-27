@@ -158,7 +158,7 @@ namespace MercuryBOT.SteamCommunity
 
             _cookies = new CookieContainer();
 
-            using (dynamic userAuth = WebAPI.GetInterface("ISteamUserAuth"))
+            using (dynamic userAuth = WebAPI.GetInterface("ISteamUserAuth"))//WebAPI.GetInterface("ISteamUserAuth")
             {
 
                 // userAuth.Timeout = TimeSpan.FromSeconds(5);
@@ -179,23 +179,17 @@ namespace MercuryBOT.SteamCommunity
                 byte[] cryptedLoginKey = CryptoHelper.SymmetricEncrypt(loginKey, sessionKey);
 
                 KeyValue authResult;
-
                 
                 // Get the Authentification Result.
                 try
                 {
-                    authResult = userAuth.AuthenticateUser(
-                        steamid: client.SteamID.ConvertToUInt64(),
-                        sessionkey: HttpUtility.UrlEncode(cryptedSessionKey),
-                        encrypted_loginkey: HttpUtility.UrlEncode(cryptedLoginKey),
-                        method: HttpMethod.Post,
-                        secure: true);
-
-
-
-                    // authResult = userAuth.AuthenticateUser(HttpMethod.Post, "AuthenticateUser", 1,args:
-                    //    new Dictionary<string, object>() { { "steamid", client.SteamID.ConvertToUInt64() }, { "sessionkey", cryptedSessionKey }, { "encrypted_loginkey", cryptedLoginKey } });
-
+                    Dictionary<string, object> newsArgs = new Dictionary<string, object>()
+                    {
+                        { "steamid", client.SteamID.ConvertToUInt64() },
+                        { "sessionkey", cryptedSessionKey },
+                        { "encrypted_loginkey", cryptedLoginKey }
+                    };
+                    authResult = userAuth.Call(HttpMethod.Post, "AuthenticateUser", args:newsArgs);
 
                 }
                 catch (Exception hehe)
@@ -210,6 +204,7 @@ namespace MercuryBOT.SteamCommunity
                 TokenSecure = authResult["tokensecure"].AsString();
 
                 // Adding cookies to the cookie container.
+
                 _cookies.Add(new Cookie("sessionid", SessionID, string.Empty, SteamCommunityDomain));
                 _cookies.Add(new Cookie("steamLogin", Token, string.Empty, SteamCommunityDomain));
                 _cookies.Add(new Cookie("steamLoginSecure", TokenSecure, string.Empty, SteamCommunityDomain));

@@ -1038,25 +1038,9 @@ namespace MercuryBOT
                 }
             }
 
-            //statistical purposes
             if (!ClanDictionary.ContainsKey(103582791464385054))
             {
                 Notification.NotifHelper.MessageBox.Show("Info", "Join Mercury group on steam!");
-                //var joinData = new NameValueCollection(){
-                //    { "action", "join" },
-                //    { "sessionID", steamWeb.SessionID }
-                //};
-
-                //steamWeb.Request("https://steamcommunity.com/gid/103582791464385054", "POST", joinData);
-
-                //if (Program.CurrentProcesses.FirstOrDefault(x => x.ProcessName == "Steam") != null)
-                //{
-                //    Process.Start("steam://joinchat/103582791464385054");
-                //}
-                //else
-                //{
-                //    Process.Start("https://steamcommunity.com/chat/invite/OSWZKIsE");
-                //}
             }
         }
 
