@@ -53,7 +53,7 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 ### Issues
 * Mercury dont opens: Install/Update: https://dotnet.microsoft.com/download/dotnet-framework/net472 
 * Trying to compile: Missing Steam4NET :: https://mega.nz/#F!oKxWkQyC!5D79iBNX0ynPImn5ekG_PA
-* Clear Recent games not working: Run 3 videos of Making of Furi (Steam),after that it will works always until steam patchs.
+* Clear Recent games not working: Run 3 videos of ![Making of Furi](https://store.steampowered.com/app/629150/1/1/),after that it will works always until steam patchs.
 
 ### Images/Gifs
 
