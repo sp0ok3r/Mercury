@@ -21,6 +21,6 @@ namespace MercuryBOT.User2Json
 
         public ulong startupAcc { get; set; }
         public bool startMinimized { get; set; }
-        public string notificationEffect { get; set; }
+        //public string notificationEffect { get; set; }
     }
 }

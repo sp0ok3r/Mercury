@@ -78,6 +78,10 @@ namespace MercuryBOT.FriendsList
                 {
                     if (a.username == AccountLogin.CurrentUsername)
                     {
+                        if(a.MsgRecipients == null)
+                        {
+
+                        }
                         if (a.MsgRecipients.Any(s => s.Contains(f.ConvertToUInt64().ToString())))
                         {
                             ui = true;

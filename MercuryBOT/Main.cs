@@ -22,6 +22,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Media;
@@ -143,7 +144,7 @@ namespace MercuryBOT
             {
                 lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
             }
-            
+
         }
 
         public void Main_Load(object sender, EventArgs e)
@@ -207,14 +208,14 @@ namespace MercuryBOT
             }
 
 
-            if (SettingsList.notificationEffect != string.Empty)
-            {
-              //  combox_notifEffect.SelectedIndex = Extensions.notifEffects[combox_notifEffect.SelectedIndex];
-            }
-            else
-            {
-                combox_notifEffect.SelectedIndex = 3;
-            }
+            //if (SettingsList.notificationEffect != string.Empty)
+            //{
+            //  //  combox_notifEffect.SelectedIndex = Extensions.notifEffects[combox_notifEffect.SelectedIndex];
+            //}
+            //else
+            //{
+            //    combox_notifEffect.SelectedIndex = 3;
+            //}
         }
 
         private void Main_Resize(object sender, EventArgs e)
@@ -320,7 +321,7 @@ namespace MercuryBOT
                 string[] row = { a.username, (a.SteamID).ToString(), (LoginK).ToString(), (ApiWeb).ToString() };
 
                 AccountsList_Grid.Rows.Add(row);
-                
+
                 if (a.password.Length != 0)
                 {
                     AccountsList_Grid.Rows[i].Cells[0].Style.ForeColor = Color.White;
@@ -376,26 +377,33 @@ namespace MercuryBOT
         {
             if (AccountLogin.IsLoggedIn == true)
             {
-                foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+                try
                 {
-                    if (a.username == AccountLogin.CurrentUsername)
+                    foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
                     {
-                        apikey = a.APIWebKey;
+                        if (a.username == AccountLogin.CurrentUsername)
+                        {
+                            apikey = a.APIWebKey;
+                        }
+                    }
+
+                    if (string.IsNullOrEmpty(apikey) || apikey == "0")
+                    {
+                        InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Gathering your apikey and setting it! \n Just Gather Games again!");
+                        AccountLogin.gatherWebApiKey();
+                        return;
+                    }
+                    else
+                    {
+                        Form AddAppIds = new SelectGames();
+                        AddAppIds.FormClosed += HandleFormAddAppIdsClosed;
+                        AddAppIds.Show();
+                        btn_selectappids.Enabled = false;
                     }
                 }
-
-                if (string.IsNullOrEmpty(apikey) || apikey == "0")
+                catch (Exception)
                 {
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Gathering your apikey and setting it! \n Just Gather Games again!");
-                    AccountLogin.gatherWebApiKey();
-                    return;
-                }
-                else
-                {
-                    Form AddAppIds = new SelectGames();
-                    AddAppIds.FormClosed += HandleFormAddAppIdsClosed;
-                    AddAppIds.Show();
-                    btn_selectappids.Enabled = false;
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try again/Login again");
                 }
             }
             else
@@ -1137,7 +1145,7 @@ namespace MercuryBOT
 
         private void MetroLink_spkMusic_Click(object sender, EventArgs e)
         {
-            Process.Start("https://www.youtube.com/watch?v=3mACun803qU");
+            Process.Start("https://www.youtube.com/watch?v=vxBDq9mhLXI");
         }
 
         private void metroLink_Json_Click(object sender, EventArgs e)
@@ -1461,7 +1469,23 @@ namespace MercuryBOT
 
                 if (picBox_SteamAvatar.Image == null && btnLabel_PersonaAndFlag.Image == null)
                 {
-                    picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID);
+
+                    byte[] bytes = Program.Web.DownloadData(AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID));
+                    MemoryStream mss = new MemoryStream(bytes);
+                    Bitmap newImage = new Bitmap(Image.FromStream(mss));
+
+                    using (Graphics gr = Graphics.FromImage(newImage))
+                    {
+                        gr.SmoothingMode = SmoothingMode.HighQuality;
+                        gr.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                        gr.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                        gr.DrawImage(new Bitmap(newImage), new Point(184, 184));
+
+                        picBox_SteamAvatar.Image = newImage;
+                    }
+
+
+                    //  picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID);
                     byte[] data = Program.Web.DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + "/flat/16.png");
 
                     MemoryStream ms = new MemoryStream(data);
@@ -1534,7 +1558,7 @@ namespace MercuryBOT
         }
         private void btnLabel_PersonaAndFlag_Click(object sender, EventArgs e)
         {
-            Utils.ClearAliases();
+            //Utils.ClearAliases();
         }
 
         private void toggle_chatlogger_CheckedChanged(object sender, EventArgs e)
@@ -1723,8 +1747,8 @@ namespace MercuryBOT
         private void combox_notifEffect_SelectedIndexChanged(object sender, EventArgs e)
         {
             var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
-            
-            SettingsList.notificationEffect = Extensions.notifEffects[combox_notifEffect.SelectedIndex];
+
+            //  SettingsList.notificationEffect = Extensions.notifEffects[combox_notifEffect.SelectedIndex];
 
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, new JsonSerializerSettings { Formatting = Formatting.Indented }));
         }

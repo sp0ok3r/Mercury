@@ -56,8 +56,6 @@ namespace MercuryBOT
 
                 ulong UserSteamID = 0;
                 ulong AdminConverted = 0;
-                var EmptyGameList = new List<Game>();
-                var EmptyCustomMessagesList = new List<UserSettings.CustomMessages>();
                 //if (Admin == "")
                 if (string.IsNullOrEmpty(Admin))
                 {
@@ -78,8 +76,9 @@ namespace MercuryBOT
                     APIWebKey = "",//0
                     SteamID = UserSteamID,
                     ChatLogger = false,
-                    Games = EmptyGameList,
-                    AFKMessages = EmptyCustomMessagesList,
+                    Games = new List<Game>(),
+                    AFKMessages = new List<UserSettings.CustomMessages>(),
+                    MsgRecipients = new List<string>()
 
                 });
 
