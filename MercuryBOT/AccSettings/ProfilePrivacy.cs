@@ -117,6 +117,7 @@ namespace MercuryBOT.AccSettings
             }
             catch (Exception)
             {
+                Notification.NotifHelper.MessageBox.Show("Error","Try again/Login again");
                 Console.WriteLine("Login again");
             }
         }

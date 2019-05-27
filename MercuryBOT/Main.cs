@@ -110,6 +110,7 @@ namespace MercuryBOT
             InitializeComponent();
             this.Activate();
             this.components.SetStyle(this);
+            RefreshAccountList();
             Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(1, 1, Width, Height + 5, 15, 15));
 
             IntPtr ptrLogout = Gdi32.CreateRoundRectRgn(1, 1, btn_logout.Width, btn_logout.Height, 5, 5);
@@ -142,7 +143,7 @@ namespace MercuryBOT
             {
                 lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
             }
-            RefreshAccountList();
+            
         }
 
         public void Main_Load(object sender, EventArgs e)
@@ -1524,7 +1525,7 @@ namespace MercuryBOT
         {
             if (AccountLogin.IsLoggedIn == true)
             {
-                SteamCommunity.Utils.ClearAliases();
+                Utils.ClearAliases();
             }
             else
             {
@@ -1533,7 +1534,7 @@ namespace MercuryBOT
         }
         private void btnLabel_PersonaAndFlag_Click(object sender, EventArgs e)
         {
-            SteamCommunity.Utils.ClearAliases();
+            Utils.ClearAliases();
         }
 
         private void toggle_chatlogger_CheckedChanged(object sender, EventArgs e)
@@ -1678,15 +1679,25 @@ namespace MercuryBOT
 
         private void btn_userdata_Click(object sender, EventArgs e)
         {
-            if (AccountLogin.IsLoggedIn == true)
-            {
-                Process.Start(Extensions.SteamLocation + @"\userdata\" + Extensions.AllToSteamId32(AccountLogin.CurrentSteamID.ToString()));
 
+            if (Extensions.SteamLocation == null)
+            {
+                btn_userdata.Enabled = false;
             }
             else
             {
-                Process.Start(Extensions.SteamLocation + @"\userdata");
 
+                btn_userdata.Enabled = true;
+                if (AccountLogin.IsLoggedIn == true)
+                {
+                    Process.Start(Extensions.SteamLocation + @"\userdata\" + Extensions.AllToSteamId32(AccountLogin.CurrentSteamID.ToString()));
+
+                }
+                else
+                {
+                    Process.Start(Extensions.SteamLocation + @"\userdata");
+
+                }
             }
         }
 

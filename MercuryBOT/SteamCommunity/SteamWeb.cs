@@ -74,9 +74,6 @@ namespace MercuryBOT.SteamCommunity
                 string.Format("{0}={1}", HttpUtility.UrlEncode(key), HttpUtility.UrlEncode(data[key]))
             )));
 
-            // Example working with C# 6
-            // string dataString = (data == null ? null : String.Join("&", Array.ConvertAll(data.AllKeys, key => $"{HttpUtility.UrlEncode(key)}={HttpUtility.UrlEncode(data[key])}" )));
-
             // Append the dataString to the url if it is a GET request.
             if (isGetMethod && !string.IsNullOrEmpty(dataString))
             {
@@ -158,7 +155,7 @@ namespace MercuryBOT.SteamCommunity
 
             _cookies = new CookieContainer();
 
-            using (dynamic userAuth = WebAPI.GetInterface("ISteamUserAuth"))//WebAPI.GetInterface("ISteamUserAuth")
+            using (dynamic userAuth = WebAPI.GetInterface("ISteamUserAuth"))
             {
 
                 // userAuth.Timeout = TimeSpan.FromSeconds(5);
@@ -183,14 +180,13 @@ namespace MercuryBOT.SteamCommunity
                 // Get the Authentification Result.
                 try
                 {
-                    Dictionary<string, object> newsArgs = new Dictionary<string, object>()
+                    Dictionary<string, object> sessionArgs = new Dictionary<string, object>()
                     {
                         { "steamid", client.SteamID.ConvertToUInt64() },
                         { "sessionkey", cryptedSessionKey },
                         { "encrypted_loginkey", cryptedLoginKey }
                     };
-                    authResult = userAuth.Call(HttpMethod.Post, "AuthenticateUser", args:newsArgs);
-
+                    authResult = userAuth.Call(HttpMethod.Post, "AuthenticateUser", args: sessionArgs);
                 }
                 catch (Exception hehe)
                 {
@@ -204,11 +200,12 @@ namespace MercuryBOT.SteamCommunity
                 TokenSecure = authResult["tokensecure"].AsString();
 
                 // Adding cookies to the cookie container.
-
                 _cookies.Add(new Cookie("sessionid", SessionID, string.Empty, SteamCommunityDomain));
                 _cookies.Add(new Cookie("steamLogin", Token, string.Empty, SteamCommunityDomain));
                 _cookies.Add(new Cookie("steamLoginSecure", TokenSecure, string.Empty, SteamCommunityDomain));
                 _cookies.Add(new Cookie("Steam_Language", "english", string.Empty, SteamCommunityDomain));
+
+                Console.WriteLine("Crukies: "+VerifyCookies());
                 return true;
             }
         }
