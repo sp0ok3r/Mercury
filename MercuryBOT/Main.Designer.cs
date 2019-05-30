@@ -30,18 +30,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.metroTab_Message = new MetroFramework.Controls.MetroTabPage();
             this.chck_Send2Receipts = new MetroFramework.Controls.MetroCheckBox();
@@ -72,7 +72,7 @@
             this.HeaderAppID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_addGameManually = new MetroFramework.Controls.MetroButton();
             this.txtBox_gameIDAdd = new MetroFramework.Controls.MetroTextBox();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.btn_accSettings = new MetroFramework.Controls.MetroButton();
             this.btn_selectappids = new MetroFramework.Controls.MetroButton();
             this.btn_playnormal = new MetroFramework.Controls.MetroButton();
             this.btn_playNonSteam = new MetroFramework.Controls.MetroButton();
@@ -153,8 +153,6 @@
             this.toggle_playSound = new MetroFramework.Controls.MetroToggle();
             this.metroTab_Infos = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.pictureBox_Github = new System.Windows.Forms.PictureBox();
-            this.pictureBox_Steam = new System.Windows.Forms.PictureBox();
             this.link_reportBugFeature = new MetroFramework.Controls.MetroLink();
             this.metroLabel27 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
@@ -182,7 +180,6 @@
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.pictureBox_Discord = new System.Windows.Forms.PictureBox();
             this.Mercury_notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.IconContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.toolStrip_Acc = new System.Windows.Forms.ToolStripMenuItem();
@@ -208,14 +205,19 @@
             this.lbl_infoLogin = new System.Windows.Forms.Label();
             this.lbl_infoversion = new MetroFramework.Controls.MetroLabel();
             this.MongoTip = new MetroFramework.Components.MetroToolTip();
-            this.picBox_Restart = new System.Windows.Forms.PictureBox();
             this.btnLabel_PersonaAndFlag = new System.Windows.Forms.Button();
             this.Panel_UserInfo = new MetroFramework.Controls.MetroPanel();
             this.lbl_currentUsername = new MetroFramework.Controls.MetroLabel();
             this.panel_steamStates = new MetroFramework.Controls.MetroPanel();
-            this.picBox_SteamAvatar = new System.Windows.Forms.PictureBox();
             this.lbl_connecting = new MetroFramework.Controls.MetroLabel();
             this.Trolha = new System.Windows.Forms.Timer(this.components);
+            this.btn_idleSettings = new MetroFramework.Controls.MetroButton();
+            this.picBox_playing = new System.Windows.Forms.PictureBox();
+            this.picBox_SteamAvatar = new System.Windows.Forms.PictureBox();
+            this.picBox_Restart = new System.Windows.Forms.PictureBox();
+            this.pictureBox_Github = new System.Windows.Forms.PictureBox();
+            this.pictureBox_Steam = new System.Windows.Forms.PictureBox();
+            this.pictureBox_Discord = new System.Windows.Forms.PictureBox();
             this.pictureBox_MercuryLogo = new System.Windows.Forms.PictureBox();
             this.metroTab_Message.SuspendLayout();
             this.metroTab_Games.SuspendLayout();
@@ -229,17 +231,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.CDKeys_Grid)).BeginInit();
             this.metroTab_Settings.SuspendLayout();
             this.metroTab_Infos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Github)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Steam)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Discord)).BeginInit();
             this.IconContextMenu.SuspendLayout();
             this.metroPanel6.SuspendLayout();
             this.metroPanel8.SuspendLayout();
             this.metroPanel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Restart)).BeginInit();
             this.Panel_UserInfo.SuspendLayout();
             this.panel_steamStates.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_playing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_SteamAvatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Restart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Github)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Steam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Discord)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_MercuryLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -384,7 +387,7 @@
             this.btn_addMsgForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_addMsgForm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_addMsgForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btn_addMsgForm.Location = new System.Drawing.Point(261, 388);
+            this.btn_addMsgForm.Location = new System.Drawing.Point(261, 384);
             this.btn_addMsgForm.Name = "btn_addMsgForm";
             this.btn_addMsgForm.Size = new System.Drawing.Size(20, 19);
             this.btn_addMsgForm.Style = MetroFramework.MetroColorStyle.Purple;
@@ -403,7 +406,7 @@
             this.chck_CustomAFKMessages.AutoSize = true;
             this.chck_CustomAFKMessages.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chck_CustomAFKMessages.ForeColor = System.Drawing.Color.White;
-            this.chck_CustomAFKMessages.Location = new System.Drawing.Point(117, 390);
+            this.chck_CustomAFKMessages.Location = new System.Drawing.Point(117, 386);
             this.chck_CustomAFKMessages.Name = "chck_CustomAFKMessages";
             this.chck_CustomAFKMessages.Size = new System.Drawing.Size(143, 15);
             this.chck_CustomAFKMessages.TabIndex = 31;
@@ -420,7 +423,7 @@
             this.chck_afk.AutoSize = true;
             this.chck_afk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chck_afk.ForeColor = System.Drawing.Color.White;
-            this.chck_afk.Location = new System.Drawing.Point(117, 369);
+            this.chck_afk.Location = new System.Drawing.Point(117, 365);
             this.chck_afk.Name = "chck_afk";
             this.chck_afk.Size = new System.Drawing.Size(102, 15);
             this.chck_afk.TabIndex = 24;
@@ -499,7 +502,7 @@
             this.metroLabel18.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel18.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel18.ForeColor = System.Drawing.SystemColors.Window;
-            this.metroLabel18.Location = new System.Drawing.Point(-4, 362);
+            this.metroLabel18.Location = new System.Drawing.Point(-4, 358);
             this.metroLabel18.Name = "metroLabel18";
             this.metroLabel18.Size = new System.Drawing.Size(119, 25);
             this.metroLabel18.TabIndex = 25;
@@ -639,6 +642,7 @@
             // metroTab_Games
             // 
             this.metroTab_Games.BackColor = System.Drawing.Color.Transparent;
+            this.metroTab_Games.Controls.Add(this.btn_idleSettings);
             this.metroTab_Games.Controls.Add(this.richTextBox6);
             this.metroTab_Games.Controls.Add(this.richTextBox5);
             this.metroTab_Games.Controls.Add(this.btn_loadGamesFromJSON);
@@ -646,7 +650,7 @@
             this.metroTab_Games.Controls.Add(this.GamesList_Grid);
             this.metroTab_Games.Controls.Add(this.btn_addGameManually);
             this.metroTab_Games.Controls.Add(this.txtBox_gameIDAdd);
-            this.metroTab_Games.Controls.Add(this.metroButton1);
+            this.metroTab_Games.Controls.Add(this.btn_accSettings);
             this.metroTab_Games.Controls.Add(this.btn_selectappids);
             this.metroTab_Games.Controls.Add(this.btn_playnormal);
             this.metroTab_Games.Controls.Add(this.btn_playNonSteam);
@@ -760,27 +764,27 @@
             this.GamesList_Grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GamesList_Grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GamesList_Grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GamesList_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GamesList_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GamesList_Grid.ColumnHeadersHeight = 17;
             this.GamesList_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.GamesList_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.HeaderAppName1,
             this.HeaderAppID1});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GamesList_Grid.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GamesList_Grid.DefaultCellStyle = dataGridViewCellStyle2;
             this.GamesList_Grid.EnableHeadersVisualStyles = false;
             this.GamesList_Grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GamesList_Grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -789,14 +793,14 @@
             this.GamesList_Grid.Name = "GamesList_Grid";
             this.GamesList_Grid.ReadOnly = true;
             this.GamesList_Grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GamesList_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GamesList_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GamesList_Grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GamesList_Grid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.GamesList_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -881,25 +885,26 @@
             this.txtBox_gameIDAdd.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtBox_gameIDAdd.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroButton1
+            // btn_accSettings
             // 
-            this.metroButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.metroButton1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.metroButton1.Enabled = false;
-            this.metroButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.metroButton1.Location = new System.Drawing.Point(692, 18);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(62, 50);
-            this.metroButton1.Style = MetroFramework.MetroColorStyle.Black;
-            this.metroButton1.TabIndex = 27;
-            this.metroButton1.TabStop = false;
-            this.metroButton1.Text = "ACCOUNT\r\nSETTINGS";
-            this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.MongoTip.SetToolTip(this.metroButton1, "soon");
-            this.metroButton1.UseCustomBackColor = true;
-            this.metroButton1.UseCustomForeColor = true;
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.UseStyleColors = true;
+            this.btn_accSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_accSettings.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btn_accSettings.Enabled = false;
+            this.btn_accSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btn_accSettings.Location = new System.Drawing.Point(692, 18);
+            this.btn_accSettings.Name = "btn_accSettings";
+            this.btn_accSettings.Size = new System.Drawing.Size(62, 27);
+            this.btn_accSettings.Style = MetroFramework.MetroColorStyle.Black;
+            this.btn_accSettings.TabIndex = 27;
+            this.btn_accSettings.TabStop = false;
+            this.btn_accSettings.Text = "ACCOUNT\r\nSETTINGS";
+            this.btn_accSettings.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.btn_accSettings, "soon");
+            this.btn_accSettings.UseCustomBackColor = true;
+            this.btn_accSettings.UseCustomForeColor = true;
+            this.btn_accSettings.UseSelectable = true;
+            this.btn_accSettings.UseStyleColors = true;
+            this.btn_accSettings.Click += new System.EventHandler(this.btn_accSettings_Click);
             // 
             // btn_selectappids
             // 
@@ -1166,28 +1171,28 @@
             this.AccountsList_Grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AccountsList_Grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.AccountsList_Grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AccountsList_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AccountsList_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.AccountsList_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AccountsList_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Headerusername,
             this.SteamID,
             this.HeaderLoginKeyY,
             this.HeaderApiKey});
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.AccountsList_Grid.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.AccountsList_Grid.DefaultCellStyle = dataGridViewCellStyle5;
             this.AccountsList_Grid.EnableHeadersVisualStyles = false;
             this.AccountsList_Grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.AccountsList_Grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1197,14 +1202,14 @@
             this.AccountsList_Grid.Name = "AccountsList_Grid";
             this.AccountsList_Grid.ReadOnly = true;
             this.AccountsList_Grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AccountsList_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AccountsList_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.AccountsList_Grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.AccountsList_Grid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.AccountsList_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1358,7 +1363,7 @@
             this.MercuryTabControl.Controls.Add(this.metroTab_Infos);
             this.MercuryTabControl.Location = new System.Drawing.Point(17, 79);
             this.MercuryTabControl.Name = "MercuryTabControl";
-            this.MercuryTabControl.SelectedIndex = 5;
+            this.MercuryTabControl.SelectedIndex = 3;
             this.MercuryTabControl.ShowToolTips = true;
             this.MercuryTabControl.Size = new System.Drawing.Size(777, 450);
             this.MercuryTabControl.TabIndex = 1;
@@ -1481,27 +1486,27 @@
             this.FriendsList_Grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FriendsList_Grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.FriendsList_Grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FriendsList_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FriendsList_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.FriendsList_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FriendsList_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.HFriendID,
             this.HName,
             this.HLastT});
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.FriendsList_Grid.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.FriendsList_Grid.DefaultCellStyle = dataGridViewCellStyle8;
             this.FriendsList_Grid.EnableHeadersVisualStyles = false;
             this.FriendsList_Grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.FriendsList_Grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1509,14 +1514,14 @@
             this.FriendsList_Grid.Name = "FriendsList_Grid";
             this.FriendsList_Grid.ReadOnly = true;
             this.FriendsList_Grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FriendsList_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FriendsList_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.FriendsList_Grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.FriendsList_Grid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.FriendsList_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1949,25 +1954,25 @@
             this.CDKeys_Grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CDKeys_Grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.CDKeys_Grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CDKeys_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CDKeys_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.CDKeys_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CDKeys_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CDKeys_Grid.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CDKeys_Grid.DefaultCellStyle = dataGridViewCellStyle11;
             this.CDKeys_Grid.EnableHeadersVisualStyles = false;
             this.CDKeys_Grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.CDKeys_Grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1975,14 +1980,14 @@
             this.CDKeys_Grid.Name = "CDKeys_Grid";
             this.CDKeys_Grid.ReadOnly = true;
             this.CDKeys_Grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CDKeys_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CDKeys_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.CDKeys_Grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.CDKeys_Grid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.CDKeys_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -2390,8 +2395,6 @@
             // 
             this.metroTab_Infos.BackColor = System.Drawing.Color.Transparent;
             this.metroTab_Infos.Controls.Add(this.metroLabel2);
-            this.metroTab_Infos.Controls.Add(this.pictureBox_Github);
-            this.metroTab_Infos.Controls.Add(this.pictureBox_Steam);
             this.metroTab_Infos.Controls.Add(this.link_reportBugFeature);
             this.metroTab_Infos.Controls.Add(this.metroLabel27);
             this.metroTab_Infos.Controls.Add(this.metroLabel12);
@@ -2419,6 +2422,8 @@
             this.metroTab_Infos.Controls.Add(this.metroLabel6);
             this.metroTab_Infos.Controls.Add(this.metroLabel5);
             this.metroTab_Infos.Controls.Add(this.metroLabel4);
+            this.metroTab_Infos.Controls.Add(this.pictureBox_Github);
+            this.metroTab_Infos.Controls.Add(this.pictureBox_Steam);
             this.metroTab_Infos.Controls.Add(this.pictureBox_Discord);
             this.metroTab_Infos.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.metroTab_Infos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2452,29 +2457,6 @@
             this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel2.UseCustomBackColor = true;
             this.metroLabel2.UseStyleColors = true;
-            // 
-            // pictureBox_Github
-            // 
-            this.pictureBox_Github.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox_Github.Image = global::MercuryBOT.Properties.Resources.github_logo;
-            this.pictureBox_Github.Location = new System.Drawing.Point(147, 120);
-            this.pictureBox_Github.Name = "pictureBox_Github";
-            this.pictureBox_Github.Size = new System.Drawing.Size(33, 34);
-            this.pictureBox_Github.TabIndex = 63;
-            this.pictureBox_Github.TabStop = false;
-            this.pictureBox_Github.Click += new System.EventHandler(this.pictureBox_Github_Click);
-            // 
-            // pictureBox_Steam
-            // 
-            this.pictureBox_Steam.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox_Steam.Image = global::MercuryBOT.Properties.Resources.SteamLogo;
-            this.pictureBox_Steam.Location = new System.Drawing.Point(228, 120);
-            this.pictureBox_Steam.Name = "pictureBox_Steam";
-            this.pictureBox_Steam.Size = new System.Drawing.Size(33, 34);
-            this.pictureBox_Steam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_Steam.TabIndex = 61;
-            this.pictureBox_Steam.TabStop = false;
-            this.pictureBox_Steam.Click += new System.EventHandler(this.pictureBox_Steam_Click);
             // 
             // link_reportBugFeature
             // 
@@ -2820,18 +2802,6 @@
             this.metroLabel4.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel4.UseCustomBackColor = true;
             this.metroLabel4.UseStyleColors = true;
-            // 
-            // pictureBox_Discord
-            // 
-            this.pictureBox_Discord.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox_Discord.Image = global::MercuryBOT.Properties.Resources.DiscordLogo;
-            this.pictureBox_Discord.Location = new System.Drawing.Point(307, 120);
-            this.pictureBox_Discord.Name = "pictureBox_Discord";
-            this.pictureBox_Discord.Size = new System.Drawing.Size(33, 34);
-            this.pictureBox_Discord.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_Discord.TabIndex = 53;
-            this.pictureBox_Discord.TabStop = false;
-            this.pictureBox_Discord.Click += new System.EventHandler(this.pictureBox_Discord_Click);
             // 
             // Mercury_notifyIcon
             // 
@@ -3206,19 +3176,6 @@
             this.MongoTip.StyleManager = null;
             this.MongoTip.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // picBox_Restart
-            // 
-            this.picBox_Restart.Image = global::MercuryBOT.Properties.Resources.Restart_Normal;
-            this.picBox_Restart.Location = new System.Drawing.Point(730, 5);
-            this.picBox_Restart.Name = "picBox_Restart";
-            this.picBox_Restart.Size = new System.Drawing.Size(24, 20);
-            this.picBox_Restart.TabIndex = 46;
-            this.picBox_Restart.TabStop = false;
-            this.MongoTip.SetToolTip(this.picBox_Restart, "Restart");
-            this.picBox_Restart.Click += new System.EventHandler(this.picBox_Restart_Click);
-            this.picBox_Restart.MouseLeave += new System.EventHandler(this.picBox_Restart_MouseLeave);
-            this.picBox_Restart.MouseHover += new System.EventHandler(this.picBox_Restart_MouseHover);
-            // 
             // btnLabel_PersonaAndFlag
             // 
             this.btnLabel_PersonaAndFlag.BackColor = System.Drawing.Color.Transparent;
@@ -3301,18 +3258,6 @@
             this.panel_steamStates.VerticalScrollbarHighlightOnWheel = false;
             this.panel_steamStates.VerticalScrollbarSize = 10;
             // 
-            // picBox_SteamAvatar
-            // 
-            this.picBox_SteamAvatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.picBox_SteamAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBox_SteamAvatar.Location = new System.Drawing.Point(1, 1);
-            this.picBox_SteamAvatar.Name = "picBox_SteamAvatar";
-            this.picBox_SteamAvatar.Size = new System.Drawing.Size(50, 51);
-            this.picBox_SteamAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox_SteamAvatar.TabIndex = 23;
-            this.picBox_SteamAvatar.TabStop = false;
-            this.picBox_SteamAvatar.Click += new System.EventHandler(this.PicBox_SteamAvatar_Click);
-            // 
             // lbl_connecting
             // 
             this.lbl_connecting.AutoSize = true;
@@ -3338,6 +3283,103 @@
             this.Trolha.Interval = 3000;
             this.Trolha.Tick += new System.EventHandler(this.Trolha_Tick);
             // 
+            // btn_idleSettings
+            // 
+            this.btn_idleSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_idleSettings.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btn_idleSettings.Enabled = false;
+            this.btn_idleSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btn_idleSettings.Location = new System.Drawing.Point(691, 51);
+            this.btn_idleSettings.Name = "btn_idleSettings";
+            this.btn_idleSettings.Size = new System.Drawing.Size(62, 27);
+            this.btn_idleSettings.Style = MetroFramework.MetroColorStyle.Black;
+            this.btn_idleSettings.TabIndex = 72;
+            this.btn_idleSettings.TabStop = false;
+            this.btn_idleSettings.Text = "IDLE\nSETTINGS";
+            this.btn_idleSettings.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.btn_idleSettings, "soon");
+            this.btn_idleSettings.UseCustomBackColor = true;
+            this.btn_idleSettings.UseCustomForeColor = true;
+            this.btn_idleSettings.UseSelectable = true;
+            this.btn_idleSettings.UseStyleColors = true;
+            this.btn_idleSettings.Click += new System.EventHandler(this.btn_idleSettings_Click);
+            // 
+            // picBox_playing
+            // 
+            this.picBox_playing.BackColor = System.Drawing.Color.Transparent;
+            this.picBox_playing.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBox_playing.Image = ((System.Drawing.Image)(resources.GetObject("picBox_playing.Image")));
+            this.picBox_playing.Location = new System.Drawing.Point(713, 91);
+            this.picBox_playing.Name = "picBox_playing";
+            this.picBox_playing.Size = new System.Drawing.Size(22, 21);
+            this.picBox_playing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBox_playing.TabIndex = 24;
+            this.picBox_playing.TabStop = false;
+            this.picBox_playing.Visible = false;
+            this.picBox_playing.Click += new System.EventHandler(this.picBox_playing_Click);
+            this.picBox_playing.MouseLeave += new System.EventHandler(this.picBox_playing_MouseLeave);
+            this.picBox_playing.MouseHover += new System.EventHandler(this.picBox_playing_MouseHover);
+            // 
+            // picBox_SteamAvatar
+            // 
+            this.picBox_SteamAvatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.picBox_SteamAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBox_SteamAvatar.Location = new System.Drawing.Point(1, 1);
+            this.picBox_SteamAvatar.Name = "picBox_SteamAvatar";
+            this.picBox_SteamAvatar.Size = new System.Drawing.Size(50, 51);
+            this.picBox_SteamAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox_SteamAvatar.TabIndex = 23;
+            this.picBox_SteamAvatar.TabStop = false;
+            this.picBox_SteamAvatar.Click += new System.EventHandler(this.PicBox_SteamAvatar_Click);
+            // 
+            // picBox_Restart
+            // 
+            this.picBox_Restart.Image = global::MercuryBOT.Properties.Resources.Restart_Normal;
+            this.picBox_Restart.Location = new System.Drawing.Point(730, 5);
+            this.picBox_Restart.Name = "picBox_Restart";
+            this.picBox_Restart.Size = new System.Drawing.Size(24, 20);
+            this.picBox_Restart.TabIndex = 46;
+            this.picBox_Restart.TabStop = false;
+            this.MongoTip.SetToolTip(this.picBox_Restart, "Restart");
+            this.picBox_Restart.Click += new System.EventHandler(this.picBox_Restart_Click);
+            this.picBox_Restart.MouseLeave += new System.EventHandler(this.picBox_Restart_MouseLeave);
+            this.picBox_Restart.MouseHover += new System.EventHandler(this.picBox_Restart_MouseHover);
+            // 
+            // pictureBox_Github
+            // 
+            this.pictureBox_Github.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox_Github.Image = global::MercuryBOT.Properties.Resources.github_logo;
+            this.pictureBox_Github.Location = new System.Drawing.Point(147, 120);
+            this.pictureBox_Github.Name = "pictureBox_Github";
+            this.pictureBox_Github.Size = new System.Drawing.Size(33, 34);
+            this.pictureBox_Github.TabIndex = 63;
+            this.pictureBox_Github.TabStop = false;
+            this.pictureBox_Github.Click += new System.EventHandler(this.pictureBox_Github_Click);
+            // 
+            // pictureBox_Steam
+            // 
+            this.pictureBox_Steam.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox_Steam.Image = global::MercuryBOT.Properties.Resources.SteamLogo;
+            this.pictureBox_Steam.Location = new System.Drawing.Point(228, 120);
+            this.pictureBox_Steam.Name = "pictureBox_Steam";
+            this.pictureBox_Steam.Size = new System.Drawing.Size(33, 34);
+            this.pictureBox_Steam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_Steam.TabIndex = 61;
+            this.pictureBox_Steam.TabStop = false;
+            this.pictureBox_Steam.Click += new System.EventHandler(this.pictureBox_Steam_Click);
+            // 
+            // pictureBox_Discord
+            // 
+            this.pictureBox_Discord.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox_Discord.Image = global::MercuryBOT.Properties.Resources.DiscordLogo;
+            this.pictureBox_Discord.Location = new System.Drawing.Point(307, 120);
+            this.pictureBox_Discord.Name = "pictureBox_Discord";
+            this.pictureBox_Discord.Size = new System.Drawing.Size(33, 34);
+            this.pictureBox_Discord.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_Discord.TabIndex = 53;
+            this.pictureBox_Discord.TabStop = false;
+            this.pictureBox_Discord.Click += new System.EventHandler(this.pictureBox_Discord_Click);
+            // 
             // pictureBox_MercuryLogo
             // 
             this.pictureBox_MercuryLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -3358,6 +3400,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 543);
             this.Controls.Add(this.btn_logout);
+            this.Controls.Add(this.picBox_playing);
             this.Controls.Add(this.Panel_UserInfo);
             this.Controls.Add(this.picBox_Restart);
             this.Controls.Add(this.metroPanel10);
@@ -3395,9 +3438,6 @@
             this.metroTab_Settings.PerformLayout();
             this.metroTab_Infos.ResumeLayout(false);
             this.metroTab_Infos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Github)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Steam)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Discord)).EndInit();
             this.IconContextMenu.ResumeLayout(false);
             this.metroPanel6.ResumeLayout(false);
             this.metroPanel6.PerformLayout();
@@ -3405,11 +3445,15 @@
             this.metroPanel8.PerformLayout();
             this.metroPanel10.ResumeLayout(false);
             this.metroPanel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Restart)).EndInit();
             this.Panel_UserInfo.ResumeLayout(false);
             this.Panel_UserInfo.PerformLayout();
             this.panel_steamStates.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_playing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_SteamAvatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Restart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Github)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Steam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Discord)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_MercuryLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -3511,7 +3555,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel12;
         private System.Windows.Forms.PictureBox pictureBox_Discord;
         private MetroFramework.Controls.MetroButton btn_addMsgForm;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton btn_accSettings;
         private MetroFramework.Controls.MetroButton btn_acclistOpenprofile;
         private MetroFramework.Controls.MetroLink link_stopIdling;
         private MetroFramework.Controls.MetroButton btn_exitgroups;
@@ -3591,6 +3635,8 @@
         private MetroFramework.Controls.MetroToggle toggle_chatlogger;
         private MetroFramework.Controls.MetroLabel metroLabel28;
         private MetroFramework.Controls.MetroComboBox combox_notifEffect;
+        private System.Windows.Forms.PictureBox picBox_playing;
+        private MetroFramework.Controls.MetroButton btn_idleSettings;
     }
 }
 

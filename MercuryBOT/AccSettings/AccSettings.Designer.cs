@@ -29,75 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccSettings));
-            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroCheckBox2 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroCheckBox3 = new MetroFramework.Controls.MetroCheckBox();
-            this.metroCheckBox4 = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.txtBox_nameChange = new MetroFramework.Controls.MetroTextBox();
+            this.lbl_changeName = new MetroFramework.Controls.MetroLabel();
+            this.btn_setName = new MetroFramework.Controls.MetroButton();
+            this.btn_clearuserAliases = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
-            // 
-            // metroCheckBox1
-            // 
-            this.metroCheckBox1.AutoSize = true;
-            this.metroCheckBox1.ForeColor = System.Drawing.Color.White;
-            this.metroCheckBox1.Location = new System.Drawing.Point(36, 63);
-            this.metroCheckBox1.Name = "metroCheckBox1";
-            this.metroCheckBox1.Size = new System.Drawing.Size(113, 15);
-            this.metroCheckBox1.TabIndex = 0;
-            this.metroCheckBox1.Text = "metroCheckBox1";
-            this.metroCheckBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroCheckBox1.UseCustomBackColor = true;
-            this.metroCheckBox1.UseCustomForeColor = true;
-            this.metroCheckBox1.UseSelectable = true;
-            this.metroCheckBox1.UseStyleColors = true;
-            // 
-            // metroCheckBox2
-            // 
-            this.metroCheckBox2.AutoSize = true;
-            this.metroCheckBox2.ForeColor = System.Drawing.Color.White;
-            this.metroCheckBox2.Location = new System.Drawing.Point(36, 105);
-            this.metroCheckBox2.Name = "metroCheckBox2";
-            this.metroCheckBox2.Size = new System.Drawing.Size(113, 15);
-            this.metroCheckBox2.TabIndex = 1;
-            this.metroCheckBox2.Text = "metroCheckBox2";
-            this.metroCheckBox2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroCheckBox2.UseCustomBackColor = true;
-            this.metroCheckBox2.UseCustomForeColor = true;
-            this.metroCheckBox2.UseSelectable = true;
-            this.metroCheckBox2.UseStyleColors = true;
-            // 
-            // metroCheckBox3
-            // 
-            this.metroCheckBox3.AutoSize = true;
-            this.metroCheckBox3.ForeColor = System.Drawing.Color.White;
-            this.metroCheckBox3.Location = new System.Drawing.Point(36, 84);
-            this.metroCheckBox3.Name = "metroCheckBox3";
-            this.metroCheckBox3.Size = new System.Drawing.Size(113, 15);
-            this.metroCheckBox3.TabIndex = 2;
-            this.metroCheckBox3.Text = "metroCheckBox3";
-            this.metroCheckBox3.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroCheckBox3.UseCustomBackColor = true;
-            this.metroCheckBox3.UseCustomForeColor = true;
-            this.metroCheckBox3.UseSelectable = true;
-            this.metroCheckBox3.UseStyleColors = true;
-            // 
-            // metroCheckBox4
-            // 
-            this.metroCheckBox4.AutoSize = true;
-            this.metroCheckBox4.ForeColor = System.Drawing.Color.White;
-            this.metroCheckBox4.Location = new System.Drawing.Point(36, 126);
-            this.metroCheckBox4.Name = "metroCheckBox4";
-            this.metroCheckBox4.Size = new System.Drawing.Size(113, 15);
-            this.metroCheckBox4.TabIndex = 3;
-            this.metroCheckBox4.Text = "metroCheckBox4";
-            this.metroCheckBox4.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroCheckBox4.UseCustomBackColor = true;
-            this.metroCheckBox4.UseCustomForeColor = true;
-            this.metroCheckBox4.UseSelectable = true;
-            this.metroCheckBox4.UseStyleColors = true;
             // 
             // metroLabel1
             // 
@@ -105,7 +45,7 @@
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.metroLabel1.Location = new System.Drawing.Point(19, 153);
+            this.metroLabel1.Location = new System.Drawing.Point(19, 199);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(115, 15);
             this.metroLabel1.TabIndex = 4;
@@ -132,7 +72,7 @@
             this.metroTextBox1.ForeColor = System.Drawing.Color.White;
             this.metroTextBox1.Lines = new string[] {
         "metroTextBox1"};
-            this.metroTextBox1.Location = new System.Drawing.Point(23, 167);
+            this.metroTextBox1.Location = new System.Drawing.Point(23, 213);
             this.metroTextBox1.MaxLength = 32767;
             this.metroTextBox1.Name = "metroTextBox1";
             this.metroTextBox1.PasswordChar = '\0';
@@ -156,7 +96,7 @@
             // 
             this.metroButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.metroButton1.ForeColor = System.Drawing.Color.White;
-            this.metroButton1.Location = new System.Drawing.Point(172, 210);
+            this.metroButton1.Location = new System.Drawing.Point(172, 252);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(119, 39);
             this.metroButton1.Style = MetroFramework.MetroColorStyle.Purple;
@@ -167,12 +107,13 @@
             this.metroButton1.UseCustomForeColor = true;
             this.metroButton1.UseSelectable = true;
             this.metroButton1.UseStyleColors = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // metroButton2
             // 
             this.metroButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.metroButton2.ForeColor = System.Drawing.Color.White;
-            this.metroButton2.Location = new System.Drawing.Point(23, 210);
+            this.metroButton2.Location = new System.Drawing.Point(23, 252);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(126, 39);
             this.metroButton2.Style = MetroFramework.MetroColorStyle.Purple;
@@ -184,19 +125,109 @@
             this.metroButton2.UseSelectable = true;
             this.metroButton2.UseStyleColors = true;
             // 
+            // txtBox_nameChange
+            // 
+            this.txtBox_nameChange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            // 
+            // 
+            // 
+            this.txtBox_nameChange.CustomButton.Image = null;
+            this.txtBox_nameChange.CustomButton.Location = new System.Drawing.Point(104, 1);
+            this.txtBox_nameChange.CustomButton.Name = "";
+            this.txtBox_nameChange.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.txtBox_nameChange.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtBox_nameChange.CustomButton.TabIndex = 1;
+            this.txtBox_nameChange.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtBox_nameChange.CustomButton.UseSelectable = true;
+            this.txtBox_nameChange.CustomButton.Visible = false;
+            this.txtBox_nameChange.ForeColor = System.Drawing.Color.White;
+            this.txtBox_nameChange.Lines = new string[0];
+            this.txtBox_nameChange.Location = new System.Drawing.Point(23, 72);
+            this.txtBox_nameChange.MaxLength = 32;
+            this.txtBox_nameChange.Multiline = true;
+            this.txtBox_nameChange.Name = "txtBox_nameChange";
+            this.txtBox_nameChange.PasswordChar = '\0';
+            this.txtBox_nameChange.PromptText = "ma name jeff";
+            this.txtBox_nameChange.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBox_nameChange.SelectedText = "";
+            this.txtBox_nameChange.SelectionLength = 0;
+            this.txtBox_nameChange.SelectionStart = 0;
+            this.txtBox_nameChange.ShortcutsEnabled = true;
+            this.txtBox_nameChange.Size = new System.Drawing.Size(132, 29);
+            this.txtBox_nameChange.TabIndex = 28;
+            this.txtBox_nameChange.UseCustomBackColor = true;
+            this.txtBox_nameChange.UseCustomForeColor = true;
+            this.txtBox_nameChange.UseSelectable = true;
+            this.txtBox_nameChange.UseStyleColors = true;
+            this.txtBox_nameChange.WaterMark = "ma name jeff";
+            this.txtBox_nameChange.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtBox_nameChange.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // lbl_changeName
+            // 
+            this.lbl_changeName.AutoSize = true;
+            this.lbl_changeName.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_changeName.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbl_changeName.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_changeName.Location = new System.Drawing.Point(19, 55);
+            this.lbl_changeName.Name = "lbl_changeName";
+            this.lbl_changeName.Size = new System.Drawing.Size(115, 19);
+            this.lbl_changeName.TabIndex = 29;
+            this.lbl_changeName.Text = "NAME CHANGER";
+            this.lbl_changeName.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lbl_changeName.UseCustomBackColor = true;
+            this.lbl_changeName.UseStyleColors = true;
+            // 
+            // btn_setName
+            // 
+            this.btn_setName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_setName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_setName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btn_setName.Location = new System.Drawing.Point(161, 72);
+            this.btn_setName.Name = "btn_setName";
+            this.btn_setName.Size = new System.Drawing.Size(27, 29);
+            this.btn_setName.Style = MetroFramework.MetroColorStyle.Purple;
+            this.btn_setName.TabIndex = 27;
+            this.btn_setName.TabStop = false;
+            this.btn_setName.Text = "✓";
+            this.btn_setName.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btn_setName.UseCustomBackColor = true;
+            this.btn_setName.UseCustomForeColor = true;
+            this.btn_setName.UseSelectable = true;
+            this.btn_setName.UseStyleColors = true;
+            this.btn_setName.Click += new System.EventHandler(this.btn_setName_Click);
+            // 
+            // btn_clearuserAliases
+            // 
+            this.btn_clearuserAliases.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_clearuserAliases.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btn_clearuserAliases.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btn_clearuserAliases.Location = new System.Drawing.Point(196, 72);
+            this.btn_clearuserAliases.Name = "btn_clearuserAliases";
+            this.btn_clearuserAliases.Size = new System.Drawing.Size(95, 29);
+            this.btn_clearuserAliases.TabIndex = 42;
+            this.btn_clearuserAliases.TabStop = false;
+            this.btn_clearuserAliases.Text = "CLEAR \r\nUSER ALIASES";
+            this.btn_clearuserAliases.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btn_clearuserAliases.UseCustomBackColor = true;
+            this.btn_clearuserAliases.UseCustomForeColor = true;
+            this.btn_clearuserAliases.UseSelectable = true;
+            this.btn_clearuserAliases.UseStyleColors = true;
+            this.btn_clearuserAliases.Click += new System.EventHandler(this.btn_clearuserAliases_Click);
+            // 
             // AccSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 272);
+            this.ClientSize = new System.Drawing.Size(314, 304);
+            this.Controls.Add(this.btn_clearuserAliases);
+            this.Controls.Add(this.txtBox_nameChange);
+            this.Controls.Add(this.lbl_changeName);
+            this.Controls.Add(this.btn_setName);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroTextBox1);
             this.Controls.Add(this.metroLabel1);
-            this.Controls.Add(this.metroCheckBox4);
-            this.Controls.Add(this.metroCheckBox3);
-            this.Controls.Add(this.metroCheckBox2);
-            this.Controls.Add(this.metroCheckBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AccSettings";
@@ -211,14 +242,13 @@
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
-        private MetroFramework.Controls.MetroCheckBox metroCheckBox2;
-        private MetroFramework.Controls.MetroCheckBox metroCheckBox3;
-        private MetroFramework.Controls.MetroCheckBox metroCheckBox4;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroTextBox txtBox_nameChange;
+        private MetroFramework.Controls.MetroLabel lbl_changeName;
+        private MetroFramework.Controls.MetroButton btn_setName;
+        private MetroFramework.Controls.MetroButton btn_clearuserAliases;
     }
 }

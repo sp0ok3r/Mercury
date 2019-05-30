@@ -461,7 +461,7 @@ namespace MercuryBOT
                 }
                 else
                 {
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Error: Only 50 chars allowed.");
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Only 50 chars allowed.");
                 }
             }
             else
@@ -688,12 +688,14 @@ namespace MercuryBOT
             }
         }
 
-        private void btn_playnormal_Click(object sender, EventArgs e)
+
+        public void playNormal()
         {
             if (AccountLogin.IsLoggedIn == true)
             {
                 if (GamesList_Grid.Rows.Count <= 32)
                 {
+                    picBox_playing.Visible = true;
                     List<uint> gameuints = new List<uint>();
 
                     foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
@@ -723,6 +725,7 @@ namespace MercuryBOT
                                 Utils.PlayGames(gameuints, "disable");
                             }
                         }
+                      //  Notification.NotifHelper.MessageBox.Show("Info", "Playing: "+a.Games.Count + "games.");
                     }
                     btn_playnormal.Enabled = false;
                     btn_playNonSteam.Enabled = false;
@@ -738,18 +741,30 @@ namespace MercuryBOT
             }
         }
 
-        private void link_stopIdling_Click(object sender, EventArgs e)
+
+        private void btn_playnormal_Click(object sender, EventArgs e)
+        {
+            playNormal();
+        }
+        public void stopIdling()
         {
             if (AccountLogin.IsLoggedIn == true)
             {
                 Utils.StopGames();
+                picBox_playing.Visible = false;
                 btn_playnormal.Enabled = true;
                 btn_playNonSteam.Enabled = true;
+                Notification.NotifHelper.MessageBox.Show("Info", "Idling stopped");
+
             }
             else
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
+        }
+        private void link_stopIdling_Click(object sender, EventArgs e)
+        {
+            stopIdling();
         }
 
         private void btn_addGameManually_Click(object sender, EventArgs e)
@@ -1458,6 +1473,7 @@ namespace MercuryBOT
 
                 btnLabel_PersonaAndFlag.Invoke(new Action(() => btnLabel_PersonaAndFlag.Text = AccountLogin.UserPersonaName));
 
+                
                 if (AccountLogin.UserPlaying)
                 {
                     panel_steamStates.BackColor = Color.Green;
@@ -1465,6 +1481,7 @@ namespace MercuryBOT
                 else
                 {
                     panel_steamStates.BackColor = Color.LightSkyBlue;
+                    picBox_playing.Visible = false;
                 }
 
                 if (picBox_SteamAvatar.Image == null && btnLabel_PersonaAndFlag.Image == null)
@@ -1713,7 +1730,7 @@ namespace MercuryBOT
 
         private void btn_clearRecentapps_Click(object sender, EventArgs e)
         {
-            if (AccountLogin.IsLoggedIn == true)
+            if (AccountLogin.IsLoggedIn == true && AccountLogin.UserPlaying == false)
             {
                 //AccountLogin.UserPlaying
                 List<uint> ClearGameID = new List<uint>() { 635240, 635241, 635242 };
@@ -1727,7 +1744,7 @@ namespace MercuryBOT
             }
             else
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged/playing!");
             }
         }
 
@@ -1738,6 +1755,33 @@ namespace MercuryBOT
             //  SettingsList.notificationEffect = Extensions.notifEffects[combox_notifEffect.SelectedIndex];
 
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, new JsonSerializerSettings { Formatting = Formatting.Indented }));
+        }
+
+        private void btn_accSettings_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picBox_playing_Click(object sender, EventArgs e)
+        {
+            stopIdling();
+            MercuryTabControl.SelectedIndex = 3;
+            
+        }
+
+        private void picBox_playing_MouseHover(object sender, EventArgs e)
+        {
+            picBox_playing.Image =Properties.Resources.stop_playing;
+        }
+
+        private void picBox_playing_MouseLeave(object sender, EventArgs e)
+        {
+            picBox_playing.Image = Properties.Resources.playing;
+        }
+
+        private void btn_idleSettings_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btn_addCDKey_Click(object sender, EventArgs e)

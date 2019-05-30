@@ -150,6 +150,16 @@ namespace MercuryBOT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap playing {
+            get {
+                object obj = ResourceManager.GetObject("playing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Restart_MouseHover {
             get {
                 object obj = ResourceManager.GetObject("Restart_MouseHover", resourceCulture);
@@ -173,6 +183,16 @@ namespace MercuryBOT.Properties {
         internal static System.Drawing.Bitmap SteamLogo {
             get {
                 object obj = ResourceManager.GetObject("SteamLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stop_playing {
+            get {
+                object obj = ResourceManager.GetObject("stop_playing", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

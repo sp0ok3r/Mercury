@@ -202,6 +202,12 @@
     </Compile>
     <Compile Include="FriendsList\ListFriends.cs" />
     <Compile Include="FriendsList\FriendsRequests.cs" />
+    <Compile Include="Games\IdleSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\IdleSettings.Designer.cs">
+      <DependentUpon>IdleSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Notification\NotifHelper.cs" />
     <Compile Include="Notification\NotificationForm.cs">
       <SubType>Form</SubType>
@@ -285,10 +291,10 @@
     <Compile Include="InfoForm\InfoHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectGames\SelectGames.cs">
+    <Compile Include="Games\SelectGames.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SelectGames\SelectGames.Designer.cs">
+    <Compile Include="Games\SelectGames.Designer.cs">
       <DependentUpon>SelectGames.cs</DependentUpon>
     </Compile>
     <Compile Include="SteamGuard.cs">
@@ -320,6 +326,9 @@
     <EmbeddedResource Include="FriendsList\MsgRecipients.resx">
       <DependentUpon>MsgRecipients.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Games\IdleSettings.resx">
+      <DependentUpon>IdleSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -334,7 +343,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SelectGames\SelectGames.resx">
+    <EmbeddedResource Include="Games\SelectGames.resx">
       <DependentUpon>SelectGames.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash\SplashScreen.resx">
@@ -416,6 +425,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mercuryIMGNotFound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop_playing.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

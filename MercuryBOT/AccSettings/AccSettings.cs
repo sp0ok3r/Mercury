@@ -12,6 +12,7 @@ using System;
 using System.Linq;
 using Win32Interop.Methods;
 using System.Drawing;
+using MercuryBOT.SteamCommunity;
 
 namespace MercuryBOT.AccSettings
 {
@@ -28,6 +29,22 @@ namespace MercuryBOT.AccSettings
                 button.Region = Region.FromHrgn(ptr);
                 Gdi32.DeleteObject(ptr);
             }
+        }
+
+        private void btn_setName_Click(object sender, EventArgs e)
+        {
+            AccountLogin.ChangeCurrentName(txtBox_nameChange.Text);
+            txtBox_nameChange.Clear();
+        }
+
+        private void btn_clearuserAliases_Click(object sender, EventArgs e)
+        {
+            Utils.ClearAliases();
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

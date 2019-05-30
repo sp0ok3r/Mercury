@@ -47,6 +47,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_totalCommentsInGrid = new MetroFramework.Controls.MetroLabel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
+            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.txtBox_Comments2GetCount = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.ProgressSpinner_LoadComments = new MetroFramework.Controls.MetroProgressSpinner();
@@ -54,7 +55,6 @@
             this.CommentsList_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
             this.combox_ProfileURLorGroupID = new MetroFramework.Controls.MetroComboBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.GridCommentsData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,7 +100,7 @@
             this.btn_doTask.Size = new System.Drawing.Size(154, 97);
             this.btn_doTask.Style = MetroFramework.MetroColorStyle.Purple;
             this.btn_doTask.TabIndex = 5;
-            this.btn_doTask.Text = "DESTROY COMMENTS!";
+            this.btn_doTask.Text = "GATHER COMMENTS!";
             this.btn_doTask.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btn_doTask.UseCustomForeColor = true;
             this.btn_doTask.UseSelectable = true;
@@ -305,6 +305,19 @@
             this.MongoToolTip.StyleManager = null;
             this.MongoToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
+            // metroCheckBox1
+            // 
+            this.metroCheckBox1.AutoSize = true;
+            this.metroCheckBox1.Location = new System.Drawing.Point(509, 595);
+            this.metroCheckBox1.Name = "metroCheckBox1";
+            this.metroCheckBox1.Size = new System.Drawing.Size(66, 15);
+            this.metroCheckBox1.TabIndex = 26;
+            this.metroCheckBox1.Text = "Any link";
+            this.MongoToolTip.SetToolTip(this.metroCheckBox1, "This will delete your comments based on words");
+            this.metroCheckBox1.UseCustomBackColor = true;
+            this.metroCheckBox1.UseSelectable = true;
+            this.metroCheckBox1.UseStyleColors = true;
+            // 
             // txtBox_Comments2GetCount
             // 
             // 
@@ -426,19 +439,6 @@
             this.richTextBox1.Size = new System.Drawing.Size(42, 14);
             this.richTextBox1.TabIndex = 25;
             this.richTextBox1.Text = "└───";
-            // 
-            // metroCheckBox1
-            // 
-            this.metroCheckBox1.AutoSize = true;
-            this.metroCheckBox1.Location = new System.Drawing.Point(509, 595);
-            this.metroCheckBox1.Name = "metroCheckBox1";
-            this.metroCheckBox1.Size = new System.Drawing.Size(66, 15);
-            this.metroCheckBox1.TabIndex = 26;
-            this.metroCheckBox1.Text = "Any link";
-            this.MongoToolTip.SetToolTip(this.metroCheckBox1, "This will delete your comments based on words");
-            this.metroCheckBox1.UseCustomBackColor = true;
-            this.metroCheckBox1.UseSelectable = true;
-            this.metroCheckBox1.UseStyleColors = true;
             // 
             // CommentsGather
             // 
