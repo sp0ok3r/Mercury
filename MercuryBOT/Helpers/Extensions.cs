@@ -10,7 +10,6 @@
 using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Runtime.InteropServices;
 using System.IO;
 using MetroFramework.Components;
 using MetroFramework.Forms;
@@ -19,8 +18,6 @@ using MercuryBOT.User2Json;
 using MetroFramework;
 using SteamKit2;
 using System.Collections.Generic;
-using MercuryBOT.UserSettings;
-using System.Text.RegularExpressions;
 using System.Net;
 using Microsoft.Win32;
 

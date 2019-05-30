@@ -7,7 +7,6 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-
 using Gameloop.Vdf;
 using Gameloop.Vdf.Linq;
 using MercuryBOT.Helpers;

@@ -920,55 +920,7 @@ namespace MercuryBOT
         {
             return steamFriends.GetFriendPersonaName((SteamID)steamid);
         }
-
-        //public static void gatherWebApiKey()
-        //{
-        //    string resp = steamWeb.Fetch("https://steamcommunity.com/dev/apikey?l=english", "GET");
-
-        //    if (resp != String.Empty)
-        //    {
-        //        var parser = new HtmlParser();
-        //        var document = parser.ParseDocument(resp);
-
-        //        if (document.QuerySelector("div[id='mainContents'] > h2").TextContent == "Access Denied")
-        //        {
-        //            InfoForm.InfoHelper.CustomMessageBox.Show("Error", document.QuerySelector("div[id='bodyContents_lo'] > p").TextContent);
-        //            return;
-        //        }
-
-
-        //        var webkeySet = document.QuerySelector("div[id='bodyContents_ex'] > p"); //650ip
-        //        if (document.QuerySelector("div[id='bodyContents_ex'] > p").TextContent.Contains("Key:"))
-        //        {
-        //            var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-        //            foreach (var a in list.Accounts)
-        //            {
-        //                if (a.username == CurrentUsername)
-        //                {
-        //                    a.APIWebKey = webkeySet.TextContent.Replace("Key: ", ""); //861ip
-        //                }
-        //            }
-        //            File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, Formatting.Indented));
-        //        }
-        //        else
-        //        {
-        //            var SetWebApi = new NameValueCollection
-        //            {
-        //                { "domain", "localhost" },
-        //                { "agreeToTerms", "agreed"},
-        //                { "sessionid", steamWeb.SessionID },
-        //                { "Submit", "Register"}
-        //            };
-
-        //            string ObtainKey = steamWeb.Fetch("https://steamcommunity.com/dev/registerkey?l=english", "POST", SetWebApi);
-        //            if (ObtainKey != String.Empty)
-        //            {
-        //                gatherWebApiKey();
-        //            }
-        //        }
-        //    }
-        //}
-
+        
         #region Change State Name Persona Flag
         public static void ChangeCurrentState(EPersonaState state)
         {
