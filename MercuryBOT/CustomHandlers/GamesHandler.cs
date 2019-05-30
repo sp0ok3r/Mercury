@@ -28,42 +28,7 @@ namespace MercuryBOT.CustomHandlers
                     break;
             }
         }
-
-        private void PlayingSessionState(IPacketMsg packetMsg)
-        {
-            if (packetMsg == null)
-            {
-                Console.WriteLine(nameof(packetMsg));
-                return;
-            }
-
-            ClientMsgProtobuf<CMsgClientPlayingSessionState> response = new ClientMsgProtobuf<CMsgClientPlayingSessionState>(packetMsg);
-            Client.PostCallback(new PlayingSessionStateCallback(packetMsg.TargetJobID, response.Body));
-        }
-
-        internal sealed class PlayingSessionStateCallback : CallbackMsg
-        {
-            internal readonly bool PlayingBlocked;
-
-            internal PlayingSessionStateCallback(JobID jobID, CMsgClientPlayingSessionState msg)
-            {
-                if ((jobID == null) || (msg == null))
-                {
-                    throw new ArgumentNullException(nameof(jobID) + " || " + nameof(msg));
-                }
-
-                JobID = jobID;
-                PlayingBlocked = msg.playing_blocked;
-            }
-        }
-
-
-
-
-
-
-
-
+        
         #region PlayGames
         public void SetGamePlayingNormal(uint _gameID)
         {
