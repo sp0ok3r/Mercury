@@ -42,6 +42,9 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 * Save AppIDS to File (0%) maybe not beta7
 * Check for user cards and idle
 * Boost list of gamesids until X hours, then get others
+* VogueMist,Evolve - Able to farm steam card
+* BhandixTV - Multi account login
+* VogueMist - Multiple Admins
 * You tell me 👀
 
 ### Download 
