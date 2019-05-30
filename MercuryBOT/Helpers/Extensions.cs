@@ -76,8 +76,8 @@ namespace MercuryBOT.Helpers
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Invalid link (Link accepted: https://steamcommunity.com/profiles/1337)");
             }
-
-            return String.Empty;
+             return String.Empty;
+           
         }
         public static string Between(string STR, string FirstString, string LastString)
         {
@@ -107,6 +107,11 @@ namespace MercuryBOT.Helpers
             }
 
             return String.Empty;
+        }
+
+        public static string AllToSteamId3(string input)
+        {
+            return new SteamID(input).Render(true);
         }
 
         public static string ResolveVanityURL(string ProfileURL)// fast way, without api key

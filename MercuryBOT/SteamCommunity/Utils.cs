@@ -1,5 +1,7 @@
 ﻿using AngleSharp.Html.Parser;
 using MercuryBOT.SteamCommunity;
+using MercuryBOT.UserSettings;
+using Newtonsoft.Json;
 using SteamKit2;
 using SteamKit2.Internal;
 using SteamProfilePrivacy;
@@ -7,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using System.IO;
 
 namespace MercuryBOT.SteamCommunity
 {
@@ -89,7 +92,6 @@ namespace MercuryBOT.SteamCommunity
             AccountLogin.steamFriends.RequestOfflineMessages();
         }
         #endregion
-
 
         #region Group Utils
         public static void MakeGroupAnnouncement(string groupName, string HeadLine, string body)
@@ -214,7 +216,6 @@ namespace MercuryBOT.SteamCommunity
         }
         #endregion
 
-
         #region PlayGames
 
         public static void PlayNormal1App(uint customgame)
@@ -255,6 +256,75 @@ namespace MercuryBOT.SteamCommunity
         }
         #endregion
 
+        #region Comments
+        public static void DeleteSelectedComment(string CID, string ProfileOrClan)
+        {
+            var DeleteCommentData = new NameValueCollection
+            {
+                { "gidcomment", CID},
+                { "start", "0" },
+                { "count", "1" },
+                { "sessionid", AccountLogin.steamWeb.SessionID },
+                { "feature2", "-1" }
+            };
+
+            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/comment/" + ProfileOrClan + "/delete/" + AccountLogin.CurrentSteamID + "/-1/", "POST", DeleteCommentData);
+            if (resp != String.Empty)
+            {
+                Console.WriteLine(resp);//debug
+            }
+        }
+        #endregion
+
+        #region WebAPI
+        public static void gatherWebApiKey()
+        {
+            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/dev/apikey?l=english", "GET");
+
+            if (resp != String.Empty)
+            {
+                var parser = new HtmlParser();
+                var document = parser.ParseDocument(resp);
+
+                if (document.QuerySelector("div[id='mainContents'] > h2").TextContent == "Access Denied")
+                {
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", document.QuerySelector("div[id='bodyContents_lo'] > p").TextContent);
+                    return;
+                }
+
+
+                var webkeySet = document.QuerySelector("div[id='bodyContents_ex'] > p"); //650ip
+                if (document.QuerySelector("div[id='bodyContents_ex'] > p").TextContent.Contains("Key:"))
+                {
+                    var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
+                    foreach (var a in list.Accounts)
+                    {
+                        if (a.username == AccountLogin.CurrentUsername)
+                        {
+                            a.APIWebKey = webkeySet.TextContent.Replace("Key: ", ""); //861ip
+                        }
+                    }
+                    File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, Formatting.Indented));
+                }
+                else
+                {
+                    var SetWebApi = new NameValueCollection
+                    {
+                        { "domain", "localhost" },
+                        { "agreeToTerms", "agreed"},
+                        { "sessionid", AccountLogin.steamWeb.SessionID },
+                        { "Submit", "Register"}
+                    };
+
+                    string ObtainKey = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/dev/registerkey?l=english", "POST", SetWebApi);
+                    if (ObtainKey != String.Empty)
+                    {
+                        gatherWebApiKey();
+                    }
+                }
+            }
+        }
+        #endregion
 
 
     }

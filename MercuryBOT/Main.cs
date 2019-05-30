@@ -390,7 +390,7 @@ namespace MercuryBOT
                     if (string.IsNullOrEmpty(apikey) || apikey == "0")
                     {
                         InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Gathering your apikey and setting it! \n Just Gather Games again!");
-                        AccountLogin.gatherWebApiKey();
+                        Utils.gatherWebApiKey();
                         return;
                     }
                     else
@@ -618,7 +618,7 @@ namespace MercuryBOT
                 if (string.IsNullOrEmpty(apikey) || apikey == "0")
                 {
                     InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Gathering your apikey and setting it! \n Just Gather Friends again!");
-                    AccountLogin.gatherWebApiKey();
+                    Utils.gatherWebApiKey();
                     return;
                 }
 
@@ -863,9 +863,10 @@ namespace MercuryBOT
                     {
                         CDKeys_Grid.Rows.Add(line);
                     }
+                    btn_importKeys.Enabled = false;
                 }
             }
-            btn_importKeys.Enabled = false;
+            
         }
 
         private void btn_login2selected_Click(object sender, EventArgs e)
@@ -1469,23 +1470,7 @@ namespace MercuryBOT
 
                 if (picBox_SteamAvatar.Image == null && btnLabel_PersonaAndFlag.Image == null)
                 {
-
-                    byte[] bytes = Program.Web.DownloadData(AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID));
-                    MemoryStream mss = new MemoryStream(bytes);
-                    Bitmap newImage = new Bitmap(Image.FromStream(mss));
-
-                    using (Graphics gr = Graphics.FromImage(newImage))
-                    {
-                        gr.SmoothingMode = SmoothingMode.HighQuality;
-                        gr.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                        gr.PixelOffsetMode = PixelOffsetMode.HighQuality;
-                        gr.DrawImage(new Bitmap(newImage), new Point(184, 184));
-
-                        picBox_SteamAvatar.Image = newImage;
-                    }
-
-
-                    //  picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID);
+                    picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID);
                     byte[] data = Program.Web.DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + "/flat/16.png");
 
                     MemoryStream ms = new MemoryStream(data);
@@ -1714,7 +1699,9 @@ namespace MercuryBOT
                 btn_userdata.Enabled = true;
                 if (AccountLogin.IsLoggedIn == true)
                 {
-                    Process.Start(Extensions.SteamLocation + @"\userdata\" + Extensions.AllToSteamId32(AccountLogin.CurrentSteamID.ToString()));
+                    
+                    Console.WriteLine(Extensions.AllToSteamId3(AccountLogin.CurrentSteamID.ToString()));
+                   // Process.Start(Extensions.SteamLocation + @"/userdata/" + Extensions.AllToSteamId32(AccountLogin.CurrentSteamID.ToString()));
 
                 }
                 else
@@ -1729,6 +1716,7 @@ namespace MercuryBOT
         {
             if (AccountLogin.IsLoggedIn == true)
             {
+                //AccountLogin.UserPlaying
                 List<uint> ClearGameID = new List<uint>() { 635240, 635241, 635242 };
 
                 foreach (uint id in ClearGameID)
