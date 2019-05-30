@@ -201,7 +201,7 @@ namespace MercuryBOT.SteamCommunity
                 Notification.NotifHelper.MessageBox.Show("Info", "Left successfully " + groupName + " !");
             }
         }
-        public static void GroupInvite(uint userID, ulong groupID)
+        public static void GroupInvite(ulong groupID, uint userID)
         {
             var mass_JoinGroup = new NameValueCollection{
                 {"group", groupID.ToString()},
@@ -215,16 +215,21 @@ namespace MercuryBOT.SteamCommunity
 
             if (resp != String.Empty && resp.Contains("success\":1"))
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Profile settings set!");
+                //InfoForm.InfoHelper.CustomMessageBox.Show("Info", "User Invited!");
+                Console.WriteLine("User Invited!");
             }
             else
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again.");
+                Console.WriteLine("Try login again.");
+
+                // InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again.");
             }
         }
         #endregion
 
         #region PlayGames
+
+        
 
         public static void PlayNormal1App(uint customgame)
         {

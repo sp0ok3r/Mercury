@@ -8,6 +8,7 @@
 ▐    ▐     ▐                  ▐                                 ▐   
 */
 using MercuryBOT.Helpers;
+using MercuryBOT.SteamCommunity;
 using MetroFramework.Controls;
 using System;
 using System.Collections.Generic;
@@ -282,7 +283,7 @@ namespace MercuryBOT.SteamGroups
 
         private void btn_massInvite_Click(object sender, EventArgs e)
         {
-
+           // Utils.GroupInvite();
 
         }
     }
