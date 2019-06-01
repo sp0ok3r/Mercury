@@ -1784,6 +1784,11 @@ namespace MercuryBOT
 
         }
 
+        private void btn_rateup_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btn_addCDKey_Click(object sender, EventArgs e)
         {
             //thanks to https://regexr.com/3b63e

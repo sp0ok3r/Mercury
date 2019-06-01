@@ -295,9 +295,9 @@ namespace MercuryBOT.Helpers
                         manager = (MetroStyleManager)item;
                     }
                 }
-                catch (Exception)
+                catch (InvalidCastException)
                 {
-                    // Ignore others
+                    //Console.WriteLine("[Theme] - Cannot convert some styles.");
                 }
             return manager;
         }
