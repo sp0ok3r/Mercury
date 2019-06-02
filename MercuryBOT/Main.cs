@@ -148,6 +148,8 @@ namespace MercuryBOT
 
         public void Main_Load(object sender, EventArgs e)
         {
+            this.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            
             lbl_infoversion.Text = "v" + Program.Version.Replace("-", "");
 
 
@@ -456,7 +458,7 @@ namespace MercuryBOT
             {
                 if (txtBox_gameNonSteam.Text.Length < 50)
                 {
-                    Utils.PlayNonSteamGame(txtBox_gameNonSteam.Text + " ❤ MercuryBOT");
+                    Utils.PlayNonSteamGame(txtBox_gameNonSteam.Text + (AccountLogin.isInMercuryGroup ? "" : " ❤ MercuryBOT"));
                     btn_playnormal.Enabled = false;
                 }
                 else
@@ -551,6 +553,8 @@ namespace MercuryBOT
                 string msg = txtBox_msg2Friends.Text;
                 var friends = steamfriends013.GetFriendCount((int)EFriendFlags.k_EFriendFlagImmediate);
 
+                var ad = AccountLogin.isInMercuryGroup ? "" : "\n MercuryBOT";
+
                 byte[] msgBytes = Encoding.UTF8.GetBytes(msg);
                 for (int i = 0; i < friends; i++)
                 {
@@ -563,7 +567,7 @@ namespace MercuryBOT
                             if (a.username == AccountLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(friendid.ConvertToUint64().ToString())))
                             {
                                 quantasPrincesas++;
-                                steamfriends002.SendMsgToFriend(friendid, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text), (txtBox_msg2Friends.Text.Length) + 1);
+                                steamfriends002.SendMsgToFriend(friendid, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text + ad), (txtBox_msg2Friends.Text.Length) + 1);
                                 Thread.Sleep(100);// my nigger needs some OXYGEN 😌 
                             }
                         }
@@ -571,7 +575,7 @@ namespace MercuryBOT
                     else
                     {
                         quantasPrincesas++;
-                        msgBytes = Encoding.UTF8.GetBytes(msg);
+                        msgBytes = Encoding.UTF8.GetBytes(msg + ad);
                         steamfriends002.SendMsgToFriend(friendid, EChatEntryType.k_EChatEntryTypeChatMsg, msgBytes, (msgBytes.Length) + 1);
                         Thread.Sleep(100);// my nigger needs some OXYGEN 😌 
                     }
@@ -707,15 +711,16 @@ namespace MercuryBOT
                                 gameuints.Add(a.Games[i].app_id); // tentar obter lista do json, para nao criar outra???
                             }
 
+                            var ad = AccountLogin.isInMercuryGroup ? "" : " ❤ MercuryBOT";
                             if (chck_nonsteamNgames.Checked)
                             {
                                 if (txtBox_gameNonSteam.Text.Length != 0)
                                 {
-                                    Utils.PlayGames(gameuints, txtBox_gameNonSteam.Text + " ❤ MercuryBOT");
+                                    Utils.PlayGames(gameuints, txtBox_gameNonSteam.Text + ad);
                                 }
                                 else
                                 {
-                                    Utils.PlayGames(gameuints, "❤ MercuryBOT");
+                                    Utils.PlayGames(gameuints, ad);
                                 }
                             }
                             else
@@ -1160,7 +1165,7 @@ namespace MercuryBOT
 
         private void MetroLink_spkMusic_Click(object sender, EventArgs e)
         {
-            Process.Start("https://www.youtube.com/watch?v=vxBDq9mhLXI");
+            Process.Start("https://www.youtube.com/watch?v=6WkySwfWh6Y");
         }
 
         private void metroLink_Json_Click(object sender, EventArgs e)
@@ -1493,6 +1498,10 @@ namespace MercuryBOT
                     btnLabel_PersonaAndFlag.Image = Image.FromStream(ms);
                 }
 
+                if (AccountLogin.isInMercuryGroup)
+                {
+                    
+                }
                 //  combox_states.SelectedIndex = AccountLogin.steamFriends.GetPersonaState;
 
                 lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = AccountLogin.CurrentUsername));
@@ -1715,15 +1724,11 @@ namespace MercuryBOT
                 btn_userdata.Enabled = true;
                 if (AccountLogin.IsLoggedIn == true)
                 {
-                    
-                    Console.WriteLine(Extensions.AllToSteamId3(AccountLogin.CurrentSteamID.ToString()));
-                   // Process.Start(Extensions.SteamLocation + @"/userdata/" + Extensions.AllToSteamId32(AccountLogin.CurrentSteamID.ToString()));
-
+                   Process.Start(Extensions.SteamLocation + @"/userdata/" + Extensions.AllToSteamId3(AccountLogin.CurrentSteamID).Substring(1));
                 }
                 else
                 {
                     Process.Start(Extensions.SteamLocation + @"\userdata");
-
                 }
             }
         }

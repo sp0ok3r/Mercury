@@ -501,8 +501,7 @@
             // 
             // SteamServersMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(396, 489);
             this.Controls.Add(this.Title_AlertSteamMaintenance);
             this.Controls.Add(this.metroProgressSpinner1);
@@ -535,6 +534,7 @@
             this.Controls.Add(this.metroLabel8);
             this.Controls.Add(this.metroLink_steamstatUS);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "SteamServersMain";

@@ -158,8 +158,7 @@
             // 
             // SteamGuard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(372, 171);
             this.Controls.Add(this.lbl_account);
             this.Controls.Add(this.btn_cancel);
@@ -168,6 +167,7 @@
             this.Controls.Add(this.btn_submit);
             this.Controls.Add(this.lbl_infoemailorPhone);
             this.Controls.Add(this.lbl_emojiInfo);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "SteamGuard";

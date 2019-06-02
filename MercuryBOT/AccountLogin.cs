@@ -63,6 +63,7 @@ namespace MercuryBOT
         public static bool AwayCustomMessageList = false;
         public static bool FriendsLoaded = false;
         public static bool isSendingMsgs = false;
+        public static bool isInMercuryGroup = false;
 
         public readonly static string AvatarPrefix = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/";
         public readonly static string AvatarSuffix = "_full.jpg";
@@ -973,9 +974,14 @@ namespace MercuryBOT
                 }
             }
 
-            if (!ClanDictionary.ContainsKey(103582791464385054))
+            if (ClanDictionary.ContainsKey(103582791464385054))
             {
-                Notification.NotifHelper.MessageBox.Show("Info", "Join Mercury group on steam!");
+                isInMercuryGroup = true;
+                
+            }else
+            {
+                isInMercuryGroup = false;
+                Notification.NotifHelper.MessageBox.Show("Info", "Join Mercury group on steam! \n Link on INFORMATION Tab");
             }
         }
 

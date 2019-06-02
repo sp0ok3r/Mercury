@@ -60,10 +60,10 @@
             this.link_setfile = new MetroFramework.Controls.MetroLink();
             this.metroTab_Tasks = new MetroFramework.Controls.MetroTabPage();
             this.metroTab_Settings = new MetroFramework.Controls.MetroTabPage();
+            this.btn_massInvite = new MetroFramework.Controls.MetroButton();
             this.lbl_groupSelected = new MetroFramework.Controls.MetroLabel();
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
-            this.btn_massInvite = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).BeginInit();
             this.MercuryTabControlGroups.SuspendLayout();
             this.metroTab_Join.SuspendLayout();
@@ -641,6 +641,18 @@
             this.metroTab_Settings.VerticalScrollbarHighlightOnWheel = false;
             this.metroTab_Settings.VerticalScrollbarSize = 10;
             // 
+            // btn_massInvite
+            // 
+            this.btn_massInvite.Location = new System.Drawing.Point(224, 449);
+            this.btn_massInvite.Name = "btn_massInvite";
+            this.btn_massInvite.Size = new System.Drawing.Size(96, 23);
+            this.btn_massInvite.TabIndex = 38;
+            this.btn_massInvite.Text = "MASS INVITE";
+            this.btn_massInvite.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btn_massInvite.UseSelectable = true;
+            this.btn_massInvite.UseStyleColors = true;
+            this.btn_massInvite.Click += new System.EventHandler(this.btn_massInvite_Click);
+            // 
             // lbl_groupSelected
             // 
             this.lbl_groupSelected.FontSize = MetroFramework.MetroLabelSize.Small;
@@ -677,26 +689,14 @@
             this.MongoToolTip.StyleManager = null;
             this.MongoToolTip.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // btn_massInvite
-            // 
-            this.btn_massInvite.Location = new System.Drawing.Point(224, 449);
-            this.btn_massInvite.Name = "btn_massInvite";
-            this.btn_massInvite.Size = new System.Drawing.Size(96, 23);
-            this.btn_massInvite.TabIndex = 38;
-            this.btn_massInvite.Text = "MASS INVITE";
-            this.btn_massInvite.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.btn_massInvite.UseSelectable = true;
-            this.btn_massInvite.UseStyleColors = true;
-            this.btn_massInvite.Click += new System.EventHandler(this.btn_massInvite_Click);
-            // 
             // GatherSteamGroups
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(395, 618);
             this.Controls.Add(this.metroPanel10);
             this.Controls.Add(this.lbl_groupSelected);
             this.Controls.Add(this.MercuryTabControlGroups);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "GatherSteamGroups";

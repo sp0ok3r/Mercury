@@ -20,6 +20,7 @@ using SteamKit2;
 using System.Collections.Generic;
 using System.Net;
 using Microsoft.Win32;
+using System.Linq;
 
 namespace MercuryBOT.Helpers
 {
@@ -106,9 +107,10 @@ namespace MercuryBOT.Helpers
             return String.Empty;
         }
 
-        public static string AllToSteamId3(string input)
+        public static string AllToSteamId3(ulong input)
         {
-            return new SteamID(input).Render(true);
+            string id3 = new String(new SteamID(input).Render(true).Where(Char.IsDigit).ToArray());
+            return id3;
         }
 
         public static string ResolveVanityURL(string ProfileURL)// fast way, without api key

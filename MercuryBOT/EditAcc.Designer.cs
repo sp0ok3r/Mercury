@@ -388,8 +388,7 @@
             // 
             // EditAcc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(325, 337);
             this.Controls.Add(this.combox_defaultState);
             this.Controls.Add(this.metroLabel6);

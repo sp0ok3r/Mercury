@@ -34,10 +34,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MsgRecipients));
             this.FriendsList_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
             this.FriendsList_Grid = new MetroFramework.Controls.MetroGrid();
-            this.btn_saveFriends = new MetroFramework.Controls.MetroButton();
             this.HFriendID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HSelectFriend = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btn_saveFriends = new MetroFramework.Controls.MetroButton();
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             ((System.ComponentModel.ISupportInitialize)(this.FriendsList_Grid)).BeginInit();
             this.SuspendLayout();
@@ -113,6 +113,23 @@
             this.FriendsList_Grid.UseCustomForeColor = true;
             this.FriendsList_Grid.UseStyleColors = true;
             // 
+            // HFriendID
+            // 
+            this.HFriendID.HeaderText = "FRIENDID";
+            this.HFriendID.Name = "HFriendID";
+            this.HFriendID.Width = 120;
+            // 
+            // HName
+            // 
+            this.HName.HeaderText = "NAME";
+            this.HName.Name = "HName";
+            this.HName.Width = 200;
+            // 
+            // HSelectFriend
+            // 
+            this.HSelectFriend.HeaderText = "SendMessage";
+            this.HSelectFriend.Name = "HSelectFriend";
+            // 
             // btn_saveFriends
             // 
             this.btn_saveFriends.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
@@ -130,23 +147,6 @@
             this.btn_saveFriends.UseSelectable = true;
             this.btn_saveFriends.UseStyleColors = true;
             this.btn_saveFriends.Click += new System.EventHandler(this.btn_saveFriends_Click);
-            // 
-            // HFriendID
-            // 
-            this.HFriendID.HeaderText = "FRIENDID";
-            this.HFriendID.Name = "HFriendID";
-            this.HFriendID.Width = 120;
-            // 
-            // HName
-            // 
-            this.HName.HeaderText = "NAME";
-            this.HName.Name = "HName";
-            this.HName.Width = 200;
-            // 
-            // HSelectFriend
-            // 
-            this.HSelectFriend.HeaderText = "SendMessage";
-            this.HSelectFriend.Name = "HSelectFriend";
             // 
             // metroPanel10
             // 
@@ -167,8 +167,7 @@
             // 
             // MsgRecipients
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(417, 508);
             this.Controls.Add(this.metroPanel10);
             this.Controls.Add(this.btn_saveFriends);
