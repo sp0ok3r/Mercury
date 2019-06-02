@@ -35,11 +35,11 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 * <a href="https://github.com/sp0ok3r/Mercury#imagesgifs">...(example images)</a>
 
 ### Soon
-* Groups join (60%)
-* Comments filter (60%)
-* Comment on all friends profile (0%) beta7
-* Rate Entire Activity Feed/Anything (0%)
-* Save AppIDS to File (0%) maybe not beta7
+* Groups join
+* Comments filter
+* Comment on all friends profile
+* Rate Entire Activity Feed/Anything
+* Save AppIDS to File
 * Check for user cards and idle
 * Boost list of gamesids until X hours, then get others
 * VogueMist,Evolve - Able to farm steam card
