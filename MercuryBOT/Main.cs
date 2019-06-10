@@ -1165,7 +1165,7 @@ namespace MercuryBOT
 
         private void MetroLink_spkMusic_Click(object sender, EventArgs e)
         {
-            Process.Start("https://www.youtube.com/watch?v=6WkySwfWh6Y");
+            Process.Start("https://www.youtube.com/watch?v=ZA1hSn-s44M");
         }
 
         private void metroLink_Json_Click(object sender, EventArgs e)
