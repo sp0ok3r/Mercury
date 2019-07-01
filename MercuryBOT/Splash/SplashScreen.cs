@@ -106,8 +106,8 @@ namespace MercuryBOT.Splash
 
             dynamic volvo = VdfConvert.Deserialize(File.ReadAllText(Helpers.Extensions.SteamLocation + @"\config\loginusers.vdf"));
             VToken v2 = volvo.Value;
-            //bug:  erro se remember pw esta a 0 em todos os users
-            return v2.Children().Select(child => new SteamLoginUsers(child)).Where(user => user.RememberPassword).OrderByDescending(user => user.LastLoginTime).ToList();
+            return v2.Children().Select(child => new SteamLoginUsers(child)).OrderByDescending(user => user.LastLoginTime).ToList();
+            //.Where(user => user.RememberPassword)
         }
 
         [Obsolete]
