@@ -224,7 +224,7 @@
             this.txtBox_Annonbody.CustomButton.UseSelectable = true;
             this.txtBox_Annonbody.CustomButton.Visible = false;
             this.txtBox_Annonbody.Lines = new string[0];
-            this.txtBox_Annonbody.Location = new System.Drawing.Point(110, 118);
+            this.txtBox_Annonbody.Location = new System.Drawing.Point(110, 247);
             this.txtBox_Annonbody.MaxLength = 32767;
             this.txtBox_Annonbody.Multiline = true;
             this.txtBox_Annonbody.Name = "txtBox_Annonbody";
@@ -247,7 +247,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(12, 59);
+            this.metroLabel4.Location = new System.Drawing.Point(12, 188);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(100, 19);
             this.metroLabel4.TabIndex = 30;
@@ -259,7 +259,7 @@
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.Enabled = false;
-            this.metroLabel3.Location = new System.Drawing.Point(10, 250);
+            this.metroLabel3.Location = new System.Drawing.Point(10, 379);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(119, 19);
             this.metroLabel3.TabIndex = 29;
@@ -282,7 +282,7 @@
             this.txt_potwSteamID.CustomButton.UseSelectable = true;
             this.txt_potwSteamID.CustomButton.Visible = false;
             this.txt_potwSteamID.Lines = new string[0];
-            this.txt_potwSteamID.Location = new System.Drawing.Point(12, 269);
+            this.txt_potwSteamID.Location = new System.Drawing.Point(12, 398);
             this.txt_potwSteamID.MaxLength = 32767;
             this.txt_potwSteamID.Name = "txt_potwSteamID";
             this.txt_potwSteamID.PasswordChar = '\0';
@@ -303,7 +303,7 @@
             // 
             // btn_groupAnnouncement
             // 
-            this.btn_groupAnnouncement.Location = new System.Drawing.Point(224, 207);
+            this.btn_groupAnnouncement.Location = new System.Drawing.Point(224, 336);
             this.btn_groupAnnouncement.Name = "btn_groupAnnouncement";
             this.btn_groupAnnouncement.Size = new System.Drawing.Size(96, 23);
             this.btn_groupAnnouncement.TabIndex = 27;
@@ -328,7 +328,7 @@
             this.txtBox_title.CustomButton.UseSelectable = true;
             this.txtBox_title.CustomButton.Visible = false;
             this.txtBox_title.Lines = new string[0];
-            this.txtBox_title.Location = new System.Drawing.Point(110, 83);
+            this.txtBox_title.Location = new System.Drawing.Point(110, 212);
             this.txtBox_title.MaxLength = 32767;
             this.txtBox_title.Name = "txtBox_title";
             this.txtBox_title.PasswordChar = '\0';
@@ -349,7 +349,7 @@
             // 
             // btn_potw
             // 
-            this.btn_potw.Location = new System.Drawing.Point(290, 269);
+            this.btn_potw.Location = new System.Drawing.Point(290, 398);
             this.btn_potw.Name = "btn_potw";
             this.btn_potw.Size = new System.Drawing.Size(30, 23);
             this.btn_potw.TabIndex = 34;
@@ -362,7 +362,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(70, 115);
+            this.metroLabel1.Location = new System.Drawing.Point(70, 244);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(42, 19);
             this.metroLabel1.TabIndex = 35;
@@ -372,7 +372,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(76, 87);
+            this.metroLabel2.Location = new System.Drawing.Point(76, 216);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(36, 19);
             this.metroLabel2.TabIndex = 36;
@@ -447,9 +447,9 @@
             this.metroTab_Join.HorizontalScrollbarBarColor = true;
             this.metroTab_Join.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Join.HorizontalScrollbarSize = 10;
-            this.metroTab_Join.Location = new System.Drawing.Point(4, 38);
+            this.metroTab_Join.Location = new System.Drawing.Point(4, 35);
             this.metroTab_Join.Name = "metroTab_Join";
-            this.metroTab_Join.Size = new System.Drawing.Size(371, 506);
+            this.metroTab_Join.Size = new System.Drawing.Size(371, 509);
             this.metroTab_Join.TabIndex = 11;
             this.metroTab_Join.Text = "JOINER";
             this.metroTab_Join.UseCustomBackColor = true;
@@ -602,9 +602,9 @@
             this.metroTab_Tasks.HorizontalScrollbarBarColor = true;
             this.metroTab_Tasks.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Tasks.HorizontalScrollbarSize = 10;
-            this.metroTab_Tasks.Location = new System.Drawing.Point(4, 38);
+            this.metroTab_Tasks.Location = new System.Drawing.Point(4, 35);
             this.metroTab_Tasks.Name = "metroTab_Tasks";
-            this.metroTab_Tasks.Size = new System.Drawing.Size(371, 506);
+            this.metroTab_Tasks.Size = new System.Drawing.Size(371, 509);
             this.metroTab_Tasks.TabIndex = 6;
             this.metroTab_Tasks.Text = "LEAVER";
             this.metroTab_Tasks.UseCustomBackColor = true;
@@ -643,9 +643,9 @@
             // 
             // btn_massInvite
             // 
-            this.btn_massInvite.Location = new System.Drawing.Point(224, 449);
+            this.btn_massInvite.Location = new System.Drawing.Point(12, 62);
             this.btn_massInvite.Name = "btn_massInvite";
-            this.btn_massInvite.Size = new System.Drawing.Size(96, 23);
+            this.btn_massInvite.Size = new System.Drawing.Size(123, 86);
             this.btn_massInvite.TabIndex = 38;
             this.btn_massInvite.Text = "MASS INVITE";
             this.btn_massInvite.Theme = MetroFramework.MetroThemeStyle.Dark;

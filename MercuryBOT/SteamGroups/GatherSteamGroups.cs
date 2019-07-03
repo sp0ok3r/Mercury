@@ -10,6 +10,7 @@
 using MercuryBOT.Helpers;
 using MercuryBOT.SteamCommunity;
 using MetroFramework.Controls;
+using SteamKit2;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -237,7 +238,7 @@ namespace MercuryBOT.SteamGroups
                         }
                     }
                     //Process.Start(Program.ExecutablePath + @"\" + steamid64 + "_GroupsIDS.txt");
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Info","All group ids saved!");   
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Info", "All group ids saved!");
                 }
             }
             else
@@ -283,8 +284,24 @@ namespace MercuryBOT.SteamGroups
 
         private void btn_massInvite_Click(object sender, EventArgs e)
         {
-           // Utils.GroupInvite();
-
+            if (GroupSelected == "None")
+            {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Select a group.");
+            }
+            else
+            {
+                for (int i = 0; i <= AccountLogin.steamFriends.GetFriendCount(); i++)
+                {
+                    SteamID allfriends = AccountLogin.steamFriends.GetFriendByIndex(i);
+                    if (allfriends.ConvertToUInt64() != 0)
+                    {
+                        {
+                            Utils.GroupInvite(Convert.ToUInt64(GroupSelected), allfriends.ConvertToUInt64());
+                            Thread.Sleep(500);
+                        }
+                    }
+                }
+            }
         }
     }
 }

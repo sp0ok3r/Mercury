@@ -201,7 +201,7 @@ namespace MercuryBOT.SteamCommunity
                 Notification.NotifHelper.MessageBox.Show("Info", "Left successfully " + groupName + " !");
             }
         }
-        public static void GroupInvite(ulong groupID, uint userID)
+        public static void GroupInvite(ulong groupID, ulong userID)
         {
             var mass_JoinGroup = new NameValueCollection{
                 {"group", groupID.ToString()},
