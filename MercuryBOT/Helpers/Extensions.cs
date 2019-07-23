@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Net;
 using Microsoft.Win32;
 using System.Linq;
+using System.Diagnostics;
 
 namespace MercuryBOT.Helpers
 {
@@ -144,6 +145,24 @@ namespace MercuryBOT.Helpers
                 key = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey("SOFTWARE\\Valve\\Steam");
             if (key != null && key.GetValue("SteamPath") is string)
                 SteamLocation = key.GetValue("SteamPath").ToString();
+        }
+        
+        public static int KillSteam()
+        {
+            int count = 0;
+            foreach (var process in Process.GetProcesses())
+            {
+                if (process.ProcessName == "Steam" || process.ProcessName == "steamwebhelper" || process.ProcessName == "SteamService")
+                {
+                    try
+                    {
+                        process.Kill();
+                        count++;
+                    }
+                    catch { }
+                }
+            }
+            return count;
         }
 
         #endregion

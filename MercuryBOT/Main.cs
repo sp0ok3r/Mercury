@@ -1794,6 +1794,30 @@ namespace MercuryBOT
 
         }
 
+        private void btn_steamLogin_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(SelectedUser))
+            {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Please select an account!");
+                return;
+            }
+
+            Extensions.KillSteam();
+            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+            {
+                if (a.username == SelectedUser)
+                {
+                    if (string.IsNullOrEmpty(a.password))
+                    {
+                        InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Please add password to: " + a.username);
+                        return;
+                    }
+                    LoginAccountInClient(a.username, a.password);
+                }
+            }
+
+            
+        }
         private void btn_addCDKey_Click(object sender, EventArgs e)
         {
             //thanks to https://regexr.com/3b63e
@@ -1817,6 +1841,31 @@ namespace MercuryBOT
                 return;
             }
             CDKeys_Grid.FirstDisplayedScrollingRowIndex = e.NewValue;
+        }
+
+        public static bool LoginAccountInClient(string user,string pw)
+        {
+            var steam = Path.Combine(Extensions.SteamLocation, "Steam.exe");
+            if (!File.Exists(steam))
+            {
+                MessageBox.Show("Can't find Steam.exe in steam path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            try
+            {
+                Process.Start(new ProcessStartInfo()
+                {
+                    FileName = steam,
+                    Arguments = "-silent -login \"" + user + "\" \"" + pw.Replace("\\", "\\\\").Replace("\"", "\\\"") + "\""
+                });
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Failed to start steam.\n\n" +
+                    "Exception Details:\n" + e, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
     }
 }
