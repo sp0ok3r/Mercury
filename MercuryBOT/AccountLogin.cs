@@ -55,7 +55,6 @@ namespace MercuryBOT
         public static SteamWeb steamWeb;
         public static GamesHandler gamesHandler;
 
-
         public static string MessageString;
         public static bool ChatLogger = false;
         public static bool isAwayState = false;
