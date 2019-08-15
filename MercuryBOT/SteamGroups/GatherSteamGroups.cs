@@ -301,6 +301,7 @@ namespace MercuryBOT.SteamGroups
                         }
                     }
                 }
+                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "All users invited");
             }
         }
     }
