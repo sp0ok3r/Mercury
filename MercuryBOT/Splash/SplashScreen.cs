@@ -133,7 +133,7 @@ namespace MercuryBOT.Splash
             }
 
             tmr = new Timer();
-            tmr.Interval = 1000;
+            tmr.Interval = 650;
             tmr.Start();
             tmr.Tick += tmr_Tick;
         }
