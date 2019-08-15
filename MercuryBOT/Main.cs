@@ -543,7 +543,7 @@ namespace MercuryBOT
                 {
                     if (LoadSteam() == -1)
                     {
-                        MessageBox.Show("you have to be logged in steam client", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("You have to be logged in steam client", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -587,8 +587,14 @@ namespace MercuryBOT
             {
                 if (AccountLogin.IsLoggedIn == true)
                 {
-                    AccountLogin.SendMsg2AllFriends(txtBox_msg2Friends.Text, chck_Send2Receipts.Checked);
-                    btn_sendMsg2Friends.Enabled = false;
+                    if (txtBox_msg2Friends.Text.Length != 0)
+                    {
+                        AccountLogin.SendMsg2AllFriends(txtBox_msg2Friends.Text, chck_Send2Receipts.Checked);
+                        btn_sendMsg2Friends.Enabled = false;
+                    }else
+                    {
+                        InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please write something...");
+                    }
                 }
                 else
                 {

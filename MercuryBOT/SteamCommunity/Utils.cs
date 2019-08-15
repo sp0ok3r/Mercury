@@ -228,9 +228,7 @@ namespace MercuryBOT.SteamCommunity
         #endregion
 
         #region PlayGames
-
         
-
         public static void PlayNormal1App(uint customgame)
         {
             AccountLogin.gamesHandler.SetGamePlayingNormal(customgame);
