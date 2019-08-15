@@ -131,6 +131,8 @@ namespace MercuryBOT.GamesGather
             string TempathFolder = Path.GetTempPath() + @"\MercuryTemp\GamesImg\";
             lbl_totalfoldersize.Text = "Folder Total Size: " + Extensions.SizeSuffix(Directory.GetFiles(TempathFolder, "*", SearchOption.AllDirectories).Sum(t => (new FileInfo(t).Length)));
             btn_selectAll.Enabled = true;
+
+            this.Refresh();
         }
 
 
