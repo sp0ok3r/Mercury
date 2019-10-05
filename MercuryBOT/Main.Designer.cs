@@ -63,8 +63,8 @@
             this.btn_setName = new MetroFramework.Controls.MetroButton();
             this.combox_states = new MetroFramework.Controls.MetroComboBox();
             this.metroTab_Games = new MetroFramework.Controls.MetroTabPage();
-            this.btn_idleSettings = new MetroFramework.Controls.MetroButton();
             this.richTextBox6 = new System.Windows.Forms.RichTextBox();
+            this.btn_idleSettings = new MetroFramework.Controls.MetroButton();
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
             this.btn_loadGamesFromJSON = new MetroFramework.Controls.MetroButton();
             this.GamesList_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
@@ -267,9 +267,9 @@
             this.metroTab_Message.HorizontalScrollbarBarColor = true;
             this.metroTab_Message.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Message.HorizontalScrollbarSize = 10;
-            this.metroTab_Message.Location = new System.Drawing.Point(4, 38);
+            this.metroTab_Message.Location = new System.Drawing.Point(4, 35);
             this.metroTab_Message.Name = "metroTab_Message";
-            this.metroTab_Message.Size = new System.Drawing.Size(769, 408);
+            this.metroTab_Message.Size = new System.Drawing.Size(769, 411);
             this.metroTab_Message.TabIndex = 5;
             this.metroTab_Message.Text = "💬 MESSENGER";
             this.metroTab_Message.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -534,7 +534,7 @@
             this.metroLabel19.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel19.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel19.ForeColor = System.Drawing.SystemColors.Window;
-            this.metroLabel19.Location = new System.Drawing.Point(581, 78);
+            this.metroLabel19.Location = new System.Drawing.Point(581, 67);
             this.metroLabel19.Name = "metroLabel19";
             this.metroLabel19.Size = new System.Drawing.Size(111, 19);
             this.metroLabel19.TabIndex = 27;
@@ -549,7 +549,7 @@
             this.lbl_changeName.BackColor = System.Drawing.Color.Transparent;
             this.lbl_changeName.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lbl_changeName.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_changeName.Location = new System.Drawing.Point(581, 15);
+            this.lbl_changeName.Location = new System.Drawing.Point(581, 6);
             this.lbl_changeName.Name = "lbl_changeName";
             this.lbl_changeName.Size = new System.Drawing.Size(115, 19);
             this.lbl_changeName.TabIndex = 26;
@@ -575,7 +575,7 @@
             this.txtBox_nameChange.CustomButton.Visible = false;
             this.txtBox_nameChange.ForeColor = System.Drawing.Color.White;
             this.txtBox_nameChange.Lines = new string[0];
-            this.txtBox_nameChange.Location = new System.Drawing.Point(585, 32);
+            this.txtBox_nameChange.Location = new System.Drawing.Point(585, 23);
             this.txtBox_nameChange.MaxLength = 32;
             this.txtBox_nameChange.Multiline = true;
             this.txtBox_nameChange.Name = "txtBox_nameChange";
@@ -601,7 +601,7 @@
             this.btn_setName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_setName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_setName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btn_setName.Location = new System.Drawing.Point(723, 32);
+            this.btn_setName.Location = new System.Drawing.Point(723, 23);
             this.btn_setName.Name = "btn_setName";
             this.btn_setName.Size = new System.Drawing.Size(27, 29);
             this.btn_setName.Style = MetroFramework.MetroColorStyle.Purple;
@@ -629,7 +629,7 @@
             "LookingToTrade",
             "LookingToPlay",
             "Invisible"});
-            this.combox_states.Location = new System.Drawing.Point(585, 95);
+            this.combox_states.Location = new System.Drawing.Point(585, 84);
             this.combox_states.Name = "combox_states";
             this.combox_states.Size = new System.Drawing.Size(165, 29);
             this.combox_states.TabIndex = 8;
@@ -643,8 +643,8 @@
             // metroTab_Games
             // 
             this.metroTab_Games.BackColor = System.Drawing.Color.Transparent;
-            this.metroTab_Games.Controls.Add(this.btn_idleSettings);
             this.metroTab_Games.Controls.Add(this.richTextBox6);
+            this.metroTab_Games.Controls.Add(this.btn_idleSettings);
             this.metroTab_Games.Controls.Add(this.richTextBox5);
             this.metroTab_Games.Controls.Add(this.btn_loadGamesFromJSON);
             this.metroTab_Games.Controls.Add(this.GamesList_ScrollBar);
@@ -665,9 +665,9 @@
             this.metroTab_Games.HorizontalScrollbarBarColor = true;
             this.metroTab_Games.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Games.HorizontalScrollbarSize = 10;
-            this.metroTab_Games.Location = new System.Drawing.Point(4, 38);
+            this.metroTab_Games.Location = new System.Drawing.Point(4, 35);
             this.metroTab_Games.Name = "metroTab_Games";
-            this.metroTab_Games.Size = new System.Drawing.Size(769, 408);
+            this.metroTab_Games.Size = new System.Drawing.Size(769, 411);
             this.metroTab_Games.TabIndex = 1;
             this.metroTab_Games.Text = "🎮 GAMES";
             this.metroTab_Games.UseCustomBackColor = true;
@@ -677,6 +677,25 @@
             this.metroTab_Games.VerticalScrollbarBarColor = true;
             this.metroTab_Games.VerticalScrollbarHighlightOnWheel = false;
             this.metroTab_Games.VerticalScrollbarSize = 10;
+            // 
+            // richTextBox6
+            // 
+            this.richTextBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.richTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox6.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.richTextBox6.DetectUrls = false;
+            this.richTextBox6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox6.ForeColor = System.Drawing.Color.Gray;
+            this.richTextBox6.Location = new System.Drawing.Point(613, 84);
+            this.richTextBox6.MaxLength = 50;
+            this.richTextBox6.Multiline = false;
+            this.richTextBox6.Name = "richTextBox6";
+            this.richTextBox6.ReadOnly = true;
+            this.richTextBox6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.richTextBox6.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox6.Size = new System.Drawing.Size(140, 14);
+            this.richTextBox6.TabIndex = 73;
+            this.richTextBox6.Text = "─────────────────────────────────────────";
             // 
             // btn_idleSettings
             // 
@@ -698,25 +717,6 @@
             this.btn_idleSettings.UseSelectable = true;
             this.btn_idleSettings.UseStyleColors = true;
             this.btn_idleSettings.Click += new System.EventHandler(this.btn_idleSettings_Click);
-            // 
-            // richTextBox6
-            // 
-            this.richTextBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.richTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox6.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.richTextBox6.DetectUrls = false;
-            this.richTextBox6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox6.ForeColor = System.Drawing.Color.Gray;
-            this.richTextBox6.Location = new System.Drawing.Point(614, 79);
-            this.richTextBox6.MaxLength = 50;
-            this.richTextBox6.Multiline = false;
-            this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.ReadOnly = true;
-            this.richTextBox6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.richTextBox6.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox6.Size = new System.Drawing.Size(140, 14);
-            this.richTextBox6.TabIndex = 71;
-            this.richTextBox6.Text = "─────────────────────────────────────────";
             // 
             // richTextBox5
             // 
@@ -1072,7 +1072,7 @@
             this.chck_nonsteamNgames.AutoSize = true;
             this.chck_nonsteamNgames.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.chck_nonsteamNgames.ForeColor = System.Drawing.Color.White;
-            this.chck_nonsteamNgames.Location = new System.Drawing.Point(615, 310);
+            this.chck_nonsteamNgames.Location = new System.Drawing.Point(613, 311);
             this.chck_nonsteamNgames.Name = "chck_nonsteamNgames";
             this.chck_nonsteamNgames.Size = new System.Drawing.Size(116, 15);
             this.chck_nonsteamNgames.TabIndex = 12;
@@ -1131,9 +1131,9 @@
             this.metroTab_AddAcc.HorizontalScrollbarBarColor = true;
             this.metroTab_AddAcc.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_AddAcc.HorizontalScrollbarSize = 10;
-            this.metroTab_AddAcc.Location = new System.Drawing.Point(4, 38);
+            this.metroTab_AddAcc.Location = new System.Drawing.Point(4, 35);
             this.metroTab_AddAcc.Name = "metroTab_AddAcc";
-            this.metroTab_AddAcc.Size = new System.Drawing.Size(769, 408);
+            this.metroTab_AddAcc.Size = new System.Drawing.Size(769, 411);
             this.metroTab_AddAcc.TabIndex = 0;
             this.metroTab_AddAcc.Text = "👥 ACCOUNTS";
             this.metroTab_AddAcc.UseCustomBackColor = true;
@@ -1404,7 +1404,7 @@
             this.MercuryTabControl.Controls.Add(this.metroTab_Infos);
             this.MercuryTabControl.Location = new System.Drawing.Point(17, 79);
             this.MercuryTabControl.Name = "MercuryTabControl";
-            this.MercuryTabControl.SelectedIndex = 0;
+            this.MercuryTabControl.SelectedIndex = 6;
             this.MercuryTabControl.ShowToolTips = true;
             this.MercuryTabControl.Size = new System.Drawing.Size(777, 450);
             this.MercuryTabControl.TabIndex = 1;
@@ -1438,9 +1438,9 @@
             this.metroTab_Friends.HorizontalScrollbarBarColor = true;
             this.metroTab_Friends.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Friends.HorizontalScrollbarSize = 10;
-            this.metroTab_Friends.Location = new System.Drawing.Point(4, 38);
+            this.metroTab_Friends.Location = new System.Drawing.Point(4, 35);
             this.metroTab_Friends.Name = "metroTab_Friends";
-            this.metroTab_Friends.Size = new System.Drawing.Size(769, 408);
+            this.metroTab_Friends.Size = new System.Drawing.Size(769, 411);
             this.metroTab_Friends.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroTab_Friends.TabIndex = 8;
             this.metroTab_Friends.Text = "😂 FRIENDS";
@@ -1474,7 +1474,7 @@
             this.richTextBox3.DetectUrls = false;
             this.richTextBox3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox3.ForeColor = System.Drawing.Color.Gray;
-            this.richTextBox3.Location = new System.Drawing.Point(585, 199);
+            this.richTextBox3.Location = new System.Drawing.Point(585, 187);
             this.richTextBox3.MaxLength = 50;
             this.richTextBox3.Multiline = false;
             this.richTextBox3.Name = "richTextBox3";
@@ -1632,7 +1632,7 @@
             "BIG PICTURE 🎮",
             "VIRTUAL REALITY 😎",
             "SMARTPHONE 📱"});
-            this.combox_uimodes.Location = new System.Drawing.Point(585, 154);
+            this.combox_uimodes.Location = new System.Drawing.Point(585, 142);
             this.combox_uimodes.Name = "combox_uimodes";
             this.combox_uimodes.Size = new System.Drawing.Size(165, 29);
             this.combox_uimodes.TabIndex = 33;
@@ -1648,7 +1648,7 @@
             this.lbl_uimode.BackColor = System.Drawing.Color.Transparent;
             this.lbl_uimode.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lbl_uimode.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_uimode.Location = new System.Drawing.Point(581, 137);
+            this.lbl_uimode.Location = new System.Drawing.Point(581, 125);
             this.lbl_uimode.Name = "lbl_uimode";
             this.lbl_uimode.Size = new System.Drawing.Size(68, 19);
             this.lbl_uimode.TabIndex = 38;
@@ -1716,9 +1716,9 @@
             this.metroTab_Tasks.HorizontalScrollbarBarColor = true;
             this.metroTab_Tasks.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Tasks.HorizontalScrollbarSize = 10;
-            this.metroTab_Tasks.Location = new System.Drawing.Point(4, 38);
+            this.metroTab_Tasks.Location = new System.Drawing.Point(4, 35);
             this.metroTab_Tasks.Name = "metroTab_Tasks";
-            this.metroTab_Tasks.Size = new System.Drawing.Size(769, 408);
+            this.metroTab_Tasks.Size = new System.Drawing.Size(769, 411);
             this.metroTab_Tasks.TabIndex = 6;
             this.metroTab_Tasks.Text = "⚙️ CUSTOM TASKS";
             this.metroTab_Tasks.UseCustomBackColor = true;
@@ -2180,7 +2180,7 @@
             this.richTextBox7.DetectUrls = false;
             this.richTextBox7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox7.ForeColor = System.Drawing.Color.Gray;
-            this.richTextBox7.Location = new System.Drawing.Point(97, 215);
+            this.richTextBox7.Location = new System.Drawing.Point(98, 215);
             this.richTextBox7.MaxLength = 50;
             this.richTextBox7.Multiline = false;
             this.richTextBox7.Name = "richTextBox7";
@@ -2556,7 +2556,7 @@
             // 
             this.metroLabel24.AutoSize = true;
             this.metroLabel24.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel24.Location = new System.Drawing.Point(112, 240);
+            this.metroLabel24.Location = new System.Drawing.Point(112, 244);
             this.metroLabel24.Name = "metroLabel24";
             this.metroLabel24.Size = new System.Drawing.Size(85, 19);
             this.metroLabel24.TabIndex = 39;
@@ -2632,9 +2632,9 @@
             this.metroLabel16.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel16.Location = new System.Drawing.Point(452, 43);
             this.metroLabel16.Name = "metroLabel16";
-            this.metroLabel16.Size = new System.Drawing.Size(123, 25);
+            this.metroLabel16.Size = new System.Drawing.Size(119, 25);
             this.metroLabel16.TabIndex = 29;
-            this.metroLabel16.Text = "IDE/Language:";
+            this.metroLabel16.Text = "IDE/Language";
             this.metroLabel16.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel16.UseCustomBackColor = true;
             this.metroLabel16.UseStyleColors = true;
@@ -2790,9 +2790,9 @@
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel3.Location = new System.Drawing.Point(496, 240);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(79, 25);
+            this.metroLabel3.Size = new System.Drawing.Size(75, 25);
             this.metroLabel3.TabIndex = 2;
-            this.metroLabel3.Text = "Libraries:";
+            this.metroLabel3.Text = "Libraries";
             this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel3.UseCustomBackColor = true;
             this.metroLabel3.UseStyleColors = true;
@@ -3634,7 +3634,6 @@
         private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.RichTextBox richTextBox4;
         private System.Windows.Forms.RichTextBox richTextBox5;
-        private System.Windows.Forms.RichTextBox richTextBox6;
         private System.Windows.Forms.PictureBox pictureBox_Steam;
         private MetroFramework.Controls.MetroScrollBar CDKeys_ScrollBar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Headerusername;
@@ -3660,6 +3659,7 @@
         private System.Windows.Forms.PictureBox picBox_playing;
         private MetroFramework.Controls.MetroButton btn_idleSettings;
         private MetroFramework.Controls.MetroButton btn_steamLogin;
+        private System.Windows.Forms.RichTextBox richTextBox6;
     }
 }
 
