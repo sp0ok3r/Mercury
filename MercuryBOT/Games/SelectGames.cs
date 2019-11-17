@@ -12,6 +12,7 @@ using MercuryBOT.Properties;
 using MercuryBOT.UserSettings;
 using Newtonsoft.Json;
 using SteamWebAPI2.Interfaces;
+using SteamWebAPI2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,6 +20,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Windows.Forms;
 using Win32Interop.Methods;
 
@@ -74,9 +76,11 @@ namespace MercuryBOT.GamesGather
 
         public async void GET_ALL_GAMES()
         {
+            var webInterfaceFactory = new SteamWebInterfaceFactory(apikey);
+            var InterfacePlayerService = webInterfaceFactory.CreateSteamWebInterface<PlayerService>(new HttpClient());
+            
             WebClient wc = new WebClient();
 
-            var InterfacePlayerService = new PlayerService(apikey);
             var OwnedGames = await InterfacePlayerService.GetOwnedGamesAsync(AccountLogin.CurrentSteamID, true, false); // check if correct
 
             progreeBar_GatherGames.Maximum = Int32.Parse(OwnedGames.Data.GameCount.ToString());

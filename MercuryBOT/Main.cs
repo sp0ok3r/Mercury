@@ -18,6 +18,8 @@ using MercuryBOT.UserSettings;
 using MetroFramework.Controls;
 using Newtonsoft.Json;
 using Steam4NET;
+using SteamWebAPI2.Interfaces;
+using SteamWebAPI2.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,6 +28,7 @@ using System.IO;
 using System.Linq;
 using System.Media;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -630,8 +633,10 @@ namespace MercuryBOT
                     Utils.gatherWebApiKey();
                     return;
                 }
-
-                var steamInterface = new SteamWebAPI2.Interfaces.SteamUser(apikey);
+                
+                var webInterfaceFactory = new SteamWebInterfaceFactory(apikey);
+                var steamInterface = webInterfaceFactory.CreateSteamWebInterface<SteamUser>(new HttpClient());
+                
                 ProgressSpinner_FriendsList.Visible = true;
                 btn_loadFriends.Enabled = false;
                 BTN_RemoveFriend.Enabled = false;
@@ -639,7 +644,9 @@ namespace MercuryBOT
                 foreach (var f in AccountLogin.Friends)
                 {
                     DateTime playerSummaryData;
+
                     var playerSummaryResponse = await steamInterface.GetPlayerSummaryAsync(f.ConvertToUInt64());
+
                     if (playerSummaryResponse != null)
                     {
                         playerSummaryData = playerSummaryResponse.Data.LastLoggedOffDate;
