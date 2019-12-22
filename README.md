@@ -6,7 +6,7 @@
 </p>
 
 
-[![https://discord.gg/7e7kuhp](https://discordapp.com/assets/28174a34e77bb5e5310ced9f95cb480b.png)]()
+[![](https://discordapp.com/assets/28174a34e77bb5e5310ced9f95cb480b.png)](https://discord.gg/7e7kuhp)
 [![C#](https://img.shields.io/badge/language-C%23-green.svg)](https://en.wikipedia.org/wiki/C%2B%2B)
 [![windows](https://img.shields.io/badge/platform-windows-blue.svg)](https://en.wikipedia.org/wiki/Microsoft_Windows)
 [![downloads](https://img.shields.io/github/downloads/sp0ok3r/Mercury/total.svg)](https://github.com/sp0ok3r/Mercury)
