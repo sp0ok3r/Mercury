@@ -103,8 +103,40 @@ namespace MercuryBOT
         [Obsolete]
         private void Main_Shown(object sender, EventArgs e)
         {
-            RafadexAutoUpdate600IQ();
+            var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+
+            DateTime now = DateTime.Now;
+            if (SettingsList.LastTimeCheckedUpdate.Length==0)
+            {
+                SettingsList.LastTimeCheckedUpdate = now.ToString();
+            }
+
+            DateTime old = DateTime.Parse(SettingsList.LastTimeCheckedUpdate);
+            if (SettingsList.LastTimeCheckedUpdate.Length < 0 && (old - now).TotalDays < 14) //check for update 14 days later
+            {
+                SettingsList.LastTimeCheckedUpdate = now.ToString();
+                RafadexAutoUpdate600IQ();
+            }
+
+            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, Formatting.Indented));
             M_NotifyIcon = this.Mercury_notifyIcon;
+
+            if (SettingsList.startupAcc != 0)
+            {
+                var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
+
+                foreach (var a in list.Accounts)
+                {
+                    if (a.SteamID == SettingsList.startupAcc)
+                    {
+                        usernameJSON = a.username;
+                        passwordJSON = a.password;
+                    }
+                }
+                // Start Login
+                Thread doLogin = new Thread(() => AccountLogin.UserSettingsGather(usernameJSON, passwordJSON));
+                doLogin.Start();
+            }
         }
 
         [Obsolete]
@@ -272,24 +304,6 @@ namespace MercuryBOT
                     else
                     {
                         this.Enabled = true;
-                        var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
-
-                        if (SettingsList.startupAcc != 0)
-                        {
-                            var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-
-                            foreach (var a in list.Accounts)
-                            {
-                                if (a.SteamID == SettingsList.startupAcc)
-                                {
-                                    usernameJSON = a.username;
-                                    passwordJSON = a.password;
-                                }
-                            }
-                            // Start Login
-                            Thread doLogin = new Thread(() => AccountLogin.UserSettingsGather(usernameJSON, passwordJSON));
-                            doLogin.Start();
-                        }
                     }
                 }
             }
