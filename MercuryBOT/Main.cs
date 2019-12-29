@@ -726,7 +726,6 @@ namespace MercuryBOT
             {
                 if (GamesList_Grid.Rows.Count <= 32)
                 {
-                    picBox_playing.Visible = true;
                     List<uint> gameuints = new List<uint>();
 
                     foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
@@ -783,7 +782,6 @@ namespace MercuryBOT
             if (AccountLogin.IsLoggedIn == true)
             {
                 Utils.StopGames();
-                picBox_playing.Visible = false;
                 btn_playnormal.Enabled = true;
                 btn_playNonSteam.Enabled = true;
                 Notification.NotifHelper.MessageBox.Show("Info", "Idling stopped");
@@ -1513,7 +1511,6 @@ namespace MercuryBOT
                 else
                 {
                     panel_steamStates.BackColor = Color.LightSkyBlue;
-                    picBox_playing.Visible = false;
                 }
 
                 if (picBox_SteamAvatar.Image == null && btnLabel_PersonaAndFlag.Image == null)
@@ -1794,22 +1791,7 @@ namespace MercuryBOT
 
         }
 
-        private void picBox_playing_Click(object sender, EventArgs e)
-        {
-            stopIdling();
-            MercuryTabControl.SelectedIndex = 3;
-            
-        }
-
-        private void picBox_playing_MouseHover(object sender, EventArgs e)
-        {
-            picBox_playing.Image =Properties.Resources.stop_playing;
-        }
-
-        private void picBox_playing_MouseLeave(object sender, EventArgs e)
-        {
-            picBox_playing.Image = Properties.Resources.playing;
-        }
+      
 
         private void btn_idleSettings_Click(object sender, EventArgs e)
         {

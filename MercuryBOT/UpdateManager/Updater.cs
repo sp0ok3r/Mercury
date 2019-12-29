@@ -72,7 +72,8 @@ namespace MercuryBOT
         private void Btn_installupdate_Click(object sender, EventArgs e)
         {
             Process.Start(Program.ExecutablePath);
-            Process.Start("https://github.com/sp0ok3r/Mercury/releases/tag/" + lbl_infoversion.Text);
+            //Process.Start("https://github.com/sp0ok3r/Mercury/releases/tag/" + lbl_infoversion.Text);
+            Process.Start("https://github.com/sp0ok3r/Mercury/releases/");
         }
     }
 }
