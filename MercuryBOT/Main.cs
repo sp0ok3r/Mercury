@@ -1575,8 +1575,8 @@ namespace MercuryBOT
 
         private void lbl_infoversion_Click(object sender, EventArgs e)
         {
-            Process.Start("https://github.com/sp0ok3r/Mercury/releases");
             Process.Start("https://github.com/sp0ok3r/Mercury/issues");
+            Process.Start("https://github.com/sp0ok3r/Mercury/releases");
         }
 
         private void btn_clearuserAliases_Click(object sender, EventArgs e)
@@ -1606,8 +1606,8 @@ namespace MercuryBOT
                 AccountLogin.ChatLogger = false;
             }
         }
-
-        private void lbl_go2ChatLogs_Click(object sender, EventArgs e)
+        
+        private void Chatlog_Folder_Click(object sender, EventArgs e)
         {
             if (AccountLogin.IsLoggedIn == true)
             {
@@ -1842,7 +1842,7 @@ namespace MercuryBOT
                 Notification.NotifHelper.MessageBox.Show("Error", "Please write a CDKey Or Invalid.");
             }
         }
-
+        
         private void CDKeys_ScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             if (e.NewValue >= CDKeys_Grid.Rows.Count)

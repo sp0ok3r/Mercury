@@ -99,6 +99,9 @@ namespace MercuryBOT.Splash
         
         public static IEnumerable<SteamLoginUsers> GetLoginUsers()
         {
+           
+
+            
             if (Helpers.Extensions.SteamLocation == null)
             {
                 Helpers.Extensions.Init();
@@ -107,7 +110,8 @@ namespace MercuryBOT.Splash
             dynamic volvo = VdfConvert.Deserialize(File.ReadAllText(Helpers.Extensions.SteamLocation + @"\config\loginusers.vdf"));
             VToken v2 = volvo.Value;
             return v2.Children().Select(child => new SteamLoginUsers(child)).OrderByDescending(user => user.LastLoginTime).ToList();
-            //.Where(user => user.RememberPassword)
+                //.Where(user => user.RememberPassword)
+            
         }
 
         [Obsolete]
@@ -127,9 +131,9 @@ namespace MercuryBOT.Splash
             {
                 LoginusersVDF_ToFile();
             }
-            catch (DirectoryNotFoundException)
+            catch (Exception x)//DirectoryNotFoundException ver isto , a dar erro em alguns pcs, nao deve tar a detatar a pasta da steam
             {
-                Console.WriteLine("["+Program.BOTNAME+"] - Steam Directory not found, but starting anyways...");
+                Console.WriteLine("["+Program.BOTNAME+"] - Steam Directory not found, but starting anyways..." + x);
             }
 
             tmr = new Timer();
