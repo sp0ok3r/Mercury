@@ -1842,7 +1842,28 @@ namespace MercuryBOT
                 Notification.NotifHelper.MessageBox.Show("Error", "Please write a CDKey Or Invalid.");
             }
         }
-        
+
+        private void btn_folderGames_Click(object sender, EventArgs e)
+        {
+            if (Extensions.SteamLocation == null)
+            {
+                btn_folderGames.Enabled = false;
+            }
+            else
+            {
+
+                btn_folderGames.Enabled = true;
+                if (AccountLogin.IsLoggedIn == true)
+                {
+                    Process.Start(Extensions.SteamLocation + @"/steamapps/common/");
+                }
+                else
+                {
+                    Process.Start(Extensions.SteamLocation + @"\steamapps\common");
+                }
+            }
+        }
+
         private void CDKeys_ScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             if (e.NewValue >= CDKeys_Grid.Rows.Count)
