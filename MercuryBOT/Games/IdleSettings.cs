@@ -16,5 +16,20 @@ namespace MercuryBOT.Games
         {
             InitializeComponent();
         }
+
+        private void IdleSettings_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroTextBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
