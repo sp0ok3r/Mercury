@@ -250,13 +250,17 @@ namespace MercuryBOT.SteamGroups
         {
             if (!string.IsNullOrWhiteSpace(txtBox_groupidsFile.Text))
             {
+                ProgressSpinner_JoinAllGroups.Visible = true;
+                int groupsJoined = 0;
                 btn_joinAll.Enabled = false;
                 string[] lines = File.ReadAllLines(txtBox_groupidsFile.Text);
                 foreach (string line in lines)
                 {
                     SteamCommunity.Utils.JoinGroup(line);
-                    Thread.Sleep(5);
+                    groupsJoined++;
+                    Thread.Sleep(25);
                 }
+                ProgressSpinner_JoinAllGroups.Visible = false;
                 btn_joinAll.Enabled = true;
                 link_setfile.Enabled = true;
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Joined all groups in file!");
@@ -279,7 +283,10 @@ namespace MercuryBOT.SteamGroups
                     txtBox_groupidsFile.Text = fbd.FileName;
                 }
             }
-            link_setfile.Enabled = false;
+            if(txtBox_groupidsFile.Text.Length != 0)
+            {
+                link_setfile.Enabled = false;
+            }
         }
 
         private void btn_massInvite_Click(object sender, EventArgs e)
@@ -302,6 +309,14 @@ namespace MercuryBOT.SteamGroups
                     }
                 }
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "All users invited");
+            }
+        }
+
+        private void txtBox_groupidsFile_Click(object sender, EventArgs e)
+        {
+            if (txtBox_groupidsFile.Text.Length == 0)
+            {
+                link_setfile.Enabled = true;
             }
         }
     }

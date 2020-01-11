@@ -173,8 +173,8 @@ namespace MercuryBOT
 
             Trolha.Tick += Trolha_Tick;
 
-            var age = 2019 - DateTime.Today.Year; // Calculate the mercury age. 2019-03-28 💔
-            if (age < 0)
+            var age = DateTime.Today.Year-2019; // Calculate the mercury age. 2019-03-28 💔
+            if (age != 0)
             {
                 lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
             }
@@ -1307,10 +1307,6 @@ namespace MercuryBOT
         void Trolha_Tick(object sender, EventArgs e)
         {
             CurrentUserSafeUpdater();
-            Program.MercuryProcess.Refresh();
-
-            link_currentRAM.Text = Program.MercuryProcess.PrivateMemorySize64.ToFileSize();
-            link_memorysize.Text = Program.MercuryProcess.PagedSystemMemorySize64.ToFileSize();
         }
 
         private void btn_exitgroups_Click(object sender, EventArgs e)
@@ -1863,7 +1859,7 @@ namespace MercuryBOT
                 }
             }
         }
-
+        
         private void CDKeys_ScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             if (e.NewValue >= CDKeys_Grid.Rows.Count)

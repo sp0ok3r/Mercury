@@ -64,6 +64,7 @@
             this.lbl_groupSelected = new MetroFramework.Controls.MetroLabel();
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
+            this.ProgressSpinner_JoinAllGroups = new MetroFramework.Controls.MetroProgressSpinner();
             ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).BeginInit();
             this.MercuryTabControlGroups.SuspendLayout();
             this.metroTab_Join.SuspendLayout();
@@ -224,7 +225,7 @@
             this.txtBox_Annonbody.CustomButton.UseSelectable = true;
             this.txtBox_Annonbody.CustomButton.Visible = false;
             this.txtBox_Annonbody.Lines = new string[0];
-            this.txtBox_Annonbody.Location = new System.Drawing.Point(110, 247);
+            this.txtBox_Annonbody.Location = new System.Drawing.Point(110, 83);
             this.txtBox_Annonbody.MaxLength = 32767;
             this.txtBox_Annonbody.Multiline = true;
             this.txtBox_Annonbody.Name = "txtBox_Annonbody";
@@ -247,7 +248,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(12, 188);
+            this.metroLabel4.Location = new System.Drawing.Point(12, 24);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(100, 19);
             this.metroLabel4.TabIndex = 30;
@@ -259,7 +260,7 @@
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.Enabled = false;
-            this.metroLabel3.Location = new System.Drawing.Point(10, 379);
+            this.metroLabel3.Location = new System.Drawing.Point(10, 215);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(119, 19);
             this.metroLabel3.TabIndex = 29;
@@ -282,7 +283,7 @@
             this.txt_potwSteamID.CustomButton.UseSelectable = true;
             this.txt_potwSteamID.CustomButton.Visible = false;
             this.txt_potwSteamID.Lines = new string[0];
-            this.txt_potwSteamID.Location = new System.Drawing.Point(12, 398);
+            this.txt_potwSteamID.Location = new System.Drawing.Point(12, 234);
             this.txt_potwSteamID.MaxLength = 32767;
             this.txt_potwSteamID.Name = "txt_potwSteamID";
             this.txt_potwSteamID.PasswordChar = '\0';
@@ -303,7 +304,7 @@
             // 
             // btn_groupAnnouncement
             // 
-            this.btn_groupAnnouncement.Location = new System.Drawing.Point(224, 336);
+            this.btn_groupAnnouncement.Location = new System.Drawing.Point(224, 172);
             this.btn_groupAnnouncement.Name = "btn_groupAnnouncement";
             this.btn_groupAnnouncement.Size = new System.Drawing.Size(96, 23);
             this.btn_groupAnnouncement.TabIndex = 27;
@@ -328,7 +329,7 @@
             this.txtBox_title.CustomButton.UseSelectable = true;
             this.txtBox_title.CustomButton.Visible = false;
             this.txtBox_title.Lines = new string[0];
-            this.txtBox_title.Location = new System.Drawing.Point(110, 212);
+            this.txtBox_title.Location = new System.Drawing.Point(110, 48);
             this.txtBox_title.MaxLength = 32767;
             this.txtBox_title.Name = "txtBox_title";
             this.txtBox_title.PasswordChar = '\0';
@@ -349,7 +350,7 @@
             // 
             // btn_potw
             // 
-            this.btn_potw.Location = new System.Drawing.Point(290, 398);
+            this.btn_potw.Location = new System.Drawing.Point(290, 234);
             this.btn_potw.Name = "btn_potw";
             this.btn_potw.Size = new System.Drawing.Size(30, 23);
             this.btn_potw.TabIndex = 34;
@@ -362,7 +363,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(70, 244);
+            this.metroLabel1.Location = new System.Drawing.Point(70, 80);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(42, 19);
             this.metroLabel1.TabIndex = 35;
@@ -372,7 +373,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(76, 216);
+            this.metroLabel2.Location = new System.Drawing.Point(76, 52);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(36, 19);
             this.metroLabel2.TabIndex = 36;
@@ -426,7 +427,7 @@
             this.MercuryTabControlGroups.Location = new System.Drawing.Point(13, 53);
             this.MercuryTabControlGroups.Multiline = true;
             this.MercuryTabControlGroups.Name = "MercuryTabControlGroups";
-            this.MercuryTabControlGroups.SelectedIndex = 2;
+            this.MercuryTabControlGroups.SelectedIndex = 0;
             this.MercuryTabControlGroups.ShowToolTips = true;
             this.MercuryTabControlGroups.Size = new System.Drawing.Size(379, 548);
             this.MercuryTabControlGroups.TabIndex = 35;
@@ -436,6 +437,7 @@
             // metroTab_Join
             // 
             this.metroTab_Join.BackColor = System.Drawing.Color.Transparent;
+            this.metroTab_Join.Controls.Add(this.ProgressSpinner_JoinAllGroups);
             this.metroTab_Join.Controls.Add(this.txtBox_profileGrabIDS);
             this.metroTab_Join.Controls.Add(this.metroLabel5);
             this.metroTab_Join.Controls.Add(this.btn_gatherFromProfile);
@@ -447,9 +449,9 @@
             this.metroTab_Join.HorizontalScrollbarBarColor = true;
             this.metroTab_Join.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Join.HorizontalScrollbarSize = 10;
-            this.metroTab_Join.Location = new System.Drawing.Point(4, 35);
+            this.metroTab_Join.Location = new System.Drawing.Point(4, 38);
             this.metroTab_Join.Name = "metroTab_Join";
-            this.metroTab_Join.Size = new System.Drawing.Size(371, 509);
+            this.metroTab_Join.Size = new System.Drawing.Size(371, 506);
             this.metroTab_Join.TabIndex = 11;
             this.metroTab_Join.Text = "JOINER";
             this.metroTab_Join.UseCustomBackColor = true;
@@ -550,6 +552,7 @@
             this.txtBox_groupidsFile.WaterMark = "X:\\file_with_groupids.txt";
             this.txtBox_groupidsFile.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtBox_groupidsFile.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtBox_groupidsFile.Click += new System.EventHandler(this.txtBox_groupidsFile_Click);
             // 
             // lbl_pathGIDS
             // 
@@ -579,11 +582,12 @@
             // 
             // link_setfile
             // 
-            this.link_setfile.Location = new System.Drawing.Point(197, 224);
+            this.link_setfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.link_setfile.Location = new System.Drawing.Point(185, 225);
             this.link_setfile.Name = "link_setfile";
-            this.link_setfile.Size = new System.Drawing.Size(93, 23);
+            this.link_setfile.Size = new System.Drawing.Size(103, 23);
             this.link_setfile.TabIndex = 40;
-            this.link_setfile.Text = "set file location";
+            this.link_setfile.Text = "get file location";
             this.link_setfile.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.link_setfile.UseSelectable = true;
             this.link_setfile.UseStyleColors = true;
@@ -602,9 +606,9 @@
             this.metroTab_Tasks.HorizontalScrollbarBarColor = true;
             this.metroTab_Tasks.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Tasks.HorizontalScrollbarSize = 10;
-            this.metroTab_Tasks.Location = new System.Drawing.Point(4, 35);
+            this.metroTab_Tasks.Location = new System.Drawing.Point(4, 38);
             this.metroTab_Tasks.Name = "metroTab_Tasks";
-            this.metroTab_Tasks.Size = new System.Drawing.Size(371, 509);
+            this.metroTab_Tasks.Size = new System.Drawing.Size(371, 506);
             this.metroTab_Tasks.TabIndex = 6;
             this.metroTab_Tasks.Text = "LEAVER";
             this.metroTab_Tasks.UseCustomBackColor = true;
@@ -643,7 +647,7 @@
             // 
             // btn_massInvite
             // 
-            this.btn_massInvite.Location = new System.Drawing.Point(12, 62);
+            this.btn_massInvite.Location = new System.Drawing.Point(161, 275);
             this.btn_massInvite.Name = "btn_massInvite";
             this.btn_massInvite.Size = new System.Drawing.Size(123, 86);
             this.btn_massInvite.TabIndex = 38;
@@ -688,6 +692,21 @@
             this.MongoToolTip.Style = MetroFramework.MetroColorStyle.Default;
             this.MongoToolTip.StyleManager = null;
             this.MongoToolTip.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // ProgressSpinner_JoinAllGroups
+            // 
+            this.ProgressSpinner_JoinAllGroups.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.ProgressSpinner_JoinAllGroups.Location = new System.Drawing.Point(316, 206);
+            this.ProgressSpinner_JoinAllGroups.Maximum = 100;
+            this.ProgressSpinner_JoinAllGroups.Name = "ProgressSpinner_JoinAllGroups";
+            this.ProgressSpinner_JoinAllGroups.Size = new System.Drawing.Size(29, 23);
+            this.ProgressSpinner_JoinAllGroups.TabIndex = 42;
+            this.ProgressSpinner_JoinAllGroups.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ProgressSpinner_JoinAllGroups.UseCustomBackColor = true;
+            this.ProgressSpinner_JoinAllGroups.UseCustomForeColor = true;
+            this.ProgressSpinner_JoinAllGroups.UseSelectable = true;
+            this.ProgressSpinner_JoinAllGroups.UseStyleColors = true;
+            this.ProgressSpinner_JoinAllGroups.Visible = false;
             // 
             // GatherSteamGroups
             // 
@@ -750,5 +769,6 @@
         private MetroFramework.Controls.MetroLink link_setfile;
         private MetroFramework.Controls.MetroTextBox txtBox_groupidsFile;
         private MetroFramework.Controls.MetroButton btn_massInvite;
+        private MetroFramework.Controls.MetroProgressSpinner ProgressSpinner_JoinAllGroups;
     }
 }

@@ -20,11 +20,11 @@ namespace MercuryBOT
     static class Program
     {
         public static readonly WebClient Web              = new WebClient();
-        public static readonly Process MercuryProcess     = Process.GetCurrentProcess();
+        //public static readonly Process MercuryProcess     = Process.GetCurrentProcess();
         public static readonly Process[] CurrentProcesses = Process.GetProcesses();
 
         public static readonly string BOTNAME          = "MercuryBOT";
-        public static readonly string Version          = "4.0.0beta6.3d";//4.0.0
+        public static readonly string Version          = "4.0.0beta6.3e";//4.0.0
 
         public static readonly string spkDomain        = "http://sp0ok3r.tk/Mercury/";
 
