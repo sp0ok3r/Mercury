@@ -15,7 +15,6 @@ namespace MercuryBOT.Notification
     {
         public static class MessageBox
         {
-            
             public static void Show(string title, string description)
             {
                 using (var form = new NotificationForm(title, description))

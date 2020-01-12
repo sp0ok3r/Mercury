@@ -198,6 +198,9 @@ namespace MercuryBOT
                 }
             }
 
+            var random = new Random();
+            int number = random.Next(1337, Int32.MaxValue);
+            uint lid = (uint)(number + (uint)Int32.MaxValue);
 
             steamUser.LogOn(new SteamUser.LogOnDetails
             {
@@ -208,7 +211,7 @@ namespace MercuryBOT
                 TwoFactorCode = twoFactorAuth,
                 SentryFileHash = sentryHash,
                 //
-                LoginID = 1337,
+                LoginID = lid,
                 ShouldRememberPassword = true,
                 LoginKey = NewloginKey
             });
