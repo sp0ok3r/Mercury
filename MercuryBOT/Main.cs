@@ -269,6 +269,7 @@ namespace MercuryBOT
             }
 
             Mercury_notifyIcon.Icon = null;
+            Mercury_notifyIcon.Dispose();
             Process.Start(Application.ExecutablePath);
             Application.Exit();
         }
@@ -280,6 +281,7 @@ namespace MercuryBOT
                 AccountLogin.Logout();
             }
             Mercury_notifyIcon.Icon = null;
+            Mercury_notifyIcon.Dispose();
             Environment.Exit(1);
         }
 
@@ -1271,6 +1273,7 @@ namespace MercuryBOT
         private void toolStrip_CloseMercury_Click(object sender, EventArgs e)
         {
             Mercury_notifyIcon.Icon = null;
+            Mercury_notifyIcon.Dispose();
             Environment.Exit(1);
         }
 
@@ -1678,7 +1681,7 @@ namespace MercuryBOT
         private void picBox_Restart_Click(object sender, EventArgs e)
         {
             Mercury_notifyIcon.Icon = null;
-
+            Mercury_notifyIcon.Dispose();
             if (AccountLogin.IsLoggedIn == true)
             {
                 AccountLogin.Logout();
@@ -1733,15 +1736,16 @@ namespace MercuryBOT
 
         private void btn_userdata_Click(object sender, EventArgs e)
         {
-
             if (Extensions.SteamLocation == null)
             {
-                btn_userdata.Enabled = false;
-            }
-            else
-            {
+                //btn_userdata.Enabled = false;
+                Notification.NotifHelper.MessageBox.Show("Alert", "Userdata folder not found...");
+                btn_userdata.TabStop = false;
 
-                btn_userdata.Enabled = true;
+            }
+            else{
+
+               // btn_userdata.Enabled = true;
                 if (AccountLogin.IsLoggedIn == true)
                 {
                    Process.Start(Extensions.SteamLocation + @"/userdata/" + Extensions.AllToSteamId3(AccountLogin.CurrentSteamID).Substring(1));
@@ -1843,12 +1847,13 @@ namespace MercuryBOT
         {
             if (Extensions.SteamLocation == null)
             {
-                btn_folderGames.Enabled = false;
+                //btn_folderGames.Enabled = false;
+                Notification.NotifHelper.MessageBox.Show("Alert", "Games folder not found...");
             }
             else
             {
 
-                btn_folderGames.Enabled = true;
+               // btn_folderGames.Enabled = true;
                 if (AccountLogin.IsLoggedIn == true)
                 {
                     Process.Start(Extensions.SteamLocation + @"/steamapps/common/");
@@ -1859,7 +1864,7 @@ namespace MercuryBOT
                 }
             }
         }
-        
+
         private void CDKeys_ScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             if (e.NewValue >= CDKeys_Grid.Rows.Count)
