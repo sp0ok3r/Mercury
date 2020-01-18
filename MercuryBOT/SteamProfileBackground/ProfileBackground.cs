@@ -87,7 +87,7 @@ namespace MercuryBOT.SteamProfileBackground
                     }
                     BTN_GETBackground.Enabled = true; 
                 }
-            }catch (Exception){
+            }catch (Exception e){
                 picBox_steamBackground.Cursor = DefaultCursor;
                 AppID = null;
                 lbl_clickonimginfo.Visible = false;
