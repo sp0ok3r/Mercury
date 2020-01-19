@@ -18,6 +18,7 @@ using MercuryBOT.Helpers;
 using Win32Interop.Methods;
 using System.Drawing;
 using System.Linq;
+using System.IO;
 
 namespace MercuryBOT.SteamProfileBackground
 {
@@ -64,30 +65,23 @@ namespace MercuryBOT.SteamProfileBackground
                 StringBuilder doc = new StringBuilder(Web.DownloadString(txtBox_steamprofile.Text));
 
                 var document = parser.ParseDocument(doc.ToString());
-                var ee = document.QuerySelector("div.profile_background_image_content ").OuterHtml;
-
-                StringBuilder myStringBuilder = new StringBuilder(document.QuerySelector("div.profile_background_image_content ").OuterHtml);
+                
+                StringBuilder GetBackgroundClass = new StringBuilder(document.QuerySelector("div.no_header.profile_page.has_profile_background").OuterHtml);
                
                 var linkParser = new Regex(@"\b(?:https?://|www\.)\S+\b", RegexOptions.Compiled | RegexOptions.IgnoreCase); //800iq
-                foreach (Match m in linkParser.Matches(myStringBuilder.ToString()))
+                
+                Match aa = linkParser.Match(GetBackgroundClass.ToString());
+                if (aa.Success)
                 {
-
-                    picBox_steamBackground.ImageLocation = m.Value;
-                    string result = Regex.Replace(m.Value, @"[^\d]", ""); //125iq
-          
+                    picBox_steamBackground.ImageLocation = aa.ToString();
+                    AppID = Regex.Match(aa.ToString(), @"\d+").Value;
+                    
                     lbl_clickonimginfo.Visible = true;
                     picBox_steamBackground.Cursor = Cursors.Hand;
-
-                    string re2 = ".*?(\\d+)";  // get int 
-                    Regex getInteger = new Regex(re2, RegexOptions.IgnoreCase | RegexOptions.Singleline);
-                    Match IntegerClear = getInteger.Match(m.Value);
-                    if (IntegerClear.Success)
-                    {
-                        AppID = IntegerClear.Groups[1].ToString();
-                    }
                     BTN_GETBackground.Enabled = true; 
                 }
-            }catch (Exception e){
+            }
+            catch (Exception){
                 picBox_steamBackground.Cursor = DefaultCursor;
                 AppID = null;
                 lbl_clickonimginfo.Visible = false;
