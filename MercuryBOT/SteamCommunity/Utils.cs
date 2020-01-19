@@ -220,7 +220,7 @@ namespace MercuryBOT.SteamCommunity
             }
             else
             {
-                Console.WriteLine("Try login again.");
+                Console.WriteLine("Try login again/Or User already invited");
 
                 // InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again.");
             }

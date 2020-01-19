@@ -648,12 +648,13 @@ namespace MercuryBOT
                     return;
                 }
                 
-                var webInterfaceFactory = new SteamWebInterfaceFactory(apikey);
-                var steamInterface = webInterfaceFactory.CreateSteamWebInterface<SteamUser>(new HttpClient());
-                
+               
                 
                 try
                 {
+                    var webInterfaceFactory = new SteamWebInterfaceFactory(apikey);
+                   var steamInterface = webInterfaceFactory.CreateSteamWebInterface<SteamUser>(new HttpClient());
+
                     ProgressSpinner_FriendsList.Visible = true;
                     btn_loadFriends.Enabled = false;
                     BTN_RemoveFriend.Enabled = false;

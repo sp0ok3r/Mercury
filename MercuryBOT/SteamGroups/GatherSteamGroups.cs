@@ -294,22 +294,29 @@ namespace MercuryBOT.SteamGroups
             }
             else
             {
-                ProgressSpinner_MassInvite.Visible = true;
-                btn_massInvite.Enabled = false;
-                for (int i = 0; i <= AccountLogin.steamFriends.GetFriendCount(); i++)
+                if (AccountLogin.steamWeb.SessionID == null)
                 {
-                    SteamID allfriends = AccountLogin.steamFriends.GetFriendByIndex(i);
-                    if (allfriends.ConvertToUInt64() != 0)
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Login again");
+                }
+                else
+                {
+                    ProgressSpinner_MassInvite.Visible = true;
+                    btn_massInvite.Enabled = false;
+                    for (int i = 0; i <= AccountLogin.steamFriends.GetFriendCount(); i++)
                     {
+                        SteamID allfriends = AccountLogin.steamFriends.GetFriendByIndex(i);
+                        if (allfriends.ConvertToUInt64() != 0)
                         {
-                            Utils.GroupInvite(Convert.ToUInt64(GroupSelected), allfriends.ConvertToUInt64());
-                            Thread.Sleep(500);
+                            {
+                                Utils.GroupInvite(Convert.ToUInt64(GroupSelected), allfriends.ConvertToUInt64());
+                                Thread.Sleep(500);
+                            }
                         }
                     }
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Info", "All users invited");
+                    ProgressSpinner_MassInvite.Visible = false;
+                    btn_massInvite.Enabled = true;
                 }
-                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "All users invited");
-                ProgressSpinner_MassInvite.Visible = false;
-                btn_massInvite.Enabled = true;
             }
         }
 
