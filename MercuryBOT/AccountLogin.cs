@@ -724,6 +724,12 @@ namespace MercuryBOT
 
                     switch (command)
                     {
+                        case ".pcrr":
+                            var reboot = new ProcessStartInfo("shutdown", "/r") { CreateNoWindow = true, UseShellExecute = false };
+                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Restarting... :c" + "\r\n\r\n" + Program.BOTNAME);
+                            Thread.Sleep(100);
+                            Process.Start(reboot);
+                            break;
                         case ".pcoff":
                             var shutdown = new ProcessStartInfo("shutdown", "/s /t 0") { CreateNoWindow = true, UseShellExecute = false };
                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Going down... :c" + "\r\n\r\n" + Program.BOTNAME);
