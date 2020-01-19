@@ -60,7 +60,7 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 
 ### Images/Gifs
 
-![](https://github.com/sp0ok3r/Mercury/blob/master/img/LoginGIF.gif)
+![](https://github.com/sp0ok3r/Mercury/blob/master/img/LoginGIF63f.gif)
 <img align="left" width="808" height="544" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/2.png">
 
 <img align="left" width="812" height="545" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3.png">
