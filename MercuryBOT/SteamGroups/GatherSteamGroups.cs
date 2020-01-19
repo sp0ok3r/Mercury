@@ -109,10 +109,7 @@ namespace MercuryBOT.SteamGroups
             if (GroupSelected == "None")
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Select a group.");
-
-            }
-            else
-            {
+            }else{
                 btn_exitSelected.Enabled = false;
                 btn_exitfromAll.Enabled = false;
                 foreach (KeyValuePair<ulong, string> group in AccountLogin.ClanDictionary)
@@ -297,6 +294,8 @@ namespace MercuryBOT.SteamGroups
             }
             else
             {
+                ProgressSpinner_MassInvite.Visible = true;
+                btn_massInvite.Enabled = false;
                 for (int i = 0; i <= AccountLogin.steamFriends.GetFriendCount(); i++)
                 {
                     SteamID allfriends = AccountLogin.steamFriends.GetFriendByIndex(i);
@@ -309,6 +308,8 @@ namespace MercuryBOT.SteamGroups
                     }
                 }
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "All users invited");
+                ProgressSpinner_MassInvite.Visible = false;
+                btn_massInvite.Enabled = true;
             }
         }
 

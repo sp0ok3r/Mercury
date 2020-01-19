@@ -651,31 +651,40 @@ namespace MercuryBOT
                 var webInterfaceFactory = new SteamWebInterfaceFactory(apikey);
                 var steamInterface = webInterfaceFactory.CreateSteamWebInterface<SteamUser>(new HttpClient());
                 
-                ProgressSpinner_FriendsList.Visible = true;
-                btn_loadFriends.Enabled = false;
-                BTN_RemoveFriend.Enabled = false;
-                FriendsList_Grid.Rows.Clear();
-                foreach (var f in AccountLogin.Friends)
+                
+                try
                 {
-                    DateTime playerSummaryData;
+                    ProgressSpinner_FriendsList.Visible = true;
+                    btn_loadFriends.Enabled = false;
+                    BTN_RemoveFriend.Enabled = false;
+                    FriendsList_Grid.Rows.Clear();
 
-                    var playerSummaryResponse = await steamInterface.GetPlayerSummaryAsync(f.ConvertToUInt64());
-
-                    if (playerSummaryResponse != null)
+                    foreach (var f in AccountLogin.Friends)
                     {
-                        playerSummaryData = playerSummaryResponse.Data.LastLoggedOffDate;
+                        DateTime playerSummaryData;
 
-                        var Name = AccountLogin.GetPersonaName(f.ConvertToUInt64());
-                        string[] row = { f.ConvertToUInt64().ToString(), Name, playerSummaryData.ToString() };
-                        FriendsList_Grid.Rows.Add(row);
+                        var playerSummaryResponse = await steamInterface.GetPlayerSummaryAsync(f.ConvertToUInt64());
+
+                        if (playerSummaryResponse != null)
+                        {
+                            playerSummaryData = playerSummaryResponse.Data.LastLoggedOffDate;
+
+                            var Name = AccountLogin.GetPersonaName(f.ConvertToUInt64());
+                            string[] row = { f.ConvertToUInt64().ToString(), Name, playerSummaryData.ToString() };
+                            FriendsList_Grid.Rows.Add(row);
+                        }
                     }
+                    lbl_totalFriends.Text = "count: " + FriendsList_Grid.Rows.Count;
+                    ProgressSpinner_FriendsList.Visible = false;
+                    btn_loadFriends.Enabled = true;
+                    BTN_RemoveFriend.Enabled = true;
                 }
-
-                lbl_totalFriends.Text = "count: " + FriendsList_Grid.Rows.Count;
-                ProgressSpinner_FriendsList.Visible = false;
-                btn_loadFriends.Enabled = true;
-                BTN_RemoveFriend.Enabled = true;
-
+                catch (Exception)
+                {
+                    ProgressSpinner_FriendsList.Visible = false;
+                    btn_loadFriends.Enabled = true;
+                    BTN_RemoveFriend.Enabled = true;
+                }
             }
             else
             {
@@ -1822,8 +1831,7 @@ namespace MercuryBOT
                     LoginAccountInClient(a.username, a.password);
                 }
             }
-
-            
+            btn_steamLogin.Refresh();
         }
         private void btn_addCDKey_Click(object sender, EventArgs e)
         {
@@ -1885,7 +1893,7 @@ namespace MercuryBOT
                 Process.Start(new ProcessStartInfo()
                 {
                     FileName = steam,
-                    Arguments = "-silent -login \"" + user + "\" \"" + pw.Replace("\\", "\\\\").Replace("\"", "\\\"") + "\""
+                    Arguments = "-nodialog -login \"" + user + "\" \"" + pw.Replace("\\", "\\\\").Replace("\"", "\\\"") + "\""
                 });
             }
             catch (Exception e)
