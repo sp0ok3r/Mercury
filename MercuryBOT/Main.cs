@@ -211,7 +211,7 @@ namespace MercuryBOT
             else
             {
                 chck_Minimized.Checked = false;
-                this.WindowState = FormWindowState.Minimized;//Normal
+                this.WindowState = FormWindowState.Normal;//
             }
 
             if (SettingsList.playsound)
