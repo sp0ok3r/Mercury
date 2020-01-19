@@ -45,6 +45,7 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 * VogueMist,Evolve - Able to farm steam card
 * BhandixTV - Multi account login
 * VogueMist - Multiple Admins
+* Steam Client Fast Login
 * You tell me 👀
 
 ### Download 
