@@ -112,9 +112,8 @@ namespace MercuryBOT
             }
 
             DateTime old = DateTime.Parse(SettingsList.LastTimeCheckedUpdate);
-            if (SettingsList.LastTimeCheckedUpdate.Length < 0 && (old - now).TotalDays < 14) //check for update 14 days later
+            if (SettingsList.LastTimeCheckedUpdate.Length > 0 && (now - old).TotalDays > 14) //check for update 14 days later
             {
-                SettingsList.LastTimeCheckedUpdate = now.ToString();
                 RafadexAutoUpdate600IQ();
             }
 
@@ -212,7 +211,7 @@ namespace MercuryBOT
             else
             {
                 chck_Minimized.Checked = false;
-                this.WindowState = FormWindowState.Normal;
+                this.WindowState = FormWindowState.Minimized;//Normal
             }
 
             if (SettingsList.playsound)
@@ -221,9 +220,7 @@ namespace MercuryBOT
                 Stream str = Properties.Resources.mercury_success;
                 SoundPlayer snd = new SoundPlayer(str);
                 snd.Play();
-            }
-            else
-            {
+            }else{
                 toggle_playSound.Checked = false;
             }
 

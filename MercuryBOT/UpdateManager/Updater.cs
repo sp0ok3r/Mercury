@@ -16,6 +16,8 @@ using System.Net;
 using System.Windows.Forms;
 using Win32Interop.Methods;
 using System.Drawing;
+using Newtonsoft.Json;
+using MercuryBOT.User2Json;
 
 namespace MercuryBOT
 {
@@ -74,6 +76,10 @@ namespace MercuryBOT
             Process.Start(Program.ExecutablePath);
             //Process.Start("https://github.com/sp0ok3r/Mercury/releases/tag/" + lbl_infoversion.Text);
             Process.Start("https://github.com/sp0ok3r/Mercury/releases/");
+
+
+            var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+            SettingsList.LastTimeCheckedUpdate = DateTime.Now.ToString();
         }
     }
 }
