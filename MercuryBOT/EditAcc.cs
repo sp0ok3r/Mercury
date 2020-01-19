@@ -132,6 +132,7 @@ namespace MercuryBOT
             var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
 
             list.Accounts.RemoveAll(x => x.username == Main.SelectedUser);
+            File.Delete(Program.SentryFolder + @"\" + Main.SelectedUser +".bin");
 
             File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, Formatting.Indented));
             Close();
