@@ -24,7 +24,7 @@ namespace MercuryBOT
         public static readonly Process[] CurrentProcesses = Process.GetProcesses();
 
         public static readonly string BOTNAME          = "MercuryBOT";
-        public static readonly string Version          = "4.0.0beta6.3e";//4.0.0
+        public static readonly string Version          = "4.0.0beta6.3f";//4.0.0
 
         public static readonly string spkDomain        = "http://sp0ok3r.tk/Mercury/";
 

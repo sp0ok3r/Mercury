@@ -173,11 +173,11 @@ namespace MercuryBOT
 
             Trolha.Tick += Trolha_Tick;
 
-            var age = DateTime.Today.Year-2019; // Calculate the mercury age. 2019-03-28 💔
-            if (age != 0)
-            {
-                lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
-            }
+            //var age = DateTime.Today.Year-2019; // Calculate the mercury age. 2019-03-28 💔
+            //if (age != 0)
+            //{
+            //    lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
+            //}
 
         }
 
@@ -378,7 +378,8 @@ namespace MercuryBOT
         #region Buttons
         private void btn_admincmds_Click(object sender, EventArgs e)
         {
-            MetroFramework.MetroMessageBox.Show(this, ".pcoff - Shutdown PC.\n" +
+            MetroFramework.MetroMessageBox.Show(this, ".pcrr - Restart PC.\n" +
+                                                      ".pcoff - Shutdown PC.\n" +
                                                      ".close - Closes MercuryBOT process.\n" +
                                                      ".logoff - Logoff from current account.\n" +
                                                      ".non customname - Play a non - steam game(change customname to anything)\n" +
@@ -965,7 +966,7 @@ namespace MercuryBOT
                         AccountLogin.ChangePersonaFlags(2048); //VR
                         break;
                     case 3:
-                        AccountLogin.UIMode(2); // phone
+                        AccountLogin.ChangePersonaFlags(512); // phone
                         break;
                 }
             }
