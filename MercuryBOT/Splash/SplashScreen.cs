@@ -99,9 +99,6 @@ namespace MercuryBOT.Splash
         
         public static IEnumerable<SteamLoginUsers> GetLoginUsers()
         {
-           
-
-            
             if (Helpers.Extensions.SteamLocation == null)
             {
                 Helpers.Extensions.Init();
@@ -111,7 +108,6 @@ namespace MercuryBOT.Splash
             VToken v2 = volvo.Value;
             return v2.Children().Select(child => new SteamLoginUsers(child)).OrderByDescending(user => user.LastLoginTime).ToList();
                 //.Where(user => user.RememberPassword)
-            
         }
 
         [Obsolete]
