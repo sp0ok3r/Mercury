@@ -50,23 +50,22 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.txtBox_gName = new MetroFramework.Controls.MetroTextBox();
             this.MercuryTabControlGroups = new MetroFramework.Controls.MetroTabControl();
-            this.metroTab_Join = new MetroFramework.Controls.MetroTabPage();
+            this.metroTab_Tasks = new MetroFramework.Controls.MetroTabPage();
+            this.ProgressSpinner_MassInvite = new MetroFramework.Controls.MetroProgressSpinner();
+            this.btn_massInvite = new MetroFramework.Controls.MetroButton();
+            this.metroTab_Settings = new MetroFramework.Controls.MetroTabPage();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.ProgressSpinner_JoinAllGroups = new MetroFramework.Controls.MetroProgressSpinner();
-            this.txtBox_profileGrabIDS = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.btn_gatherFromProfile = new MetroFramework.Controls.MetroButton();
             this.txtBox_groupidsFile = new MetroFramework.Controls.MetroTextBox();
             this.lbl_pathGIDS = new MetroFramework.Controls.MetroLabel();
+            this.txtBox_profileGrabIDS = new MetroFramework.Controls.MetroTextBox();
             this.btn_joinAll = new MetroFramework.Controls.MetroButton();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.link_setfile = new MetroFramework.Controls.MetroLink();
-            this.metroTab_Tasks = new MetroFramework.Controls.MetroTabPage();
-            this.metroTab_Settings = new MetroFramework.Controls.MetroTabPage();
-            this.btn_massInvite = new MetroFramework.Controls.MetroButton();
             this.lbl_groupSelected = new MetroFramework.Controls.MetroLabel();
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.ProgressSpinner_MassInvite = new MetroFramework.Controls.MetroProgressSpinner();
             ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).BeginInit();
             this.MercuryTabControlGroups.SuspendLayout();
             this.metroTab_Tasks.SuspendLayout();
@@ -422,35 +421,125 @@
             // 
             // MercuryTabControlGroups
             // 
-            this.MercuryTabControlGroups.Controls.Add(this.metroTab_Join);
             this.MercuryTabControlGroups.Controls.Add(this.metroTab_Tasks);
             this.MercuryTabControlGroups.Controls.Add(this.metroTab_Settings);
             this.MercuryTabControlGroups.Location = new System.Drawing.Point(13, 53);
             this.MercuryTabControlGroups.Multiline = true;
             this.MercuryTabControlGroups.Name = "MercuryTabControlGroups";
-            this.MercuryTabControlGroups.SelectedIndex = 1;
+            this.MercuryTabControlGroups.SelectedIndex = 0;
             this.MercuryTabControlGroups.ShowToolTips = true;
             this.MercuryTabControlGroups.Size = new System.Drawing.Size(379, 549);
             this.MercuryTabControlGroups.TabIndex = 35;
             this.MercuryTabControlGroups.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.MercuryTabControlGroups.UseSelectable = true;
             // 
-            // metroTab_Join
+            // metroTab_Tasks
             // 
-            this.metroTab_Join.BackColor = System.Drawing.Color.Transparent;
-            this.metroTab_Join.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroTab_Join.HorizontalScrollbarBarColor = true;
-            this.metroTab_Join.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTab_Join.HorizontalScrollbarSize = 10;
-            this.metroTab_Join.Location = new System.Drawing.Point(4, 38);
-            this.metroTab_Join.Name = "metroTab_Join";
-            this.metroTab_Join.Size = new System.Drawing.Size(371, 507);
-            this.metroTab_Join.TabIndex = 11;
-            this.metroTab_Join.Text = "JOINER";
-            this.metroTab_Join.UseCustomBackColor = true;
-            this.metroTab_Join.VerticalScrollbarBarColor = true;
-            this.metroTab_Join.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTab_Join.VerticalScrollbarSize = 10;
+            this.metroTab_Tasks.BackColor = System.Drawing.Color.Transparent;
+            this.metroTab_Tasks.Controls.Add(this.ProgressSpinner_MassInvite);
+            this.metroTab_Tasks.Controls.Add(this.btn_massInvite);
+            this.metroTab_Tasks.Controls.Add(this.txtBox_gName);
+            this.metroTab_Tasks.Controls.Add(this.btn_save2file);
+            this.metroTab_Tasks.Controls.Add(this.ClanList_ScrollBar);
+            this.metroTab_Tasks.Controls.Add(this.GridClanData);
+            this.metroTab_Tasks.Controls.Add(this.btn_exitfromAll);
+            this.metroTab_Tasks.Controls.Add(this.btn_exitSelected);
+            this.metroTab_Tasks.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.metroTab_Tasks.HorizontalScrollbarBarColor = true;
+            this.metroTab_Tasks.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTab_Tasks.HorizontalScrollbarSize = 10;
+            this.metroTab_Tasks.Location = new System.Drawing.Point(4, 38);
+            this.metroTab_Tasks.Name = "metroTab_Tasks";
+            this.metroTab_Tasks.Size = new System.Drawing.Size(371, 507);
+            this.metroTab_Tasks.TabIndex = 6;
+            this.metroTab_Tasks.Text = "CUSTOM TASKS";
+            this.metroTab_Tasks.UseCustomBackColor = true;
+            this.metroTab_Tasks.VerticalScrollbarBarColor = true;
+            this.metroTab_Tasks.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTab_Tasks.VerticalScrollbarSize = 10;
+            // 
+            // ProgressSpinner_MassInvite
+            // 
+            this.ProgressSpinner_MassInvite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.ProgressSpinner_MassInvite.Location = new System.Drawing.Point(22, 469);
+            this.ProgressSpinner_MassInvite.Maximum = 100;
+            this.ProgressSpinner_MassInvite.Name = "ProgressSpinner_MassInvite";
+            this.ProgressSpinner_MassInvite.Size = new System.Drawing.Size(41, 38);
+            this.ProgressSpinner_MassInvite.TabIndex = 43;
+            this.ProgressSpinner_MassInvite.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ProgressSpinner_MassInvite.UseCustomBackColor = true;
+            this.ProgressSpinner_MassInvite.UseCustomForeColor = true;
+            this.ProgressSpinner_MassInvite.UseSelectable = true;
+            this.ProgressSpinner_MassInvite.UseStyleColors = true;
+            this.ProgressSpinner_MassInvite.Visible = false;
+            // 
+            // btn_massInvite
+            // 
+            this.btn_massInvite.Location = new System.Drawing.Point(0, 468);
+            this.btn_massInvite.Name = "btn_massInvite";
+            this.btn_massInvite.Size = new System.Drawing.Size(84, 38);
+            this.btn_massInvite.TabIndex = 38;
+            this.btn_massInvite.Text = "MASS INVITE";
+            this.btn_massInvite.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.btn_massInvite.UseSelectable = true;
+            this.btn_massInvite.UseStyleColors = true;
+            this.btn_massInvite.Click += new System.EventHandler(this.btn_massInvite_Click);
+            // 
+            // metroTab_Settings
+            // 
+            this.metroTab_Settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroTab_Settings.Controls.Add(this.richTextBox2);
+            this.metroTab_Settings.Controls.Add(this.ProgressSpinner_JoinAllGroups);
+            this.metroTab_Settings.Controls.Add(this.txtBox_title);
+            this.metroTab_Settings.Controls.Add(this.btn_gatherFromProfile);
+            this.metroTab_Settings.Controls.Add(this.txtBox_groupidsFile);
+            this.metroTab_Settings.Controls.Add(this.lbl_pathGIDS);
+            this.metroTab_Settings.Controls.Add(this.txtBox_profileGrabIDS);
+            this.metroTab_Settings.Controls.Add(this.txt_potwSteamID);
+            this.metroTab_Settings.Controls.Add(this.btn_joinAll);
+            this.metroTab_Settings.Controls.Add(this.metroLabel5);
+            this.metroTab_Settings.Controls.Add(this.btn_potw);
+            this.metroTab_Settings.Controls.Add(this.txtBox_Annonbody);
+            this.metroTab_Settings.Controls.Add(this.metroLabel2);
+            this.metroTab_Settings.Controls.Add(this.metroLabel4);
+            this.metroTab_Settings.Controls.Add(this.metroLabel1);
+            this.metroTab_Settings.Controls.Add(this.btn_groupAnnouncement);
+            this.metroTab_Settings.Controls.Add(this.metroLabel3);
+            this.metroTab_Settings.Controls.Add(this.link_setfile);
+            this.metroTab_Settings.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.metroTab_Settings.HorizontalScrollbarBarColor = true;
+            this.metroTab_Settings.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTab_Settings.HorizontalScrollbarSize = 10;
+            this.metroTab_Settings.Location = new System.Drawing.Point(4, 38);
+            this.metroTab_Settings.Name = "metroTab_Settings";
+            this.metroTab_Settings.Size = new System.Drawing.Size(371, 507);
+            this.metroTab_Settings.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroTab_Settings.TabIndex = 10;
+            this.metroTab_Settings.Text = "OTHER TASKS";
+            this.metroTab_Settings.UseCustomBackColor = true;
+            this.metroTab_Settings.UseStyleColors = true;
+            this.metroTab_Settings.VerticalScrollbarBarColor = true;
+            this.metroTab_Settings.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTab_Settings.VerticalScrollbarSize = 10;
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.richTextBox2.DetectUrls = false;
+            this.richTextBox2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox2.ForeColor = System.Drawing.Color.Gray;
+            this.richTextBox2.Location = new System.Drawing.Point(12, 201);
+            this.richTextBox2.MaxLength = 50;
+            this.richTextBox2.Multiline = false;
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.ReadOnly = true;
+            this.richTextBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.richTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox2.Size = new System.Drawing.Size(321, 14);
+            this.richTextBox2.TabIndex = 69;
+            this.richTextBox2.Text = "─────────────────────────────────────────";
             // 
             // ProgressSpinner_JoinAllGroups
             // 
@@ -466,50 +555,6 @@
             this.ProgressSpinner_JoinAllGroups.UseSelectable = true;
             this.ProgressSpinner_JoinAllGroups.UseStyleColors = true;
             this.ProgressSpinner_JoinAllGroups.Visible = false;
-            // 
-            // txtBox_profileGrabIDS
-            // 
-            // 
-            // 
-            // 
-            this.txtBox_profileGrabIDS.CustomButton.Image = null;
-            this.txtBox_profileGrabIDS.CustomButton.Location = new System.Drawing.Point(248, 1);
-            this.txtBox_profileGrabIDS.CustomButton.Name = "";
-            this.txtBox_profileGrabIDS.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtBox_profileGrabIDS.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtBox_profileGrabIDS.CustomButton.TabIndex = 1;
-            this.txtBox_profileGrabIDS.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtBox_profileGrabIDS.CustomButton.UseSelectable = true;
-            this.txtBox_profileGrabIDS.CustomButton.Visible = false;
-            this.txtBox_profileGrabIDS.Lines = new string[0];
-            this.txtBox_profileGrabIDS.Location = new System.Drawing.Point(6, 64);
-            this.txtBox_profileGrabIDS.MaxLength = 32767;
-            this.txtBox_profileGrabIDS.Name = "txtBox_profileGrabIDS";
-            this.txtBox_profileGrabIDS.PasswordChar = '\0';
-            this.txtBox_profileGrabIDS.PromptText = "STEAMID(32/64)/PROFILE URL";
-            this.txtBox_profileGrabIDS.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBox_profileGrabIDS.SelectedText = "";
-            this.txtBox_profileGrabIDS.SelectionLength = 0;
-            this.txtBox_profileGrabIDS.SelectionStart = 0;
-            this.txtBox_profileGrabIDS.ShortcutsEnabled = true;
-            this.txtBox_profileGrabIDS.Size = new System.Drawing.Size(270, 23);
-            this.txtBox_profileGrabIDS.TabIndex = 39;
-            this.txtBox_profileGrabIDS.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.txtBox_profileGrabIDS.UseSelectable = true;
-            this.txtBox_profileGrabIDS.UseStyleColors = true;
-            this.txtBox_profileGrabIDS.WaterMark = "STEAMID(32/64)/PROFILE URL";
-            this.txtBox_profileGrabIDS.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtBox_profileGrabIDS.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(6, 42);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(85, 19);
-            this.metroLabel5.TabIndex = 38;
-            this.metroLabel5.Text = "Profile Fetch:";
-            this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // btn_gatherFromProfile
             // 
@@ -572,6 +617,40 @@
             this.lbl_pathGIDS.Text = "Join from file:";
             this.lbl_pathGIDS.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
+            // txtBox_profileGrabIDS
+            // 
+            // 
+            // 
+            // 
+            this.txtBox_profileGrabIDS.CustomButton.Image = null;
+            this.txtBox_profileGrabIDS.CustomButton.Location = new System.Drawing.Point(248, 1);
+            this.txtBox_profileGrabIDS.CustomButton.Name = "";
+            this.txtBox_profileGrabIDS.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtBox_profileGrabIDS.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtBox_profileGrabIDS.CustomButton.TabIndex = 1;
+            this.txtBox_profileGrabIDS.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtBox_profileGrabIDS.CustomButton.UseSelectable = true;
+            this.txtBox_profileGrabIDS.CustomButton.Visible = false;
+            this.txtBox_profileGrabIDS.Lines = new string[0];
+            this.txtBox_profileGrabIDS.Location = new System.Drawing.Point(6, 64);
+            this.txtBox_profileGrabIDS.MaxLength = 32767;
+            this.txtBox_profileGrabIDS.Name = "txtBox_profileGrabIDS";
+            this.txtBox_profileGrabIDS.PasswordChar = '\0';
+            this.txtBox_profileGrabIDS.PromptText = "STEAMID(32/64)/PROFILE URL";
+            this.txtBox_profileGrabIDS.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBox_profileGrabIDS.SelectedText = "";
+            this.txtBox_profileGrabIDS.SelectionLength = 0;
+            this.txtBox_profileGrabIDS.SelectionStart = 0;
+            this.txtBox_profileGrabIDS.ShortcutsEnabled = true;
+            this.txtBox_profileGrabIDS.Size = new System.Drawing.Size(270, 23);
+            this.txtBox_profileGrabIDS.TabIndex = 39;
+            this.txtBox_profileGrabIDS.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.txtBox_profileGrabIDS.UseSelectable = true;
+            this.txtBox_profileGrabIDS.UseStyleColors = true;
+            this.txtBox_profileGrabIDS.WaterMark = "STEAMID(32/64)/PROFILE URL";
+            this.txtBox_profileGrabIDS.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtBox_profileGrabIDS.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // btn_joinAll
             // 
             this.btn_joinAll.DisplayFocus = true;
@@ -588,6 +667,16 @@
             this.btn_joinAll.UseStyleColors = true;
             this.btn_joinAll.Click += new System.EventHandler(this.btn_joinAll_Click);
             // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(6, 42);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(85, 19);
+            this.metroLabel5.TabIndex = 38;
+            this.metroLabel5.Text = "Profile Fetch:";
+            this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
             // link_setfile
             // 
             this.link_setfile.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -600,80 +689,6 @@
             this.link_setfile.UseSelectable = true;
             this.link_setfile.UseStyleColors = true;
             this.link_setfile.Click += new System.EventHandler(this.link_setfile_Click);
-            // 
-            // metroTab_Tasks
-            // 
-            this.metroTab_Tasks.BackColor = System.Drawing.Color.Transparent;
-            this.metroTab_Tasks.Controls.Add(this.ProgressSpinner_MassInvite);
-            this.metroTab_Tasks.Controls.Add(this.btn_massInvite);
-            this.metroTab_Tasks.Controls.Add(this.txtBox_gName);
-            this.metroTab_Tasks.Controls.Add(this.btn_save2file);
-            this.metroTab_Tasks.Controls.Add(this.ClanList_ScrollBar);
-            this.metroTab_Tasks.Controls.Add(this.GridClanData);
-            this.metroTab_Tasks.Controls.Add(this.btn_exitfromAll);
-            this.metroTab_Tasks.Controls.Add(this.btn_exitSelected);
-            this.metroTab_Tasks.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroTab_Tasks.HorizontalScrollbarBarColor = true;
-            this.metroTab_Tasks.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTab_Tasks.HorizontalScrollbarSize = 10;
-            this.metroTab_Tasks.Location = new System.Drawing.Point(4, 38);
-            this.metroTab_Tasks.Name = "metroTab_Tasks";
-            this.metroTab_Tasks.Size = new System.Drawing.Size(371, 507);
-            this.metroTab_Tasks.TabIndex = 6;
-            this.metroTab_Tasks.Text = "CUSTOM TASKS";
-            this.metroTab_Tasks.UseCustomBackColor = true;
-            this.metroTab_Tasks.VerticalScrollbarBarColor = true;
-            this.metroTab_Tasks.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTab_Tasks.VerticalScrollbarSize = 10;
-            // 
-            // metroTab_Settings
-            // 
-            this.metroTab_Settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.metroTab_Settings.Controls.Add(this.richTextBox2);
-            this.metroTab_Settings.Controls.Add(this.ProgressSpinner_JoinAllGroups);
-            this.metroTab_Settings.Controls.Add(this.txtBox_title);
-            this.metroTab_Settings.Controls.Add(this.btn_gatherFromProfile);
-            this.metroTab_Settings.Controls.Add(this.txtBox_groupidsFile);
-            this.metroTab_Settings.Controls.Add(this.lbl_pathGIDS);
-            this.metroTab_Settings.Controls.Add(this.txtBox_profileGrabIDS);
-            this.metroTab_Settings.Controls.Add(this.txt_potwSteamID);
-            this.metroTab_Settings.Controls.Add(this.btn_joinAll);
-            this.metroTab_Settings.Controls.Add(this.metroLabel5);
-            this.metroTab_Settings.Controls.Add(this.btn_potw);
-            this.metroTab_Settings.Controls.Add(this.txtBox_Annonbody);
-            this.metroTab_Settings.Controls.Add(this.metroLabel2);
-            this.metroTab_Settings.Controls.Add(this.metroLabel4);
-            this.metroTab_Settings.Controls.Add(this.metroLabel1);
-            this.metroTab_Settings.Controls.Add(this.btn_groupAnnouncement);
-            this.metroTab_Settings.Controls.Add(this.metroLabel3);
-            this.metroTab_Settings.Controls.Add(this.link_setfile);
-            this.metroTab_Settings.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.metroTab_Settings.HorizontalScrollbarBarColor = true;
-            this.metroTab_Settings.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTab_Settings.HorizontalScrollbarSize = 10;
-            this.metroTab_Settings.Location = new System.Drawing.Point(4, 38);
-            this.metroTab_Settings.Name = "metroTab_Settings";
-            this.metroTab_Settings.Size = new System.Drawing.Size(371, 507);
-            this.metroTab_Settings.Style = MetroFramework.MetroColorStyle.Purple;
-            this.metroTab_Settings.TabIndex = 10;
-            this.metroTab_Settings.Text = "OTHER TASKS";
-            this.metroTab_Settings.UseCustomBackColor = true;
-            this.metroTab_Settings.UseStyleColors = true;
-            this.metroTab_Settings.VerticalScrollbarBarColor = true;
-            this.metroTab_Settings.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTab_Settings.VerticalScrollbarSize = 10;
-            // 
-            // btn_massInvite
-            // 
-            this.btn_massInvite.Location = new System.Drawing.Point(0, 468);
-            this.btn_massInvite.Name = "btn_massInvite";
-            this.btn_massInvite.Size = new System.Drawing.Size(84, 38);
-            this.btn_massInvite.TabIndex = 38;
-            this.btn_massInvite.Text = "MASS INVITE";
-            this.btn_massInvite.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.btn_massInvite.UseSelectable = true;
-            this.btn_massInvite.UseStyleColors = true;
-            this.btn_massInvite.Click += new System.EventHandler(this.btn_massInvite_Click);
             // 
             // lbl_groupSelected
             // 
@@ -710,40 +725,6 @@
             this.MongoToolTip.Style = MetroFramework.MetroColorStyle.Default;
             this.MongoToolTip.StyleManager = null;
             this.MongoToolTip.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.richTextBox2.DetectUrls = false;
-            this.richTextBox2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox2.ForeColor = System.Drawing.Color.Gray;
-            this.richTextBox2.Location = new System.Drawing.Point(12, 201);
-            this.richTextBox2.MaxLength = 50;
-            this.richTextBox2.Multiline = false;
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.richTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox2.Size = new System.Drawing.Size(321, 14);
-            this.richTextBox2.TabIndex = 69;
-            this.richTextBox2.Text = "─────────────────────────────────────────";
-            // 
-            // ProgressSpinner_MassInvite
-            // 
-            this.ProgressSpinner_MassInvite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.ProgressSpinner_MassInvite.Location = new System.Drawing.Point(22, 469);
-            this.ProgressSpinner_MassInvite.Maximum = 100;
-            this.ProgressSpinner_MassInvite.Name = "ProgressSpinner_MassInvite";
-            this.ProgressSpinner_MassInvite.Size = new System.Drawing.Size(41, 38);
-            this.ProgressSpinner_MassInvite.TabIndex = 43;
-            this.ProgressSpinner_MassInvite.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.ProgressSpinner_MassInvite.UseCustomBackColor = true;
-            this.ProgressSpinner_MassInvite.UseCustomForeColor = true;
-            this.ProgressSpinner_MassInvite.UseSelectable = true;
-            this.ProgressSpinner_MassInvite.UseStyleColors = true;
-            this.ProgressSpinner_MassInvite.Visible = false;
             // 
             // GatherSteamGroups
             // 
@@ -794,7 +775,6 @@
         private MetroFramework.Controls.MetroTabPage metroTab_Settings;
         private MetroFramework.Controls.MetroLabel lbl_groupSelected;
         private MetroFramework.Controls.MetroPanel metroPanel10;
-        private MetroFramework.Controls.MetroTabPage metroTab_Join;
         private MetroFramework.Controls.MetroTextBox txtBox_profileGrabIDS;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroButton btn_gatherFromProfile;

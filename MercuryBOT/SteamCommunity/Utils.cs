@@ -23,7 +23,6 @@ namespace MercuryBOT.SteamCommunity
 {
     class Utils
     {
-        
         #region ProfileRelated
         public static IDictionary<string, int> GetProfileSettings()
         {
@@ -336,8 +335,5 @@ namespace MercuryBOT.SteamCommunity
             }
         }
         #endregion
-
-
-
     }
 }

@@ -18,7 +18,6 @@ using MercuryBOT.Helpers;
 using Win32Interop.Methods;
 using System.Drawing;
 using System.Linq;
-using System.IO;
 
 namespace MercuryBOT.SteamProfileBackground
 {

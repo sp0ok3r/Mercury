@@ -7,7 +7,6 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-using AngleSharp.Html.Parser;
 using MercuryBOT.FriendsList;
 using MercuryBOT.SteamCommunity;
 using MercuryBOT.UserSettings;
@@ -15,10 +14,8 @@ using MercuryBOT.Helpers;
 using Newtonsoft.Json;
 using SteamKit2;
 using SteamKit2.Internal;
-using SteamProfilePrivacy;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
