@@ -108,7 +108,13 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please select the profile/group.");
                 return;
             }
-
+            if (SelectedProfileORClan == "My Profile")
+            {
+                SelectedProfileORClan = "Profile";
+            }else if (SelectedProfileORClan == "My Group")
+            {
+                SelectedProfileORClan = "Clan";
+            }
 
             GridCommentsData.Invoke((MethodInvoker)delegate
             {
@@ -121,7 +127,7 @@ namespace MercuryBOT
 
             try
             {
-                string ProfileORGroupComments = "https://steamcommunity.com/comment/" + SelectedProfileORClan + "/render/" + CheckProfileGroupInfo + "/-1/?count=" + txtBox_Comments2GetCount.Text;
+                string ProfileORGroupComments = "https://steamcommunity.com/comment/"+SelectedProfileORClan+ "/render/" + CheckProfileGroupInfo + "/-1/?count=" + txtBox_Comments2GetCount.Text;
 
                 var parser = new HtmlParser();
 
@@ -156,7 +162,9 @@ namespace MercuryBOT
                     //    GridCommentsData.Rows.Add(row.Distinct().ToArray());
                     //});
 
+
                     List<string> vals = new List<string>();//PERVENT DUPLICATE KEY
+                    
                     if (chck_containsWords.Checked && txtBox_filterWords.Text.Length != 0)
                     {
                         foreach (string item in arrayComments)

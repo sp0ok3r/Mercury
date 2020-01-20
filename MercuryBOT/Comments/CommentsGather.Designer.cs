@@ -65,7 +65,7 @@
             this.combox_GatherProfileOrGroup.ItemHeight = 23;
             this.combox_GatherProfileOrGroup.Items.AddRange(new object[] {
             "My Profile",
-            "Group"});
+            "My Group"});
             this.combox_GatherProfileOrGroup.Location = new System.Drawing.Point(197, 569);
             this.combox_GatherProfileOrGroup.Name = "combox_GatherProfileOrGroup";
             this.combox_GatherProfileOrGroup.Size = new System.Drawing.Size(232, 29);

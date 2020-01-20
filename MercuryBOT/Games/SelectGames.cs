@@ -84,7 +84,7 @@ namespace MercuryBOT.GamesGather
             var OwnedGames = await InterfacePlayerService.GetOwnedGamesAsync(AccountLogin.CurrentSteamID, true, false); // check if correct
 
             progreeBar_GatherGames.Maximum = Int32.Parse(OwnedGames.Data.GameCount.ToString());
-            lbl_selgames_count.Text = OwnedGames.Data.GameCount.ToString() + " games loaded. ";
+            lbl_selgames_count.Text = OwnedGames.Data.GameCount.ToString() + " games loaded.";
 
             const string pictureUrl = "http://media.steampowered.com/steamcommunity/public/images/apps/{0}/{1}.jpg";
 

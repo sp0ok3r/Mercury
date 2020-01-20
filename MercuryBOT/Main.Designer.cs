@@ -635,8 +635,8 @@
             "Busy",
             "Away",
             "Snooze 💤",
-            "LookingToTrade",
-            "LookingToPlay",
+            "Looking To Trade",
+            "Looking To Play",
             "Invisible"});
             this.combox_states.Location = new System.Drawing.Point(585, 84);
             this.combox_states.Name = "combox_states";
@@ -1155,9 +1155,9 @@
             this.metroTab_AddAcc.HorizontalScrollbarBarColor = true;
             this.metroTab_AddAcc.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_AddAcc.HorizontalScrollbarSize = 10;
-            this.metroTab_AddAcc.Location = new System.Drawing.Point(4, 38);
+            this.metroTab_AddAcc.Location = new System.Drawing.Point(4, 35);
             this.metroTab_AddAcc.Name = "metroTab_AddAcc";
-            this.metroTab_AddAcc.Size = new System.Drawing.Size(769, 408);
+            this.metroTab_AddAcc.Size = new System.Drawing.Size(769, 411);
             this.metroTab_AddAcc.TabIndex = 0;
             this.metroTab_AddAcc.Text = "👥 ACCOUNTS";
             this.metroTab_AddAcc.UseCustomBackColor = true;
@@ -1428,7 +1428,7 @@
             this.MercuryTabControl.Controls.Add(this.metroTab_Infos);
             this.MercuryTabControl.Location = new System.Drawing.Point(17, 79);
             this.MercuryTabControl.Name = "MercuryTabControl";
-            this.MercuryTabControl.SelectedIndex = 0;
+            this.MercuryTabControl.SelectedIndex = 4;
             this.MercuryTabControl.ShowToolTips = true;
             this.MercuryTabControl.Size = new System.Drawing.Size(777, 450);
             this.MercuryTabControl.TabIndex = 1;
@@ -1652,7 +1652,7 @@
             this.combox_uimodes.FormattingEnabled = true;
             this.combox_uimodes.ItemHeight = 23;
             this.combox_uimodes.Items.AddRange(new object[] {
-            "None",
+            "Disabled",
             "BIG PICTURE 🎮",
             "VIRTUAL REALITY 😎",
             "SMARTPHONE 📱"});
@@ -1740,9 +1740,9 @@
             this.metroTab_Tasks.HorizontalScrollbarBarColor = true;
             this.metroTab_Tasks.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Tasks.HorizontalScrollbarSize = 10;
-            this.metroTab_Tasks.Location = new System.Drawing.Point(4, 35);
+            this.metroTab_Tasks.Location = new System.Drawing.Point(4, 38);
             this.metroTab_Tasks.Name = "metroTab_Tasks";
-            this.metroTab_Tasks.Size = new System.Drawing.Size(769, 411);
+            this.metroTab_Tasks.Size = new System.Drawing.Size(769, 408);
             this.metroTab_Tasks.TabIndex = 6;
             this.metroTab_Tasks.Text = "⚙️ CUSTOM TASKS";
             this.metroTab_Tasks.UseCustomBackColor = true;
@@ -1766,6 +1766,7 @@
             this.metroButton2.UseCustomBackColor = true;
             this.metroButton2.UseSelectable = true;
             this.metroButton2.UseStyleColors = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // btn_userdata
             // 
@@ -3325,9 +3326,9 @@
             // 
             this.picBox_SteamAvatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.picBox_SteamAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBox_SteamAvatar.Location = new System.Drawing.Point(2, 3);
+            this.picBox_SteamAvatar.Location = new System.Drawing.Point(1, 1);
             this.picBox_SteamAvatar.Name = "picBox_SteamAvatar";
-            this.picBox_SteamAvatar.Size = new System.Drawing.Size(48, 47);
+            this.picBox_SteamAvatar.Size = new System.Drawing.Size(50, 51);
             this.picBox_SteamAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox_SteamAvatar.TabIndex = 23;
             this.picBox_SteamAvatar.TabStop = false;

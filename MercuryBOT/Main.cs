@@ -1872,6 +1872,11 @@ namespace MercuryBOT
             }
         }
 
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void CDKeys_ScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             if (e.NewValue >= CDKeys_Grid.Rows.Count)
