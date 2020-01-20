@@ -56,6 +56,7 @@ namespace MercuryBOT.Splash
             {
                 Directory.CreateDirectory(Program.ChatLogsFolder);
             }
+            
             lbl_info2.Text = "LOADING";
         }
 

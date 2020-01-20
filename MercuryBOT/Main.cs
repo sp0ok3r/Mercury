@@ -106,7 +106,7 @@ namespace MercuryBOT
             var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
 
             DateTime now = DateTime.Now;
-            if (SettingsList.LastTimeCheckedUpdate.Length==0)
+            if (SettingsList.LastTimeCheckedUpdate.Length == 0)
             {
                 SettingsList.LastTimeCheckedUpdate = now.ToString();
             }
