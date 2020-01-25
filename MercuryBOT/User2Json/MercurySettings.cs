@@ -7,7 +7,7 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
-using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace MercuryBOT.User2Json
 {
@@ -24,6 +24,7 @@ namespace MercuryBOT.User2Json
         public ulong startupAcc { get; set; }
         public bool startMinimized { get; set; }
         //public string notificationEffect { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string LastTimeCheckedUpdate { get; set; }
     }
 }

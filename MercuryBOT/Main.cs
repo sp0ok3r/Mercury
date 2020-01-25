@@ -98,15 +98,14 @@ namespace MercuryBOT
             return 0;
         }
         #endregion
-
-
+        
         [Obsolete]
         private void Main_Shown(object sender, EventArgs e)
         {
             var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
-
+            
             DateTime now = DateTime.Now;
-            if (SettingsList.LastTimeCheckedUpdate.Length == 0)
+            if (SettingsList.LastTimeCheckedUpdate == null || SettingsList.LastTimeCheckedUpdate.Length == 0)
             {
                 SettingsList.LastTimeCheckedUpdate = now.ToString();
             }
@@ -359,7 +358,6 @@ namespace MercuryBOT
                     {
                         AccountsList_Grid.Rows[i].Cells[3].Style.ForeColor = Color.Red;
                     }
-
                 }
 
 
