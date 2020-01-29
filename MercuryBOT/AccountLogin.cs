@@ -22,6 +22,7 @@ using System.Linq;
 using System.Threading;
 using MercuryBOT.CustomHandlers;
 using MercuryBOT.CallbackMessages;
+using System.Text.RegularExpressions;
 
 namespace MercuryBOT
 {
@@ -670,21 +671,31 @@ namespace MercuryBOT
             if (ChatLogger == true && callback.EntryType == EChatEntryType.ChatMsg)
             {
                 ulong FriendID = callback.Sender;
-                string Message = callback.Message;
-
-                //Message = Regex.Replace(Message, @"\t|\n|\r", ""); //741iq
+                string Message = callback.Message;//Message = Regex.Replace(Message, @"\t|\n|\r", ""); //741iq
                 Message.Replace(System.Environment.NewLine, "");
+
+                string FriendName = steamFriends.GetFriendPersonaName(FriendID);
+                string nameClean = Regex.Replace(FriendName, "[^A-Za-z0-9 _]", "");
+
+                if (!Directory.Exists(Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64()))
+                {
+                    Directory.CreateDirectory(Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64());
+                }
+
+                string FriendIDName = @"\[" + FriendID + "] - " + nameClean + ".txt";
+                string pathLog = Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64() + FriendIDName;
+
+                string FinalMsg = "[" + DateTime.Now + "] " + FriendName + ": " + Message;
 
                 string Separator = "───────────────────";
 
-                string pathLog = Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64() + @"\[" + FriendID + "] - " + steamFriends.GetFriendPersonaName(FriendID) + ".txt";
-                string FinalMsg = "[" + DateTime.Now + "] " + steamFriends.GetFriendPersonaName(FriendID) + ": " + Message;
+                string[] files = Directory.GetFiles(Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64(), "[" + FriendID + "]*.txt");
 
-                if (File.Exists(pathLog))
+                if (files.Length > 0)//file exist
                 {
-                    string[] LastDate = File.ReadLines(pathLog).Last().Split(' '); LastDate[0] = LastDate[0].Substring(1);
+                    string[] LastDate = File.ReadLines(files[0]).Last().Split(' '); LastDate[0] = LastDate[0].Substring(1);
 
-                    using (var tw = new StreamWriter(pathLog, true))
+                    using (var tw = new StreamWriter(files[0], true))
                         if (LastDate[0] != DateTime.Now.Date.ToShortDateString())
                         {
                             tw.WriteLine(Separator + "\n" + FinalMsg);
@@ -841,19 +852,29 @@ namespace MercuryBOT
             {
                 ulong FriendID = callback.Recipient;
                 string Message = callback.Message;
-
                 //Message = Regex.Replace(Message, @"\t|\n|\r", ""); TEST
                 Message.Replace(Environment.NewLine, "");
 
-                string Separator = "───────────────────";
+                string FriendName = steamFriends.GetFriendPersonaName(FriendID);
+                string nameClean = Regex.Replace(FriendName, "[^A-Za-z0-9 _]", "");
 
-                string pathLog = Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64() + @"\[" + FriendID + "] - " + steamFriends.GetFriendPersonaName(FriendID) + ".txt";
-                string FinalMsg = "[" + DateTime.Now + "] " + steamFriends.GetPersonaName() + ": " + Message;
+                string FriendIDName = @"\[" + FriendID + "] - " + nameClean + ".txt";
+                string pathLog = Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64() + FriendIDName;
 
-                if (File.Exists(pathLog))
+                if (!Directory.Exists(Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64()))
                 {
-                    string[] LastDate = File.ReadLines(pathLog).Last().Split(' '); LastDate[0] = LastDate[0].Substring(1);
-                    using (var tw = new StreamWriter(pathLog, true))
+                    Directory.CreateDirectory(Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64());
+                }
+
+                string FinalMsg = "[" + DateTime.Now + "] " + steamFriends.GetPersonaName() + ": " + Message;
+                string[] files = Directory.GetFiles(Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64(), "[" + FriendID + "]*.txt");
+                
+                string Separator = "───────────────────";
+                
+                if (files.Length > 0)//file exist
+                {
+                    string[] LastDate = File.ReadLines(files[0]).Last().Split(' '); LastDate[0] = LastDate[0].Substring(1);
+                    using (var tw = new StreamWriter(files[0], true))
                     {
 
                         if (LastDate[0] != DateTime.Now.Date.ToShortDateString())

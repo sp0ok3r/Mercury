@@ -311,7 +311,7 @@ namespace MercuryBOT
                 Notification.NotifHelper.MessageBox.Show("Alert", "No internet connection, restarting...");
                 Process.Start("https://github.com/sp0ok3r/Mercury/releases");
 
-                Process.Start(Application.ExecutablePath);
+                //Process.Start(Application.ExecutablePath);
                 Application.Exit();
             }
         }
