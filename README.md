@@ -11,6 +11,9 @@
 
 Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
 
+### Questions/Contact
+* http://steamcommunity.com/profiles/76561198041931474
+
 ### Features
 * Clean Metro Style with colors at choice!
 * Auto Login at startup
@@ -50,9 +53,6 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 
 ### Download 
 * https://github.com/sp0ok3r/Mercury/releases/
-
-### Contact
-* http://steamcommunity.com/profiles/76561198041931474
 
 ### Issues
 * Mercury dont opens: Install/Update: https://dotnet.microsoft.com/download/dotnet-framework/net472 
