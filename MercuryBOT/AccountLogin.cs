@@ -52,6 +52,7 @@ namespace MercuryBOT
         private static CallbackManager MercuryManager;
         public static SteamWeb steamWeb;
         public static GamesHandler gamesHandler;
+        public static SteamMatchmaking steamMM;
 
         public static string MessageString;
         public static bool ChatLogger = false;
@@ -112,6 +113,7 @@ namespace MercuryBOT
             steamClient = new SteamClient();
             steamWeb = new SteamWeb();
             gamesHandler = new GamesHandler();
+            
 
             MercuryManager = new CallbackManager(steamClient);
 
@@ -196,10 +198,6 @@ namespace MercuryBOT
                 }
             }
 
-            var random = new Random();
-            int number = random.Next(1337, Int32.MaxValue);
-            uint lid = (uint)(number + (uint)Int32.MaxValue);
-
             steamUser.LogOn(new SteamUser.LogOnDetails
             {
                 Username = user,
@@ -209,7 +207,7 @@ namespace MercuryBOT
                 TwoFactorCode = twoFactorAuth,
                 SentryFileHash = sentryHash,
                 //
-                LoginID = lid,
+                LoginID = 1337,
                 ShouldRememberPassword = true,
                 LoginKey = NewloginKey
             });
@@ -671,8 +669,7 @@ namespace MercuryBOT
             if (ChatLogger == true && callback.EntryType == EChatEntryType.ChatMsg)
             {
                 ulong FriendID = callback.Sender;
-                string Message = callback.Message;//Message = Regex.Replace(Message, @"\t|\n|\r", ""); //741iq
-                Message.Replace(System.Environment.NewLine, "");
+                string Message = callback.Message;
 
                 string FriendName = steamFriends.GetFriendPersonaName(FriendID);
                 string nameClean = Regex.Replace(FriendName, "[^A-Za-z0-9 _]", "");
@@ -852,8 +849,6 @@ namespace MercuryBOT
             {
                 ulong FriendID = callback.Recipient;
                 string Message = callback.Message;
-                //Message = Regex.Replace(Message, @"\t|\n|\r", ""); TEST
-                Message.Replace(Environment.NewLine, "");
 
                 string FriendName = steamFriends.GetFriendPersonaName(FriendID);
                 string nameClean = Regex.Replace(FriendName, "[^A-Za-z0-9 _]", "");
