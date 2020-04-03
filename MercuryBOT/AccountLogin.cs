@@ -657,7 +657,8 @@ namespace MercuryBOT
             {
 
                 SteamID allfriends = steamFriends.GetFriendByIndex(i);
-                if (allfriends.ConvertToUInt64() != 0 && steamFriends.GetFriendRelationship(allfriends.ConvertToUInt64()) == EFriendRelationship.Friend)
+                var id = allfriends.ConvertToUInt64().ToString();
+                if (id.StartsWith("7") && allfriends.ConvertToUInt64() != 0 && steamFriends.GetFriendRelationship(allfriends.ConvertToUInt64()) == EFriendRelationship.Friend)
                 {
                     Friends.Add(allfriends.ConvertToUInt64());
                 }
@@ -908,7 +909,7 @@ namespace MercuryBOT
                             {
                                 princessas++;
                                 steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.BOTNAME);
-                                Thread.Sleep(2500);// my nigger needs some OXYGEN 😌
+                                Thread.Sleep(1000);// my nigger needs some OXYGEN 😌
                             }
                         }
                     }
@@ -916,7 +917,7 @@ namespace MercuryBOT
                     {
                         princessas++;
                         steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.BOTNAME);
-                        Thread.Sleep(2500);// my nigger needs some OXYGEN 😌
+                        Thread.Sleep(1000);// my nigger needs some OXYGEN 😌
                     }
                 }
             }
