@@ -138,5 +138,10 @@ namespace MercuryBOT
             Close();
             Notification.NotifHelper.MessageBox.Show("Info", " Removed " + Main.SelectedUser + " from file.");
         }
+
+        private void link_webapi_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://steamcommunity.com/dev/apikey");
+        }
     }
 }

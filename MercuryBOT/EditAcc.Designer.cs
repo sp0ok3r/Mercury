@@ -37,7 +37,6 @@
             this.lbl_adminID = new MetroFramework.Controls.MetroLabel();
             this.BTN_SUBMIT = new MetroFramework.Controls.MetroButton();
             this.metroLink_AccountsJSONPath = new MetroFramework.Controls.MetroLink();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.txtBox_webapi = new MetroFramework.Controls.MetroTextBox();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
             this.toggle_autoLogin = new MetroFramework.Controls.MetroToggle();
@@ -48,6 +47,7 @@
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.combox_defaultState = new MetroFramework.Controls.MetroComboBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.link_webapi = new MetroFramework.Controls.MetroLink();
             this.SuspendLayout();
             // 
             // txtBox_user
@@ -222,16 +222,6 @@
             this.metroLink_AccountsJSONPath.UseSelectable = true;
             this.metroLink_AccountsJSONPath.Click += new System.EventHandler(this.MetroLink_AccountsJSONPath_Click);
             // 
-            // metroLabel3
-            // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(5, 246);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(74, 19);
-            this.metroLabel3.TabIndex = 24;
-            this.metroLabel3.Text = "🌐 webAPI:";
-            this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
             // txtBox_webapi
             // 
             // 
@@ -386,6 +376,18 @@
             this.richTextBox1.TabIndex = 57;
             this.richTextBox1.Text = "└───";
             // 
+            // link_webapi
+            // 
+            this.link_webapi.AutoSize = true;
+            this.link_webapi.Location = new System.Drawing.Point(7, 246);
+            this.link_webapi.Name = "link_webapi";
+            this.link_webapi.Size = new System.Drawing.Size(75, 23);
+            this.link_webapi.TabIndex = 58;
+            this.link_webapi.Text = "🌐 webAPI:";
+            this.link_webapi.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.link_webapi.UseSelectable = true;
+            this.link_webapi.Click += new System.EventHandler(this.link_webapi_Click);
+            // 
             // EditAcc
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -403,11 +405,11 @@
             this.Controls.Add(this.txtBox_adminID);
             this.Controls.Add(this.txtBox_pw);
             this.Controls.Add(this.txtBox_user);
-            this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.lbl_adminID);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.link_webapi);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -432,7 +434,6 @@
         private MetroFramework.Controls.MetroLabel lbl_adminID;
         private MetroFramework.Controls.MetroButton BTN_SUBMIT;
         private MetroFramework.Controls.MetroLink metroLink_AccountsJSONPath;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroTextBox txtBox_webapi;
         private MetroFramework.Components.MetroToolTip MongoToolTip;
         private MetroFramework.Controls.MetroToggle toggle_autoLogin;
@@ -443,5 +444,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroComboBox combox_defaultState;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private MetroFramework.Controls.MetroLink link_webapi;
     }
 }

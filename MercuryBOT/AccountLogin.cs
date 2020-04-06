@@ -959,11 +959,11 @@ namespace MercuryBOT
 
         public static void ChangePersonaFlags(uint uimode)
         {
-            ClientMsgProtobuf<CMsgClientChangeStatus> request2 = new ClientMsgProtobuf<CMsgClientChangeStatus>(EMsg.ClientChangeStatus)
+            ClientMsgProtobuf<CMsgClientChangeStatus> requestPersonaFlag = new ClientMsgProtobuf<CMsgClientChangeStatus>(EMsg.ClientChangeStatus)
             {
                 Body = { persona_state_flags = uimode }
             };
-            steamClient.Send(request2);
+            steamClient.Send(requestPersonaFlag);
         }
         #endregion
 

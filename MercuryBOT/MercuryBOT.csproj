@@ -262,13 +262,6 @@
     <Compile Include="SteamRep\SteamRepCheck.Designer.cs">
       <DependentUpon>SteamRepCheck.cs</DependentUpon>
     </Compile>
-    <Compile Include="SteamServers\CSRegions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SteamServers\CSRegions.Designer.cs">
-      <DependentUpon>CSRegions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SteamServers\SteamServers.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
@@ -281,12 +274,6 @@
     </Compile>
     <Compile Include="Splash\SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SteamServers\SteamServersMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SteamServers\SteamServersMain.Designer.cs">
-      <DependentUpon>SteamServersMain.cs</DependentUpon>
     </Compile>
     <Compile Include="SteamCommunity\SteamWeb.cs" />
     <Compile Include="UpdateManager\Updater.cs">
@@ -382,12 +369,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SteamRep\SteamRepCheck.resx">
       <DependentUpon>SteamRepCheck.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SteamServers\CSRegions.resx">
-      <DependentUpon>CSRegions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SteamServers\SteamServersMain.resx">
-      <DependentUpon>SteamServersMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateManager\Updater.resx">
       <DependentUpon>Updater.cs</DependentUpon>

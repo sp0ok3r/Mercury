@@ -99,7 +99,6 @@
             this.btn_editAcc = new MetroFramework.Controls.MetroButton();
             this.btn_addAcc = new MetroFramework.Controls.MetroButton();
             this.btn_login2selected = new MetroFramework.Controls.MetroButton();
-            this.Btn_steamStatus = new MetroFramework.Controls.MetroButton();
             this.btn_logout = new MetroFramework.Controls.MetroButton();
             this.MercuryTabControl = new MetroFramework.Controls.MetroTabControl();
             this.metroTab_Friends = new MetroFramework.Controls.MetroTabPage();
@@ -1155,9 +1154,9 @@
             this.metroTab_AddAcc.HorizontalScrollbarBarColor = true;
             this.metroTab_AddAcc.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_AddAcc.HorizontalScrollbarSize = 10;
-            this.metroTab_AddAcc.Location = new System.Drawing.Point(4, 38);
+            this.metroTab_AddAcc.Location = new System.Drawing.Point(4, 35);
             this.metroTab_AddAcc.Name = "metroTab_AddAcc";
-            this.metroTab_AddAcc.Size = new System.Drawing.Size(769, 408);
+            this.metroTab_AddAcc.Size = new System.Drawing.Size(769, 411);
             this.metroTab_AddAcc.TabIndex = 0;
             this.metroTab_AddAcc.Text = "👥 ACCOUNTS";
             this.metroTab_AddAcc.UseCustomBackColor = true;
@@ -1383,25 +1382,6 @@
             this.btn_login2selected.UseStyleColors = true;
             this.btn_login2selected.Click += new System.EventHandler(this.btn_login2selected_Click);
             // 
-            // Btn_steamStatus
-            // 
-            this.Btn_steamStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.Btn_steamStatus.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.Btn_steamStatus.Enabled = false;
-            this.Btn_steamStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.Btn_steamStatus.Location = new System.Drawing.Point(614, 122);
-            this.Btn_steamStatus.Name = "Btn_steamStatus";
-            this.Btn_steamStatus.Size = new System.Drawing.Size(129, 79);
-            this.Btn_steamStatus.TabIndex = 46;
-            this.Btn_steamStatus.TabStop = false;
-            this.Btn_steamStatus.Text = "STEAM/CSGO\r\nSERVERS STATUS";
-            this.Btn_steamStatus.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.MongoTip.SetToolTip(this.Btn_steamStatus, "See if any steam server is burning!");
-            this.Btn_steamStatus.UseCustomBackColor = true;
-            this.Btn_steamStatus.UseSelectable = true;
-            this.Btn_steamStatus.UseStyleColors = true;
-            this.Btn_steamStatus.Click += new System.EventHandler(this.Btn_steamStatus_Click);
-            // 
             // btn_logout
             // 
             this.btn_logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
@@ -1463,9 +1443,9 @@
             this.metroTab_Friends.HorizontalScrollbarBarColor = true;
             this.metroTab_Friends.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Friends.HorizontalScrollbarSize = 10;
-            this.metroTab_Friends.Location = new System.Drawing.Point(4, 35);
+            this.metroTab_Friends.Location = new System.Drawing.Point(4, 38);
             this.metroTab_Friends.Name = "metroTab_Friends";
-            this.metroTab_Friends.Size = new System.Drawing.Size(769, 411);
+            this.metroTab_Friends.Size = new System.Drawing.Size(769, 408);
             this.metroTab_Friends.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroTab_Friends.TabIndex = 8;
             this.metroTab_Friends.Text = "😂 FRIENDS";
@@ -1728,7 +1708,6 @@
             this.metroTab_Tasks.Controls.Add(this.btn_clearuserAliases);
             this.metroTab_Tasks.Controls.Add(this.btn_exitgroups);
             this.metroTab_Tasks.Controls.Add(this.Btn_getProfileBackG);
-            this.metroTab_Tasks.Controls.Add(this.Btn_steamStatus);
             this.metroTab_Tasks.Controls.Add(this.panel1);
             this.metroTab_Tasks.Controls.Add(this.btn_importKeys);
             this.metroTab_Tasks.Controls.Add(this.btn_reddemkey);
@@ -1762,7 +1741,7 @@
             this.metroButton2.Size = new System.Drawing.Size(129, 35);
             this.metroButton2.TabIndex = 73;
             this.metroButton2.TabStop = false;
-            this.metroButton2.Text = "?";
+            this.metroButton2.Text = "...";
             this.metroButton2.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroButton2.UseCustomBackColor = true;
             this.metroButton2.UseSelectable = true;
@@ -1830,16 +1809,15 @@
             this.btn_commentsGather.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btn_commentsGather.Enabled = false;
             this.btn_commentsGather.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btn_commentsGather.Location = new System.Drawing.Point(470, 339);
+            this.btn_commentsGather.Location = new System.Drawing.Point(614, 122);
             this.btn_commentsGather.Name = "btn_commentsGather";
-            this.btn_commentsGather.Size = new System.Drawing.Size(129, 35);
+            this.btn_commentsGather.Size = new System.Drawing.Size(129, 79);
             this.btn_commentsGather.TabIndex = 38;
             this.btn_commentsGather.TabStop = false;
             this.btn_commentsGather.Text = "FILTER \r\nCOMMENTS";
             this.btn_commentsGather.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.MongoTip.SetToolTip(this.btn_commentsGather, "Delete bad comments from your profile/group");
             this.btn_commentsGather.UseCustomBackColor = true;
-            this.btn_commentsGather.UseCustomForeColor = true;
             this.btn_commentsGather.UseSelectable = true;
             this.btn_commentsGather.UseStyleColors = true;
             this.btn_commentsGather.Click += new System.EventHandler(this.btn_commentsGather_Click);
@@ -2148,9 +2126,9 @@
             this.metroTab_Settings.HorizontalScrollbarBarColor = true;
             this.metroTab_Settings.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Settings.HorizontalScrollbarSize = 10;
-            this.metroTab_Settings.Location = new System.Drawing.Point(4, 38);
+            this.metroTab_Settings.Location = new System.Drawing.Point(4, 35);
             this.metroTab_Settings.Name = "metroTab_Settings";
-            this.metroTab_Settings.Size = new System.Drawing.Size(769, 408);
+            this.metroTab_Settings.Size = new System.Drawing.Size(769, 411);
             this.metroTab_Settings.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroTab_Settings.TabIndex = 10;
             this.metroTab_Settings.Text = "🛠 SETTINGS";
@@ -3523,7 +3501,6 @@
         private MetroFramework.Controls.MetroLabel lbl_currentUsername;
         private MetroFramework.Controls.MetroCheckBox metroCheckBox6;
         private System.Windows.Forms.Button btnLabel_PersonaAndFlag;
-        private MetroFramework.Controls.MetroButton Btn_steamStatus;
         private MetroFramework.Controls.MetroLink metroLink_spkMusic;
         private MetroFramework.Controls.MetroButton btn_commentsGather;
         private MetroFramework.Controls.MetroButton Btn_getProfileBackG;

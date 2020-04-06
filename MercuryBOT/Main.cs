@@ -12,7 +12,6 @@ using MercuryBOT.FriendsList;
 using MercuryBOT.GamesGather;
 using MercuryBOT.Helpers;
 using MercuryBOT.SteamCommunity;
-using MercuryBOT.SteamServers;
 using MercuryBOT.User2Json;
 using MercuryBOT.UserSettings;
 using MetroFramework.Controls;
@@ -1027,15 +1026,6 @@ namespace MercuryBOT
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
-        }
-
-        private void Btn_steamStatus_Click(object sender, EventArgs e)
-        {
-            Form SteamServersMain = new SteamServersMain();
-            SteamServersMain.FormClosed += HandleFormSteamStatusClosed;
-            SteamServersMain.Show();
-
-            Btn_steamStatus.Enabled = false;
         }
 
         //public void StartList()
