@@ -1104,11 +1104,6 @@ namespace MercuryBOT
             btn_selectappids.Enabled = true;
         }
 
-        private void HandleFormSteamStatusClosed(Object sender, FormClosedEventArgs e)
-        {
-            Btn_steamStatus.Enabled = true;
-        }
-
         private void HandleFormAFKMessagesClosed(Object sender, FormClosedEventArgs e)
         {
             btn_addMsgForm.Enabled = true;

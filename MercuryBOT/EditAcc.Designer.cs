@@ -379,12 +379,15 @@
             // link_webapi
             // 
             this.link_webapi.AutoSize = true;
+            this.link_webapi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.link_webapi.ForeColor = System.Drawing.Color.DimGray;
             this.link_webapi.Location = new System.Drawing.Point(7, 246);
             this.link_webapi.Name = "link_webapi";
             this.link_webapi.Size = new System.Drawing.Size(75, 23);
             this.link_webapi.TabIndex = 58;
             this.link_webapi.Text = "🌐 webAPI:";
             this.link_webapi.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.link_webapi.UseCustomForeColor = true;
             this.link_webapi.UseSelectable = true;
             this.link_webapi.Click += new System.EventHandler(this.link_webapi_Click);
             // 
