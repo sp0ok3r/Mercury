@@ -23,6 +23,7 @@ using System.Threading;
 using MercuryBOT.CustomHandlers;
 using MercuryBOT.CallbackMessages;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace MercuryBOT
 {
@@ -113,7 +114,7 @@ namespace MercuryBOT
             steamClient = new SteamClient();
             steamWeb = new SteamWeb();
             gamesHandler = new GamesHandler();
-            
+
 
             MercuryManager = new CallbackManager(steamClient);
 
@@ -140,6 +141,15 @@ namespace MercuryBOT
 
             MercuryManager.Subscribe<SteamFriends.PersonaStateCallback>(OnPersonaState);
             MercuryManager.Subscribe<SteamFriends.PersonaChangeCallback>(OnSteamNameChange);
+
+            //MercuryManager.Subscribe<SteamMatchmaking.GetLobbyListCallback>(OnLobbyList);
+            //MercuryManager.Subscribe<SteamMatchmaking.CreateLobbyCallback>(OnCreateLobby);
+            //MercuryManager.Subscribe<SteamMatchmaking.JoinLobbyCallback>(OnJoinLobby);
+            //MercuryManager.Subscribe<SteamMatchmaking.LeaveLobbyCallback>(OnLeaveLobby);
+            //MercuryManager.Subscribe<SteamMatchmaking.Lobby>(OnLobby);
+            //MercuryManager.Subscribe<SteamMatchmaking.LobbyDataCallback>(OnLobbyData);
+            //MercuryManager.Subscribe<SteamMatchmaking.UserJoinedLobbyCallback>(OnUserJoinedLobby);
+
             #endregion
 
             steamClient.AddHandler(gamesHandler);
@@ -154,7 +164,6 @@ namespace MercuryBOT
                 MercuryManager.RunWaitCallbacks(TimeSpan.FromMilliseconds(500));
             }
         }
-
         static void OnConnected(SteamClient.ConnectedCallback callback)
         {
             if (callback.ToString() != "SteamKit2.SteamClient+ConnectedCallback")
@@ -391,8 +400,8 @@ namespace MercuryBOT
                     switch (clanRank)
                     {
                         case EClanRank.Owner:
-                       // case EClanRank.Officer:
-                        //case EClanRank.Moderator:
+                            // case EClanRank.Officer:
+                            //case EClanRank.Moderator:
                             if (!OfficerClanDictionary.ContainsKey(sourceSteamID))
                             {
                                 OfficerClanDictionary.Add(sourceSteamID, friendID.ConvertToUInt64());
@@ -864,9 +873,9 @@ namespace MercuryBOT
 
                 string FinalMsg = "[" + DateTime.Now + "] " + steamFriends.GetPersonaName() + ": " + Message;
                 string[] files = Directory.GetFiles(Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64(), "[" + FriendID + "]*.txt");
-                
+
                 string Separator = "───────────────────";
-                
+
                 if (files.Length > 0)//file exist
                 {
                     string[] LastDate = File.ReadLines(files[0]).Last().Split(' '); LastDate[0] = LastDate[0].Substring(1);
@@ -943,7 +952,7 @@ namespace MercuryBOT
         {
             return steamFriends.GetFriendPersonaName((SteamID)steamid);
         }
-        
+
         #region Change State Name Persona Flag
         public static void ChangeCurrentState(EPersonaState state)
         {
@@ -973,11 +982,11 @@ namespace MercuryBOT
             ClientMsgProtobuf<CMsgClientUIMode> request = new ClientMsgProtobuf<CMsgClientUIMode>(EMsg.ClientCurrentUIMode) { Body = { chat_mode = 2 } };
             steamClient.Send(request);
         }
-        
+
         public async static void RedeemKey(string _key)
         {
             await gamesHandler.RedeemKeyResponse(_key);
-            
+
             //ClientMsgProtobuf<CMsgClientRegisterKey> registerKey = new ClientMsgProtobuf<CMsgClientRegisterKey>(EMsg.ClientRegisterKey)
             //{
             //    Body = { key = _key }
@@ -999,8 +1008,9 @@ namespace MercuryBOT
             if (ClanDictionary.ContainsKey(103582791464385054))
             {
                 isInMercuryGroup = true;
-                
-            }else
+
+            }
+            else
             {
                 isInMercuryGroup = false;
                 Notification.NotifHelper.MessageBox.Show("Info", "Join Mercury group on steam! \n Link on INFORMATION Tab");
@@ -1046,7 +1056,7 @@ namespace MercuryBOT
             }
             var request = new ClientMsgProtobuf<CMsgClientAMGetClanOfficers>(EMsg.ClientAMGetClanOfficers);
             request.Body.steamid_clan = clanID;
-            
+
 
             steamClient.Send(request);
         }
