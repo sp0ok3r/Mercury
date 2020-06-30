@@ -472,7 +472,7 @@ namespace MercuryBOT
             {
                 if (txtBox_gameNonSteam.Text.Length < 50)
                 {
-                    Utils.PlayNonSteamGame(txtBox_gameNonSteam.Text + (AccountLogin.isInMercuryGroup ? "" : " ❤ MercuryBOT"));
+                    Utils.PlayNonSteamGame(txtBox_gameNonSteam.Text);
                     btn_playnormal.Enabled = false;
                 }
                 else
@@ -567,7 +567,7 @@ namespace MercuryBOT
                 string msg = txtBox_msg2Friends.Text;
                 var friends = steamfriends013.GetFriendCount((int)EFriendFlags.k_EFriendFlagImmediate);
 
-                var ad = AccountLogin.isInMercuryGroup ? "" : "\n MercuryBOT";
+                //var ad = AccountLogin.isInMercuryGroup ? "" : "\n MercuryBOT";
 
                 byte[] msgBytes = Encoding.UTF8.GetBytes(msg);
                 for (int i = 0; i < friends; i++)
@@ -581,7 +581,7 @@ namespace MercuryBOT
                             if (a.username == AccountLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(friendid.ConvertToUint64().ToString())))
                             {
                                 quantasPrincesas++;
-                                steamfriends002.SendMsgToFriend(friendid, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text + ad), (txtBox_msg2Friends.Text.Length) + 1);
+                                steamfriends002.SendMsgToFriend(friendid, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text), (txtBox_msg2Friends.Text.Length) + 1);
                                 Thread.Sleep(100);// my nigger needs some OXYGEN 😌 
                             }
                         }
@@ -589,7 +589,7 @@ namespace MercuryBOT
                     else
                     {
                         quantasPrincesas++;
-                        msgBytes = Encoding.UTF8.GetBytes(msg + ad);
+                        msgBytes = Encoding.UTF8.GetBytes(msg);
                         steamfriends002.SendMsgToFriend(friendid, EChatEntryType.k_EChatEntryTypeChatMsg, msgBytes, (msgBytes.Length) + 1);
                         Thread.Sleep(100);// my nigger needs some OXYGEN 😌 
                     }
@@ -744,16 +744,16 @@ namespace MercuryBOT
                                 gameuints.Add(a.Games[i].app_id); // tentar obter lista do json, para nao criar outra???
                             }
 
-                            var ad = AccountLogin.isInMercuryGroup ? "" : " ❤ MercuryBOT";
+                            //var ad = AccountLogin.isInMercuryGroup ? "" : " ❤ MercuryBOT";
                             if (chck_nonsteamNgames.Checked)
                             {
                                 if (txtBox_gameNonSteam.Text.Length != 0)
                                 {
-                                    Utils.PlayGames(gameuints, txtBox_gameNonSteam.Text + ad);
+                                    Utils.PlayGames(gameuints, txtBox_gameNonSteam.Text);
                                 }
                                 else
                                 {
-                                    Utils.PlayGames(gameuints, ad);
+                                    Utils.PlayGames(gameuints, "");
                                 }
                             }
                             else
@@ -1510,11 +1510,6 @@ namespace MercuryBOT
 
                     MemoryStream ms = new MemoryStream(data);
                     btnLabel_PersonaAndFlag.Image = Image.FromStream(ms);
-                }
-
-                if (AccountLogin.isInMercuryGroup)
-                {
-                    
                 }
                 //  combox_states.SelectedIndex = AccountLogin.steamFriends.GetPersonaState;
 

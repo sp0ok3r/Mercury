@@ -62,7 +62,6 @@ namespace MercuryBOT
         public static bool AwayCustomMessageList = false;
         public static bool FriendsLoaded = false;
         public static bool isSendingMsgs = false;
-        public static bool isInMercuryGroup = false;
 
         public readonly static string AvatarPrefix = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/";
         public readonly static string AvatarSuffix = "_full.jpg";
@@ -833,7 +832,7 @@ namespace MercuryBOT
                     List<string> CMessages = new List<string>();// secalhar nem criar lista, secalhar usar  a lista do json e pegar na random direta ai
                     Random random = new Random();
                     int r = 0;
-                    CMessages.Add("I'm using Mercury: Ultimate free open source Steam Tool! - https://github.com/sp0ok3r/Mercury"); // *
+                   // CMessages.Add("I'm using Mercury: Ultimate free open source Steam Tool! - https://github.com/sp0ok3r/Mercury"); // *
 
                     foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
                     {
@@ -1003,17 +1002,6 @@ namespace MercuryBOT
                 {
                     ClanDictionary.Add(steamIDClan, steamFriends.GetClanName(steamIDClan));
                 }
-            }
-
-            if (ClanDictionary.ContainsKey(103582791464385054))
-            {
-                isInMercuryGroup = true;
-
-            }
-            else
-            {
-                isInMercuryGroup = false;
-                Notification.NotifHelper.MessageBox.Show("Info", "Join Mercury group on steam! \n Link on INFORMATION Tab");
             }
         }
 
