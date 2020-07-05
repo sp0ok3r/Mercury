@@ -120,8 +120,8 @@
     <Reference Include="Steam4NET">
       <HintPath>D:\PROJECTS\CSharp\Steam4NET-master\Steam4NET\bin\Debug\Steam4NET.dll</HintPath>
     </Reference>
-    <Reference Include="SteamKit2, Version=2.3.0.1221, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SteamKit2.2.3.0-beta.2\lib\netstandard2.0\SteamKit2.dll</HintPath>
+    <Reference Include="SteamKit2, Version=2.3.0.1249, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SteamKit2.2.3.0\lib\netstandard2.0\SteamKit2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SteamWebAPI2, Version=4.2.4.0, Culture=neutral, processorArchitecture=MSIL">

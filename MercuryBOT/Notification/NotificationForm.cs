@@ -18,6 +18,15 @@ namespace MercuryBOT.Notification
 {
     public partial class NotificationForm : MetroFramework.Forms.MetroForm
     {
+        protected override void WndProc(ref Message m)
+        {
+            // Ignore all messages that try to set the focus.
+            if (m.Msg != 0x7)
+            {
+                base.WndProc(ref m);
+            }
+        }
+
 
         private int posStart;
         private bool openNotify = false;
@@ -31,7 +40,7 @@ namespace MercuryBOT.Notification
         public const int AW_HOR_NEGATIVE = 0X2;
 
         // Animates the window from top to bottom. This flag can be used with roll or slide animation.
-        public const int AW_VER_POSITIVE = 0X4; 
+        public const int AW_VER_POSITIVE = 0X4;
 
         // Animates the window from bottom to top. This flag can be used with roll or slide animation.
         public const int AW_VER_NEGATIVE = 0X8;
@@ -56,7 +65,7 @@ namespace MercuryBOT.Notification
             this.components.SetStyle(this);
             Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 0, 0));
 
-           // this.lbl_title.Text = title;
+            // this.lbl_title.Text = title;
             this.txtBox_desc.Text = desc;
 
             lbl_time.Text = DateTime.Now.ToString("HH:mm");
@@ -86,7 +95,7 @@ namespace MercuryBOT.Notification
             return taskBarLocation;
         }
 
-        
+
         protected override void OnLoad(EventArgs e)
         {
             txtBox_desc.Select(0, -1);
