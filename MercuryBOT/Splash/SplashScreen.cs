@@ -107,8 +107,8 @@ namespace MercuryBOT.Splash
 
             dynamic volvo = VdfConvert.Deserialize(File.ReadAllText(Helpers.Extensions.SteamLocation + @"\config\loginusers.vdf"));
             VToken v2 = volvo.Value;
-            return v2.Children().Select(child => new SteamLoginUsers(child)).OrderByDescending(user => user.LastLoginTime).ToList();
-                //.Where(user => user.RememberPassword)
+            return v2.Children().Select(child => new SteamLoginUsers((VProperty)child)).OrderByDescending(user => user.LastLoginTime).ToList();
+            //.Where(user => user.RememberPassword)
         }
 
         [Obsolete]

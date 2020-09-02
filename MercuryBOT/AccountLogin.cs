@@ -354,8 +354,8 @@ namespace MercuryBOT
             {
                 if (DisconnectedCounter >= MaxDisconnects)
                 {
-                    Console.WriteLine("[" + Program.BOTNAME + "] - Too many disconnects occured in a short period of time. Wait 1 min brother...");
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Too many disconnects occured in a short period of time. Wait 1 min brother...");
+                    Console.WriteLine("[" + Program.BOTNAME + "] - Too many disconnects occured in a short period of time. Wait 1 min brother... (Maybe steam is down)");
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Too many disconnects occured in a short period of time. Wait 1 min brother... (Maybe steam is down)");
                     Thread.Sleep(TimeSpan.FromMinutes(1));
                     DisconnectedCounter = 0;
                 }
