@@ -24,6 +24,7 @@ using MercuryBOT.CustomHandlers;
 using MercuryBOT.CallbackMessages;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace MercuryBOT
 {
@@ -54,6 +55,7 @@ namespace MercuryBOT
         public static SteamWeb steamWeb;
         public static GamesHandler gamesHandler;
         public static SteamMatchmaking steamMM;
+        public static SteamUnifiedMessages steamUnified;
 
         public static string MessageString;
         public static bool ChatLogger = false;
@@ -71,7 +73,8 @@ namespace MercuryBOT
         public static bool IsWebLoggedIn { get; private set; }
         public static bool IsLoggedIn { get; private set; }
         public static bool isRunning = false;
-        private static EResult LastLogOnResult;
+        public static EResult LastLogOnResult;
+        public static string LoginStatus = "Not connected...";
 
         private static int DisconnectedCounter;
         private static int MaxDisconnects = 4;
@@ -114,7 +117,6 @@ namespace MercuryBOT
             steamWeb = new SteamWeb();
             gamesHandler = new GamesHandler();
 
-
             MercuryManager = new CallbackManager(steamClient);
 
             //DebugLog.AddListener(new MyListener());
@@ -123,6 +125,7 @@ namespace MercuryBOT
             #region Callbacks
             steamUser = steamClient.GetHandler<SteamUser>();
             steamFriends = steamClient.GetHandler<SteamFriends>();
+            steamUnified = steamClient.GetHandler<SteamUnifiedMessages>();
 
             MercuryManager.Subscribe<SteamClient.ConnectedCallback>(OnConnected);
             MercuryManager.Subscribe<SteamClient.DisconnectedCallback>(OnDisconnected);
@@ -141,6 +144,9 @@ namespace MercuryBOT
             MercuryManager.Subscribe<SteamFriends.PersonaStateCallback>(OnPersonaState);
             MercuryManager.Subscribe<SteamFriends.PersonaChangeCallback>(OnSteamNameChange);
 
+
+            MercuryManager.Subscribe<SteamUnifiedMessages.ServiceMethodNotification>(OnServiceMethod);
+
             //MercuryManager.Subscribe<SteamMatchmaking.GetLobbyListCallback>(OnLobbyList);
             //MercuryManager.Subscribe<SteamMatchmaking.CreateLobbyCallback>(OnCreateLobby);
             //MercuryManager.Subscribe<SteamMatchmaking.JoinLobbyCallback>(OnJoinLobby);
@@ -155,7 +161,7 @@ namespace MercuryBOT
             MercuryManager.Subscribe<PurchaseResponseCallback>(OnPurchaseResponse);
 
             Console.WriteLine("[" + Program.BOTNAME + "] - Connecting to Steam...");
-
+            LoginStatus = "Connecting to Steam...";
             steamClient.Connect();
 
             while (isRunning)
@@ -163,12 +169,134 @@ namespace MercuryBOT
                 MercuryManager.RunWaitCallbacks(TimeSpan.FromMilliseconds(500));
             }
         }
+
+        static void OnServiceMethod(SteamUnifiedMessages.ServiceMethodNotification notification)
+        {
+            if (notification == null)
+            {
+                //nameof(notification);
+
+                return;
+            }
+
+            switch (notification.MethodName)
+            {
+                case "ChatRoomClient.NotifyIncomingChatMessage#1":
+                    OnIncomingChatMessage((CChatRoom_IncomingChatMessage_Notification)notification.Body);
+
+                    break;
+                case "FriendMessagesClient.IncomingMessage#1":
+                    OnIncomingMessage((CFriendMessages_IncomingMessage_Notification)notification.Body);
+
+                    break;
+            }
+        }
+
+        static void OnIncomingChatMessage(CChatRoom_IncomingChatMessage_Notification notification)
+        {
+            if (notification == null)
+            {
+                // ArchiLogger.LogNullError(nameof(notification));
+
+                return;
+            }
+
+            // Under normal circumstances, timestamp must always be greater than 0, but Steam already proved that it's capable of going against the logic
+            //   if ((notification.steamid_sender != SteamID) && (notification.timestamp > 0) && BotConfig.BotBehaviour.HasFlag(BotConfig.EBotBehaviour.MarkReceivedMessagesAsRead))
+            //   {
+            //       Utilities.InBackground(() => ArchiHandler.AckChatMessage(notification.chat_group_id, notification.chat_id, notification.timestamp));
+            //   }
+
+            string message;
+
+            // Prefer to use message without bbcode, but only if it's available
+            if (!string.IsNullOrEmpty(notification.message_no_bbcode))
+            {
+                message = notification.message_no_bbcode;
+            }
+            else if (!string.IsNullOrEmpty(notification.message))
+            {
+                message = UnEscape(notification.message);
+            }
+            else
+            {
+                return;
+            }
+
+            // ArchiLogger.LogChatMessage(false, message, notification.chat_group_id, notification.chat_id, notification.steamid_sender);
+            //  if ((notification.chat_group_id != MasterChatGroupID) || (BotConfig.OnlineStatus == EPersonaState.Offline))
+            //  {
+            //     return;
+            //   }
+
+            // await HandleMessage(notification.chat_group_id, notification.chat_id, notification.steamid_sender, message).ConfigureAwait(false);            
+            Console.WriteLine(notification.chat_group_id + notification.chat_id + notification.steamid_sender);
+
+        }
+
+        static void OnIncomingMessage(CFriendMessages_IncomingMessage_Notification notification)
+        {
+
+            if (notification == null)
+            {
+                //  ArchiLogger.LogNullError(nameof(notification));
+
+                return;
+            }
+
+            if ((EChatEntryType)notification.chat_entry_type != EChatEntryType.ChatMsg)
+            {
+                return;
+            }
+
+            // Under normal circumstances, timestamp must always be greater than 0, but Steam already proved that it's capable of going against the logic
+            //  if (!notification.local_echo && (notification.rtime32_server_timestamp > 0) && BotConfig.BotBehaviour.HasFlag(BotConfig.EBotBehaviour.MarkReceivedMessagesAsRead))
+            // {
+            //Utilities.InBackground(() => ArchiHandler.AckMessage(notification.steamid_friend, notification.rtime32_server_timestamp));
+            //  }
+
+            string message;
+
+            // Prefer to use message without bbcode, but only if it's available
+            if (!string.IsNullOrEmpty(notification.message_no_bbcode))
+            {
+                message = notification.message_no_bbcode;
+            }
+            else if (!string.IsNullOrEmpty(notification.message))
+            {
+                message = UnEscape(notification.message);
+            }
+            else
+            {
+                return;
+            }
+
+            // ArchiLogger.LogChatMessage(notification.local_echo, message, steamID: notification.steamid_friend);
+            //  if (notification.local_echo || (BotConfig.OnlineStatus == EPersonaState.Offline))
+            //  {
+            //      return;
+            // }
+            //  await HandleMessage(notification.steamid_friend, message).ConfigureAwait(false);
+            //  Console.WriteLine("message from: "+notification.steamid_friend + message);
+        }
+
+        private static string UnEscape(string message) //ArchiSteamFarm
+        {
+            if (string.IsNullOrEmpty(message))
+            {
+                // ASF.ArchiLogger.LogNullError(nameof(message));
+                return null;
+            }
+            return message.Replace("\\[", "[").Replace("\\\\", "\\");
+        }
+
+
         static void OnConnected(SteamClient.ConnectedCallback callback)
         {
             if (callback.ToString() != "SteamKit2.SteamClient+ConnectedCallback")
             {
                 Console.WriteLine("[" + Program.BOTNAME + "] - Unable to connect to Steam: {0}", callback);
-
+                LoginStatus = "Unable to connect to Steam:" + callback;
                 isRunning = false;
                 return;
             }
@@ -176,7 +304,7 @@ namespace MercuryBOT
             //Sucess
             Console.WriteLine("[" + Program.BOTNAME + "] - Connected to Steam! Logging in '{0}'...", user);
             Notification.NotifHelper.MessageBox.Show("Info", "Connected to Steam!\nLogging in " + user + "...");
-
+            LoginStatus = "Connected to Steam! Logging in " + user;
 
             byte[] sentryHash = null;
             if (File.Exists(Program.SentryFolder + user + ".bin"))
@@ -195,7 +323,7 @@ namespace MercuryBOT
                     if (string.IsNullOrEmpty(a.LoginKey) || a.LoginKey.ToString() == "undefined")
                     {
                         // NewloginKey = null;
-                        //a.LoginKey = "";
+                        // a.LoginKey = "";
                     }
                     else
                     {
@@ -237,6 +365,7 @@ namespace MercuryBOT
                 if (is2FA)
                 {
                     Notification.NotifHelper.MessageBox.Show("Info", "Steam Guard detected, showing input form!");
+                    LoginStatus = "Steam Guard detected, showing input form!";
 
                     SteamGuard SteamGuard = new SteamGuard("Phone", user);
                     SteamGuard.ShowDialog();
@@ -272,16 +401,19 @@ namespace MercuryBOT
                     {
                         Console.WriteLine("[" + Program.BOTNAME + "] - Login key expired. Connecting with user password.");
                         Notification.NotifHelper.MessageBox.Show("Info", "Login key expired.\nConnecting with user password...");
+                        LoginStatus = " Login key expired. Connecting with user password.";
                     }
                     else
                     {
                         Console.WriteLine("[" + Program.BOTNAME + "] - Login key expired.");
                         Notification.NotifHelper.MessageBox.Show("Info", "Login key expired!\nConnecting...");
+                        LoginStatus = "Login key expired! Connecting...";
                     }
                 }
                 else
                 {
                     Notification.NotifHelper.MessageBox.Show("Info", "Steam Guard detected, showing input form!");
+                    LoginStatus = "Steam Guard detected, showing input form!";
 
                     SteamGuard SteamGuard = new SteamGuard(callback.EmailDomain, user);
                     SteamGuard.ShowDialog();
@@ -304,6 +436,7 @@ namespace MercuryBOT
             {
                 Console.WriteLine("[" + Program.BOTNAME + "] - Unable to logon to Steam: {0} / {1}", callback.Result, callback.ExtendedResult);
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Unable to logon to Steam: " + callback.Result);
+                LoginStatus = "Unable to logon to Steam: " + callback.Result;
                 isRunning = false;
                 return;
             }
@@ -311,6 +444,7 @@ namespace MercuryBOT
 
             Console.WriteLine("[" + Program.BOTNAME + "] - Successfully logged on! \n Valve Time:" + callback.ServerTime.ToString("R"));
             Notification.NotifHelper.MessageBox.Show("Info", "Successfully logged on!");
+            LoginStatus = "Successfully logged on!";
 
             CurrentSteamID = steamClient.SteamID.ConvertToUInt64();
             myUserNonce = callback.WebAPIUserNonce;
@@ -318,6 +452,7 @@ namespace MercuryBOT
 
             UserClanIDS();
             //gather_ClanOfficers();
+            //ChatMode();
 
             IsLoggedIn = true;
 
@@ -346,6 +481,7 @@ namespace MercuryBOT
         static void OnDisconnected(SteamClient.DisconnectedCallback callback)
         {
             EResult lastLogOnResult = LastLogOnResult;
+            //if serviceunabalieve
             CurrentPersonaState = 0;
 
             DisconnectedCounter++;
@@ -356,11 +492,13 @@ namespace MercuryBOT
                 {
                     Console.WriteLine("[" + Program.BOTNAME + "] - Too many disconnects occured in a short period of time. Wait 1 min brother... (Maybe steam is down)");
                     InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Too many disconnects occured in a short period of time. Wait 1 min brother... (Maybe steam is down)");
+                    LoginStatus = "Too many disconnects occured in a short period of time.";
                     Thread.Sleep(TimeSpan.FromMinutes(1));
                     DisconnectedCounter = 0;
                 }
             }
             Console.WriteLine("[" + Program.BOTNAME + "] - Reconnecting in 2s ..." + callback.UserInitiated);
+            LoginStatus = "Reconnecting in 2s...";
 
             Thread.Sleep(2000);
             steamClient.Connect();
@@ -673,6 +811,10 @@ namespace MercuryBOT
             }
         }
 
+
+        [DllImport("PowrProf.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
+        public static extern bool SetSuspendState(bool hiberate, bool forceCritical, bool disableWakeEvent);
+
         static void OnFriendMsg(SteamFriends.FriendMsgCallback callback) // Auto MSG
         {
             if (ChatLogger == true && callback.EntryType == EChatEntryType.ChatMsg)
@@ -738,26 +880,36 @@ namespace MercuryBOT
 
                     switch (command)
                     {
+                        case ".pcsleep":
+                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Sleeping..." + "\r\n\r\n" + Program.BOTNAME);
+                            Thread.Sleep(500);
+                            SetSuspendState(false, true, true); //sleep
+                            break;
+                        case ".pchiber":
+                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Hibernating..." + "\r\n\r\n" + Program.BOTNAME);
+                            Thread.Sleep(500);
+                            SetSuspendState(true, true, true); //hibernate
+                            break;
                         case ".pcrr":
                             var reboot = new ProcessStartInfo("shutdown", "/r /t 0") { CreateNoWindow = true, UseShellExecute = false };
                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Restarting..." + "\r\n\r\n" + Program.BOTNAME);
-                            Thread.Sleep(100);
+                            Thread.Sleep(500);
                             Process.Start(reboot);
                             break;
                         case ".pcoff":
                             var shutdown = new ProcessStartInfo("shutdown", "/s /t 0") { CreateNoWindow = true, UseShellExecute = false };
                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Going down..." + "\r\n\r\n" + Program.BOTNAME);
-                            Thread.Sleep(100);
+                            Thread.Sleep(500);
                             Process.Start(shutdown);
                             break;
                         case ".close":
                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Closing... :c" + "\r\n\r\n" + Program.BOTNAME);
-                            Thread.Sleep(100);
+                            Thread.Sleep(500);
                             Environment.Exit(1);
                             break;
                         case ".logoff":
                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Logged off... :c" + "\r\n\r\n" + Program.BOTNAME);
-                            Thread.Sleep(100);
+                            Thread.Sleep(500);
                             Logout();
                             break;
                         case ".play":
@@ -816,7 +968,7 @@ namespace MercuryBOT
                         case ".steamrep ":
                             // not yet
                             break;
-                        case "trolha":
+                        case ".trolha":
                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "https://steamcommunity.com/profiles/76561198041931474" + "\r\n\r\n" + Program.BOTNAME);
                             break;
                     }
@@ -832,7 +984,7 @@ namespace MercuryBOT
                     List<string> CMessages = new List<string>();// secalhar nem criar lista, secalhar usar  a lista do json e pegar na random direta ai
                     Random random = new Random();
                     int r = 0;
-                   // CMessages.Add("I'm using Mercury: Ultimate free open source Steam Tool! - https://github.com/sp0ok3r/Mercury"); // *
+                    // CMessages.Add("I'm using Mercury: Ultimate free open source Steam Tool! - https://github.com/sp0ok3r/Mercury"); // *
 
                     foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
                     {
@@ -975,7 +1127,7 @@ namespace MercuryBOT
         }
         #endregion
 
-        private void ChatMode()
+        public static void ChatMode()
         {
             //https://github.com/SteamRE/SteamKit/issues/561
             ClientMsgProtobuf<CMsgClientUIMode> request = new ClientMsgProtobuf<CMsgClientUIMode>(EMsg.ClientCurrentUIMode) { Body = { chat_mode = 2 } };
@@ -1057,6 +1209,11 @@ namespace MercuryBOT
             DisconnectedCounter = 0;
             CurrentPersonaState = 0;
             CurrentUsername = null;
+        }
+
+        public static void NotifBox(string title,string mess)
+        {
+            Notification.NotifHelper.MessageBox.Show(title, mess);
         }
     }
 }

@@ -33,6 +33,8 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using Win32Interop.Methods;
+using System.Reflection;
+using System.Reflection.Metadata;
 
 namespace MercuryBOT
 {
@@ -97,12 +99,12 @@ namespace MercuryBOT
             return 0;
         }
         #endregion
-        
+
         [Obsolete]
         private void Main_Shown(object sender, EventArgs e)
         {
             var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
-            
+
             DateTime now = DateTime.Now;
             if (SettingsList.LastTimeCheckedUpdate == null || SettingsList.LastTimeCheckedUpdate.Length == 0)
             {
@@ -143,7 +145,8 @@ namespace MercuryBOT
             this.Activate();
             this.components.SetStyle(this);
             RefreshAccountList();
-            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(1, 1, Width, Height + 5, 15, 15));
+            //Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(1, 1, Width, Height + 5, 15, 15));
+            Region = Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
             IntPtr ptrLogout = Gdi32.CreateRoundRectRgn(1, 1, btn_logout.Width, btn_logout.Height, 5, 5);
             btn_logout.Region = Region.FromHrgn(ptrLogout);
@@ -181,7 +184,7 @@ namespace MercuryBOT
         public void Main_Load(object sender, EventArgs e)
         {
             this.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            
+
             lbl_infoversion.Text = "v" + Program.Version.Replace("-", "");
 
 
@@ -218,7 +221,9 @@ namespace MercuryBOT
                 Stream str = Properties.Resources.mercury_success;
                 SoundPlayer snd = new SoundPlayer(str);
                 snd.Play();
-            }else{
+            }
+            else
+            {
                 toggle_playSound.Checked = false;
             }
 
@@ -308,6 +313,7 @@ namespace MercuryBOT
             {
                 Console.WriteLine("sp0ok3r.tk down or No internet connection");
                 Notification.NotifHelper.MessageBox.Show("Alert", "No internet connection, restarting...");
+
                 Process.Start("https://github.com/sp0ok3r/Mercury/releases");
 
                 //Process.Start(Application.ExecutablePath);
@@ -372,12 +378,14 @@ namespace MercuryBOT
         #region Buttons
         private void btn_admincmds_Click(object sender, EventArgs e)
         {
-            MetroFramework.MetroMessageBox.Show(this, ".pcrr - Restart PC.\n" +
+            MetroFramework.MetroMessageBox.Show(this, ".pcsleep - Puts pc on sleep mode\n"+
+                                                      ".pchiber - Puts pc on hibernate mode\n" +
+                                                      ".pcrr - Restart PC.\n" +
                                                       ".pcoff - Shutdown PC.\n" +
                                                      ".close - Closes MercuryBOT process.\n" +
                                                      ".logoff - Logoff from current account.\n" +
                                                      ".non customname - Play a non - steam game(change customname to anything)\n" +
-                                                     ".play customname - Play a non steam game and appids.", "Mercury - Admin Commands", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                     ".play customname - Play a non steam game and appids.", "Mercury - Admin Commands", MessageBoxButtons.OK, MessageBoxIcon.None, 250);
         }
 
         private void btn_addAcc_Click(object sender, EventArgs e)
@@ -472,8 +480,26 @@ namespace MercuryBOT
             {
                 if (txtBox_gameNonSteam.Text.Length < 50)
                 {
-                    Utils.PlayNonSteamGame(txtBox_gameNonSteam.Text);
-                    btn_playnormal.Enabled = false;
+                    if (ckc_rndEmoji.Checked)
+                    {
+                        txtBox_gameNonSteam.Clear();
+
+                        var emojiS = typeof(Helpers.Emojis)
+                        .GetFields(BindingFlags.Public | BindingFlags.Static)
+                        .Where(field => field.IsLiteral)
+                        .Where(field => field.FieldType == typeof(String))
+                        .Select(field => field.GetValue(null) as String);
+
+                        var randomemojis = emojiS.ElementAt(new Random().Next(847));
+
+                        Utils.PlayNonSteamGame(txtBox_gameNonSteam.Text += randomemojis + randomemojis + randomemojis + randomemojis);
+                        btn_playnormal.Enabled = false;
+                    }
+                    else
+                    {
+                        Utils.PlayNonSteamGame(txtBox_gameNonSteam.Text);
+                        btn_playnormal.Enabled = false;
+                    }
                 }
                 else
                 {
@@ -581,7 +607,7 @@ namespace MercuryBOT
                             if (a.username == AccountLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(friendid.ConvertToUint64().ToString())))
                             {
                                 quantasPrincesas++;
-                                steamfriends002.SendMsgToFriend(friendid, Steam4NET.EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text), (txtBox_msg2Friends.Text.Length) + 1);
+                                steamfriends002.SendMsgToFriend(friendid, EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text), (txtBox_msg2Friends.Text.Length) + 1);
                                 Thread.Sleep(100);// my nigger needs some OXYGEN 😌 
                             }
                         }
@@ -605,7 +631,8 @@ namespace MercuryBOT
                     {
                         AccountLogin.SendMsg2AllFriends(txtBox_msg2Friends.Text, chck_Send2Receipts.Checked);
                         btn_sendMsg2Friends.Enabled = false;
-                    }else
+                    }
+                    else
                     {
                         InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please write something...");
                     }
@@ -644,13 +671,13 @@ namespace MercuryBOT
                     Utils.gatherWebApiKey();
                     return;
                 }
-                
-               
-                
+
+
+
                 try
                 {
                     var webInterfaceFactory = new SteamWebInterfaceFactory(apikey);
-                   var steamInterface = webInterfaceFactory.CreateSteamWebInterface<SteamUser>(new HttpClient());
+                    var steamInterface = webInterfaceFactory.CreateSteamWebInterface<SteamUser>(new HttpClient());
 
                     ProgressSpinner_FriendsList.Visible = true;
                     btn_loadFriends.Enabled = false;
@@ -763,7 +790,7 @@ namespace MercuryBOT
                                 Utils.PlayGames(gameuints, "disable");
                             }
                         }
-                      //  Notification.NotifHelper.MessageBox.Show("Info", "Playing: "+a.Games.Count + "games.");
+                        //  Notification.NotifHelper.MessageBox.Show("Info", "Playing: "+a.Games.Count + "games.");
                     }
                     btn_playnormal.Enabled = false;
                     btn_playNonSteam.Enabled = false;
@@ -788,10 +815,11 @@ namespace MercuryBOT
         {
             if (AccountLogin.IsLoggedIn == true)
             {
+                // Notification.NotifHelper.MessageBox.Show("Info", "Idling stopped");
                 Utils.StopGames();
                 btn_playnormal.Enabled = true;
                 btn_playNonSteam.Enabled = true;
-                Notification.NotifHelper.MessageBox.Show("Info", "Idling stopped");
+
 
             }
             else
@@ -890,7 +918,7 @@ namespace MercuryBOT
                     else
                     {
                         txtBox_redeemKey.Clear();
-                        Notification.NotifHelper.MessageBox.Show("Error", "Please write a CDKey Or Invalid.");
+                        InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please write a CDKey Or Invalid.");
                     }
                 }
             }
@@ -917,7 +945,7 @@ namespace MercuryBOT
                     btn_importKeys.Enabled = false;
                 }
             }
-            
+
         }
 
         private void btn_login2selected_Click(object sender, EventArgs e)
@@ -945,12 +973,14 @@ namespace MercuryBOT
                     passwordJSON = a.password;
                 }
             }
+
+            lbl_infoLogin.Text = "Trying to login...";
             // Start Login
             Thread doLogin = new Thread(() => AccountLogin.UserSettingsGather(usernameJSON, passwordJSON));
             doLogin.Start();
 
             btn_login2selected.Enabled = false;
-            lbl_infoLogin.Text = "Trying to login...";
+
         }
 
         private void combox_uimodes_SelectedIndexChanged(object sender, EventArgs e)
@@ -1208,6 +1238,7 @@ namespace MercuryBOT
 
         private void metroLink_spk_Click(object sender, EventArgs e)
         {
+            Process.Start("http://sp0ok3r.tk");
             Process.Start("http://steamcommunity.com/profiles/76561198041931474");
         }
 
@@ -1473,6 +1504,8 @@ namespace MercuryBOT
 
         private void CurrentUserSafeUpdater()
         {
+
+            lbl_infoLogin.Text += AccountLogin.LoginStatus.ToString();
             // try
             // {
             if (AccountLogin.IsLoggedIn == true)
@@ -1493,7 +1526,7 @@ namespace MercuryBOT
 
                 btnLabel_PersonaAndFlag.Invoke(new Action(() => btnLabel_PersonaAndFlag.Text = AccountLogin.UserPersonaName));
 
-                
+
                 if (AccountLogin.UserPlaying)
                 {
                     panel_steamStates.BackColor = Color.Green;
@@ -1515,6 +1548,8 @@ namespace MercuryBOT
 
                 lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = AccountLogin.CurrentUsername));
                 lbl_infoLogin.Text = "Connected"; // return;
+
+
             }
             else
             {
@@ -1591,7 +1626,7 @@ namespace MercuryBOT
                 AccountLogin.ChatLogger = false;
             }
         }
-        
+
         private void Chatlog_Folder_Click(object sender, EventArgs e)
         {
             if (AccountLogin.IsLoggedIn == true)
@@ -1725,16 +1760,17 @@ namespace MercuryBOT
             if (Extensions.SteamLocation == null)
             {
                 //btn_userdata.Enabled = false;
-                Notification.NotifHelper.MessageBox.Show("Alert", "Userdata folder not found...");
+                InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Userdata folder not found...");
                 btn_userdata.TabStop = false;
 
             }
-            else{
+            else
+            {
 
-               // btn_userdata.Enabled = true;
+                // btn_userdata.Enabled = true;
                 if (AccountLogin.IsLoggedIn == true)
                 {
-                   Process.Start(Extensions.SteamLocation + @"/userdata/" + Extensions.AllToSteamId3(AccountLogin.CurrentSteamID).Substring(1));
+                    Process.Start(Extensions.SteamLocation + @"/userdata/" + Extensions.AllToSteamId3(AccountLogin.CurrentSteamID).Substring(1));
                 }
                 else
                 {
@@ -1777,7 +1813,7 @@ namespace MercuryBOT
 
         }
 
-      
+
 
         private void btn_idleSettings_Click(object sender, EventArgs e)
         {
@@ -1824,7 +1860,7 @@ namespace MercuryBOT
             else
             {
                 txtBox_redeemKey.Clear();
-                Notification.NotifHelper.MessageBox.Show("Error", "Please write a CDKey Or Invalid.");
+                AccountLogin.NotifBox("Error", "Please write a CDKey Or Invalid.");
             }
         }
 
@@ -1833,12 +1869,12 @@ namespace MercuryBOT
             if (Extensions.SteamLocation == null)
             {
                 //btn_folderGames.Enabled = false;
-                Notification.NotifHelper.MessageBox.Show("Alert", "Games folder not found...");
+                InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Games folder not found...");
             }
             else
             {
 
-               // btn_folderGames.Enabled = true;
+                // btn_folderGames.Enabled = true;
                 if (AccountLogin.IsLoggedIn == true)
                 {
                     Process.Start(Extensions.SteamLocation + @"/steamapps/common/");
@@ -1850,11 +1886,6 @@ namespace MercuryBOT
             }
         }
 
-        private void metroButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void CDKeys_ScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             if (e.NewValue >= CDKeys_Grid.Rows.Count)
@@ -1864,7 +1895,7 @@ namespace MercuryBOT
             CDKeys_Grid.FirstDisplayedScrollingRowIndex = e.NewValue;
         }
 
-        public static bool LoginAccountInClient(string user,string pw)
+        public static bool LoginAccountInClient(string user, string pw)
         {
             var steam = Path.Combine(Extensions.SteamLocation, "Steam.exe");
             if (!File.Exists(steam))

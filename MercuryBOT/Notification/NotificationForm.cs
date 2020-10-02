@@ -18,13 +18,21 @@ namespace MercuryBOT.Notification
 {
     public partial class NotificationForm : MetroFramework.Forms.MetroForm
     {
+        //protected override void WndProc(ref Message m)
+        //{
+        //    // Ignore all messages that try to set the focus.
+        //    if (m.Msg != 0x7)
+        //    {
+        //        base.WndProc(ref m);
+        //    }
+        //}
+
         protected override void WndProc(ref Message m)
         {
-            // Ignore all messages that try to set the focus.
-            if (m.Msg != 0x7)
-            {
+            if (m.Msg == (int)0x84)
+                m.Result = (IntPtr)(-1);
+            else
                 base.WndProc(ref m);
-            }
         }
 
 
@@ -104,6 +112,7 @@ namespace MercuryBOT.Notification
 
             //Animate form
             Notify();
+           
 
         }
         private void Notify()

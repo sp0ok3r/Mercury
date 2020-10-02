@@ -28,8 +28,29 @@ namespace MercuryBOT.CustomHandlers
                     break;
             }
         }
-        
+
         #region PlayGames
+
+        public void SetGamePlayingNormal2(uint _gameID, string _game)//ver
+        {
+            ClientMsgProtobuf<CMsgClientGamesPlayed> gamePlaying = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
+
+            CMsgClientGamesPlayed.GamePlayed teste = new CMsgClientGamesPlayed.GamePlayed();
+            GameID game_id = new GameID(_gameID);
+
+            if (_game.Length < 1)//nao
+            {
+               // gamePlaying.Body.games_played.Add();
+                gamePlaying.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed { game_id = new GameID(_gameID) });
+            }else{
+                gamePlaying.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed { game_id = 12350489788975939584, game_extra_info = _game });
+            }
+
+
+            Client.Send(gamePlaying);
+        }
+
+
         public void SetGamePlayingNormal(uint _gameID)
         {
             ClientMsgProtobuf<CMsgClientGamesPlayed> gamePlaying = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
@@ -42,7 +63,7 @@ namespace MercuryBOT.CustomHandlers
         public void SetGamePlayingNONSteam(string _game)
         {
             ClientMsgProtobuf<CMsgClientGamesPlayed> gamePlaying = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
-            gamePlaying.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed { game_id = 12350489788975939584,game_extra_info = _game });
+            gamePlaying.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed { game_id = 12350489788975939584, game_extra_info = _game });
             Client.Send(gamePlaying);
         }
 
@@ -80,7 +101,7 @@ namespace MercuryBOT.CustomHandlers
         public async Task<string> RedeemKeyResponse(string _keyToActivate)
         {
             PurchaseResponseCallback activatedResponse = await RedeemKey(_keyToActivate).ConfigureAwait(false);
-       
+
             return $"Status: {activatedResponse.m_Result}/{activatedResponse.m_PurchaseResultDetail}, {string.Join(",", activatedResponse.m_Items.Select(_key => $"Key: [ {_keyToActivate} ] Game: [ {_key.Key}/{_key.Value} ]").ToArray())}";
         }
 
