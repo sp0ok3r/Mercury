@@ -285,41 +285,54 @@ namespace MercuryBOT
             Environment.Exit(1);
         }
 
-        [Obsolete]
+
+
         private void RafadexAutoUpdate600IQ()
         {
             try
             {
                 using (WebClient client = new WebClient())
                 {
-                    string updateCheck = client.DownloadString(Program.spkDomain + "update.php");
-
-                    if (updateCheck != Program.Version)
+                    client.BaseAddress = Program.spkDomain + "update.php";
+                    if (client.ResponseHeaders == null)
                     {
-                        this.Enabled = false;
-                        this.Hide();
+                        Console.WriteLine("sp0ok3r.tk down or No internet connection");
+                        Notification.NotifHelper.MessageBox.Show("Alert", "Checking for updates failed, maybe sp0ok3r.tk is down.");
 
-                        Console.WriteLine("New update: " + updateCheck);
-                        Form Update = new Update(updateCheck);
-                        Update.Show();
+                        Process.Start("https://github.com/sp0ok3r/Mercury/releases");
+
+                        //Process.Start(Application.ExecutablePath);
+                        //Application.Exit();
+                        this.Enabled = true;
                     }
                     else
                     {
-                        this.Enabled = true;
+
+                        string updateCheck = client.DownloadString(client.BaseAddress);
+
+                        if (updateCheck != Program.Version)
+                        {
+                            this.Enabled = false;
+                            this.Hide();
+
+                            Console.WriteLine("New update: " + updateCheck);
+                            Form Update = new Update(updateCheck);
+                            Update.Show();
+                        }
+                        else
+                        {
+                            this.Enabled = true;
+                        }
+
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Console.WriteLine("sp0ok3r.tk down or No internet connection");
-                Notification.NotifHelper.MessageBox.Show("Alert", "No internet connection, restarting...");
-
-                Process.Start("https://github.com/sp0ok3r/Mercury/releases");
-
-                //Process.Start(Application.ExecutablePath);
-                Application.Exit();
+                Console.Write(e);
             }
         }
+
         public void RefreshAccountList()
         {
             int i = 0;
@@ -378,7 +391,7 @@ namespace MercuryBOT
         #region Buttons
         private void btn_admincmds_Click(object sender, EventArgs e)
         {
-            MetroFramework.MetroMessageBox.Show(this, ".pcsleep - Puts pc on sleep mode\n"+
+            MetroFramework.MetroMessageBox.Show(this, ".pcsleep - Puts pc on sleep mode\n" +
                                                       ".pchiber - Puts pc on hibernate mode\n" +
                                                       ".pcrr - Restart PC.\n" +
                                                       ".pcoff - Shutdown PC.\n" +
