@@ -22,17 +22,5 @@ namespace MercuryBOT.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string setting {
-            get {
-                return ((string)(this["setting"]));
-            }
-            set {
-                this["setting"] = value;
-            }
-        }
     }
 }

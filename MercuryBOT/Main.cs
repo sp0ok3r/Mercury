@@ -503,9 +503,9 @@ namespace MercuryBOT
                         .Where(field => field.FieldType == typeof(String))
                         .Select(field => field.GetValue(null) as String);
 
-                        var randomemojis = emojiS.ElementAt(new Random().Next(847));
+                        var randomemojis = emojiS.ElementAt(new Random().Next(emojiS.ToArray().Length));
 
-                        Utils.PlayNonSteamGame(txtBox_gameNonSteam.Text += randomemojis + randomemojis + randomemojis + randomemojis);
+                        Utils.PlayNonSteamGame(txtBox_gameNonSteam.Text += string.Concat(Enumerable.Repeat(randomemojis, 5)));
                         btn_playnormal.Enabled = false;
                     }
                     else

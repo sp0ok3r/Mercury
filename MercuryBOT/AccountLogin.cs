@@ -300,6 +300,10 @@ namespace MercuryBOT
                 isRunning = false;
                 return;
             }
+            if (callback == null)
+            {
+                throw new ArgumentNullException(nameof(callback));
+            }
 
             //Sucess
             Console.WriteLine("[" + Program.BOTNAME + "] - Connected to Steam! Logging in '{0}'...", user);
@@ -481,6 +485,7 @@ namespace MercuryBOT
         static void OnDisconnected(SteamClient.DisconnectedCallback callback)
         {
             EResult lastLogOnResult = LastLogOnResult;
+
             //if serviceunabalieve
             CurrentPersonaState = 0;
 
