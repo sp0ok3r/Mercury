@@ -35,6 +35,7 @@ using System.Windows.Forms;
 using Win32Interop.Methods;
 using System.Reflection;
 using System.Reflection.Metadata;
+using System.ComponentModel;
 
 namespace MercuryBOT
 {
@@ -178,7 +179,7 @@ namespace MercuryBOT
             //{
             //    lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
             //}
-
+            
         }
 
         public void Main_Load(object sender, EventArgs e)
@@ -286,50 +287,58 @@ namespace MercuryBOT
         }
 
 
-
         private void RafadexAutoUpdate600IQ()
         {
+            var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
+
+            SettingsList.LastTimeCheckedUpdate = DateTime.Now.ToString();
+
+            File.Delete(Program.SettingsJsonFile);
+
+            //string convertedJson = JsonConvert.SerializeObject(SettingsList, new JsonSerializerSettings
+            //{
+            //    DefaultValueHandling = DefaultValueHandling.Populate,
+            //    Formatting = Formatting.Indented
+            ////});
+
+            File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, Formatting.Indented));
+
+            // json nao esta a actualizar
+
             try
             {
                 using (WebClient client = new WebClient())
                 {
                     client.BaseAddress = Program.spkDomain + "update.php";
-                    if (client.ResponseHeaders == null)
+
+                    string updateCheck = client.DownloadString(client.BaseAddress);
+
+                    if (updateCheck != Program.Version)
                     {
-                        Console.WriteLine("sp0ok3r.tk down or No internet connection");
-                        Notification.NotifHelper.MessageBox.Show("Alert", "Checking for updates failed, maybe sp0ok3r.tk is down.");
+                        this.Enabled = false;
+                        this.Hide();
 
-                        Process.Start("https://github.com/sp0ok3r/Mercury/releases");
-
-                        //Process.Start(Application.ExecutablePath);
-                        //Application.Exit();
-                        this.Enabled = true;
+                        Console.WriteLine("New update: " + updateCheck);
+                        Form Update = new Update(updateCheck);
+                        Update.Show();
                     }
                     else
                     {
-
-                        string updateCheck = client.DownloadString(client.BaseAddress);
-
-                        if (updateCheck != Program.Version)
-                        {
-                            this.Enabled = false;
-                            this.Hide();
-
-                            Console.WriteLine("New update: " + updateCheck);
-                            Form Update = new Update(updateCheck);
-                            Update.Show();
-                        }
-                        else
-                        {
-                            this.Enabled = true;
-                        }
-
+                        this.Enabled = true;
                     }
+
                 }
             }
-            catch (Exception e)
+            catch (Exception uwu)
             {
-                Console.Write(e);
+                Console.WriteLine("sp0ok3r.tk down or No internet connection");
+                Notification.NotifHelper.MessageBox.Show("Alert", "Checking for updates failed, maybe sp0ok3r.tk is down.");
+
+                //Process.Start("https://github.com/sp0ok3r/Mercury/releases");
+
+                //Process.Start(Application.ExecutablePath);
+                //Application.Exit();
+                this.Enabled = true;
             }
         }
 
@@ -685,8 +694,7 @@ namespace MercuryBOT
                     return;
                 }
 
-
-
+                
                 try
                 {
                     var webInterfaceFactory = new SteamWebInterfaceFactory(apikey);
@@ -716,6 +724,7 @@ namespace MercuryBOT
                     ProgressSpinner_FriendsList.Visible = false;
                     btn_loadFriends.Enabled = true;
                     BTN_RemoveFriend.Enabled = true;
+                    this.FriendsList_Grid.Sort(this.FriendsList_Grid.Columns["FLastLogoff"], ListSortDirection.Descending); // order by date
                 }
                 catch (Exception)
                 {
@@ -732,8 +741,11 @@ namespace MercuryBOT
 
         private void FriendsList_Grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            SelectedFriend = FriendsList_Grid.SelectedRows[0].Cells[0].Value.ToString();
-            lbl_friendSelected.Text = "Selected: " + SelectedFriend;
+            if (FriendsList_Grid.RowCount > 0)
+            {
+                SelectedFriend = FriendsList_Grid.SelectedRows[0].Cells[0].Value.ToString();
+                lbl_friendSelected.Text = "Selected: " + SelectedFriend;
+            }
         }
 
         private void FriendsList_ScrollBar_Scroll(object sender, ScrollEventArgs e)
@@ -1506,7 +1518,10 @@ namespace MercuryBOT
 
         private void GamesList_Grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            SelectedGame = GamesList_Grid.SelectedRows[0].Cells[1].Value.ToString();
+            if (GamesList_Grid.RowCount > 0)
+            {
+                SelectedGame = GamesList_Grid.SelectedRows[0].Cells[1].Value.ToString();
+            }
         }
 
         private void GamesList_Grid_MouseHover(object sender, EventArgs e)
@@ -1519,6 +1534,13 @@ namespace MercuryBOT
         {
 
             lbl_infoLogin.Text += AccountLogin.LoginStatus.ToString();
+            label1.Text = AccountLogin.LastLogOnResult.ToString();
+            if (AccountLogin.LastLogOnResult.ToString() == "ServiceUnavailable")
+            {
+                btn_login2selected.Enabled = false;
+            }else {
+                btn_login2selected.Enabled = true;
+            }
             // try
             // {
             if (AccountLogin.IsLoggedIn == true)

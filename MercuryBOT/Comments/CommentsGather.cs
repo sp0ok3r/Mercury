@@ -111,7 +111,8 @@ namespace MercuryBOT
             if (SelectedProfileORClan == "My Profile")
             {
                 SelectedProfileORClan = "Profile";
-            }else if (SelectedProfileORClan == "My Group")
+            }
+            else if (SelectedProfileORClan == "My Group")
             {
                 SelectedProfileORClan = "Clan";
             }
@@ -127,13 +128,30 @@ namespace MercuryBOT
 
             try
             {
-                string ProfileORGroupComments = "https://steamcommunity.com/comment/"+SelectedProfileORClan+ "/render/" + CheckProfileGroupInfo + "/-1/?count=" + txtBox_Comments2GetCount.Text;
+                string ProfileORGroupComments = "https://steamcommunity.com/comment/" + SelectedProfileORClan + "/render/" + CheckProfileGroupInfo + "/-1/?count=" + txtBox_Comments2GetCount.Text;
 
                 var parser = new HtmlParser();
 
                 var json = Web.DownloadString(ProfileORGroupComments);
-                var renderComments = RenderComments.FromJson(json);
 
+                 //{"success":false,"error":"This profile is private."}
+
+                if (json.Contains("false"))
+                {
+                    btn_doTask.Invoke((MethodInvoker)delegate
+                    {
+                        btn_doTask.Enabled = true;
+                    });
+                    ProgressSpinner_LoadComments.Invoke((MethodInvoker)delegate
+                    {
+                        ProgressSpinner_LoadComments.Visible = false;
+                    });
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Please put your profile in public and try again.");
+                    return;
+                }
+
+
+                var renderComments = RenderComments.FromJson(json);
                 var document = parser.ParseDocument(renderComments.CommentsHtml);
                 var eCommentList = document.QuerySelectorAll("div.commentthread_comment");
 
@@ -156,15 +174,15 @@ namespace MercuryBOT
 
                     string[] arrayComments = CommentContent.Split(' ');
 
-                    //string[] row = { CommentID, CommentContent, Author, Time };
-                    //GridCommentsData.Invoke((MethodInvoker)delegate
-                    //{
-                    //    GridCommentsData.Rows.Add(row.Distinct().ToArray());
-                    //});
+                    string[] row = { CommentID, CommentContent, Author, Time };
+                    GridCommentsData.Invoke((MethodInvoker)delegate
+                    {
+                        GridCommentsData.Rows.Add(row.Distinct().ToArray());
+                    });
 
 
                     List<string> vals = new List<string>();//PERVENT DUPLICATE KEY
-                    
+
                     if (chck_containsWords.Checked && txtBox_filterWords.Text.Length != 0)
                     {
                         foreach (string item in arrayComments)
@@ -186,7 +204,11 @@ namespace MercuryBOT
                     }
                 }
 
-
+                foreach (KeyValuePair<string, cmts> item in myList)
+                {
+                    GridCommentsData.Rows.Add(item.Key, item.Value.CommentContent, item.Value.Author, item.Value.Time);
+                }
+                /*
                 GridCommentsData.Invoke((MethodInvoker)delegate
                 {
                     foreach (KeyValuePair<string, cmts> item in myList)
@@ -194,6 +216,7 @@ namespace MercuryBOT
                         GridCommentsData.Rows.Add(item.Key, item.Value.CommentContent, item.Value.Author, item.Value.Time);
                     }
                 });
+                */
 
                 lbl_totalCommentsInGrid.Invoke((MethodInvoker)delegate
                 {

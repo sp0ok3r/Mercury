@@ -114,6 +114,7 @@
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Notification";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Info_Load);
             this.Shown += new System.EventHandler(this.Info_Shown);
             this.ResumeLayout(false);

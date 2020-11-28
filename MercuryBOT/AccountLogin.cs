@@ -459,6 +459,8 @@ namespace MercuryBOT
             //ChatMode();
 
             IsLoggedIn = true;
+            LastLogOnResult = EResult.OK;
+
 
             var ListUserSettings = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
             foreach (var a in ListUserSettings.Accounts)
@@ -495,11 +497,12 @@ namespace MercuryBOT
             {
                 if (DisconnectedCounter >= MaxDisconnects)
                 {
-                    Console.WriteLine("[" + Program.BOTNAME + "] - Too many disconnects occured in a short period of time. Wait 1 min brother... (Maybe steam is down)");
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Too many disconnects occured in a short period of time. Wait 1 min brother... (Maybe steam is down)");
+                    Console.WriteLine("[" + Program.BOTNAME + "] - Too many disconnects occured in a short period of time. Wait 1 min...");
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Too many disconnects occured in a short period of time. Wait 1 min...");
                     LoginStatus = "Too many disconnects occured in a short period of time.";
                     Thread.Sleep(TimeSpan.FromMinutes(1));
                     DisconnectedCounter = 0;
+                    steamClient.Disconnect();
                 }
             }
             Console.WriteLine("[" + Program.BOTNAME + "] - Reconnecting in 2s ..." + callback.UserInitiated);
@@ -657,6 +660,14 @@ namespace MercuryBOT
         static void OnLoggedOff(SteamUser.LoggedOffCallback callback)
         {
             LastLogOnResult = callback.Result;
+
+            if (callback.Result.ToString() == "ServiceUnavailable")
+            {
+                Notification.NotifHelper.MessageBox.Show("Info", "Steam servers down\nreconnecting in 5min " + user + "...");
+                Thread.Sleep(5000);
+                steamClient.Disconnect();
+            }
+
             IsLoggedIn = false;
             CurrentPersonaState = 0;
             Console.WriteLine("[" + Program.BOTNAME + "] - Logged off of Steam: {0}", callback.Result);
@@ -1214,6 +1225,8 @@ namespace MercuryBOT
             DisconnectedCounter = 0;
             CurrentPersonaState = 0;
             CurrentUsername = null;
+
+            LastLogOnResult = EResult.NotLoggedOn;
         }
 
         public static void NotifBox(string title,string mess)
