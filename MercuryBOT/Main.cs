@@ -1534,7 +1534,7 @@ namespace MercuryBOT
         {
 
             lbl_infoLogin.Text += AccountLogin.LoginStatus.ToString();
-            label1.Text = AccountLogin.LastLogOnResult.ToString();
+            lbl_logininfoTempp.Text = AccountLogin.LastLogOnResult.ToString();
             if (AccountLogin.LastLogOnResult.ToString() == "ServiceUnavailable")
             {
                 btn_login2selected.Enabled = false;
@@ -1571,14 +1571,23 @@ namespace MercuryBOT
                     panel_steamStates.BackColor = Color.LightSkyBlue;
                 }
 
-                if (picBox_SteamAvatar.Image == null && btnLabel_PersonaAndFlag.Image == null)
+                if (picBox_SteamAvatar.Image == null)
                 {
                     picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID);
-                    byte[] data = Program.Web.DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + "/flat/16.png");
-
-                    MemoryStream ms = new MemoryStream(data);
-                    btnLabel_PersonaAndFlag.Image = Image.FromStream(ms);
                 }
+
+                if(btnLabel_PersonaAndFlag.Image == null)
+                {
+                    try
+                    {
+                        byte[] data = Program.Web.DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + "/flat/16.png");
+
+                        MemoryStream ms = new MemoryStream(data);
+                        btnLabel_PersonaAndFlag.Image = Image.FromStream(ms);
+
+                    } catch{}
+                }
+
                 //  combox_states.SelectedIndex = AccountLogin.steamFriends.GetPersonaState;
 
                 lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = AccountLogin.CurrentUsername));
