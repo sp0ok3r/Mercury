@@ -78,7 +78,6 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 <img align="left" width="369" height="635" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/groups.png">
 <img align="left" width="300" height="408" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/profile_settings.png">
 <img align="left" width="343" height="300" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/profileBackgather.png">
-<img align="left" width="910" height="1014" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/steamstatus.png">
 
 <img align="left" width="809" height="542" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/program_settings.png">
 <img align="left" width="810" height="544" src="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/information.png">
