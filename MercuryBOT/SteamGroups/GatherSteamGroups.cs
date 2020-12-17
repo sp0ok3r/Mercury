@@ -213,7 +213,7 @@ namespace MercuryBOT.SteamGroups
             }
             else
             {
-                SteamCommunity.Utils.setGroupPlayerOfTheWeek(GroupSelected, Extensions.AllToSteamId32(txt_potwSteamID.Text));
+                SteamCommunity.Utils.setGroupPlayerOfTheWeek(GroupSelected, Extensions.AllToSteamId32(Regex.Match(txt_potwSteamID.Text, @"\d+").Value));
             }
         }
 

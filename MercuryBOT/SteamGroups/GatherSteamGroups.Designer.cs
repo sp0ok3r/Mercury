@@ -260,7 +260,7 @@
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.Enabled = false;
-            this.metroLabel3.Location = new System.Drawing.Point(10, 433);
+            this.metroLabel3.Location = new System.Drawing.Point(8, 433);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(119, 19);
             this.metroLabel3.TabIndex = 29;
@@ -426,7 +426,7 @@
             this.MercuryTabControlGroups.Location = new System.Drawing.Point(13, 53);
             this.MercuryTabControlGroups.Multiline = true;
             this.MercuryTabControlGroups.Name = "MercuryTabControlGroups";
-            this.MercuryTabControlGroups.SelectedIndex = 0;
+            this.MercuryTabControlGroups.SelectedIndex = 1;
             this.MercuryTabControlGroups.ShowToolTips = true;
             this.MercuryTabControlGroups.Size = new System.Drawing.Size(379, 549);
             this.MercuryTabControlGroups.TabIndex = 35;
@@ -565,7 +565,7 @@
             this.btn_gatherFromProfile.Size = new System.Drawing.Size(74, 23);
             this.btn_gatherFromProfile.Style = MetroFramework.MetroColorStyle.Purple;
             this.btn_gatherFromProfile.TabIndex = 37;
-            this.btn_gatherFromProfile.Text = "Save 2 File";
+            this.btn_gatherFromProfile.Text = "Save To File";
             this.btn_gatherFromProfile.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btn_gatherFromProfile.UseCustomForeColor = true;
             this.btn_gatherFromProfile.UseSelectable = true;
@@ -610,7 +610,7 @@
             // lbl_pathGIDS
             // 
             this.lbl_pathGIDS.AutoSize = true;
-            this.lbl_pathGIDS.Location = new System.Drawing.Point(4, 106);
+            this.lbl_pathGIDS.Location = new System.Drawing.Point(3, 106);
             this.lbl_pathGIDS.Name = "lbl_pathGIDS";
             this.lbl_pathGIDS.Size = new System.Drawing.Size(89, 19);
             this.lbl_pathGIDS.TabIndex = 35;
@@ -670,11 +670,11 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(6, 42);
+            this.metroLabel5.Location = new System.Drawing.Point(2, 44);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(85, 19);
+            this.metroLabel5.Size = new System.Drawing.Size(161, 19);
             this.metroLabel5.TabIndex = 38;
-            this.metroLabel5.Text = "Profile Fetch:";
+            this.metroLabel5.Text = "User Profile Groups Fetch:";
             this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // link_setfile
