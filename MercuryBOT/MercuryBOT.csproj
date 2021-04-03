@@ -51,6 +51,9 @@
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AngleSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
       <HintPath>..\packages\AngleSharp.1.0.0-alpha-827\lib\net461\AngleSharp.dll</HintPath>
@@ -421,6 +424,9 @@
       <DependentUpon>Updater.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config">
