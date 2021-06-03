@@ -131,14 +131,14 @@ namespace MercuryBOT.SteamGroups
 
         private void btn_save2file_Click(object sender, EventArgs e)
         {
-                CreateHtmlTable();
+            CreateHtmlTable();
         }
 
         private void CreateHtmlTable()
         {
             btn_save2file.Enabled = false;
             StringBuilder sb = new StringBuilder();
-            using (Html.Table table = new Html.Table(sb, id: AccountLogin.CurrentSteamID+"-GroupsIDS"))
+            using (Html.Table table = new Html.Table(sb, id: AccountLogin.CurrentSteamID + "-GroupsIDS"))
             {
                 table.StartBody();
                 using (var tr = table.AddRow())
@@ -147,8 +147,6 @@ namespace MercuryBOT.SteamGroups
                     tr.AddCell("GROUP ID64");
                     tr.AddCell("GROUP NAME");
                 }
-                Dispose();
-
                 foreach (KeyValuePair<ulong, string> group in AccountLogin.ClanDictionary)
                 {
                     using (var tr = table.AddRow())
@@ -157,7 +155,6 @@ namespace MercuryBOT.SteamGroups
                         tr.AddCell((group.Key).ToString());
                         tr.AddCell(group.Value);
                     }
-                    Dispose();
                 }
                 table.EndBody();
             }
