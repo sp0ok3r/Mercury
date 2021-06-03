@@ -33,8 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GatherSteamGroups));
             this.GridClanData = new MetroFramework.Controls.MetroGrid();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_exitSelected = new MetroFramework.Controls.MetroButton();
             this.btn_exitfromAll = new MetroFramework.Controls.MetroButton();
             this.ClanList_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
@@ -66,6 +64,9 @@
             this.lbl_groupSelected = new MetroFramework.Controls.MetroLabel();
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
+            this.GROUP_ID3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).BeginInit();
             this.MercuryTabControlGroups.SuspendLayout();
             this.metroTab_Tasks.SuspendLayout();
@@ -93,6 +94,7 @@
             this.GridClanData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GridClanData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridClanData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.GROUP_ID3,
             this.ColumnID,
             this.content});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -106,7 +108,7 @@
             this.GridClanData.EnableHeadersVisualStyles = false;
             this.GridClanData.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GridClanData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.GridClanData.Location = new System.Drawing.Point(-43, 6);
+            this.GridClanData.Location = new System.Drawing.Point(-41, 6);
             this.GridClanData.MultiSelect = false;
             this.GridClanData.Name = "GridClanData";
             this.GridClanData.ReadOnly = true;
@@ -122,7 +124,7 @@
             this.GridClanData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridClanData.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.GridClanData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridClanData.Size = new System.Drawing.Size(410, 427);
+            this.GridClanData.Size = new System.Drawing.Size(483, 427);
             this.GridClanData.TabIndex = 14;
             this.GridClanData.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.GridClanData.UseCustomBackColor = true;
@@ -130,25 +132,11 @@
             this.GridClanData.UseStyleColors = true;
             this.GridClanData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridClanData_CellContentClick);
             // 
-            // ColumnID
-            // 
-            this.ColumnID.HeaderText = "GROUP ID";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.Width = 130;
-            // 
-            // content
-            // 
-            this.content.HeaderText = "GROUP NAME";
-            this.content.Name = "content";
-            this.content.ReadOnly = true;
-            this.content.Width = 630;
-            // 
             // btn_exitSelected
             // 
             this.btn_exitSelected.DisplayFocus = true;
             this.btn_exitSelected.ForeColor = System.Drawing.Color.White;
-            this.btn_exitSelected.Location = new System.Drawing.Point(296, 468);
+            this.btn_exitSelected.Location = new System.Drawing.Point(334, 468);
             this.btn_exitSelected.Name = "btn_exitSelected";
             this.btn_exitSelected.Size = new System.Drawing.Size(71, 38);
             this.btn_exitSelected.Style = MetroFramework.MetroColorStyle.Purple;
@@ -164,7 +152,7 @@
             // 
             this.btn_exitfromAll.DisplayFocus = true;
             this.btn_exitfromAll.ForeColor = System.Drawing.Color.White;
-            this.btn_exitfromAll.Location = new System.Drawing.Point(233, 468);
+            this.btn_exitfromAll.Location = new System.Drawing.Point(271, 468);
             this.btn_exitfromAll.Name = "btn_exitfromAll";
             this.btn_exitfromAll.Size = new System.Drawing.Size(57, 38);
             this.btn_exitfromAll.Style = MetroFramework.MetroColorStyle.Purple;
@@ -179,7 +167,7 @@
             // ClanList_ScrollBar
             // 
             this.ClanList_ScrollBar.LargeChange = 10;
-            this.ClanList_ScrollBar.Location = new System.Drawing.Point(352, 21);
+            this.ClanList_ScrollBar.Location = new System.Drawing.Point(427, 21);
             this.ClanList_ScrollBar.Maximum = 100;
             this.ClanList_ScrollBar.Minimum = 0;
             this.ClanList_ScrollBar.MouseWheelBarPartitions = 10;
@@ -198,7 +186,7 @@
             // 
             this.btn_save2file.DisplayFocus = true;
             this.btn_save2file.ForeColor = System.Drawing.Color.White;
-            this.btn_save2file.Location = new System.Drawing.Point(90, 468);
+            this.btn_save2file.Location = new System.Drawing.Point(128, 468);
             this.btn_save2file.Name = "btn_save2file";
             this.btn_save2file.Size = new System.Drawing.Size(74, 38);
             this.btn_save2file.Style = MetroFramework.MetroColorStyle.Purple;
@@ -387,7 +375,7 @@
             // 
             // 
             this.txtBox_gName.CustomButton.Image = null;
-            this.txtBox_gName.CustomButton.Location = new System.Drawing.Point(345, 1);
+            this.txtBox_gName.CustomButton.Location = new System.Drawing.Point(404, 1);
             this.txtBox_gName.CustomButton.Name = "";
             this.txtBox_gName.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtBox_gName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -407,7 +395,7 @@
             this.txtBox_gName.SelectionLength = 0;
             this.txtBox_gName.SelectionStart = 0;
             this.txtBox_gName.ShortcutsEnabled = true;
-            this.txtBox_gName.Size = new System.Drawing.Size(367, 23);
+            this.txtBox_gName.Size = new System.Drawing.Size(426, 23);
             this.txtBox_gName.TabIndex = 33;
             this.txtBox_gName.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_gName.UseCustomBackColor = true;
@@ -426,9 +414,9 @@
             this.MercuryTabControlGroups.Location = new System.Drawing.Point(13, 53);
             this.MercuryTabControlGroups.Multiline = true;
             this.MercuryTabControlGroups.Name = "MercuryTabControlGroups";
-            this.MercuryTabControlGroups.SelectedIndex = 1;
+            this.MercuryTabControlGroups.SelectedIndex = 0;
             this.MercuryTabControlGroups.ShowToolTips = true;
-            this.MercuryTabControlGroups.Size = new System.Drawing.Size(379, 549);
+            this.MercuryTabControlGroups.Size = new System.Drawing.Size(450, 549);
             this.MercuryTabControlGroups.TabIndex = 35;
             this.MercuryTabControlGroups.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.MercuryTabControlGroups.UseSelectable = true;
@@ -436,21 +424,21 @@
             // metroTab_Tasks
             // 
             this.metroTab_Tasks.BackColor = System.Drawing.Color.Transparent;
+            this.metroTab_Tasks.Controls.Add(this.ClanList_ScrollBar);
             this.metroTab_Tasks.Controls.Add(this.ProgressSpinner_MassInvite);
             this.metroTab_Tasks.Controls.Add(this.btn_massInvite);
             this.metroTab_Tasks.Controls.Add(this.txtBox_gName);
             this.metroTab_Tasks.Controls.Add(this.btn_save2file);
-            this.metroTab_Tasks.Controls.Add(this.ClanList_ScrollBar);
-            this.metroTab_Tasks.Controls.Add(this.GridClanData);
             this.metroTab_Tasks.Controls.Add(this.btn_exitfromAll);
             this.metroTab_Tasks.Controls.Add(this.btn_exitSelected);
+            this.metroTab_Tasks.Controls.Add(this.GridClanData);
             this.metroTab_Tasks.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroTab_Tasks.HorizontalScrollbarBarColor = true;
             this.metroTab_Tasks.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Tasks.HorizontalScrollbarSize = 10;
             this.metroTab_Tasks.Location = new System.Drawing.Point(4, 38);
             this.metroTab_Tasks.Name = "metroTab_Tasks";
-            this.metroTab_Tasks.Size = new System.Drawing.Size(371, 507);
+            this.metroTab_Tasks.Size = new System.Drawing.Size(442, 507);
             this.metroTab_Tasks.TabIndex = 6;
             this.metroTab_Tasks.Text = "CUSTOM TASKS";
             this.metroTab_Tasks.UseCustomBackColor = true;
@@ -461,7 +449,7 @@
             // ProgressSpinner_MassInvite
             // 
             this.ProgressSpinner_MassInvite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.ProgressSpinner_MassInvite.Location = new System.Drawing.Point(22, 469);
+            this.ProgressSpinner_MassInvite.Location = new System.Drawing.Point(60, 469);
             this.ProgressSpinner_MassInvite.Maximum = 100;
             this.ProgressSpinner_MassInvite.Name = "ProgressSpinner_MassInvite";
             this.ProgressSpinner_MassInvite.Size = new System.Drawing.Size(41, 38);
@@ -475,7 +463,7 @@
             // 
             // btn_massInvite
             // 
-            this.btn_massInvite.Location = new System.Drawing.Point(0, 468);
+            this.btn_massInvite.Location = new System.Drawing.Point(38, 468);
             this.btn_massInvite.Name = "btn_massInvite";
             this.btn_massInvite.Size = new System.Drawing.Size(84, 38);
             this.btn_massInvite.TabIndex = 38;
@@ -693,7 +681,7 @@
             // lbl_groupSelected
             // 
             this.lbl_groupSelected.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lbl_groupSelected.Location = new System.Drawing.Point(127, 46);
+            this.lbl_groupSelected.Location = new System.Drawing.Point(128, 47);
             this.lbl_groupSelected.Name = "lbl_groupSelected";
             this.lbl_groupSelected.Size = new System.Drawing.Size(174, 15);
             this.lbl_groupSelected.TabIndex = 38;
@@ -711,7 +699,7 @@
             this.metroPanel10.HorizontalScrollbarSize = 10;
             this.metroPanel10.Location = new System.Drawing.Point(-1, 608);
             this.metroPanel10.Name = "metroPanel10";
-            this.metroPanel10.Size = new System.Drawing.Size(399, 12);
+            this.metroPanel10.Size = new System.Drawing.Size(475, 12);
             this.metroPanel10.TabIndex = 39;
             this.metroPanel10.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel10.UseCustomBackColor = true;
@@ -726,10 +714,35 @@
             this.MongoToolTip.StyleManager = null;
             this.MongoToolTip.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
+            // GROUP_ID3
+            // 
+            this.GROUP_ID3.Frozen = true;
+            this.GROUP_ID3.HeaderText = "GROUP ID3";
+            this.GROUP_ID3.Name = "GROUP_ID3";
+            this.GROUP_ID3.ReadOnly = true;
+            this.GROUP_ID3.Width = 105;
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.Frozen = true;
+            this.ColumnID.HeaderText = "GROUP ID 64bits";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Width = 130;
+            // 
+            // content
+            // 
+            this.content.Frozen = true;
+            this.content.HeaderText = "GROUP NAME";
+            this.content.Name = "content";
+            this.content.ReadOnly = true;
+            this.content.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.content.Width = 630;
+            // 
             // GatherSteamGroups
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(395, 618);
+            this.ClientSize = new System.Drawing.Size(472, 618);
             this.Controls.Add(this.metroPanel10);
             this.Controls.Add(this.lbl_groupSelected);
             this.Controls.Add(this.MercuryTabControlGroups);
@@ -754,8 +767,6 @@
         #endregion
 
         private MetroFramework.Controls.MetroGrid GridClanData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn content;
         private MetroFramework.Controls.MetroButton btn_exitSelected;
         private MetroFramework.Controls.MetroButton btn_exitfromAll;
         private MetroFramework.Controls.MetroScrollBar ClanList_ScrollBar;
@@ -787,5 +798,8 @@
         private MetroFramework.Controls.MetroProgressSpinner ProgressSpinner_JoinAllGroups;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private MetroFramework.Controls.MetroProgressSpinner ProgressSpinner_MassInvite;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GROUP_ID3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn content;
     }
 }

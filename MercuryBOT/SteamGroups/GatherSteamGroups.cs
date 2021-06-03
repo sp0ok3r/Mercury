@@ -10,6 +10,7 @@
 using MercuryBOT.Helpers;
 using MercuryBOT.SteamCommunity;
 using MetroFramework.Controls;
+using Microsoft.Office.Interop.Excel;
 using SteamKit2;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
@@ -61,7 +63,7 @@ namespace MercuryBOT.SteamGroups
             AccountLogin.UserClanIDS();
             foreach (KeyValuePair<ulong, string> group in AccountLogin.ClanDictionary)
             {
-                string[] row = { (group.Key).ToString(), group.Value };
+                string[] row = { Extensions.AllToSteamId3(group.Key).Substring(1).ToString(), (group.Key).ToString(), group.Value };
                 GridClanData.Rows.Add(row);
             }
             ClanList_ScrollBar.Maximum = GridClanData.Rows.Count;
@@ -109,7 +111,9 @@ namespace MercuryBOT.SteamGroups
             if (GroupSelected == "None")
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Select a group.");
-            }else{
+            }
+            else
+            {
                 btn_exitSelected.Enabled = false;
                 btn_exitfromAll.Enabled = false;
                 foreach (KeyValuePair<ulong, string> group in AccountLogin.ClanDictionary)
@@ -127,16 +131,38 @@ namespace MercuryBOT.SteamGroups
 
         private void btn_save2file_Click(object sender, EventArgs e)
         {
-            using (TextWriter tw = new StreamWriter(AccountLogin.CurrentSteamID + "-GroupsIDS.txt"))
+                CreateHtmlTable();
+        }
+
+        private void CreateHtmlTable()
+        {
+            btn_save2file.Enabled = false;
+            StringBuilder sb = new StringBuilder();
+            using (Html.Table table = new Html.Table(sb, id: AccountLogin.CurrentSteamID+"-GroupsIDS"))
             {
-                btn_save2file.Enabled = false;
+                table.StartBody();
+                using (var tr = table.AddRow())
+                {
+                    tr.AddCell("GROUP ID3");
+                    tr.AddCell("GROUP ID64");
+                    tr.AddCell("GROUP NAME");
+                }
+                Dispose();
+
                 foreach (KeyValuePair<ulong, string> group in AccountLogin.ClanDictionary)
                 {
-                    tw.WriteLine((group.Key).ToString());
+                    using (var tr = table.AddRow())
+                    {
+                        tr.AddCell(Extensions.AllToSteamId3(group.Key).Substring(1).ToString());
+                        tr.AddCell((group.Key).ToString());
+                        tr.AddCell(group.Value);
+                    }
+                    Dispose();
                 }
-                btn_save2file.Enabled = true;
-                Process.Start(Program.ExecutablePath + @"\" + AccountLogin.CurrentSteamID + "-GroupsIDS.txt");
+                table.EndBody();
             }
+            File.WriteAllText(Program.ExecutablePath + @"\" + AccountLogin.CurrentSteamID + "-GroupsIDS.html", sb.ToString());
+            btn_save2file.Enabled = true;
         }
 
         private void btn_groupAnnouncement_Click(object sender, EventArgs e)
@@ -280,7 +306,7 @@ namespace MercuryBOT.SteamGroups
                     txtBox_groupidsFile.Text = fbd.FileName;
                 }
             }
-            if(txtBox_groupidsFile.Text.Length != 0)
+            if (txtBox_groupidsFile.Text.Length != 0)
             {
                 link_setfile.Enabled = false;
             }
