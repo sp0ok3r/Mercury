@@ -33,6 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GatherSteamGroups));
             this.GridClanData = new MetroFramework.Controls.MetroGrid();
+            this.GROUP_ID3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_exitSelected = new MetroFramework.Controls.MetroButton();
             this.btn_exitfromAll = new MetroFramework.Controls.MetroButton();
             this.ClanList_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
@@ -64,9 +67,6 @@
             this.lbl_groupSelected = new MetroFramework.Controls.MetroLabel();
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
-            this.GROUP_ID3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).BeginInit();
             this.MercuryTabControlGroups.SuspendLayout();
             this.metroTab_Tasks.SuspendLayout();
@@ -131,6 +131,32 @@
             this.GridClanData.UseCustomForeColor = true;
             this.GridClanData.UseStyleColors = true;
             this.GridClanData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridClanData_CellContentClick);
+            this.GridClanData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridClanData_CellContentDoubleClick);
+            // 
+            // GROUP_ID3
+            // 
+            this.GROUP_ID3.Frozen = true;
+            this.GROUP_ID3.HeaderText = "GROUP ID3";
+            this.GROUP_ID3.Name = "GROUP_ID3";
+            this.GROUP_ID3.ReadOnly = true;
+            this.GROUP_ID3.Width = 105;
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.Frozen = true;
+            this.ColumnID.HeaderText = "GROUP ID 64bits";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Width = 130;
+            // 
+            // content
+            // 
+            this.content.Frozen = true;
+            this.content.HeaderText = "GROUP NAME";
+            this.content.Name = "content";
+            this.content.ReadOnly = true;
+            this.content.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.content.Width = 630;
             // 
             // btn_exitSelected
             // 
@@ -414,7 +440,7 @@
             this.MercuryTabControlGroups.Location = new System.Drawing.Point(13, 53);
             this.MercuryTabControlGroups.Multiline = true;
             this.MercuryTabControlGroups.Name = "MercuryTabControlGroups";
-            this.MercuryTabControlGroups.SelectedIndex = 1;
+            this.MercuryTabControlGroups.SelectedIndex = 0;
             this.MercuryTabControlGroups.ShowToolTips = true;
             this.MercuryTabControlGroups.Size = new System.Drawing.Size(450, 549);
             this.MercuryTabControlGroups.TabIndex = 35;
@@ -713,31 +739,6 @@
             this.MongoToolTip.Style = MetroFramework.MetroColorStyle.Default;
             this.MongoToolTip.StyleManager = null;
             this.MongoToolTip.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // GROUP_ID3
-            // 
-            this.GROUP_ID3.Frozen = true;
-            this.GROUP_ID3.HeaderText = "GROUP ID3";
-            this.GROUP_ID3.Name = "GROUP_ID3";
-            this.GROUP_ID3.ReadOnly = true;
-            this.GROUP_ID3.Width = 105;
-            // 
-            // ColumnID
-            // 
-            this.ColumnID.Frozen = true;
-            this.ColumnID.HeaderText = "GROUP ID 64bits";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.Width = 130;
-            // 
-            // content
-            // 
-            this.content.Frozen = true;
-            this.content.HeaderText = "GROUP NAME";
-            this.content.Name = "content";
-            this.content.ReadOnly = true;
-            this.content.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.content.Width = 630;
             // 
             // GatherSteamGroups
             // 

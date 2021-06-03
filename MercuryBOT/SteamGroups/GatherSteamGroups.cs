@@ -73,9 +73,8 @@ namespace MercuryBOT.SteamGroups
         {
             RefreshClanList();
         }
-
+        string Groupid3Selected = "None";
         string GroupSelected = "None";
-
         string GroupNameSelected = "None";
 
         private void btn_exitSelected_Click(object sender, EventArgs e)
@@ -100,9 +99,18 @@ namespace MercuryBOT.SteamGroups
         {
             if (GridClanData.SelectedRows.Count > 0)
             {
-                GroupSelected = GridClanData.SelectedRows[0].Cells[0].Value + string.Empty;
-                GroupNameSelected = GridClanData.SelectedRows[0].Cells[1].Value + string.Empty;
+                Groupid3Selected=GridClanData.SelectedRows[0].Cells[0].Value + string.Empty;
+                GroupSelected = GridClanData.SelectedRows[0].Cells[1].Value + string.Empty;
+                GroupNameSelected = GridClanData.SelectedRows[0].Cells[2].Value + string.Empty;
                 lbl_groupSelected.Text = "Selected: " + GroupNameSelected;
+            }
+        }
+
+        private void GridClanData_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (GridClanData.SelectedRows.Count > 0)
+            {
+                Process.Start("https://steamcommunity.com/gid/"+ GridClanData.SelectedRows[0].Cells[1].Value);
             }
         }
 
@@ -352,5 +360,7 @@ namespace MercuryBOT.SteamGroups
                 link_setfile.Enabled = true;
             }
         }
+
+        
     }
 }
