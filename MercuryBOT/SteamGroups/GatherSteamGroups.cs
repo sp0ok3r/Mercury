@@ -10,7 +10,6 @@
 using MercuryBOT.Helpers;
 using MercuryBOT.SteamCommunity;
 using MetroFramework.Controls;
-using Microsoft.Office.Interop.Excel;
 using SteamKit2;
 using System;
 using System.Collections.Generic;
