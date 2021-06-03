@@ -12,7 +12,7 @@ namespace MercuryBOT.Helpers
         {
             public Table(StringBuilder sb, string classAttributes = "", string id = "") : base(sb)
             {
-                Append("<table border=1>");
+                Append("<body style='background-color:black;' ><table style='color: white;' border=1 cellspacing=0 cellpadding=2 width=400>");
             }
 
             public void StartHead(string classAttributes = "", string id = "")

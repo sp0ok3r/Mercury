@@ -213,7 +213,7 @@
             this.txtBox_Annonbody.CustomButton.UseSelectable = true;
             this.txtBox_Annonbody.CustomButton.Visible = false;
             this.txtBox_Annonbody.Lines = new string[0];
-            this.txtBox_Annonbody.Location = new System.Drawing.Point(110, 301);
+            this.txtBox_Annonbody.Location = new System.Drawing.Point(149, 293);
             this.txtBox_Annonbody.MaxLength = 32767;
             this.txtBox_Annonbody.Multiline = true;
             this.txtBox_Annonbody.Name = "txtBox_Annonbody";
@@ -236,7 +236,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(12, 244);
+            this.metroLabel4.Location = new System.Drawing.Point(51, 236);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(100, 19);
             this.metroLabel4.TabIndex = 30;
@@ -248,7 +248,7 @@
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.Enabled = false;
-            this.metroLabel3.Location = new System.Drawing.Point(8, 433);
+            this.metroLabel3.Location = new System.Drawing.Point(47, 425);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(119, 19);
             this.metroLabel3.TabIndex = 29;
@@ -271,7 +271,7 @@
             this.txt_potwSteamID.CustomButton.UseSelectable = true;
             this.txt_potwSteamID.CustomButton.Visible = false;
             this.txt_potwSteamID.Lines = new string[0];
-            this.txt_potwSteamID.Location = new System.Drawing.Point(12, 452);
+            this.txt_potwSteamID.Location = new System.Drawing.Point(51, 444);
             this.txt_potwSteamID.MaxLength = 32767;
             this.txt_potwSteamID.Name = "txt_potwSteamID";
             this.txt_potwSteamID.PasswordChar = '\0';
@@ -292,7 +292,7 @@
             // 
             // btn_groupAnnouncement
             // 
-            this.btn_groupAnnouncement.Location = new System.Drawing.Point(224, 390);
+            this.btn_groupAnnouncement.Location = new System.Drawing.Point(263, 382);
             this.btn_groupAnnouncement.Name = "btn_groupAnnouncement";
             this.btn_groupAnnouncement.Size = new System.Drawing.Size(96, 23);
             this.btn_groupAnnouncement.TabIndex = 27;
@@ -317,7 +317,7 @@
             this.txtBox_title.CustomButton.UseSelectable = true;
             this.txtBox_title.CustomButton.Visible = false;
             this.txtBox_title.Lines = new string[0];
-            this.txtBox_title.Location = new System.Drawing.Point(110, 266);
+            this.txtBox_title.Location = new System.Drawing.Point(149, 258);
             this.txtBox_title.MaxLength = 32767;
             this.txtBox_title.Name = "txtBox_title";
             this.txtBox_title.PasswordChar = '\0';
@@ -338,7 +338,7 @@
             // 
             // btn_potw
             // 
-            this.btn_potw.Location = new System.Drawing.Point(290, 452);
+            this.btn_potw.Location = new System.Drawing.Point(329, 444);
             this.btn_potw.Name = "btn_potw";
             this.btn_potw.Size = new System.Drawing.Size(30, 23);
             this.btn_potw.TabIndex = 34;
@@ -351,7 +351,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(70, 298);
+            this.metroLabel1.Location = new System.Drawing.Point(109, 290);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(42, 19);
             this.metroLabel1.TabIndex = 35;
@@ -361,7 +361,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(76, 270);
+            this.metroLabel2.Location = new System.Drawing.Point(115, 262);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(36, 19);
             this.metroLabel2.TabIndex = 36;
@@ -414,7 +414,7 @@
             this.MercuryTabControlGroups.Location = new System.Drawing.Point(13, 53);
             this.MercuryTabControlGroups.Multiline = true;
             this.MercuryTabControlGroups.Name = "MercuryTabControlGroups";
-            this.MercuryTabControlGroups.SelectedIndex = 0;
+            this.MercuryTabControlGroups.SelectedIndex = 1;
             this.MercuryTabControlGroups.ShowToolTips = true;
             this.MercuryTabControlGroups.Size = new System.Drawing.Size(450, 549);
             this.MercuryTabControlGroups.TabIndex = 35;
@@ -500,7 +500,7 @@
             this.metroTab_Settings.HorizontalScrollbarSize = 10;
             this.metroTab_Settings.Location = new System.Drawing.Point(4, 38);
             this.metroTab_Settings.Name = "metroTab_Settings";
-            this.metroTab_Settings.Size = new System.Drawing.Size(371, 507);
+            this.metroTab_Settings.Size = new System.Drawing.Size(442, 507);
             this.metroTab_Settings.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroTab_Settings.TabIndex = 10;
             this.metroTab_Settings.Text = "OTHER TASKS";
@@ -518,7 +518,7 @@
             this.richTextBox2.DetectUrls = false;
             this.richTextBox2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox2.ForeColor = System.Drawing.Color.Gray;
-            this.richTextBox2.Location = new System.Drawing.Point(12, 201);
+            this.richTextBox2.Location = new System.Drawing.Point(51, 193);
             this.richTextBox2.MaxLength = 50;
             this.richTextBox2.Multiline = false;
             this.richTextBox2.Name = "richTextBox2";
@@ -532,7 +532,7 @@
             // ProgressSpinner_JoinAllGroups
             // 
             this.ProgressSpinner_JoinAllGroups.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.ProgressSpinner_JoinAllGroups.Location = new System.Drawing.Point(304, 126);
+            this.ProgressSpinner_JoinAllGroups.Location = new System.Drawing.Point(343, 118);
             this.ProgressSpinner_JoinAllGroups.Maximum = 100;
             this.ProgressSpinner_JoinAllGroups.Name = "ProgressSpinner_JoinAllGroups";
             this.ProgressSpinner_JoinAllGroups.Size = new System.Drawing.Size(29, 23);
@@ -548,7 +548,7 @@
             // 
             this.btn_gatherFromProfile.DisplayFocus = true;
             this.btn_gatherFromProfile.ForeColor = System.Drawing.Color.White;
-            this.btn_gatherFromProfile.Location = new System.Drawing.Point(282, 64);
+            this.btn_gatherFromProfile.Location = new System.Drawing.Point(321, 56);
             this.btn_gatherFromProfile.Name = "btn_gatherFromProfile";
             this.btn_gatherFromProfile.Size = new System.Drawing.Size(74, 23);
             this.btn_gatherFromProfile.Style = MetroFramework.MetroColorStyle.Purple;
@@ -575,7 +575,7 @@
             this.txtBox_groupidsFile.CustomButton.UseSelectable = true;
             this.txtBox_groupidsFile.CustomButton.Visible = false;
             this.txtBox_groupidsFile.Lines = new string[0];
-            this.txtBox_groupidsFile.Location = new System.Drawing.Point(6, 126);
+            this.txtBox_groupidsFile.Location = new System.Drawing.Point(45, 118);
             this.txtBox_groupidsFile.MaxLength = 32767;
             this.txtBox_groupidsFile.Name = "txtBox_groupidsFile";
             this.txtBox_groupidsFile.PasswordChar = '\0';
@@ -598,7 +598,7 @@
             // lbl_pathGIDS
             // 
             this.lbl_pathGIDS.AutoSize = true;
-            this.lbl_pathGIDS.Location = new System.Drawing.Point(3, 106);
+            this.lbl_pathGIDS.Location = new System.Drawing.Point(42, 98);
             this.lbl_pathGIDS.Name = "lbl_pathGIDS";
             this.lbl_pathGIDS.Size = new System.Drawing.Size(89, 19);
             this.lbl_pathGIDS.TabIndex = 35;
@@ -620,7 +620,7 @@
             this.txtBox_profileGrabIDS.CustomButton.UseSelectable = true;
             this.txtBox_profileGrabIDS.CustomButton.Visible = false;
             this.txtBox_profileGrabIDS.Lines = new string[0];
-            this.txtBox_profileGrabIDS.Location = new System.Drawing.Point(6, 64);
+            this.txtBox_profileGrabIDS.Location = new System.Drawing.Point(45, 56);
             this.txtBox_profileGrabIDS.MaxLength = 32767;
             this.txtBox_profileGrabIDS.Name = "txtBox_profileGrabIDS";
             this.txtBox_profileGrabIDS.PasswordChar = '\0';
@@ -643,7 +643,7 @@
             // 
             this.btn_joinAll.DisplayFocus = true;
             this.btn_joinAll.ForeColor = System.Drawing.Color.White;
-            this.btn_joinAll.Location = new System.Drawing.Point(282, 126);
+            this.btn_joinAll.Location = new System.Drawing.Point(321, 118);
             this.btn_joinAll.Name = "btn_joinAll";
             this.btn_joinAll.Size = new System.Drawing.Size(74, 23);
             this.btn_joinAll.Style = MetroFramework.MetroColorStyle.Purple;
@@ -658,7 +658,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(2, 44);
+            this.metroLabel5.Location = new System.Drawing.Point(41, 36);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(161, 19);
             this.metroLabel5.TabIndex = 38;
@@ -668,7 +668,7 @@
             // link_setfile
             // 
             this.link_setfile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.link_setfile.Location = new System.Drawing.Point(179, 144);
+            this.link_setfile.Location = new System.Drawing.Point(218, 136);
             this.link_setfile.Name = "link_setfile";
             this.link_setfile.Size = new System.Drawing.Size(103, 23);
             this.link_setfile.TabIndex = 40;

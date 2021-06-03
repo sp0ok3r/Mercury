@@ -163,6 +163,8 @@ namespace MercuryBOT.SteamGroups
             }
             File.WriteAllText(Program.ExecutablePath + @"\" + AccountLogin.CurrentSteamID + "-GroupsIDS.html", sb.ToString());
             btn_save2file.Enabled = true;
+
+            Process.Start(Program.ExecutablePath + @"\" + AccountLogin.CurrentSteamID + "-GroupsIDS.html");
         }
 
         private void btn_groupAnnouncement_Click(object sender, EventArgs e)
@@ -199,7 +201,7 @@ namespace MercuryBOT.SteamGroups
                     foreach (DataGridViewRow row in GridClanData.Rows)
                     {
 
-                        if (row.Cells[1].Value.ToString().StartsWith(txtBox_gName.Text))
+                        if (row.Cells[2].Value.ToString().StartsWith(txtBox_gName.Text))
                         {
 
                             rowIndex = row.Index;
@@ -219,7 +221,7 @@ namespace MercuryBOT.SteamGroups
             foreach (DataGridViewRow row in GridClanData.Rows)
             {
 
-                if (row.Cells[1].Value.ToString().Contains(txtBox_gName.Text))
+                if (row.Cells[2].Value.ToString().Contains(txtBox_gName.Text))
                 {
 
                     rowIndex = row.Index;
