@@ -129,11 +129,8 @@ namespace MercuryBOT.Splash
             {
                 LoginusersVDF_ToFile();
             }
-            catch (Exception x)//DirectoryNotFoundException ver isto , a dar erro em alguns pcs, nao deve tar a detatar a pasta da steam
+            catch (Exception x)
             {
-                MessageBox.Show(x.ToString());
-
-
                 Console.WriteLine("["+Program.BOTNAME+"] - Steam Directory not found, but starting anyways..." + x);
             }
 
