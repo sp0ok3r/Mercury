@@ -32,10 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GatherSteamGroups));
-            this.GridClanData = new MetroFramework.Controls.MetroGrid();
-            this.GROUP_ID3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_exitSelected = new MetroFramework.Controls.MetroButton();
             this.btn_exitfromAll = new MetroFramework.Controls.MetroButton();
             this.ClanList_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
@@ -67,102 +63,22 @@
             this.lbl_groupSelected = new MetroFramework.Controls.MetroLabel();
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
-            ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).BeginInit();
+            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GROUP_ID3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GridClanData = new MetroFramework.Controls.MetroGrid();
+            this.txt_totalgroups = new MetroFramework.Controls.MetroLabel();
             this.MercuryTabControlGroups.SuspendLayout();
             this.metroTab_Tasks.SuspendLayout();
             this.metroTab_Settings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).BeginInit();
             this.SuspendLayout();
-            // 
-            // GridClanData
-            // 
-            this.GridClanData.AllowUserToAddRows = false;
-            this.GridClanData.AllowUserToDeleteRows = false;
-            this.GridClanData.AllowUserToOrderColumns = true;
-            this.GridClanData.AllowUserToResizeColumns = false;
-            this.GridClanData.AllowUserToResizeRows = false;
-            this.GridClanData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.GridClanData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.GridClanData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.GridClanData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridClanData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.GridClanData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridClanData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.GROUP_ID3,
-            this.ColumnID,
-            this.content});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridClanData.DefaultCellStyle = dataGridViewCellStyle2;
-            this.GridClanData.EnableHeadersVisualStyles = false;
-            this.GridClanData.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.GridClanData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.GridClanData.Location = new System.Drawing.Point(-41, 6);
-            this.GridClanData.MultiSelect = false;
-            this.GridClanData.Name = "GridClanData";
-            this.GridClanData.ReadOnly = true;
-            this.GridClanData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridClanData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.GridClanData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.GridClanData.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.GridClanData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridClanData.Size = new System.Drawing.Size(483, 427);
-            this.GridClanData.TabIndex = 14;
-            this.GridClanData.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.GridClanData.UseCustomBackColor = true;
-            this.GridClanData.UseCustomForeColor = true;
-            this.GridClanData.UseStyleColors = true;
-            this.GridClanData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridClanData_CellContentClick);
-            this.GridClanData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridClanData_CellContentDoubleClick);
-            // 
-            // GROUP_ID3
-            // 
-            this.GROUP_ID3.Frozen = true;
-            this.GROUP_ID3.HeaderText = "GROUP ID3";
-            this.GROUP_ID3.Name = "GROUP_ID3";
-            this.GROUP_ID3.ReadOnly = true;
-            this.GROUP_ID3.Width = 105;
-            // 
-            // ColumnID
-            // 
-            this.ColumnID.Frozen = true;
-            this.ColumnID.HeaderText = "GROUP ID 64bits";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.Width = 130;
-            // 
-            // content
-            // 
-            this.content.Frozen = true;
-            this.content.HeaderText = "GROUP NAME";
-            this.content.Name = "content";
-            this.content.ReadOnly = true;
-            this.content.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.content.Width = 630;
             // 
             // btn_exitSelected
             // 
             this.btn_exitSelected.DisplayFocus = true;
             this.btn_exitSelected.ForeColor = System.Drawing.Color.White;
-            this.btn_exitSelected.Location = new System.Drawing.Point(334, 468);
+            this.btn_exitSelected.Location = new System.Drawing.Point(371, 468);
             this.btn_exitSelected.Name = "btn_exitSelected";
             this.btn_exitSelected.Size = new System.Drawing.Size(71, 38);
             this.btn_exitSelected.Style = MetroFramework.MetroColorStyle.Purple;
@@ -178,7 +94,7 @@
             // 
             this.btn_exitfromAll.DisplayFocus = true;
             this.btn_exitfromAll.ForeColor = System.Drawing.Color.White;
-            this.btn_exitfromAll.Location = new System.Drawing.Point(271, 468);
+            this.btn_exitfromAll.Location = new System.Drawing.Point(308, 468);
             this.btn_exitfromAll.Name = "btn_exitfromAll";
             this.btn_exitfromAll.Size = new System.Drawing.Size(57, 38);
             this.btn_exitfromAll.Style = MetroFramework.MetroColorStyle.Purple;
@@ -212,7 +128,7 @@
             // 
             this.btn_save2file.DisplayFocus = true;
             this.btn_save2file.ForeColor = System.Drawing.Color.White;
-            this.btn_save2file.Location = new System.Drawing.Point(128, 468);
+            this.btn_save2file.Location = new System.Drawing.Point(90, 468);
             this.btn_save2file.Name = "btn_save2file";
             this.btn_save2file.Size = new System.Drawing.Size(74, 38);
             this.btn_save2file.Style = MetroFramework.MetroColorStyle.Purple;
@@ -401,7 +317,7 @@
             // 
             // 
             this.txtBox_gName.CustomButton.Image = null;
-            this.txtBox_gName.CustomButton.Location = new System.Drawing.Point(404, 1);
+            this.txtBox_gName.CustomButton.Location = new System.Drawing.Point(424, 1);
             this.txtBox_gName.CustomButton.Name = "";
             this.txtBox_gName.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtBox_gName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -411,7 +327,7 @@
             this.txtBox_gName.CustomButton.Visible = false;
             this.txtBox_gName.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.txtBox_gName.Lines = new string[0];
-            this.txtBox_gName.Location = new System.Drawing.Point(0, 439);
+            this.txtBox_gName.Location = new System.Drawing.Point(-4, 439);
             this.txtBox_gName.MaxLength = 32767;
             this.txtBox_gName.Name = "txtBox_gName";
             this.txtBox_gName.PasswordChar = '\0';
@@ -421,7 +337,7 @@
             this.txtBox_gName.SelectionLength = 0;
             this.txtBox_gName.SelectionStart = 0;
             this.txtBox_gName.ShortcutsEnabled = true;
-            this.txtBox_gName.Size = new System.Drawing.Size(426, 23);
+            this.txtBox_gName.Size = new System.Drawing.Size(446, 23);
             this.txtBox_gName.TabIndex = 33;
             this.txtBox_gName.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_gName.UseCustomBackColor = true;
@@ -475,7 +391,7 @@
             // ProgressSpinner_MassInvite
             // 
             this.ProgressSpinner_MassInvite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.ProgressSpinner_MassInvite.Location = new System.Drawing.Point(60, 469);
+            this.ProgressSpinner_MassInvite.Location = new System.Drawing.Point(22, 469);
             this.ProgressSpinner_MassInvite.Maximum = 100;
             this.ProgressSpinner_MassInvite.Name = "ProgressSpinner_MassInvite";
             this.ProgressSpinner_MassInvite.Size = new System.Drawing.Size(41, 38);
@@ -489,7 +405,7 @@
             // 
             // btn_massInvite
             // 
-            this.btn_massInvite.Location = new System.Drawing.Point(38, 468);
+            this.btn_massInvite.Location = new System.Drawing.Point(0, 468);
             this.btn_massInvite.Name = "btn_massInvite";
             this.btn_massInvite.Size = new System.Drawing.Size(84, 38);
             this.btn_massInvite.TabIndex = 38;
@@ -740,12 +656,111 @@
             this.MongoToolTip.StyleManager = null;
             this.MongoToolTip.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
+            // content
+            // 
+            this.content.Frozen = true;
+            this.content.HeaderText = "GROUP NAME";
+            this.content.Name = "content";
+            this.content.ReadOnly = true;
+            this.content.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.content.Width = 630;
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.Frozen = true;
+            this.ColumnID.HeaderText = "GROUP ID 64bits";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Width = 130;
+            // 
+            // GROUP_ID3
+            // 
+            this.GROUP_ID3.Frozen = true;
+            this.GROUP_ID3.HeaderText = "GROUP ID3";
+            this.GROUP_ID3.Name = "GROUP_ID3";
+            this.GROUP_ID3.ReadOnly = true;
+            this.GROUP_ID3.Width = 105;
+            // 
+            // GridClanData
+            // 
+            this.GridClanData.AllowUserToAddRows = false;
+            this.GridClanData.AllowUserToDeleteRows = false;
+            this.GridClanData.AllowUserToOrderColumns = true;
+            this.GridClanData.AllowUserToResizeColumns = false;
+            this.GridClanData.AllowUserToResizeRows = false;
+            this.GridClanData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.GridClanData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GridClanData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.GridClanData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridClanData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.GridClanData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridClanData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.GROUP_ID3,
+            this.ColumnID,
+            this.content});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridClanData.DefaultCellStyle = dataGridViewCellStyle2;
+            this.GridClanData.EnableHeadersVisualStyles = false;
+            this.GridClanData.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.GridClanData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.GridClanData.Location = new System.Drawing.Point(-41, 6);
+            this.GridClanData.MultiSelect = false;
+            this.GridClanData.Name = "GridClanData";
+            this.GridClanData.ReadOnly = true;
+            this.GridClanData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridClanData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.GridClanData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.GridClanData.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.GridClanData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GridClanData.Size = new System.Drawing.Size(483, 427);
+            this.GridClanData.TabIndex = 14;
+            this.GridClanData.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.GridClanData.UseCustomBackColor = true;
+            this.GridClanData.UseCustomForeColor = true;
+            this.GridClanData.UseStyleColors = true;
+            this.GridClanData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridClanData_CellContentClick);
+            this.GridClanData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridClanData_CellContentDoubleClick);
+            // 
+            // txt_totalgroups
+            // 
+            this.txt_totalgroups.AutoSize = true;
+            this.txt_totalgroups.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.txt_totalgroups.Location = new System.Drawing.Point(403, 71);
+            this.txt_totalgroups.Name = "txt_totalgroups";
+            this.txt_totalgroups.Size = new System.Drawing.Size(33, 15);
+            this.txt_totalgroups.TabIndex = 45;
+            this.txt_totalgroups.Text = "Total:";
+            this.txt_totalgroups.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.txt_totalgroups.UseCustomBackColor = true;
+            this.txt_totalgroups.UseStyleColors = true;
+            // 
             // GatherSteamGroups
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(472, 618);
             this.Controls.Add(this.metroPanel10);
             this.Controls.Add(this.lbl_groupSelected);
+            this.Controls.Add(this.txt_totalgroups);
             this.Controls.Add(this.MercuryTabControlGroups);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -756,18 +771,17 @@
             this.Text = "Mercury - STEAM GROUPS";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.Shown += new System.EventHandler(this.GatherSteamGroups_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).EndInit();
             this.MercuryTabControlGroups.ResumeLayout(false);
             this.metroTab_Tasks.ResumeLayout(false);
             this.metroTab_Settings.ResumeLayout(false);
             this.metroTab_Settings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroGrid GridClanData;
         private MetroFramework.Controls.MetroButton btn_exitSelected;
         private MetroFramework.Controls.MetroButton btn_exitfromAll;
         private MetroFramework.Controls.MetroScrollBar ClanList_ScrollBar;
@@ -799,8 +813,10 @@
         private MetroFramework.Controls.MetroProgressSpinner ProgressSpinner_JoinAllGroups;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private MetroFramework.Controls.MetroProgressSpinner ProgressSpinner_MassInvite;
+        private MetroFramework.Controls.MetroGrid GridClanData;
         private System.Windows.Forms.DataGridViewTextBoxColumn GROUP_ID3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn content;
+        private MetroFramework.Controls.MetroLabel txt_totalgroups;
     }
 }

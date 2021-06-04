@@ -1166,7 +1166,7 @@ namespace MercuryBOT
             for (var i = 0; i < steamFriends.GetClanCount(); i++)
             {
                 SteamID steamIDClan = steamFriends.GetClanByIndex(i);
-                if (!ClanDictionary.ContainsKey(steamIDClan))
+                if ((!ClanDictionary.ContainsKey(steamIDClan)) && steamFriends.GetClanRelationship(steamIDClan) == EClanRelationship.Member)
                 {
                     ClanDictionary.Add(steamIDClan, steamFriends.GetClanName(steamIDClan));
                 }
@@ -1229,7 +1229,7 @@ namespace MercuryBOT
             LastLogOnResult = EResult.NotLoggedOn;
         }
 
-        public static void NotifBox(string title,string mess)
+        public static void NotifBox(string title, string mess)
         {
             Notification.NotifHelper.MessageBox.Show(title, mess);
         }

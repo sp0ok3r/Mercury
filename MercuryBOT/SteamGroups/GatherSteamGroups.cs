@@ -71,6 +71,7 @@ namespace MercuryBOT.SteamGroups
         private void GatherSteamGroups_Shown(object sender, EventArgs e)
         {
             RefreshClanList();
+            txt_totalgroups.Text = "Total: "+GridClanData.Rows.Count.ToString();
         }
         string Groupid3Selected = "None";
         string GroupSelected = "None";

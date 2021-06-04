@@ -20,7 +20,7 @@ namespace MercuryBOT.User2Json
             AccountName = volvo.Value[@"AccountName"].ToString();
             PersonaName = volvo.Value[@"PersonaName"].ToString();
             RememberPassword = int.Parse(volvo.Value[@"RememberPassword"].ToString()) == 1;
-            MostRecent = int.Parse(volvo.Value[@"mostrecent"].ToString()) == 1;
+            MostRecent = int.Parse(volvo.Value[@"Mostrecent"].ToString()) == 1;
             LastLoginTime = volvo.Value[@"Timestamp"].ToString();
             //Helpers.Extensions.GetTime(volvo.Value[@"Timestamp"].ToString());
         }
