@@ -390,7 +390,8 @@ namespace MercuryBOT
 
 
 
-                toolStrip_Acc.DropDownItems.Add(a.username);
+                toolStrip_AccMercury.DropDownItems.Add(a.username);
+                toolStrip_AccClient.DropDownItems.Add(a.username);
                 i++;
             }
             AccountsList_ScrollBar.Maximum = AccountsList_Grid.Rows.Count;
@@ -1771,7 +1772,7 @@ namespace MercuryBOT
 
         private void toolStrip_Acc_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            foreach (ToolStripMenuItem subItem in toolStrip_Acc.DropDownItems)
+            foreach (ToolStripMenuItem subItem in toolStrip_AccMercury.DropDownItems)
             {
                 if (subItem.Selected)
                 {
@@ -1780,10 +1781,22 @@ namespace MercuryBOT
                         AccountLogin.Logout();
                     }
                     doLogin(subItem.Text);
+                    IconContextMenu.Close();
                 }
             }
         }
-
+        private void toolStrip_AccClient_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            foreach (ToolStripMenuItem subItem in toolStrip_AccClient.DropDownItems)
+            {
+                if (subItem.Selected)
+                {
+                    ClientLogin(subItem.Text);
+                }
+            }
+            IconContextMenu.Close();
+        }
+        
         private void combox_defaultTab_SelectedIndexChanged(object sender, EventArgs e)
         {
             var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
@@ -1863,6 +1876,22 @@ namespace MercuryBOT
 
         }
 
+        public static bool ClientLogin(string userselected)
+        {
+            if (!Extensions.KillSteam())
+            {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Error trying to close steam process...");
+
+                return false;
+            }
+
+            Thread.Sleep(2000);
+
+            LoginAccountInClient(userselected);
+            return true;
+        }
+
+
         private void btn_steamLogin_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(SelectedUser))
@@ -1872,18 +1901,10 @@ namespace MercuryBOT
             }
             btn_steamLogin.Enabled = false;
 
-            if (!Extensions.KillSteam())
+            if (ClientLogin(SelectedUser))
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Error trying to close steam process...");
-
-                return;
+                btn_steamLogin.Enabled = true;
             }
-
-            Thread.Sleep(2000);
-
-            LoginAccountInClient(SelectedUser);
-            
-            btn_steamLogin.Enabled = true;
         }
 
         private void btn_addCDKey_Click(object sender, EventArgs e)
@@ -1923,6 +1944,8 @@ namespace MercuryBOT
                 }
             }
         }
+
+
 
         private void CDKeys_ScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
