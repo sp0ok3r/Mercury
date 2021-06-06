@@ -702,7 +702,7 @@ namespace MercuryBOT
                     var steamInterface = webInterfaceFactory.CreateSteamWebInterface<SteamUser>(new HttpClient());
 
                     ProgressSpinner_FriendsList.Visible = true;
-                    btn_loadFriends.Enabled = false;
+                    ProgressSpinner_FriendsList.Enabled = false;
                     BTN_RemoveFriend.Enabled = false;
                     FriendsList_Grid.Rows.Clear();
 
@@ -1880,6 +1880,7 @@ namespace MercuryBOT
             }
 
             Thread.Sleep(2000);
+
             LoginAccountInClient(SelectedUser);
             
             btn_steamLogin.Enabled = true;
