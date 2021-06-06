@@ -26,16 +26,21 @@ namespace MercuryBOT.SteamCommunity
         #region ProfileRelated
         public static IDictionary<string, int> GetProfileSettings()
         {
-            try
-            {
-                string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/profiles/" + AccountLogin.CurrentSteamID + "/edit/settings", "GET");
+            //  try
+            //  {
+            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/profiles/" + AccountLogin.CurrentSteamID + "/edit/settings", "GET");
 
-                var document = new HtmlParser().ParseDocument(resp);
-                var ReadPrivacyDiv = document.QuerySelector("div.ProfileReactRoot").GetAttribute("data-privacysettings");
 
-                var renderPrivacySettings = RenderProfilePrivacy.FromJson(ReadPrivacyDiv);
 
-                var dictionary = new Dictionary<string, int>{
+            File.WriteAllText(Program.ExecutablePath + @"\testo.html", resp);
+
+
+            var document = new HtmlParser().ParseDocument(resp);
+            var ReadPrivacyDiv = document.QuerySelector("div.ProfileReactRoot").GetAttribute("data-privacysettings");
+
+            var renderPrivacySettings = RenderProfilePrivacy.FromJson(ReadPrivacyDiv);
+
+            var dictionary = new Dictionary<string, int>{
                         { "PrivacyProfile",         renderPrivacySettings.PrivacySettings.PrivacyProfile},
                         { "PrivacyFriendsList",     renderPrivacySettings.PrivacySettings.PrivacyFriendsList},
                         { "PrivacyPlaytime",        renderPrivacySettings.PrivacySettings.PrivacyPlaytime},
@@ -45,15 +50,15 @@ namespace MercuryBOT.SteamCommunity
                         { "ECommentPermission",     renderPrivacySettings.ECommentPermission}
                     };
 
-                return dictionary;
+            return dictionary;
 
-            }
-            catch (Exception te)
-            {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again.");
-                Console.WriteLine(te);
-                return null;
-            }
+            //   }
+            //   catch (Exception te)
+            //   {
+            //      InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again.");
+            //     Console.WriteLine(te);
+            //     return null;
+            // }
         }
         public static void ProfileSettings(int Profile, int Inventory, int Gifts, int OwnedGames, int Playtime, int FriendsList, int Comment)
         {
@@ -227,7 +232,7 @@ namespace MercuryBOT.SteamCommunity
         #endregion
 
         #region PlayGames
-        
+
         public static void PlayNormal1App(uint customgame)
         {
             AccountLogin.gamesHandler.SetGamePlayingNormal(customgame);

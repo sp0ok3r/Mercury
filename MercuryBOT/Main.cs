@@ -36,6 +36,7 @@ using Win32Interop.Methods;
 using System.Reflection;
 using System.Reflection.Metadata;
 using System.ComponentModel;
+using Microsoft.Win32;
 
 namespace MercuryBOT
 {
@@ -179,7 +180,7 @@ namespace MercuryBOT
             //{
             //    lbl_mercuryAge.Text = "MERCURY BOT © is " + age + " years old! ";
             //}
-            
+
         }
 
         public void Main_Load(object sender, EventArgs e)
@@ -694,7 +695,7 @@ namespace MercuryBOT
                     return;
                 }
 
-                
+
                 try
                 {
                     var webInterfaceFactory = new SteamWebInterfaceFactory(apikey);
@@ -1419,14 +1420,8 @@ namespace MercuryBOT
         {
             var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
 
-            if (chck_Minimized.Checked)
-            {
-                SettingsList.startMinimized = true;
-            }
-            else
-            {
-                SettingsList.startMinimized = false;
-            }
+            SettingsList.startMinimized = chck_Minimized.Checked;
+
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, Formatting.Indented));
         }
 
@@ -1449,14 +1444,10 @@ namespace MercuryBOT
         private void toggle_playSound_CheckedChanged(object sender, EventArgs e)
         {
             var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
-            if (toggle_playSound.Checked)
-            {
-                SettingsList.playsound = true;
-            }
-            else
-            {
-                SettingsList.playsound = false;
-            }
+
+            SettingsList.playsound = toggle_playSound.Checked;
+
+
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, Formatting.Indented));
         }
 
@@ -1538,7 +1529,9 @@ namespace MercuryBOT
             if (AccountLogin.LastLogOnResult.ToString() == "ServiceUnavailable")
             {
                 btn_login2selected.Enabled = false;
-            }else {
+            }
+            else
+            {
                 btn_login2selected.Enabled = true;
             }
             // try
@@ -1576,7 +1569,7 @@ namespace MercuryBOT
                     picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID);
                 }
 
-                if(btnLabel_PersonaAndFlag.Image == null)
+                if (btnLabel_PersonaAndFlag.Image == null)
                 {
                     try
                     {
@@ -1585,7 +1578,8 @@ namespace MercuryBOT
                         MemoryStream ms = new MemoryStream(data);
                         btnLabel_PersonaAndFlag.Image = Image.FromStream(ms);
 
-                    } catch{}
+                    }
+                    catch { }
                 }
 
                 //  combox_states.SelectedIndex = AccountLogin.steamFriends.GetPersonaState;
@@ -1876,21 +1870,16 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Please select an account!");
                 return;
             }
+            btn_steamLogin.Enabled = false;
 
-            Extensions.KillSteam();
-            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+            if (!Extensions.KillSteam())
             {
-                if (a.username == SelectedUser)
-                {
-                    if (string.IsNullOrEmpty(a.password))
-                    {
-                        InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Please add password to: " + a.username);
-                        return;
-                    }
-                    LoginAccountInClient(a.username, a.password);
-                }
+                return;
             }
-            btn_steamLogin.Refresh();
+
+            LoginAccountInClient(SelectedUser);
+
+            btn_steamLogin.Enabled = true;
         }
         private void btn_addCDKey_Click(object sender, EventArgs e)
         {
@@ -1939,29 +1928,27 @@ namespace MercuryBOT
             CDKeys_Grid.FirstDisplayedScrollingRowIndex = e.NewValue;
         }
 
-        public static bool LoginAccountInClient(string user, string pw)
+        public static bool LoginAccountInClient(string user)
         {
-            var steam = Path.Combine(Extensions.SteamLocation, "Steam.exe");
-            if (!File.Exists(steam))
+            var AutoLoginUser_Key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Valve\\Steam", true);
+            if (AutoLoginUser_Key != null)
             {
-                MessageBox.Show("Can't find Steam.exe in steam path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            try
-            {
+                AutoLoginUser_Key.SetValue("AutoLoginUser", user, RegistryValueKind.String);
+                AutoLoginUser_Key.Close();
+
                 Process.Start(new ProcessStartInfo()
                 {
-                    FileName = steam,
-                    Arguments = "-nodialog -login \"" + user + "\" \"" + pw.Replace("\\", "\\\\").Replace("\"", "\\\"") + "\""
+                    FileName = Extensions.SteamLocation + "/steam.exe"
+                    // Arguments = "-silent"
                 });
+                return true;
+
             }
-            catch (Exception e)
+            else
             {
-                MessageBox.Show("Failed to start steam.\n\n" +
-                    "Exception Details:\n" + e, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            return true;
+
         }
     }
 }

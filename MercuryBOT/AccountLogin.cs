@@ -48,6 +48,8 @@ namespace MercuryBOT
         public static Dictionary<ulong, ulong> OfficerClanDictionary = new Dictionary<ulong, ulong>();
 
 
+        public const uint RETRY_DELAY = 15;
+
         public static SteamClient steamClient;
         private static SteamUser steamUser;
         public static SteamFriends steamFriends;
@@ -603,6 +605,7 @@ namespace MercuryBOT
         {
             do
             {
+                //myUniqueId, steamClient, myUserNonce
                 IsWebLoggedIn = steamWeb.Authenticate(myUniqueId, steamClient, myUserNonce);
 
                 if (!IsWebLoggedIn)
@@ -791,7 +794,7 @@ namespace MercuryBOT
                         {
                             if (!Friends.Contains(friend.SteamID))
                             {
-                                Friends.Add(friend.SteamID);
+                               // Friends.Add(friend.SteamID);
                                 newFriends.Add(friend.SteamID);
                             }
                         }
@@ -799,7 +802,7 @@ namespace MercuryBOT
                         {
                             if (!Friends.Contains(friend.SteamID))
                             {
-                                Friends.Add(friend.SteamID);
+                               // Friends.Add(friend.SteamID);
                                 newFriends.Add(friend.SteamID);
                             }
                         }

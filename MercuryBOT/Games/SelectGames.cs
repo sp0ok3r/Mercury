@@ -254,6 +254,10 @@ namespace MercuryBOT.GamesGather
 
         private void SelectGames_FormClosed(object sender, FormClosedEventArgs e)
         {
+            list_main_game.Dispose();
+            list_main_game.Items.Clear();
+            list_main_game.Refresh();
+
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }

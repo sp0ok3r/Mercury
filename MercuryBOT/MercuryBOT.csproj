@@ -278,6 +278,7 @@
     </Compile>
     <Compile Include="Helpers\Emojis.cs" />
     <Compile Include="Helpers\HtmlTable.cs" />
+    <Compile Include="Helpers\WebHelper.cs" />
     <Compile Include="Notification\NotifHelper.cs" />
     <Compile Include="Notification\NotificationForm.cs">
       <SubType>Form</SubType>

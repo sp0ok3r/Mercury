@@ -143,6 +143,7 @@
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Mercury -  Profile Background";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProfileBackground_FormClosing);
             this.Load += new System.EventHandler(this.ProfileBackground_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBox_steamBackground)).EndInit();
             this.ResumeLayout(false);

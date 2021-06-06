@@ -23,7 +23,8 @@ namespace MercuryBOT.FriendsList
 
         private void Chat_Load(object sender, EventArgs e)
         {
-            //chat_friendAvatar.BackgroundImage
+            //chat_friendAvatar.Background
+
             //chat_Messages.Text
             //chat_UserMessage.Text
             //btn_chatSendMessage

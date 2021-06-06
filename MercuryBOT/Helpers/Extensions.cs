@@ -75,8 +75,8 @@ namespace MercuryBOT.Helpers
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Invalid link (Link accepted: https://steamcommunity.com/profiles/1337)");
             }
-             return String.Empty;
-           
+            return String.Empty;
+
         }
         public static string Between(string STR, string FirstString, string LastString)
         {
@@ -150,26 +150,29 @@ namespace MercuryBOT.Helpers
             if (key != null && key.GetValue("SteamPath") is string)
             {
                 SteamLocation = key.GetValue("SteamPath").ToString();
-            }  
-        }
-        
-        public static int KillSteam()
-        {
-            int count = 0;
-            foreach (var process in Process.GetProcesses())
-            {
-                if (process.ProcessName == "Steam" || process.ProcessName == "steamwebhelper" || process.ProcessName == "SteamService")
-                {
-                    try
-                    {
-                        process.Kill();
-                        count++;
-                    }
-                    catch { }
-                }
             }
-            return count;
         }
+
+
+        public static bool KillSteam()
+        {
+
+            try
+            {
+                foreach (Process proc in Process.GetProcessesByName("steam"))
+                {
+                    proc.Kill();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                // MessageBox.Show(ex.Message);
+            }
+
+        }
+
 
         #endregion
 

@@ -94,7 +94,7 @@
             this.list_main_game.MultiSelect = false;
             this.list_main_game.Name = "list_main_game";
             this.list_main_game.OwnerDraw = true;
-            this.list_main_game.Size = new System.Drawing.Size(962, 303);
+            this.list_main_game.Size = new System.Drawing.Size(962, 515);
             this.list_main_game.SmallImageList = this.imageList1;
             this.list_main_game.TabIndex = 4;
             this.list_main_game.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -117,7 +117,7 @@
             // 
             this.lbl_selgames_count.AutoSize = true;
             this.lbl_selgames_count.ForeColor = System.Drawing.Color.White;
-            this.lbl_selgames_count.Location = new System.Drawing.Point(20, 381);
+            this.lbl_selgames_count.Location = new System.Drawing.Point(20, 593);
             this.lbl_selgames_count.Name = "lbl_selgames_count";
             this.lbl_selgames_count.Size = new System.Drawing.Size(65, 19);
             this.lbl_selgames_count.TabIndex = 5;
@@ -138,7 +138,7 @@
             this.btn_selectAll.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_selectAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.btn_selectAll.ForeColor = System.Drawing.Color.White;
-            this.btn_selectAll.Location = new System.Drawing.Point(867, 390);
+            this.btn_selectAll.Location = new System.Drawing.Point(867, 602);
             this.btn_selectAll.Name = "btn_selectAll";
             this.btn_selectAll.Size = new System.Drawing.Size(118, 23);
             this.btn_selectAll.TabIndex = 13;
@@ -191,7 +191,8 @@
             // 
             // link_GamesIMGPath
             // 
-            this.link_GamesIMGPath.Location = new System.Drawing.Point(832, 388);
+            this.link_GamesIMGPath.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.link_GamesIMGPath.Location = new System.Drawing.Point(832, 600);
             this.link_GamesIMGPath.Name = "link_GamesIMGPath";
             this.link_GamesIMGPath.Size = new System.Drawing.Size(29, 28);
             this.link_GamesIMGPath.TabIndex = 26;
@@ -204,7 +205,7 @@
             // SelectGames
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1008, 419);
+            this.ClientSize = new System.Drawing.Size(1008, 633);
             this.Controls.Add(this.link_GamesIMGPath);
             this.Controls.Add(this.progreeBar_GatherGames);
             this.Controls.Add(this.panel1);

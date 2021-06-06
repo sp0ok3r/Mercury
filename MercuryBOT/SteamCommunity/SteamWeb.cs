@@ -22,16 +22,18 @@ using System.Threading;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using MercuryBOT.Helpers;
 
 namespace MercuryBOT.SteamCommunity
 {
     public class SteamWeb
     {
-
         public const string SteamCommunityDomain = "steamcommunity.com";
-
+        
         public string Token { get; private set; }
 
+        public string SessionIDBefore { get; private set; }
         public string SessionID { get; private set; }
 
 
@@ -41,6 +43,8 @@ namespace MercuryBOT.SteamCommunity
         private string acceptLanguageHeader = Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "en" ? Thread.CurrentThread.CurrentCulture.ToString() + ",en;q=0.8" : Thread.CurrentThread.CurrentCulture.ToString() + "," + Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName + ";q=0.8,en;q=0.6";
 
         private CookieContainer _cookies = new CookieContainer();
+
+
 
         public string Fetch(string url, string method, NameValueCollection data = null, bool ajax = true, string referer = "", bool fetchError = true)
         {
@@ -102,7 +106,6 @@ namespace MercuryBOT.SteamCommunity
 
             // Cookies
             request.CookieContainer = _cookies;
-
             // If the request is a GET request return now the response. If not go on. Because then we need to apply data to the request.
             if (isGetMethod || string.IsNullOrEmpty(dataString))
             {
@@ -110,8 +113,9 @@ namespace MercuryBOT.SteamCommunity
                 {
                     return request.GetResponse() as HttpWebResponse;
                 }
-                catch (WebException)
+                catch (WebException x)
                 {
+                    Console.WriteLine(x);
                     return null;
                 }
             }
@@ -147,69 +151,75 @@ namespace MercuryBOT.SteamCommunity
                 throw;
             }
         }
-
+       
         public bool Authenticate(string myUniqueId, SteamClient client, string myLoginKey)
-        {
-            Token = TokenSecure = String.Empty;
-            SessionID = Convert.ToBase64String(Encoding.UTF8.GetBytes(myUniqueId));
+          {
+              Token = TokenSecure = String.Empty;
+              SessionID = Convert.ToBase64String(Encoding.UTF8.GetBytes(myUniqueId));
 
-            _cookies = new CookieContainer();
+              if (SessionIDBefore.EndsWith("="))
+              {
+                 // SessionID = SessionIDBefore.Remove(SessionIDBefore.Length - 2);
+              }
 
-            using (dynamic userAuth = WebAPI.GetInterface("ISteamUserAuth"))
-            {
+              _cookies = new CookieContainer();
 
-                // userAuth.Timeout = TimeSpan.FromSeconds(5);
-                // Generate an AES session key.
-                var sessionKey = CryptoHelper.GenerateRandomBlock(32);
+              using (dynamic userAuth = WebAPI.GetInterface("ISteamUserAuth"))
+              {
 
-                // rsa encrypt it with the public key for the universe we're on
-                byte[] cryptedSessionKey = null;
+                  // userAuth.Timeout = TimeSpan.FromSeconds(5);
+                  // Generate an AES session key.
+                  var sessionKey = CryptoHelper.GenerateRandomBlock(32);
 
-                using (RSACrypto rsa = new RSACrypto(KeyDictionary.GetPublicKey(client.Universe)))
-                {
-                    cryptedSessionKey = rsa.Encrypt(sessionKey);
-                }
-                byte[] loginKey = new byte[20];
-                Array.Copy(Encoding.ASCII.GetBytes(myLoginKey), loginKey, myLoginKey.Length);
+                  // rsa encrypt it with the public key for the universe we're on
+                  //byte[] cryptedSessionKey = null;
+                  byte[] cryptedSessionKey;
 
-                // AES encrypt the loginkey with our session key.
-                byte[] cryptedLoginKey = CryptoHelper.SymmetricEncrypt(loginKey, sessionKey);
+                  using (RSACrypto rsa = new RSACrypto(KeyDictionary.GetPublicKey(client.Universe)))
+                  {
+                      cryptedSessionKey = rsa.Encrypt(sessionKey);
+                  }
+                  byte[] loginKey = new byte[20];
 
-                KeyValue authResult;
-                
-                // Get the Authentification Result.
-                try
-                {
-                    Dictionary<string, object> sessionArgs = new Dictionary<string, object>()
-                    {
-                        { "steamid", client.SteamID.ConvertToUInt64() },
-                        { "sessionkey", cryptedSessionKey },
-                        { "encrypted_loginkey", cryptedLoginKey }
-                    };
-                    authResult = userAuth.Call(HttpMethod.Post, "AuthenticateUser", args: sessionArgs);
-                }
-                catch (Exception hehe)
-                {
-                    Console.WriteLine("Unable to make AuthenticateUser API Request: {0}", hehe.Message);
+                  Array.Copy(Encoding.ASCII.GetBytes(myLoginKey), loginKey, myLoginKey.Length);
 
-                    Token = TokenSecure = null;
-                    return false;
-                }
+                  // AES encrypt the loginkey with our session key.
+                  byte[] cryptedLoginKey = CryptoHelper.SymmetricEncrypt(loginKey, sessionKey);
 
-                Token = authResult["token"].AsString();
-                TokenSecure = authResult["tokensecure"].AsString();
+                  KeyValue authResult;
 
-                // Adding cookies to the cookie container.
-                _cookies.Add(new Cookie("sessionid", SessionID, string.Empty, SteamCommunityDomain));
-                _cookies.Add(new Cookie("steamLogin", Token, string.Empty, SteamCommunityDomain));
-                _cookies.Add(new Cookie("steamLoginSecure", TokenSecure, string.Empty, SteamCommunityDomain));
-                _cookies.Add(new Cookie("Steam_Language", "english", string.Empty, SteamCommunityDomain));
+                  // Get the Authentification Result.
+                  try
+                  {
+                      Dictionary<string, object> sessionArgs = new Dictionary<string, object>()
+                      {
+                          { "steamid", client.SteamID.ConvertToUInt64() },
+                          { "sessionkey", cryptedSessionKey },
+                          { "encrypted_loginkey", cryptedLoginKey }
+                      };
+                      authResult = userAuth.Call(HttpMethod.Post, "AuthenticateUser", args: sessionArgs);
+                  }
+                  catch (Exception hehe)
+                  {
+                      Console.WriteLine("Unable to make AuthenticateUser API Request: {0}", hehe.Message);
 
-                Console.WriteLine("Crukies: "+VerifyCookies());
-                return true;
-            }
-        }
+                      Token = TokenSecure = null;
+                      return false;
+                  }
 
+                  Token = authResult["token"].AsString();
+                  TokenSecure = authResult["tokensecure"].AsString();
+
+                  // Adding cookies to the cookie container.             -string.Empty
+                  _cookies.Add(new Cookie("sessionid", SessionID, "/", SteamCommunityDomain));
+                  _cookies.Add(new Cookie("steamLogin", Token, "/", SteamCommunityDomain));
+                  _cookies.Add(new Cookie("steamLoginSecure", TokenSecure, "/", SteamCommunityDomain));
+                  _cookies.Add(new Cookie("Steam_Language", "english", "/", SteamCommunityDomain));
+                  return true;
+              }
+          }
+          
+        
         public void Authenticate(System.Collections.Generic.IEnumerable<Cookie> cookies)
         {
             var cookieContainer = new CookieContainer();
@@ -240,7 +250,7 @@ namespace MercuryBOT.SteamCommunity
 
         public bool VerifyCookies()
         {
-            using (HttpWebResponse response = Request("http://steamcommunity.com/", "HEAD"))
+            using (HttpWebResponse response = Request("https://steamcommunity.com/my/", "HEAD"))
             {
                 return response.Cookies["steamLogin"] == null || !response.Cookies["steamLogin"].Value.Equals("deleted");
             }

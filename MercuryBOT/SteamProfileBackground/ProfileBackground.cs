@@ -23,7 +23,7 @@ namespace MercuryBOT.SteamProfileBackground
 {
     public partial class ProfileBackground : MetroFramework.Forms.MetroForm
     {
-        private string AppID;
+        private string AppID = "none";
         private readonly WebClient Web = new WebClient();
 
         public ProfileBackground()
@@ -82,7 +82,7 @@ namespace MercuryBOT.SteamProfileBackground
             }
             catch (Exception){
                 picBox_steamBackground.Cursor = DefaultCursor;
-                AppID = null;
+                AppID = "none";
                 lbl_clickonimginfo.Visible = false;
                 BTN_GETBackground.Enabled = true;
                 picBox_steamBackground.Image = null;
@@ -93,16 +93,30 @@ namespace MercuryBOT.SteamProfileBackground
 
         private void PicBox_steamBackground_Click(object sender, EventArgs e)
         {
+
+
             string steamMarket = "https://steamcommunity.com/market/search?appid=753&category_753_Game%5B%5D=tag_app_{0}&q=background";
 
-            if (!string.IsNullOrEmpty(AppID) && Program.CurrentProcesses.FirstOrDefault(x => x.ProcessName == "Steam") != null)
+            if (AppID != "none")
             {
-                Process.Start("steam://openurl/"+string.Format(steamMarket, AppID));
+                if (Program.CurrentProcesses.FirstOrDefault(x => x.ProcessName == "Steam") != null)
+                {
+                    Process.Start("steam://openurl/" + string.Format(steamMarket, AppID));
+                }
+                else
+                {
+                    Process.Start(string.Format(steamMarket, AppID));
+                }
             }
-            else
+        }
+
+        private void ProfileBackground_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (picBox_steamBackground.Image != null)//free up ram
             {
-                Process.Start(string.Format(steamMarket, AppID));
+                 picBox_steamBackground.Image.Dispose();
+                 picBox_steamBackground.Image = null;
             }
-        }  
+        }
     }
 }
