@@ -1874,13 +1874,17 @@ namespace MercuryBOT
 
             if (!Extensions.KillSteam())
             {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Error trying to close steam process...");
+
                 return;
             }
 
+            Thread.Sleep(2000);
             LoginAccountInClient(SelectedUser);
-
+            
             btn_steamLogin.Enabled = true;
         }
+
         private void btn_addCDKey_Click(object sender, EventArgs e)
         {
             //thanks to https://regexr.com/3b63e
@@ -1936,11 +1940,17 @@ namespace MercuryBOT
                 AutoLoginUser_Key.SetValue("AutoLoginUser", user, RegistryValueKind.String);
                 AutoLoginUser_Key.Close();
 
-                Process.Start(new ProcessStartInfo()
+
+                var process = new Process
                 {
-                    FileName = Extensions.SteamLocation + "/steam.exe"
-                    // Arguments = "-silent"
-                });
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = Extensions.SteamLocation + "/steam.exe"
+                        // Arguments = "-silent"
+                    }
+                };
+                process.Start();
+
                 return true;
 
             }
