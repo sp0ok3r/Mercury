@@ -515,7 +515,8 @@ namespace MercuryBOT.Helpers
         public const string Inbox_Tray = "📥";
         public const string Package = "📦";
         public const string E_Mail = "📧";
-        public const string Incoming_Envelope = "📨";
+        public const string 
+            _Envelope = "📨";
         public const string Envelope_With_Arrow = "📩";
         public const string Mailbox_Closed = "📪";
         public const string Mailbox = "📫";

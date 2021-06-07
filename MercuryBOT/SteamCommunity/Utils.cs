@@ -36,7 +36,8 @@ namespace MercuryBOT.SteamCommunity
 
 
             var document = new HtmlParser().ParseDocument(resp);
-            var ReadPrivacyDiv = document.QuerySelector("div.ProfileReactRoot").GetAttribute("data-privacysettings");
+            // var ReadPrivacyDiv = document.QuerySelector("div.ProfileReactRoot").GetAttribute("data-privacysettings");
+             var ReadPrivacyDiv = document.QuerySelector("div.ProfileReactRoot").GetAttribute("data-privacysettings");
 
             var renderPrivacySettings = RenderProfilePrivacy.FromJson(ReadPrivacyDiv);
 

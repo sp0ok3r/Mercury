@@ -114,7 +114,7 @@ namespace MercuryBOT
             }
 
             DateTime old = DateTime.Parse(SettingsList.LastTimeCheckedUpdate);
-            if (SettingsList.LastTimeCheckedUpdate.Length > 0 && (now - old).TotalDays > 14) //check for update 14 days later
+            if (SettingsList.LastTimeCheckedUpdate.Length > 0 && Math.Abs((now - old).TotalDays) > 14) //check for update 14 days later
             {
                 RafadexAutoUpdate600IQ();
             }
@@ -1240,7 +1240,7 @@ namespace MercuryBOT
 
         private void MetroLink_spkMusic_Click(object sender, EventArgs e)
         {
-            Process.Start("https://www.youtube.com/watch?v=ZA1hSn-s44M");
+            Process.Start("https://www.youtube.com/watch?v=NbzfAUSELtI");
         }
 
         private void metroLink_Json_Click(object sender, EventArgs e)

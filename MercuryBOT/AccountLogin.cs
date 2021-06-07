@@ -38,6 +38,8 @@ namespace MercuryBOT
         public static ulong CurrentSteamID = 0;
         public static string webAPIUserNonce;
 
+        public static IDictionary<string, int> PrivacySettings = new Dictionary<string, int>();
+
         public static string myWebAPIUser, myUserNonce, myUniqueId, APIKey;
 
         public static List<SteamID> Friends { get; private set; }
@@ -53,8 +55,12 @@ namespace MercuryBOT
         private static CallbackManager MercuryManager;
         public static SteamWeb steamWeb;
         public static GamesHandler gamesHandler;
+
         public static SteamMatchmaking steamMM;
         public static SteamUnifiedMessages steamUnified;
+        static SteamUnifiedMessages.UnifiedService<IPlayer> playerService;
+        static JobID playerRequest = JobID.Invalid;
+
 
         public static string MessageString;
         public static bool ChatLogger = false;
@@ -145,6 +151,10 @@ namespace MercuryBOT
 
 
             MercuryManager.Subscribe<SteamUnifiedMessages.ServiceMethodNotification>(OnServiceMethod);
+            MercuryManager.Subscribe<SteamUnifiedMessages.ServiceMethodResponse>(OnMethodResponse);
+
+            // we also want to create our local service interface, which will help us build requests to the unified api
+            playerService = steamUnified.CreateService<IPlayer>();
 
             //MercuryManager.Subscribe<SteamMatchmaking.GetLobbyListCallback>(OnLobbyList);
             //MercuryManager.Subscribe<SteamMatchmaking.CreateLobbyCallback>(OnCreateLobby);
@@ -190,6 +200,44 @@ namespace MercuryBOT
                     break;
             }
         }
+
+        static void OnMethodResponse(SteamUnifiedMessages.ServiceMethodResponse callback)
+        {
+            if (callback.JobID != playerRequest)
+            {
+                return;
+            }
+
+            if (callback.Result != EResult.OK)
+            {
+                Console.WriteLine($"Unified service request failed with {callback.Result}");
+                return;
+            }
+
+            // retrieve the deserialized response for the request we made
+            // notice the naming pattern
+            // for requests: CMyService_Method_Request
+            // for responses: CMyService_Method_Response
+            CPlayer_GetPrivacySettings_Response resp = callback.GetDeserializedResponse<CPlayer_GetPrivacySettings_Response>();
+
+
+            var dictionary = new Dictionary<string, int>{
+                        { "PrivacyProfile",         resp.privacy_settings.privacy_state},
+                        { "PrivacyFriendsList",     resp.privacy_settings.privacy_state_friendslist},
+                        { "PrivacyPlaytime",        resp.privacy_settings.privacy_state_playtime},
+                        { "PrivacyOwnedGames",      resp.privacy_settings.privacy_state_ownedgames},
+                        { "PrivacyInventoryGifts",  resp.privacy_settings.privacy_state_gifts},
+                        { "PrivacyInventory",       resp.privacy_settings.privacy_state_inventory}
+                    };
+            PrivacySettings = dictionary;
+
+            playerRequest = JobID.Invalid;
+
+
+            // now that we've completed our task, lets log off
+        }
+
+
 
         static void OnIncomingChatMessage(CChatRoom_IncomingChatMessage_Notification notification)
         {
@@ -451,19 +499,11 @@ namespace MercuryBOT
 
             CurrentSteamID = steamClient.SteamID.ConvertToUInt64();
 
-            if (myUserNonce == callback.WebAPIUserNonce)
-            {
-                Thread.Sleep(5000);
-                steamUser.RequestWebAPIUserNonce();
+            myUserNonce = callback.WebAPIUserNonce;
+            // UserWebLogOn();
 
-            }
-            else
-            {
-                myUserNonce = callback.WebAPIUserNonce;
-               // UserWebLogOn();
-            }
 
-           // myUserNonce = callback.WebAPIUserNonce;
+            // myUserNonce = callback.WebAPIUserNonce;
             UserCountry = callback.IPCountryCode;
 
             UserClanIDS();
@@ -474,6 +514,7 @@ namespace MercuryBOT
             LastLogOnResult = EResult.OK;
 
 
+            
             var ListUserSettings = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
             foreach (var a in ListUserSettings.Accounts)
             {
@@ -495,6 +536,15 @@ namespace MercuryBOT
             }
             File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(ListUserSettings, Formatting.Indented));
         }
+
+
+        public static void GetPrivacySettings()
+        {
+            CPlayer_GetPrivacySettings_Request req = new CPlayer_GetPrivacySettings_Request { };
+            playerRequest = playerService.SendMessage(x => x.GetPrivacySettings(req));
+        }
+
+
 
         static void OnDisconnected(SteamClient.DisconnectedCallback callback)
         {

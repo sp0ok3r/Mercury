@@ -38,13 +38,18 @@ namespace MercuryBOT.AccSettings
         {
             CollectPrivacySettings.RunWorkerAsync();
             btn_changeprofSettings.Enabled = false;
+
+            AccountLogin.GetPrivacySettings();
+
         }
 
         private void CollectPrivacySettings_DoWork(object sender, DoWorkEventArgs e)
         {
+            //ProfileSettings
+            
             try
             {
-                foreach (KeyValuePair<string, int> setting in SteamCommunity.Utils.GetProfileSettings())
+                foreach (KeyValuePair<string, int> setting in AccountLogin.PrivacySettings)
                 {
                     if (setting.Key == "PrivacyProfile")
                     {
@@ -99,6 +104,64 @@ namespace MercuryBOT.AccSettings
                         });
                     }
                 }
+
+                //try
+                //{
+                //    foreach (KeyValuePair<string, int> setting in SteamCommunity.Utils.GetProfileSettings())
+                //    {
+                //        if (setting.Key == "PrivacyProfile")
+                //        {
+
+                //            combox_profilePrivacy.Invoke((MethodInvoker)delegate
+                //            {
+                //                combox_profilePrivacy.SelectedIndex = setting.Value;
+                //            });
+                //        }
+                //        if (setting.Key == "PrivacyFriendsList")
+                //        {
+                //            combox_profilePrivacy.Invoke((MethodInvoker)delegate
+                //            {
+                //                combox_FriendsList.SelectedIndex = setting.Value;
+                //            });
+                //        }
+                //        if (setting.Key == "ECommentPermission")
+                //        {
+                //            combox_Comment.Invoke((MethodInvoker)delegate
+                //            {
+                //                combox_Comment.SelectedIndex = setting.Value;
+                //            });
+                //        }
+                //        /*------------------------------*/
+                //        if (setting.Key == "PrivacyInventory")
+                //        {
+                //            combox_InventoryPrivacy.Invoke((MethodInvoker)delegate
+                //            {
+                //                combox_InventoryPrivacy.SelectedIndex = setting.Value;
+                //            });
+                //        }
+                //        if (setting.Key == "PrivacyInventoryGifts")
+                //        {
+                //            combox_Gifts.Invoke((MethodInvoker)delegate
+                //            {
+                //                combox_Gifts.SelectedIndex = setting.Value;
+                //            });
+                //        }
+                //        /*------------------------------*/
+                //        if (setting.Key == "PrivacyOwnedGames")
+                //        {
+                //            combox_ownedGames.Invoke((MethodInvoker)delegate
+                //            {
+                //                combox_ownedGames.SelectedIndex = setting.Value;
+                //            });
+                //        }
+                //        if (setting.Key == "PrivacyPlaytime")
+                //        {
+                //            combox_PlayTime.Invoke((MethodInvoker)delegate
+                //            {
+                //                combox_PlayTime.SelectedIndex = setting.Value;
+                //            });
+                //        }
+                //    }
 
                 FidgetSpinner.Invoke((MethodInvoker)delegate
                 {
@@ -179,6 +242,11 @@ namespace MercuryBOT.AccSettings
                     combox_PlayTime.SelectedIndex = 3;
                     break;
             }
+        }
+
+        private void ProfilePrivacy_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //AccountLogin.PrivacySettings.Clear();
         }
     }
 }

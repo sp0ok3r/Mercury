@@ -395,6 +395,7 @@
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Change Profile Privacy";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProfilePrivacy_FormClosed);
             this.Load += new System.EventHandler(this.ProfilePrivacy_Load);
             this.olamongo.ResumeLayout(false);
             this.ResumeLayout(false);
