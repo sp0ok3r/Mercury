@@ -38,10 +38,7 @@ namespace MercuryBOT
         public static ulong CurrentSteamID = 0;
         public static string webAPIUserNonce;
 
-        public static string myWebAPIUser;
-        public static string myUserNonce;
-        public static string myUniqueId;
-        public static string APIKey;
+        public static string myWebAPIUser, myUserNonce, myUniqueId, APIKey;
 
         public static List<SteamID> Friends { get; private set; }
         public static Dictionary<ulong, string> ClanDictionary = new Dictionary<ulong, string>();
@@ -453,7 +450,20 @@ namespace MercuryBOT
             LoginStatus = "Successfully logged on!";
 
             CurrentSteamID = steamClient.SteamID.ConvertToUInt64();
-            myUserNonce = callback.WebAPIUserNonce;
+
+            if (myUserNonce == callback.WebAPIUserNonce)
+            {
+                Thread.Sleep(5000);
+                steamUser.RequestWebAPIUserNonce();
+
+            }
+            else
+            {
+                myUserNonce = callback.WebAPIUserNonce;
+               // UserWebLogOn();
+            }
+
+           // myUserNonce = callback.WebAPIUserNonce;
             UserCountry = callback.IPCountryCode;
 
             UserClanIDS();
@@ -521,8 +531,17 @@ namespace MercuryBOT
 
             if (webCallback.Result == EResult.OK)
             {
-                myUserNonce = webCallback.Nonce;
-                UserWebLogOn();
+                if (myUserNonce == webCallback.Nonce)
+                {
+                    Thread.Sleep(30000);
+                    steamUser.RequestWebAPIUserNonce();
+
+                }
+                else
+                {
+                    myUserNonce = webCallback.Nonce;
+                    UserWebLogOn();
+                }
             }
             else
             {
@@ -580,7 +599,8 @@ namespace MercuryBOT
         static void OnLoginKey(SteamUser.LoginKeyCallback callback)
         {
             myUniqueId = callback.UniqueID.ToString();
-
+            UserWebLogOn();
+            steamUser.RequestWebAPIUserNonce();
             steamUser.AcceptNewLoginKey(callback);
 
             var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
@@ -610,8 +630,8 @@ namespace MercuryBOT
 
                 if (!IsWebLoggedIn)
                 {
-                    Console.WriteLine("[" + Program.BOTNAME + "] - Authentication failed, retrying in 5s...");
-                    Thread.Sleep(5000);
+                    Console.WriteLine("[" + Program.BOTNAME + "] - Authentication failed, retrying in 10s...");
+                    Thread.Sleep(10000);
                 }
             } while (!IsWebLoggedIn); //test
 
@@ -794,7 +814,7 @@ namespace MercuryBOT
                         {
                             if (!Friends.Contains(friend.SteamID))
                             {
-                               // Friends.Add(friend.SteamID);
+                                // Friends.Add(friend.SteamID);
                                 newFriends.Add(friend.SteamID);
                             }
                         }
@@ -802,7 +822,7 @@ namespace MercuryBOT
                         {
                             if (!Friends.Contains(friend.SteamID))
                             {
-                               // Friends.Add(friend.SteamID);
+                                // Friends.Add(friend.SteamID);
                                 newFriends.Add(friend.SteamID);
                             }
                         }
@@ -1221,13 +1241,15 @@ namespace MercuryBOT
         }
         public static void Logout()
         {
+            webAPIUserNonce = "";
             user = null;
             isRunning = false;
             IsLoggedIn = false;
             steamUser.LogOff();
             DisconnectedCounter = 0;
             CurrentPersonaState = 0;
-            CurrentUsername = null;
+            UserPersonaName = "";
+            CurrentUsername = "";
 
             LastLogOnResult = EResult.NotLoggedOn;
         }

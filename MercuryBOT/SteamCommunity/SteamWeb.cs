@@ -30,10 +30,9 @@ namespace MercuryBOT.SteamCommunity
     public class SteamWeb
     {
         public const string SteamCommunityDomain = "steamcommunity.com";
-        
+        private static int Timeout = 1000;
         public string Token { get; private set; }
 
-        public string SessionIDBefore { get; private set; }
         public string SessionID { get; private set; }
 
 
@@ -151,51 +150,73 @@ namespace MercuryBOT.SteamCommunity
                 throw;
             }
         }
-       
+
         public bool Authenticate(string myUniqueId, SteamClient client, string myLoginKey)
-          {
-              Token = TokenSecure = String.Empty;
-              SessionID = Convert.ToBase64String(Encoding.UTF8.GetBytes(myUniqueId));
+        {
+            Token = TokenSecure = String.Empty;
+            SessionID = Convert.ToBase64String(Encoding.UTF8.GetBytes(myUniqueId));
 
-              if (SessionIDBefore.EndsWith("="))
-              {
-                 // SessionID = SessionIDBefore.Remove(SessionIDBefore.Length - 2);
-              }
+            _cookies = new CookieContainer();
 
-              _cookies = new CookieContainer();
+            using (dynamic userAuth = WebAPI.GetInterface("ISteamUserAuth"))
+            {
 
-              using (dynamic userAuth = WebAPI.GetInterface("ISteamUserAuth"))
-              {
+                // userAuth.Timeout = TimeSpan.FromSeconds(5);
+                // Generate an AES session key.
+                var sessionKey = CryptoHelper.GenerateRandomBlock(32);
 
-                  // userAuth.Timeout = TimeSpan.FromSeconds(5);
-                  // Generate an AES session key.
-                  var sessionKey = CryptoHelper.GenerateRandomBlock(32);
+                // rsa encrypt it with the public key for the universe we're on
+                //byte[] cryptedSessionKey = null;
+                byte[] cryptedSessionKey;
 
-                  // rsa encrypt it with the public key for the universe we're on
-                  //byte[] cryptedSessionKey = null;
-                  byte[] cryptedSessionKey;
+                using (RSACrypto rsa = new RSACrypto(KeyDictionary.GetPublicKey(client.Universe)))
+                {
+                    cryptedSessionKey = rsa.Encrypt(sessionKey);
+                }
+                byte[] loginKey = new byte[20];
 
-                  using (RSACrypto rsa = new RSACrypto(KeyDictionary.GetPublicKey(client.Universe)))
-                  {
-                      cryptedSessionKey = rsa.Encrypt(sessionKey);
-                  }
-                  byte[] loginKey = new byte[20];
+                Array.Copy(Encoding.ASCII.GetBytes(myLoginKey), loginKey, myLoginKey.Length);
 
-                  Array.Copy(Encoding.ASCII.GetBytes(myLoginKey), loginKey, myLoginKey.Length);
+                // AES encrypt the loginkey with our session key.
+                byte[] cryptedLoginKey = CryptoHelper.SymmetricEncrypt(loginKey, sessionKey);
 
-                  // AES encrypt the loginkey with our session key.
-                  byte[] cryptedLoginKey = CryptoHelper.SymmetricEncrypt(loginKey, sessionKey);
+                KeyValue authResult;
 
-                  KeyValue authResult;
+                // Get the Authentification Result.
 
-                  // Get the Authentification Result.
-                  try
+                using (dynamic iSteamUserAuth = WebAPI.GetInterface("ISteamUserAuth"))
+                {
+                   // iSteamUserAuth.Timeout = Timeout;
+
+                    try
+                    {
+                        Dictionary<string, object> sessionArgs = new Dictionary<string, object>()
+                      {
+                          { "steamid", client.SteamID.ConvertToUInt64() },
+                          { "sessionkey", cryptedSessionKey },
+                          { "encrypted_loginkey", cryptedLoginKey }
+                      };
+                        authResult = userAuth.Call(HttpMethod.Post, "AuthenticateUser", args: sessionArgs);
+                    }
+                    catch (Exception e)
+                    {
+
+                        return false;
+                    }
+                }
+
+                if (authResult == null)
+                {
+                    return false;
+                }
+                /*
+                try
                   {
                       Dictionary<string, object> sessionArgs = new Dictionary<string, object>()
                       {
                           { "steamid", client.SteamID.ConvertToUInt64() },
                           { "sessionkey", cryptedSessionKey },
-                          { "encrypted_loginkey", cryptedLoginKey }
+                          { "encrypted_loginkey", cryptedLoginKey }                     
                       };
                       authResult = userAuth.Call(HttpMethod.Post, "AuthenticateUser", args: sessionArgs);
                   }
@@ -206,20 +227,29 @@ namespace MercuryBOT.SteamCommunity
                       Token = TokenSecure = null;
                       return false;
                   }
+                  */
 
-                  Token = authResult["token"].AsString();
-                  TokenSecure = authResult["tokensecure"].AsString();
+                Token = authResult["token"].AsString();
+                if (string.IsNullOrEmpty(Token))
+                {
+                    return false;
+                }
+                TokenSecure = authResult["tokensecure"].AsString();
+                if (string.IsNullOrEmpty(TokenSecure))
+                {
+                    return false;
+                }
 
-                  // Adding cookies to the cookie container.             -string.Empty
-                  _cookies.Add(new Cookie("sessionid", SessionID, "/", SteamCommunityDomain));
-                  _cookies.Add(new Cookie("steamLogin", Token, "/", SteamCommunityDomain));
-                  _cookies.Add(new Cookie("steamLoginSecure", TokenSecure, "/", SteamCommunityDomain));
-                  _cookies.Add(new Cookie("Steam_Language", "english", "/", SteamCommunityDomain));
-                  return true;
-              }
-          }
-          
-        
+                // Adding cookies to the cookie container.             -string.Empty
+                _cookies.Add(new Cookie("sessionid", SessionID, "/", SteamCommunityDomain));
+                _cookies.Add(new Cookie("steamLogin", Token, "/", SteamCommunityDomain));
+                _cookies.Add(new Cookie("steamLoginSecure", TokenSecure, "/", SteamCommunityDomain));
+                _cookies.Add(new Cookie("Steam_Language", "english", "/", SteamCommunityDomain));
+                return true;
+            }
+        }
+
+
         public void Authenticate(System.Collections.Generic.IEnumerable<Cookie> cookies)
         {
             var cookieContainer = new CookieContainer();

@@ -1707,7 +1707,7 @@ namespace MercuryBOT
 
         private void btn_MsgSelectFriends_Click(object sender, EventArgs e)
         {
-            if (AccountLogin.IsLoggedIn == true && AccountLogin.Friends.Count != 0)
+            if (AccountLogin.IsLoggedIn == true )//&& AccountLogin.Friends.Count != 0
             {
                 Form SMsgRecipients = new MsgRecipients();
                 SMsgRecipients.FormClosed += HandleFormMsgRecipientsClosed;
@@ -1945,7 +1945,32 @@ namespace MercuryBOT
             }
         }
 
+        private void btn_killsteamwebhelper_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (Process proc in Process.GetProcessesByName("steamwebhelper"))
+                {
+                    proc.Kill();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }   
+        }
 
+        private void AccountsList_Grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (AccountsList_Grid.SelectedRows.Count > 0)
+            {
+                Process.Start("http://steamcommunity.com/profiles/" + AccountsList_Grid.SelectedRows[0].Cells[1].Value.ToString());
+            }
+            else
+            {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Select an account!");
+            }
+        }
 
         private void CDKeys_ScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
