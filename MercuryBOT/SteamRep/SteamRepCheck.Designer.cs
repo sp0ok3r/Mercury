@@ -96,7 +96,6 @@
             this.txt_repSteamID.MaxLength = 54;
             this.txt_repSteamID.Name = "txt_repSteamID";
             this.txt_repSteamID.PasswordChar = '\0';
-            this.txt_repSteamID.PromptText = "steamURL/id32-64";
             this.txt_repSteamID.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_repSteamID.SelectedText = "";
             this.txt_repSteamID.SelectionLength = 0;

@@ -200,7 +200,7 @@ namespace MercuryBOT.SteamCommunity
                     }
                     catch (Exception e)
                     {
-
+                        Console.WriteLine(e);
                         return false;
                     }
                 }

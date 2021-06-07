@@ -147,7 +147,6 @@
             this.txtBox_nameChange.Multiline = true;
             this.txtBox_nameChange.Name = "txtBox_nameChange";
             this.txtBox_nameChange.PasswordChar = '\0';
-            this.txtBox_nameChange.PromptText = "ma name jeff";
             this.txtBox_nameChange.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_nameChange.SelectedText = "";
             this.txtBox_nameChange.SelectionLength = 0;

@@ -74,7 +74,6 @@
             this.txtBox_steamprofile.MaxLength = 32767;
             this.txtBox_steamprofile.Name = "txtBox_steamprofile";
             this.txtBox_steamprofile.PasswordChar = '\0';
-            this.txtBox_steamprofile.PromptText = "https://steamcommunity.com/id/?/ or profile!";
             this.txtBox_steamprofile.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_steamprofile.SelectedText = "";
             this.txtBox_steamprofile.SelectionLength = 0;

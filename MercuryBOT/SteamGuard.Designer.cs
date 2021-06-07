@@ -107,7 +107,6 @@
             this.txtBox_Code.MaxLength = 5;
             this.txtBox_Code.Name = "txtBox_Code";
             this.txtBox_Code.PasswordChar = '\0';
-            this.txtBox_Code.PromptText = "GABEN";
             this.txtBox_Code.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_Code.SelectedText = "";
             this.txtBox_Code.SelectionLength = 0;

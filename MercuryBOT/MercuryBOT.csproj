@@ -35,13 +35,13 @@
     <StartupObject>MercuryBOT.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\MercuryIconLogo.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Images\MercuryIconLogo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <OutputPath>bin\Debug\</OutputPath>
-    <Prefer32Bit>false</Prefer32Bit>
-    <Optimize>false</Optimize>
+    <Prefer32Bit>true</Prefer32Bit>
+    <Optimize>true</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,9 +51,7 @@
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="AngleSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
       <HintPath>..\packages\AngleSharp.1.0.0-alpha-827\lib\net461\AngleSharp.dll</HintPath>
@@ -425,9 +423,9 @@
     <EmbeddedResource Include="UpdateManager\Updater.resx">
       <DependentUpon>Updater.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config">
+    <Resource Include="app.config">
       <SubType>Designer</SubType>
-    </None>
+    </Resource>
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
@@ -457,32 +455,32 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\mercury_success.wav" />
+    <None Include="Resources\Sounds\mercury_success.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\MercuryIconLogo.ico" />
-    <None Include="Resources\MercuryIconLogo.png" />
-    <None Include="Resources\mapWhite.png" />
-    <None Include="Resources\MercuryLogoWhite.png" />
-    <None Include="Resources\Restart_MouseHover.png" />
-    <None Include="Resources\Restart_Normal.png" />
-    <None Include="Resources\mercury_alert.wav" />
-    <None Include="Resources\DiscordLogo.png" />
+    <None Include="Resources\Images\MercuryIconLogo.ico" />
+    <None Include="Resources\Images\MercuryIconLogo.png" />
+    <None Include="Resources\Images\mapWhite.png" />
+    <None Include="Resources\Images\MercuryLogoWhite.png" />
+    <None Include="Resources\Images\Restart_MouseHover.png" />
+    <None Include="Resources\Images\Restart_Normal.png" />
+    <None Include="Resources\Sounds\mercury_alert.wav" />
+    <None Include="Resources\Images\DiscordLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\mercury_update.wav" />
+    <None Include="Resources\Sounds\mercury_update.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\SteamLogo.png" />
+    <None Include="Resources\Images\SteamLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\github_logo.png" />
+    <None Include="Resources\Images\github_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\mercuryIMGNotFound.png" />
+    <None Include="Resources\Images\mercuryIMGNotFound.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

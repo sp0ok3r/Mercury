@@ -97,7 +97,6 @@
             this.txtBox_AccUser.MaxLength = 32;
             this.txtBox_AccUser.Name = "txtBox_AccUser";
             this.txtBox_AccUser.PasswordChar = '\0';
-            this.txtBox_AccUser.PromptText = "ma name jeff";
             this.txtBox_AccUser.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_AccUser.SelectedText = "";
             this.txtBox_AccUser.SelectionLength = 0;
@@ -134,7 +133,6 @@
             this.txtBox_AccPW.MaxLength = 64;
             this.txtBox_AccPW.Name = "txtBox_AccPW";
             this.txtBox_AccPW.PasswordChar = '●';
-            this.txtBox_AccPW.PromptText = "123456";
             this.txtBox_AccPW.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_AccPW.SelectedText = "";
             this.txtBox_AccPW.SelectionLength = 0;
@@ -184,7 +182,6 @@
             this.txtBox_adminID.MaxLength = 17;
             this.txtBox_adminID.Name = "txtBox_adminID";
             this.txtBox_adminID.PasswordChar = '\0';
-            this.txtBox_adminID.PromptText = "STEAMID64";
             this.txtBox_adminID.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_adminID.SelectedText = "";
             this.txtBox_adminID.SelectionLength = 0;

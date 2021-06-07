@@ -70,7 +70,6 @@
             this.txtBox_user.MaxLength = 32767;
             this.txtBox_user.Name = "txtBox_user";
             this.txtBox_user.PasswordChar = '\0';
-            this.txtBox_user.PromptText = "ma name jeff";
             this.txtBox_user.ReadOnly = true;
             this.txtBox_user.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_user.SelectedText = "";
@@ -109,7 +108,6 @@
             this.txtBox_pw.MaxLength = 32767;
             this.txtBox_pw.Name = "txtBox_pw";
             this.txtBox_pw.PasswordChar = '●';
-            this.txtBox_pw.PromptText = "123456";
             this.txtBox_pw.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_pw.SelectedText = "";
             this.txtBox_pw.SelectionLength = 0;
@@ -167,7 +165,6 @@
             this.txtBox_adminID.MaxLength = 17;
             this.txtBox_adminID.Name = "txtBox_adminID";
             this.txtBox_adminID.PasswordChar = '\0';
-            this.txtBox_adminID.PromptText = "STEAMID64";
             this.txtBox_adminID.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_adminID.SelectedText = "";
             this.txtBox_adminID.SelectionLength = 0;
@@ -242,7 +239,6 @@
             this.txtBox_webapi.MaxLength = 32;
             this.txtBox_webapi.Name = "txtBox_webapi";
             this.txtBox_webapi.PasswordChar = '\0';
-            this.txtBox_webapi.PromptText = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
             this.txtBox_webapi.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_webapi.SelectedText = "";
             this.txtBox_webapi.SelectionLength = 0;

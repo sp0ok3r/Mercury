@@ -64,7 +64,6 @@
             this.txtBox_Game2Find.MaxLength = 32767;
             this.txtBox_Game2Find.Name = "txtBox_Game2Find";
             this.txtBox_Game2Find.PasswordChar = '\0';
-            this.txtBox_Game2Find.PromptText = "Name or ID";
             this.txtBox_Game2Find.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_Game2Find.SelectedText = "";
             this.txtBox_Game2Find.SelectionLength = 0;

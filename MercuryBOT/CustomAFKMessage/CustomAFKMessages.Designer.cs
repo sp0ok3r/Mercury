@@ -85,7 +85,6 @@
             this.txtBox_customMSG.MaxLength = 32767;
             this.txtBox_customMSG.Name = "txtBox_customMSG";
             this.txtBox_customMSG.PasswordChar = '\0';
-            this.txtBox_customMSG.PromptText = "i love Mercury❤";
             this.txtBox_customMSG.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_customMSG.SelectedText = "";
             this.txtBox_customMSG.SelectionLength = 0;

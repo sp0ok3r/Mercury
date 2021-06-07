@@ -332,7 +332,7 @@ namespace MercuryBOT
             }
             catch (Exception uwu)
             {
-                Console.WriteLine("sp0ok3r.tk down or No internet connection");
+                Console.WriteLine("sp0ok3r.tk down or No internet connection err"+uwu);
                 Notification.NotifHelper.MessageBox.Show("Alert", "Checking for updates failed, maybe sp0ok3r.tk is down.");
 
                 //Process.Start("https://github.com/sp0ok3r/Mercury/releases");

@@ -157,7 +157,6 @@
             this.txtBox_filterWords.Multiline = true;
             this.txtBox_filterWords.Name = "txtBox_filterWords";
             this.txtBox_filterWords.PasswordChar = '\0';
-            this.txtBox_filterWords.PromptText = "FREE,CASE,GIVEAWAY";
             this.txtBox_filterWords.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_filterWords.SelectedText = "";
             this.txtBox_filterWords.SelectionLength = 0;
@@ -339,7 +338,6 @@
             this.txtBox_Comments2GetCount.MaxLength = 4;
             this.txtBox_Comments2GetCount.Name = "txtBox_Comments2GetCount";
             this.txtBox_Comments2GetCount.PasswordChar = '\0';
-            this.txtBox_Comments2GetCount.PromptText = "Max: 5000 per Task! (for now)";
             this.txtBox_Comments2GetCount.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_Comments2GetCount.SelectedText = "";
             this.txtBox_Comments2GetCount.SelectionLength = 0;
