@@ -11,6 +11,8 @@
 
 Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, written in C# for the purpose of interacting with general steam stuff.
 
+![mercurygif1](https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/mercury_login64.gif)
+
 updating images...
 
 [Discord](https://discord.gg/7e7kuhp)
