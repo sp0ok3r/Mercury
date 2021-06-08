@@ -25,6 +25,7 @@ using MercuryBOT.CallbackMessages;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace MercuryBOT
 {
@@ -549,7 +550,6 @@ namespace MercuryBOT
         static void OnDisconnected(SteamClient.DisconnectedCallback callback)
         {
             EResult lastLogOnResult = LastLogOnResult;
-
             //if serviceunabalieve
             CurrentPersonaState = 0;
 
