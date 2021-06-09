@@ -90,6 +90,7 @@ namespace MercuryBOT
         public static string user, pass;
         public static string authCode, twoFactorAuth;
         public static string steamID;
+        public static string AvatarHash;
 
         public static void UserSettingsGather(string username, string password)
         {
@@ -515,7 +516,7 @@ namespace MercuryBOT
             LastLogOnResult = EResult.OK;
 
 
-            
+
             var ListUserSettings = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
             foreach (var a in ListUserSettings.Accounts)
             {
@@ -527,7 +528,7 @@ namespace MercuryBOT
                     }
                     if (a.LoginKey.Length == 19)
                     {
-                        UserWebLogOn();
+                      //  UserWebLogOn();
                     }
                     steamFriends.SetPersonaState(Extensions.statesList[a.LoginState]);
                     CurrentPersonaState = a.LoginState;
@@ -643,6 +644,24 @@ namespace MercuryBOT
                 {
                     //isAwayState = false;
                 }
+
+                string avatarHash = null;
+
+                if ((callback.AvatarHash.Length > 0) && callback.AvatarHash.Any(singleByte => singleByte != 0))
+                {
+                #pragma warning disable CA1308
+                    avatarHash = BitConverter.ToString(callback.AvatarHash).Replace("-", "").ToLowerInvariant();
+                #pragma warning restore CA1308
+
+                    if (string.IsNullOrEmpty(avatarHash) || avatarHash.All(singleChar => singleChar == '0'))
+                    {
+                        avatarHash = null;
+                    }
+                }
+
+                AvatarHash = avatarHash;
+
+                Console.WriteLine(callback.AvatarHash);
             }
         }
 

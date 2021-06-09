@@ -68,6 +68,7 @@
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
             this.txt_totalgroups = new MetroFramework.Controls.MetroLabel();
+            this.chk_copygroupid3 = new MetroFramework.Controls.MetroCheckBox();
             this.MercuryTabControlGroups.SuspendLayout();
             this.metroTab_Tasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).BeginInit();
@@ -160,6 +161,7 @@
             this.txtBox_Annonbody.Multiline = true;
             this.txtBox_Annonbody.Name = "txtBox_Annonbody";
             this.txtBox_Annonbody.PasswordChar = '\0';
+            this.txtBox_Annonbody.PromptText = "my friends!";
             this.txtBox_Annonbody.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_Annonbody.SelectedText = "";
             this.txtBox_Annonbody.SelectionLength = 0;
@@ -216,6 +218,7 @@
             this.txt_potwSteamID.MaxLength = 32767;
             this.txt_potwSteamID.Name = "txt_potwSteamID";
             this.txt_potwSteamID.PasswordChar = '\0';
+            this.txt_potwSteamID.PromptText = "STEAMID(32/64)/PROFILE URL";
             this.txt_potwSteamID.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_potwSteamID.SelectedText = "";
             this.txt_potwSteamID.SelectionLength = 0;
@@ -261,6 +264,7 @@
             this.txtBox_title.MaxLength = 32767;
             this.txtBox_title.Name = "txtBox_title";
             this.txtBox_title.PasswordChar = '\0';
+            this.txtBox_title.PromptText = "Hello!";
             this.txtBox_title.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_title.SelectedText = "";
             this.txtBox_title.SelectionLength = 0;
@@ -328,6 +332,7 @@
             this.txtBox_gName.MaxLength = 32767;
             this.txtBox_gName.Name = "txtBox_gName";
             this.txtBox_gName.PasswordChar = '\0';
+            this.txtBox_gName.PromptText = "🔍 Search";
             this.txtBox_gName.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_gName.SelectedText = "";
             this.txtBox_gName.SelectionLength = 0;
@@ -521,9 +526,9 @@
             this.metroTab_Settings.HorizontalScrollbarBarColor = true;
             this.metroTab_Settings.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Settings.HorizontalScrollbarSize = 10;
-            this.metroTab_Settings.Location = new System.Drawing.Point(4, 38);
+            this.metroTab_Settings.Location = new System.Drawing.Point(4, 35);
             this.metroTab_Settings.Name = "metroTab_Settings";
-            this.metroTab_Settings.Size = new System.Drawing.Size(442, 507);
+            this.metroTab_Settings.Size = new System.Drawing.Size(442, 510);
             this.metroTab_Settings.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroTab_Settings.TabIndex = 10;
             this.metroTab_Settings.Text = "OTHER TASKS";
@@ -602,6 +607,7 @@
             this.txtBox_groupidsFile.MaxLength = 32767;
             this.txtBox_groupidsFile.Name = "txtBox_groupidsFile";
             this.txtBox_groupidsFile.PasswordChar = '\0';
+            this.txtBox_groupidsFile.PromptText = "X:\\file_with_groupids.txt";
             this.txtBox_groupidsFile.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_groupidsFile.SelectedText = "";
             this.txtBox_groupidsFile.SelectionLength = 0;
@@ -646,6 +652,7 @@
             this.txtBox_profileGrabIDS.MaxLength = 32767;
             this.txtBox_profileGrabIDS.Name = "txtBox_profileGrabIDS";
             this.txtBox_profileGrabIDS.PasswordChar = '\0';
+            this.txtBox_profileGrabIDS.PromptText = "STEAMID(32/64)/PROFILE URL";
             this.txtBox_profileGrabIDS.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_profileGrabIDS.SelectedText = "";
             this.txtBox_profileGrabIDS.SelectionLength = 0;
@@ -748,10 +755,23 @@
             this.txt_totalgroups.UseCustomBackColor = true;
             this.txt_totalgroups.UseStyleColors = true;
             // 
+            // chk_copygroupid3
+            // 
+            this.chk_copygroupid3.AutoSize = true;
+            this.chk_copygroupid3.Location = new System.Drawing.Point(319, 6);
+            this.chk_copygroupid3.Name = "chk_copygroupid3";
+            this.chk_copygroupid3.Size = new System.Drawing.Size(140, 15);
+            this.chk_copygroupid3.TabIndex = 44;
+            this.chk_copygroupid3.Text = "Copy ID3 to Clipboard";
+            this.chk_copygroupid3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.chk_copygroupid3.UseSelectable = true;
+            this.chk_copygroupid3.UseStyleColors = true;
+            // 
             // GatherSteamGroups
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(472, 618);
+            this.Controls.Add(this.chk_copygroupid3);
             this.Controls.Add(this.metroPanel10);
             this.Controls.Add(this.lbl_groupSelected);
             this.Controls.Add(this.txt_totalgroups);
@@ -812,5 +832,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn content;
         private MetroFramework.Controls.MetroLabel txt_totalgroups;
+        private MetroFramework.Controls.MetroCheckBox chk_copygroupid3;
     }
 }

@@ -103,6 +103,8 @@ namespace MercuryBOT.SteamGroups
                 GroupSelected = GridClanData.SelectedRows[0].Cells[1].Value + string.Empty;
                 GroupNameSelected = GridClanData.SelectedRows[0].Cells[2].Value + string.Empty;
                 lbl_groupSelected.Text = "Selected: " + GroupNameSelected;
+
+                Clipboard.SetText(Groupid3Selected);
             }
         }
 

@@ -30,19 +30,31 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTab_Message = new MetroFramework.Controls.MetroTabPage();
             this.Chatlog_Folder = new MetroFramework.Controls.MetroLink();
             this.chck_Send2Receipts = new MetroFramework.Controls.MetroCheckBox();
@@ -119,7 +131,6 @@
             this.lbl_totalFriends = new MetroFramework.Controls.MetroLink();
             this.metroTab_Tasks = new MetroFramework.Controls.MetroTabPage();
             this.btn_killsteamwebhelper = new MetroFramework.Controls.MetroButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.btn_rateup = new MetroFramework.Controls.MetroButton();
             this.btn_clearUnreadMsg = new MetroFramework.Controls.MetroButton();
@@ -137,6 +148,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBox_redeemKey = new MetroFramework.Controls.MetroTextBox();
             this.lbl_redeemkey = new MetroFramework.Controls.MetroLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.metroTab_Settings = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel28 = new MetroFramework.Controls.MetroLabel();
             this.combox_notifEffect = new MetroFramework.Controls.MetroComboBox();
@@ -220,6 +232,96 @@
             this.lbl_connecting = new MetroFramework.Controls.MetroLabel();
             this.Trolha = new System.Windows.Forms.Timer(this.components);
             this.pictureBox_MercuryLogo = new System.Windows.Forms.PictureBox();
+            this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
+            this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.richTextBox8 = new System.Windows.Forms.RichTextBox();
+            this.metroScrollBar1 = new MetroFramework.Controls.MetroScrollBar();
+            this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
+            this.metroButton5 = new MetroFramework.Controls.MetroButton();
+            this.metroButton6 = new MetroFramework.Controls.MetroButton();
+            this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.richTextBox9 = new System.Windows.Forms.RichTextBox();
+            this.metroProgressSpinner1 = new MetroFramework.Controls.MetroProgressSpinner();
+            this.metroScrollBar2 = new MetroFramework.Controls.MetroScrollBar();
+            this.metroGrid2 = new MetroFramework.Controls.MetroGrid();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroButton7 = new MetroFramework.Controls.MetroButton();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel29 = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel30 = new MetroFramework.Controls.MetroLabel();
+            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel31 = new MetroFramework.Controls.MetroLabel();
+            this.metroButton8 = new MetroFramework.Controls.MetroButton();
+            this.metroButton9 = new MetroFramework.Controls.MetroButton();
+            this.metroLink1 = new MetroFramework.Controls.MetroLink();
+            this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.metroLink2 = new MetroFramework.Controls.MetroLink();
+            this.metroCheckBox2 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroButton10 = new MetroFramework.Controls.MetroButton();
+            this.metroCheckBox3 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel32 = new MetroFramework.Controls.MetroLabel();
+            this.metroToggle1 = new MetroFramework.Controls.MetroToggle();
+            this.metroButton11 = new MetroFramework.Controls.MetroButton();
+            this.metroButton12 = new MetroFramework.Controls.MetroButton();
+            this.metroCheckBox4 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroCheckBox5 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroButton13 = new MetroFramework.Controls.MetroButton();
+            this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel33 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel34 = new MetroFramework.Controls.MetroLabel();
+            this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
+            this.metroCheckBox7 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLink3 = new MetroFramework.Controls.MetroLink();
+            this.metroScrollBar3 = new MetroFramework.Controls.MetroScrollBar();
+            this.richTextBox10 = new System.Windows.Forms.RichTextBox();
+            this.metroButton14 = new MetroFramework.Controls.MetroButton();
+            this.richTextBox11 = new System.Windows.Forms.RichTextBox();
+            this.metroButton15 = new MetroFramework.Controls.MetroButton();
+            this.metroGrid3 = new MetroFramework.Controls.MetroGrid();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroButton16 = new MetroFramework.Controls.MetroButton();
+            this.metroTextBox3 = new MetroFramework.Controls.MetroTextBox();
+            this.metroButton17 = new MetroFramework.Controls.MetroButton();
+            this.metroButton18 = new MetroFramework.Controls.MetroButton();
+            this.metroButton19 = new MetroFramework.Controls.MetroButton();
+            this.metroButton20 = new MetroFramework.Controls.MetroButton();
+            this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel35 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel36 = new MetroFramework.Controls.MetroLabel();
+            this.metroLink4 = new MetroFramework.Controls.MetroLink();
+            this.metroCheckBox8 = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLink5 = new MetroFramework.Controls.MetroLink();
+            this.metroTabPage5 = new MetroFramework.Controls.MetroTabPage();
+            this.metroButton21 = new MetroFramework.Controls.MetroButton();
+            this.metroButton22 = new MetroFramework.Controls.MetroButton();
+            this.metroButton23 = new MetroFramework.Controls.MetroButton();
+            this.metroButton24 = new MetroFramework.Controls.MetroButton();
+            this.metroButton25 = new MetroFramework.Controls.MetroButton();
+            this.metroButton26 = new MetroFramework.Controls.MetroButton();
+            this.metroButton27 = new MetroFramework.Controls.MetroButton();
+            this.metroButton28 = new MetroFramework.Controls.MetroButton();
+            this.metroButton29 = new MetroFramework.Controls.MetroButton();
+            this.metroButton30 = new MetroFramework.Controls.MetroButton();
+            this.metroButton31 = new MetroFramework.Controls.MetroButton();
+            this.metroButton32 = new MetroFramework.Controls.MetroButton();
+            this.metroButton33 = new MetroFramework.Controls.MetroButton();
+            this.metroButton34 = new MetroFramework.Controls.MetroButton();
+            this.metroScrollBar4 = new MetroFramework.Controls.MetroScrollBar();
+            this.metroGrid4 = new MetroFramework.Controls.MetroGrid();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTab_Message.SuspendLayout();
             this.metroTab_Games.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GamesList_Grid)).BeginInit();
@@ -244,6 +346,16 @@
             this.panel_steamStates.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_SteamAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_MercuryLogo)).BeginInit();
+            this.metroTabControl1.SuspendLayout();
+            this.metroTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
+            this.metroTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
+            this.metroTabPage3.SuspendLayout();
+            this.metroTabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid3)).BeginInit();
+            this.metroTabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid4)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTab_Message
@@ -491,6 +603,7 @@
             this.txtBox_msg2Friends.Multiline = true;
             this.txtBox_msg2Friends.Name = "txtBox_msg2Friends";
             this.txtBox_msg2Friends.PasswordChar = '\0';
+            this.txtBox_msg2Friends.PromptText = "Everyone, i have an announcement to make!";
             this.txtBox_msg2Friends.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtBox_msg2Friends.SelectedText = "";
             this.txtBox_msg2Friends.SelectionLength = 0;
@@ -591,6 +704,7 @@
             this.txtBox_nameChange.Multiline = true;
             this.txtBox_nameChange.Name = "txtBox_nameChange";
             this.txtBox_nameChange.PasswordChar = '\0';
+            this.txtBox_nameChange.PromptText = "ma name jeff";
             this.txtBox_nameChange.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_nameChange.SelectedText = "";
             this.txtBox_nameChange.SelectionLength = 0;
@@ -827,27 +941,27 @@
             this.GamesList_Grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GamesList_Grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GamesList_Grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GamesList_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GamesList_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GamesList_Grid.ColumnHeadersHeight = 17;
             this.GamesList_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.GamesList_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.HeaderAppName1,
             this.HeaderAppID1});
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GamesList_Grid.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GamesList_Grid.DefaultCellStyle = dataGridViewCellStyle2;
             this.GamesList_Grid.EnableHeadersVisualStyles = false;
             this.GamesList_Grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GamesList_Grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -856,14 +970,14 @@
             this.GamesList_Grid.Name = "GamesList_Grid";
             this.GamesList_Grid.ReadOnly = true;
             this.GamesList_Grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GamesList_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GamesList_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GamesList_Grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GamesList_Grid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.GamesList_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -933,6 +1047,7 @@
             this.txtBox_gameIDAdd.MaxLength = 63;
             this.txtBox_gameIDAdd.Name = "txtBox_gameIDAdd";
             this.txtBox_gameIDAdd.PasswordChar = '\0';
+            this.txtBox_gameIDAdd.PromptText = "AppID";
             this.txtBox_gameIDAdd.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_gameIDAdd.SelectedText = "";
             this.txtBox_gameIDAdd.SelectionLength = 0;
@@ -1049,6 +1164,7 @@
             this.txtBox_gameNonSteam.MaxLength = 50;
             this.txtBox_gameNonSteam.Name = "txtBox_gameNonSteam";
             this.txtBox_gameNonSteam.PasswordChar = '\0';
+            this.txtBox_gameNonSteam.PromptText = "❤ MercuryBOT";
             this.txtBox_gameNonSteam.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_gameNonSteam.SelectedText = "";
             this.txtBox_gameNonSteam.SelectionLength = 0;
@@ -1253,28 +1369,28 @@
             this.AccountsList_Grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AccountsList_Grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.AccountsList_Grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AccountsList_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AccountsList_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.AccountsList_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AccountsList_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Headerusername,
             this.SteamID,
             this.HeaderLoginKeyY,
             this.HeaderApiKey});
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.AccountsList_Grid.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.AccountsList_Grid.DefaultCellStyle = dataGridViewCellStyle5;
             this.AccountsList_Grid.EnableHeadersVisualStyles = false;
             this.AccountsList_Grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.AccountsList_Grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1284,14 +1400,14 @@
             this.AccountsList_Grid.Name = "AccountsList_Grid";
             this.AccountsList_Grid.ReadOnly = true;
             this.AccountsList_Grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AccountsList_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AccountsList_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.AccountsList_Grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.AccountsList_Grid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.AccountsList_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1430,7 +1546,7 @@
             this.MercuryTabControl.Location = new System.Drawing.Point(17, 79);
             this.MercuryTabControl.Multiline = true;
             this.MercuryTabControl.Name = "MercuryTabControl";
-            this.MercuryTabControl.SelectedIndex = 3;
+            this.MercuryTabControl.SelectedIndex = 0;
             this.MercuryTabControl.ShowToolTips = true;
             this.MercuryTabControl.Size = new System.Drawing.Size(777, 450);
             this.MercuryTabControl.TabIndex = 1;
@@ -1554,27 +1670,27 @@
             this.FriendsList_Grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FriendsList_Grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.FriendsList_Grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FriendsList_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FriendsList_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.FriendsList_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FriendsList_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.HFriendID,
             this.HName,
             this.FLastLogoff});
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.FriendsList_Grid.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.FriendsList_Grid.DefaultCellStyle = dataGridViewCellStyle8;
             this.FriendsList_Grid.EnableHeadersVisualStyles = false;
             this.FriendsList_Grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.FriendsList_Grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -1582,14 +1698,14 @@
             this.FriendsList_Grid.Name = "FriendsList_Grid";
             this.FriendsList_Grid.ReadOnly = true;
             this.FriendsList_Grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FriendsList_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FriendsList_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.FriendsList_Grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.FriendsList_Grid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.FriendsList_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1773,13 +1889,6 @@
             this.btn_killsteamwebhelper.UseSelectable = true;
             this.btn_killsteamwebhelper.UseStyleColors = true;
             this.btn_killsteamwebhelper.Click += new System.EventHandler(this.btn_killsteamwebhelper_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(8, 66);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(43, 286);
-            this.panel1.TabIndex = 74;
             // 
             // metroButton2
             // 
@@ -2026,25 +2135,25 @@
             this.CDKeys_Grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CDKeys_Grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.CDKeys_Grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CDKeys_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CDKeys_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.CDKeys_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CDKeys_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1});
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CDKeys_Grid.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CDKeys_Grid.DefaultCellStyle = dataGridViewCellStyle11;
             this.CDKeys_Grid.EnableHeadersVisualStyles = false;
             this.CDKeys_Grid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.CDKeys_Grid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -2052,14 +2161,14 @@
             this.CDKeys_Grid.Name = "CDKeys_Grid";
             this.CDKeys_Grid.ReadOnly = true;
             this.CDKeys_Grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CDKeys_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CDKeys_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.CDKeys_Grid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.CDKeys_Grid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.CDKeys_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -2097,6 +2206,7 @@
             this.txtBox_redeemKey.MaxLength = 29;
             this.txtBox_redeemKey.Name = "txtBox_redeemKey";
             this.txtBox_redeemKey.PasswordChar = '\0';
+            this.txtBox_redeemKey.PromptText = "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX";
             this.txtBox_redeemKey.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_redeemKey.SelectedText = "";
             this.txtBox_redeemKey.SelectionLength = 0;
@@ -2126,6 +2236,13 @@
             this.lbl_redeemkey.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.lbl_redeemkey.UseCustomBackColor = true;
             this.lbl_redeemkey.UseStyleColors = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(8, 66);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(43, 286);
+            this.panel1.TabIndex = 74;
             // 
             // metroTab_Settings
             // 
@@ -3414,6 +3531,1801 @@
             this.pictureBox_MercuryLogo.MouseMove += new System.Windows.Forms.MouseEventHandler(this._MouseMove);
             this.pictureBox_MercuryLogo.MouseUp += new System.Windows.Forms.MouseEventHandler(this._MouseUp);
             // 
+            // metroTabControl1
+            // 
+            this.metroTabControl1.Controls.Add(this.metroTabPage1);
+            this.metroTabControl1.Controls.Add(this.metroTabPage2);
+            this.metroTabControl1.Controls.Add(this.metroTabPage3);
+            this.metroTabControl1.Controls.Add(this.metroTabPage4);
+            this.metroTabControl1.Location = new System.Drawing.Point(0, 0);
+            this.metroTabControl1.Name = "metroTabControl1";
+            this.metroTabControl1.Size = new System.Drawing.Size(200, 100);
+            this.metroTabControl1.TabIndex = 0;
+            this.metroTabControl1.UseSelectable = true;
+            // 
+            // metroTabPage1
+            // 
+            this.metroTabPage1.BackColor = System.Drawing.Color.Transparent;
+            this.metroTabPage1.Controls.Add(this.metroButton1);
+            this.metroTabPage1.Controls.Add(this.richTextBox8);
+            this.metroTabPage1.Controls.Add(this.metroScrollBar1);
+            this.metroTabPage1.Controls.Add(this.metroGrid1);
+            this.metroTabPage1.Controls.Add(this.metroButton3);
+            this.metroTabPage1.Controls.Add(this.metroButton4);
+            this.metroTabPage1.Controls.Add(this.metroButton5);
+            this.metroTabPage1.Controls.Add(this.metroButton6);
+            this.metroTabPage1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.metroTabPage1.HorizontalScrollbarBarColor = true;
+            this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage1.HorizontalScrollbarSize = 10;
+            this.metroTabPage1.Location = new System.Drawing.Point(4, 35);
+            this.metroTabPage1.Name = "metroTabPage1";
+            this.metroTabPage1.Size = new System.Drawing.Size(769, 411);
+            this.metroTabPage1.TabIndex = 0;
+            this.metroTabPage1.Text = "👥 ACCOUNTS";
+            this.metroTabPage1.UseCustomBackColor = true;
+            this.metroTabPage1.UseCustomForeColor = true;
+            this.metroTabPage1.UseStyleColors = true;
+            this.metroTabPage1.VerticalScrollbarBarColor = true;
+            this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage1.VerticalScrollbarSize = 10;
+            this.metroTabPage1.MouseDown += new System.Windows.Forms.MouseEventHandler(this._MouseDown);
+            this.metroTabPage1.MouseMove += new System.Windows.Forms.MouseEventHandler(this._MouseMove);
+            this.metroTabPage1.MouseUp += new System.Windows.Forms.MouseEventHandler(this._MouseUp);
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton1.Location = new System.Drawing.Point(616, 95);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(128, 59);
+            this.metroButton1.TabIndex = 70;
+            this.metroButton1.TabStop = false;
+            this.metroButton1.Text = "Client Login";
+            this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton1, "Select one account and login fast in the steam client");
+            this.metroButton1.UseCustomBackColor = true;
+            this.metroButton1.UseCustomForeColor = true;
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.UseStyleColors = true;
+            this.metroButton1.Click += new System.EventHandler(this.btn_steamLogin_Click);
+            // 
+            // richTextBox8
+            // 
+            this.richTextBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.richTextBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox8.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.richTextBox8.DetectUrls = false;
+            this.richTextBox8.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox8.ForeColor = System.Drawing.Color.Gray;
+            this.richTextBox8.Location = new System.Drawing.Point(601, 160);
+            this.richTextBox8.MaxLength = 50;
+            this.richTextBox8.Multiline = false;
+            this.richTextBox8.Name = "richTextBox8";
+            this.richTextBox8.ReadOnly = true;
+            this.richTextBox8.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.richTextBox8.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox8.Size = new System.Drawing.Size(154, 14);
+            this.richTextBox8.TabIndex = 69;
+            this.richTextBox8.Text = "─────────────────────────────────────────";
+            // 
+            // metroScrollBar1
+            // 
+            this.metroScrollBar1.LargeChange = 10;
+            this.metroScrollBar1.Location = new System.Drawing.Point(552, 23);
+            this.metroScrollBar1.Maximum = 100;
+            this.metroScrollBar1.Minimum = 0;
+            this.metroScrollBar1.MouseWheelBarPartitions = 10;
+            this.metroScrollBar1.Name = "metroScrollBar1";
+            this.metroScrollBar1.Orientation = MetroFramework.Controls.MetroScrollOrientation.Vertical;
+            this.metroScrollBar1.ScrollbarSize = 15;
+            this.metroScrollBar1.Size = new System.Drawing.Size(15, 378);
+            this.metroScrollBar1.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroScrollBar1.TabIndex = 23;
+            this.metroScrollBar1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroScrollBar1.UseBarColor = true;
+            this.metroScrollBar1.UseSelectable = true;
+            this.metroScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.AccountsList_ScrollBar_Scroll);
+            // 
+            // metroGrid1
+            // 
+            this.metroGrid1.AllowUserToAddRows = false;
+            this.metroGrid1.AllowUserToDeleteRows = false;
+            this.metroGrid1.AllowUserToOrderColumns = true;
+            this.metroGrid1.AllowUserToResizeColumns = false;
+            this.metroGrid1.AllowUserToResizeRows = false;
+            this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle14;
+            this.metroGrid1.EnableHeadersVisualStyles = false;
+            this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroGrid1.HighLightPercentage = 0.1F;
+            this.metroGrid1.Location = new System.Drawing.Point(-44, 6);
+            this.metroGrid1.MultiSelect = false;
+            this.metroGrid1.Name = "metroGrid1";
+            this.metroGrid1.ReadOnly = true;
+            this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(185)))), ((int)(((byte)(232)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.metroGrid1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.metroGrid1.Size = new System.Drawing.Size(611, 395);
+            this.metroGrid1.TabIndex = 22;
+            this.metroGrid1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroGrid1, "Double click to open profile page");
+            this.metroGrid1.UseCustomBackColor = true;
+            this.metroGrid1.UseStyleColors = true;
+            this.metroGrid1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AccountsList_Grid_CellClick);
+            this.metroGrid1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AccountsList_Grid_CellDoubleClick);
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "USERNAME";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn2.Width = 250;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "STEAMID";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn3.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "LOGINKEY";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "APIKEY";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // metroButton3
+            // 
+            this.metroButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton3.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton3.Location = new System.Drawing.Point(616, 54);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(128, 35);
+            this.metroButton3.TabIndex = 57;
+            this.metroButton3.TabStop = false;
+            this.metroButton3.Text = "STEAM\r\nUSERDATA";
+            this.metroButton3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton3, "Steam Userdata folder");
+            this.metroButton3.UseCustomBackColor = true;
+            this.metroButton3.UseSelectable = true;
+            this.metroButton3.UseStyleColors = true;
+            this.metroButton3.Click += new System.EventHandler(this.btn_userdata_Click);
+            // 
+            // metroButton4
+            // 
+            this.metroButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton4.Location = new System.Drawing.Point(616, 255);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.Size = new System.Drawing.Size(128, 59);
+            this.metroButton4.TabIndex = 20;
+            this.metroButton4.TabStop = false;
+            this.metroButton4.Text = "EDIT ACCOUNT";
+            this.metroButton4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton4.UseCustomBackColor = true;
+            this.metroButton4.UseCustomForeColor = true;
+            this.metroButton4.UseSelectable = true;
+            this.metroButton4.UseStyleColors = true;
+            this.metroButton4.Click += new System.EventHandler(this.btn_editAcc_Click);
+            // 
+            // metroButton5
+            // 
+            this.metroButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton5.Location = new System.Drawing.Point(616, 180);
+            this.metroButton5.Name = "metroButton5";
+            this.metroButton5.Size = new System.Drawing.Size(128, 59);
+            this.metroButton5.TabIndex = 2;
+            this.metroButton5.TabStop = false;
+            this.metroButton5.Text = "ADD ACCOUNT";
+            this.metroButton5.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton5.UseCustomBackColor = true;
+            this.metroButton5.UseCustomForeColor = true;
+            this.metroButton5.UseSelectable = true;
+            this.metroButton5.UseStyleColors = true;
+            this.metroButton5.Click += new System.EventHandler(this.btn_addAcc_Click);
+            // 
+            // metroButton6
+            // 
+            this.metroButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton6.Location = new System.Drawing.Point(616, 332);
+            this.metroButton6.Name = "metroButton6";
+            this.metroButton6.Size = new System.Drawing.Size(128, 59);
+            this.metroButton6.TabIndex = 0;
+            this.metroButton6.TabStop = false;
+            this.metroButton6.Text = "LOGIN";
+            this.metroButton6.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton6.UseCustomBackColor = true;
+            this.metroButton6.UseSelectable = true;
+            this.metroButton6.UseStyleColors = true;
+            this.metroButton6.Click += new System.EventHandler(this.btn_login2selected_Click);
+            // 
+            // metroTabPage2
+            // 
+            this.metroTabPage2.BackColor = System.Drawing.Color.Transparent;
+            this.metroTabPage2.Controls.Add(this.metroLabel2);
+            this.metroTabPage2.Controls.Add(this.richTextBox9);
+            this.metroTabPage2.Controls.Add(this.metroProgressSpinner1);
+            this.metroTabPage2.Controls.Add(this.metroScrollBar2);
+            this.metroTabPage2.Controls.Add(this.metroGrid2);
+            this.metroTabPage2.Controls.Add(this.metroCheckBox1);
+            this.metroTabPage2.Controls.Add(this.metroButton7);
+            this.metroTabPage2.Controls.Add(this.metroComboBox1);
+            this.metroTabPage2.Controls.Add(this.metroLabel29);
+            this.metroTabPage2.Controls.Add(this.metroComboBox2);
+            this.metroTabPage2.Controls.Add(this.metroLabel30);
+            this.metroTabPage2.Controls.Add(this.metroTextBox1);
+            this.metroTabPage2.Controls.Add(this.metroLabel31);
+            this.metroTabPage2.Controls.Add(this.metroButton8);
+            this.metroTabPage2.Controls.Add(this.metroButton9);
+            this.metroTabPage2.Controls.Add(this.metroLink1);
+            this.metroTabPage2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.metroTabPage2.HorizontalScrollbarBarColor = true;
+            this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage2.HorizontalScrollbarSize = 10;
+            this.metroTabPage2.Location = new System.Drawing.Point(4, 35);
+            this.metroTabPage2.Name = "metroTabPage2";
+            this.metroTabPage2.Size = new System.Drawing.Size(769, 411);
+            this.metroTabPage2.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroTabPage2.TabIndex = 8;
+            this.metroTabPage2.Text = "😂 FRIENDS";
+            this.metroTabPage2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTabPage2.UseCustomBackColor = true;
+            this.metroTabPage2.UseCustomForeColor = true;
+            this.metroTabPage2.VerticalScrollbarBarColor = true;
+            this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage2.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroLabel2.Location = new System.Drawing.Point(589, 287);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(161, 15);
+            this.metroLabel2.TabIndex = 39;
+            this.metroLabel2.Text = "None";
+            this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel2.UseCustomBackColor = true;
+            this.metroLabel2.UseStyleColors = true;
+            // 
+            // richTextBox9
+            // 
+            this.richTextBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.richTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox9.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.richTextBox9.DetectUrls = false;
+            this.richTextBox9.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox9.ForeColor = System.Drawing.Color.Gray;
+            this.richTextBox9.Location = new System.Drawing.Point(585, 187);
+            this.richTextBox9.MaxLength = 50;
+            this.richTextBox9.Multiline = false;
+            this.richTextBox9.Name = "richTextBox9";
+            this.richTextBox9.ReadOnly = true;
+            this.richTextBox9.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.richTextBox9.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox9.Size = new System.Drawing.Size(165, 14);
+            this.richTextBox9.TabIndex = 69;
+            this.richTextBox9.Text = "─────────────────────────────────────────";
+            // 
+            // metroProgressSpinner1
+            // 
+            this.metroProgressSpinner1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.metroProgressSpinner1.Location = new System.Drawing.Point(628, 321);
+            this.metroProgressSpinner1.Maximum = 100;
+            this.metroProgressSpinner1.Name = "metroProgressSpinner1";
+            this.metroProgressSpinner1.Size = new System.Drawing.Size(80, 66);
+            this.metroProgressSpinner1.TabIndex = 13;
+            this.metroProgressSpinner1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroProgressSpinner1.UseCustomBackColor = true;
+            this.metroProgressSpinner1.UseCustomForeColor = true;
+            this.metroProgressSpinner1.UseSelectable = true;
+            this.metroProgressSpinner1.UseStyleColors = true;
+            this.metroProgressSpinner1.Visible = false;
+            // 
+            // metroScrollBar2
+            // 
+            this.metroScrollBar2.LargeChange = 10;
+            this.metroScrollBar2.Location = new System.Drawing.Point(532, 23);
+            this.metroScrollBar2.Maximum = 100;
+            this.metroScrollBar2.Minimum = 0;
+            this.metroScrollBar2.MouseWheelBarPartitions = 10;
+            this.metroScrollBar2.Name = "metroScrollBar2";
+            this.metroScrollBar2.Orientation = MetroFramework.Controls.MetroScrollOrientation.Vertical;
+            this.metroScrollBar2.ScrollbarSize = 15;
+            this.metroScrollBar2.Size = new System.Drawing.Size(15, 382);
+            this.metroScrollBar2.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroScrollBar2.TabIndex = 24;
+            this.metroScrollBar2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroScrollBar2.UseBarColor = true;
+            this.metroScrollBar2.UseSelectable = true;
+            this.metroScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.FriendsList_ScrollBar_Scroll);
+            // 
+            // metroGrid2
+            // 
+            this.metroGrid2.AllowUserToAddRows = false;
+            this.metroGrid2.AllowUserToDeleteRows = false;
+            this.metroGrid2.AllowUserToOrderColumns = true;
+            this.metroGrid2.AllowUserToResizeRows = false;
+            this.metroGrid2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroGrid2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.metroGrid2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.metroGrid2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            this.metroGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.metroGrid2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid2.DefaultCellStyle = dataGridViewCellStyle17;
+            this.metroGrid2.EnableHeadersVisualStyles = false;
+            this.metroGrid2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.metroGrid2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroGrid2.Location = new System.Drawing.Point(-44, 6);
+            this.metroGrid2.Name = "metroGrid2";
+            this.metroGrid2.ReadOnly = true;
+            this.metroGrid2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            this.metroGrid2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.metroGrid2.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.metroGrid2.ShowCellErrors = false;
+            this.metroGrid2.Size = new System.Drawing.Size(591, 399);
+            this.metroGrid2.TabIndex = 40;
+            this.metroGrid2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroGrid2.UseCustomForeColor = true;
+            this.metroGrid2.UseStyleColors = true;
+            this.metroGrid2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.FriendsList_Grid_CellClick);
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "STEAM ID";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn6.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "NAME";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn7.Width = 300;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "LAST LOGOFF";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn8.Width = 130;
+            // 
+            // metroCheckBox1
+            // 
+            this.metroCheckBox1.AutoSize = true;
+            this.metroCheckBox1.ForeColor = System.Drawing.Color.White;
+            this.metroCheckBox1.Location = new System.Drawing.Point(631, 97);
+            this.metroCheckBox1.Name = "metroCheckBox1";
+            this.metroCheckBox1.Size = new System.Drawing.Size(16, 0);
+            this.metroCheckBox1.TabIndex = 18;
+            this.metroCheckBox1.UseCustomBackColor = true;
+            this.metroCheckBox1.UseCustomForeColor = true;
+            this.metroCheckBox1.UseSelectable = true;
+            // 
+            // metroButton7
+            // 
+            this.metroButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton7.Location = new System.Drawing.Point(585, 219);
+            this.metroButton7.Name = "metroButton7";
+            this.metroButton7.Size = new System.Drawing.Size(165, 68);
+            this.metroButton7.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroButton7.TabIndex = 14;
+            this.metroButton7.TabStop = false;
+            this.metroButton7.Text = "REMOVE \r\nSELECTED";
+            this.metroButton7.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton7.UseCustomBackColor = true;
+            this.metroButton7.UseCustomForeColor = true;
+            this.metroButton7.UseSelectable = true;
+            this.metroButton7.Click += new System.EventHandler(this.BTN_RemoveFriend_Click);
+            // 
+            // metroComboBox1
+            // 
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 23;
+            this.metroComboBox1.Items.AddRange(new object[] {
+            "Disabled",
+            "BIG PICTURE 🎮",
+            "VIRTUAL REALITY 😎",
+            "SMARTPHONE 📱"});
+            this.metroComboBox1.Location = new System.Drawing.Point(585, 142);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.Size = new System.Drawing.Size(165, 29);
+            this.metroComboBox1.TabIndex = 33;
+            this.metroComboBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroComboBox1.UseCustomForeColor = true;
+            this.metroComboBox1.UseSelectable = true;
+            this.metroComboBox1.UseStyleColors = true;
+            this.metroComboBox1.SelectedIndexChanged += new System.EventHandler(this.combox_uimodes_SelectedIndexChanged);
+            // 
+            // metroLabel29
+            // 
+            this.metroLabel29.AutoSize = true;
+            this.metroLabel29.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel29.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel29.ForeColor = System.Drawing.SystemColors.Window;
+            this.metroLabel29.Location = new System.Drawing.Point(581, 125);
+            this.metroLabel29.Name = "metroLabel29";
+            this.metroLabel29.Size = new System.Drawing.Size(68, 19);
+            this.metroLabel29.TabIndex = 38;
+            this.metroLabel29.Text = "UI MODE";
+            this.metroLabel29.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel29.UseCustomBackColor = true;
+            this.metroLabel29.UseStyleColors = true;
+            // 
+            // metroComboBox2
+            // 
+            this.metroComboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.metroComboBox2.FormattingEnabled = true;
+            this.metroComboBox2.ItemHeight = 23;
+            this.metroComboBox2.Items.AddRange(new object[] {
+            "Offline",
+            "Online",
+            "Busy",
+            "Away",
+            "Snooze 💤",
+            "Looking To Trade",
+            "Looking To Play",
+            "Invisible"});
+            this.metroComboBox2.Location = new System.Drawing.Point(585, 84);
+            this.metroComboBox2.Name = "metroComboBox2";
+            this.metroComboBox2.Size = new System.Drawing.Size(165, 29);
+            this.metroComboBox2.TabIndex = 8;
+            this.metroComboBox2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroComboBox2, "Change current state!");
+            this.metroComboBox2.UseCustomForeColor = true;
+            this.metroComboBox2.UseSelectable = true;
+            this.metroComboBox2.UseStyleColors = true;
+            this.metroComboBox2.SelectedIndexChanged += new System.EventHandler(this.combox_states_SelectedIndexChanged);
+            // 
+            // metroLabel30
+            // 
+            this.metroLabel30.AutoSize = true;
+            this.metroLabel30.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel30.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel30.ForeColor = System.Drawing.SystemColors.Window;
+            this.metroLabel30.Location = new System.Drawing.Point(581, 67);
+            this.metroLabel30.Name = "metroLabel30";
+            this.metroLabel30.Size = new System.Drawing.Size(111, 19);
+            this.metroLabel30.TabIndex = 27;
+            this.metroLabel30.Text = "STATE CHANGER";
+            this.metroLabel30.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel30.UseCustomBackColor = true;
+            this.metroLabel30.UseStyleColors = true;
+            // 
+            // metroTextBox1
+            // 
+            this.metroTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            // 
+            // 
+            // 
+            this.metroTextBox1.CustomButton.Image = null;
+            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(104, 1);
+            this.metroTextBox1.CustomButton.Name = "";
+            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBox1.CustomButton.TabIndex = 1;
+            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBox1.CustomButton.UseSelectable = true;
+            this.metroTextBox1.CustomButton.Visible = false;
+            this.metroTextBox1.ForeColor = System.Drawing.Color.White;
+            this.metroTextBox1.Lines = new string[0];
+            this.metroTextBox1.Location = new System.Drawing.Point(585, 23);
+            this.metroTextBox1.MaxLength = 32;
+            this.metroTextBox1.Multiline = true;
+            this.metroTextBox1.Name = "metroTextBox1";
+            this.metroTextBox1.PasswordChar = '\0';
+            this.metroTextBox1.PromptText = "ma name jeff";
+            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBox1.SelectedText = "";
+            this.metroTextBox1.SelectionLength = 0;
+            this.metroTextBox1.SelectionStart = 0;
+            this.metroTextBox1.ShortcutsEnabled = true;
+            this.metroTextBox1.Size = new System.Drawing.Size(132, 29);
+            this.metroTextBox1.TabIndex = 20;
+            this.metroTextBox1.UseCustomBackColor = true;
+            this.metroTextBox1.UseCustomForeColor = true;
+            this.metroTextBox1.UseSelectable = true;
+            this.metroTextBox1.UseStyleColors = true;
+            this.metroTextBox1.WaterMark = "ma name jeff";
+            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel31
+            // 
+            this.metroLabel31.AutoSize = true;
+            this.metroLabel31.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel31.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel31.ForeColor = System.Drawing.SystemColors.Window;
+            this.metroLabel31.Location = new System.Drawing.Point(581, 6);
+            this.metroLabel31.Name = "metroLabel31";
+            this.metroLabel31.Size = new System.Drawing.Size(115, 19);
+            this.metroLabel31.TabIndex = 26;
+            this.metroLabel31.Text = "NAME CHANGER";
+            this.metroLabel31.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel31.UseCustomBackColor = true;
+            this.metroLabel31.UseStyleColors = true;
+            // 
+            // metroButton8
+            // 
+            this.metroButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton8.Location = new System.Drawing.Point(723, 23);
+            this.metroButton8.Name = "metroButton8";
+            this.metroButton8.Size = new System.Drawing.Size(27, 29);
+            this.metroButton8.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroButton8.TabIndex = 19;
+            this.metroButton8.TabStop = false;
+            this.metroButton8.Text = "✓";
+            this.metroButton8.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton8.UseCustomBackColor = true;
+            this.metroButton8.UseCustomForeColor = true;
+            this.metroButton8.UseSelectable = true;
+            this.metroButton8.UseStyleColors = true;
+            this.metroButton8.Click += new System.EventHandler(this.btn_setName_Click);
+            // 
+            // metroButton9
+            // 
+            this.metroButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton9.Location = new System.Drawing.Point(585, 320);
+            this.metroButton9.Name = "metroButton9";
+            this.metroButton9.Size = new System.Drawing.Size(165, 68);
+            this.metroButton9.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroButton9.TabIndex = 9;
+            this.metroButton9.TabStop = false;
+            this.metroButton9.Text = "LOAD FRIENDS";
+            this.metroButton9.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton9, "Slow process, requires patience.\r\nThis collects the last logoff of every friend.");
+            this.metroButton9.UseCustomBackColor = true;
+            this.metroButton9.UseCustomForeColor = true;
+            this.metroButton9.UseSelectable = true;
+            this.metroButton9.Click += new System.EventHandler(this.btn_loadFriends_Click);
+            // 
+            // metroLink1
+            // 
+            this.metroLink1.AutoSize = true;
+            this.metroLink1.Location = new System.Drawing.Point(610, 375);
+            this.metroLink1.Name = "metroLink1";
+            this.metroLink1.Size = new System.Drawing.Size(143, 26);
+            this.metroLink1.TabIndex = 49;
+            this.metroLink1.Text = "count:0";
+            this.metroLink1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.metroLink1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLink1.UseCustomBackColor = true;
+            this.metroLink1.UseSelectable = true;
+            this.metroLink1.UseStyleColors = true;
+            // 
+            // metroTabPage3
+            // 
+            this.metroTabPage3.BackColor = System.Drawing.Color.Transparent;
+            this.metroTabPage3.Controls.Add(this.metroLink2);
+            this.metroTabPage3.Controls.Add(this.metroCheckBox2);
+            this.metroTabPage3.Controls.Add(this.metroButton10);
+            this.metroTabPage3.Controls.Add(this.metroCheckBox3);
+            this.metroTabPage3.Controls.Add(this.metroLabel32);
+            this.metroTabPage3.Controls.Add(this.metroToggle1);
+            this.metroTabPage3.Controls.Add(this.metroButton11);
+            this.metroTabPage3.Controls.Add(this.metroButton12);
+            this.metroTabPage3.Controls.Add(this.metroCheckBox4);
+            this.metroTabPage3.Controls.Add(this.metroCheckBox5);
+            this.metroTabPage3.Controls.Add(this.metroButton13);
+            this.metroTabPage3.Controls.Add(this.metroTextBox2);
+            this.metroTabPage3.Controls.Add(this.metroLabel33);
+            this.metroTabPage3.Controls.Add(this.metroLabel34);
+            this.metroTabPage3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.metroTabPage3.HorizontalScrollbarBarColor = true;
+            this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage3.HorizontalScrollbarSize = 10;
+            this.metroTabPage3.Location = new System.Drawing.Point(4, 35);
+            this.metroTabPage3.Name = "metroTabPage3";
+            this.metroTabPage3.Size = new System.Drawing.Size(769, 411);
+            this.metroTabPage3.TabIndex = 5;
+            this.metroTabPage3.Text = "💬 MESSENGER";
+            this.metroTabPage3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTabPage3.UseCustomBackColor = true;
+            this.metroTabPage3.VerticalScrollbarBarColor = true;
+            this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage3.VerticalScrollbarSize = 10;
+            // 
+            // metroLink2
+            // 
+            this.metroLink2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroLink2.Location = new System.Drawing.Point(173, 337);
+            this.metroLink2.Name = "metroLink2";
+            this.metroLink2.Size = new System.Drawing.Size(23, 19);
+            this.metroLink2.TabIndex = 59;
+            this.metroLink2.Text = "📁";
+            this.metroLink2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroLink2, "Click to enter logs directory!");
+            this.metroLink2.UseCustomBackColor = true;
+            this.metroLink2.UseSelectable = true;
+            this.metroLink2.Click += new System.EventHandler(this.Chatlog_Folder_Click);
+            // 
+            // metroCheckBox2
+            // 
+            this.metroCheckBox2.AutoSize = true;
+            this.metroCheckBox2.CheckAlign = System.Drawing.ContentAlignment.TopRight;
+            this.metroCheckBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroCheckBox2.ForeColor = System.Drawing.Color.White;
+            this.metroCheckBox2.Location = new System.Drawing.Point(631, 352);
+            this.metroCheckBox2.Name = "metroCheckBox2";
+            this.metroCheckBox2.Size = new System.Drawing.Size(134, 15);
+            this.metroCheckBox2.TabIndex = 58;
+            this.metroCheckBox2.Text = "ONLY TO RECIPIENTS";
+            this.metroCheckBox2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroCheckBox2, "Send Msg only to selected Friends");
+            this.metroCheckBox2.UseCustomBackColor = true;
+            this.metroCheckBox2.UseSelectable = true;
+            this.metroCheckBox2.UseStyleColors = true;
+            // 
+            // metroButton10
+            // 
+            this.metroButton10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton10.Location = new System.Drawing.Point(479, 371);
+            this.metroButton10.Name = "metroButton10";
+            this.metroButton10.Size = new System.Drawing.Size(142, 33);
+            this.metroButton10.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroButton10.TabIndex = 57;
+            this.metroButton10.TabStop = false;
+            this.metroButton10.Text = "RECIPIENTS LIST";
+            this.metroButton10.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton10, "Send message to specific friends (List)");
+            this.metroButton10.UseCustomBackColor = true;
+            this.metroButton10.UseCustomForeColor = true;
+            this.metroButton10.UseSelectable = true;
+            this.metroButton10.UseStyleColors = true;
+            this.metroButton10.Click += new System.EventHandler(this.btn_MsgSelectFriends_Click);
+            // 
+            // metroCheckBox3
+            // 
+            this.metroCheckBox3.AutoSize = true;
+            this.metroCheckBox3.CheckAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.metroCheckBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroCheckBox3.ForeColor = System.Drawing.Color.White;
+            this.metroCheckBox3.Location = new System.Drawing.Point(667, 334);
+            this.metroCheckBox3.Name = "metroCheckBox3";
+            this.metroCheckBox3.Size = new System.Drawing.Size(98, 15);
+            this.metroCheckBox3.TabIndex = 56;
+            this.metroCheckBox3.Text = "OLD METHOD";
+            this.metroCheckBox3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroCheckBox3, "Faster,but your Steam Client must be running in your Desktop");
+            this.metroCheckBox3.UseCustomBackColor = true;
+            this.metroCheckBox3.UseSelectable = true;
+            this.metroCheckBox3.UseStyleColors = true;
+            // 
+            // metroLabel32
+            // 
+            this.metroLabel32.AutoSize = true;
+            this.metroLabel32.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroLabel32.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel32.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel32.Location = new System.Drawing.Point(6, 331);
+            this.metroLabel32.Name = "metroLabel32";
+            this.metroLabel32.Size = new System.Drawing.Size(109, 25);
+            this.metroLabel32.TabIndex = 55;
+            this.metroLabel32.Text = "Chat Logger";
+            this.metroLabel32.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel32.UseCustomBackColor = true;
+            this.metroLabel32.UseStyleColors = true;
+            // 
+            // metroToggle1
+            // 
+            this.metroToggle1.AutoSize = true;
+            this.metroToggle1.DisplayStatus = false;
+            this.metroToggle1.Location = new System.Drawing.Point(117, 337);
+            this.metroToggle1.Name = "metroToggle1";
+            this.metroToggle1.Size = new System.Drawing.Size(50, 19);
+            this.metroToggle1.TabIndex = 44;
+            this.metroToggle1.Text = "Off";
+            this.metroToggle1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroToggle1, "Save sent/received messages");
+            this.metroToggle1.UseCustomForeColor = true;
+            this.metroToggle1.UseSelectable = true;
+            this.metroToggle1.UseStyleColors = true;
+            this.metroToggle1.CheckedChanged += new System.EventHandler(this.toggle_chatlogger_CheckedChanged);
+            // 
+            // metroButton11
+            // 
+            this.metroButton11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton11.Location = new System.Drawing.Point(392, 371);
+            this.metroButton11.Name = "metroButton11";
+            this.metroButton11.Size = new System.Drawing.Size(81, 33);
+            this.metroButton11.TabIndex = 43;
+            this.metroButton11.TabStop = false;
+            this.metroButton11.Text = "ADMIN\r\nCOMMANDS";
+            this.metroButton11.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton11, "Info about admin commands");
+            this.metroButton11.UseCustomBackColor = true;
+            this.metroButton11.UseSelectable = true;
+            this.metroButton11.UseStyleColors = true;
+            this.metroButton11.Click += new System.EventHandler(this.btn_admincmds_Click);
+            // 
+            // metroButton12
+            // 
+            this.metroButton12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton12.Location = new System.Drawing.Point(261, 384);
+            this.metroButton12.Name = "metroButton12";
+            this.metroButton12.Size = new System.Drawing.Size(20, 19);
+            this.metroButton12.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroButton12.TabIndex = 40;
+            this.metroButton12.Text = "+";
+            this.metroButton12.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton12, "Add custom messages! (saved in Accounts.json)");
+            this.metroButton12.UseCustomBackColor = true;
+            this.metroButton12.UseCustomForeColor = true;
+            this.metroButton12.UseSelectable = true;
+            this.metroButton12.UseStyleColors = true;
+            this.metroButton12.Click += new System.EventHandler(this.btn_addMsgForm_Click);
+            // 
+            // metroCheckBox4
+            // 
+            this.metroCheckBox4.AutoSize = true;
+            this.metroCheckBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroCheckBox4.ForeColor = System.Drawing.Color.White;
+            this.metroCheckBox4.Location = new System.Drawing.Point(117, 386);
+            this.metroCheckBox4.Name = "metroCheckBox4";
+            this.metroCheckBox4.Size = new System.Drawing.Size(143, 15);
+            this.metroCheckBox4.TabIndex = 31;
+            this.metroCheckBox4.Text = "with custom messages";
+            this.metroCheckBox4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroCheckBox4, "Use saved custom messages!");
+            this.metroCheckBox4.UseCustomBackColor = true;
+            this.metroCheckBox4.UseSelectable = true;
+            this.metroCheckBox4.UseStyleColors = true;
+            this.metroCheckBox4.CheckedChanged += new System.EventHandler(this.chck_CustomAFKMessages_CheckedChanged);
+            // 
+            // metroCheckBox5
+            // 
+            this.metroCheckBox5.AutoSize = true;
+            this.metroCheckBox5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroCheckBox5.ForeColor = System.Drawing.Color.White;
+            this.metroCheckBox5.Location = new System.Drawing.Point(117, 365);
+            this.metroCheckBox5.Name = "metroCheckBox5";
+            this.metroCheckBox5.Size = new System.Drawing.Size(103, 15);
+            this.metroCheckBox5.TabIndex = 24;
+            this.metroCheckBox5.Text = "with upper text";
+            this.metroCheckBox5.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroCheckBox5, "Use message from upper text box.");
+            this.metroCheckBox5.UseCustomBackColor = true;
+            this.metroCheckBox5.UseSelectable = true;
+            this.metroCheckBox5.UseStyleColors = true;
+            this.metroCheckBox5.CheckedChanged += new System.EventHandler(this.chck_afk_CheckedChanged);
+            // 
+            // metroButton13
+            // 
+            this.metroButton13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton13.Location = new System.Drawing.Point(627, 371);
+            this.metroButton13.Name = "metroButton13";
+            this.metroButton13.Size = new System.Drawing.Size(142, 33);
+            this.metroButton13.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroButton13.TabIndex = 14;
+            this.metroButton13.TabStop = false;
+            this.metroButton13.Text = "SEND MASS MESSAGE";
+            this.metroButton13.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton13, "Send a message to all friends! (Delay: 2.5sec) (Dont spam the button or mercury c" +
+        "rash\r\n)\r\n");
+            this.metroButton13.UseCustomBackColor = true;
+            this.metroButton13.UseCustomForeColor = true;
+            this.metroButton13.UseSelectable = true;
+            this.metroButton13.UseStyleColors = true;
+            this.metroButton13.Click += new System.EventHandler(this.btn_sendMsg2Friends_Click);
+            // 
+            // metroTextBox2
+            // 
+            this.metroTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            // 
+            // 
+            // 
+            this.metroTextBox2.CustomButton.Image = null;
+            this.metroTextBox2.CustomButton.Location = new System.Drawing.Point(479, 2);
+            this.metroTextBox2.CustomButton.Name = "";
+            this.metroTextBox2.CustomButton.Size = new System.Drawing.Size(287, 287);
+            this.metroTextBox2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBox2.CustomButton.TabIndex = 1;
+            this.metroTextBox2.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBox2.CustomButton.UseSelectable = true;
+            this.metroTextBox2.CustomButton.Visible = false;
+            this.metroTextBox2.ForeColor = System.Drawing.Color.White;
+            this.metroTextBox2.Lines = new string[0];
+            this.metroTextBox2.Location = new System.Drawing.Point(0, 36);
+            this.metroTextBox2.MaxLength = 5001;
+            this.metroTextBox2.Multiline = true;
+            this.metroTextBox2.Name = "metroTextBox2";
+            this.metroTextBox2.PasswordChar = '\0';
+            this.metroTextBox2.PromptText = "Everyone, i have an announcement to make!";
+            this.metroTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.metroTextBox2.SelectedText = "";
+            this.metroTextBox2.SelectionLength = 0;
+            this.metroTextBox2.SelectionStart = 0;
+            this.metroTextBox2.ShortcutsEnabled = true;
+            this.metroTextBox2.Size = new System.Drawing.Size(769, 292);
+            this.metroTextBox2.TabIndex = 1;
+            this.MongoTip.SetToolTip(this.metroTextBox2, "Press DEL to clear message. (Max: 5001chars)");
+            this.metroTextBox2.UseCustomBackColor = true;
+            this.metroTextBox2.UseCustomForeColor = true;
+            this.metroTextBox2.UseSelectable = true;
+            this.metroTextBox2.UseStyleColors = true;
+            this.metroTextBox2.WaterMark = "Everyone, i have an announcement to make!";
+            this.metroTextBox2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBox2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.metroTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_msg2Friends_KeyDown);
+            // 
+            // metroLabel33
+            // 
+            this.metroLabel33.AutoSize = true;
+            this.metroLabel33.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel33.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel33.ForeColor = System.Drawing.SystemColors.Window;
+            this.metroLabel33.Location = new System.Drawing.Point(-4, 358);
+            this.metroLabel33.Name = "metroLabel33";
+            this.metroLabel33.Size = new System.Drawing.Size(119, 25);
+            this.metroLabel33.TabIndex = 25;
+            this.metroLabel33.Text = "Auto Message";
+            this.metroLabel33.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroLabel33, "Auto Message (good for AFK!)");
+            this.metroLabel33.UseCustomBackColor = true;
+            this.metroLabel33.UseCustomForeColor = true;
+            // 
+            // metroLabel34
+            // 
+            this.metroLabel34.AutoSize = true;
+            this.metroLabel34.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel34.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel34.ForeColor = System.Drawing.SystemColors.Window;
+            this.metroLabel34.Location = new System.Drawing.Point(-5, 11);
+            this.metroLabel34.Name = "metroLabel34";
+            this.metroLabel34.Size = new System.Drawing.Size(177, 25);
+            this.metroLabel34.TabIndex = 5;
+            this.metroLabel34.Text = "AFK/Message To Send";
+            this.metroLabel34.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel34.UseCustomBackColor = true;
+            this.metroLabel34.UseCustomForeColor = true;
+            // 
+            // metroTabPage4
+            // 
+            this.metroTabPage4.BackColor = System.Drawing.Color.Transparent;
+            this.metroTabPage4.Controls.Add(this.metroCheckBox7);
+            this.metroTabPage4.Controls.Add(this.metroLink3);
+            this.metroTabPage4.Controls.Add(this.metroScrollBar3);
+            this.metroTabPage4.Controls.Add(this.richTextBox10);
+            this.metroTabPage4.Controls.Add(this.metroButton14);
+            this.metroTabPage4.Controls.Add(this.richTextBox11);
+            this.metroTabPage4.Controls.Add(this.metroButton15);
+            this.metroTabPage4.Controls.Add(this.metroGrid3);
+            this.metroTabPage4.Controls.Add(this.metroButton16);
+            this.metroTabPage4.Controls.Add(this.metroTextBox3);
+            this.metroTabPage4.Controls.Add(this.metroButton17);
+            this.metroTabPage4.Controls.Add(this.metroButton18);
+            this.metroTabPage4.Controls.Add(this.metroButton19);
+            this.metroTabPage4.Controls.Add(this.metroButton20);
+            this.metroTabPage4.Controls.Add(this.metroTextBox4);
+            this.metroTabPage4.Controls.Add(this.metroLabel35);
+            this.metroTabPage4.Controls.Add(this.metroLabel36);
+            this.metroTabPage4.Controls.Add(this.metroLink4);
+            this.metroTabPage4.Controls.Add(this.metroCheckBox8);
+            this.metroTabPage4.Controls.Add(this.metroLink5);
+            this.metroTabPage4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.metroTabPage4.HorizontalScrollbarBarColor = true;
+            this.metroTabPage4.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage4.HorizontalScrollbarSize = 10;
+            this.metroTabPage4.Location = new System.Drawing.Point(4, 38);
+            this.metroTabPage4.Name = "metroTabPage4";
+            this.metroTabPage4.Size = new System.Drawing.Size(769, 408);
+            this.metroTabPage4.TabIndex = 1;
+            this.metroTabPage4.Text = "🎮 GAMES";
+            this.metroTabPage4.UseCustomBackColor = true;
+            this.metroTabPage4.UseCustomForeColor = true;
+            this.metroTabPage4.UseStyleColors = true;
+            this.metroTabPage4.VerticalScrollbar = true;
+            this.metroTabPage4.VerticalScrollbarBarColor = true;
+            this.metroTabPage4.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage4.VerticalScrollbarSize = 10;
+            // 
+            // metroCheckBox7
+            // 
+            this.metroCheckBox7.AutoSize = true;
+            this.metroCheckBox7.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroCheckBox7.ForeColor = System.Drawing.Color.White;
+            this.metroCheckBox7.Location = new System.Drawing.Point(616, 287);
+            this.metroCheckBox7.Name = "metroCheckBox7";
+            this.metroCheckBox7.Size = new System.Drawing.Size(123, 15);
+            this.metroCheckBox7.TabIndex = 75;
+            this.metroCheckBox7.Text = "Add random emoji";
+            this.metroCheckBox7.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroCheckBox7, "Add random emoji to text");
+            this.metroCheckBox7.UseSelectable = true;
+            this.metroCheckBox7.UseStyleColors = true;
+            // 
+            // metroLink3
+            // 
+            this.metroLink3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroLink3.Location = new System.Drawing.Point(616, 394);
+            this.metroLink3.Name = "metroLink3";
+            this.metroLink3.Size = new System.Drawing.Size(23, 16);
+            this.metroLink3.TabIndex = 74;
+            this.metroLink3.Text = "📁";
+            this.metroLink3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroLink3, "Go to games folder");
+            this.metroLink3.UseCustomBackColor = true;
+            this.metroLink3.UseSelectable = true;
+            this.metroLink3.Click += new System.EventHandler(this.btn_folderGames_Click);
+            // 
+            // metroScrollBar3
+            // 
+            this.metroScrollBar3.LargeChange = 10;
+            this.metroScrollBar3.Location = new System.Drawing.Point(572, 23);
+            this.metroScrollBar3.Maximum = 100;
+            this.metroScrollBar3.Minimum = 0;
+            this.metroScrollBar3.MouseWheelBarPartitions = 10;
+            this.metroScrollBar3.Name = "metroScrollBar3";
+            this.metroScrollBar3.Orientation = MetroFramework.Controls.MetroScrollOrientation.Vertical;
+            this.metroScrollBar3.ScrollbarSize = 15;
+            this.metroScrollBar3.Size = new System.Drawing.Size(15, 385);
+            this.metroScrollBar3.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroScrollBar3.TabIndex = 24;
+            this.metroScrollBar3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroScrollBar3.UseBarColor = true;
+            this.metroScrollBar3.UseSelectable = true;
+            this.metroScrollBar3.Scroll += new System.Windows.Forms.ScrollEventHandler(this.GamesList_ScrollBar_Scroll);
+            // 
+            // richTextBox10
+            // 
+            this.richTextBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.richTextBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox10.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.richTextBox10.DetectUrls = false;
+            this.richTextBox10.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox10.ForeColor = System.Drawing.Color.Gray;
+            this.richTextBox10.Location = new System.Drawing.Point(616, 83);
+            this.richTextBox10.MaxLength = 50;
+            this.richTextBox10.Multiline = false;
+            this.richTextBox10.Name = "richTextBox10";
+            this.richTextBox10.ReadOnly = true;
+            this.richTextBox10.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.richTextBox10.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox10.Size = new System.Drawing.Size(140, 14);
+            this.richTextBox10.TabIndex = 73;
+            this.richTextBox10.Text = "─────────────────────────────────────────";
+            // 
+            // metroButton14
+            // 
+            this.metroButton14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton14.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton14.Enabled = false;
+            this.metroButton14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton14.Location = new System.Drawing.Point(694, 50);
+            this.metroButton14.Name = "metroButton14";
+            this.metroButton14.Size = new System.Drawing.Size(62, 27);
+            this.metroButton14.Style = MetroFramework.MetroColorStyle.Black;
+            this.metroButton14.TabIndex = 72;
+            this.metroButton14.TabStop = false;
+            this.metroButton14.Text = "IDLE\nSETTINGS";
+            this.metroButton14.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton14, "soon");
+            this.metroButton14.UseCustomBackColor = true;
+            this.metroButton14.UseCustomForeColor = true;
+            this.metroButton14.UseSelectable = true;
+            this.metroButton14.UseStyleColors = true;
+            this.metroButton14.Click += new System.EventHandler(this.btn_idleSettings_Click);
+            // 
+            // richTextBox11
+            // 
+            this.richTextBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.richTextBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox11.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.richTextBox11.DetectUrls = false;
+            this.richTextBox11.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox11.ForeColor = System.Drawing.Color.Gray;
+            this.richTextBox11.Location = new System.Drawing.Point(616, 224);
+            this.richTextBox11.MaxLength = 50;
+            this.richTextBox11.Multiline = false;
+            this.richTextBox11.Name = "richTextBox11";
+            this.richTextBox11.ReadOnly = true;
+            this.richTextBox11.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.richTextBox11.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox11.Size = new System.Drawing.Size(140, 14);
+            this.richTextBox11.TabIndex = 70;
+            this.richTextBox11.Text = "─────────────────────────────────────────";
+            // 
+            // metroButton15
+            // 
+            this.metroButton15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton15.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton15.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.metroButton15.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.metroButton15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton15.Location = new System.Drawing.Point(616, 17);
+            this.metroButton15.Name = "metroButton15";
+            this.metroButton15.Size = new System.Drawing.Size(72, 60);
+            this.metroButton15.Style = MetroFramework.MetroColorStyle.Black;
+            this.metroButton15.TabIndex = 47;
+            this.metroButton15.TabStop = false;
+            this.metroButton15.Text = "🔄";
+            this.metroButton15.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton15.UseCustomBackColor = true;
+            this.metroButton15.UseCustomForeColor = true;
+            this.metroButton15.UseSelectable = true;
+            this.metroButton15.UseStyleColors = true;
+            this.metroButton15.Click += new System.EventHandler(this.btn_loadGamesFromJSON_Click);
+            // 
+            // metroGrid3
+            // 
+            this.metroGrid3.AllowUserToAddRows = false;
+            this.metroGrid3.AllowUserToDeleteRows = false;
+            this.metroGrid3.AllowUserToResizeColumns = false;
+            this.metroGrid3.AllowUserToResizeRows = false;
+            this.metroGrid3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroGrid3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.metroGrid3.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.metroGrid3.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.metroGrid3.ColumnHeadersHeight = 17;
+            this.metroGrid3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.metroGrid3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10});
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid3.DefaultCellStyle = dataGridViewCellStyle20;
+            this.metroGrid3.EnableHeadersVisualStyles = false;
+            this.metroGrid3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.metroGrid3.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroGrid3.Location = new System.Drawing.Point(-44, 6);
+            this.metroGrid3.MultiSelect = false;
+            this.metroGrid3.Name = "metroGrid3";
+            this.metroGrid3.ReadOnly = true;
+            this.metroGrid3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid3.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.metroGrid3.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.metroGrid3.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroGrid3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.metroGrid3.Size = new System.Drawing.Size(631, 397);
+            this.metroGrid3.TabIndex = 29;
+            this.metroGrid3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroGrid3.UseCustomBackColor = true;
+            this.metroGrid3.UseStyleColors = true;
+            this.metroGrid3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GamesList_Grid_CellClick);
+            this.metroGrid3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GamesList_Grid_KeyDown);
+            this.metroGrid3.MouseHover += new System.EventHandler(this.GamesList_Grid_MouseHover);
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "AppNAME";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn9.Width = 500;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "AppID";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn10.Width = 90;
+            // 
+            // metroButton16
+            // 
+            this.metroButton16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton16.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton16.Location = new System.Drawing.Point(731, 115);
+            this.metroButton16.Name = "metroButton16";
+            this.metroButton16.Size = new System.Drawing.Size(25, 23);
+            this.metroButton16.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroButton16.TabIndex = 19;
+            this.metroButton16.TabStop = false;
+            this.metroButton16.Text = "+";
+            this.metroButton16.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton16.UseCustomBackColor = true;
+            this.metroButton16.UseCustomForeColor = true;
+            this.metroButton16.UseSelectable = true;
+            this.metroButton16.UseStyleColors = true;
+            this.metroButton16.Click += new System.EventHandler(this.btn_addGameManually_Click);
+            // 
+            // metroTextBox3
+            // 
+            this.metroTextBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.metroTextBox3.Cursor = System.Windows.Forms.Cursors.Arrow;
+            // 
+            // 
+            // 
+            this.metroTextBox3.CustomButton.Image = null;
+            this.metroTextBox3.CustomButton.Location = new System.Drawing.Point(87, 1);
+            this.metroTextBox3.CustomButton.Name = "";
+            this.metroTextBox3.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextBox3.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBox3.CustomButton.TabIndex = 1;
+            this.metroTextBox3.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBox3.CustomButton.UseSelectable = true;
+            this.metroTextBox3.CustomButton.Visible = false;
+            this.metroTextBox3.ForeColor = System.Drawing.Color.White;
+            this.metroTextBox3.Lines = new string[0];
+            this.metroTextBox3.Location = new System.Drawing.Point(616, 115);
+            this.metroTextBox3.MaxLength = 63;
+            this.metroTextBox3.Name = "metroTextBox3";
+            this.metroTextBox3.PasswordChar = '\0';
+            this.metroTextBox3.PromptText = "AppID";
+            this.metroTextBox3.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBox3.SelectedText = "";
+            this.metroTextBox3.SelectionLength = 0;
+            this.metroTextBox3.SelectionStart = 0;
+            this.metroTextBox3.ShortcutsEnabled = true;
+            this.metroTextBox3.Size = new System.Drawing.Size(109, 23);
+            this.metroTextBox3.TabIndex = 16;
+            this.MongoTip.SetToolTip(this.metroTextBox3, "Add 753 to play Steam!");
+            this.metroTextBox3.UseCustomBackColor = true;
+            this.metroTextBox3.UseCustomForeColor = true;
+            this.metroTextBox3.UseSelectable = true;
+            this.metroTextBox3.UseStyleColors = true;
+            this.metroTextBox3.WaterMark = "AppID";
+            this.metroTextBox3.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBox3.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroButton17
+            // 
+            this.metroButton17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton17.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton17.Enabled = false;
+            this.metroButton17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton17.Location = new System.Drawing.Point(694, 17);
+            this.metroButton17.Name = "metroButton17";
+            this.metroButton17.Size = new System.Drawing.Size(62, 27);
+            this.metroButton17.Style = MetroFramework.MetroColorStyle.Black;
+            this.metroButton17.TabIndex = 27;
+            this.metroButton17.TabStop = false;
+            this.metroButton17.Text = "ACCOUNT\r\nSETTINGS";
+            this.metroButton17.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton17, "soon");
+            this.metroButton17.UseCustomBackColor = true;
+            this.metroButton17.UseCustomForeColor = true;
+            this.metroButton17.UseSelectable = true;
+            this.metroButton17.UseStyleColors = true;
+            this.metroButton17.Click += new System.EventHandler(this.btn_accSettings_Click);
+            // 
+            // metroButton18
+            // 
+            this.metroButton18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton18.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton18.Location = new System.Drawing.Point(616, 157);
+            this.metroButton18.Name = "metroButton18";
+            this.metroButton18.Size = new System.Drawing.Size(140, 50);
+            this.metroButton18.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroButton18.TabIndex = 13;
+            this.metroButton18.TabStop = false;
+            this.metroButton18.Text = "GATHER APPIDS 🛒";
+            this.metroButton18.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton18, "Gets your games list!");
+            this.metroButton18.UseCustomBackColor = true;
+            this.metroButton18.UseCustomForeColor = true;
+            this.metroButton18.UseSelectable = true;
+            this.metroButton18.UseStyleColors = true;
+            this.metroButton18.Click += new System.EventHandler(this.btn_selectappids_Click);
+            // 
+            // metroButton19
+            // 
+            this.metroButton19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton19.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton19.Location = new System.Drawing.Point(616, 342);
+            this.metroButton19.Name = "metroButton19";
+            this.metroButton19.Size = new System.Drawing.Size(141, 50);
+            this.metroButton19.Style = MetroFramework.MetroColorStyle.Black;
+            this.metroButton19.TabIndex = 9;
+            this.metroButton19.TabStop = false;
+            this.metroButton19.Text = "IDLE GAME IDS ⌛";
+            this.metroButton19.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton19.UseCustomBackColor = true;
+            this.metroButton19.UseCustomForeColor = true;
+            this.metroButton19.UseSelectable = true;
+            this.metroButton19.UseStyleColors = true;
+            this.metroButton19.Click += new System.EventHandler(this.btn_playnormal_Click);
+            // 
+            // metroButton20
+            // 
+            this.metroButton20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton20.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton20.Location = new System.Drawing.Point(733, 262);
+            this.metroButton20.Name = "metroButton20";
+            this.metroButton20.Size = new System.Drawing.Size(24, 23);
+            this.metroButton20.TabIndex = 8;
+            this.metroButton20.TabStop = false;
+            this.metroButton20.Text = "⌛";
+            this.metroButton20.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton20, "Only show non-steam");
+            this.metroButton20.UseCustomBackColor = true;
+            this.metroButton20.UseCustomForeColor = true;
+            this.metroButton20.UseSelectable = true;
+            this.metroButton20.UseStyleColors = true;
+            this.metroButton20.Click += new System.EventHandler(this.btn_playNonSteamgame_Click);
+            // 
+            // metroTextBox4
+            // 
+            this.metroTextBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.metroTextBox4.Cursor = System.Windows.Forms.Cursors.Arrow;
+            // 
+            // 
+            // 
+            this.metroTextBox4.CustomButton.Image = null;
+            this.metroTextBox4.CustomButton.Location = new System.Drawing.Point(94, 1);
+            this.metroTextBox4.CustomButton.Name = "";
+            this.metroTextBox4.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextBox4.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBox4.CustomButton.TabIndex = 1;
+            this.metroTextBox4.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBox4.CustomButton.UseSelectable = true;
+            this.metroTextBox4.CustomButton.Visible = false;
+            this.metroTextBox4.Lines = new string[0];
+            this.metroTextBox4.Location = new System.Drawing.Point(616, 262);
+            this.metroTextBox4.MaxLength = 50;
+            this.metroTextBox4.Name = "metroTextBox4";
+            this.metroTextBox4.PasswordChar = '\0';
+            this.metroTextBox4.PromptText = "❤ MercuryBOT";
+            this.metroTextBox4.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBox4.SelectedText = "";
+            this.metroTextBox4.SelectionLength = 0;
+            this.metroTextBox4.SelectionStart = 0;
+            this.metroTextBox4.ShortcutsEnabled = true;
+            this.metroTextBox4.Size = new System.Drawing.Size(116, 23);
+            this.metroTextBox4.TabIndex = 1;
+            this.metroTextBox4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTextBox4.UseCustomBackColor = true;
+            this.metroTextBox4.UseSelectable = true;
+            this.metroTextBox4.UseStyleColors = true;
+            this.metroTextBox4.WaterMark = "❤ MercuryBOT";
+            this.metroTextBox4.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBox4.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel35
+            // 
+            this.metroLabel35.AutoSize = true;
+            this.metroLabel35.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel35.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroLabel35.ForeColor = System.Drawing.SystemColors.Window;
+            this.metroLabel35.Location = new System.Drawing.Point(612, 245);
+            this.metroLabel35.Name = "metroLabel35";
+            this.metroLabel35.Size = new System.Drawing.Size(97, 19);
+            this.metroLabel35.TabIndex = 4;
+            this.metroLabel35.Text = "Idle non-steam";
+            this.metroLabel35.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroLabel35.UseCustomBackColor = true;
+            this.metroLabel35.UseCustomForeColor = true;
+            // 
+            // metroLabel36
+            // 
+            this.metroLabel36.AutoSize = true;
+            this.metroLabel36.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel36.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroLabel36.ForeColor = System.Drawing.SystemColors.Window;
+            this.metroLabel36.Location = new System.Drawing.Point(611, 97);
+            this.metroLabel36.Name = "metroLabel36";
+            this.metroLabel36.Size = new System.Drawing.Size(90, 19);
+            this.metroLabel36.TabIndex = 17;
+            this.metroLabel36.Text = "Manually Add";
+            this.metroLabel36.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroLabel36.UseCustomBackColor = true;
+            this.metroLabel36.UseCustomForeColor = true;
+            // 
+            // metroLink4
+            // 
+            this.metroLink4.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroLink4.Location = new System.Drawing.Point(685, 388);
+            this.metroLink4.Name = "metroLink4";
+            this.metroLink4.Size = new System.Drawing.Size(75, 23);
+            this.metroLink4.TabIndex = 28;
+            this.metroLink4.Text = "Stop Idling";
+            this.metroLink4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLink4.UseCustomBackColor = true;
+            this.metroLink4.UseSelectable = true;
+            this.metroLink4.UseStyleColors = true;
+            this.metroLink4.Click += new System.EventHandler(this.link_stopIdling_Click);
+            // 
+            // metroCheckBox8
+            // 
+            this.metroCheckBox8.AutoSize = true;
+            this.metroCheckBox8.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroCheckBox8.ForeColor = System.Drawing.Color.White;
+            this.metroCheckBox8.Location = new System.Drawing.Point(617, 326);
+            this.metroCheckBox8.Name = "metroCheckBox8";
+            this.metroCheckBox8.Size = new System.Drawing.Size(115, 15);
+            this.metroCheckBox8.TabIndex = 12;
+            this.metroCheckBox8.Text = "USE NON-STEAM";
+            this.metroCheckBox8.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroCheckBox8, "Idle games and non steam to cover it (set name in upper textbox)");
+            this.metroCheckBox8.UseSelectable = true;
+            this.metroCheckBox8.UseStyleColors = true;
+            // 
+            // metroLink5
+            // 
+            this.metroLink5.AutoSize = true;
+            this.metroLink5.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroLink5.Location = new System.Drawing.Point(617, 195);
+            this.metroLink5.Name = "metroLink5";
+            this.metroLink5.Size = new System.Drawing.Size(143, 26);
+            this.metroLink5.TabIndex = 48;
+            this.metroLink5.Text = "count:0";
+            this.metroLink5.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.metroLink5.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLink5.UseCustomBackColor = true;
+            this.metroLink5.UseSelectable = true;
+            this.metroLink5.UseStyleColors = true;
+            // 
+            // metroTabPage5
+            // 
+            this.metroTabPage5.BackColor = System.Drawing.Color.Transparent;
+            this.metroTabPage5.Controls.Add(this.metroButton21);
+            this.metroTabPage5.Controls.Add(this.metroButton22);
+            this.metroTabPage5.Controls.Add(this.metroButton23);
+            this.metroTabPage5.Controls.Add(this.metroButton24);
+            this.metroTabPage5.Controls.Add(this.metroButton25);
+            this.metroTabPage5.Controls.Add(this.metroButton26);
+            this.metroTabPage5.Controls.Add(this.metroButton27);
+            this.metroTabPage5.Controls.Add(this.metroButton28);
+            this.metroTabPage5.Controls.Add(this.metroButton29);
+            this.metroTabPage5.Controls.Add(this.metroButton30);
+            this.metroTabPage5.Controls.Add(this.metroButton31);
+            this.metroTabPage5.Controls.Add(this.metroButton32);
+            this.metroTabPage5.Controls.Add(this.metroButton33);
+            this.metroTabPage5.Controls.Add(this.metroButton34);
+            this.metroTabPage5.Controls.Add(this.metroScrollBar4);
+            this.metroTabPage5.Controls.Add(this.metroGrid4);
+            this.metroTabPage5.HorizontalScrollbarBarColor = true;
+            this.metroTabPage5.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage5.HorizontalScrollbarSize = 10;
+            this.metroTabPage5.Location = new System.Drawing.Point(0, 0);
+            this.metroTabPage5.Name = "metroTabPage5";
+            this.metroTabPage5.Size = new System.Drawing.Size(200, 100);
+            this.metroTabPage5.TabIndex = 0;
+            this.metroTabPage5.VerticalScrollbarBarColor = true;
+            this.metroTabPage5.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage5.VerticalScrollbarSize = 10;
+            // 
+            // metroButton21
+            // 
+            this.metroButton21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton21.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton21.Location = new System.Drawing.Point(614, 339);
+            this.metroButton21.Name = "metroButton21";
+            this.metroButton21.Size = new System.Drawing.Size(129, 35);
+            this.metroButton21.TabIndex = 75;
+            this.metroButton21.TabStop = false;
+            this.metroButton21.Text = "Kill SteamWebHelper";
+            this.metroButton21.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton21, "Use this if the chat crashes/bugs");
+            this.metroButton21.UseCustomBackColor = true;
+            this.metroButton21.UseSelectable = true;
+            this.metroButton21.UseStyleColors = true;
+            this.metroButton21.Click += new System.EventHandler(this.btn_killsteamwebhelper_Click);
+            // 
+            // metroButton22
+            // 
+            this.metroButton22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton22.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton22.Enabled = false;
+            this.metroButton22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton22.Location = new System.Drawing.Point(470, 339);
+            this.metroButton22.Name = "metroButton22";
+            this.metroButton22.Size = new System.Drawing.Size(129, 35);
+            this.metroButton22.TabIndex = 73;
+            this.metroButton22.TabStop = false;
+            this.metroButton22.Text = "...";
+            this.metroButton22.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton22.UseCustomBackColor = true;
+            this.metroButton22.UseSelectable = true;
+            this.metroButton22.UseStyleColors = true;
+            this.metroButton22.Visible = false;
+            // 
+            // metroButton23
+            // 
+            this.metroButton23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton23.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton23.Location = new System.Drawing.Point(325, 207);
+            this.metroButton23.Name = "metroButton23";
+            this.metroButton23.Size = new System.Drawing.Size(129, 79);
+            this.metroButton23.Style = MetroFramework.MetroColorStyle.Black;
+            this.metroButton23.TabIndex = 72;
+            this.metroButton23.TabStop = false;
+            this.metroButton23.Text = "CLEAR RECENT GAMES";
+            this.metroButton23.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton23.UseCustomBackColor = true;
+            this.metroButton23.UseCustomForeColor = true;
+            this.metroButton23.UseSelectable = true;
+            this.metroButton23.UseStyleColors = true;
+            this.metroButton23.Click += new System.EventHandler(this.btn_clearRecentapps_Click);
+            // 
+            // metroButton24
+            // 
+            this.metroButton24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton24.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton24.Enabled = false;
+            this.metroButton24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton24.Location = new System.Drawing.Point(325, 37);
+            this.metroButton24.Name = "metroButton24";
+            this.metroButton24.Size = new System.Drawing.Size(129, 79);
+            this.metroButton24.TabIndex = 52;
+            this.metroButton24.TabStop = false;
+            this.metroButton24.Text = "RATE UP";
+            this.metroButton24.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton24, "s00n");
+            this.metroButton24.UseCustomBackColor = true;
+            this.metroButton24.UseCustomForeColor = true;
+            this.metroButton24.UseSelectable = true;
+            this.metroButton24.UseStyleColors = true;
+            this.metroButton24.Click += new System.EventHandler(this.btn_rateup_Click);
+            // 
+            // metroButton25
+            // 
+            this.metroButton25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton25.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton25.Location = new System.Drawing.Point(470, 207);
+            this.metroButton25.Name = "metroButton25";
+            this.metroButton25.Size = new System.Drawing.Size(129, 79);
+            this.metroButton25.TabIndex = 53;
+            this.metroButton25.TabStop = false;
+            this.metroButton25.Text = "CLEAR \r\nUNREAD MESSAGES";
+            this.metroButton25.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton25.UseCustomBackColor = true;
+            this.metroButton25.UseSelectable = true;
+            this.metroButton25.UseStyleColors = true;
+            this.metroButton25.Click += new System.EventHandler(this.btn_clearUnreadMsg_Click);
+            // 
+            // metroButton26
+            // 
+            this.metroButton26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton26.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton26.Enabled = false;
+            this.metroButton26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton26.Location = new System.Drawing.Point(614, 122);
+            this.metroButton26.Name = "metroButton26";
+            this.metroButton26.Size = new System.Drawing.Size(129, 79);
+            this.metroButton26.TabIndex = 38;
+            this.metroButton26.TabStop = false;
+            this.metroButton26.Text = "FILTER \r\nCOMMENTS";
+            this.metroButton26.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton26, "Delete bad comments from your profile/group");
+            this.metroButton26.UseCustomBackColor = true;
+            this.metroButton26.UseSelectable = true;
+            this.metroButton26.UseStyleColors = true;
+            this.metroButton26.Click += new System.EventHandler(this.btn_commentsGather_Click);
+            // 
+            // metroButton27
+            // 
+            this.metroButton27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton27.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton27.Location = new System.Drawing.Point(614, 37);
+            this.metroButton27.Name = "metroButton27";
+            this.metroButton27.Size = new System.Drawing.Size(129, 79);
+            this.metroButton27.TabIndex = 52;
+            this.metroButton27.TabStop = false;
+            this.metroButton27.Text = "PROFILE \r\nREPUTATION";
+            this.metroButton27.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton27.UseCustomBackColor = true;
+            this.metroButton27.UseCustomForeColor = true;
+            this.metroButton27.UseSelectable = true;
+            this.metroButton27.UseStyleColors = true;
+            this.metroButton27.Click += new System.EventHandler(this.btn_ProfileRepu_Click);
+            // 
+            // metroButton28
+            // 
+            this.metroButton28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton28.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton28.Location = new System.Drawing.Point(470, 37);
+            this.metroButton28.Name = "metroButton28";
+            this.metroButton28.Size = new System.Drawing.Size(129, 79);
+            this.metroButton28.TabIndex = 51;
+            this.metroButton28.TabStop = false;
+            this.metroButton28.Text = "🔒\r\nPROFILE \r\nSETTINGS";
+            this.metroButton28.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton28.UseCustomBackColor = true;
+            this.metroButton28.UseSelectable = true;
+            this.metroButton28.UseStyleColors = true;
+            this.metroButton28.Click += new System.EventHandler(this.btn_changeprofSettings_Click);
+            // 
+            // metroButton29
+            // 
+            this.metroButton29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton29.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton29.Location = new System.Drawing.Point(614, 207);
+            this.metroButton29.Name = "metroButton29";
+            this.metroButton29.Size = new System.Drawing.Size(129, 79);
+            this.metroButton29.TabIndex = 41;
+            this.metroButton29.TabStop = false;
+            this.metroButton29.Text = "CLEAR \r\nUSER ALIASES";
+            this.metroButton29.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton29.UseCustomBackColor = true;
+            this.metroButton29.UseCustomForeColor = true;
+            this.metroButton29.UseSelectable = true;
+            this.metroButton29.UseStyleColors = true;
+            this.metroButton29.Click += new System.EventHandler(this.btn_clearuserAliases_Click);
+            // 
+            // metroButton30
+            // 
+            this.metroButton30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton30.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton30.DisplayFocus = true;
+            this.metroButton30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton30.Location = new System.Drawing.Point(470, 122);
+            this.metroButton30.Name = "metroButton30";
+            this.metroButton30.Size = new System.Drawing.Size(129, 79);
+            this.metroButton30.TabIndex = 48;
+            this.metroButton30.TabStop = false;
+            this.metroButton30.Text = "GROUPS TOOLS";
+            this.metroButton30.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton30.UseCustomBackColor = true;
+            this.metroButton30.UseCustomForeColor = true;
+            this.metroButton30.UseSelectable = true;
+            this.metroButton30.UseStyleColors = true;
+            this.metroButton30.Click += new System.EventHandler(this.btn_exitgroups_Click);
+            // 
+            // metroButton31
+            // 
+            this.metroButton31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton31.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.metroButton31.DisplayFocus = true;
+            this.metroButton31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton31.Location = new System.Drawing.Point(325, 122);
+            this.metroButton31.Name = "metroButton31";
+            this.metroButton31.Size = new System.Drawing.Size(129, 79);
+            this.metroButton31.TabIndex = 47;
+            this.metroButton31.TabStop = false;
+            this.metroButton31.Text = "GATHER PROFILE \r\nBACKGROUND";
+            this.metroButton31.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton31.UseCustomBackColor = true;
+            this.metroButton31.UseSelectable = true;
+            this.metroButton31.UseStyleColors = true;
+            this.metroButton31.Click += new System.EventHandler(this.Btn_getProfileBackG_Click);
+            // 
+            // metroButton32
+            // 
+            this.metroButton32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton32.ForeColor = System.Drawing.Color.White;
+            this.metroButton32.Location = new System.Drawing.Point(241, 351);
+            this.metroButton32.Name = "metroButton32";
+            this.metroButton32.Size = new System.Drawing.Size(51, 23);
+            this.metroButton32.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroButton32.TabIndex = 56;
+            this.metroButton32.TabStop = false;
+            this.metroButton32.Text = "import";
+            this.metroButton32.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton32.UseCustomBackColor = true;
+            this.metroButton32.UseCustomForeColor = true;
+            this.metroButton32.UseSelectable = true;
+            this.metroButton32.Click += new System.EventHandler(this.btn_importKeys_Click);
+            // 
+            // metroButton33
+            // 
+            this.metroButton33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton33.ForeColor = System.Drawing.Color.White;
+            this.metroButton33.Location = new System.Drawing.Point(267, 37);
+            this.metroButton33.Name = "metroButton33";
+            this.metroButton33.Size = new System.Drawing.Size(25, 23);
+            this.metroButton33.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroButton33.TabIndex = 19;
+            this.metroButton33.TabStop = false;
+            this.metroButton33.Text = "✓";
+            this.metroButton33.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.metroButton33, "If the list doesn\'t contain a cd key, you can add one key anyway!");
+            this.metroButton33.UseCustomBackColor = true;
+            this.metroButton33.UseCustomForeColor = true;
+            this.metroButton33.UseSelectable = true;
+            this.metroButton33.Click += new System.EventHandler(this.btn_reddemkey_Click);
+            // 
+            // metroButton34
+            // 
+            this.metroButton34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.metroButton34.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.metroButton34.Location = new System.Drawing.Point(276, 68);
+            this.metroButton34.Name = "metroButton34";
+            this.metroButton34.Size = new System.Drawing.Size(15, 13);
+            this.metroButton34.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroButton34.TabIndex = 55;
+            this.metroButton34.Text = "+";
+            this.metroButton34.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.metroButton34.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton34.UseCustomBackColor = true;
+            this.metroButton34.UseCustomForeColor = true;
+            this.metroButton34.UseSelectable = true;
+            this.metroButton34.UseStyleColors = true;
+            this.metroButton34.Click += new System.EventHandler(this.btn_addCDKey_Click);
+            // 
+            // metroScrollBar4
+            // 
+            this.metroScrollBar4.HighlightOnWheel = true;
+            this.metroScrollBar4.LargeChange = 10;
+            this.metroScrollBar4.Location = new System.Drawing.Point(277, 84);
+            this.metroScrollBar4.Maximum = 100;
+            this.metroScrollBar4.Minimum = 0;
+            this.metroScrollBar4.MouseWheelBarPartitions = 10;
+            this.metroScrollBar4.Name = "metroScrollBar4";
+            this.metroScrollBar4.Orientation = MetroFramework.Controls.MetroScrollOrientation.Vertical;
+            this.metroScrollBar4.ScrollbarSize = 15;
+            this.metroScrollBar4.Size = new System.Drawing.Size(15, 261);
+            this.metroScrollBar4.TabIndex = 54;
+            this.metroScrollBar4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroScrollBar4.UseBarColor = true;
+            this.metroScrollBar4.UseSelectable = true;
+            this.metroScrollBar4.Scroll += new System.Windows.Forms.ScrollEventHandler(this.CDKeys_ScrollBar_Scroll);
+            // 
+            // metroGrid4
+            // 
+            this.metroGrid4.AllowUserToAddRows = false;
+            this.metroGrid4.AllowUserToDeleteRows = false;
+            this.metroGrid4.AllowUserToResizeRows = false;
+            this.metroGrid4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroGrid4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.metroGrid4.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.metroGrid4.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            this.metroGrid4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.metroGrid4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn11});
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid4.DefaultCellStyle = dataGridViewCellStyle23;
+            this.metroGrid4.EnableHeadersVisualStyles = false;
+            this.metroGrid4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.metroGrid4.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroGrid4.Location = new System.Drawing.Point(8, 66);
+            this.metroGrid4.Name = "metroGrid4";
+            this.metroGrid4.ReadOnly = true;
+            this.metroGrid4.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid4.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            this.metroGrid4.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.metroGrid4.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroGrid4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.metroGrid4.Size = new System.Drawing.Size(284, 279);
+            this.metroGrid4.TabIndex = 53;
+            this.metroGrid4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroGrid4.UseCustomBackColor = true;
+            this.metroGrid4.UseCustomForeColor = true;
+            this.metroGrid4.UseStyleColors = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "                             CD-KEYS";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 255;
+            // 
             // Main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -3472,6 +5384,19 @@
             this.panel_steamStates.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBox_SteamAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_MercuryLogo)).EndInit();
+            this.metroTabControl1.ResumeLayout(false);
+            this.metroTabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
+            this.metroTabPage2.ResumeLayout(false);
+            this.metroTabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).EndInit();
+            this.metroTabPage3.ResumeLayout(false);
+            this.metroTabPage3.PerformLayout();
+            this.metroTabPage4.ResumeLayout(false);
+            this.metroTabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid3)).EndInit();
+            this.metroTabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3655,6 +5580,96 @@
         private MetroFramework.Controls.MetroLabel lbl_logininfoTemp;
         private System.Windows.Forms.ToolStripMenuItem toolStrip_AccClient;
         private MetroFramework.Controls.MetroButton btn_killsteamwebhelper;
+        private MetroFramework.Controls.MetroTabControl metroTabControl1;
+        private MetroFramework.Controls.MetroTabPage metroTabPage1;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.RichTextBox richTextBox8;
+        private MetroFramework.Controls.MetroScrollBar metroScrollBar1;
+        private MetroFramework.Controls.MetroGrid metroGrid1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private MetroFramework.Controls.MetroButton metroButton3;
+        private MetroFramework.Controls.MetroButton metroButton4;
+        private MetroFramework.Controls.MetroButton metroButton5;
+        private MetroFramework.Controls.MetroButton metroButton6;
+        private MetroFramework.Controls.MetroTabPage metroTabPage2;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private System.Windows.Forms.RichTextBox richTextBox9;
+        private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner1;
+        private MetroFramework.Controls.MetroScrollBar metroScrollBar2;
+        private MetroFramework.Controls.MetroGrid metroGrid2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
+        private MetroFramework.Controls.MetroButton metroButton7;
+        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private MetroFramework.Controls.MetroLabel metroLabel29;
+        private MetroFramework.Controls.MetroComboBox metroComboBox2;
+        private MetroFramework.Controls.MetroLabel metroLabel30;
+        private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private MetroFramework.Controls.MetroLabel metroLabel31;
+        private MetroFramework.Controls.MetroButton metroButton8;
+        private MetroFramework.Controls.MetroButton metroButton9;
+        private MetroFramework.Controls.MetroLink metroLink1;
+        private MetroFramework.Controls.MetroTabPage metroTabPage3;
+        private MetroFramework.Controls.MetroLink metroLink2;
+        private MetroFramework.Controls.MetroCheckBox metroCheckBox2;
+        private MetroFramework.Controls.MetroButton metroButton10;
+        private MetroFramework.Controls.MetroCheckBox metroCheckBox3;
+        private MetroFramework.Controls.MetroLabel metroLabel32;
+        private MetroFramework.Controls.MetroToggle metroToggle1;
+        private MetroFramework.Controls.MetroButton metroButton11;
+        private MetroFramework.Controls.MetroButton metroButton12;
+        private MetroFramework.Controls.MetroCheckBox metroCheckBox4;
+        private MetroFramework.Controls.MetroCheckBox metroCheckBox5;
+        private MetroFramework.Controls.MetroButton metroButton13;
+        private MetroFramework.Controls.MetroTextBox metroTextBox2;
+        private MetroFramework.Controls.MetroLabel metroLabel33;
+        private MetroFramework.Controls.MetroLabel metroLabel34;
+        private MetroFramework.Controls.MetroTabPage metroTabPage4;
+        private MetroFramework.Controls.MetroCheckBox metroCheckBox7;
+        private MetroFramework.Controls.MetroLink metroLink3;
+        private MetroFramework.Controls.MetroScrollBar metroScrollBar3;
+        private System.Windows.Forms.RichTextBox richTextBox10;
+        private MetroFramework.Controls.MetroButton metroButton14;
+        private System.Windows.Forms.RichTextBox richTextBox11;
+        private MetroFramework.Controls.MetroButton metroButton15;
+        private MetroFramework.Controls.MetroGrid metroGrid3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private MetroFramework.Controls.MetroButton metroButton16;
+        private MetroFramework.Controls.MetroTextBox metroTextBox3;
+        private MetroFramework.Controls.MetroButton metroButton17;
+        private MetroFramework.Controls.MetroButton metroButton18;
+        private MetroFramework.Controls.MetroButton metroButton19;
+        private MetroFramework.Controls.MetroButton metroButton20;
+        private MetroFramework.Controls.MetroTextBox metroTextBox4;
+        private MetroFramework.Controls.MetroLabel metroLabel35;
+        private MetroFramework.Controls.MetroLabel metroLabel36;
+        private MetroFramework.Controls.MetroLink metroLink4;
+        private MetroFramework.Controls.MetroCheckBox metroCheckBox8;
+        private MetroFramework.Controls.MetroLink metroLink5;
+        private MetroFramework.Controls.MetroTabPage metroTabPage5;
+        private MetroFramework.Controls.MetroButton metroButton21;
+        private MetroFramework.Controls.MetroButton metroButton22;
+        private MetroFramework.Controls.MetroButton metroButton23;
+        private MetroFramework.Controls.MetroButton metroButton24;
+        private MetroFramework.Controls.MetroButton metroButton25;
+        private MetroFramework.Controls.MetroButton metroButton26;
+        private MetroFramework.Controls.MetroButton metroButton27;
+        private MetroFramework.Controls.MetroButton metroButton28;
+        private MetroFramework.Controls.MetroButton metroButton29;
+        private MetroFramework.Controls.MetroButton metroButton30;
+        private MetroFramework.Controls.MetroButton metroButton31;
+        private MetroFramework.Controls.MetroButton metroButton32;
+        private MetroFramework.Controls.MetroButton metroButton33;
+        private MetroFramework.Controls.MetroButton metroButton34;
+        private MetroFramework.Controls.MetroScrollBar metroScrollBar4;
+        private MetroFramework.Controls.MetroGrid metroGrid4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
     }
 }
 
