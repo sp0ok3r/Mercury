@@ -37,6 +37,7 @@ using System.Reflection;
 using System.Reflection.Metadata;
 using System.ComponentModel;
 using Microsoft.Win32;
+using System.Threading.Tasks;
 
 namespace MercuryBOT
 {
@@ -258,7 +259,7 @@ namespace MercuryBOT
 
         private void Main_Resize(object sender, EventArgs e)
         {
-            if (FormWindowState.Minimized == WindowState && !this.ShowInTaskbar) // 254iq
+            if (FormWindowState.Minimized == WindowState && (!this.ShowInTaskbar)) // 254iq
             {
                 Hide();
             }
@@ -1575,9 +1576,7 @@ namespace MercuryBOT
                     try
                     {
                         byte[] data = Program.Web.DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + "/flat/16.png");
-
-                        MemoryStream ms = new MemoryStream(data);
-                        btnLabel_PersonaAndFlag.Image = Image.FromStream(ms);
+                        btnLabel_PersonaAndFlag.Image = Image.FromStream(new MemoryStream(data));
 
                     }
                     catch { }
@@ -1707,7 +1706,7 @@ namespace MercuryBOT
 
         private void btn_MsgSelectFriends_Click(object sender, EventArgs e)
         {
-            if (AccountLogin.IsLoggedIn == true )//&& AccountLogin.Friends.Count != 0
+            if (AccountLogin.IsLoggedIn == true)//&& AccountLogin.Friends.Count != 0
             {
                 Form SMsgRecipients = new MsgRecipients();
                 SMsgRecipients.FormClosed += HandleFormMsgRecipientsClosed;

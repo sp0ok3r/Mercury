@@ -509,7 +509,8 @@ namespace MercuryBOT
             UserCountry = callback.IPCountryCode;
 
             UserClanIDS();
-            //gather_ClanOfficers();
+            gather_ClanOfficers();
+
             //ChatMode();
 
             IsLoggedIn = true;
@@ -661,7 +662,7 @@ namespace MercuryBOT
 
                 AvatarHash = avatarHash;
 
-                Console.WriteLine(callback.AvatarHash);
+                Console.WriteLine(avatarHash.ToString());
             }
         }
 
@@ -1272,6 +1273,7 @@ namespace MercuryBOT
                 ClanOfficers(Convert.ToUInt64(pair.Key));
             }
         }
+
         public static void UIMode(uint x)
         {
             ClientMsgProtobuf<CMsgClientUIMode> uiMode = new ClientMsgProtobuf<CMsgClientUIMode>(EMsg.ClientCurrentUIMode)
