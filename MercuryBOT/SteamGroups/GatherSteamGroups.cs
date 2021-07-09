@@ -71,7 +71,7 @@ namespace MercuryBOT.SteamGroups
         private void GatherSteamGroups_Shown(object sender, EventArgs e)
         {
             RefreshClanList();
-            txt_totalgroups.Text = "Total: "+GridClanData.Rows.Count.ToString();
+            txt_totalgroups.Text = "Total: " + GridClanData.Rows.Count.ToString();
         }
         string Groupid3Selected = "None";
         string GroupSelected = "None";
@@ -99,7 +99,7 @@ namespace MercuryBOT.SteamGroups
         {
             if (GridClanData.SelectedRows.Count > 0)
             {
-                Groupid3Selected=GridClanData.SelectedRows[0].Cells[0].Value + string.Empty;
+                Groupid3Selected = GridClanData.SelectedRows[0].Cells[0].Value + string.Empty;
                 GroupSelected = GridClanData.SelectedRows[0].Cells[1].Value + string.Empty;
                 GroupNameSelected = GridClanData.SelectedRows[0].Cells[2].Value + string.Empty;
                 lbl_groupSelected.Text = "Selected: " + GroupNameSelected;
@@ -112,7 +112,7 @@ namespace MercuryBOT.SteamGroups
         {
             if (GridClanData.SelectedRows.Count > 0)
             {
-                Process.Start("https://steamcommunity.com/gid/"+ GridClanData.SelectedRows[0].Cells[1].Value);
+                Process.Start("https://steamcommunity.com/gid/" + GridClanData.SelectedRows[0].Cells[1].Value);
             }
         }
 
@@ -161,9 +161,9 @@ namespace MercuryBOT.SteamGroups
                 {
                     using (var tr = table.AddRow())
                     {
-                        tr.AddCell(Extensions.AllToSteamId3(group.Key).Substring(1).ToString());
-                        tr.AddCell((group.Key).ToString());
-                        tr.AddCell(group.Value);
+                        tr.AddCell(Extensions.AllToSteamId3(group.Key).Substring(1).ToString()); // id3
+                        tr.AddCell("<a href=https://steamcommunity.com/gid/" + (group.Key).ToString()+ ">"+(group.Key).ToString()+"</a>"); //id64
+                        tr.AddCell(group.Value); // name
                     }
                 }
                 table.EndBody();
@@ -363,6 +363,6 @@ namespace MercuryBOT.SteamGroups
             }
         }
 
-        
+
     }
 }

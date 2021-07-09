@@ -70,6 +70,7 @@
             this.txtBox_user.MaxLength = 32767;
             this.txtBox_user.Name = "txtBox_user";
             this.txtBox_user.PasswordChar = '\0';
+            this.txtBox_user.PromptText = "ma name jeff";
             this.txtBox_user.ReadOnly = true;
             this.txtBox_user.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_user.SelectedText = "";
@@ -108,6 +109,7 @@
             this.txtBox_pw.MaxLength = 32767;
             this.txtBox_pw.Name = "txtBox_pw";
             this.txtBox_pw.PasswordChar = '●';
+            this.txtBox_pw.PromptText = "123456";
             this.txtBox_pw.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_pw.SelectedText = "";
             this.txtBox_pw.SelectionLength = 0;
@@ -130,7 +132,7 @@
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.Location = new System.Drawing.Point(73, 187);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(85, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(90, 19);
             this.metroLabel2.TabIndex = 13;
             this.metroLabel2.Text = "🔑 password:";
             this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -140,7 +142,7 @@
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.Location = new System.Drawing.Point(72, 162);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(87, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(89, 19);
             this.metroLabel1.TabIndex = 12;
             this.metroLabel1.Text = "👤 username:";
             this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -165,6 +167,7 @@
             this.txtBox_adminID.MaxLength = 17;
             this.txtBox_adminID.Name = "txtBox_adminID";
             this.txtBox_adminID.PasswordChar = '\0';
+            this.txtBox_adminID.PromptText = "STEAMID64";
             this.txtBox_adminID.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_adminID.SelectedText = "";
             this.txtBox_adminID.SelectionLength = 0;
@@ -185,7 +188,7 @@
             this.lbl_adminID.AutoSize = true;
             this.lbl_adminID.Location = new System.Drawing.Point(71, 219);
             this.lbl_adminID.Name = "lbl_adminID";
-            this.lbl_adminID.Size = new System.Drawing.Size(87, 19);
+            this.lbl_adminID.Size = new System.Drawing.Size(92, 19);
             this.lbl_adminID.TabIndex = 18;
             this.lbl_adminID.Text = "👁   adminID:";
             this.lbl_adminID.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -208,9 +211,10 @@
             // 
             // metroLink_AccountsJSONPath
             // 
-            this.metroLink_AccountsJSONPath.Location = new System.Drawing.Point(187, 290);
+            this.metroLink_AccountsJSONPath.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.metroLink_AccountsJSONPath.Location = new System.Drawing.Point(178, 290);
             this.metroLink_AccountsJSONPath.Name = "metroLink_AccountsJSONPath";
-            this.metroLink_AccountsJSONPath.Size = new System.Drawing.Size(31, 31);
+            this.metroLink_AccountsJSONPath.Size = new System.Drawing.Size(40, 31);
             this.metroLink_AccountsJSONPath.TabIndex = 22;
             this.metroLink_AccountsJSONPath.Text = "📁";
             this.metroLink_AccountsJSONPath.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -239,6 +243,7 @@
             this.txtBox_webapi.MaxLength = 32;
             this.txtBox_webapi.Name = "txtBox_webapi";
             this.txtBox_webapi.PasswordChar = '\0';
+            this.txtBox_webapi.PromptText = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
             this.txtBox_webapi.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_webapi.SelectedText = "";
             this.txtBox_webapi.SelectionLength = 0;

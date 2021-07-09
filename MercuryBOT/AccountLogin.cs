@@ -356,7 +356,7 @@ namespace MercuryBOT
 
             //Sucess
             Console.WriteLine("[" + Program.BOTNAME + "] - Connected to Steam! Logging in '{0}'...", user);
-            Notification.NotifHelper.MessageBox.Show("Info", "Connected to Steam!\nLogging in " + user + "...");
+           // Notification.NotifHelper.MessageBox.Show("Info", "Connected to Steam!\nLogging in " + user + "...");
             LoginStatus = "Connected to Steam! Logging in " + user;
 
             byte[] sentryHash = null;
@@ -417,7 +417,7 @@ namespace MercuryBOT
 
                 if (is2FA)
                 {
-                    Notification.NotifHelper.MessageBox.Show("Info", "Steam Guard detected, showing input form!");
+                    //Notification.NotifHelper.MessageBox.Show("Info", "Steam Guard detected, showing input form!");
                     LoginStatus = "Steam Guard detected, showing input form!";
 
                     SteamGuard SteamGuard = new SteamGuard("Phone", user);
@@ -453,19 +453,19 @@ namespace MercuryBOT
                     if (pass != null)
                     {
                         Console.WriteLine("[" + Program.BOTNAME + "] - Login key expired. Connecting with user password.");
-                        Notification.NotifHelper.MessageBox.Show("Info", "Login key expired.\nConnecting with user password...");
+                        //Notification.NotifHelper.MessageBox.Show("Info", "Login key expired.\nConnecting with user password...");
                         LoginStatus = " Login key expired. Connecting with user password.";
                     }
                     else
                     {
                         Console.WriteLine("[" + Program.BOTNAME + "] - Login key expired.");
-                        Notification.NotifHelper.MessageBox.Show("Info", "Login key expired!\nConnecting...");
+                       // Notification.NotifHelper.MessageBox.Show("Info", "Login key expired!\nConnecting...");
                         LoginStatus = "Login key expired! Connecting...";
                     }
                 }
                 else
                 {
-                    Notification.NotifHelper.MessageBox.Show("Info", "Steam Guard detected, showing input form!");
+                    //Notification.NotifHelper.MessageBox.Show("Info", "Steam Guard detected, showing input form!");
                     LoginStatus = "Steam Guard detected, showing input form!";
 
                     SteamGuard SteamGuard = new SteamGuard(callback.EmailDomain, user);
@@ -498,6 +498,7 @@ namespace MercuryBOT
             Console.WriteLine("[" + Program.BOTNAME + "] - Successfully logged on! \n Valve Time:" + callback.ServerTime.ToString("R"));
             Notification.NotifHelper.MessageBox.Show("Info", "Successfully logged on!");
             LoginStatus = "Successfully logged on!";
+
 
             CurrentSteamID = steamClient.SteamID.ConvertToUInt64();
 
@@ -551,12 +552,17 @@ namespace MercuryBOT
 
         static void OnDisconnected(SteamClient.DisconnectedCallback callback)
         {
+            if (callback.UserInitiated)
+            {
+                return;
+            }
+
             EResult lastLogOnResult = LastLogOnResult;
             //if serviceunabalieve
             CurrentPersonaState = 0;
 
+           /*
             DisconnectedCounter++;
-
             if (isRunning)
             {
                 if (DisconnectedCounter >= MaxDisconnects)
@@ -569,10 +575,11 @@ namespace MercuryBOT
                     steamClient.Disconnect();
                 }
             }
-            Console.WriteLine("[" + Program.BOTNAME + "] - Reconnecting in 2s ..." + callback.UserInitiated);
-            LoginStatus = "Reconnecting in 2s...";
+            */
+            Console.WriteLine("[" + Program.BOTNAME + "] - Reconnecting in 10s ..." + callback.UserInitiated);
+            LoginStatus = "Reconnecting in 10s...";
 
-            Thread.Sleep(2000);
+            TimeSpan.FromSeconds(10);
             steamClient.Connect();
         }
 
@@ -661,8 +668,6 @@ namespace MercuryBOT
                 }
 
                 AvatarHash = avatarHash;
-
-                Console.WriteLine(avatarHash.ToString());
             }
         }
 

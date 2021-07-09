@@ -260,6 +260,13 @@ namespace MercuryBOT.GamesGather
 
             GC.Collect();
             GC.WaitForPendingFinalizers();
+
+            if (chck_clearimagescache.Checked)
+            {
+                var path = Path.GetTempPath() + @"\MercuryTemp\GamesImg\" + AccountLogin.CurrentUsername;
+                Directory.GetFiles(path).ToList().ForEach(File.Delete);
+                Directory.Delete(path);
+            }
         }
     }
 }

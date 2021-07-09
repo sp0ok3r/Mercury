@@ -367,6 +367,7 @@
             // metroTab_Tasks
             // 
             this.metroTab_Tasks.BackColor = System.Drawing.Color.Transparent;
+            this.metroTab_Tasks.Controls.Add(this.chk_copygroupid3);
             this.metroTab_Tasks.Controls.Add(this.ClanList_ScrollBar);
             this.metroTab_Tasks.Controls.Add(this.ProgressSpinner_MassInvite);
             this.metroTab_Tasks.Controls.Add(this.btn_massInvite);
@@ -526,9 +527,9 @@
             this.metroTab_Settings.HorizontalScrollbarBarColor = true;
             this.metroTab_Settings.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Settings.HorizontalScrollbarSize = 10;
-            this.metroTab_Settings.Location = new System.Drawing.Point(4, 35);
+            this.metroTab_Settings.Location = new System.Drawing.Point(4, 38);
             this.metroTab_Settings.Name = "metroTab_Settings";
-            this.metroTab_Settings.Size = new System.Drawing.Size(442, 510);
+            this.metroTab_Settings.Size = new System.Drawing.Size(442, 507);
             this.metroTab_Settings.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroTab_Settings.TabIndex = 10;
             this.metroTab_Settings.Text = "OTHER TASKS";
@@ -758,7 +759,7 @@
             // chk_copygroupid3
             // 
             this.chk_copygroupid3.AutoSize = true;
-            this.chk_copygroupid3.Location = new System.Drawing.Point(319, 6);
+            this.chk_copygroupid3.Location = new System.Drawing.Point(166, 489);
             this.chk_copygroupid3.Name = "chk_copygroupid3";
             this.chk_copygroupid3.Size = new System.Drawing.Size(140, 15);
             this.chk_copygroupid3.TabIndex = 44;
@@ -771,7 +772,6 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(472, 618);
-            this.Controls.Add(this.chk_copygroupid3);
             this.Controls.Add(this.metroPanel10);
             this.Controls.Add(this.lbl_groupSelected);
             this.Controls.Add(this.txt_totalgroups);
@@ -787,6 +787,7 @@
             this.Shown += new System.EventHandler(this.GatherSteamGroups_Shown);
             this.MercuryTabControlGroups.ResumeLayout(false);
             this.metroTab_Tasks.ResumeLayout(false);
+            this.metroTab_Tasks.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).EndInit();
             this.metroTab_Settings.ResumeLayout(false);
             this.metroTab_Settings.PerformLayout();

@@ -189,7 +189,7 @@ namespace MercuryBOT
             this.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 
             lbl_infoversion.Text = "v" + Program.Version.Replace("-", "");
-
+            lbl_infoversion2.Text = "v" + Program.Version.Replace("-", "");
 
             var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
             combox_Colors.SelectedIndex = SettingsList.startupColor;
@@ -1455,7 +1455,10 @@ namespace MercuryBOT
 
         private void AccountsList_Grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            SelectedUser = AccountsList_Grid.SelectedRows[0].Cells[0].Value.ToString();
+            if (AccountsList_Grid.SelectedRows.Count > 0)
+            {
+                SelectedUser = AccountsList_Grid.SelectedRows[0].Cells[0].Value.ToString();
+            }
         }
 
         private void GamesList_Grid_KeyDown(object sender, KeyEventArgs e)
@@ -1525,8 +1528,11 @@ namespace MercuryBOT
 
         private void CurrentUserSafeUpdater()
         {
-
+            lbl_infoLogin.Refresh();
             lbl_infoLogin.Text += AccountLogin.LoginStatus.ToString();
+
+
+           
             lbl_logininfoTempp.Text = AccountLogin.LastLogOnResult.ToString();
             if (AccountLogin.LastLogOnResult.ToString() == "ServiceUnavailable")
             {
@@ -1820,6 +1826,7 @@ namespace MercuryBOT
                 // btn_userdata.Enabled = true;
                 if (AccountLogin.IsLoggedIn == true)
                 {
+                    Console.WriteLine(Extensions.SteamLocation);
                     Process.Start(Extensions.SteamLocation + @"/userdata/" + Extensions.AllToSteamId3(AccountLogin.CurrentSteamID).Substring(1));
                 }
                 else
@@ -1970,7 +1977,7 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Select an account!");
             }
         }
-
+        
         private void CDKeys_ScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             if (e.NewValue >= CDKeys_Grid.Rows.Count)

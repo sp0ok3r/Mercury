@@ -41,6 +41,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
             this.link_GamesIMGPath = new MetroFramework.Controls.MetroLink();
+            this.chck_clearimagescache = new MetroFramework.Controls.MetroCheckBox();
             this.SuspendLayout();
             // 
             // txtBox_Game2Find
@@ -64,6 +65,7 @@
             this.txtBox_Game2Find.MaxLength = 32767;
             this.txtBox_Game2Find.Name = "txtBox_Game2Find";
             this.txtBox_Game2Find.PasswordChar = '\0';
+            this.txtBox_Game2Find.PromptText = "Name or ID";
             this.txtBox_Game2Find.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_Game2Find.SelectedText = "";
             this.txtBox_Game2Find.SelectionLength = 0;
@@ -191,9 +193,10 @@
             // link_GamesIMGPath
             // 
             this.link_GamesIMGPath.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.link_GamesIMGPath.Location = new System.Drawing.Point(832, 600);
+            this.link_GamesIMGPath.FontSize = MetroFramework.MetroLinkSize.Tall;
+            this.link_GamesIMGPath.Location = new System.Drawing.Point(821, 600);
             this.link_GamesIMGPath.Name = "link_GamesIMGPath";
-            this.link_GamesIMGPath.Size = new System.Drawing.Size(29, 28);
+            this.link_GamesIMGPath.Size = new System.Drawing.Size(40, 28);
             this.link_GamesIMGPath.TabIndex = 26;
             this.link_GamesIMGPath.Text = "📁";
             this.link_GamesIMGPath.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -201,10 +204,24 @@
             this.link_GamesIMGPath.UseSelectable = true;
             this.link_GamesIMGPath.Click += new System.EventHandler(this.metroLink_GamesIMGPath_Click);
             // 
+            // chck_clearimagescache
+            // 
+            this.chck_clearimagescache.AutoSize = true;
+            this.chck_clearimagescache.Location = new System.Drawing.Point(821, 31);
+            this.chck_clearimagescache.Name = "chck_clearimagescache";
+            this.chck_clearimagescache.Size = new System.Drawing.Size(164, 15);
+            this.chck_clearimagescache.TabIndex = 27;
+            this.chck_clearimagescache.Text = "Clear Images cache on Exit";
+            this.chck_clearimagescache.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.chck_clearimagescache.UseCustomBackColor = true;
+            this.chck_clearimagescache.UseSelectable = true;
+            this.chck_clearimagescache.UseStyleColors = true;
+            // 
             // SelectGames
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1008, 633);
+            this.Controls.Add(this.chck_clearimagescache);
             this.Controls.Add(this.link_GamesIMGPath);
             this.Controls.Add(this.progreeBar_GatherGames);
             this.Controls.Add(this.panel1);
@@ -242,5 +259,6 @@
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Components.MetroToolTip MongoToolTip;
         private MetroFramework.Controls.MetroLink link_GamesIMGPath;
+        private MetroFramework.Controls.MetroCheckBox chck_clearimagescache;
     }
 }
