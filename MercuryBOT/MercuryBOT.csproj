@@ -462,7 +462,6 @@
     <None Include="Resources\Images\MercuryIconLogo.ico" />
     <None Include="Resources\Images\MercuryIconLogo.png" />
     <None Include="Resources\Images\mapWhite.png" />
-    <None Include="Resources\Images\MercuryLogoWhite.png" />
     <None Include="Resources\Images\Restart_MouseHover.png" />
     <None Include="Resources\Images\Restart_Normal.png" />
     <None Include="Resources\Sounds\mercury_alert.wav" />

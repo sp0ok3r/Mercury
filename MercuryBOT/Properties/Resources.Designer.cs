@@ -130,16 +130,6 @@ namespace MercuryBOT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MercuryLogoWhite {
-            get {
-                object obj = ResourceManager.GetObject("MercuryLogoWhite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap MercuryLogoWhite2 {
             get {
                 object obj = ResourceManager.GetObject("MercuryLogoWhite2", resourceCulture);
