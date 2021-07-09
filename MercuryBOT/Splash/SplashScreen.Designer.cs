@@ -32,7 +32,9 @@
             this.lbl_version = new MetroFramework.Controls.MetroLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_info2 = new MetroFramework.Controls.MetroLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox_MercuryLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_MercuryLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,10 +68,20 @@
             this.lbl_info2.UseCustomBackColor = true;
             this.lbl_info2.UseStyleColors = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MercuryBOT.Properties.Resources.SteamLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(239, 301);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(63, 60);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 49;
+            this.pictureBox1.TabStop = false;
+            // 
             // pictureBox_MercuryLogo
             // 
             this.pictureBox_MercuryLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.pictureBox_MercuryLogo.Image = global::MercuryBOT.Properties.Resources.MercuryLogoWhite;
+            this.pictureBox_MercuryLogo.Image = global::MercuryBOT.Properties.Resources.MercuryLogoWhite2;
             this.pictureBox_MercuryLogo.Location = new System.Drawing.Point(23, 88);
             this.pictureBox_MercuryLogo.Name = "pictureBox_MercuryLogo";
             this.pictureBox_MercuryLogo.Size = new System.Drawing.Size(255, 122);
@@ -81,6 +93,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(301, 351);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox_MercuryLogo);
             this.Controls.Add(this.lbl_info2);
             this.Controls.Add(this.lbl_version);
@@ -99,6 +112,7 @@
             this.TransparencyKey = System.Drawing.Color.Green;
             this.Load += new System.EventHandler(this.SplashScreen_Load);
             this.Shown += new System.EventHandler(this.SplashScreen_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_MercuryLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -109,5 +123,6 @@
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroLabel lbl_info2;
         private System.Windows.Forms.PictureBox pictureBox_MercuryLogo;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -188,7 +188,7 @@ namespace MercuryBOT
         {
             this.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 
-            lbl_infoversion.Text = "v" + Program.Version.Replace("-", "");
+            //lbl_infoversion.Text = "v" + Program.Version.Replace("-", "");
             lbl_infoversion2.Text = "v" + Program.Version.Replace("-", "");
 
             var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
@@ -1002,7 +1002,7 @@ namespace MercuryBOT
                 }
             }
 
-            lbl_infoLogin.Text = "Trying to login...";
+            //lbl_infoLogin.Text = "Trying to login...";
             // Start Login
             Thread doLogin = new Thread(() => AccountLogin.UserSettingsGather(usernameJSON, passwordJSON));
             doLogin.Start();
@@ -1528,8 +1528,8 @@ namespace MercuryBOT
 
         private void CurrentUserSafeUpdater()
         {
-            lbl_infoLogin.Refresh();
-            lbl_infoLogin.Text += AccountLogin.LoginStatus.ToString();
+           // lbl_infoLogin.Refresh();
+            //lbl_infoLogin.Text += AccountLogin.LoginStatus.ToString();
 
 
            
@@ -1548,7 +1548,7 @@ namespace MercuryBOT
             {
                 btn_logout.Visible = true;
 
-                lbl_infoLogin.Text = "Trying to login...";
+                //lbl_infoLogin.Text = "Trying to login...";
 
                 if (AccountLogin.isSendingMsgs == false)
                 {
@@ -1591,13 +1591,13 @@ namespace MercuryBOT
                 //  combox_states.SelectedIndex = AccountLogin.steamFriends.GetPersonaState;
 
                 lbl_currentUsername.Invoke(new Action(() => lbl_currentUsername.Text = AccountLogin.CurrentUsername));
-                lbl_infoLogin.Text = "Connected"; // return;
+                //lbl_infoLogin.Text = "Connected"; // return;
 
 
             }
             else
             {
-                lbl_infoLogin.Text = "Not logged...";
+                //lbl_infoLogin.Text = "Not logged...";
 
                 btn_logout.Visible = false;
                 Panel_UserInfo.Visible = false;

@@ -162,7 +162,7 @@ namespace MercuryBOT.SteamGroups
                     using (var tr = table.AddRow())
                     {
                         tr.AddCell(Extensions.AllToSteamId3(group.Key).Substring(1).ToString()); // id3
-                        tr.AddCell("<a href=https://steamcommunity.com/gid/" + (group.Key).ToString()+ ">"+(group.Key).ToString()+"</a>"); //id64
+                        tr.AddCell("<a target='_blank' rel='noopener noreferrer' href=https://steamcommunity.com/gid/" + (group.Key).ToString()+ ">"+(group.Key).ToString()+"</a>"); //id64
                         tr.AddCell(group.Value); // name
                     }
                 }
