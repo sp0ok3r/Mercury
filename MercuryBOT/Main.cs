@@ -147,7 +147,7 @@ namespace MercuryBOT
             InitializeComponent();
 
             pictureBox_MercuryLogo.Controls.Add(pic_sparkles);
-
+            this.Opacity = 50.0;
             this.Activate();
             this.components.SetStyle(this);
             RefreshAccountList();
