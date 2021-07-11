@@ -93,8 +93,8 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(301, 351);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox_MercuryLogo);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_info2);
             this.Controls.Add(this.lbl_version);
             this.Controls.Add(this.panel1);

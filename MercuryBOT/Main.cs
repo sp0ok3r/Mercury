@@ -147,7 +147,7 @@ namespace MercuryBOT
             InitializeComponent();
 
             pictureBox_MercuryLogo.Controls.Add(pic_sparkles);
-            this.Opacity = 50.0;
+
             this.Activate();
             this.components.SetStyle(this);
             RefreshAccountList();
@@ -1564,7 +1564,7 @@ namespace MercuryBOT
                 btn_login2selected.Enabled = false;
                 Panel_UserInfo.Visible = true;
 
-                btnLabel_PersonaAndFlag.Invoke(new Action(() => btnLabel_PersonaAndFlag.Text = AccountLogin.UserPersonaName));
+                btnLabel_PersonaAndFlag.Invoke(new Action(() => btnLabel_PersonaAndFlag.Text = " " + AccountLogin.UserPersonaName));
 
 
                 if (AccountLogin.UserPlaying)

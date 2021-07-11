@@ -48,8 +48,6 @@ namespace MercuryBOT
         public static Dictionary<ulong, ulong> OfficerClanDictionary = new Dictionary<ulong, ulong>();
 
 
-        public const uint RETRY_DELAY = 15;
-
         public static SteamClient steamClient;
         private static SteamUser steamUser;
         public static SteamFriends steamFriends;
@@ -63,7 +61,6 @@ namespace MercuryBOT
         static JobID playerRequest = JobID.Invalid;
 
 
-        public static string MessageString;
         public static bool ChatLogger = false;
         public static bool isAwayState = false;
         public static bool AwayMsg = false;
@@ -82,15 +79,9 @@ namespace MercuryBOT
         public static EResult LastLogOnResult;
         public static string LoginStatus = "Not connected...";
 
-        private static int DisconnectedCounter;
-        private static int MaxDisconnects = 4;
-
         private static string NewloginKey = null;
         private static bool cookiesAreInvalid = true;
-        public static string user, pass;
-        public static string authCode, twoFactorAuth;
-        public static string steamID;
-        public static string AvatarHash;
+        public static string user, pass, authCode, twoFactorAuth,steamID,AvatarHash, MessageString;
 
         public static void UserSettingsGather(string username, string password)
         {
@@ -356,7 +347,7 @@ namespace MercuryBOT
 
             //Sucess
             Console.WriteLine("[" + Program.BOTNAME + "] - Connected to Steam! Logging in '{0}'...", user);
-           // Notification.NotifHelper.MessageBox.Show("Info", "Connected to Steam!\nLogging in " + user + "...");
+            // Notification.NotifHelper.MessageBox.Show("Info", "Connected to Steam!\nLogging in " + user + "...");
             LoginStatus = "Connected to Steam! Logging in " + user;
 
             byte[] sentryHash = null;
@@ -404,6 +395,13 @@ namespace MercuryBOT
 
         static void OnLoggedOn(SteamUser.LoggedOnCallback callback)
         {
+            if (callback == null)
+            {
+                throw new ArgumentNullException(nameof(callback));
+            }
+            
+            LastLogOnResult = callback.Result;
+
             bool isSteamGuard = callback.Result == EResult.AccountLogonDenied;
             bool is2FA = callback.Result == EResult.AccountLoginDeniedNeedTwoFactor;
             bool isLoginKey = callback.Result == EResult.InvalidPassword && NewloginKey != null;
@@ -459,7 +457,7 @@ namespace MercuryBOT
                     else
                     {
                         Console.WriteLine("[" + Program.BOTNAME + "] - Login key expired.");
-                       // Notification.NotifHelper.MessageBox.Show("Info", "Login key expired!\nConnecting...");
+                        // Notification.NotifHelper.MessageBox.Show("Info", "Login key expired!\nConnecting...");
                         LoginStatus = "Login key expired! Connecting...";
                     }
                 }
@@ -530,7 +528,7 @@ namespace MercuryBOT
                     }
                     if (a.LoginKey.Length == 19)
                     {
-                      //  UserWebLogOn();
+                        //  UserWebLogOn();
                     }
                     steamFriends.SetPersonaState(Extensions.statesList[a.LoginState]);
                     CurrentPersonaState = a.LoginState;
@@ -558,29 +556,40 @@ namespace MercuryBOT
             }
 
             EResult lastLogOnResult = LastLogOnResult;
-            //if serviceunabalieve
+            LastLogOnResult = EResult.Invalid;
             CurrentPersonaState = 0;
-
-           /*
-            DisconnectedCounter++;
-            if (isRunning)
+            switch (lastLogOnResult)
             {
-                if (DisconnectedCounter >= MaxDisconnects)
-                {
-                    Console.WriteLine("[" + Program.BOTNAME + "] - Too many disconnects occured in a short period of time. Wait 1 min...");
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Too many disconnects occured in a short period of time. Wait 1 min...");
-                    LoginStatus = "Too many disconnects occured in a short period of time.";
-                    Thread.Sleep(TimeSpan.FromMinutes(1));
-                    DisconnectedCounter = 0;
-                    steamClient.Disconnect();
-                }
-            }
-            */
-            Console.WriteLine("[" + Program.BOTNAME + "] - Reconnecting in 10s ..." + callback.UserInitiated);
-            LoginStatus = "Reconnecting in 10s...";
+                case EResult.AccountDisabled:
+                    // Do not attempt to reconnect, those failures are permanent
+                    return;
+                case EResult.InvalidPassword:
+                case EResult.NoConnection:
+                case EResult.ServiceUnavailable:
+                case EResult.Timeout:
+                case EResult.TryAnotherCM:
+                case EResult.TwoFactorCodeMismatch:
+                    //retry
+                    TimeSpan.FromSeconds(5);
+                    steamClient.Connect();
+                    Console.WriteLine("Disconnected from steam, reconnecting in 5 sec... [" + lastLogOnResult + "]");
+                    break;
+                case EResult.AccountLoginDeniedNeedTwoFactor:
+                    steamClient.Connect();
+                    break;
 
-            TimeSpan.FromSeconds(10);
-            steamClient.Connect();
+                case EResult.RateLimitExceeded:
+                    //retry
+                    Console.WriteLine("Disconnected from steam, please try again in 30min [" + lastLogOnResult + "]");
+
+                    break;
+                    // default: //test
+                    //   TimeSpan.FromSeconds(5);
+                    //   steamClient.Connect();
+                    //   Console.WriteLine("Disconnected from steam, reconnecting in 5 sec... [" + lastLogOnResult + "]");
+                    //    break;
+
+            }
         }
 
 
@@ -657,9 +666,9 @@ namespace MercuryBOT
 
                 if ((callback.AvatarHash.Length > 0) && callback.AvatarHash.Any(singleByte => singleByte != 0))
                 {
-                #pragma warning disable CA1308
+#pragma warning disable CA1308
                     avatarHash = BitConverter.ToString(callback.AvatarHash).Replace("-", "").ToLowerInvariant();
-                #pragma warning restore CA1308
+#pragma warning restore CA1308
 
                     if (string.IsNullOrEmpty(avatarHash) || avatarHash.All(singleChar => singleChar == '0'))
                     {
@@ -757,6 +766,11 @@ namespace MercuryBOT
 
         static void OnLoggedOff(SteamUser.LoggedOffCallback callback)
         {
+            if (callback == null)
+            {
+                throw new ArgumentNullException(nameof(callback));
+            }
+
             LastLogOnResult = callback.Result;
 
             if (callback.Result.ToString() == "ServiceUnavailable")
@@ -1322,7 +1336,7 @@ namespace MercuryBOT
             isRunning = false;
             IsLoggedIn = false;
             steamUser.LogOff();
-            DisconnectedCounter = 0;
+
             CurrentPersonaState = 0;
             UserPersonaName = "";
             CurrentUsername = "";

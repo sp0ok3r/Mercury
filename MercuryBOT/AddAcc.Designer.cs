@@ -68,7 +68,6 @@
             this.btn_addAcc.Name = "btn_addAcc";
             this.btn_addAcc.Size = new System.Drawing.Size(90, 31);
             this.btn_addAcc.TabIndex = 5;
-            this.btn_addAcc.TabStop = false;
             this.btn_addAcc.Text = "SUBMIT";
             this.btn_addAcc.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btn_addAcc.UseCustomBackColor = true;
@@ -104,7 +103,7 @@
             this.txtBox_AccUser.SelectionStart = 0;
             this.txtBox_AccUser.ShortcutsEnabled = true;
             this.txtBox_AccUser.Size = new System.Drawing.Size(159, 23);
-            this.txtBox_AccUser.TabIndex = 1;
+            this.txtBox_AccUser.TabIndex = 2;
             this.txtBox_AccUser.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_AccUser.UseCustomBackColor = true;
             this.txtBox_AccUser.UseCustomForeColor = true;
@@ -141,7 +140,7 @@
             this.txtBox_AccPW.SelectionStart = 0;
             this.txtBox_AccPW.ShortcutsEnabled = true;
             this.txtBox_AccPW.Size = new System.Drawing.Size(159, 23);
-            this.txtBox_AccPW.TabIndex = 2;
+            this.txtBox_AccPW.TabIndex = 3;
             this.txtBox_AccPW.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_AccPW.UseCustomBackColor = true;
             this.txtBox_AccPW.UseCustomForeColor = true;
@@ -158,7 +157,7 @@
             this.metroLink_AccountsJSONPath.Location = new System.Drawing.Point(139, 163);
             this.metroLink_AccountsJSONPath.Name = "metroLink_AccountsJSONPath";
             this.metroLink_AccountsJSONPath.Size = new System.Drawing.Size(39, 31);
-            this.metroLink_AccountsJSONPath.TabIndex = 15;
+            this.metroLink_AccountsJSONPath.TabIndex = 4;
             this.metroLink_AccountsJSONPath.Text = "📁";
             this.metroLink_AccountsJSONPath.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToolTip.SetToolTip(this.metroLink_AccountsJSONPath, "Go to Accounts file");
@@ -193,7 +192,7 @@
             this.txtBox_adminID.SelectionStart = 0;
             this.txtBox_adminID.ShortcutsEnabled = true;
             this.txtBox_adminID.Size = new System.Drawing.Size(159, 23);
-            this.txtBox_adminID.TabIndex = 3;
+            this.txtBox_adminID.TabIndex = 1;
             this.txtBox_adminID.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToolTip.SetToolTip(this.txtBox_adminID, "The Admin can control your account with custom commands!\r\n");
             this.txtBox_adminID.UseCustomBackColor = true;

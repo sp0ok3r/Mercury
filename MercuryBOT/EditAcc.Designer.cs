@@ -78,8 +78,7 @@
             this.txtBox_user.SelectionStart = 0;
             this.txtBox_user.ShortcutsEnabled = true;
             this.txtBox_user.Size = new System.Drawing.Size(151, 23);
-            this.txtBox_user.TabIndex = 54;
-            this.txtBox_user.TabStop = false;
+            this.txtBox_user.TabIndex = 4;
             this.txtBox_user.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_user.UseCustomBackColor = true;
             this.txtBox_user.UseCustomForeColor = true;
@@ -116,7 +115,7 @@
             this.txtBox_pw.SelectionStart = 0;
             this.txtBox_pw.ShortcutsEnabled = true;
             this.txtBox_pw.Size = new System.Drawing.Size(151, 23);
-            this.txtBox_pw.TabIndex = 1;
+            this.txtBox_pw.TabIndex = 5;
             this.txtBox_pw.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_pw.UseCustomBackColor = true;
             this.txtBox_pw.UseCustomForeColor = true;
@@ -174,7 +173,7 @@
             this.txtBox_adminID.SelectionStart = 0;
             this.txtBox_adminID.ShortcutsEnabled = true;
             this.txtBox_adminID.Size = new System.Drawing.Size(151, 23);
-            this.txtBox_adminID.TabIndex = 2;
+            this.txtBox_adminID.TabIndex = 6;
             this.txtBox_adminID.UseCustomBackColor = true;
             this.txtBox_adminID.UseCustomForeColor = true;
             this.txtBox_adminID.UseSelectable = true;
@@ -200,7 +199,7 @@
             this.BTN_SUBMIT.Location = new System.Drawing.Point(224, 290);
             this.BTN_SUBMIT.Name = "BTN_SUBMIT";
             this.BTN_SUBMIT.Size = new System.Drawing.Size(90, 31);
-            this.BTN_SUBMIT.TabIndex = 20;
+            this.BTN_SUBMIT.TabIndex = 10;
             this.BTN_SUBMIT.Text = "SUBMIT";
             this.BTN_SUBMIT.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.BTN_SUBMIT.UseCustomBackColor = true;
@@ -215,7 +214,7 @@
             this.metroLink_AccountsJSONPath.Location = new System.Drawing.Point(178, 290);
             this.metroLink_AccountsJSONPath.Name = "metroLink_AccountsJSONPath";
             this.metroLink_AccountsJSONPath.Size = new System.Drawing.Size(40, 31);
-            this.metroLink_AccountsJSONPath.TabIndex = 22;
+            this.metroLink_AccountsJSONPath.TabIndex = 9;
             this.metroLink_AccountsJSONPath.Text = "📁";
             this.metroLink_AccountsJSONPath.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.MongoToolTip.SetToolTip(this.metroLink_AccountsJSONPath, "Go to Accounts.json");
@@ -250,7 +249,7 @@
             this.txtBox_webapi.SelectionStart = 0;
             this.txtBox_webapi.ShortcutsEnabled = true;
             this.txtBox_webapi.Size = new System.Drawing.Size(236, 23);
-            this.txtBox_webapi.TabIndex = 3;
+            this.txtBox_webapi.TabIndex = 7;
             this.txtBox_webapi.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_webapi.UseCustomBackColor = true;
             this.txtBox_webapi.UseCustomForeColor = true;
@@ -272,7 +271,7 @@
             this.toggle_autoLogin.Location = new System.Drawing.Point(161, 72);
             this.toggle_autoLogin.Name = "toggle_autoLogin";
             this.toggle_autoLogin.Size = new System.Drawing.Size(80, 17);
-            this.toggle_autoLogin.TabIndex = 25;
+            this.toggle_autoLogin.TabIndex = 1;
             this.toggle_autoLogin.Text = "Off";
             this.toggle_autoLogin.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.toggle_autoLogin.UseSelectable = true;
@@ -304,7 +303,7 @@
             this.toggle_chatLogger.Location = new System.Drawing.Point(161, 126);
             this.toggle_chatLogger.Name = "toggle_chatLogger";
             this.toggle_chatLogger.Size = new System.Drawing.Size(80, 17);
-            this.toggle_chatLogger.TabIndex = 27;
+            this.toggle_chatLogger.TabIndex = 3;
             this.toggle_chatLogger.Text = "Off";
             this.toggle_chatLogger.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.toggle_chatLogger.UseSelectable = true;
@@ -317,7 +316,7 @@
             this.btn_deleteAcc.Location = new System.Drawing.Point(12, 290);
             this.btn_deleteAcc.Name = "btn_deleteAcc";
             this.btn_deleteAcc.Size = new System.Drawing.Size(90, 31);
-            this.btn_deleteAcc.TabIndex = 29;
+            this.btn_deleteAcc.TabIndex = 8;
             this.btn_deleteAcc.Text = "DELETE";
             this.btn_deleteAcc.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.btn_deleteAcc.UseCustomBackColor = true;
@@ -354,7 +353,7 @@
             this.combox_defaultState.Location = new System.Drawing.Point(161, 95);
             this.combox_defaultState.Name = "combox_defaultState";
             this.combox_defaultState.Size = new System.Drawing.Size(151, 25);
-            this.combox_defaultState.TabIndex = 56;
+            this.combox_defaultState.TabIndex = 2;
             this.combox_defaultState.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.combox_defaultState.UseSelectable = true;
             this.combox_defaultState.UseStyleColors = true;

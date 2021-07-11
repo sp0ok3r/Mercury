@@ -32,6 +32,7 @@ namespace MercuryBOT.Splash
         public SplashScreen()
         {
             InitializeComponent();
+
             this.components.SetStyle(this);
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(Gdi32.CreateRoundRectRgn(0, 0, Width, Height, 5, 5));
@@ -57,7 +58,7 @@ namespace MercuryBOT.Splash
             {
                 Directory.CreateDirectory(Program.ChatLogsFolder);
             }
-            
+
             lbl_info2.Text = "LOADING";
         }
 
@@ -131,7 +132,7 @@ namespace MercuryBOT.Splash
             }
             catch (Exception x)
             {
-                Console.WriteLine("["+Program.BOTNAME+"] - Steam Directory not found, but starting anyways..." + x);
+                Console.WriteLine("[" + Program.BOTNAME + "] - Steam Directory not found, but starting anyways..." + x);
             }
 
             tmr = new Timer();
