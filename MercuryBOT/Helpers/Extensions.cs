@@ -179,11 +179,12 @@ namespace MercuryBOT.Helpers
                     return false;
                 }
 
-            }else
+            }
+            else
             {
                 return true;
             }
-               
+
         }
 
 

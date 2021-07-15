@@ -336,7 +336,7 @@ namespace MercuryBOT
             }
             catch (Exception uwu)
             {
-                Console.WriteLine("sp0ok3r.tk down or No internet connection err"+uwu);
+                Console.WriteLine("sp0ok3r.tk down or No internet connection err" + uwu);
                 Notification.NotifHelper.MessageBox.Show("Alert", "Checking for updates failed, maybe sp0ok3r.tk is down.");
 
                 //Process.Start("https://github.com/sp0ok3r/Mercury/releases");
@@ -365,8 +365,9 @@ namespace MercuryBOT
                 {
                     ApiWeb = false;
                 }
+                // DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(Convert.ToDouble(a.LastLoginTime));
 
-                string[] row = { a.username, (a.SteamID).ToString(), (LoginK).ToString(), (ApiWeb).ToString() };
+                string[] row = { a.username, (a.SteamID).ToString(), "testing", (LoginK).ToString(), (ApiWeb).ToString() };
 
                 AccountsList_Grid.Rows.Add(row);
 
@@ -375,20 +376,20 @@ namespace MercuryBOT
                     AccountsList_Grid.Rows[i].Cells[0].Style.ForeColor = Color.White;
                     if (LoginK == true)
                     {
-                        AccountsList_Grid.Rows[i].Cells[2].Style.ForeColor = Color.Green;
-                    }
-                    else
-                    {
-                        AccountsList_Grid.Rows[i].Cells[2].Style.ForeColor = Color.Red;
-                    }
-
-                    if (ApiWeb == true)
-                    {
                         AccountsList_Grid.Rows[i].Cells[3].Style.ForeColor = Color.Green;
                     }
                     else
                     {
                         AccountsList_Grid.Rows[i].Cells[3].Style.ForeColor = Color.Red;
+                    }
+
+                    if (ApiWeb == true)
+                    {
+                        AccountsList_Grid.Rows[i].Cells[4].Style.ForeColor = Color.Green;
+                    }
+                    else
+                    {
+                        AccountsList_Grid.Rows[i].Cells[4].Style.ForeColor = Color.Red;
                     }
                 }
 
@@ -636,7 +637,7 @@ namespace MercuryBOT
                             {
                                 quantasPrincesas++;
                                 steamfriends002.SendMsgToFriend(friendid, EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text), (txtBox_msg2Friends.Text.Length) + 1);
-                                Thread.Sleep(100);// my nigger needs some OXYGEN 😌 
+                                Thread.Sleep(100);// my friend needs some OXYGEN 😌 
                             }
                         }
                     }
@@ -645,7 +646,7 @@ namespace MercuryBOT
                         quantasPrincesas++;
                         msgBytes = Encoding.UTF8.GetBytes(msg);
                         steamfriends002.SendMsgToFriend(friendid, EChatEntryType.k_EChatEntryTypeChatMsg, msgBytes, (msgBytes.Length) + 1);
-                        Thread.Sleep(100);// my nigger needs some OXYGEN 😌 
+                        Thread.Sleep(100);// my friend needs some OXYGEN 😌 
                     }
                 }
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Sent message to " + quantasPrincesas + " friends!");
@@ -865,38 +866,48 @@ namespace MercuryBOT
 
         private void btn_addGameManually_Click(object sender, EventArgs e)
         {
-            if (GamesList_Grid.Rows.Count >= 32)
+            if (AccountLogin.IsLoggedIn == true)
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Max GameIDs: 32 - remove some");
-                return;
-            }
-            else
-            {
-                int txtBox_gameIDAdd_out;
-                if (txtBox_gameIDAdd.Text.Length > 0 && int.TryParse(txtBox_gameIDAdd.Text, out txtBox_gameIDAdd_out))
-                {
-                    var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-                    uint gameidConverted = Convert.ToUInt32(txtBox_gameIDAdd.Text);
-                    foreach (var json in list.Accounts)
-                    {
-                        if (json.username == AccountLogin.CurrentUsername)
-                        {
-                            Game NewGame = new Game { app_id = gameidConverted, name = "Manually Added" };
-                            json.Games.Add(NewGame);
-                            txtBox_gameIDAdd.Clear();
-                        }
-                    }
-                    string output = JsonConvert.SerializeObject(list, Formatting.Indented);
-                    File.WriteAllText(Program.AccountsJsonFile, output);
 
-                    LoadGamesFromJSON();
+
+                if (GamesList_Grid.Rows.Count >= 32)
+                {
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Max GameIDs: 32 - remove some");
+                    return;
                 }
                 else
                 {
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Please write the appid!");
-                    txtBox_gameIDAdd.Clear();
-                    return;
+                    int txtBox_gameIDAdd_out;
+                    if (txtBox_gameIDAdd.Text.Length > 0 && int.TryParse(txtBox_gameIDAdd.Text, out txtBox_gameIDAdd_out))
+                    {
+                        var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
+                        uint gameidConverted = Convert.ToUInt32(txtBox_gameIDAdd.Text);
+                        foreach (var json in list.Accounts)
+                        {
+                            if (json.username == AccountLogin.CurrentUsername)
+                            {
+                                Game NewGame = new Game { app_id = gameidConverted, name = "Manually Added" };
+                                json.Games.Add(NewGame);
+                                txtBox_gameIDAdd.Clear();
+                            }
+                        }
+                        string output = JsonConvert.SerializeObject(list, Formatting.Indented);
+                        File.WriteAllText(Program.AccountsJsonFile, output);
+
+                        LoadGamesFromJSON();
+                    }
+                    else
+                    {
+                        InfoForm.InfoHelper.CustomMessageBox.Show("Alert", "Please write the appid!");
+                        txtBox_gameIDAdd.Clear();
+                        return;
+                    }
                 }
+            }
+            else
+            {
+                txtBox_gameIDAdd.Clear();
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged!");
             }
         }
 
@@ -1534,7 +1545,7 @@ namespace MercuryBOT
 
             // lbl_infoLogin.Refresh();
             //lbl_infoLogin.Text += AccountLogin.LoginStatus.ToString();
-           // pic_sparkles.Location = new Point(imageposition[randomIndex, 1]);
+            // pic_sparkles.Location = new Point(imageposition[randomIndex, 1]);
 
 
             lbl_logininfoTempp.Text = AccountLogin.LastLogOnResult.ToString();
@@ -1805,7 +1816,7 @@ namespace MercuryBOT
             }
             IconContextMenu.Close();
         }
-        
+
         private void combox_defaultTab_SelectedIndexChanged(object sender, EventArgs e)
         {
             var SettingsList = JsonConvert.DeserializeObject<MercurySettings>(File.ReadAllText(Program.SettingsJsonFile));
@@ -1867,23 +1878,6 @@ namespace MercuryBOT
             //  SettingsList.notificationEffect = Extensions.notifEffects[combox_notifEffect.SelectedIndex];
 
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, new JsonSerializerSettings { Formatting = Formatting.Indented }));
-        }
-
-        private void btn_accSettings_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void btn_idleSettings_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_rateup_Click(object sender, EventArgs e)
-        {
-
         }
 
         public static bool ClientLogin(string userselected)
@@ -1967,7 +1961,7 @@ namespace MercuryBOT
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }   
+            }
         }
 
         private void AccountsList_Grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -1981,7 +1975,12 @@ namespace MercuryBOT
                 InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Select an account!");
             }
         }
-        
+
+        private void txtBox_gameIDAdd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
         private void CDKeys_ScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             if (e.NewValue >= CDKeys_Grid.Rows.Count)
