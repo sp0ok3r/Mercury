@@ -1197,7 +1197,7 @@ namespace MercuryBOT
                             {
                                 princessas++;
                                 steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.BOTNAME);
-                                Thread.Sleep(1000);// my nigger needs some OXYGEN 😌
+                                Thread.Sleep(1000);// my friend needs some OXYGEN 😌
                             }
                         }
                     }
@@ -1205,7 +1205,7 @@ namespace MercuryBOT
                     {
                         princessas++;
                         steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.BOTNAME);
-                        Thread.Sleep(1000);// my nigger needs some OXYGEN 😌
+                        Thread.Sleep(1000);// my friend needs some OXYGEN 😌
                     }
                 }
             }
