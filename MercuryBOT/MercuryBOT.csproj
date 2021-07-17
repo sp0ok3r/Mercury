@@ -474,9 +474,6 @@
     <None Include="Resources\Sounds\mercury_update.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Images\SteamLogo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Images\github_logo.png" />
   </ItemGroup>
   <ItemGroup>

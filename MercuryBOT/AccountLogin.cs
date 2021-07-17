@@ -333,6 +333,7 @@ namespace MercuryBOT
 
         static void OnConnected(SteamClient.ConnectedCallback callback)
         {
+
             if (callback.ToString() != "SteamKit2.SteamClient+ConnectedCallback")
             {
                 Console.WriteLine("[" + Program.BOTNAME + "] - Unable to connect to Steam: {0}", callback);
@@ -401,6 +402,9 @@ namespace MercuryBOT
             }
             
             LastLogOnResult = callback.Result;
+            
+
+
 
             bool isSteamGuard = callback.Result == EResult.AccountLogonDenied;
             bool is2FA = callback.Result == EResult.AccountLoginDeniedNeedTwoFactor;
@@ -624,6 +628,9 @@ namespace MercuryBOT
             EClanRank clanRank = (EClanRank)callback.ClanRank;
             EPersonaState state = callback.State;
 
+
+            //Console.WriteLine("Online Sessions:" + callback.OnlineSessionInstances);
+            
             //ListFriends.UpdateName(friendId.ConvertToUInt64(), callback.Name); not yet
             //ListFriends.UpdateStatus(friendId.ConvertToUInt64(), state.ToString()); not yet
 
@@ -653,7 +660,7 @@ namespace MercuryBOT
                 {
                     UserPlaying = false;
                 }
-                if (steamFriends.GetPersonaState() != EPersonaState.Online) //detect when user goes afk
+                if (state != EPersonaState.Online) //detect when user goes afk
                 {
                     //isAwayState = true;
                 }
@@ -812,6 +819,7 @@ namespace MercuryBOT
         {
             UserPersonaName = callback.PersonaName;
             UserCountry = callback.Country;
+
         }
 
         public static void LoadFriends() //https://github.com/waylaidwanderer/Mist/tree/master/SteamBot

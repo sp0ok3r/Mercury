@@ -1546,8 +1546,6 @@ namespace MercuryBOT
             // lbl_infoLogin.Refresh();
             //lbl_infoLogin.Text += AccountLogin.LoginStatus.ToString();
             // pic_sparkles.Location = new Point(imageposition[randomIndex, 1]);
-
-
             lbl_logininfoTempp.Text = AccountLogin.LastLogOnResult.ToString();
             if (AccountLogin.LastLogOnResult.ToString() == "ServiceUnavailable")
             {
