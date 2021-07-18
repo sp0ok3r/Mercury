@@ -107,11 +107,6 @@
             this.btn_steamLogin = new MetroFramework.Controls.MetroButton();
             this.AccountsList_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
             this.AccountsList_Grid = new MetroFramework.Controls.MetroGrid();
-            this.Headerusername = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SteamID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LASTLOGIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HeaderLoginKeyY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HeaderApiKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_userdata = new MetroFramework.Controls.MetroButton();
             this.btn_editAcc = new MetroFramework.Controls.MetroButton();
             this.btn_addAcc = new MetroFramework.Controls.MetroButton();
@@ -329,6 +324,11 @@
             this.metroGrid4 = new MetroFramework.Controls.MetroGrid();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox_MercuryLogo = new System.Windows.Forms.PictureBox();
+            this.Headerusername = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SteamID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LASTLOGIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HeaderLoginKeyY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HeaderApiKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTab_Message.SuspendLayout();
             this.metroTab_Games.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GamesList_Grid)).BeginInit();
@@ -1342,9 +1342,9 @@
             this.metroTab_AddAcc.HorizontalScrollbarBarColor = true;
             this.metroTab_AddAcc.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_AddAcc.HorizontalScrollbarSize = 10;
-            this.metroTab_AddAcc.Location = new System.Drawing.Point(4, 35);
+            this.metroTab_AddAcc.Location = new System.Drawing.Point(4, 38);
             this.metroTab_AddAcc.Name = "metroTab_AddAcc";
-            this.metroTab_AddAcc.Size = new System.Drawing.Size(769, 425);
+            this.metroTab_AddAcc.Size = new System.Drawing.Size(769, 422);
             this.metroTab_AddAcc.TabIndex = 0;
             this.metroTab_AddAcc.Text = "👥 ACCOUNTS";
             this.metroTab_AddAcc.UseCustomBackColor = true;
@@ -1499,44 +1499,6 @@
             this.AccountsList_Grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AccountsList_Grid_CellClick);
             this.AccountsList_Grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AccountsList_Grid_CellDoubleClick);
             // 
-            // Headerusername
-            // 
-            this.Headerusername.HeaderText = "USERNAME";
-            this.Headerusername.Name = "Headerusername";
-            this.Headerusername.ReadOnly = true;
-            this.Headerusername.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Headerusername.Width = 200;
-            // 
-            // SteamID
-            // 
-            this.SteamID.HeaderText = "STEAMID";
-            this.SteamID.Name = "SteamID";
-            this.SteamID.ReadOnly = true;
-            this.SteamID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.SteamID.Width = 120;
-            // 
-            // LASTLOGIN
-            // 
-            this.LASTLOGIN.HeaderText = "LAST LOGIN";
-            this.LASTLOGIN.Name = "LASTLOGIN";
-            this.LASTLOGIN.ReadOnly = true;
-            this.LASTLOGIN.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // HeaderLoginKeyY
-            // 
-            this.HeaderLoginKeyY.HeaderText = "LOGINKEY";
-            this.HeaderLoginKeyY.Name = "HeaderLoginKeyY";
-            this.HeaderLoginKeyY.ReadOnly = true;
-            this.HeaderLoginKeyY.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.HeaderLoginKeyY.Width = 75;
-            // 
-            // HeaderApiKey
-            // 
-            this.HeaderApiKey.HeaderText = "APIKEY";
-            this.HeaderApiKey.Name = "HeaderApiKey";
-            this.HeaderApiKey.ReadOnly = true;
-            this.HeaderApiKey.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
             // btn_userdata
             // 
             this.btn_userdata.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
@@ -1629,7 +1591,7 @@
             this.MercuryTabControl.Location = new System.Drawing.Point(17, 79);
             this.MercuryTabControl.Multiline = true;
             this.MercuryTabControl.Name = "MercuryTabControl";
-            this.MercuryTabControl.SelectedIndex = 1;
+            this.MercuryTabControl.SelectedIndex = 0;
             this.MercuryTabControl.ShowToolTips = true;
             this.MercuryTabControl.Size = new System.Drawing.Size(777, 464);
             this.MercuryTabControl.TabIndex = 1;
@@ -5461,6 +5423,44 @@
             this.pictureBox_MercuryLogo.MouseMove += new System.Windows.Forms.MouseEventHandler(this._MouseMove);
             this.pictureBox_MercuryLogo.MouseUp += new System.Windows.Forms.MouseEventHandler(this._MouseUp);
             // 
+            // Headerusername
+            // 
+            this.Headerusername.HeaderText = "USERNAME";
+            this.Headerusername.Name = "Headerusername";
+            this.Headerusername.ReadOnly = true;
+            this.Headerusername.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Headerusername.Width = 200;
+            // 
+            // SteamID
+            // 
+            this.SteamID.HeaderText = "STEAMID";
+            this.SteamID.Name = "SteamID";
+            this.SteamID.ReadOnly = true;
+            this.SteamID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.SteamID.Width = 120;
+            // 
+            // LASTLOGIN
+            // 
+            this.LASTLOGIN.HeaderText = "LASTLOGIN";
+            this.LASTLOGIN.Name = "LASTLOGIN";
+            this.LASTLOGIN.ReadOnly = true;
+            // 
+            // HeaderLoginKeyY
+            // 
+            this.HeaderLoginKeyY.HeaderText = "LOGINKEY";
+            this.HeaderLoginKeyY.Name = "HeaderLoginKeyY";
+            this.HeaderLoginKeyY.ReadOnly = true;
+            this.HeaderLoginKeyY.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.HeaderLoginKeyY.Width = 75;
+            // 
+            // HeaderApiKey
+            // 
+            this.HeaderApiKey.HeaderText = "APIKEY";
+            this.HeaderApiKey.Name = "HeaderApiKey";
+            this.HeaderApiKey.ReadOnly = true;
+            this.HeaderApiKey.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.HeaderApiKey.Width = 75;
+            // 
             // Main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -5804,13 +5804,13 @@
         private System.Windows.Forms.PictureBox pic_sparkles;
         private System.Windows.Forms.Panel panel6;
         private MetroFramework.Controls.MetroTextBox metroTextBox9;
+        private System.Windows.Forms.Panel panel5;
+        private MetroFramework.Controls.MetroTextBox metroTextBox8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Headerusername;
         private System.Windows.Forms.DataGridViewTextBoxColumn SteamID;
         private System.Windows.Forms.DataGridViewTextBoxColumn LASTLOGIN;
         private System.Windows.Forms.DataGridViewTextBoxColumn HeaderLoginKeyY;
         private System.Windows.Forms.DataGridViewTextBoxColumn HeaderApiKey;
-        private System.Windows.Forms.Panel panel5;
-        private MetroFramework.Controls.MetroTextBox metroTextBox8;
     }
 }
 

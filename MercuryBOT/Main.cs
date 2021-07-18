@@ -365,9 +365,8 @@ namespace MercuryBOT
                 {
                     ApiWeb = false;
                 }
-                // DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddMilliseconds(Convert.ToDouble(a.LastLoginTime));
 
-                string[] row = { a.username, (a.SteamID).ToString(), "testing", (LoginK).ToString(), (ApiWeb).ToString() };
+                string[] row = { a.username, (a.SteamID).ToString(), "",(LoginK).ToString(), (ApiWeb).ToString() };
 
                 AccountsList_Grid.Rows.Add(row);
 
