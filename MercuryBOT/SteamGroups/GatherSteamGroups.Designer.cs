@@ -48,6 +48,7 @@
             this.txtBox_gName = new MetroFramework.Controls.MetroTextBox();
             this.MercuryTabControlGroups = new MetroFramework.Controls.MetroTabControl();
             this.metroTab_Tasks = new MetroFramework.Controls.MetroTabPage();
+            this.chk_copygroupid3 = new MetroFramework.Controls.MetroCheckBox();
             this.ProgressSpinner_MassInvite = new MetroFramework.Controls.MetroProgressSpinner();
             this.btn_massInvite = new MetroFramework.Controls.MetroButton();
             this.GridClanData = new MetroFramework.Controls.MetroGrid();
@@ -64,11 +65,11 @@
             this.btn_joinAll = new MetroFramework.Controls.MetroButton();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.link_setfile = new MetroFramework.Controls.MetroLink();
+            this.btn_csgobind = new MetroFramework.Controls.MetroButton();
             this.lbl_groupSelected = new MetroFramework.Controls.MetroLabel();
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
             this.txt_totalgroups = new MetroFramework.Controls.MetroLabel();
-            this.chk_copygroupid3 = new MetroFramework.Controls.MetroCheckBox();
             this.MercuryTabControlGroups.SuspendLayout();
             this.metroTab_Tasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).BeginInit();
@@ -79,9 +80,9 @@
             // 
             this.btn_exitSelected.DisplayFocus = true;
             this.btn_exitSelected.ForeColor = System.Drawing.Color.White;
-            this.btn_exitSelected.Location = new System.Drawing.Point(371, 468);
+            this.btn_exitSelected.Location = new System.Drawing.Point(373, 477);
             this.btn_exitSelected.Name = "btn_exitSelected";
-            this.btn_exitSelected.Size = new System.Drawing.Size(71, 39);
+            this.btn_exitSelected.Size = new System.Drawing.Size(69, 39);
             this.btn_exitSelected.Style = MetroFramework.MetroColorStyle.Purple;
             this.btn_exitSelected.TabIndex = 15;
             this.btn_exitSelected.Text = "LEAVE \r\nSELECTED";
@@ -95,9 +96,9 @@
             // 
             this.btn_exitfromAll.DisplayFocus = true;
             this.btn_exitfromAll.ForeColor = System.Drawing.Color.White;
-            this.btn_exitfromAll.Location = new System.Drawing.Point(308, 468);
+            this.btn_exitfromAll.Location = new System.Drawing.Point(313, 477);
             this.btn_exitfromAll.Name = "btn_exitfromAll";
-            this.btn_exitfromAll.Size = new System.Drawing.Size(57, 39);
+            this.btn_exitfromAll.Size = new System.Drawing.Size(54, 39);
             this.btn_exitfromAll.Style = MetroFramework.MetroColorStyle.Purple;
             this.btn_exitfromAll.TabIndex = 16;
             this.btn_exitfromAll.Text = "LEAVE  \r\nALL";
@@ -129,7 +130,7 @@
             // 
             this.btn_save2file.DisplayFocus = true;
             this.btn_save2file.ForeColor = System.Drawing.Color.White;
-            this.btn_save2file.Location = new System.Drawing.Point(90, 468);
+            this.btn_save2file.Location = new System.Drawing.Point(87, 477);
             this.btn_save2file.Name = "btn_save2file";
             this.btn_save2file.Size = new System.Drawing.Size(74, 39);
             this.btn_save2file.Style = MetroFramework.MetroColorStyle.Purple;
@@ -147,7 +148,7 @@
             // 
             // 
             this.txtBox_Annonbody.CustomButton.Image = null;
-            this.txtBox_Annonbody.CustomButton.Location = new System.Drawing.Point(128, 1);
+            this.txtBox_Annonbody.CustomButton.Location = new System.Drawing.Point(164, 1);
             this.txtBox_Annonbody.CustomButton.Name = "";
             this.txtBox_Annonbody.CustomButton.Size = new System.Drawing.Size(81, 81);
             this.txtBox_Annonbody.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -167,7 +168,7 @@
             this.txtBox_Annonbody.SelectionLength = 0;
             this.txtBox_Annonbody.SelectionStart = 0;
             this.txtBox_Annonbody.ShortcutsEnabled = true;
-            this.txtBox_Annonbody.Size = new System.Drawing.Size(210, 83);
+            this.txtBox_Annonbody.Size = new System.Drawing.Size(246, 83);
             this.txtBox_Annonbody.TabIndex = 31;
             this.txtBox_Annonbody.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_Annonbody.UseSelectable = true;
@@ -205,7 +206,7 @@
             // 
             // 
             this.txt_potwSteamID.CustomButton.Image = null;
-            this.txt_potwSteamID.CustomButton.Location = new System.Drawing.Point(250, 1);
+            this.txt_potwSteamID.CustomButton.Location = new System.Drawing.Point(286, 1);
             this.txt_potwSteamID.CustomButton.Name = "";
             this.txt_potwSteamID.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txt_potwSteamID.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -224,7 +225,7 @@
             this.txt_potwSteamID.SelectionLength = 0;
             this.txt_potwSteamID.SelectionStart = 0;
             this.txt_potwSteamID.ShortcutsEnabled = true;
-            this.txt_potwSteamID.Size = new System.Drawing.Size(272, 23);
+            this.txt_potwSteamID.Size = new System.Drawing.Size(308, 23);
             this.txt_potwSteamID.TabIndex = 28;
             this.txt_potwSteamID.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txt_potwSteamID.UseSelectable = true;
@@ -235,7 +236,7 @@
             // 
             // btn_groupAnnouncement
             // 
-            this.btn_groupAnnouncement.Location = new System.Drawing.Point(263, 382);
+            this.btn_groupAnnouncement.Location = new System.Drawing.Point(299, 382);
             this.btn_groupAnnouncement.Name = "btn_groupAnnouncement";
             this.btn_groupAnnouncement.Size = new System.Drawing.Size(96, 23);
             this.btn_groupAnnouncement.TabIndex = 27;
@@ -251,7 +252,7 @@
             // 
             // 
             this.txtBox_title.CustomButton.Image = null;
-            this.txtBox_title.CustomButton.Location = new System.Drawing.Point(188, 1);
+            this.txtBox_title.CustomButton.Location = new System.Drawing.Point(224, 1);
             this.txtBox_title.CustomButton.Name = "";
             this.txtBox_title.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtBox_title.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -270,7 +271,7 @@
             this.txtBox_title.SelectionLength = 0;
             this.txtBox_title.SelectionStart = 0;
             this.txtBox_title.ShortcutsEnabled = true;
-            this.txtBox_title.Size = new System.Drawing.Size(210, 23);
+            this.txtBox_title.Size = new System.Drawing.Size(246, 23);
             this.txtBox_title.TabIndex = 37;
             this.txtBox_title.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_title.UseSelectable = true;
@@ -281,7 +282,7 @@
             // 
             // btn_potw
             // 
-            this.btn_potw.Location = new System.Drawing.Point(329, 444);
+            this.btn_potw.Location = new System.Drawing.Point(365, 444);
             this.btn_potw.Name = "btn_potw";
             this.btn_potw.Size = new System.Drawing.Size(30, 23);
             this.btn_potw.TabIndex = 34;
@@ -354,12 +355,12 @@
             // 
             this.MercuryTabControlGroups.Controls.Add(this.metroTab_Tasks);
             this.MercuryTabControlGroups.Controls.Add(this.metroTab_Settings);
-            this.MercuryTabControlGroups.Location = new System.Drawing.Point(13, 53);
+            this.MercuryTabControlGroups.Location = new System.Drawing.Point(13, 48);
             this.MercuryTabControlGroups.Multiline = true;
             this.MercuryTabControlGroups.Name = "MercuryTabControlGroups";
             this.MercuryTabControlGroups.SelectedIndex = 0;
             this.MercuryTabControlGroups.ShowToolTips = true;
-            this.MercuryTabControlGroups.Size = new System.Drawing.Size(450, 549);
+            this.MercuryTabControlGroups.Size = new System.Drawing.Size(450, 561);
             this.MercuryTabControlGroups.TabIndex = 35;
             this.MercuryTabControlGroups.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.MercuryTabControlGroups.UseSelectable = true;
@@ -367,6 +368,7 @@
             // metroTab_Tasks
             // 
             this.metroTab_Tasks.BackColor = System.Drawing.Color.Transparent;
+            this.metroTab_Tasks.Controls.Add(this.btn_csgobind);
             this.metroTab_Tasks.Controls.Add(this.chk_copygroupid3);
             this.metroTab_Tasks.Controls.Add(this.ClanList_ScrollBar);
             this.metroTab_Tasks.Controls.Add(this.ProgressSpinner_MassInvite);
@@ -382,7 +384,7 @@
             this.metroTab_Tasks.HorizontalScrollbarSize = 10;
             this.metroTab_Tasks.Location = new System.Drawing.Point(4, 38);
             this.metroTab_Tasks.Name = "metroTab_Tasks";
-            this.metroTab_Tasks.Size = new System.Drawing.Size(442, 507);
+            this.metroTab_Tasks.Size = new System.Drawing.Size(442, 519);
             this.metroTab_Tasks.TabIndex = 6;
             this.metroTab_Tasks.Text = "CUSTOM TASKS";
             this.metroTab_Tasks.UseCustomBackColor = true;
@@ -390,10 +392,22 @@
             this.metroTab_Tasks.VerticalScrollbarHighlightOnWheel = false;
             this.metroTab_Tasks.VerticalScrollbarSize = 10;
             // 
+            // chk_copygroupid3
+            // 
+            this.chk_copygroupid3.AutoSize = true;
+            this.chk_copygroupid3.Location = new System.Drawing.Point(167, 476);
+            this.chk_copygroupid3.Name = "chk_copygroupid3";
+            this.chk_copygroupid3.Size = new System.Drawing.Size(140, 15);
+            this.chk_copygroupid3.TabIndex = 44;
+            this.chk_copygroupid3.Text = "Copy ID3 to Clipboard";
+            this.chk_copygroupid3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.chk_copygroupid3.UseSelectable = true;
+            this.chk_copygroupid3.UseStyleColors = true;
+            // 
             // ProgressSpinner_MassInvite
             // 
             this.ProgressSpinner_MassInvite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.ProgressSpinner_MassInvite.Location = new System.Drawing.Point(22, 469);
+            this.ProgressSpinner_MassInvite.Location = new System.Drawing.Point(20, 478);
             this.ProgressSpinner_MassInvite.Maximum = 100;
             this.ProgressSpinner_MassInvite.Name = "ProgressSpinner_MassInvite";
             this.ProgressSpinner_MassInvite.Size = new System.Drawing.Size(41, 37);
@@ -407,9 +421,9 @@
             // 
             // btn_massInvite
             // 
-            this.btn_massInvite.Location = new System.Drawing.Point(0, 468);
+            this.btn_massInvite.Location = new System.Drawing.Point(0, 477);
             this.btn_massInvite.Name = "btn_massInvite";
-            this.btn_massInvite.Size = new System.Drawing.Size(84, 39);
+            this.btn_massInvite.Size = new System.Drawing.Size(81, 39);
             this.btn_massInvite.TabIndex = 38;
             this.btn_massInvite.Text = "MASS INVITE";
             this.btn_massInvite.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -707,6 +721,23 @@
             this.link_setfile.UseStyleColors = true;
             this.link_setfile.Click += new System.EventHandler(this.link_setfile_Click);
             // 
+            // btn_csgobind
+            // 
+            this.btn_csgobind.DisplayFocus = true;
+            this.btn_csgobind.ForeColor = System.Drawing.Color.White;
+            this.btn_csgobind.Location = new System.Drawing.Point(167, 497);
+            this.btn_csgobind.Name = "btn_csgobind";
+            this.btn_csgobind.Size = new System.Drawing.Size(138, 19);
+            this.btn_csgobind.Style = MetroFramework.MetroColorStyle.Purple;
+            this.btn_csgobind.TabIndex = 45;
+            this.btn_csgobind.Text = "MAKE CSGO ALIAS BIND";
+            this.btn_csgobind.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoToolTip.SetToolTip(this.btn_csgobind, resources.GetString("btn_csgobind.ToolTip"));
+            this.btn_csgobind.UseCustomForeColor = true;
+            this.btn_csgobind.UseSelectable = true;
+            this.btn_csgobind.UseStyleColors = true;
+            this.btn_csgobind.Click += new System.EventHandler(this.btn_csgobind_Click);
+            // 
             // lbl_groupSelected
             // 
             this.lbl_groupSelected.FontSize = MetroFramework.MetroLabelSize.Small;
@@ -747,7 +778,7 @@
             // 
             this.txt_totalgroups.AutoSize = true;
             this.txt_totalgroups.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.txt_totalgroups.Location = new System.Drawing.Point(403, 71);
+            this.txt_totalgroups.Location = new System.Drawing.Point(403, 68);
             this.txt_totalgroups.Name = "txt_totalgroups";
             this.txt_totalgroups.Size = new System.Drawing.Size(33, 15);
             this.txt_totalgroups.TabIndex = 45;
@@ -755,18 +786,6 @@
             this.txt_totalgroups.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txt_totalgroups.UseCustomBackColor = true;
             this.txt_totalgroups.UseStyleColors = true;
-            // 
-            // chk_copygroupid3
-            // 
-            this.chk_copygroupid3.AutoSize = true;
-            this.chk_copygroupid3.Location = new System.Drawing.Point(166, 489);
-            this.chk_copygroupid3.Name = "chk_copygroupid3";
-            this.chk_copygroupid3.Size = new System.Drawing.Size(140, 15);
-            this.chk_copygroupid3.TabIndex = 44;
-            this.chk_copygroupid3.Text = "Copy ID3 to Clipboard";
-            this.chk_copygroupid3.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.chk_copygroupid3.UseSelectable = true;
-            this.chk_copygroupid3.UseStyleColors = true;
             // 
             // GatherSteamGroups
             // 
@@ -834,5 +853,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn content;
         private MetroFramework.Controls.MetroLabel txt_totalgroups;
         private MetroFramework.Controls.MetroCheckBox chk_copygroupid3;
+        private MetroFramework.Controls.MetroButton btn_csgobind;
     }
 }
