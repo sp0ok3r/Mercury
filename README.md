@@ -26,13 +26,13 @@ updating images...
 * Ability to start with any state
 * <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/1.png" target="_blank">Load all accounts detected in your computer</a>
 * <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3.png" target="_blank">Auto AFK message responder (Custom message list also included) </a>
-* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/steamstatus.png" target="_blank">Check Steam/CSGO servers status</a>
 * <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/2.png" target="_blank">Remove Friends by checking last log off (inactive for a long time)</a>
 * <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/3_1.png" target="_blank">Various Admin commands (Alt Account control main by commands)</a>
 * <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png" target="_blank">Play 32 games with only 2 clicks</a>
 * <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/4.png" target="_blank">Play non steam game</a>
 * <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png" target="_blank">Multiple CD-KEYS redeem</a>
-* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/groups.png" target="_blank">Groups leaver</a>
+* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/groups.png" target="_blank">Mass Invite to Groups,Groups leaver</a>
+* <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/groups.png" target="_blank">Creates CSGO Bind with all groups (clanid changer with key)</a>
 * <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/profileBackgather.png" target="_blank">Gather profile background and get market link</a>
 * <a href="https://raw.githubusercontent.com/sp0ok3r/ChatLogger/master/img/fileLogExample.png" target="_blank">ChatLogger</a>
 * <a href="https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/5.png" target="_blank">Clear profile aliases</a>
