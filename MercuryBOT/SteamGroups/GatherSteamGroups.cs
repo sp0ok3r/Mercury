@@ -134,7 +134,8 @@ namespace MercuryBOT.SteamGroups
                 btn_exitSelected.Enabled = true;
                 btn_exitfromAll.Enabled = true;
                 Notification.NotifHelper.MessageBox.Show("Info", "Total Groups left " + count + " !");
-            }else
+            }
+            else
             {
                 return;
             }
@@ -369,7 +370,7 @@ namespace MercuryBOT.SteamGroups
             btn_csgobind.Enabled = false;
             List<string> GroupsList = new List<string>();
 
-            int count = 1;
+            int count = 1;// pervent alias bind bug
             foreach (KeyValuePair<ulong, string> group in AccountLogin.ClanDictionary)
             {
                 if (count == AccountLogin.ClanDictionary.Count())
@@ -394,20 +395,32 @@ namespace MercuryBOT.SteamGroups
 
             using (var fbd = new FolderBrowserDialog())
             {
+                if (Extensions.GetCSGODir() + "\\cfg" != null)//go to csgo folder
+                {
+                    fbd.SelectedPath = Extensions.GetCSGODir() + "\\cfg";
+                }
+
                 DialogResult result = fbd.ShowDialog();
+
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
                     using (TextWriter tw = new StreamWriter(fbd.SelectedPath + "/clantags.cfg"))
                     {
                         foreach (String s in GroupsList.ToArray())
+                        {
                             tw.WriteLine(s);
+                        }
                     }
                     Process.Start(fbd.SelectedPath + "/clantags.cfg");
+                    //Process.Start(Extensions.GetCSGODir() + "/cfg");
                 }
-                
+
             }
             btn_csgobind.Enabled = true;
+            GroupsList.Clear();
+
+            InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Saved clantags.cfg! Now enter in csgo, open console and write \"exec clantags.cfg\" ,after this click on the key that you selected. Default(\"F11\").");
         }
     }
 }

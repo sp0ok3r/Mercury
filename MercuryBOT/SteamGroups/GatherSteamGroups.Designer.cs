@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GatherSteamGroups));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_exitSelected = new MetroFramework.Controls.MetroButton();
             this.btn_exitfromAll = new MetroFramework.Controls.MetroButton();
             this.ClanList_ScrollBar = new MetroFramework.Controls.MetroScrollBar();
@@ -48,13 +48,11 @@
             this.txtBox_gName = new MetroFramework.Controls.MetroTextBox();
             this.MercuryTabControlGroups = new MetroFramework.Controls.MetroTabControl();
             this.metroTab_Tasks = new MetroFramework.Controls.MetroTabPage();
+            this.btn_csgobind = new MetroFramework.Controls.MetroButton();
             this.chk_copygroupid3 = new MetroFramework.Controls.MetroCheckBox();
             this.ProgressSpinner_MassInvite = new MetroFramework.Controls.MetroProgressSpinner();
             this.btn_massInvite = new MetroFramework.Controls.MetroButton();
             this.GridClanData = new MetroFramework.Controls.MetroGrid();
-            this.GROUP_ID3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTab_Settings = new MetroFramework.Controls.MetroTabPage();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.ProgressSpinner_JoinAllGroups = new MetroFramework.Controls.MetroProgressSpinner();
@@ -65,11 +63,13 @@
             this.btn_joinAll = new MetroFramework.Controls.MetroButton();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.link_setfile = new MetroFramework.Controls.MetroLink();
-            this.btn_csgobind = new MetroFramework.Controls.MetroButton();
             this.lbl_groupSelected = new MetroFramework.Controls.MetroLabel();
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             this.MongoToolTip = new MetroFramework.Components.MetroToolTip();
             this.txt_totalgroups = new MetroFramework.Controls.MetroLabel();
+            this.GROUP_ID3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MercuryTabControlGroups.SuspendLayout();
             this.metroTab_Tasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridClanData)).BeginInit();
@@ -80,9 +80,9 @@
             // 
             this.btn_exitSelected.DisplayFocus = true;
             this.btn_exitSelected.ForeColor = System.Drawing.Color.White;
-            this.btn_exitSelected.Location = new System.Drawing.Point(373, 477);
+            this.btn_exitSelected.Location = new System.Drawing.Point(370, 468);
             this.btn_exitSelected.Name = "btn_exitSelected";
-            this.btn_exitSelected.Size = new System.Drawing.Size(69, 39);
+            this.btn_exitSelected.Size = new System.Drawing.Size(71, 39);
             this.btn_exitSelected.Style = MetroFramework.MetroColorStyle.Purple;
             this.btn_exitSelected.TabIndex = 15;
             this.btn_exitSelected.Text = "LEAVE \r\nSELECTED";
@@ -96,7 +96,7 @@
             // 
             this.btn_exitfromAll.DisplayFocus = true;
             this.btn_exitfromAll.ForeColor = System.Drawing.Color.White;
-            this.btn_exitfromAll.Location = new System.Drawing.Point(313, 477);
+            this.btn_exitfromAll.Location = new System.Drawing.Point(310, 468);
             this.btn_exitfromAll.Name = "btn_exitfromAll";
             this.btn_exitfromAll.Size = new System.Drawing.Size(54, 39);
             this.btn_exitfromAll.Style = MetroFramework.MetroColorStyle.Purple;
@@ -130,7 +130,7 @@
             // 
             this.btn_save2file.DisplayFocus = true;
             this.btn_save2file.ForeColor = System.Drawing.Color.White;
-            this.btn_save2file.Location = new System.Drawing.Point(87, 477);
+            this.btn_save2file.Location = new System.Drawing.Point(84, 468);
             this.btn_save2file.Name = "btn_save2file";
             this.btn_save2file.Size = new System.Drawing.Size(74, 39);
             this.btn_save2file.Style = MetroFramework.MetroColorStyle.Purple;
@@ -392,10 +392,27 @@
             this.metroTab_Tasks.VerticalScrollbarHighlightOnWheel = false;
             this.metroTab_Tasks.VerticalScrollbarSize = 10;
             // 
+            // btn_csgobind
+            // 
+            this.btn_csgobind.DisplayFocus = true;
+            this.btn_csgobind.ForeColor = System.Drawing.Color.White;
+            this.btn_csgobind.Location = new System.Drawing.Point(164, 487);
+            this.btn_csgobind.Name = "btn_csgobind";
+            this.btn_csgobind.Size = new System.Drawing.Size(140, 19);
+            this.btn_csgobind.Style = MetroFramework.MetroColorStyle.Purple;
+            this.btn_csgobind.TabIndex = 45;
+            this.btn_csgobind.Text = "MAKE CSGO ALIAS BIND";
+            this.btn_csgobind.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoToolTip.SetToolTip(this.btn_csgobind, resources.GetString("btn_csgobind.ToolTip"));
+            this.btn_csgobind.UseCustomForeColor = true;
+            this.btn_csgobind.UseSelectable = true;
+            this.btn_csgobind.UseStyleColors = true;
+            this.btn_csgobind.Click += new System.EventHandler(this.btn_csgobind_Click);
+            // 
             // chk_copygroupid3
             // 
             this.chk_copygroupid3.AutoSize = true;
-            this.chk_copygroupid3.Location = new System.Drawing.Point(167, 476);
+            this.chk_copygroupid3.Location = new System.Drawing.Point(164, 467);
             this.chk_copygroupid3.Name = "chk_copygroupid3";
             this.chk_copygroupid3.Size = new System.Drawing.Size(140, 15);
             this.chk_copygroupid3.TabIndex = 44;
@@ -407,7 +424,7 @@
             // ProgressSpinner_MassInvite
             // 
             this.ProgressSpinner_MassInvite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.ProgressSpinner_MassInvite.Location = new System.Drawing.Point(20, 478);
+            this.ProgressSpinner_MassInvite.Location = new System.Drawing.Point(18, 469);
             this.ProgressSpinner_MassInvite.Maximum = 100;
             this.ProgressSpinner_MassInvite.Name = "ProgressSpinner_MassInvite";
             this.ProgressSpinner_MassInvite.Size = new System.Drawing.Size(41, 37);
@@ -421,9 +438,9 @@
             // 
             // btn_massInvite
             // 
-            this.btn_massInvite.Location = new System.Drawing.Point(0, 477);
+            this.btn_massInvite.Location = new System.Drawing.Point(0, 468);
             this.btn_massInvite.Name = "btn_massInvite";
-            this.btn_massInvite.Size = new System.Drawing.Size(81, 39);
+            this.btn_massInvite.Size = new System.Drawing.Size(78, 39);
             this.btn_massInvite.TabIndex = 38;
             this.btn_massInvite.Text = "MASS INVITE";
             this.btn_massInvite.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -442,27 +459,27 @@
             this.GridClanData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridClanData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GridClanData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridClanData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridClanData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.GridClanData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridClanData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GROUP_ID3,
             this.ColumnID,
             this.content});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridClanData.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridClanData.DefaultCellStyle = dataGridViewCellStyle5;
             this.GridClanData.EnableHeadersVisualStyles = false;
             this.GridClanData.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GridClanData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
@@ -471,14 +488,14 @@
             this.GridClanData.Name = "GridClanData";
             this.GridClanData.ReadOnly = true;
             this.GridClanData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridClanData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridClanData.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.GridClanData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridClanData.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.GridClanData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -490,31 +507,6 @@
             this.GridClanData.UseStyleColors = true;
             this.GridClanData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridClanData_CellContentClick);
             this.GridClanData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridClanData_CellContentDoubleClick);
-            // 
-            // GROUP_ID3
-            // 
-            this.GROUP_ID3.Frozen = true;
-            this.GROUP_ID3.HeaderText = "GROUP ID3";
-            this.GROUP_ID3.Name = "GROUP_ID3";
-            this.GROUP_ID3.ReadOnly = true;
-            this.GROUP_ID3.Width = 105;
-            // 
-            // ColumnID
-            // 
-            this.ColumnID.Frozen = true;
-            this.ColumnID.HeaderText = "GROUP ID 64bits";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.Width = 130;
-            // 
-            // content
-            // 
-            this.content.Frozen = true;
-            this.content.HeaderText = "GROUP NAME";
-            this.content.Name = "content";
-            this.content.ReadOnly = true;
-            this.content.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.content.Width = 630;
             // 
             // metroTab_Settings
             // 
@@ -543,7 +535,7 @@
             this.metroTab_Settings.HorizontalScrollbarSize = 10;
             this.metroTab_Settings.Location = new System.Drawing.Point(4, 38);
             this.metroTab_Settings.Name = "metroTab_Settings";
-            this.metroTab_Settings.Size = new System.Drawing.Size(442, 507);
+            this.metroTab_Settings.Size = new System.Drawing.Size(442, 519);
             this.metroTab_Settings.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroTab_Settings.TabIndex = 10;
             this.metroTab_Settings.Text = "OTHER TASKS";
@@ -721,23 +713,6 @@
             this.link_setfile.UseStyleColors = true;
             this.link_setfile.Click += new System.EventHandler(this.link_setfile_Click);
             // 
-            // btn_csgobind
-            // 
-            this.btn_csgobind.DisplayFocus = true;
-            this.btn_csgobind.ForeColor = System.Drawing.Color.White;
-            this.btn_csgobind.Location = new System.Drawing.Point(167, 497);
-            this.btn_csgobind.Name = "btn_csgobind";
-            this.btn_csgobind.Size = new System.Drawing.Size(138, 19);
-            this.btn_csgobind.Style = MetroFramework.MetroColorStyle.Purple;
-            this.btn_csgobind.TabIndex = 45;
-            this.btn_csgobind.Text = "MAKE CSGO ALIAS BIND";
-            this.btn_csgobind.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.MongoToolTip.SetToolTip(this.btn_csgobind, resources.GetString("btn_csgobind.ToolTip"));
-            this.btn_csgobind.UseCustomForeColor = true;
-            this.btn_csgobind.UseSelectable = true;
-            this.btn_csgobind.UseStyleColors = true;
-            this.btn_csgobind.Click += new System.EventHandler(this.btn_csgobind_Click);
-            // 
             // lbl_groupSelected
             // 
             this.lbl_groupSelected.FontSize = MetroFramework.MetroLabelSize.Small;
@@ -786,6 +761,31 @@
             this.txt_totalgroups.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txt_totalgroups.UseCustomBackColor = true;
             this.txt_totalgroups.UseStyleColors = true;
+            // 
+            // GROUP_ID3
+            // 
+            this.GROUP_ID3.Frozen = true;
+            this.GROUP_ID3.HeaderText = "GROUP ID3";
+            this.GROUP_ID3.Name = "GROUP_ID3";
+            this.GROUP_ID3.ReadOnly = true;
+            this.GROUP_ID3.Width = 105;
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.Frozen = true;
+            this.ColumnID.HeaderText = "GROUP ID64";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Width = 130;
+            // 
+            // content
+            // 
+            this.content.Frozen = true;
+            this.content.HeaderText = "GROUP NAME";
+            this.content.Name = "content";
+            this.content.ReadOnly = true;
+            this.content.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.content.Width = 630;
             // 
             // GatherSteamGroups
             // 
@@ -848,11 +848,11 @@
         private System.Windows.Forms.RichTextBox richTextBox2;
         private MetroFramework.Controls.MetroProgressSpinner ProgressSpinner_MassInvite;
         private MetroFramework.Controls.MetroGrid GridClanData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GROUP_ID3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn content;
         private MetroFramework.Controls.MetroLabel txt_totalgroups;
         private MetroFramework.Controls.MetroCheckBox chk_copygroupid3;
         private MetroFramework.Controls.MetroButton btn_csgobind;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GROUP_ID3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn content;
     }
 }

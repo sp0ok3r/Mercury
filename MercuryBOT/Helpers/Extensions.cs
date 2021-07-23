@@ -25,6 +25,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace MercuryBOT.Helpers
 {
@@ -355,54 +356,7 @@ namespace MercuryBOT.Helpers
 
 
         #region "Refresh Notification Area Icons"
-
-        /*
-        [StructLayout(LayoutKind.Sequential)]
-        public struct RECT
-        {
-            public int left;
-            public int top;
-            public int right;
-            public int bottom;
-        }
-        [DllImport("user32.dll")]
-        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-        [DllImport("user32.dll")]
-        public static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
-        [DllImport("user32.dll")]
-        public static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
-        [DllImport("user32.dll")]
-        public static extern IntPtr SendMessage(IntPtr hWnd, uint msg, int wParam, int lParam);
-
-
-        public static void RefreshTrayArea()
-        {
-            IntPtr systemTrayContainerHandle = FindWindow("Shell_TrayWnd", null);
-            IntPtr systemTrayHandle = FindWindowEx(systemTrayContainerHandle, IntPtr.Zero, "TrayNotifyWnd", null);
-            IntPtr sysPagerHandle = FindWindowEx(systemTrayHandle, IntPtr.Zero, "SysPager", null);
-            IntPtr notificationAreaHandle = FindWindowEx(sysPagerHandle, IntPtr.Zero, "ToolbarWindow32", "Notification Area");
-            if (notificationAreaHandle == IntPtr.Zero)
-            {
-                notificationAreaHandle = FindWindowEx(sysPagerHandle, IntPtr.Zero, "ToolbarWindow32", "User Promoted Notification Area");
-                IntPtr notifyIconOverflowWindowHandle = FindWindow("NotifyIconOverflowWindow", null);
-                IntPtr overflowNotificationAreaHandle = FindWindowEx(notifyIconOverflowWindowHandle, IntPtr.Zero, "ToolbarWindow32", "Overflow Notification Area");
-                RefreshTrayArea(overflowNotificationAreaHandle);
-            }
-            RefreshTrayArea(notificationAreaHandle);
-        }
-
-
-        private static void RefreshTrayArea(IntPtr windowHandle)
-        {
-            const uint wmMousemove = 0x0200;
-            RECT rect;
-            GetClientRect(windowHandle, out rect);
-            for (var x = 0; x < rect.right; x += 5)
-                for (var y = 0; y < rect.bottom; y += 5)
-                    SendMessage(windowHandle, wmMousemove, 0, (y << 16) + x);
-        }
-
-    */
+        
         public const int WM_PAINT = 15;
         [DllImport("USER32.DLL")]
         public static extern int SendMessage(IntPtr hwnd, int msg, int character, IntPtr lpsText);
@@ -425,6 +379,51 @@ namespace MercuryBOT.Helpers
         #endregion
 
 
+
+
+        #region csgoPath 
+        /// <summary>
+        /// Returns the location of the CS:GO installation, or null if it's unable to find it.  moritzuehling
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCSGODir()
+        {
+            string steamPath = (string)Registry.GetValue("HKEY_CURRENT_USER\\Software\\Valve\\Steam", "SteamPath", "");
+            string pathsFile = Path.Combine(steamPath, "steamapps", "libraryfolders.vdf");
+
+            if (!File.Exists(pathsFile))
+                return null;
+
+            List<string> libraries = new List<string>();
+            libraries.Add(Path.Combine(steamPath));
+
+            var pathVDF = File.ReadAllLines(pathsFile);
+            // Okay, this is not a full vdf-parser, but it seems to work pretty much, since the 
+            // vdf-grammar is pretty easy. Hopefully it never breaks. I'm too lazy to write a full vdf-parser though. 
+            Regex pathRegex = new Regex(@"\""(([^\""]*):\\([^\""]*))\""");
+            foreach (var line in pathVDF)
+            {
+                if (pathRegex.IsMatch(line))
+                {
+                    string match = pathRegex.Matches(line)[0].Groups[1].Value;
+
+                    // De-Escape vdf. 
+                    libraries.Add(match.Replace("\\\\", "\\"));
+                }
+            }
+
+            foreach (var library in libraries)
+            {
+                string csgoPath = Path.Combine(library, "steamapps\\common\\Counter-Strike Global Offensive\\csgo");
+                if (Directory.Exists(csgoPath))
+                {
+                    return csgoPath;
+                }
+            }
+
+            return null;
+        }
+        #endregion
 
     }
 }
