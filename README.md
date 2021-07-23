@@ -54,7 +54,7 @@ updating images...
 * VogueMist,Evolve - Able to farm steam card
 * BhandixTV - Multi account login
 * VogueMist - Multiple Admins
-* Steam Client Fast Login
+* Steam Client Fast Login x
 * You tell me 👀
 
 ### Download 
