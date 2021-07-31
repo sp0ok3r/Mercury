@@ -32,7 +32,7 @@ namespace MercuryBOT.SteamCommunity
 
 
 
-            File.WriteAllText(Program.ExecutablePath + @"\testo.html", resp);
+           // File.WriteAllText(Program.ExecutablePath + @"\testo.html", resp);
 
 
             var document = new HtmlParser().ParseDocument(resp);

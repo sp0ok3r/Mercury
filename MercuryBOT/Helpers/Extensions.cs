@@ -356,7 +356,7 @@ namespace MercuryBOT.Helpers
 
 
         #region "Refresh Notification Area Icons"
-        
+
         public const int WM_PAINT = 15;
         [DllImport("USER32.DLL")]
         public static extern int SendMessage(IntPtr hwnd, int msg, int character, IntPtr lpsText);
@@ -386,7 +386,7 @@ namespace MercuryBOT.Helpers
         /// Returns the location of the CS:GO installation, or null if it's unable to find it.  moritzuehling
         /// </summary>
         /// <returns></returns>
-        public static string GetCSGODir()
+        public static string GetCSGODir(bool getcs)
         {
             string steamPath = (string)Registry.GetValue("HKEY_CURRENT_USER\\Software\\Valve\\Steam", "SteamPath", "");
             string pathsFile = Path.Combine(steamPath, "steamapps", "libraryfolders.vdf");
@@ -411,18 +411,28 @@ namespace MercuryBOT.Helpers
                     libraries.Add(match.Replace("\\\\", "\\"));
                 }
             }
-
-            foreach (var library in libraries)
+            if (getcs == true)
             {
-                string csgoPath = Path.Combine(library, "steamapps\\common\\Counter-Strike Global Offensive\\csgo");
-                if (Directory.Exists(csgoPath))
+                foreach (var library in libraries)
                 {
-                    return csgoPath;
+                    string csgoPath = Path.Combine(library, "steamapps\\common\\Counter-Strike Global Offensive\\csgo");
+                    if (Directory.Exists(csgoPath))
+                    {
+                        return csgoPath;
+                    }
                 }
+            }
+            else
+            {
+                // libraries.RemoveAt(0);
+                return String.Join(",", libraries);
             }
 
             return null;
         }
+
+
+
         #endregion
 
     }

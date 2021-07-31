@@ -366,7 +366,7 @@ namespace MercuryBOT
                     ApiWeb = false;
                 }
 
-                string[] row = { a.username, (a.SteamID).ToString(), "",(LoginK).ToString(), (ApiWeb).ToString() };
+                string[] row = { a.username, (a.SteamID).ToString(), "", (LoginK).ToString(), (ApiWeb).ToString() };
 
                 AccountsList_Grid.Rows.Add(row);
 
@@ -1935,13 +1935,16 @@ namespace MercuryBOT
             {
 
                 // btn_folderGames.Enabled = true;
-                if (AccountLogin.IsLoggedIn == true)
+                if (Extensions.GetCSGODir(false) != null)//go to csgo folder
                 {
-                    Process.Start(Extensions.SteamLocation + @"/steamapps/common/");
-                }
-                else
-                {
-                    Process.Start(Extensions.SteamLocation + @"\steamapps\common");
+                    List<string> result = Extensions.GetCSGODir(false).Split(',').ToList();
+                    foreach (var a in result)
+                    {
+                        if (Directory.Exists(a + "\\steamapps\\common\\"))
+                        {
+                            Process.Start(a + "\\steamapps\\common\\");
+                        }
+                    }
                 }
             }
         }

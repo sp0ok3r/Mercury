@@ -368,6 +368,7 @@ namespace MercuryBOT.SteamGroups
         private void btn_csgobind_Click(object sender, EventArgs e)
         {
             btn_csgobind.Enabled = false;
+
             List<string> GroupsList = new List<string>();
 
             int count = 1;// pervent alias bind bug
@@ -395,9 +396,9 @@ namespace MercuryBOT.SteamGroups
 
             using (var fbd = new FolderBrowserDialog())
             {
-                if (Extensions.GetCSGODir() + "\\cfg" != null)//go to csgo folder
+                if (Extensions.GetCSGODir(true) + "\\cfg" != null)//go to csgo folder
                 {
-                    fbd.SelectedPath = Extensions.GetCSGODir() + "\\cfg";
+                    fbd.SelectedPath = Extensions.GetCSGODir(true) + "\\cfg";
                 }
 
                 DialogResult result = fbd.ShowDialog();
@@ -413,14 +414,21 @@ namespace MercuryBOT.SteamGroups
                         }
                     }
                     Process.Start(fbd.SelectedPath + "/clantags.cfg");
-                    //Process.Start(Extensions.GetCSGODir() + "/cfg");
+
+                    btn_csgobind.Enabled = true;
+                    GroupsList.Clear();
+
+                    InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Saved clantags.cfg! Now enter in csgo, open console and write \"exec clantags.cfg\" ,after this click on the key that you selected. Default(\"F11\").");
+                }
+                else
+                {
+                    btn_csgobind.Enabled = true;
+                    GroupsList.Clear();
+                    return;
                 }
 
             }
-            btn_csgobind.Enabled = true;
-            GroupsList.Clear();
 
-            InfoForm.InfoHelper.CustomMessageBox.Show("Info", "Saved clantags.cfg! Now enter in csgo, open console and write \"exec clantags.cfg\" ,after this click on the key that you selected. Default(\"F11\").");
         }
     }
 }
