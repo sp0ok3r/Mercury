@@ -26,7 +26,7 @@ namespace MercuryBOT
         public static readonly string BOTNAME          = "MercuryBOT";
         public static readonly string Version          = "4.0.0beta6.4b";//4.0.0
 
-        public static readonly string spkDomain        = "http://sp0ok3r.tk/Mercury/";
+        public static readonly string spkDomain        = "http://51.89.23.36/sp0ok3r/Mercury/";
 
         public static readonly string ExecutablePath   = Path.GetDirectoryName(Application.ExecutablePath);
         public static readonly string AccountsJsonFile = ExecutablePath + @"\Accounts.json";
