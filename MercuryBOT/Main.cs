@@ -1589,15 +1589,15 @@ namespace MercuryBOT
                     picBox_SteamAvatar.ImageLocation = AccountLogin.GetAvatarLink(AccountLogin.CurrentSteamID);
                 }
 
-                if (btnLabel_PersonaAndFlag.Image == null)
+                if (btnLabel_PersonaAndFlag.Image == null)//disabled temp
                 {
-                    try
-                    {
-                        byte[] data = Program.Web.DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + "/flat/16.png");
-                        btnLabel_PersonaAndFlag.Image = Image.FromStream(new MemoryStream(data));
-
-                    }
-                    catch { }
+                  //  try
+                  //  {
+                   //     byte[] data = Program.Web.DownloadData("https://www.countryflags.io/" + AccountLogin.UserCountry + "/flat/16.png");
+                   //     btnLabel_PersonaAndFlag.Image = Image.FromStream(new MemoryStream(data));
+//
+                  //  }
+                  //  catch { }
                 }
 
                 //  combox_states.SelectedIndex = AccountLogin.steamFriends.GetPersonaState;

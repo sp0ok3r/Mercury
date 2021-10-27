@@ -55,7 +55,7 @@
   <PropertyGroup />
   <ItemGroup>
     <Reference Include="AngleSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
-      <HintPath>..\packages\AngleSharp.1.0.0-alpha-827\lib\net461\AngleSharp.dll</HintPath>
+      <HintPath>..\packages\AngleSharp.1.0.0-alpha-844\lib\net461\AngleSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
@@ -119,18 +119,18 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Steam.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SteamWebAPI2.4.3.0\lib\netstandard2.0\Steam.Models.dll</HintPath>
+      <HintPath>..\packages\SteamWebAPI2.4.3.1\lib\netstandard2.0\Steam.Models.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Steam4NET">
       <HintPath>D:\PROJECTS\CSharp\Steam4NET-master\Steam4NET\bin\Debug\Steam4NET.dll</HintPath>
     </Reference>
     <Reference Include="SteamKit2, Version=2.4.0.0, Culture=neutral, PublicKeyToken=ed3ce47ed5aad940, processorArchitecture=MSIL">
-      <HintPath>..\packages\SteamKit2.2.4.0-Alpha.2\lib\netstandard2.0\SteamKit2.dll</HintPath>
+      <HintPath>..\packages\SteamKit2.2.4.0-Alpha.3\lib\netstandard2.0\SteamKit2.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SteamWebAPI2, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SteamWebAPI2.4.3.0\lib\netstandard2.0\SteamWebAPI2.dll</HintPath>
+    <Reference Include="SteamWebAPI2, Version=4.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SteamWebAPI2.4.3.1\lib\netstandard2.0\SteamWebAPI2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
