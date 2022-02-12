@@ -44,19 +44,10 @@ updating images...
 * Check profile reputation [SteamREP]
 * <a href="https://github.com/sp0ok3r/Mercury#imagesgifs">...(example images)</a>
 
-### Soon
+### Future
 * Groups join
 * Comments filter
-* Comment on all friends profile
-* Rate Entire Activity Feed/Anything
-* Save AppIDS to File
-* Check for user cards and idle
-* Boost list of gamesids until X hours, then get others
-* VogueMist,Evolve - Able to farm steam card
-* BhandixTV - Multi account login
-* VogueMist - Multiple Admins
-* Steam Client Fast Login x
-* You tell me 👀
+* Multiple Admins
 
 ### Download 
 * https://github.com/sp0ok3r/Mercury/releases/
