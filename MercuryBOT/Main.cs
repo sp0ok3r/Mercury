@@ -1886,7 +1886,7 @@ namespace MercuryBOT
                 return false;
             }
 
-            //Thread.Sleep(2000);
+            Thread.Sleep(1500);
 
 
             if (Process.GetProcessesByName("steam.exe").Length == 0)
