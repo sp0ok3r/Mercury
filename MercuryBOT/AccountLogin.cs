@@ -1073,7 +1073,7 @@ namespace MercuryBOT
 
                                         if (clearGames.Length != 0)
                                         {
-                                            Utils.PlayGames(gameuints, clearGames + " | MercuryBOT");
+                                            Utils.PlayGames(gameuints, clearGames + " | Mercury ☿");
                                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Playing..." + "\r\n\r\n" + Program.BOTNAME);
 
                                         }
@@ -1089,7 +1089,7 @@ namespace MercuryBOT
                             string clearNoN = callback.Message.Replace(".non ", "");
                             if (clearNoN.Length < 50)
                             {
-                                Utils.PlayNonSteamGame(clearNoN + " | MercuryBOT");
+                                Utils.PlayNonSteamGame(clearNoN + " | Mercury ☿");
                                 steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Playing: " + clearNoN + "\r\n\r\n" + Program.BOTNAME);
                             }
                             else

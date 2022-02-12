@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MercuryBOT")]
+[assembly: AssemblyTitle("Mercury")]
 [assembly: AssemblyDescription("Ultimate Steam Tool")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("spO_okER Toolz")]
-[assembly: AssemblyProduct("MercuryBOT")]
+[assembly: AssemblyProduct("Mercury")]
 [assembly: AssemblyCopyright("Copyright (C) 2014 spO_okER Toolz")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

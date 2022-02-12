@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MercuryBOT.Properties {
+namespace Mercury.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

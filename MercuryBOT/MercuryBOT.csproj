@@ -9,8 +9,8 @@
     <ProjectGuid>{95A62B66-12F4-410E-8F8C-AF538DE7853D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MercuryBOT</RootNamespace>
-    <AssemblyName>MercuryBOT</AssemblyName>
+    <RootNamespace>Mercury</RootNamespace>
+    <AssemblyName>Mercury</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
