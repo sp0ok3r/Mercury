@@ -1593,8 +1593,8 @@ namespace MercuryBOT
                 {
                     try
                     {
-                       byte[] data = new WebClient().DownloadData("https://flagcdn.com/16x12/" + AccountLogin.UserCountry.ToLower() + ".png");
-                       btnLabel_PersonaAndFlag.Image = Image.FromStream(new MemoryStream(data));
+                        byte[] data = new WebClient().DownloadData("https://flagcdn.com/16x12/" + AccountLogin.UserCountry.ToLower() + ".png");
+                        btnLabel_PersonaAndFlag.Image = Image.FromStream(new MemoryStream(data));
 
                     }
                     catch { }
@@ -1886,10 +1886,18 @@ namespace MercuryBOT
                 return false;
             }
 
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
 
-            LoginAccountInClient(userselected);
-            return true;
+
+            if (Process.GetProcessesByName("steam.exe").Length == 0)
+            {
+                LoginAccountInClient(userselected);
+                return true;
+            }
+            else
+            {
+                return false;//test
+            }
         }
 
 
@@ -1995,7 +2003,8 @@ namespace MercuryBOT
             var AutoLoginUser_Key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Valve\\Steam", true);
             if (AutoLoginUser_Key != null)
             {
-                AutoLoginUser_Key.SetValue("AutoLoginUser", user, RegistryValueKind.String);
+                AutoLoginUser_Key.SetValue("AutoLoginUser", user);
+                AutoLoginUser_Key.SetValue("RememberPassword", 1);
                 AutoLoginUser_Key.Close();
 
 
