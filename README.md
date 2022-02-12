@@ -21,6 +21,7 @@ updating images...
 * http://steamcommunity.com/profiles/76561198041931474
 
 ### Features
+* Steam Account Fast Switcher (NEW)
 * Clean Metro Style with colors at choice!
 * Auto Login at startup
 * Ability to start with any state
