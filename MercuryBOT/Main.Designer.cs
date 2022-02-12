@@ -1413,7 +1413,6 @@
             this.btn_steamLogin.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.MongoTip.SetToolTip(this.btn_steamLogin, "Select one account and login fast in the steam client");
             this.btn_steamLogin.UseCustomBackColor = true;
-            this.btn_steamLogin.UseCustomForeColor = true;
             this.btn_steamLogin.UseSelectable = true;
             this.btn_steamLogin.UseStyleColors = true;
             this.btn_steamLogin.Click += new System.EventHandler(this.btn_steamLogin_Click);
@@ -1550,6 +1549,7 @@
             this.btn_userdata.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.MongoTip.SetToolTip(this.btn_userdata, "Steam Userdata folder");
             this.btn_userdata.UseCustomBackColor = true;
+            this.btn_userdata.UseCustomForeColor = true;
             this.btn_userdata.UseSelectable = true;
             this.btn_userdata.UseStyleColors = true;
             this.btn_userdata.Click += new System.EventHandler(this.btn_userdata_Click);
@@ -1629,7 +1629,7 @@
             this.MercuryTabControl.Location = new System.Drawing.Point(17, 79);
             this.MercuryTabControl.Multiline = true;
             this.MercuryTabControl.Name = "MercuryTabControl";
-            this.MercuryTabControl.SelectedIndex = 4;
+            this.MercuryTabControl.SelectedIndex = 0;
             this.MercuryTabControl.ShowToolTips = true;
             this.MercuryTabControl.Size = new System.Drawing.Size(777, 464);
             this.MercuryTabControl.TabIndex = 1;
