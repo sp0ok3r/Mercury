@@ -39,7 +39,7 @@ namespace MercuryBOT
         private void Update_Load(object sender, EventArgs e)
         {
             this.Activate();
-            Stream str = Properties.Resources.mercury_update;
+            Stream str = Mercury.Properties.Resources.mercury_update;
             SoundPlayer snd = new SoundPlayer(str);
             snd.Play();
         }

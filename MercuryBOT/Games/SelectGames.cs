@@ -8,7 +8,7 @@
 ▐    ▐     ▐                  ▐                                 ▐   
 */
 using MercuryBOT.Helpers;
-using MercuryBOT.Properties;
+using Mercury.Properties;
 using MercuryBOT.UserSettings;
 using Newtonsoft.Json;
 using SteamWebAPI2.Interfaces;

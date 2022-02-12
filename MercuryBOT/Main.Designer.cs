@@ -3121,7 +3121,7 @@
             // pictureBox_Github
             // 
             this.pictureBox_Github.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox_Github.Image = global::MercuryBOT.Properties.Resources.github_logo;
+            this.pictureBox_Github.Image = global::Mercury.Properties.Resources.github_logo;
             this.pictureBox_Github.Location = new System.Drawing.Point(147, 122);
             this.pictureBox_Github.Name = "pictureBox_Github";
             this.pictureBox_Github.Size = new System.Drawing.Size(33, 34);
@@ -3132,7 +3132,7 @@
             // pictureBox_Steam
             // 
             this.pictureBox_Steam.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox_Steam.Image = global::MercuryBOT.Properties.Resources.SteamLogo;
+            this.pictureBox_Steam.Image = global::Mercury.Properties.Resources.SteamLogo;
             this.pictureBox_Steam.Location = new System.Drawing.Point(228, 122);
             this.pictureBox_Steam.Name = "pictureBox_Steam";
             this.pictureBox_Steam.Size = new System.Drawing.Size(33, 34);
@@ -3144,7 +3144,7 @@
             // pictureBox_Discord
             // 
             this.pictureBox_Discord.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox_Discord.Image = global::MercuryBOT.Properties.Resources.DiscordLogo;
+            this.pictureBox_Discord.Image = global::Mercury.Properties.Resources.DiscordLogo;
             this.pictureBox_Discord.Location = new System.Drawing.Point(307, 122);
             this.pictureBox_Discord.Name = "pictureBox_Discord";
             this.pictureBox_Discord.Size = new System.Drawing.Size(33, 34);
@@ -4150,7 +4150,7 @@
             // pic_sparkles
             // 
             this.pic_sparkles.BackColor = System.Drawing.Color.Transparent;
-            this.pic_sparkles.Image = global::MercuryBOT.Properties.Resources.sparkles;
+            this.pic_sparkles.Image = global::Mercury.Properties.Resources.sparkles;
             this.pic_sparkles.Location = new System.Drawing.Point(-33, -11);
             this.pic_sparkles.Name = "pic_sparkles";
             this.pic_sparkles.Size = new System.Drawing.Size(96, 83);
@@ -4162,7 +4162,7 @@
             // picBox_Restart
             // 
             this.picBox_Restart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBox_Restart.Image = global::MercuryBOT.Properties.Resources.Restart_Normal;
+            this.picBox_Restart.Image = global::Mercury.Properties.Resources.Restart_Normal;
             this.picBox_Restart.Location = new System.Drawing.Point(754, 6);
             this.picBox_Restart.Name = "picBox_Restart";
             this.picBox_Restart.Size = new System.Drawing.Size(25, 20);
@@ -5450,7 +5450,7 @@
             // pictureBox_MercuryLogo
             // 
             this.pictureBox_MercuryLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.pictureBox_MercuryLogo.Image = global::MercuryBOT.Properties.Resources.MercuryLogoWhite2;
+            this.pictureBox_MercuryLogo.Image = global::Mercury.Properties.Resources.MercuryLogoWhite2;
             this.pictureBox_MercuryLogo.Location = new System.Drawing.Point(17, 5);
             this.pictureBox_MercuryLogo.Name = "pictureBox_MercuryLogo";
             this.pictureBox_MercuryLogo.Size = new System.Drawing.Size(229, 92);

@@ -82,7 +82,7 @@
             // chat_friendAvatar
             // 
             this.chat_friendAvatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.chat_friendAvatar.Image = global::MercuryBOT.Properties.Resources.github_logo;
+            this.chat_friendAvatar.Image = global::Mercury.Properties.Resources.github_logo;
             this.chat_friendAvatar.Location = new System.Drawing.Point(15, 14);
             this.chat_friendAvatar.Name = "chat_friendAvatar";
             this.chat_friendAvatar.Size = new System.Drawing.Size(71, 64);

@@ -54,7 +54,7 @@ namespace MercuryBOT.InfoForm
 
         private void Info_Shown(object sender, EventArgs e)
         {
-            Stream str = Properties.Resources.mercury_alert;
+            Stream str = Mercury.Properties.Resources.mercury_alert;
             SoundPlayer snd = new SoundPlayer(str);
             snd.Play();
         }

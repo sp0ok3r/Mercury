@@ -224,7 +224,7 @@ namespace MercuryBOT
             if (SettingsList.playsound)
             {
                 toggle_playSound.Checked = true;
-                Stream str = Properties.Resources.mercury_success;
+                Stream str = Mercury.Properties.Resources.mercury_success;
                 SoundPlayer snd = new SoundPlayer(str);
                 snd.Play();
             }
@@ -1747,12 +1747,12 @@ namespace MercuryBOT
 
         private void picBox_Restart_MouseHover(object sender, EventArgs e)
         {
-            picBox_Restart.Image = Properties.Resources.Restart_MouseHover;
+            picBox_Restart.Image = Mercury.Properties.Resources.Restart_MouseHover;
         }
 
         private void picBox_Restart_MouseLeave(object sender, EventArgs e)
         {
-            picBox_Restart.Image = Properties.Resources.Restart_Normal;
+            picBox_Restart.Image = Mercury.Properties.Resources.Restart_Normal;
         }
 
         private void picBox_Restart_Click(object sender, EventArgs e)
