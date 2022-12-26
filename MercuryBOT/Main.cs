@@ -1989,6 +1989,12 @@ namespace MercuryBOT
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
+        private void btn_steambrowsercache_Click(object sender, EventArgs e)
+        {
+            Directory.Delete(@"%USERPROFILE%\AppData\Local\Steam\htmlcache");
+            Directory.CreateDirectory(@"%USERPROFILE%\AppData\Local\Steam\htmlcache");
+        }
+
         private void CDKeys_ScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             if (e.NewValue >= CDKeys_Grid.Rows.Count)
