@@ -13,8 +13,6 @@ Mercury [☿](https://github.com/sp0ok3r/Mercury/) is a Ultimate Steam Tool, wri
 
 ![mercurygif1](https://raw.githubusercontent.com/sp0ok3r/Mercury/master/img/mercury_login64.gif)
 
-updating images...
-
 [Discord](https://discord.gg/7e7kuhp)
 
 ### Questions/Contact
@@ -43,11 +41,6 @@ updating images...
 * Message specific friends
 * Check profile reputation [SteamREP]
 * <a href="https://github.com/sp0ok3r/Mercury#imagesgifs">...(example images)</a>
-
-### Future
-* Groups join
-* Comments filter
-* Multiple Admins
 
 ### Download 
 * https://github.com/sp0ok3r/Mercury/releases/
