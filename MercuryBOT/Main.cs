@@ -588,7 +588,7 @@ namespace MercuryBOT
         {
             if (HandleLogin.IsLoggedIn == true)
             {
-                handleLogin.ChangeCurrentName(txtBox_nameChange.Text);
+                HandleLogin.ChangeCurrentName(txtBox_nameChange.Text);
                 txtBox_nameChange.Clear();
             }
             else

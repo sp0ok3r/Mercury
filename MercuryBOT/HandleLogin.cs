@@ -496,7 +496,7 @@ namespace Mercury
         }
 
 
-        private static void GetPrivacySettings()
+        public static void GetPrivacySettings()
         {
             CPlayer_GetPrivacySettings_Request req = new CPlayer_GetPrivacySettings_Request { };
             playerRequest = playerService.SendMessage(x => x.GetPrivacySettings(req));
