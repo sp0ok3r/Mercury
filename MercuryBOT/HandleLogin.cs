@@ -496,7 +496,7 @@ namespace Mercury
         }
 
 
-        private void GetPrivacySettings()
+        private static void GetPrivacySettings()
         {
             CPlayer_GetPrivacySettings_Request req = new CPlayer_GetPrivacySettings_Request { };
             playerRequest = playerService.SendMessage(x => x.GetPrivacySettings(req));
@@ -1017,7 +1017,7 @@ namespace Mercury
             Console.WriteLine("[" + Program.BOTNAME + "] - State Changed to: " + state);
         }
 
-        public void ChangeCurrentName(string Name)
+        public static void ChangeCurrentName(string Name)
         {
             steamFriends.SetPersonaName(Name);
             Console.WriteLine("[" + Program.BOTNAME + "] - Name Changed to: " + Name);

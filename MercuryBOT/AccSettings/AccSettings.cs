@@ -13,6 +13,7 @@ using System.Linq;
 using Win32Interop.Methods;
 using System.Drawing;
 using MercuryBOT.SteamCommunity;
+using Mercury;
 
 namespace MercuryBOT.AccSettings
 {
@@ -33,7 +34,7 @@ namespace MercuryBOT.AccSettings
 
         private void btn_setName_Click(object sender, EventArgs e)
         {
-            AccountLoginOFF.ChangeCurrentName(txtBox_nameChange.Text);
+            HandleLogin.ChangeCurrentName(txtBox_nameChange.Text);
             txtBox_nameChange.Clear();
         }
 

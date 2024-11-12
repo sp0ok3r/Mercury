@@ -7,6 +7,7 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
+using Mercury;
 using MercuryBOT.Helpers;
 using MetroFramework.Controls;
 using System;
@@ -39,7 +40,7 @@ namespace MercuryBOT.AccSettings
             CollectPrivacySettings.RunWorkerAsync();
             btn_changeprofSettings.Enabled = false;
 
-            AccountLoginOFF.GetPrivacySettings();
+            HandleLogin.GetPrivacySettings();
 
         }
 
@@ -49,7 +50,7 @@ namespace MercuryBOT.AccSettings
             
             try
             {
-                foreach (KeyValuePair<string, int> setting in AccountLoginOFF.PrivacySettings)
+                foreach (KeyValuePair<string, int> setting in HandleLogin.PrivacySettings)
                 {
                     if (setting.Key == "PrivacyProfile")
                     {

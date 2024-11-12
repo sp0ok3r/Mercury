@@ -23,6 +23,7 @@ using System.Net;
 using System.Net.Http;
 using System.Windows.Forms;
 using Win32Interop.Methods;
+using Mercury;
 
 namespace MercuryBOT.GamesGather
 {
@@ -52,7 +53,7 @@ namespace MercuryBOT.GamesGather
             var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
             foreach (var a in list.Accounts)
             {
-                if (a.username == AccountLoginOFF.CurrentUsername)
+                if (a.username == HandleLogin.CurrentUsername)
                 {
                     apikey = a.APIWebKey;
                 }
@@ -81,14 +82,14 @@ namespace MercuryBOT.GamesGather
             
             WebClient wc = new WebClient();
 
-            var OwnedGames = await InterfacePlayerService.GetOwnedGamesAsync(AccountLoginOFF.CurrentSteamID, true, false); // check if correct
+            var OwnedGames = await InterfacePlayerService.GetOwnedGamesAsync(HandleLogin.CurrentSteamID, true, false); // check if correct
 
             progreeBar_GatherGames.Maximum = Int32.Parse(OwnedGames.Data.GameCount.ToString());
             lbl_selgames_count.Text = OwnedGames.Data.GameCount.ToString() + " games loaded.";
 
             const string pictureUrl = "http://media.steampowered.com/steamcommunity/public/images/apps/{0}/{1}.jpg";
 
-            string Tempath = Path.GetTempPath() + @"\MercuryTemp\GamesImg\" + AccountLoginOFF.CurrentUsername + @"\";
+            string Tempath = Path.GetTempPath() + @"\MercuryTemp\GamesImg\" + HandleLogin.CurrentUsername + @"\";
             if (!Directory.Exists(Tempath))
             {
                 Directory.CreateDirectory(Tempath);
@@ -155,7 +156,7 @@ namespace MercuryBOT.GamesGather
             var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
             foreach (var a in list.Accounts)
             {
-                if (a.username == AccountLoginOFF.CurrentUsername)
+                if (a.username == HandleLogin.CurrentUsername)
                 {
                     for (int i = 0; i < a.Games.Count; i++)
                     {
@@ -190,7 +191,7 @@ namespace MercuryBOT.GamesGather
             
             foreach (var Acc in AccountsList.Accounts)
             {
-                if (Acc.username == AccountLoginOFF.CurrentUsername)
+                if (Acc.username == HandleLogin.CurrentUsername)
                 {
                     if (Acc.Games.Count == 0)
                     {
@@ -249,7 +250,7 @@ namespace MercuryBOT.GamesGather
 
         private void metroLink_GamesIMGPath_Click(object sender, EventArgs e)
         {
-            Process.Start(Path.GetTempPath() + @"\MercuryTemp\GamesImg\"+ AccountLoginOFF.CurrentUsername);
+            Process.Start(Path.GetTempPath() + @"\MercuryTemp\GamesImg\"+ HandleLogin.CurrentUsername);
         }
 
         private void SelectGames_FormClosed(object sender, FormClosedEventArgs e)
@@ -263,7 +264,7 @@ namespace MercuryBOT.GamesGather
 
             if (chck_clearimagescache.Checked)
             {
-                var path = Path.GetTempPath() + @"\MercuryTemp\GamesImg\" + AccountLoginOFF.CurrentUsername;
+                var path = Path.GetTempPath() + @"\MercuryTemp\GamesImg\" + HandleLogin.CurrentUsername;
                 Directory.GetFiles(path).ToList().ForEach(File.Delete);
                 Directory.Delete(path);
             }
