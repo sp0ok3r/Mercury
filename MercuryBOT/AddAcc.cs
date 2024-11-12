@@ -72,7 +72,6 @@ namespace MercuryBOT
                     LoginState = 1,
                     username = user,
                     password = password,
-                    LoginKey = "",//0
                     APIWebKey = "",//0
                     SteamID = UserSteamID,
                     ChatLogger = false,

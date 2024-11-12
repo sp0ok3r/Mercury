@@ -135,6 +135,7 @@
             this.btn_loadFriends = new MetroFramework.Controls.MetroButton();
             this.lbl_totalFriends = new MetroFramework.Controls.MetroLink();
             this.metroTab_Tasks = new MetroFramework.Controls.MetroTabPage();
+            this.btn_steambrowsercache = new MetroFramework.Controls.MetroButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.metroTextBox5 = new MetroFramework.Controls.MetroTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -329,7 +330,6 @@
             this.metroGrid4 = new MetroFramework.Controls.MetroGrid();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox_MercuryLogo = new System.Windows.Forms.PictureBox();
-            this.btn_steambrowsercache = new MetroFramework.Controls.MetroButton();
             this.metroTab_Message.SuspendLayout();
             this.metroTab_Games.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GamesList_Grid)).BeginInit();
@@ -387,15 +387,16 @@
             this.metroTab_Message.HorizontalScrollbarBarColor = true;
             this.metroTab_Message.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Message.HorizontalScrollbarSize = 10;
-            this.metroTab_Message.Location = new System.Drawing.Point(4, 35);
+            this.metroTab_Message.Location = new System.Drawing.Point(4, 38);
             this.metroTab_Message.Name = "metroTab_Message";
-            this.metroTab_Message.Size = new System.Drawing.Size(769, 425);
+            this.metroTab_Message.Size = new System.Drawing.Size(769, 422);
             this.metroTab_Message.TabIndex = 5;
             this.metroTab_Message.Text = "💬 MESSENGER";
             this.metroTab_Message.UseCustomBackColor = true;
             this.metroTab_Message.VerticalScrollbarBarColor = true;
             this.metroTab_Message.VerticalScrollbarHighlightOnWheel = false;
             this.metroTab_Message.VerticalScrollbarSize = 10;
+            this.metroTab_Message.Visible = false;
             // 
             // Chatlog_Folder
             // 
@@ -798,9 +799,9 @@
             this.metroTab_Games.HorizontalScrollbarBarColor = true;
             this.metroTab_Games.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Games.HorizontalScrollbarSize = 10;
-            this.metroTab_Games.Location = new System.Drawing.Point(4, 35);
+            this.metroTab_Games.Location = new System.Drawing.Point(4, 38);
             this.metroTab_Games.Name = "metroTab_Games";
-            this.metroTab_Games.Size = new System.Drawing.Size(769, 425);
+            this.metroTab_Games.Size = new System.Drawing.Size(769, 422);
             this.metroTab_Games.TabIndex = 1;
             this.metroTab_Games.Text = "🎮 GAMES";
             this.metroTab_Games.UseCustomBackColor = true;
@@ -810,6 +811,7 @@
             this.metroTab_Games.VerticalScrollbarBarColor = true;
             this.metroTab_Games.VerticalScrollbarHighlightOnWheel = false;
             this.metroTab_Games.VerticalScrollbarSize = 10;
+            this.metroTab_Games.Visible = false;
             // 
             // panel5
             // 
@@ -1355,6 +1357,7 @@
             this.metroTab_AddAcc.VerticalScrollbarBarColor = true;
             this.metroTab_AddAcc.VerticalScrollbarHighlightOnWheel = false;
             this.metroTab_AddAcc.VerticalScrollbarSize = 10;
+            this.metroTab_AddAcc.Visible = false;
             this.metroTab_AddAcc.MouseDown += new System.Windows.Forms.MouseEventHandler(this._MouseDown);
             this.metroTab_AddAcc.MouseMove += new System.Windows.Forms.MouseEventHandler(this._MouseMove);
             this.metroTab_AddAcc.MouseUp += new System.Windows.Forms.MouseEventHandler(this._MouseUp);
@@ -1622,15 +1625,15 @@
             // 
             this.MercuryTabControl.Controls.Add(this.metroTab_AddAcc);
             this.MercuryTabControl.Controls.Add(this.metroTab_Friends);
-            this.MercuryTabControl.Controls.Add(this.metroTab_Message);
             this.MercuryTabControl.Controls.Add(this.metroTab_Games);
+            this.MercuryTabControl.Controls.Add(this.metroTab_Message);
             this.MercuryTabControl.Controls.Add(this.metroTab_Tasks);
             this.MercuryTabControl.Controls.Add(this.metroTab_Settings);
             this.MercuryTabControl.Controls.Add(this.metroTab_Infos);
             this.MercuryTabControl.Location = new System.Drawing.Point(17, 79);
             this.MercuryTabControl.Multiline = true;
             this.MercuryTabControl.Name = "MercuryTabControl";
-            this.MercuryTabControl.SelectedIndex = 4;
+            this.MercuryTabControl.SelectedIndex = 0;
             this.MercuryTabControl.ShowToolTips = true;
             this.MercuryTabControl.Size = new System.Drawing.Size(777, 464);
             this.MercuryTabControl.TabIndex = 1;
@@ -1666,9 +1669,9 @@
             this.metroTab_Friends.HorizontalScrollbarBarColor = true;
             this.metroTab_Friends.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTab_Friends.HorizontalScrollbarSize = 10;
-            this.metroTab_Friends.Location = new System.Drawing.Point(4, 35);
+            this.metroTab_Friends.Location = new System.Drawing.Point(4, 38);
             this.metroTab_Friends.Name = "metroTab_Friends";
-            this.metroTab_Friends.Size = new System.Drawing.Size(769, 425);
+            this.metroTab_Friends.Size = new System.Drawing.Size(769, 422);
             this.metroTab_Friends.TabIndex = 8;
             this.metroTab_Friends.Text = "😂 FRIENDS";
             this.metroTab_Friends.UseCustomBackColor = true;
@@ -1676,6 +1679,7 @@
             this.metroTab_Friends.VerticalScrollbarBarColor = true;
             this.metroTab_Friends.VerticalScrollbarHighlightOnWheel = false;
             this.metroTab_Friends.VerticalScrollbarSize = 10;
+            this.metroTab_Friends.Visible = false;
             // 
             // panel4
             // 
@@ -1980,6 +1984,24 @@
             this.metroTab_Tasks.VerticalScrollbarBarColor = true;
             this.metroTab_Tasks.VerticalScrollbarHighlightOnWheel = false;
             this.metroTab_Tasks.VerticalScrollbarSize = 10;
+            this.metroTab_Tasks.Visible = false;
+            // 
+            // btn_steambrowsercache
+            // 
+            this.btn_steambrowsercache.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btn_steambrowsercache.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btn_steambrowsercache.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btn_steambrowsercache.Location = new System.Drawing.Point(470, 339);
+            this.btn_steambrowsercache.Name = "btn_steambrowsercache";
+            this.btn_steambrowsercache.Size = new System.Drawing.Size(129, 35);
+            this.btn_steambrowsercache.TabIndex = 77;
+            this.btn_steambrowsercache.Text = "Clear Steam \r\nBrowserCache";
+            this.btn_steambrowsercache.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MongoTip.SetToolTip(this.btn_steambrowsercache, "Use this if the chat crashes/bugs");
+            this.btn_steambrowsercache.UseCustomBackColor = true;
+            this.btn_steambrowsercache.UseSelectable = true;
+            this.btn_steambrowsercache.UseStyleColors = true;
+            this.btn_steambrowsercache.Click += new System.EventHandler(this.btn_steambrowsercache_Click);
             // 
             // panel2
             // 
@@ -2767,6 +2789,7 @@
             this.metroTab_Infos.VerticalScrollbarBarColor = false;
             this.metroTab_Infos.VerticalScrollbarHighlightOnWheel = false;
             this.metroTab_Infos.VerticalScrollbarSize = 0;
+            this.metroTab_Infos.Visible = false;
             // 
             // lbl_infoversion2
             // 
@@ -4334,6 +4357,7 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
+            this.metroTabPage1.Visible = false;
             this.metroTabPage1.MouseDown += new System.Windows.Forms.MouseEventHandler(this._MouseDown);
             this.metroTabPage1.MouseMove += new System.Windows.Forms.MouseEventHandler(this._MouseMove);
             this.metroTabPage1.MouseUp += new System.Windows.Forms.MouseEventHandler(this._MouseUp);
@@ -4460,6 +4484,7 @@
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
+            this.metroTabPage2.Visible = false;
             // 
             // metroLabel2
             // 
@@ -4804,6 +4829,7 @@
             this.metroTabPage3.VerticalScrollbarBarColor = true;
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage3.VerticalScrollbarSize = 10;
+            this.metroTabPage3.Visible = false;
             // 
             // metroLabel32
             // 
@@ -4874,6 +4900,7 @@
             this.metroTabPage4.VerticalScrollbarBarColor = true;
             this.metroTabPage4.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage4.VerticalScrollbarSize = 10;
+            this.metroTabPage4.Visible = false;
             // 
             // metroScrollBar3
             // 
@@ -5463,23 +5490,6 @@
             this.pictureBox_MercuryLogo.MouseMove += new System.Windows.Forms.MouseEventHandler(this._MouseMove);
             this.pictureBox_MercuryLogo.MouseUp += new System.Windows.Forms.MouseEventHandler(this._MouseUp);
             // 
-            // btn_steambrowsercache
-            // 
-            this.btn_steambrowsercache.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.btn_steambrowsercache.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btn_steambrowsercache.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btn_steambrowsercache.Location = new System.Drawing.Point(470, 339);
-            this.btn_steambrowsercache.Name = "btn_steambrowsercache";
-            this.btn_steambrowsercache.Size = new System.Drawing.Size(129, 35);
-            this.btn_steambrowsercache.TabIndex = 77;
-            this.btn_steambrowsercache.Text = "Clear Steam \r\nBrowserCache";
-            this.btn_steambrowsercache.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.MongoTip.SetToolTip(this.btn_steambrowsercache, "Use this if the chat crashes/bugs");
-            this.btn_steambrowsercache.UseCustomBackColor = true;
-            this.btn_steambrowsercache.UseSelectable = true;
-            this.btn_steambrowsercache.UseStyleColors = true;
-            this.btn_steambrowsercache.Click += new System.EventHandler(this.btn_steambrowsercache_Click);
-            // 
             // Main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -5500,6 +5510,7 @@
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Mercury - Main";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.TransparencyKey = System.Drawing.Color.SkyBlue;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Main_Load);
             this.Shown += new System.EventHandler(this.Main_Shown);

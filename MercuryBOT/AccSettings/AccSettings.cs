@@ -33,7 +33,7 @@ namespace MercuryBOT.AccSettings
 
         private void btn_setName_Click(object sender, EventArgs e)
         {
-            AccountLogin.ChangeCurrentName(txtBox_nameChange.Text);
+            AccountLoginOFF.ChangeCurrentName(txtBox_nameChange.Text);
             txtBox_nameChange.Clear();
         }
 

@@ -88,7 +88,6 @@ namespace MercuryBOT.Splash
                         username = user.AccountName,
                         password = "",
                         SteamID = user.SteamId64,
-                        LoginKey = "",
                         APIWebKey = "",
                         Games = EmptyGameList,
                         AFKMessages = EmptyCustomMessagesList,

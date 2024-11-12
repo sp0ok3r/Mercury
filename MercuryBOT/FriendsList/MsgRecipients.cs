@@ -16,6 +16,7 @@ using System.IO;
 using System.Windows.Forms;
 using MercuryBOT.Helpers;
 using Win32Interop.Methods;
+using Mercury;
 
 namespace MercuryBOT.FriendsList
 {
@@ -43,7 +44,7 @@ namespace MercuryBOT.FriendsList
 
             foreach (var a in list.Accounts)
             {
-                if (a.username == AccountLogin.CurrentUsername)
+                if (a.username == HandleLogin.CurrentUsername)
                 {
                     foreach (DataGridViewRow row in FriendsList_Grid.Rows)
                     {
@@ -68,15 +69,15 @@ namespace MercuryBOT.FriendsList
         public void RefreshRecipients()
         {
             FriendsList_Grid.Rows.Clear();
-            foreach (var f in AccountLogin.Friends)
+            foreach (var f in HandleLogin.Friends)
             {
-                var Name = AccountLogin.GetPersonaName(f.ConvertToUInt64());
+                var Name = HandleLogin.steamFriends.GetFriendPersonaName(f.ConvertToUInt64());
 
                 var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
                 bool ui = false;
                 foreach (var a in list.Accounts)
                 {
-                    if (a.username == AccountLogin.CurrentUsername)
+                    if (a.username == HandleLogin.CurrentUsername)
                     {
                         if(a.MsgRecipients == null)
                         {

@@ -228,7 +228,7 @@
             // 
             // 
             this.txtBox_webapi.CustomButton.Image = null;
-            this.txtBox_webapi.CustomButton.Location = new System.Drawing.Point(214, 1);
+            this.txtBox_webapi.CustomButton.Location = new System.Drawing.Point(212, 1);
             this.txtBox_webapi.CustomButton.Name = "";
             this.txtBox_webapi.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtBox_webapi.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -248,7 +248,7 @@
             this.txtBox_webapi.SelectionLength = 0;
             this.txtBox_webapi.SelectionStart = 0;
             this.txtBox_webapi.ShortcutsEnabled = true;
-            this.txtBox_webapi.Size = new System.Drawing.Size(236, 23);
+            this.txtBox_webapi.Size = new System.Drawing.Size(234, 23);
             this.txtBox_webapi.TabIndex = 7;
             this.txtBox_webapi.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.txtBox_webapi.UseCustomBackColor = true;

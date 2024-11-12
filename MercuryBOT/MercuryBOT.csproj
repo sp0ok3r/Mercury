@@ -11,7 +11,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mercury</RootNamespace>
     <AssemblyName>Mercury</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -55,111 +55,67 @@
   <PropertyGroup />
   <ItemGroup>
     <Reference Include="AngleSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
-      <HintPath>..\packages\AngleSharp.1.0.0-alpha-844\lib\net461\AngleSharp.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\AngleSharp.1.0.0\lib\net461\AngleSharp.dll</HintPath>
     </Reference>
     <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Gameloop.Vdf, Version=0.6.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Gameloop.Vdf.0.6.2\lib\net45\Gameloop.Vdf.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Gameloop.Vdf.JsonConverter, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Gameloop.Vdf.JsonConverter.0.2.1\lib\net45\Gameloop.Vdf.JsonConverter.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.7.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.7.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Options, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.Options.7.0.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Extensions.Options.7.0.1\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Extensions.Primitives, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.Primitives.7.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="protobuf-net, Version=3.0.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
-      <HintPath>..\packages\protobuf-net.3.1.26\lib\netstandard2.0\protobuf-net.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\protobuf-net.3.2.26\lib\netstandard2.0\protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="protobuf-net.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
-      <HintPath>..\packages\protobuf-net.Core.3.1.26\lib\netstandard2.0\protobuf-net.Core.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\protobuf-net.Core.3.2.26\lib\netstandard2.0\protobuf-net.Core.dll</HintPath>
     </Reference>
     <Reference Include="Steam.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SteamWebAPI2.4.4.0\lib\netstandard2.0\Steam.Models.dll</HintPath>
+      <HintPath>..\packages\SteamWebAPI2.4.4.1\lib\netstandard2.0\Steam.Models.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Steam4NET">
       <HintPath>D:\PROJECTS\CSharp\Steam4NET-master\Steam4NET\bin\Debug\Steam4NET.dll</HintPath>
     </Reference>
-    <Reference Include="SteamKit2, Version=2.4.1.0, Culture=neutral, PublicKeyToken=ed3ce47ed5aad940, processorArchitecture=MSIL">
-      <HintPath>..\packages\SteamKit2.2.4.1\lib\netstandard2.0\SteamKit2.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="SteamKit2, Version=2.5.0.0, Culture=neutral, PublicKeyToken=ed3ce47ed5aad940, processorArchitecture=MSIL">
+      <HintPath>..\packages\SteamKit2.2.5.0\lib\netstandard2.0\SteamKit2.dll</HintPath>
     </Reference>
-    <Reference Include="SteamWebAPI2, Version=4.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SteamWebAPI2.4.4.0\lib\netstandard2.0\SteamWebAPI2.dll</HintPath>
+    <Reference Include="SteamWebAPI2, Version=4.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SteamWebAPI2.4.4.1\lib\netstandard2.0\SteamWebAPI2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.8.0.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
     </Reference>
-    <Reference Include="System.Collections.Immutable, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Collections.Immutable.7.0.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.7.0.0\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.IdentityModel" />
-    <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.Management" />
-    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.9.0.0\lib\net462\System.IO.Pipelines.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -167,7 +123,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Reflection.Metadata, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Reflection.Metadata.7.0.0\lib\netstandard2.0\System.Reflection.Metadata.dll</HintPath>
+      <HintPath>..\packages\System.Reflection.Metadata.7.0.2\lib\netstandard2.0\System.Reflection.Metadata.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -192,6 +148,12 @@
       <HintPath>..\packages\System.Text.Encoding.CodePages.7.0.0\lib\netstandard2.0\System.Text.Encoding.CodePages.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.9.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.9.0.0\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
       <Private>True</Private>
@@ -210,13 +172,9 @@
       <HintPath>..\packages\Win32Interop.Gdi32.1.0.1\lib\Win32Interop.Gdi32.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Win32Interop.User32, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Win32Interop.User32.1.0.1\lib\Win32Interop.User32.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountLogin.cs" />
+    <Compile Include="AccountLoginOFF.cs" />
     <Compile Include="AccSettings\AccSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +207,7 @@
       <DependentUpon>CustomAFKMessages.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomHandlers\GamesHandler.cs" />
+    <Compile Include="DeviceAuth.cs" />
     <Compile Include="EditAcc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,9 +234,15 @@
     <Compile Include="Games\IdleSettings.Designer.cs">
       <DependentUpon>IdleSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="HandleLogin.cs" />
     <Compile Include="Helpers\Emojis.cs" />
     <Compile Include="Helpers\HtmlTable.cs" />
     <Compile Include="Helpers\WebHelper.cs" />
+    <Compile Include="MetroMessageBox\CustomMetroMessageBox.cs" />
+    <Compile Include="MetroMessageBox\CustomMetroMessageBoxControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MetroMessageBox\CustomMetroMessageBoxProperties.cs" />
     <Compile Include="Notification\NotifHelper.cs" />
     <Compile Include="Notification\NotificationForm.cs">
       <SubType>Form</SubType>
@@ -391,6 +356,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="InfoForm\Info.resx">
       <DependentUpon>Info.cs</DependentUpon>

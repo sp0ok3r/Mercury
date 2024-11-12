@@ -42,6 +42,7 @@
             this.picBox_SteamAvatar = new System.Windows.Forms.PictureBox();
             this.ProgressSpinner_SteamRepDelay = new MetroFramework.Controls.MetroProgressSpinner();
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
+            this.metroLink1 = new MetroFramework.Controls.MetroLink();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_SteamAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             this.btn_checkUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_checkUser.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btn_checkUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btn_checkUser.Location = new System.Drawing.Point(147, 243);
+            this.btn_checkUser.Location = new System.Drawing.Point(147, 244);
             this.btn_checkUser.Name = "btn_checkUser";
             this.btn_checkUser.Size = new System.Drawing.Size(140, 40);
             this.btn_checkUser.Style = MetroFramework.MetroColorStyle.Black;
@@ -96,6 +97,7 @@
             this.txt_repSteamID.MaxLength = 54;
             this.txt_repSteamID.Name = "txt_repSteamID";
             this.txt_repSteamID.PasswordChar = '\0';
+            this.txt_repSteamID.PromptText = "steamURL/id32-64";
             this.txt_repSteamID.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_repSteamID.SelectedText = "";
             this.txt_repSteamID.SelectionLength = 0;
@@ -127,7 +129,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label2.Location = new System.Drawing.Point(-1, 291);
+            this.label2.Location = new System.Drawing.Point(-1, 307);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 82;
@@ -135,7 +137,7 @@
             // 
             // metroLink_steamrep
             // 
-            this.metroLink_steamrep.Location = new System.Drawing.Point(61, 290);
+            this.metroLink_steamrep.Location = new System.Drawing.Point(61, 306);
             this.metroLink_steamrep.Name = "metroLink_steamrep";
             this.metroLink_steamrep.Size = new System.Drawing.Size(91, 19);
             this.metroLink_steamrep.TabIndex = 83;
@@ -244,10 +246,23 @@
             this.metroToolTip1.StyleManager = null;
             this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
+            // metroLink1
+            // 
+            this.metroLink1.Location = new System.Drawing.Point(1, 288);
+            this.metroLink1.Name = "metroLink1";
+            this.metroLink1.Size = new System.Drawing.Size(274, 19);
+            this.metroLink1.TabIndex = 91;
+            this.metroLink1.Text = "SteamRep\'s API will be retired June 15th, 2025";
+            this.metroLink1.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.metroLink1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLink1.UseCustomBackColor = true;
+            this.metroLink1.UseSelectable = true;
+            // 
             // SteamRepCheck
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(307, 306);
+            this.ClientSize = new System.Drawing.Size(307, 323);
+            this.Controls.Add(this.metroLink1);
             this.Controls.Add(this.ProgressSpinner_SteamRepDelay);
             this.Controls.Add(this.richTextBox6);
             this.Controls.Add(this.lbl_steamID64);
@@ -291,5 +306,6 @@
         private System.Windows.Forms.PictureBox picBox_SteamAvatar;
         private MetroFramework.Controls.MetroProgressSpinner ProgressSpinner_SteamRepDelay;
         private MetroFramework.Components.MetroToolTip metroToolTip1;
+        private MetroFramework.Controls.MetroLink metroLink1;
     }
 }

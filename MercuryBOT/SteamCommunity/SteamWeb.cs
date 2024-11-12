@@ -24,6 +24,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using MercuryBOT.Helpers;
+using System.Globalization;
 
 namespace MercuryBOT.SteamCommunity
 {
@@ -151,6 +152,7 @@ namespace MercuryBOT.SteamCommunity
             }
         }
 
+
         public bool Authenticate(string myUniqueId, SteamClient client, string myLoginKey)
         {
             Token = TokenSecure = String.Empty;
@@ -186,7 +188,7 @@ namespace MercuryBOT.SteamCommunity
 
                 using (dynamic iSteamUserAuth = WebAPI.GetInterface("ISteamUserAuth"))
                 {
-                   // iSteamUserAuth.Timeout = Timeout;
+                    // iSteamUserAuth.Timeout = Timeout;
 
                     try
                     {

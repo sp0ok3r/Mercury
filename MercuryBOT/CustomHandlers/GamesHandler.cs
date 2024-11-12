@@ -13,6 +13,7 @@ using SteamKit2.Internal;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using static SteamKit2.GC.Dota.Internal.CMsgDOTABotDebugInfo;
 
 namespace MercuryBOT.CustomHandlers
 {
@@ -62,9 +63,10 @@ namespace MercuryBOT.CustomHandlers
 
         public void SetGamePlayingNONSteam(string _game)
         {
-            ClientMsgProtobuf<CMsgClientGamesPlayed> gamePlaying = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
+            ClientMsgProtobuf<CMsgClientGamesPlayed> gamePlaying = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayedWithDataBlob);//    EMsg.ClientGamesPlayed
             gamePlaying.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed { game_id = 12350489788975939584, game_extra_info = _game });
             Client.Send(gamePlaying);
+
         }
 
         public void StopPlayingGames()

@@ -7,6 +7,7 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
+using Mercury;
 using MercuryBOT.Helpers;
 using MercuryBOT.SteamCommunity;
 using MetroFramework.Controls;
@@ -17,6 +18,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -59,8 +61,10 @@ namespace MercuryBOT.SteamGroups
         public void RefreshClanList()
         {
             GridClanData.Rows.Clear();
-            AccountLogin.UserClanIDS();
-            foreach (KeyValuePair<ulong, string> group in AccountLogin.ClanDictionary)
+
+            HandleLogin.UserClanIDS();
+
+            foreach (KeyValuePair<ulong, string> group in HandleLogin.ClanDictionary)
             {
                 string[] row = { Extensions.AllToSteamId3(group.Key).Substring(1).ToString(), (group.Key).ToString(), group.Value };
                 GridClanData.Rows.Add(row);
@@ -87,7 +91,7 @@ namespace MercuryBOT.SteamGroups
             {
                 btn_exitfromAll.Enabled = false;
                 SteamCommunity.Utils.LeaveGroup((GroupSelected).ToString(), GroupNameSelected);
-                AccountLogin.ClanDictionary.Remove(Convert.ToUInt64(GroupSelected));
+                HandleLogin.ClanDictionary.Remove(Convert.ToUInt64(GroupSelected));
 
                 GridClanData.Rows.RemoveAt(GridClanData.SelectedRows[0].Cells[0].RowIndex);
                 btn_exitfromAll.Enabled = true;
@@ -123,7 +127,7 @@ namespace MercuryBOT.SteamGroups
                 int count = 0;
                 btn_exitSelected.Enabled = false;
                 btn_exitfromAll.Enabled = false;
-                foreach (KeyValuePair<ulong, string> group in AccountLogin.ClanDictionary)
+                foreach (KeyValuePair<ulong, string> group in HandleLogin.ClanDictionary)
                 {
                     //  SteamCommunity.Utils.LeaveGroup((group.Key).ToString(), group.Value);
 
@@ -150,7 +154,7 @@ namespace MercuryBOT.SteamGroups
         {
             btn_save2file.Enabled = false;
             StringBuilder sb = new StringBuilder();
-            using (Html.Table table = new Html.Table(sb, id: AccountLogin.CurrentSteamID + "-GroupsIDS"))
+            using (Html.Table table = new Html.Table(sb, id: HandleLogin.CurrentSteamID + "-GroupsIDS"))
             {
                 table.StartBody();
                 using (var tr = table.AddRow())
@@ -159,7 +163,7 @@ namespace MercuryBOT.SteamGroups
                     tr.AddCell("GROUP ID64");
                     tr.AddCell("GROUP NAME");
                 }
-                foreach (KeyValuePair<ulong, string> group in AccountLogin.ClanDictionary)
+                foreach (KeyValuePair<ulong, string> group in HandleLogin.ClanDictionary)
                 {
                     using (var tr = table.AddRow())
                     {
@@ -170,10 +174,10 @@ namespace MercuryBOT.SteamGroups
                 }
                 table.EndBody();
             }
-            File.WriteAllText(Program.ExecutablePath + @"\" + AccountLogin.CurrentSteamID + "-GroupsIDS.html", sb.ToString());
+            File.WriteAllText(Program.ExecutablePath + @"\" + HandleLogin.CurrentSteamID + "-GroupsIDS.html", sb.ToString());
             btn_save2file.Enabled = true;
 
-            Process.Start(Program.ExecutablePath + @"\" + AccountLogin.CurrentSteamID + "-GroupsIDS.html");
+            Process.Start(Program.ExecutablePath + @"\" + HandleLogin.CurrentSteamID + "-GroupsIDS.html");
         }
 
         private void btn_groupAnnouncement_Click(object sender, EventArgs e)
@@ -259,7 +263,7 @@ namespace MercuryBOT.SteamGroups
             if (!string.IsNullOrEmpty(txtBox_profileGrabIDS.Text))
             {
                 string steamid64 = Extensions.AllToSteamId64(txtBox_profileGrabIDS.Text);
-                string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamid64 + "/?xml=1", "GET"); // CHANGE
+                string resp = HandleLogin.steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamid64 + "/?xml=1", "GET"); // CHANGE
                 if (resp != string.Empty)
                 {
                     using (TextWriter tw = new StreamWriter(steamid64 + "_GroupsIDS.txt"))
@@ -331,7 +335,7 @@ namespace MercuryBOT.SteamGroups
             }
             else
             {
-                if (AccountLogin.steamWeb.SessionID == null)
+                if (HandleLogin.steamWeb.SessionID == null)
                 {
                     InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Login again");
                 }
@@ -339,9 +343,10 @@ namespace MercuryBOT.SteamGroups
                 {
                     ProgressSpinner_MassInvite.Visible = true;
                     btn_massInvite.Enabled = false;
-                    for (int i = 0; i <= AccountLogin.steamFriends.GetFriendCount(); i++)
+
+                    for (int i = 0; i <= HandleLogin.steamFriends.GetFriendCount(); i++)
                     {
-                        SteamID allfriends = AccountLogin.steamFriends.GetFriendByIndex(i);
+                        SteamID allfriends = HandleLogin.steamFriends.GetFriendByIndex(i);
                         if (allfriends.ConvertToUInt64() != 0)
                         {
                             {
@@ -350,6 +355,7 @@ namespace MercuryBOT.SteamGroups
                             }
                         }
                     }
+
                     InfoForm.InfoHelper.CustomMessageBox.Show("Info", "All users invited");
                     ProgressSpinner_MassInvite.Visible = false;
                     btn_massInvite.Enabled = true;
@@ -372,9 +378,9 @@ namespace MercuryBOT.SteamGroups
             List<string> GroupsList = new List<string>();
 
             int count = 1;// pervent alias bind bug
-            foreach (KeyValuePair<ulong, string> group in AccountLogin.ClanDictionary)
+            foreach (KeyValuePair<ulong, string> group in HandleLogin.ClanDictionary)
             {
-                if (count == AccountLogin.ClanDictionary.Count())
+                if (count == HandleLogin.ClanDictionary.Count())
                 {
                     GroupsList.Add(String.Format("alias Tag{0} \"cl_clanid {1}; alias TagBind Tag{2};\" ", count, Convert.ToUInt64(Extensions.AllToSteamId3(group.Key).Substring(1)), 1));
 

@@ -7,6 +7,7 @@
 █    █     █    ▐   ▐     ▐   █     ▐             ▐     ▐       █     
 ▐    ▐     ▐                  ▐                                 ▐   
 */
+using Mercury;
 using MercuryBOT.Helpers;
 using MercuryBOT.UserSettings;
 using MetroFramework.Controls;
@@ -42,13 +43,13 @@ namespace MercuryBOT.CustomMessages
 
         public void AddMessage2File()
         {
-            if (AccountLogin.IsLoggedIn == true && txtBox_customMSG.Text.Length != 0)
+            if (HandleLogin.IsLoggedIn == true && txtBox_customMSG.Text.Length != 0)
             {
 
                 var ListsMessages = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
                 foreach (var UserList in ListsMessages.Accounts)
                 {
-                    if (UserList.username == AccountLogin.CurrentUsername)
+                    if (UserList.username == HandleLogin.CurrentUsername)
                     {
                         for (int i = 0; i < UserList.AFKMessages.Count; i++)
                         {
@@ -84,7 +85,7 @@ namespace MercuryBOT.CustomMessages
                 var ListsMessages = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
                 foreach (var UserList in ListsMessages.Accounts)
                 {
-                    if (UserList.username == AccountLogin.CurrentUsername)
+                    if (UserList.username == HandleLogin.CurrentUsername)
                     {
                         for (int i = 0; i < UserList.AFKMessages.Count; i++)
                         {
@@ -112,12 +113,12 @@ namespace MercuryBOT.CustomMessages
 
         private void AFKMessages_Load(object sender, EventArgs e)
         {
-            if (AccountLogin.IsLoggedIn == true)
+            if (HandleLogin.IsLoggedIn == true)
             {
                 var ListsMessages = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
                 foreach (var UserList in ListsMessages.Accounts)
                 {
-                    if (UserList.username == AccountLogin.CurrentUsername)
+                    if (UserList.username == HandleLogin.CurrentUsername)
                     {
                         for (int i = 0; i < UserList.AFKMessages.Count; i++)
                         {

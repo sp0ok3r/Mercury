@@ -18,6 +18,8 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.IO;
+using Mercury;
+using System.Threading.Tasks;
 
 namespace MercuryBOT.SteamCommunity
 {
@@ -28,7 +30,7 @@ namespace MercuryBOT.SteamCommunity
         {
             //  try
             //  {
-            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/profiles/" + AccountLogin.CurrentSteamID + "/edit/settings", "GET");
+            string resp = HandleLogin.steamWeb.Fetch("https://steamcommunity.com/profiles/" + HandleLogin.CurrentSteamID + "/edit/settings", "GET");
 
 
 
@@ -65,7 +67,7 @@ namespace MercuryBOT.SteamCommunity
         {
             var ProfileSettings = new NameValueCollection
             {
-                { "sessionid", AccountLogin.steamWeb.SessionID },// Unknown,Private, FriendsOnly,Public
+                { "sessionid", HandleLogin.steamWeb.SessionID },// Unknown,Private, FriendsOnly,Public
                 { "Privacy","{\"PrivacyProfile\":"+Profile+
                             ",\"PrivacyInventory\":" +Inventory+
                             ",\"PrivacyInventoryGifts\":"+Gifts+
@@ -75,7 +77,7 @@ namespace MercuryBOT.SteamCommunity
                 { "eCommentPermission" ,Comment.ToString()}//FriendsOnly,Public,Private
             };
 
-            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/profiles/" + AccountLogin.CurrentSteamID + "/ajaxsetprivacy/", "POST", ProfileSettings);
+            string resp = HandleLogin.steamWeb.Fetch("https://steamcommunity.com/profiles/" + HandleLogin.CurrentSteamID + "/ajaxsetprivacy/", "POST", ProfileSettings);
 
             if (resp != String.Empty && resp.Contains("success\":1"))
             {
@@ -90,9 +92,9 @@ namespace MercuryBOT.SteamCommunity
 
         public static void ClearAliases()
         {
-            var ClearAliases = new NameValueCollection { { "sessionid", AccountLogin.steamWeb.SessionID } };
+            var ClearAliases = new NameValueCollection { { "sessionid", HandleLogin.steamWeb.SessionID } };
 
-            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/profiles/" + AccountLogin.CurrentSteamID + "/ajaxclearaliashistory", "POST", ClearAliases);
+            string resp = HandleLogin.steamWeb.Fetch("https://steamcommunity.com/profiles/" + HandleLogin.CurrentSteamID + "/ajaxclearaliashistory", "POST", ClearAliases);
 
             if (resp != String.Empty)
             {
@@ -102,7 +104,7 @@ namespace MercuryBOT.SteamCommunity
 
         public void ClearUnreadMessages()
         {
-            AccountLogin.steamFriends.RequestOfflineMessages();
+            //HandleLogin.steamFriends.RequestOfflineMessages();
         }
         #endregion
 
@@ -110,7 +112,7 @@ namespace MercuryBOT.SteamCommunity
         public static void MakeGroupAnnouncement(string groupName, string HeadLine, string body)
         {
             var data = new NameValueCollection {
-                {"sessionID", AccountLogin.steamWeb.SessionID},
+                {"sessionID", HandleLogin.steamWeb.SessionID},
                 {"action", "post"},
                 {"headline", HeadLine},
                 {"body", body},
@@ -120,7 +122,7 @@ namespace MercuryBOT.SteamCommunity
 
             string url = "https://steamcommunity.com/gid/" + groupName + "/announcements";
 
-            string resp = AccountLogin.steamWeb.Fetch(url, "POST", data);
+            string resp = HandleLogin.steamWeb.Fetch(url, "POST", data);
             if (resp != String.Empty && resp.Contains("Sorry!"))
             {
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Try login again");
@@ -137,12 +139,12 @@ namespace MercuryBOT.SteamCommunity
                 { "xml", "1"},
                 { "action", "potw" },
                 { "memberId", new SteamID(steamID).Render(true) },// [U:1:46143802] steamid3
-                { "sessionid", AccountLogin.steamWeb.SessionID}
+                { "sessionid", HandleLogin.steamWeb.SessionID}
             };
 
             string url = "https://steamcommunity.com/gid/" + gid + "/potwEdit/";
 
-            string resp = AccountLogin.steamWeb.Fetch(url, "POST", data); // works
+            string resp = HandleLogin.steamWeb.Fetch(url, "POST", data); // works
 
             if (resp != String.Empty && resp.Contains("Sorry!"))
             {
@@ -156,7 +158,7 @@ namespace MercuryBOT.SteamCommunity
         public static void kickGroupMember(string gid, string steamID)
         {
             var data = new NameValueCollection {
-                {"sessionID", AccountLogin.steamWeb.SessionID },
+                {"sessionID", HandleLogin.steamWeb.SessionID },
                 {"action", "kick" },
                 {"memberId", steamID},//64
                 {"queryString", "" },
@@ -164,7 +166,7 @@ namespace MercuryBOT.SteamCommunity
 
             string url = "https://steamcommunity.com/" + gid + "/membersManage";
 
-            string resp = AccountLogin.steamWeb.Fetch(url, "POST", data);
+            string resp = HandleLogin.steamWeb.Fetch(url, "POST", data);
 
             if (resp != String.Empty && resp.Contains("Sorry!"))
             {
@@ -180,10 +182,10 @@ namespace MercuryBOT.SteamCommunity
         {
             var JoinGroup = new NameValueCollection{
                 { "action","join"},
-                { "sessionID", AccountLogin.steamWeb.SessionID}
+                { "sessionID", HandleLogin.steamWeb.SessionID}
             };
 
-            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/gid/" + groupID, "POST", JoinGroup);
+            string resp = HandleLogin.steamWeb.Fetch("https://steamcommunity.com/gid/" + groupID, "POST", JoinGroup);
 
             if (resp != String.Empty)
             {
@@ -194,12 +196,12 @@ namespace MercuryBOT.SteamCommunity
         public static void LeaveGroup(string groupID, string groupName)
         {
             var LeaveGroup = new NameValueCollection{
-                { "sessionID", AccountLogin.steamWeb.SessionID },
+                { "sessionID", HandleLogin.steamWeb.SessionID },
                 { "action","leaveGroup"},
                 { "groupId", groupID}
             };
 
-            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/profiles/" + AccountLogin.CurrentSteamID + "/home_process", "POST", LeaveGroup);
+            string resp = HandleLogin.steamWeb.Fetch("https://steamcommunity.com/profiles/" + HandleLogin.CurrentSteamID + "/home_process", "POST", LeaveGroup);
 
             if (resp != String.Empty)
             {
@@ -212,11 +214,11 @@ namespace MercuryBOT.SteamCommunity
                 {"group", groupID.ToString()},
                 {"invitee", userID.ToString()},
                 {"json", "1"},
-                {"sessionID", AccountLogin.steamWeb.SessionID},
+                {"sessionID", HandleLogin.steamWeb.SessionID},
                 {"type", "groupInvite"},
             };
 
-            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/actions/GroupInvite", "POST", mass_JoinGroup);
+            string resp = HandleLogin.steamWeb.Fetch("https://steamcommunity.com/actions/GroupInvite", "POST", mass_JoinGroup);
 
             if (resp != String.Empty && resp.Contains("success\":1"))
             {
@@ -236,39 +238,19 @@ namespace MercuryBOT.SteamCommunity
 
         public static void PlayNormal1App(uint customgame)
         {
-            AccountLogin.gamesHandler.SetGamePlayingNormal(customgame);
+            HandleLogin.gamesHandler.SetGamePlayingNormal(customgame);
             Console.WriteLine("[" + Program.BOTNAME + "] - Now playing: " + customgame);
         }
 
         public static void PlayNonSteamGame(string customgame)
         {
-            AccountLogin.gamesHandler.SetGamePlayingNONSteam(customgame);
+            HandleLogin.gamesHandler.SetGamePlayingNONSteam(customgame);
             Console.WriteLine("[" + Program.BOTNAME + "] - Now playing: " + customgame);
-        }
-
-        public static void PlayGames(List<uint> gameIDs, string NonSteam)
-        {
-            ClientMsgProtobuf<CMsgClientGamesPlayed> request = new ClientMsgProtobuf<CMsgClientGamesPlayed>(EMsg.ClientGamesPlayed);
-
-            if (NonSteam.ToString() != "disable")
-            {
-                request.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed
-                {
-                    game_id = 12350489788975939584,
-                    game_extra_info = NonSteam
-                });
-            }
-
-            foreach (uint gameID in gameIDs.Where(gameID => gameID != 0))
-            {
-                request.Body.games_played.Add(new CMsgClientGamesPlayed.GamePlayed { game_id = new GameID(gameID) });
-            }
-            AccountLogin.steamClient.Send(request);
         }
 
         public static void StopGames()
         {
-            AccountLogin.gamesHandler.StopPlayingGames();
+            HandleLogin.gamesHandler.StopPlayingGames();
         }
         #endregion
 
@@ -280,11 +262,11 @@ namespace MercuryBOT.SteamCommunity
                 { "gidcomment", CID},
                 { "start", "0" },
                 { "count", "1" },
-                { "sessionid", AccountLogin.steamWeb.SessionID },
+                { "sessionid", HandleLogin.steamWeb.SessionID },
                 { "feature2", "-1" }
             };
 
-            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/comment/" + ProfileOrClan + "/delete/" + AccountLogin.CurrentSteamID + "/-1/", "POST", DeleteCommentData);
+            string resp = HandleLogin.steamWeb.Fetch("https://steamcommunity.com/comment/" + ProfileOrClan + "/delete/" + HandleLogin.CurrentSteamID + "/-1/", "POST", DeleteCommentData);
             if (resp != String.Empty)
             {
                 Console.WriteLine(resp);//debug
@@ -295,7 +277,7 @@ namespace MercuryBOT.SteamCommunity
         #region WebAPI
         public static void gatherWebApiKey()
         {
-            string resp = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/dev/apikey?l=english", "GET");
+            string resp = HandleLogin.steamWeb.Fetch("https://steamcommunity.com/dev/apikey?l=english", "GET");
 
             if (resp != String.Empty)
             {
@@ -315,7 +297,7 @@ namespace MercuryBOT.SteamCommunity
                     var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
                     foreach (var a in list.Accounts)
                     {
-                        if (a.username == AccountLogin.CurrentUsername)
+                        if (a.username == HandleLogin.CurrentUsername)
                         {
                             a.APIWebKey = webkeySet.TextContent.Replace("Key: ", ""); //861ip
                         }
@@ -328,11 +310,11 @@ namespace MercuryBOT.SteamCommunity
                     {
                         { "domain", "localhost" },
                         { "agreeToTerms", "agreed"},
-                        { "sessionid", AccountLogin.steamWeb.SessionID },
+                        { "sessionid", HandleLogin.steamWeb.SessionID },
                         { "Submit", "Register"}
                     };
 
-                    string ObtainKey = AccountLogin.steamWeb.Fetch("https://steamcommunity.com/dev/registerkey?l=english", "POST", SetWebApi);
+                    string ObtainKey = HandleLogin.steamWeb.Fetch("https://steamcommunity.com/dev/registerkey?l=english", "POST", SetWebApi);
                     if (ObtainKey != String.Empty)
                     {
                         gatherWebApiKey();

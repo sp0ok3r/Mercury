@@ -39,7 +39,7 @@ namespace MercuryBOT.AccSettings
             CollectPrivacySettings.RunWorkerAsync();
             btn_changeprofSettings.Enabled = false;
 
-            AccountLogin.GetPrivacySettings();
+            AccountLoginOFF.GetPrivacySettings();
 
         }
 
@@ -49,7 +49,7 @@ namespace MercuryBOT.AccSettings
             
             try
             {
-                foreach (KeyValuePair<string, int> setting in AccountLogin.PrivacySettings)
+                foreach (KeyValuePair<string, int> setting in AccountLoginOFF.PrivacySettings)
                 {
                     if (setting.Key == "PrivacyProfile")
                     {
