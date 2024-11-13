@@ -22,21 +22,21 @@
 
 ---
 
-### Key Features
-- **Steam Account Fast Switcher**: Switch between Steam accounts with ease.
-- **Customizable Metro-Style UI**: Choose from a range of colors and themes.
-- **Auto Login at Startup**: Automatically log into Steam upon system start.
-- **Account Detection**: Load all accounts detected on your PC.
-- **Auto AFK Responder**: Customize automatic AFK messages.
-- **Friend Management**: Remove inactive friends by checking their last log-off status.
-- **Admin Commands**: Control alt accounts through various commands.
-- **Multi-Game Support**: Launch up to 32 games simultaneously with just a few clicks.
-- **Non-Steam Game Integration**: Add and play non-Steam games.
-- **Batch CD-KEY Redeemer**: Redeem multiple CD-KEYs effortlessly.
-- **Group Management**: Mass invite or leave groups and send group announcements.
-- **CSGO Clan Bindings**: Create binds for CSGO with customizable clan IDs.
-- **Profile Background Gatherer**: Collect profile background information and marketplace links.
-- **Miscellaneous**: Clear profile aliases, set "Player of the Week," send mass messages, and more.
+## Key Features
+- **Quick Account Switching**: Easily switch between multiple Steam accounts.
+- **Customizable UI**: Choose from various themes and colors.
+- **Auto Login**: Log in to Steam automatically at system startup.
+- **Account Detection**: Auto-detect and load all accounts on your PC.
+- **AFK Responder**: Set custom away messages.
+- **Friend Management**: Remove inactive friends by log-off status.
+- **Admin Controls**: Manage alt accounts with admin commands.
+- **Multi-Game Launching**: Launch up to 32 games simultaneously.
+- **Non-Steam Game Support**: Integrate and play non-Steam games.
+- **Batch CD-KEY Redeemer**: Redeem multiple keys at once.
+- **Group Management**: Mass invite, leave groups, and send announcements.
+- **CS:GO Clan Binds**: Create custom clan bindings.
+- **Background Collector**: Collect profile backgrounds and marketplace links.
+- **Extra Tools**: Clear profile aliases, set "Player of the Week," send mass messages, and more.
 
 ### Getting Started
 1. Ensure your .NET Framework is up to date: [Download .NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472).
