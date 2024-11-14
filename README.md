@@ -27,6 +27,7 @@
 - **Customizable UI**: Choose from various themes and colors.
 - **Auto Login**: Log in to Steam automatically at system startup.
 - **Account Detection**: Auto-detect and load all accounts on your PC.
+- **ChatLogger*": Saves all messages to file.
 - **AFK Responder**: Set custom away messages.
 - **Friend Management**: Remove inactive friends by log-off status.
 - **Admin Controls**: Manage alt accounts with admin commands.
