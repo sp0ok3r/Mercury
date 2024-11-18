@@ -40,7 +40,7 @@ namespace MercuryBOT.AccSettings
 
         private void btn_clearuserAliases_Click(object sender, EventArgs e)
         {
-            Utils.ClearAliases();
+            Utils.ClearAliasesAsync();
         }
 
         private void metroButton1_Click(object sender, EventArgs e)

@@ -53,7 +53,7 @@ namespace MercuryBOT
         private static SteamUser steamUser;
         public static SteamFriends steamFriends;
         private static CallbackManager MercuryManager;
-        public static SteamWeb steamWeb;
+        public static SteamWebold steamWeb;
         public static GamesHandler gamesHandler;
 
         public static SteamMatchmaking steamMM;
@@ -103,17 +103,17 @@ namespace MercuryBOT
             }
             catch (Exception e)
             {
-                Console.WriteLine("[" + Program.BOTNAME + " usersettingsgather] - " + e);
+                Console.WriteLine("[" + Program.TOOLNAME + " usersettingsgather] - " + e);
             }
         }
         public static void Login()
         {
-            Console.WriteLine("[" + Program.BOTNAME + "] - Starting Login...");
+            Console.WriteLine("[" + Program.TOOLNAME + "] - Starting Login...");
 
             isRunning = true;
 
             steamClient = new SteamClient();
-            steamWeb = new SteamWeb();
+            steamWeb = new SteamWebold();
             gamesHandler = new GamesHandler();
 
             MercuryManager = new CallbackManager(steamClient);
@@ -162,7 +162,7 @@ namespace MercuryBOT
             steamClient.AddHandler(gamesHandler);
             MercuryManager.Subscribe<PurchaseResponseCallback>(OnPurchaseResponse);
 
-            Console.WriteLine("[" + Program.BOTNAME + "] - Connecting to Steam...");
+            Console.WriteLine("[" + Program.TOOLNAME + "] - Connecting to Steam...");
             LoginStatus = "Connecting to Steam...";
             steamClient.Connect();
 
@@ -335,7 +335,7 @@ namespace MercuryBOT
 
             if (callback.ToString() != "SteamKit2.SteamClient+ConnectedCallback")
             {
-                Console.WriteLine("[" + Program.BOTNAME + "] - Unable to connect to Steam: {0}", callback);
+                Console.WriteLine("[" + Program.TOOLNAME + "] - Unable to connect to Steam: {0}", callback);
                 LoginStatus = "Unable to connect to Steam:" + callback;
                 isRunning = false;
                 return;
@@ -346,7 +346,7 @@ namespace MercuryBOT
             }
 
             //Sucess
-            Console.WriteLine("[" + Program.BOTNAME + "] - Connected to Steam! Logging in '{0}'...", user);
+            Console.WriteLine("[" + Program.TOOLNAME + "] - Connected to Steam! Logging in '{0}'...", user);
             // Notification.NotifHelper.MessageBox.Show("Info", "Connected to Steam!\nLogging in " + user + "...");
             LoginStatus = "Connected to Steam! Logging in " + user;
 
@@ -415,7 +415,7 @@ namespace MercuryBOT
             {
                /* if (!isLoginKey)
                 {
-                    Console.WriteLine("[" + Program.BOTNAME + "] - This account is SteamGuard protected!");
+                    Console.WriteLine("[" + Program.TOOLNAME + "] - This account is SteamGuard protected!");
                 }
                 */
 
@@ -462,7 +462,7 @@ namespace MercuryBOT
 
             else if (callback.Result != EResult.OK)
             {
-                Console.WriteLine("[" + Program.BOTNAME + "] - Unable to logon to Steam: {0} / {1}", callback.Result, callback.ExtendedResult);
+                Console.WriteLine("[" + Program.TOOLNAME + "] - Unable to logon to Steam: {0} / {1}", callback.Result, callback.ExtendedResult);
                 InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Unable to logon to Steam: " + callback.Result);
                 LoginStatus = "Unable to logon to Steam: " + callback.Result;
                 isRunning = false;
@@ -470,7 +470,7 @@ namespace MercuryBOT
             }
 
 
-            Console.WriteLine("[" + Program.BOTNAME + "] - Successfully logged on! \n Valve Time:" + callback.ServerTime.ToString("R"));
+            Console.WriteLine("[" + Program.TOOLNAME + "] - Successfully logged on! \n Valve Time:" + callback.ServerTime.ToString("R"));
             Notification.NotifHelper.MessageBox.Show("Info", "Successfully logged on!");
             LoginStatus = "Successfully logged on!";
 
@@ -568,7 +568,7 @@ namespace MercuryBOT
 
         static void WebAPIUser(SteamUser.WebAPIUserNonceCallback webCallback)
         {
-            Console.WriteLine("[" + Program.BOTNAME + "] - Received new WebAPIUserNonce.");
+            Console.WriteLine("[" + Program.TOOLNAME + "] - Received new WebAPIUserNonce.");
 
             if (webCallback.Result == EResult.OK)
             {
@@ -586,7 +586,7 @@ namespace MercuryBOT
             }
             else
             {
-                Console.WriteLine("[" + Program.BOTNAME + "] - WebAPIUserNonce Error: " + webCallback.Result);
+                Console.WriteLine("[" + Program.TOOLNAME + "] - WebAPIUserNonce Error: " + webCallback.Result);
             }
         }
 
@@ -675,7 +675,7 @@ namespace MercuryBOT
                     {
                         a.SteamID = steamClient.SteamID.ConvertToUInt64();
                     }
-                    Console.WriteLine("[" + Program.BOTNAME + "] - Setting LoginKey in config!");
+                    Console.WriteLine("[" + Program.TOOLNAME + "] - Setting LoginKey in config!");
                 }
             }
             File.WriteAllText(Program.AccountsJsonFile, JsonConvert.SerializeObject(list, Formatting.Indented));
@@ -691,12 +691,12 @@ namespace MercuryBOT
 
                 if (!IsWebLoggedIn)
                 {
-                    Console.WriteLine("[" + Program.BOTNAME + "] - Authentication failed, retrying in 10s...");
+                    Console.WriteLine("[" + Program.TOOLNAME + "] - Authentication failed, retrying in 10s...");
                     Thread.Sleep(10000);
                 }
             } while (!IsWebLoggedIn); //test
 
-            Console.WriteLine("[" + Program.BOTNAME + "] - User Authenticated to Web!");
+            Console.WriteLine("[" + Program.TOOLNAME + "] - User Authenticated to Web!");
 
             cookiesAreInvalid = false;
             //    try
@@ -704,13 +704,13 @@ namespace MercuryBOT
             //        if (steamWeb.Authenticate(myUniqueId, steamClient, myUserNonce))
             //        {
             //            IsWebLoggedIn = true;
-            //            Console.WriteLine("[" + Program.BOTNAME + "] - User Authenticated! ");
+            //            Console.WriteLine("[" + Program.TOOLNAME + "] - User Authenticated! ");
             //            cookiesAreInvalid = false;
             //        }
             //    }
             //    catch (Exception ex)
             //    {
-            //        Console.WriteLine("[" + Program.BOTNAME + "] - Error on UserWebLogon: " + ex.Message);
+            //        Console.WriteLine("[" + Program.TOOLNAME + "] - Error on UserWebLogon: " + ex.Message);
             //    }
             //}
         }
@@ -725,7 +725,7 @@ namespace MercuryBOT
         //    {
         //        if (!steamWeb.VerifyCookies())
         //        {
-        //            Console.WriteLine("[" + Program.BOTNAME + "] - Cookies are invalid. Need to re-authenticate.");
+        //            Console.WriteLine("[" + Program.TOOLNAME + "] - Cookies are invalid. Need to re-authenticate.");
 
         //            cookiesAreInvalid = true;
         //            steamUser.RequestWebAPIUserNonce();
@@ -734,7 +734,7 @@ namespace MercuryBOT
         //    }
         //    catch
         //    {
-        //        Console.WriteLine("[" + Program.BOTNAME + "] - Cookie check failed. http://steamcommunity.com is possibly down.");
+        //        Console.WriteLine("[" + Program.TOOLNAME + "] - Cookie check failed. http://steamcommunity.com is possibly down.");
         //    }
         //    IsWebLoggedIn = true;
         //    return true;
@@ -759,13 +759,13 @@ namespace MercuryBOT
 
             IsLoggedIn = false;
             CurrentPersonaState = 0;
-            Console.WriteLine("[" + Program.BOTNAME + "] - Logged off of Steam: {0}", callback.Result);
+            Console.WriteLine("[" + Program.TOOLNAME + "] - Logged off of Steam: {0}", callback.Result);
             InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Logged off of Steam:" + callback.Result);
         }
 
         static void OnMachineAuth(SteamUser.UpdateMachineAuthCallback callback)
         {
-            Console.WriteLine("[" + Program.BOTNAME + "] - Updating sentryfile...");
+            Console.WriteLine("[" + Program.TOOLNAME + "] - Updating sentryfile...");
 
             byte[] sentryHash = CryptoHelper.SHAHash(callback.Data);
             File.WriteAllBytes(Program.SentryFolder + user + ".bin", callback.Data);
@@ -782,7 +782,7 @@ namespace MercuryBOT
                 OneTimePassword = callback.OneTimePassword,
                 SentryFileHash = sentryHash,
             });
-            Console.WriteLine("[" + Program.BOTNAME + "] - Sentry updated!");
+            Console.WriteLine("[" + Program.TOOLNAME + "] - Sentry updated!");
         }
 
         static void OnAccountInfo(SteamUser.AccountInfoCallback callback)
@@ -796,7 +796,7 @@ namespace MercuryBOT
         {
             ListFriends.Clear();
             List<SteamID> steamIdList = new List<SteamID>();
-            Console.WriteLine("[" + Program.BOTNAME + "] - Loading all friends...");
+            Console.WriteLine("[" + Program.TOOLNAME + "] - Loading all friends...");
             for (int index = 0; index < steamFriends.GetFriendCount(); ++index)
             {
                 steamIdList.Add(steamFriends.GetFriendByIndex(index));
@@ -817,7 +817,7 @@ namespace MercuryBOT
             {
                 if (ListFriendRequests.Find(listFriends.SID))
                 {
-                    Console.WriteLine("[" + Program.BOTNAME + "] - Found friend {0} in list of friend requests, so let's remove the user.", (object)listFriends.Name);
+                    Console.WriteLine("[" + Program.TOOLNAME + "] - Found friend {0} in list of friend requests, so let's remove the user.", (object)listFriends.Name);
                     ListFriendRequests.Remove(listFriends.SID);
                 }
             }
@@ -836,7 +836,7 @@ namespace MercuryBOT
                     ListFriendRequests.Add(friendPersonaName, listFriendRequests.SteamID, "Offline");
                 }
             }
-            Console.WriteLine("[" + Program.BOTNAME + "] - Done! {0} friends.", (object)ListFriends.Get(false).Count);
+            Console.WriteLine("[" + Program.TOOLNAME + "] - Done! {0} friends.", (object)ListFriends.Get(false).Count);
             FriendsLoaded = true;
         }
 
@@ -896,7 +896,7 @@ namespace MercuryBOT
                         break;
                 }
             }
-            Console.WriteLine("[" + Program.BOTNAME + "] Recorded steam friends : {0}", steamFriends.GetFriendCount());
+            Console.WriteLine("[" + Program.TOOLNAME + "] Recorded steam friends : {0}", steamFriends.GetFriendCount());
         }
 
         public static void CreateFriendsListIfNecessary()
@@ -987,34 +987,34 @@ namespace MercuryBOT
                     switch (command)
                     {
                         case ".pcsleep":
-                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Sleeping..." + "\r\n\r\n" + Program.BOTNAME);
+                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Sleeping..." + "\r\n\r\n" + Program.TOOLNAME);
                             Thread.Sleep(500);
                             SetSuspendState(false, true, true); //sleep
                             break;
                         case ".pchiber":
-                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Hibernating..." + "\r\n\r\n" + Program.BOTNAME);
+                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Hibernating..." + "\r\n\r\n" + Program.TOOLNAME);
                             Thread.Sleep(500);
                             SetSuspendState(true, true, true); //hibernate
                             break;
                         case ".pcrr":
                             var reboot = new ProcessStartInfo("shutdown", "/r /t 0") { CreateNoWindow = true, UseShellExecute = false };
-                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Restarting..." + "\r\n\r\n" + Program.BOTNAME);
+                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Restarting..." + "\r\n\r\n" + Program.TOOLNAME);
                             Thread.Sleep(500);
                             Process.Start(reboot);
                             break;
                         case ".pcoff":
                             var shutdown = new ProcessStartInfo("shutdown", "/s /t 0") { CreateNoWindow = true, UseShellExecute = false };
-                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Going down..." + "\r\n\r\n" + Program.BOTNAME);
+                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Going down..." + "\r\n\r\n" + Program.TOOLNAME);
                             Thread.Sleep(500);
                             Process.Start(shutdown);
                             break;
                         case ".close":
-                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Closing... :c" + "\r\n\r\n" + Program.BOTNAME);
+                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Closing... :c" + "\r\n\r\n" + Program.TOOLNAME);
                             Thread.Sleep(500);
                             Environment.Exit(1);
                             break;
                         case ".logoff":
-                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Logged off... :c" + "\r\n\r\n" + Program.BOTNAME);
+                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Logged off... :c" + "\r\n\r\n" + Program.TOOLNAME);
                             Thread.Sleep(500);
                             Logout();
                             break;
@@ -1027,13 +1027,13 @@ namespace MercuryBOT
                                 {
                                     if (a.Games.Count == 0)
                                     {
-                                        steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Error: no appids in accounts.json. Use Gather AppIDS" + "\r\n\r\n" + Program.BOTNAME);
+                                        steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Error: no appids in accounts.json. Use Gather AppIDS" + "\r\n\r\n" + Program.TOOLNAME);
                                     }
                                     else
                                     {
                                         if (a.Games.Count >= 32)
                                         {
-                                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Error: Max games allowed 32." + "\r\n\r\n" + Program.BOTNAME);
+                                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Error: Max games allowed 32." + "\r\n\r\n" + Program.TOOLNAME);
                                             return;
                                         }
                                         for (int i = 0; i < a.Games.Count; i++)
@@ -1044,12 +1044,12 @@ namespace MercuryBOT
                                         if (clearGames.Length != 0)
                                         {
                                            // Utils.PlayGames(gameuints, clearGames + " | Mercury ☿");
-                                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Playing..." + "\r\n\r\n" + Program.BOTNAME);
+                                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Playing..." + "\r\n\r\n" + Program.TOOLNAME);
 
                                         }
                                         else
                                         {
-                                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Error: Please enter a custom name after '.play custom name game'" + "\r\n\r\n" + Program.BOTNAME);
+                                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Error: Please enter a custom name after '.play custom name game'" + "\r\n\r\n" + Program.TOOLNAME);
                                         }
                                     }
                                 }
@@ -1060,29 +1060,29 @@ namespace MercuryBOT
                             if (clearNoN.Length < 50)
                             {
                                 Utils.PlayNonSteamGame(clearNoN + " | Mercury ☿");
-                                steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Playing: " + clearNoN + "\r\n\r\n" + Program.BOTNAME);
+                                steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Playing: " + clearNoN + "\r\n\r\n" + Program.TOOLNAME);
                             }
                             else
                             {
-                                steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Error: Only 50 chars allowed." + "\r\n\r\n" + Program.BOTNAME);
+                                steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Error: Only 50 chars allowed." + "\r\n\r\n" + Program.TOOLNAME);
                             }
                             break;
                         case ".stopgames":
                             Utils.StopGames();
-                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Stopping games." + "\r\n\r\n" + Program.BOTNAME);
+                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Stopping games." + "\r\n\r\n" + Program.TOOLNAME);
                             break;
                         case ".steamrep ":
                             // not yet
                             break;
                         case ".trolha":
-                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "https://steamcommunity.com/profiles/76561198041931474" + "\r\n\r\n" + Program.BOTNAME);
+                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "https://steamcommunity.com/profiles/76561198041931474" + "\r\n\r\n" + Program.TOOLNAME);
                             break;
                     }
                 }
 
                 if (AwayMsg == true || isAwayState == true)
                 {
-                    steamFriends.SendChatMessage(callback.Sender, EChatEntryType.ChatMsg, MessageString + "\r\n\r\n" + Program.BOTNAME);
+                    steamFriends.SendChatMessage(callback.Sender, EChatEntryType.ChatMsg, MessageString + "\r\n\r\n" + Program.TOOLNAME);
                 }
 
                 if (AwayCustomMessageList == true)
@@ -1106,7 +1106,7 @@ namespace MercuryBOT
                             r = random.Next(0, a.AFKMessages.Count); // +1 ? por causa da de cima?
                         }
                     }
-                    steamFriends.SendChatMessage(callback.Sender, EChatEntryType.ChatMsg, CMessages[r] + "\r\n\r\n" + Program.BOTNAME);
+                    steamFriends.SendChatMessage(callback.Sender, EChatEntryType.ChatMsg, CMessages[r] + "\r\n\r\n" + Program.TOOLNAME);
                 }
             }
         }
@@ -1174,7 +1174,7 @@ namespace MercuryBOT
                             if (a.username == CurrentUsername && a.MsgRecipients.Any(s => s.Contains(allfriends.ConvertToUInt64().ToString())))
                             {
                                 princessas++;
-                                steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.BOTNAME);
+                                steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.TOOLNAME);
                                 Thread.Sleep(1000);// my friend needs some OXYGEN 😌
                             }
                         }
@@ -1182,7 +1182,7 @@ namespace MercuryBOT
                     else
                     {
                         princessas++;
-                        steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.BOTNAME);
+                        steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.TOOLNAME);
                         Thread.Sleep(1000);// my friend needs some OXYGEN 😌
                     }
                 }
@@ -1193,7 +1193,7 @@ namespace MercuryBOT
 
         public static void RemoveFriend(ulong goodbye)
         {
-            steamFriends.SendChatMessage(goodbye, EChatEntryType.ChatMsg, "Have an amazing day!" + "\r\n\r\n" + Program.BOTNAME);
+            steamFriends.SendChatMessage(goodbye, EChatEntryType.ChatMsg, "Have an amazing day!" + "\r\n\r\n" + Program.TOOLNAME);
             Thread.Sleep(500);
             steamFriends.RemoveFriend(goodbye);
         }
@@ -1203,7 +1203,7 @@ namespace MercuryBOT
         static void OnSteamNameChange(SteamFriends.PersonaChangeCallback callback)
         {
             UserPersonaName = callback.Name;
-            Console.WriteLine("[" + Program.BOTNAME + "] - Name changed to: " + callback.Name);
+            Console.WriteLine("[" + Program.TOOLNAME + "] - Name changed to: " + callback.Name);
         }
         public static string GetPersonaName(ulong steamid)
         {
@@ -1214,13 +1214,13 @@ namespace MercuryBOT
         public static void ChangeCurrentState(EPersonaState state)
         {
             steamFriends.SetPersonaState(state);
-            Console.WriteLine("[" + Program.BOTNAME + "] - State Changed to: " + state);
+            Console.WriteLine("[" + Program.TOOLNAME + "] - State Changed to: " + state);
         }
 
         public static void ChangeCurrentName(string Name)
         {
             steamFriends.SetPersonaName(Name);
-            Console.WriteLine("[" + Program.BOTNAME + "] - Name Changed to: " + Name);
+            Console.WriteLine("[" + Program.TOOLNAME + "] - Name Changed to: " + Name);
         }
 
         public static void ChangePersonaFlags(uint uimode)

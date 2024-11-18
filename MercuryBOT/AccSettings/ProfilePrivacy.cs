@@ -188,7 +188,7 @@ namespace MercuryBOT.AccSettings
 
         private void btn_changeprofSettings_Click(object sender, EventArgs e)
         {
-            SteamCommunity.Utils.ProfileSettings(combox_profilePrivacy.SelectedIndex,
+            SteamCommunity.Utils.ProfileSettingsAsync(combox_profilePrivacy.SelectedIndex,
                 combox_InventoryPrivacy.SelectedIndex,
                 combox_Gifts.SelectedIndex,
                 combox_ownedGames.SelectedIndex,

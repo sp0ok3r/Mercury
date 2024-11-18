@@ -23,7 +23,7 @@ namespace MercuryBOT
         //public static readonly Process MercuryProcess     = Process.GetCurrentProcess();
         public static readonly Process[] CurrentProcesses = Process.GetProcesses();
 
-        public static readonly string BOTNAME          = "Mercury ☿";
+        public static readonly string TOOLNAME          = "Mercury: Ultimate Steam Tool";
         public static readonly string Version          = "5.0.0";
 
         public static readonly string spkDomain        = "http://sp0ok3r.duckdns.org/Mercury/";

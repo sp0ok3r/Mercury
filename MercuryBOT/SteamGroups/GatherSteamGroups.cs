@@ -8,6 +8,7 @@
 ▐    ▐     ▐                  ▐                                 ▐   
 */
 using Mercury;
+using Mercury.Helpers;
 using MercuryBOT.Helpers;
 using MercuryBOT.SteamCommunity;
 using MetroFramework.Controls;
@@ -260,29 +261,29 @@ namespace MercuryBOT.SteamGroups
 
         private void btn_gatherFromProfile_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtBox_profileGrabIDS.Text))
-            {
-                string steamid64 = Extensions.AllToSteamId64(txtBox_profileGrabIDS.Text);
-                string resp = HandleLogin.steamWeb.Fetch("https://steamcommunity.com/profiles/" + steamid64 + "/?xml=1", "GET"); // CHANGE
-                if (resp != string.Empty)
-                {
-                    using (TextWriter tw = new StreamWriter(steamid64 + "_GroupsIDS.txt"))
-                    {
-                        {
-                            foreach (Match groupsIDS in Regex.Matches(resp, @"<groupID64>(.*?)</groupID64>", RegexOptions.IgnoreCase | RegexOptions.Compiled))
-                            {
-                                tw.WriteLine(groupsIDS.Groups[1].Value);
-                            }
-                        }
-                    }
-                    //Process.Start(Program.ExecutablePath + @"\" + steamid64 + "_GroupsIDS.txt");
-                    InfoForm.InfoHelper.CustomMessageBox.Show("Info", "All group ids saved!");
-                }
-            }
-            else
-            {
-                Console.WriteLine("nao");
-            }
+            //if (!string.IsNullOrEmpty(txtBox_profileGrabIDS.Text))
+            //{
+            //    string steamid64 = Extensions.AllToSteamId64(txtBox_profileGrabIDS.Text);
+            //    string resp = SteamWeb.GETRequest("https://steamcommunity.com/profiles/" + steamid64 + "/?xml=1"); // CHANGE
+            //    if (resp != string.Empty)
+            //    {
+            //        using (TextWriter tw = new StreamWriter(steamid64 + "_GroupsIDS.txt"))
+            //        {
+            //            {
+            //                foreach (Match groupsIDS in Regex.Matches(resp, @"<groupID64>(.*?)</groupID64>", RegexOptions.IgnoreCase | RegexOptions.Compiled))
+            //                {
+            //                    tw.WriteLine(groupsIDS.Groups[1].Value);
+            //                }
+            //            }
+            //        }
+            //        //Process.Start(Program.ExecutablePath + @"\" + steamid64 + "_GroupsIDS.txt");
+            //        InfoForm.InfoHelper.CustomMessageBox.Show("Info", "All group ids saved!");
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("nao");
+            //}
         }
         private void btn_joinAll_Click(object sender, EventArgs e)
         {
@@ -335,7 +336,7 @@ namespace MercuryBOT.SteamGroups
             }
             else
             {
-                if (HandleLogin.steamWeb.SessionID == null)
+                if (SessionData.SessionID == null)
                 {
                     InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Login again");
                 }

@@ -59,7 +59,7 @@ namespace MercuryBOT
             }
             catch (Exception)
             {
-                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "sp0ok3r.tk is down, please check for new updates in github!");
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "sp0ok3r website is down, please check for new updates in github!");
                 Process.Start("https://github.com/sp0ok3r/Mercury/releases");
             }
         }

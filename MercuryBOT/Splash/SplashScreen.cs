@@ -131,7 +131,7 @@ namespace MercuryBOT.Splash
             }
             catch (Exception x)
             {
-                Console.WriteLine("[" + Program.BOTNAME + "] - Steam Directory not found, but starting anyways..." + x);
+                Console.WriteLine("[" + Program.TOOLNAME + "] - Steam Directory not found, but starting anyways..." + x);
             }
 
             tmr = new Timer();

@@ -36,9 +36,7 @@ using Win32Interop.Methods;
 using System.Reflection;
 using System.ComponentModel;
 using Microsoft.Win32;
-using Gameloop.Vdf;
 using Mercury;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Mercury.MetroMessageBox;
 
 namespace MercuryBOT
@@ -342,7 +340,7 @@ namespace MercuryBOT
             catch (Exception uwu)
             {
                 Console.WriteLine("sp0ok3r website is down or No internet connection err" + uwu);
-                Notification.NotifHelper.MessageBox.Show("Alert", "Checking for updates failed, maybe sp0ok3r.tk is down.");
+                Notification.NotifHelper.MessageBox.Show("Alert", "Checking for updates failed, maybe sp0ok3r website is down.");
 
                 //Process.Start("https://github.com/sp0ok3r/Mercury/releases");
 
@@ -402,14 +400,27 @@ namespace MercuryBOT
         #region Buttons
         private void btn_admincmds_Click(object sender, EventArgs e)
         {
-            MetroFramework.MetroMessageBox.Show(this, ".pcsleep - Puts pc on sleep mode\n" +
+            //MetroFramework.MetroMessageBox.Show(this, ".pcsleep - Puts pc on sleep mode\n" +
+            //                                          ".pchiber - Puts pc on hibernate mode\n" +
+            //                                          ".pcrr - Restart PC.\n" +
+            //                                          ".pcoff - Shutdown PC.\n" +
+            //                                         ".close - Closes MercuryBOT process.\n" +
+            //                                         ".logoff - Logoff from current account.\n" +
+            //                                         ".non customname - Play a non - steam game(change customname to anything)\n" +
+            //                                         ".play customname - Play a non steam game and appids.", "Mercury - Admin Commands", MessageBoxButtons.OK, MessageBoxIcon.None, 250);
+
+            CustomMetroMessageBox.Show(this, ".pcsleep - Puts pc on sleep mode\n" +
                                                       ".pchiber - Puts pc on hibernate mode\n" +
                                                       ".pcrr - Restart PC.\n" +
                                                       ".pcoff - Shutdown PC.\n" +
                                                      ".close - Closes MercuryBOT process.\n" +
                                                      ".logoff - Logoff from current account.\n" +
                                                      ".non customname - Play a non - steam game(change customname to anything)\n" +
-                                                     ".play customname - Play a non steam game and appids.", "Mercury - Admin Commands", MessageBoxButtons.OK, MessageBoxIcon.None, 250);
+                                                     ".play customname - Play a non steam game and appids.", "Mercury - Admin Commands", MessageBoxButtons.OK, MessageBoxIcon.Question, 270);
+
+
+
+
         }
 
         private void btn_addAcc_Click(object sender, EventArgs e)
@@ -603,6 +614,8 @@ namespace MercuryBOT
         {
             if (chck_steam4net.Checked)
             {
+                LoadSteam();
+
                 if (SteamClientState == false && Program.CurrentProcesses.FirstOrDefault(x => x.ProcessName == "Steam") != null)
                 {
                     if (LoadSteam() == -1)
@@ -611,6 +624,8 @@ namespace MercuryBOT
                         return;
                     }
                 }
+
+                
 
                 SteamClientState = true;
                 int quantasPrincesas = 0;
@@ -631,7 +646,8 @@ namespace MercuryBOT
                             if (a.username == HandleLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(friendid.ConvertToUint64().ToString())))
                             {
                                 quantasPrincesas++;
-                                steamfriends002.SendMsgToFriend(friendid, EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text), (txtBox_msg2Friends.Text.Length) + 1);
+                                var extratext = "\r\n\r\n" + "Sent using:" + Program.TOOLNAME;
+                                steamfriends002.SendMsgToFriend(friendid, EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text + extratext), (txtBox_msg2Friends.Text.Length+extratext.Length) + 1);
                                 Thread.Sleep(100);// my friend needs some OXYGEN 😌 
                             }
                         }
@@ -639,7 +655,7 @@ namespace MercuryBOT
                     else
                     {
                         quantasPrincesas++;
-                        msgBytes = Encoding.UTF8.GetBytes(msg);
+                        msgBytes = Encoding.UTF8.GetBytes(msg + "\r\n\r\n" + "/code"+Program.TOOLNAME);
                         steamfriends002.SendMsgToFriend(friendid, EChatEntryType.k_EChatEntryTypeChatMsg, msgBytes, (msgBytes.Length) + 1);
                         Thread.Sleep(100);// my friend needs some OXYGEN 😌 
                     }
@@ -1304,7 +1320,6 @@ namespace MercuryBOT
 
         private void metroLink_spk_Click(object sender, EventArgs e)
         {
-            Process.Start("http://sp0ok3r.tk");
             Process.Start("http://steamcommunity.com/profiles/76561198041931474");
         }
 
@@ -1684,7 +1699,7 @@ namespace MercuryBOT
         {
             if (HandleLogin.IsLoggedIn == true)
             {
-                Utils.ClearAliases();
+                Utils.ClearAliasesAsync();
             }
             else
             {
@@ -2027,6 +2042,35 @@ namespace MercuryBOT
                 return;
             }
             CDKeys_Grid.FirstDisplayedScrollingRowIndex = e.NewValue;
+        }
+
+        private void editAccToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (AccountsList_Grid.SelectedRows.Count > 0)
+            {
+                SelectedUser = AccountsList_Grid.SelectedRows[0].Cells[0].Value.ToString();
+                btn_editAcc.Enabled = false;
+                Form EditAcc = new EditAcc();
+                EditAcc.FormClosed += HandleFormEditAccClosed;
+                EditAcc.Show();
+            }
+            else
+            {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Please select an account!");
+            }
+        }
+
+        private void AddAccToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btn_addAcc.Enabled = false;
+            Form AddAcc = new AddAcc();
+            AddAcc.FormClosed += HandleFormAddAccClosed;
+            AddAcc.Show();
+        }
+
+        private void AccountsList_Grid_MouseHover(object sender, EventArgs e)
+        {
+            //MongoTip.Show("Right Click to Edit/Add Account\nDouble click to open profile page", this, (Control.MousePosition.X - this.Location.X - 8), (Control.MousePosition.Y - this.Location.Y - 30),1000);
         }
 
         public static void ClearAutoLoginUserKeyValues()
