@@ -28,7 +28,7 @@ using System.Globalization;
 
 namespace MercuryBOT.SteamCommunity
 {
-    public class SteamWebold
+    public class SteamWeb
     {
         public const string SteamCommunityDomain = "steamcommunity.com";
         private static int Timeout = 1000;

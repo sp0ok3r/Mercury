@@ -319,7 +319,7 @@
     <Compile Include="Splash\SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="SteamCommunity\SteamWebold.cs" />
+    <Compile Include="SteamCommunity\SteamWeb.cs" />
     <Compile Include="UpdateManager\Updater.cs">
       <SubType>Form</SubType>
     </Compile>

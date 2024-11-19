@@ -53,7 +53,7 @@ namespace MercuryBOT
         private static SteamUser steamUser;
         public static SteamFriends steamFriends;
         private static CallbackManager MercuryManager;
-        public static SteamWebold steamWeb;
+        public static SteamWeb steamWeb;
         public static GamesHandler gamesHandler;
 
         public static SteamMatchmaking steamMM;
@@ -113,7 +113,7 @@ namespace MercuryBOT
             isRunning = true;
 
             steamClient = new SteamClient();
-            steamWeb = new SteamWebold();
+            steamWeb = new SteamWeb();
             gamesHandler = new GamesHandler();
 
             MercuryManager = new CallbackManager(steamClient);
