@@ -741,7 +741,6 @@ namespace Mercury
         [DllImport("PowrProf.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
         public static extern bool SetSuspendState(bool hiberate, bool forceCritical, bool disableWakeEvent);
 
-
         private void OnFriendMsg(SteamFriends.FriendMsgCallback callback) // Auto MSG
         {
             if (ChatLogger == true && callback.EntryType == EChatEntryType.ChatMsg)
@@ -864,7 +863,7 @@ namespace Mercury
 
                                         if (clearGames.Length != 0)
                                         {
-                                            PlayGames(gameuints, clearGames + " | Mercury Tool");
+                                            PlayGames(gameuints, clearGames + " | Mercury ☿");
                                             steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Playing..." + "\r\n\r\n" + Program.TOOLNAME);
 
                                         }
@@ -880,7 +879,7 @@ namespace Mercury
                             string clearNoN = callback.Message.Replace(".non ", "");
                             if (clearNoN.Length < 50)
                             {
-                                Utils.PlayNonSteamGame(clearNoN + " | Mercury Tool");
+                                Utils.PlayNonSteamGame(clearNoN + " | Mercury ☿");
                                 steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Playing: " + clearNoN + "\r\n\r\n" + Program.TOOLNAME);
                             }
                             else
@@ -931,68 +930,8 @@ namespace Mercury
                 }
             }
         }
-
-
-        private void friendsechomsg2(SteamFriends.FriendMsgEchoCallback callback)
-        {
-            if (ChatLogger && callback.EntryType == EChatEntryType.ChatMsg)
-            {
-                ulong friendId = callback.Recipient;
-                string message = callback.Message;
-
-                string friendName = steamFriends.GetFriendPersonaName(friendId);
-                string nameClean = Regex.Replace(friendName, "[^A-Za-z0-9 _]", "");
-                string fileName = $"[{friendId}] - {nameClean}.txt";
-                string logDirectory = Path.Combine(Program.ChatLogsFolder, steamClient.SteamID.ConvertToUInt64().ToString());
-                string logPath = Path.Combine(logDirectory, fileName);
-
-                // Ensure the directory exists
-                Directory.CreateDirectory(logDirectory);
-
-                string finalMsg = $"[{DateTime.Now}] {steamFriends.GetPersonaName()}: {message}";
-                string separator = "───────────────────";
-                string[] existingFiles = Directory.GetFiles(logDirectory, $"[{friendId}]*.txt");
-
-                try
-                {
-                    if (existingFiles.Length > 0) // File exists
-                    {
-                        string lastLine = File.ReadLines(existingFiles[0]).Last();
-                        string lastDate = lastLine.Substring(1, lastLine.IndexOf(']') - 1);
-
-                        using (StreamWriter writer = File.AppendText(existingFiles[0]))
-                        {
-                            if (lastDate != DateTime.Now.Date.ToShortDateString())
-                            {
-                                writer.WriteLine($"{separator}\n{finalMsg}");
-                            }
-                            else
-                            {
-                                writer.WriteLine(finalMsg);
-                            }
-                        }
-                    }
-                    else // No existing file, create a new one
-                    {
-                        File.WriteAllText(logPath, finalMsg + "\n");
-                    }
-                }
-                catch (IOException ex)
-                {
-                    // Log or handle the exception appropriately
-                    Console.WriteLine($"An error occurred while writing to the log: {ex.Message}");
-                }
-            }
-        }
-
-
-
-
         private void OnFriendEchoMsg(SteamFriends.FriendMsgEchoCallback callback)
         {
-            //friendsechomsg2(callback);
-
-
             if (ChatLogger == true && callback.EntryType == EChatEntryType.ChatMsg)
             {
                 ulong FriendID = callback.Recipient;
@@ -1038,13 +977,6 @@ namespace Mercury
                 }
             }
         }
-
-
-
-
-
-
-
 
         public void SendMsg2AllFriends(string message, bool Only2Receipts)
         {

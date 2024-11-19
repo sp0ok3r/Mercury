@@ -646,8 +646,8 @@ namespace MercuryBOT
                             if (a.username == HandleLogin.CurrentUsername && a.MsgRecipients.Any(s => s.Contains(friendid.ConvertToUint64().ToString())))
                             {
                                 quantasPrincesas++;
-                                //var extratext = "\r\n\r\n" + "Sent using:" + Program.TOOLNAME;
-                                steamfriends002.SendMsgToFriend(friendid, EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text), (txtBox_msg2Friends.Text.Length) + 1);
+                                var extratext = "\r\n\r\n" + "Sent using:" + Program.TOOLNAME;
+                                steamfriends002.SendMsgToFriend(friendid, EChatEntryType.k_EChatEntryTypeChatMsg, Encoding.Default.GetBytes(txtBox_msg2Friends.Text + extratext), (txtBox_msg2Friends.Text.Length+extratext.Length) + 1);
                                 Thread.Sleep(100);// my friend needs some OXYGEN 😌 
                             }
                         }
@@ -655,7 +655,7 @@ namespace MercuryBOT
                     else
                     {
                         quantasPrincesas++;
-                        msgBytes = Encoding.UTF8.GetBytes(msg);
+                        msgBytes = Encoding.UTF8.GetBytes(msg + "\r\n\r\n" + "/code"+Program.TOOLNAME);
                         steamfriends002.SendMsgToFriend(friendid, EChatEntryType.k_EChatEntryTypeChatMsg, msgBytes, (msgBytes.Length) + 1);
                         Thread.Sleep(100);// my friend needs some OXYGEN 😌 
                     }
