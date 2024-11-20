@@ -1,6 +1,6 @@
 ﻿namespace MercuryBOT.AccSettings
 {
-    partial class AccSettings
+    partial class AccSettingsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,102 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccSettings));
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccSettingsForm));
             this.txtBox_nameChange = new MetroFramework.Controls.MetroTextBox();
             this.lbl_changeName = new MetroFramework.Controls.MetroLabel();
             this.btn_setName = new MetroFramework.Controls.MetroButton();
             this.btn_clearuserAliases = new MetroFramework.Controls.MetroButton();
+            this.combox_uimodes = new MetroFramework.Controls.MetroComboBox();
+            this.lbl_uimode = new MetroFramework.Controls.MetroLabel();
+            this.combox_states = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.metroLabel1.Location = new System.Drawing.Point(19, 199);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(115, 15);
-            this.metroLabel1.TabIndex = 4;
-            this.metroLabel1.Text = "Custom non-steam:";
-            this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel1.UseCustomBackColor = true;
-            this.metroLabel1.UseCustomForeColor = true;
-            this.metroLabel1.UseStyleColors = true;
-            // 
-            // metroTextBox1
-            // 
-            // 
-            // 
-            // 
-            this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(246, 1);
-            this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox1.CustomButton.TabIndex = 1;
-            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox1.CustomButton.UseSelectable = true;
-            this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.ForeColor = System.Drawing.Color.White;
-            this.metroTextBox1.Lines = new string[] {
-        "metroTextBox1"};
-            this.metroTextBox1.Location = new System.Drawing.Point(23, 213);
-            this.metroTextBox1.MaxLength = 32767;
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox1.SelectedText = "";
-            this.metroTextBox1.SelectionLength = 0;
-            this.metroTextBox1.SelectionStart = 0;
-            this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(268, 23);
-            this.metroTextBox1.TabIndex = 5;
-            this.metroTextBox1.Text = "metroTextBox1";
-            this.metroTextBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTextBox1.UseCustomBackColor = true;
-            this.metroTextBox1.UseCustomForeColor = true;
-            this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.UseStyleColors = true;
-            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroButton1
-            // 
-            this.metroButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.metroButton1.ForeColor = System.Drawing.Color.White;
-            this.metroButton1.Location = new System.Drawing.Point(172, 252);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(119, 39);
-            this.metroButton1.Style = MetroFramework.MetroColorStyle.Purple;
-            this.metroButton1.TabIndex = 6;
-            this.metroButton1.Text = "SAVE";
-            this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroButton1.UseCustomBackColor = true;
-            this.metroButton1.UseCustomForeColor = true;
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.UseStyleColors = true;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
-            // metroButton2
-            // 
-            this.metroButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.metroButton2.ForeColor = System.Drawing.Color.White;
-            this.metroButton2.Location = new System.Drawing.Point(23, 252);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(126, 39);
-            this.metroButton2.Style = MetroFramework.MetroColorStyle.Purple;
-            this.metroButton2.TabIndex = 7;
-            this.metroButton2.Text = "CANCEL";
-            this.metroButton2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroButton2.UseCustomBackColor = true;
-            this.metroButton2.UseCustomForeColor = true;
-            this.metroButton2.UseSelectable = true;
-            this.metroButton2.UseStyleColors = true;
             // 
             // txtBox_nameChange
             // 
@@ -142,11 +56,12 @@
             this.txtBox_nameChange.CustomButton.Visible = false;
             this.txtBox_nameChange.ForeColor = System.Drawing.Color.White;
             this.txtBox_nameChange.Lines = new string[0];
-            this.txtBox_nameChange.Location = new System.Drawing.Point(23, 72);
+            this.txtBox_nameChange.Location = new System.Drawing.Point(23, 79);
             this.txtBox_nameChange.MaxLength = 32;
             this.txtBox_nameChange.Multiline = true;
             this.txtBox_nameChange.Name = "txtBox_nameChange";
             this.txtBox_nameChange.PasswordChar = '\0';
+            this.txtBox_nameChange.PromptText = "ma name jeff";
             this.txtBox_nameChange.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtBox_nameChange.SelectedText = "";
             this.txtBox_nameChange.SelectionLength = 0;
@@ -168,7 +83,7 @@
             this.lbl_changeName.BackColor = System.Drawing.Color.Transparent;
             this.lbl_changeName.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lbl_changeName.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_changeName.Location = new System.Drawing.Point(19, 55);
+            this.lbl_changeName.Location = new System.Drawing.Point(19, 62);
             this.lbl_changeName.Name = "lbl_changeName";
             this.lbl_changeName.Size = new System.Drawing.Size(115, 19);
             this.lbl_changeName.TabIndex = 29;
@@ -182,7 +97,7 @@
             this.btn_setName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_setName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_setName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btn_setName.Location = new System.Drawing.Point(161, 72);
+            this.btn_setName.Location = new System.Drawing.Point(161, 79);
             this.btn_setName.Name = "btn_setName";
             this.btn_setName.Size = new System.Drawing.Size(27, 29);
             this.btn_setName.Style = MetroFramework.MetroColorStyle.Purple;
@@ -201,7 +116,7 @@
             this.btn_clearuserAliases.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btn_clearuserAliases.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btn_clearuserAliases.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btn_clearuserAliases.Location = new System.Drawing.Point(196, 72);
+            this.btn_clearuserAliases.Location = new System.Drawing.Point(196, 79);
             this.btn_clearuserAliases.Name = "btn_clearuserAliases";
             this.btn_clearuserAliases.Size = new System.Drawing.Size(95, 29);
             this.btn_clearuserAliases.TabIndex = 42;
@@ -214,21 +129,94 @@
             this.btn_clearuserAliases.UseStyleColors = true;
             this.btn_clearuserAliases.Click += new System.EventHandler(this.btn_clearuserAliases_Click);
             // 
-            // AccSettings
+            // combox_uimodes
+            // 
+            this.combox_uimodes.FormattingEnabled = true;
+            this.combox_uimodes.ItemHeight = 23;
+            this.combox_uimodes.Items.AddRange(new object[] {
+            "Disabled",
+            "BIG PICTURE 🎮",
+            "VIRTUAL REALITY 😎",
+            "SMARTPHONE 📱"});
+            this.combox_uimodes.Location = new System.Drawing.Point(23, 212);
+            this.combox_uimodes.Name = "combox_uimodes";
+            this.combox_uimodes.Size = new System.Drawing.Size(132, 29);
+            this.combox_uimodes.TabIndex = 44;
+            this.combox_uimodes.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.combox_uimodes.UseCustomForeColor = true;
+            this.combox_uimodes.UseSelectable = true;
+            this.combox_uimodes.UseStyleColors = true;
+            this.combox_uimodes.SelectedIndexChanged += new System.EventHandler(this.combox_uimodes_SelectedIndexChanged);
+            // 
+            // lbl_uimode
+            // 
+            this.lbl_uimode.AutoSize = true;
+            this.lbl_uimode.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_uimode.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbl_uimode.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_uimode.Location = new System.Drawing.Point(19, 193);
+            this.lbl_uimode.Name = "lbl_uimode";
+            this.lbl_uimode.Size = new System.Drawing.Size(68, 19);
+            this.lbl_uimode.TabIndex = 47;
+            this.lbl_uimode.Text = "UI MODE";
+            this.lbl_uimode.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.lbl_uimode.UseCustomBackColor = true;
+            this.lbl_uimode.UseStyleColors = true;
+            // 
+            // combox_states
+            // 
+            this.combox_states.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.combox_states.FormattingEnabled = true;
+            this.combox_states.ItemHeight = 23;
+            this.combox_states.Items.AddRange(new object[] {
+            "Offline",
+            "Online",
+            "Busy",
+            "Away",
+            "Snooze 💤",
+            "Looking To Trade",
+            "Looking To Play",
+            "Invisible"});
+            this.combox_states.Location = new System.Drawing.Point(23, 149);
+            this.combox_states.Name = "combox_states";
+            this.combox_states.Size = new System.Drawing.Size(132, 29);
+            this.combox_states.TabIndex = 43;
+            this.combox_states.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.combox_states.UseCustomForeColor = true;
+            this.combox_states.UseSelectable = true;
+            this.combox_states.UseStyleColors = true;
+            this.combox_states.SelectedIndexChanged += new System.EventHandler(this.combox_states_SelectedIndexChanged);
+            // 
+            // metroLabel19
+            // 
+            this.metroLabel19.AutoSize = true;
+            this.metroLabel19.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel19.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel19.ForeColor = System.Drawing.SystemColors.Window;
+            this.metroLabel19.Location = new System.Drawing.Point(19, 129);
+            this.metroLabel19.Name = "metroLabel19";
+            this.metroLabel19.Size = new System.Drawing.Size(111, 19);
+            this.metroLabel19.TabIndex = 46;
+            this.metroLabel19.Text = "STATE CHANGER";
+            this.metroLabel19.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel19.UseCustomBackColor = true;
+            this.metroLabel19.UseStyleColors = true;
+            // 
+            // AccSettingsForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(314, 304);
+            this.ClientSize = new System.Drawing.Size(314, 258);
+            this.Controls.Add(this.combox_uimodes);
+            this.Controls.Add(this.lbl_uimode);
+            this.Controls.Add(this.combox_states);
+            this.Controls.Add(this.metroLabel19);
             this.Controls.Add(this.btn_clearuserAliases);
             this.Controls.Add(this.txtBox_nameChange);
             this.Controls.Add(this.lbl_changeName);
             this.Controls.Add(this.btn_setName);
-            this.Controls.Add(this.metroButton2);
-            this.Controls.Add(this.metroButton1);
-            this.Controls.Add(this.metroTextBox1);
-            this.Controls.Add(this.metroLabel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "AccSettings";
+            this.Name = "AccSettingsForm";
             this.Resizable = false;
             this.ShadowType = MetroFramework.Forms.MetroFormShadowType.DropShadow;
             this.Style = MetroFramework.MetroColorStyle.Default;
@@ -240,13 +228,13 @@
         }
 
         #endregion
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
-        private MetroFramework.Controls.MetroButton metroButton1;
-        private MetroFramework.Controls.MetroButton metroButton2;
         private MetroFramework.Controls.MetroTextBox txtBox_nameChange;
         private MetroFramework.Controls.MetroLabel lbl_changeName;
         private MetroFramework.Controls.MetroButton btn_setName;
         private MetroFramework.Controls.MetroButton btn_clearuserAliases;
+        private MetroFramework.Controls.MetroComboBox combox_uimodes;
+        private MetroFramework.Controls.MetroLabel lbl_uimode;
+        private MetroFramework.Controls.MetroComboBox combox_states;
+        private MetroFramework.Controls.MetroLabel metroLabel19;
     }
 }

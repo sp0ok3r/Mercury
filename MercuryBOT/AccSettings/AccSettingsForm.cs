@@ -17,9 +17,9 @@ using Mercury;
 
 namespace MercuryBOT.AccSettings
 {
-    public partial class AccSettings : MetroFramework.Forms.MetroForm
+    public partial class AccSettingsForm : MetroFramework.Forms.MetroForm
     {
-        public AccSettings()
+        public AccSettingsForm()
         {
             InitializeComponent();
             this.components.SetStyle(this);
@@ -40,12 +40,23 @@ namespace MercuryBOT.AccSettings
 
         private void btn_clearuserAliases_Click(object sender, EventArgs e)
         {
-            Utils.ClearAliasesAsync();
+            if (HandleLogin.IsLoggedIn == true)
+            {
+                Utils.ClearAliasesAsync();
+            }
+            else
+            {
+                InfoForm.InfoHelper.CustomMessageBox.Show("Error", "Not logged.");
+            }
         }
 
-        private void metroButton1_Click(object sender, EventArgs e)
+        private void combox_states_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void combox_uimodes_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }

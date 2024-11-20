@@ -23,8 +23,6 @@ using Microsoft.Win32;
 using System.Linq;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Security.Cryptography;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
 namespace MercuryBOT.Helpers

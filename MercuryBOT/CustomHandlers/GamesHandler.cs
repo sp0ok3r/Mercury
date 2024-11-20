@@ -13,7 +13,6 @@ using SteamKit2.Internal;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using static SteamKit2.GC.Dota.Internal.CMsgDOTABotDebugInfo;
 
 namespace MercuryBOT.CustomHandlers
 {

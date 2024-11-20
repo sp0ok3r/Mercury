@@ -19,98 +19,93 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using SteamKit2.Authentication;
 using MercuryBOT;
-using MetroFramework;
 using Mercury.MetroMessageBox;
-using static SteamKit2.SteamUser;
-using SteamKit2.CDN;
 using Mercury.Helpers;
 using System.Net;
+
+
+/*
+ * 
+ *                  todo
+ * 
+ *          se o auto msg esta ligado, e o chatlogger tambem, o programa n esta a guardar a msg do auto msg
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
+
 
 namespace Mercury
 {
     public class HandleLogin
     {
-
+        // Instance-level properties
         public string WebApiNonce { get; private set; }
-
-        public static string UserPersonaName, UserCountry, CurrentUsername;
-        public static int CurrentPersonaState = 1;
-
-
-        public static bool ChatLogger = false;
-        public static EResult LastLogOnResult;
-
-        public static bool IsLoggedIn { get; private set; }
-        public static bool isRunning = false;
-
-        public static string user, pass;
         public string getGuardData;
+        public CookieContainer CookieContainer { get; private set; }
+        private AuthSession _authSession;
+        private TaskCompletionSource<bool> _connectionCompletionSource;
+        private SessionData sessiondata = new SessionData();
 
-        public static string authCode, twoFactorAuth;
-        public static string steamID, LastMessageReceived, LastMessageSent;
-
+        // Static User Information
+        public static string UserPersonaName, UserCountry, CurrentUsername;
         public static ulong CurrentSteamID = 0;
+        public static string avatar, LastErrorLogin;
 
+        // Static User Authentication and Session Information
+        public static string authCode, twoFactorAuth;
+        public static string user, pass;
+        public static string webAPIUserNonce, myWebAPIUser, myUserNonce, myUniqueId, APIKey;
+        public static bool IsLoggedIn { get; private set; }
+        public static bool IsWebLoggedIn { get; private set; }
+        public static string LoginStatus = "Not connected...";
+        public static bool cookiesAreInvalid = true;
+
+        // Static Avatar Information
         public static string AvatarPrefix = "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/";
         public static string AvatarSuffix = "_full.jpg";
+        public static string AvatarHash, MessageString, ChangeState;
 
-        public static string avatar;
-        public static string LastErrorLogin = "";
-
-
-        public CookieContainer CookieContainer { get; private set; }
-
-        //private WebAuthenticator _webAuthenticator = new WebAuthenticator();
-        private AuthSession _authSession;
-
-        public SteamClient steamClient;
-        private static CallbackManager MercuryManager;
-        private SteamUser steamUser;
-        //public SteamFriends steamFriends;
-
-        public static SteamFriends steamFriends { get; set; }
-
-
-        // TaskCompletionSource to manage the state of the connection
-        private TaskCompletionSource<bool> _connectionCompletionSource;
-
+        // Static User State Information
+        public static int CurrentPersonaState = 1;
         public static bool UserPlaying = false;
+        public static bool isAwayState = false;
+        public static bool AwayMsg = false;
+        public static bool AwayCustomMessageList = false;
+        public static bool isSendingMsgs = false;
+        public static bool FriendsLoaded = false;
 
+        // Static Login and Session State
+        public static bool isRunning = false;
+        public static EResult LastLogOnResult;
+        public static string LastMessageReceived, LastMessageSent;
+        public static string LastLogOnResultString => LastLogOnResult.ToString(); // Optional, if you need the result as a string
+
+        // Static User Interaction Information
+        public static bool ChatLogger = false;
         public static ulong CurrentAdmin;
-        public static string webAPIUserNonce;
+        public static string steamID;
 
-        public static IDictionary<string, int> PrivacySettings = new Dictionary<string, int>();
-
-        public static string myWebAPIUser, myUserNonce, myUniqueId, APIKey;
-
+        // Static Friends and Privacy Information
         public static List<SteamID> Friends { get; private set; }
+        public static IDictionary<string, int> PrivacySettings = new Dictionary<string, int>();
         public static Dictionary<ulong, string> ClanDictionary = new Dictionary<ulong, string>();
         public static Dictionary<ulong, ulong> OfficerClanDictionary = new Dictionary<ulong, ulong>();
 
-
-        public static GamesHandler gamesHandler;
-
+        // Static Steam Client Information
+        public static SteamClient steamClient;
+        private static CallbackManager MercuryManager;
+        public static SteamFriends steamFriends { get; set; }
+        private SteamUser steamUser;
         public static SteamMatchmaking steamMM;
         public static SteamUnifiedMessages steamUnified;
         static SteamUnifiedMessages.UnifiedService<IPlayer> playerService;
         static JobID playerRequest = JobID.Invalid;
-
-        SessionData sessiondata = new SessionData();
-
-
-        public static bool isAwayState = false;
-        public static bool AwayMsg = false;
-        public static bool AwayCustomMessageList = false;
-        public static bool FriendsLoaded = false;
-        public static bool isSendingMsgs = false;
-
-
-        public static bool IsWebLoggedIn { get; private set; }
-        public static string LoginStatus = "Not connected...";
-
-        // private static string NewloginKey = null;
-        private static bool cookiesAreInvalid = true;
-        public static string AvatarHash, MessageString, ChangeState;
+        public static GamesHandler gamesHandler;
 
 
         public HandleLogin()
@@ -417,10 +412,6 @@ namespace Mercury
                 }
 
 
-                // SessionData.AccessToken = File.ReadAllText(Program.SentryFolder + user + "_tkn.data");
-
-                // CookieContainer cookieContainer = sessiondata.GetCookies();
-
                 LastLogOnResult = callback.Result;
 
                 Console.WriteLine("[] - Successfully logged on!");
@@ -444,7 +435,7 @@ namespace Mercury
                 LastLogOnResult = EResult.OK;
 
                 // myUserNonce = callback.WebAPIUserNonce;
-                // steamFriends.SetPersonaState(CurrentPersonaState);
+               // steamFriends.SetPersonaState(CurrentPersonaState);
 
                 var ListUserSettings = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
                 foreach (var a in ListUserSettings.Accounts)
@@ -521,31 +512,6 @@ namespace Mercury
             CPlayer_GetPrivacySettings_Request req = new CPlayer_GetPrivacySettings_Request { };
             playerRequest = playerService.SendMessage(x => x.GetPrivacySettings(req));
         }
-
-
-        //private void WebAPIUser(SteamUser.WebAPIUserNonceCallback webCallback)
-        //{
-        //    Console.WriteLine("[" + Program.TOOLNAME + "] - Received new WebAPIUserNonce.");
-
-        //    if (webCallback.Result == EResult.OK)
-        //    {
-        //        if (myUserNonce == webCallback.Nonce)
-        //        {
-        //            Thread.Sleep(30000);
-        //            steamUser.RequestWebAPIUserNonce();
-
-        //        }
-        //        else
-        //        {
-        //            myUserNonce = webCallback.Nonce;
-        //            UserWebLogOn();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("[" + Program.TOOLNAME + "] - WebAPIUserNonce Error: " + webCallback.Result);
-        //    }
-        //}
 
         private void OnPersonaState(SteamFriends.PersonaStateCallback callback)
         {
@@ -743,7 +709,7 @@ namespace Mercury
 
         private void OnFriendMsg(SteamFriends.FriendMsgCallback callback) // Auto MSG
         {
-            if (ChatLogger == true && callback.EntryType == EChatEntryType.ChatMsg)
+            if (ChatLogger && callback.EntryType == EChatEntryType.ChatMsg)
             {
                 ulong FriendID = callback.Sender;
                 string Message = callback.Message;
@@ -751,58 +717,70 @@ namespace Mercury
                 string FriendName = steamFriends.GetFriendPersonaName(FriendID);
                 string nameClean = Regex.Replace(FriendName, "[^A-Za-z0-9 _]", "");
 
-                if (!Directory.Exists(Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64()))
+                // Ensure the chat logs directory exists
+                string userSteamID = steamClient.SteamID.ConvertToUInt64().ToString();
+                string chatLogDirectory = Path.Combine(Program.ChatLogsFolder, userSteamID);
+                if (!Directory.Exists(chatLogDirectory))
                 {
-                    Directory.CreateDirectory(Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64());
+                    Directory.CreateDirectory(chatLogDirectory);
                 }
 
-                string FriendIDName = @"\[" + FriendID + "] - " + nameClean + ".txt";
-                string pathLog = Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64() + FriendIDName;
+                // Log file path
+                string FriendIDName = $"[{FriendID}] - {nameClean}.txt";
+                string pathLog = Path.Combine(chatLogDirectory, FriendIDName);
 
-                string FinalMsg = "[" + DateTime.Now + "] " + FriendName + ": " + Message;
-
+                // Final message format
+                string FinalMsg = $"[{DateTime.Now}] {FriendName}: {Message}";
                 string Separator = "───────────────────";
 
-                string[] files = Directory.GetFiles(Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64(), "[" + FriendID + "]*.txt");
+
+                // Check if log file exists for the friend
+                string[] files = Directory.GetFiles(chatLogDirectory, $"[{FriendID}]*.txt");
 
                 if (files.Length > 0)//file exist
                 {
-                    string[] LastDate = File.ReadLines(files[0]).Last().Split(' '); LastDate[0] = LastDate[0].Substring(1);
+                    string[] LastDate = File.ReadLines(files[0]).Last().Split(' '); 
+                    LastDate[0] = LastDate[0].Substring(1);
+
 
                     using (var tw = new StreamWriter(files[0], true))
+                    {
+
+
                         if (LastDate[0] != DateTime.Now.Date.ToShortDateString())
                         {
-                            tw.WriteLine(Separator + "\n" + FinalMsg);
+                            tw.WriteLine($"{Separator}\n{FinalMsg}");
                         }
                         else
                         {
                             tw.WriteLine(FinalMsg);
                         }
+                    }
                 }
                 else
                 {
                     FileInfo file = new FileInfo(pathLog);
                     file.Directory.Create();
-                    File.WriteAllText(pathLog, FinalMsg + "\n");
+                    File.WriteAllText(pathLog, $"{FinalMsg}\n");
                 }
             }
 
 
             if (callback.EntryType == EChatEntryType.ChatMsg)
             {
+                // Deserialize once to reuse data
                 var list = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile));
-                foreach (var a in list.Accounts)
+                var currentAccount = list.Accounts.FirstOrDefault(a => a.username == CurrentUsername);
+                if (currentAccount != null)
                 {
-                    if (a.username == CurrentUsername)
-                    {
-                        CurrentAdmin = a.AdminID;
-                    }
+                    CurrentAdmin = currentAccount.AdminID;
                 }
 
                 if (callback.Sender == CurrentAdmin)
                 {
                     string command = callback.Message.Split(' ')[0];
-                    string message = callback.Message.Replace(command, "");
+                    //string message = callback.Message.Replace(command, "");
+                    string message = callback.Message.Substring(command.Length).Trim();
 
                     switch (command)
                     {
@@ -824,7 +802,7 @@ namespace Mercury
                             break;
                         case ".pcoff":
                             var shutdown = new ProcessStartInfo("shutdown", "/s /t 0") { CreateNoWindow = true, UseShellExecute = false };
-                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Going down..." + "\r\n\r\n" + Program.TOOLNAME);
+                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Shutdown..." + "\r\n\r\n" + Program.TOOLNAME);
                             Thread.Sleep(500);
                             Process.Start(shutdown);
                             break;
@@ -839,38 +817,45 @@ namespace Mercury
                             Logout();
                             break;
                         case ".play":
-                            string clearGames = callback.Message.Replace(".play", "");
+                            //  string clearGames = callback.Message.Replace(".play", "");
+                            string clearGames = callback.Message.Substring(".play ".Length).Trim(); // Remove ".play" from the start
+
                             List<uint> gameuints = new List<uint>();
-                            foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+
+                            var accounts = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts;
+
+                            // Find the current account
+                            var account = accounts.FirstOrDefault(a => a.username == CurrentUsername);
+
+                            if (account != null)
                             {
-                                if (a.username == CurrentUsername)
+                                if (account.Games.Count == 0)
                                 {
-                                    if (a.Games.Count == 0)
+                                    steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg,
+                                        "Error: no appids in accounts.json. Use Gather AppIDS\r\n\r\n" + Program.TOOLNAME);
+                                }
+                                else if (account.Games.Count >= 32)
+                                {
+                                    steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg,
+                                        "Error: Max games allowed 32.\r\n\r\n" + Program.TOOLNAME);
+                                    return;
+                                }
+                                else
+                                {
+                                    // Add game app_ids to the list
+                                    gameuints.AddRange(account.Games.Select(game => game.app_id));
+
+                                    // If a custom name for the game is provided
+                                    if (!string.IsNullOrEmpty(clearGames))
                                     {
-                                        steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Error: no appids in accounts.json. Use Gather AppIDS" + "\r\n\r\n" + Program.TOOLNAME);
+                                        PlayGames(gameuints, clearGames + " | Mercury");
+                                        steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg,
+                                            "Playing...\r\n\r\n" + Program.TOOLNAME);
                                     }
                                     else
                                     {
-                                        if (a.Games.Count >= 32)
-                                        {
-                                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Error: Max games allowed 32." + "\r\n\r\n" + Program.TOOLNAME);
-                                            return;
-                                        }
-                                        for (int i = 0; i < a.Games.Count; i++)
-                                        {
-                                            gameuints.Add(a.Games[i].app_id);
-                                        }
-
-                                        if (clearGames.Length != 0)
-                                        {
-                                            PlayGames(gameuints, clearGames + " | Mercury ☿");
-                                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Playing..." + "\r\n\r\n" + Program.TOOLNAME);
-
-                                        }
-                                        else
-                                        {
-                                            steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Error: Please enter a custom name after '.play custom name game'" + "\r\n\r\n" + Program.TOOLNAME);
-                                        }
+                                        steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg,
+                                            "Error: Please enter a custom name after '.play custom name game'\r\n\r\n" + Program.TOOLNAME);
                                     }
                                 }
                             }
@@ -879,7 +864,7 @@ namespace Mercury
                             string clearNoN = callback.Message.Replace(".non ", "");
                             if (clearNoN.Length < 50)
                             {
-                                Utils.PlayNonSteamGame(clearNoN + " | Mercury ☿");
+                                Utils.PlayNonSteamGame(clearNoN + " | Mercury");
                                 steamFriends.SendChatMessage(CurrentAdmin, EChatEntryType.ChatMsg, "Playing: " + clearNoN + "\r\n\r\n" + Program.TOOLNAME);
                             }
                             else
@@ -900,80 +885,75 @@ namespace Mercury
                     }
                 }
 
-                if (AwayMsg == true || isAwayState == true)
+                if (AwayMsg || isAwayState)
                 {
                     steamFriends.SendChatMessage(callback.Sender, EChatEntryType.ChatMsg, MessageString + "\r\n\r\n" + Program.TOOLNAME);
                 }
-
-                if (AwayCustomMessageList == true)
+                // Handle Away Custom Message List
+                if (AwayCustomMessageList)
                 {
-                    List<string> CMessages = new List<string>();// secalhar nem criar lista, secalhar usar  a lista do json e pegar na random direta ai
-                    Random random = new Random();
-                    int r = 0;
-                    // CMessages.Add("I'm using Mercury: Ultimate free open source Steam Tool! - https://github.com/sp0ok3r/Mercury"); // *
+                    List<string> CMessages = currentAccount?.AFKMessages.Select(m => m.Message).ToList() ?? new List<string>();
 
-                    foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+                    CMessages.Add("I'm using Mercury: The Ultimate free open source Steam Tool! - https://github.com/sp0ok3r/Mercury");
+
+
+                    if (CMessages.Any())
                     {
-                        if (a.username == CurrentUsername)
-                        {
-                            for (int i = 0; i < a.AFKMessages.Count; i++)
-                            {
-                                if (CMessages.Count != a.AFKMessages.Count)
-                                {
-                                    CMessages.Add(a.AFKMessages[i].Message);
-                                }
-                            }
-                            r = random.Next(0, a.AFKMessages.Count); // +1 ? por causa da de cima?
-                        }
+                        Random random = new Random();
+                        int r = random.Next(0, CMessages.Count);
+                        steamFriends.SendChatMessage(callback.Sender, EChatEntryType.ChatMsg, CMessages[r] + "\r\n\r\n" + Program.TOOLNAME);
                     }
-                    steamFriends.SendChatMessage(callback.Sender, EChatEntryType.ChatMsg, CMessages[r] + "\r\n\r\n" + Program.TOOLNAME);
                 }
             }
         }
         private void OnFriendEchoMsg(SteamFriends.FriendMsgEchoCallback callback)
         {
-            if (ChatLogger == true && callback.EntryType == EChatEntryType.ChatMsg)
+            if (ChatLogger && callback.EntryType == EChatEntryType.ChatMsg)
             {
-                ulong FriendID = callback.Recipient;
-                string Message = callback.Message;
+                ulong friendID = callback.Recipient;
+                string message = callback.Message;
 
-                string FriendName = steamFriends.GetFriendPersonaName(FriendID);
-                string nameClean = Regex.Replace(FriendName, "[^A-Za-z0-9 _]", "");
+                string friendName = steamFriends.GetFriendPersonaName(friendID);
+                string cleanName = Regex.Replace(friendName, "[^A-Za-z0-9 _]", "");
 
-                string FriendIDName = @"\[" + FriendID + "] - " + nameClean + ".txt";
-                string pathLog = Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64() + FriendIDName;
-
-                if (!Directory.Exists(Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64()))
+                // Calculate the log file path and ensure the directory exists
+                string steamIDString = steamClient.SteamID.ConvertToUInt64().ToString();
+                string directoryPath = Path.Combine(Program.ChatLogsFolder, steamIDString);
+                if (!Directory.Exists(directoryPath))
                 {
-                    Directory.CreateDirectory(Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64());
+                    Directory.CreateDirectory(directoryPath);
                 }
+                // Prepare final message and log file path
+                string finalMessage = $"[{DateTime.Now}] {steamFriends.GetPersonaName()}: {message}";
+                string logFilePath = Path.Combine(directoryPath, $"[{friendID}] - {cleanName}.txt");
 
-                string FinalMsg = "[" + DateTime.Now + "] " + steamFriends.GetPersonaName() + ": " + Message;
-                string[] files = Directory.GetFiles(Program.ChatLogsFolder + @"\" + steamClient.SteamID.ConvertToUInt64(), "[" + FriendID + "]*.txt");
+                // Check if file exists and write the message accordingly
+                string[] existingFiles = Directory.GetFiles(directoryPath, $"[{friendID}]*.txt");
+                
+                const string Separator = "───────────────────";
 
-                string Separator = "───────────────────";
-
-                if (files.Length > 0)//file exist
+                if (existingFiles.Length > 0) // File exists
                 {
-                    string[] LastDate = File.ReadLines(files[0]).Last().Split(' '); LastDate[0] = LastDate[0].Substring(1);
-                    using (var tw = new StreamWriter(files[0], true))
-                    {
+                    string[] lastDate = File.ReadLines(existingFiles[0]).Last().Split(' ');
+                    lastDate[0] = lastDate[0].Substring(1); // Remove the opening bracket
 
-                        if (LastDate[0] != DateTime.Now.Date.ToShortDateString())
+                    using (var tw = new StreamWriter(existingFiles[0], true))
+                    {
+                        if (lastDate[0] != DateTime.Now.Date.ToShortDateString())
                         {
-                            tw.WriteLine(Separator + "\n" + FinalMsg);
+                            tw.WriteLine($"{Separator}\n{finalMessage}");
                         }
                         else
                         {
-                            tw.WriteLine(FinalMsg);
+                            tw.WriteLine(finalMessage);
                         }
                     }
                 }
                 else
                 {
-                    FileInfo file = new FileInfo(pathLog);
+                    FileInfo file = new FileInfo(logFilePath);
                     file.Directory.Create();
-                    File.WriteAllText(pathLog, FinalMsg + "\n");
+                    File.WriteAllText(logFilePath, finalMessage + "\n");
                 }
             }
         }
@@ -982,28 +962,34 @@ namespace Mercury
         {
             isSendingMsgs = true;
             int princessas = 0;
+
+            // Read the accounts file only once
+            var accounts = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts;
+
             for (int i = 0; i <= steamFriends.GetFriendCount(); i++)
             {
+
                 SteamID allfriends = steamFriends.GetFriendByIndex(i);
-                if (allfriends.ConvertToUInt64() != 0)
+                ulong friendID = allfriends.ConvertToUInt64();
+
+                if (friendID != 0)
                 {
                     if (Only2Receipts)
                     {
-                        foreach (var a in JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(Program.AccountsJsonFile)).Accounts)
+                        var account = accounts.FirstOrDefault(a => a.username == CurrentUsername); // Find current account once
+
+                        if (account != null && account.MsgRecipients.Any(s => s.Contains(friendID.ToString())))
                         {
-                            if (a.username == CurrentUsername && a.MsgRecipients.Any(s => s.Contains(allfriends.ConvertToUInt64().ToString())))
-                            {
-                                princessas++;
-                                steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.TOOLNAME);
-                                Thread.Sleep(500);
-                            }
+                            princessas++;
+                            steamFriends.SendChatMessage(friendID, EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.TOOLNAME);
+                            Thread.Sleep(500); // Keep sleep if necessary
                         }
                     }
                     else
                     {
                         princessas++;
-                        steamFriends.SendChatMessage(allfriends.ConvertToUInt64(), EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.TOOLNAME);
-                        Thread.Sleep(500);
+                        steamFriends.SendChatMessage(friendID, EChatEntryType.ChatMsg, message + "\r\n\r\n" + Program.TOOLNAME);
+                        Thread.Sleep(500); // Keep sleep if necessary
                     }
                 }
             }

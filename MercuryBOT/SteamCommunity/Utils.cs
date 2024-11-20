@@ -8,21 +8,14 @@
 ▐    ▐     ▐                  ▐                                 ▐   
 */
 using AngleSharp.Html.Parser;
-using MercuryBOT.UserSettings;
-using Newtonsoft.Json;
 using SteamKit2;
-using SteamKit2.Internal;
 using SteamProfilePrivacy;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using System.IO;
 using Mercury;
 using System.Threading.Tasks;
 using Mercury.Helpers;
-using Steam.Models.DOTA2;
-using SteamPlayerLevel;
 
 namespace MercuryBOT.SteamCommunity
 {
