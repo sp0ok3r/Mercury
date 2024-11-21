@@ -38,6 +38,9 @@ using System.ComponentModel;
 using Microsoft.Win32;
 using Mercury;
 using Mercury.MetroMessageBox;
+using Gameloop.Vdf;
+using AngleSharp.Io.Dom;
+using System.Diagnostics.CodeAnalysis;
 
 namespace MercuryBOT
 {
@@ -401,7 +404,7 @@ namespace MercuryBOT
                                                       ".pchiber - Puts pc on hibernate mode\n" +
                                                       ".pcrr - Restart PC.\n" +
                                                       ".pcoff - Shutdown PC.\n" +
-                                                     ".close - Closes MercuryBOT process.\n" +
+                                                     ".close - Closes Mercury process.\n" +
                                                      ".logoff - Logoff from current account.\n" +
                                                      ".non customname - Play a non - steam game(change customname to anything)\n" +
                                                      ".play customname - Play a non steam game and appids.", "Mercury - Admin Commands", MessageBoxButtons.OK, MessageBoxIcon.Question, 270);
@@ -616,7 +619,7 @@ namespace MercuryBOT
                 string msg = txtBox_msg2Friends.Text;
                 var friends = steamfriends013.GetFriendCount((int)EFriendFlags.k_EFriendFlagImmediate);
 
-                //var ad = HandleLogin.isInMercuryGroup ? "" : "\n MercuryBOT";
+                //var ad = HandleLogin.isInMercuryGroup ? "" : "\n Mercury";
 
                 byte[] msgBytes = Encoding.UTF8.GetBytes(msg);
                 for (int i = 0; i < friends; i++)
@@ -799,7 +802,7 @@ namespace MercuryBOT
                                 gameuints.Add(a.Games[i].app_id); // tentar obter lista do json, para nao criar outra???
                             }
 
-                            //var ad = HandleLogin.isInMercuryGroup ? "" : " ❤ MercuryBOT";
+                            //var ad = HandleLogin.isInMercuryGroup ? "" : " ❤ Mercury";
                             if (chck_nonsteamNgames.Checked)
                             {
                                 if (txtBox_gameNonSteam.Text.Length != 0)
@@ -813,7 +816,7 @@ namespace MercuryBOT
                             }
                             else
                             {
-                                handleLogin.PlayGames(gameuints, "Idling ⌛ MercuryBOT");
+                                handleLogin.PlayGames(gameuints, "Idling ⌛ Mercury: Steam Tool");
                                 Thread.Sleep(2000);
                                 handleLogin.PlayGames(gameuints, "disable");
                             }
@@ -1239,10 +1242,6 @@ namespace MercuryBOT
         #endregion
 
         #region Links
-        private void Link_steamgroup_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://steamcommunity.com/groups/MercuryBOT");
-        }
 
         private void pictureBox_Discord_Click(object sender, EventArgs e)
         {
@@ -1302,19 +1301,6 @@ namespace MercuryBOT
         private void link_reportBugFeature_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/sp0ok3r/Mercury/issues");
-        }
-
-        private void pictureBox_Steam_Click(object sender, EventArgs e)
-        {
-            string MercuryGroup = "https://steamcommunity.com/groups/MercuryBOT";
-            if (Program.CurrentProcesses.FirstOrDefault(x => x.ProcessName == "Steam") != null)
-            {
-                Process.Start("steam://openurl/" + MercuryGroup);
-            }
-            else
-            {
-                Process.Start(MercuryGroup);
-            }
         }
         #endregion
         private void toolStrip_Logout_Click(object sender, EventArgs e)
@@ -1415,14 +1401,14 @@ namespace MercuryBOT
                 SettingsList.startup = true;
 
                 Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-                key.SetValue("MercuryBOT", Program.ExecutablePath + @"\MercuryBOT.exe");
+                key.SetValue("Mercury", Program.ExecutablePath + @"\Mercury.exe");
             }
             else
             {
                 SettingsList.startup = false;
 
                 Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-                key.DeleteValue("MercuryBOT", false);
+                key.DeleteValue("Mercury", false);
             }
             File.WriteAllText(Program.SettingsJsonFile, JsonConvert.SerializeObject(SettingsList, Formatting.Indented));
         }
@@ -2048,58 +2034,55 @@ namespace MercuryBOT
         {
             ClearAutoLoginUserKeyValues();
 
-            var AutoLoginUser_Key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Valve\\Steam", true);
-
-            /*
-
-            if (AutoLoginUser_Key != null)
-            {
-                AutoLoginUser_Key.SetValue("AutoLoginUser", user);
-                AutoLoginUser_Key.SetValue("RememberPassword", 1);
-                AutoLoginUser_Key.Close();
+            var steampath = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Valve\\Steam", true);
 
 
-                string loginusersPath = steamPath + "config/loginusers.vdf";
+            //if (steampath != null)
+            //{
+            //    steampath.SetValue("AutoLoginUser", user);
+            //    steampath.SetValue("RememberPassword", 1);
+            //    steampath.Close();
 
-                dynamic loginusers = VdfConvert.Deserialize(File.ReadAllText(loginusersPath));
 
-                dynamic usersObject = loginusers.Value;
-                dynamic userObject = usersObject[account.SteamId];
+            //    string loginusersPath = steampath + "config/loginusers.vdf";
 
-                userObject.RememberPassword = 1;
-                userObject.AllowAutoLogin = 1;
-                //userObject.MostRecent = value;
+            //    dynamic loginusers = VdfConvert.Deserialize(File.ReadAllText(loginusersPath));
 
-                usersObject[account.SteamId] = userObject;
-                loginusers.Value = usersObject;
+            //    dynamic usersObject = loginusers.Value;
+            //    dynamic userObject = usersObject[account.SteamId];
 
-                string serialized = VdfConvert.Serialize(loginusers);
+            //    userObject.RememberPassword = 1;
+            //    userObject.AllowAutoLogin = 1;
+            //    //userObject.MostRecent = value;
 
-                File.WriteAllText(loginusersPath, serialized);
+            //    usersObject[account.SteamId] = userObject;
+            //    loginusers.Value = usersObject;
+
+            //    string serialized = VdfConvert.Serialize(loginusers);
+
+            //    File.WriteAllText(loginusersPath, serialized);
 
                 
 
 
 
-                var process = new Process
-                {
-                    StartInfo = new ProcessStartInfo
-                    {
-                        FileName = Extensions.SteamLocation + "/steam.exe"
-                        // Arguments = "-silent"
-                    }
-                };
-                process.Start();
+            //    var process = new Process
+            //    {
+            //        StartInfo = new ProcessStartInfo
+            //        {
+            //            FileName = Extensions.SteamLocation + "/steam.exe"
+            //            // Arguments = "-silent"
+            //        }
+            //    };
+            //    process.Start();
 
-                return true;
+            //    return true;
 
-            }
-            else
+           // }
+           // else
             {
                 return false;
             }
-*/
-            return false;
         }
     }
 

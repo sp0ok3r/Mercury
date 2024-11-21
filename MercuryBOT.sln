@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercury", "MercuryBOT\Mercury.csproj", "{95A62B66-12F4-410E-8F8C-AF538DE7853D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercuryProject", "MercuryBOT\MercuryProject.csproj", "{95A62B66-12F4-410E-8F8C-AF538DE7853D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,12 +16,10 @@ Global
 		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Debug|x86.ActiveCfg = Debug|x86
-		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Debug|x86.Build.0 = Debug|x86
+		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Release|x86.ActiveCfg = Release|x86
-		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Release|x86.Build.0 = Release|x86
+		{95A62B66-12F4-410E-8F8C-AF538DE7853D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
